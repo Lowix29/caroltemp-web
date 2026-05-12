@@ -1,7 +1,7 @@
 <?php
-$meta_title  = "Financiación para fontanería — Hidrofont | Sin intereses en el Vinalopó";
+$meta_title  = "Financiación para fontanería — CarolTemp | Sin intereses en el Vinalopó";
 $meta_desc   = "Financia tu reforma, instalación de ósmosis, descalcificador o cualquier trabajo de fontanería. Material e instalación incluidos sin intereses en el Vinalopó.";
-$meta_url    = "https://hidrofont.es/financiacion.php";
+$meta_url    = "https://caroltemp.com/financiacion.php";
 $schema_type = "default";
 $page_css    = "financiacion";
 $page_js     = "";

@@ -46,7 +46,7 @@ $total_nuevos = $pdo->query('SELECT COUNT(*) FROM mensajes WHERE leido = 0')->fe
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mensajes — Hidrofont Admin</title>
+  <title>Mensajes — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <?php include '../includes/admin_style.php'; ?>
   <style>
@@ -132,7 +132,7 @@ $total_nuevos = $pdo->query('SELECT COUNT(*) FROM mensajes WHERE leido = 0')->fe
           </div>
           <div class="msg-acciones">
             <a href="tel:+34<?php echo preg_replace('/\D/', '', $msg['telefono']); ?>" class="btn-tel">📞 Llamar</a>
-            <a href="https://wa.me/34<?php echo preg_replace('/\D/', '', $msg['telefono']); ?>?text=Hola+<?php echo urlencode($msg['nombre']); ?>+te+contacto+de+Hidrofont+sobre+tu+solicitud" target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp</a>
+            <a href="https://wa.me/34<?php echo preg_replace('/\D/', '', $msg['telefono']); ?>?text=Hola+<?php echo urlencode($msg['nombre']); ?>+te+contacto+de+CarolTemp+sobre+tu+solicitud" target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp</a>
             <?php if (!$msg['leido']): ?>
               <a href="?leido=<?php echo $msg['id']; ?>&filtro=<?php echo $filtro; ?>" class="btn-leido">✓ Marcar leído</a>
             <?php else: ?>

@@ -5,7 +5,7 @@ $total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHE
 ?>
 <aside class="sidebar">
   <div class="sidebar-logo">
-    <img src="<?php echo $base_url; ?>hidrofont/img/logo/logo.png" alt="Hidrofont" onerror="this.style.display='none'">
+    <img src="<?php echo $base_url; ?>caroltemp/img/logo/logo.svg" alt="CarolTemp" onerror="this.style.display='none'">
     <span>Panel admin</span>
   </div>
   <nav class="sidebar-nav">

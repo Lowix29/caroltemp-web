@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cambiar contraseña — Hidrofont Admin</title>
+  <title>Cambiar contraseña — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <?php include '../includes/admin_style.php'; ?>
   <style>

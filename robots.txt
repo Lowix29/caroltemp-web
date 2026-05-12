@@ -4,4 +4,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /includes/
 
-Sitemap: https://hidrofont.es/sitemap.xml
+Sitemap: https://caroltemp.com/sitemap.xml

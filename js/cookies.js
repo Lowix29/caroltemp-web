@@ -1,10 +1,10 @@
 /* ================================
-   HIDROFONT — Cookie Banner
+   CAROLTEMP — Cookie Banner
 ================================ */
 
 (function() {
 
-  const COOKIE_NAME = 'hidrofont_cookies';
+  const COOKIE_NAME = 'caroltemp_cookies';
   const COOKIE_DAYS = 365;
 
   function getCookie(name) {
@@ -72,7 +72,7 @@
           <div class="cb-top">
             <div class="cb-logo">
               <span class="cb-logo-ico">🍪</span>
-              <span class="cb-logo-txt">Hidrofont · Cookies</span>
+              <span class="cb-logo-txt">CarolTemp · Cookies</span>
             </div>
           </div>
           <div class="cb-body">

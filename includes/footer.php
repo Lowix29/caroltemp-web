@@ -16,10 +16,10 @@
 
       <!-- COLUMNA 1 — Marca -->
       <div class="footer-col footer-brand">
-        <a href="/" aria-label="Hidrofont — Inicio">
+        <a href="/" aria-label="CarolTemp — Inicio">
           <img
-            src="<?php echo $base_url; ?>img/logo/logo.png"
-            alt="Hidrofont"
+            src="<?php echo $base_url; ?>img/logo/logo.svg"
+            alt="CarolTemp"
             width="140"
             height="80"
             loading="lazy"
@@ -27,6 +27,7 @@
         </a>
         <p>Fontanería industrial y residencial en el Vinalopó. Trabajo bien hecho, sin atajos.</p>
         <a href="tel:+34613429032" class="footer-tel">613 429 032</a>
+        <a href="tel:+34611165129" class="footer-tel" style="font-size:13px;opacity:.8">611 165 129</a>
       </div>
 
       <!-- COLUMNA 2 — Servicios -->
@@ -80,10 +81,13 @@
             <a href="tel:+34613429032">📞 613 429 032</a>
           </li>
           <li>
+            <a href="tel:+34611165129">📞 611 165 129</a>
+          </li>
+          <li>
             <a href="https://wa.me/34613429032" target="_blank" rel="noopener">💬 WhatsApp</a>
           </li>
           <li>
-            <a href="mailto:info@hidrofont.es">✉️ info@hidrofont.es</a>
+            <a href="mailto:info@caroltemp.es">✉️ info@caroltemp.es</a>
           </li>
         </ul>
         <a href="/contacto.php" class="btn btn-primary footer-cta">
@@ -97,7 +101,7 @@
   <!-- ZONA INFERIOR -->
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <p>&copy; <?php echo date('Y'); ?> Hidrofont — Fontanería industrial y residencial. Todos los derechos reservados.</p>
+      <p>&copy; <?php echo date('Y'); ?> CarolTemp — Fontanería industrial y residencial. Todos los derechos reservados.</p>
       <div class="footer-legal">
         <a href="/aviso-legal.php">Aviso legal</a>
         <a href="/privacidad.php">Política de privacidad</a>

@@ -57,9 +57,9 @@ if ($is_local) {
   <meta property="og:title"       content="<?php echo htmlspecialchars($meta_title); ?>">
   <meta property="og:description" content="<?php echo htmlspecialchars($meta_desc); ?>">
   <meta property="og:url"         content="<?php echo htmlspecialchars($meta_url); ?>">
-  <meta property="og:image"       content="https://hidrofont.es/img/logo/logo.webp">
+  <meta property="og:image"       content="https://caroltemp.com/img/logo/logo.svg">
   <meta property="og:locale"      content="es_ES">
-  <meta property="og:site_name"   content="Hidrofont">
+  <meta property="og:site_name"   content="CarolTemp">
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
@@ -109,7 +109,7 @@ if (in_array($current_page, $noindex_pages)):
 <link rel="icon" type="image/svg+xml" href="<?php echo $base_url; ?>favicon.svg">
 <link rel="shortcut icon" href="<?php echo $base_url; ?>favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $base_url; ?>apple-touch-icon.png">
-<meta name="apple-mobile-web-app-title" content="Hidrofont">
+<meta name="apple-mobile-web-app-title" content="CarolTemp">
 <link rel="manifest" href="<?php echo $base_url; ?>site.webmanifest">
 
   <!-- Schema Markup -->
@@ -160,12 +160,12 @@ switch ($schema_type ?? 'default') {
     $schema = [
       "@context"    => "https://schema.org",
       "@type"       => ["LocalBusiness", "Plumber"],
-      "name"        => "Hidrofont — Fontanero en " . $zn,
+      "name"        => "CarolTemp — Fontanero en " . $zn,
       "description" => "Fontanería residencial e industrial en " . $zn . ". Reparaciones urgentes, detección de fugas con geófono y cámara, instalaciones y reformas.",
       "url"         => $meta_url,
-      "logo"        => "https://hidrofont.es/img/logo/logo.webp",
-      "image"       => "https://hidrofont.es/img/logo/logo.webp",
-      "telephone"   => "+34613429032",
+      "logo"        => "https://caroltemp.com/img/logo/logo.svg",
+      "image"       => "https://caroltemp.com/img/logo/logo.svg",
+      "telephone" => "+34613429032", "telephone2" => "+34611165129", "telephone2" => "+34611165129",
       "priceRange"  => "€€",
       "currenciesAccepted" => "EUR",
       "paymentAccepted"    => "Cash, Credit Card, Financing",
@@ -206,13 +206,13 @@ switch ($schema_type ?? 'default') {
     $schema = [
       "@context"    => "https://schema.org",
       "@type"       => "Service",
-      "name"        => $meta_title  ?? "Servicios de fontanería — Hidrofont",
+      "name"        => $meta_title  ?? "Servicios de fontanería — CarolTemp",
       "description" => $meta_desc   ?? "Fontanería en el Vinalopó",
       "provider"    => [
         "@type"     => "LocalBusiness",
-        "name"      => "Hidrofont",
-        "url"       => "https://hidrofont.es",
-        "telephone" => "+34613429032",
+        "name"      => "CarolTemp",
+        "url"       => "https://caroltemp.com",
+        "telephone" => "+34613429032", "telephone2" => "+34611165129",
         "areaServed"=> "Vinalopó Medio, Alicante"
       ],
       "areaServed"  => "Vinalopó Medio, Alicante",
@@ -228,12 +228,12 @@ switch ($schema_type ?? 'default') {
     $schema = [
       "@context" => "https://schema.org",
       "@type"    => "ContactPage",
-      "name"     => "Contacto — Hidrofont",
-      "url"      => $meta_url ?? "https://hidrofont.es/contacto.php",
+      "name"     => "Contacto — CarolTemp",
+      "url"      => $meta_url ?? "https://caroltemp.com/contacto.php",
       "mainEntity" => [
         "@type"     => ["LocalBusiness", "Plumber"],
-        "name"      => "Hidrofont",
-        "telephone" => "+34613429032",
+        "name"      => "CarolTemp",
+        "telephone" => "+34613429032", "telephone2" => "+34611165129",
         "address"   => [
           "@type"           => "PostalAddress",
           "addressLocality" => "Monóvar",
@@ -248,12 +248,12 @@ switch ($schema_type ?? 'default') {
     $schema = [
       "@context"    => "https://schema.org",
       "@type"       => ["LocalBusiness", "Plumber"],
-      "name"        => "Hidrofont",
+      "name"        => "CarolTemp",
       "description" => "Fontanería industrial y residencial en el Vinalopó. Elda, Petrer, Novelda, Monóvar, Sax y comarca.",
-      "url"         => "https://hidrofont.es",
-      "logo"        => "https://hidrofont.es/img/logo/logo.webp",
-      "image"       => "https://hidrofont.es/img/logo/logo.webp",
-      "telephone"   => "+34613429032",
+      "url"         => "https://caroltemp.com",
+      "logo"        => "https://caroltemp.com/img/logo/logo.svg",
+      "image"       => "https://caroltemp.com/img/logo/logo.svg",
+      "telephone" => "+34613429032", "telephone2" => "+34611165129", "telephone2" => "+34611165129",
       "priceRange"  => "€€",
       "currenciesAccepted" => "EUR",
       "paymentAccepted"    => "Cash, Credit Card, Financing",
@@ -296,20 +296,20 @@ switch ($schema_type ?? 'default') {
       "headline"        => $meta_title ?? '',
       "description"     => $meta_desc  ?? '',
       "url"             => $meta_url   ?? '',
-      "image"           => !empty($art['imagen']) ? 'https://hidrofont.es' . $art['imagen'] : 'https://hidrofont.es/img/logo/logo.webp',
+      "image"           => !empty($art['imagen']) ? 'https://caroltemp.com' . $art['imagen'] : 'https://caroltemp.com/img/logo/logo.svg',
       "datePublished"   => !empty($art['fecha']) ? date('Y-m-d', strtotime($art['fecha'])) : '',
       "dateModified"    => !empty($art['fecha']) ? date('Y-m-d', strtotime($art['fecha'])) : '',
       "author"          => [
         "@type" => "Organization",
-        "name"  => "Hidrofont",
-        "url"   => "https://hidrofont.es"
+        "name"  => "CarolTemp",
+        "url"   => "https://caroltemp.com"
       ],
       "publisher"       => [
         "@type" => "Organization",
-        "name"  => "Hidrofont",
+        "name"  => "CarolTemp",
         "logo"  => [
           "@type" => "ImageObject",
-          "url"   => "https://hidrofont.es/img/logo/logo.webp"
+          "url"   => "https://caroltemp.com/img/logo/logo.svg"
         ]
       ],
       "mainEntityOfPage" => [
@@ -318,8 +318,8 @@ switch ($schema_type ?? 'default') {
       ],
       "about" => [
         "@type" => "LocalBusiness",
-        "name"  => "Hidrofont",
-        "url"   => "https://hidrofont.es"
+        "name"  => "CarolTemp",
+        "url"   => "https://caroltemp.com"
       ],
       "mentions" => !empty($art['zona']) ? [
         "@type" => "City",
@@ -337,12 +337,12 @@ switch ($schema_type ?? 'default') {
       "name"        => $meta_title ?? '',
       "description" => $meta_desc  ?? '',
       "url"         => $meta_url   ?? '',
-      "image"       => !empty($pro['imagen']) ? 'https://hidrofont.es' . $pro['imagen'] : 'https://hidrofont.es/img/logo/logo.webp',
+      "image"       => !empty($pro['imagen']) ? 'https://caroltemp.com' . $pro['imagen'] : 'https://caroltemp.com/img/logo/logo.svg',
       "provider"    => [
         "@type"     => "LocalBusiness",
-        "name"      => "Hidrofont",
-        "url"       => "https://hidrofont.es",
-        "telephone" => "+34613429032"
+        "name"      => "CarolTemp",
+        "url"       => "https://caroltemp.com",
+        "telephone" => "+34613429032", "telephone2" => "+34611165129"
       ],
       "areaServed" => !empty($pro['zona']) ? [
         "@type" => "City",
@@ -362,9 +362,9 @@ switch ($schema_type ?? 'default') {
     $schema = [
       "@context"    => "https://schema.org",
       "@type"       => ["LocalBusiness", "Plumber"],
-      "name"        => "Hidrofont",
-      "url"         => "https://hidrofont.es",
-      "telephone"   => "+34613429032",
+      "name"        => "CarolTemp",
+      "url"         => "https://caroltemp.com",
+      "telephone" => "+34613429032", "telephone2" => "+34611165129", "telephone2" => "+34611165129",
       "address"     => [
         "@type"           => "PostalAddress",
         "addressLocality" => "Monóvar",
@@ -380,7 +380,7 @@ echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNES
 ?>
 </script>
 <!-- GMB -->
-<meta name="google-site-verification" content="bP8pCvUrdL8beCS8jZP_CDgePIbmqUAsy2x8wDmyeDw" />
+<!-- google-site-verification: pendiente verificar caroltemp.com -->
 </head>
 <body>
 <?php include __DIR__ . '/nav.php'; ?>

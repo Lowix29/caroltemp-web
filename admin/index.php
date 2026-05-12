@@ -33,7 +33,7 @@ $ultimos_proyectos = $pdo->query('SELECT id, titulo, slug, zona, servicio, publi
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Admin — Hidrofont</title>
+  <title>Panel Admin — CarolTemp</title>
   <meta name="robots" content="noindex, nofollow">
   <?php include '../includes/admin_style.php'; ?>
   <style>

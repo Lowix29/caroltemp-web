@@ -13,7 +13,7 @@ $art = $stmt->fetch();
 
 if (!$art) {
   header('HTTP/1.0 404 Not Found');
-  $meta_title  = 'Artículo no encontrado — Hidrofont';
+  $meta_title  = 'Artículo no encontrado — CarolTemp';
   $meta_desc   = '';
   $meta_url    = '';
   $schema_type = 'default';
@@ -29,9 +29,9 @@ $stmt_rel = $pdo->prepare('SELECT id, titulo, slug, extracto, zona, categoria FR
 $stmt_rel->execute([$art['id'], $art['zona'], $art['categoria']]);
 $relacionados = $stmt_rel->fetchAll();
 
-$meta_title  = $art['meta_title'] ?: $art['titulo'] . ' — Hidrofont';
+$meta_title  = $art['meta_title'] ?: $art['titulo'] . ' — CarolTemp';
 $meta_desc   = $art['meta_desc']  ?: $art['extracto'];
-$meta_url    = 'https://hidrofont.es/blog/' . $art['slug'];
+$meta_url    = 'https://caroltemp.com/blog/' . $art['slug'];
 $schema_type = 'articulo';
 $page_css    = 'blog';
 $page_js     = '';

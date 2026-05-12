@@ -11,7 +11,7 @@ $ciudad          = 'Sax';
 $ciudad_slug     = 'sax';
 $ciudad_cp       = '03630';
 
-$meta_title = 'Detección de fugas en Sax urgente | 24h | Precio cerrado | Hidrofont';
+$meta_title = 'Detección de fugas en Sax urgente | 24h | Precio cerrado | CarolTemp';
 $meta_desc  = 'Detección de fugas en Sax urgente 24h. Precio cerrado sin sorpresas. Llama ahora al 613 429 032.';
 
 $hero_titulo = 'Detección de fugas en Sax<br><span class="hl">sin obras.</span>';
@@ -21,7 +21,7 @@ $hero_sub    = 'Localización de fugas de agua en Sax con geófono y cámara end
 // CONTENIDO — SUSTITUIR CON TEXTO FINAL
 // ================================
 $contenido_intro = '
-<p>Si necesitas un <strong>detección de fugas en Sax</strong> de confianza, en Hidrofont te damos precio cerrado antes de empezar. Conocemos Sax y sus instalaciones.</p>
+<p>Si necesitas un <strong>detección de fugas en Sax</strong> de confianza, en CarolTemp te damos precio cerrado antes de empezar. Conocemos Sax y sus instalaciones.</p>
 <p>Contenido provisional pendiente de redacción final optimizada para SEO. Este texto debe sustituirse con contenido único sobre detección de fugas en Sax.</p>
 ';
 

@@ -1,7 +1,7 @@
 <?php
-$meta_title  = "Zonas de servicio — Hidrofont";
+$meta_title  = "Zonas de servicio — CarolTemp";
 $meta_desc   = "Trabajamos en Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas y toda la comarca. Consulta los servicios disponibles en tu municipio.";
-$meta_url    = "https://hidrofont.es/zonas";
+$meta_url    = "https://caroltemp.com/zonas";
 $schema_type = "default";
 $page_css    = "zonas";
 $page_js     = "";

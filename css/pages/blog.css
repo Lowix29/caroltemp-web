@@ -1,5 +1,5 @@
 /* ================================
-   HIDROFONT — Blog CSS v2
+   CAROLTEMP — Blog CSS v2
    Tesla / Vercel aesthetic
 ================================ */
 
@@ -54,7 +54,7 @@
 .blog-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 16px 40px rgba(0,0,0,.09);
-  border-color: rgba(37,99,235,.2);
+  border-color: rgba(25,118,210,.2);
 }
 .blog-card-img {
   aspect-ratio: 16/9;
@@ -135,7 +135,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(37,99,235,.08) 0%, transparent 65%);
+  background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(25,118,210,.08) 0%, transparent 65%);
   pointer-events: none;
 }
 .articulo-meta {

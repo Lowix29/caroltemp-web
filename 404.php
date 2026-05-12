@@ -1,8 +1,8 @@
 <?php
 http_response_code(404);
-$meta_title  = "Página no encontrada — Hidrofont";
-$meta_desc   = "La página que buscas no existe. Vuelve al inicio o contacta con Hidrofont, tu fontanero en el Vinalopó.";
-$meta_url    = "https://hidrofont.es/404.php";
+$meta_title  = "Página no encontrada — CarolTemp";
+$meta_desc   = "La página que buscas no existe. Vuelve al inicio o contacta con CarolTemp, tu fontanero en el Vinalopó.";
+$meta_url    = "https://caroltemp.com/404.php";
 $schema_type = "default";
 $page_css    = "";
 $page_js     = "";

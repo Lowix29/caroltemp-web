@@ -1,7 +1,7 @@
 <?php
-$meta_title  = 'Desatascos urgentes 24h | Tuberías, bajantes y saneamiento | Hidrofont';
+$meta_title  = 'Desatascos urgentes 24h | Tuberías, bajantes y saneamiento | CarolTemp';
 $meta_desc   = 'Desatascos urgentes con precio cerrado. Tuberías, bajantes, fregaderos y desagües. Servicio rápido y solución profesional sin sorpresas.';
-$meta_url    = 'https://hidrofont.es/desatascos/';
+$meta_url    = 'https://caroltemp.com/desatascos/';
 $schema_type = 'servicio';
 $page_css    = 'servicio-ciudad';
 $page_js     = '';

@@ -1,7 +1,7 @@
 <?php
-$meta_title  = "Sobre Hidrofont — Fontanería de confianza en el Vinalopó";
-$meta_desc   = "Conoce a Hidrofont, tu fontanero de confianza en el Vinalopó. Trabajo bien hecho, precio cerrado y sin sorpresas en Elda, Petrer, Novelda y toda la comarca.";
-$meta_url    = "https://hidrofont.es/sobre-nosotros.php";
+$meta_title  = "Sobre CarolTemp — Fontanería de confianza en el Vinalopó";
+$meta_desc   = "Conoce a CarolTemp, tu fontanero de confianza en el Vinalopó. Trabajo bien hecho, precio cerrado y sin sorpresas en Elda, Petrer, Novelda y toda la comarca.";
+$meta_url    = "https://caroltemp.com/sobre-nosotros.php";
 $schema_type = "default";
 $page_css    = "sobre";
 $page_js     = "";
@@ -16,7 +16,7 @@ include 'includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Quiénes somos</div>
     <h1>Fontanería en el Vinalopó<br><span class="hl">con nombre y apellidos.</span></h1>
-    <p class="hz-dark-sub">Somos Hidrofont. Una empresa de fontanería residencial comprometida con hacer las cosas bien, explicar lo que hacemos y cumplir con lo que prometemos.</p>
+    <p class="hz-dark-sub">Somos CarolTemp. Una empresa de fontanería residencial comprometida con hacer las cosas bien, explicar lo que hacemos y cumplir con lo que prometemos.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
       <a href="<?php echo $base_url; ?>contacto.php" class="btn-hz-g">Contactar</a>
@@ -31,13 +31,13 @@ include 'includes/head.php';
       <div>
         <p class="zona-lbl">Quiénes somos</p>
         <h2 style="font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;line-height:1.15;margin-bottom:1rem">Especialistas en <span style="color:#3b82f6">instalaciones y reformas</span> en el Vinalopó</h2>
-        <p style="color:#64748b;font-size:15px;line-height:1.85;margin-bottom:1rem">Hidrofont es una empresa de fontanería residencial ubicada en el Vinalopó Medio. Trabajamos en Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas y todas sus partidas.</p>
+        <p style="color:#64748b;font-size:15px;line-height:1.85;margin-bottom:1rem">CarolTemp es una empresa de fontanería residencial ubicada en el Vinalopó Medio. Trabajamos en Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas y todas sus partidas.</p>
         <p style="color:#64748b;font-size:15px;line-height:1.85;margin-bottom:1rem">Nos dedicamos a hacer las cosas bien. Eso significa llegar a la hora, explicar lo que vamos a hacer antes de hacerlo, dejar todo recogido cuando terminamos y cumplir con el precio acordado sin añadir extras al final.</p>
         <p style="color:#64748b;font-size:15px;line-height:1.85">Somos instaladores oficiales de termos Nubeco en la comarca y ofrecemos financiación completa — material e instalación incluidos — para proyectos grandes.</p>
       </div>
       <div>
         <div class="zona-icard">
-          <div class="zona-icard-h"><strong>Hidrofont</strong><span>Fontanería industrial y residencial</span></div>
+          <div class="zona-icard-h"><strong>CarolTemp</strong><span>Fontanería industrial y residencial</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Ubicación</span><span class="zona-ir-v">Vinalopó Medio, Alicante</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span></div>

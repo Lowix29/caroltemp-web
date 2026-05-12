@@ -11,7 +11,7 @@ $ciudad          = 'Monforte del Cid';
 $ciudad_slug     = 'monforte';
 $ciudad_cp       = '03670';
 
-$meta_title = 'Fontanero en Monforte del Cid urgente | 24h | Precio cerrado | Hidrofont';
+$meta_title = 'Fontanero en Monforte del Cid urgente | 24h | Precio cerrado | CarolTemp';
 $meta_desc  = 'Fontanero en Monforte del Cid urgente 24h. Precio cerrado sin sorpresas. Llama ahora al 613 429 032.';
 
 $hero_titulo = 'Fontanero en Monforte del Cid<br><span class="hl">urgente 24h.</span>';
@@ -21,7 +21,7 @@ $hero_sub    = 'Fontaneros en Monforte del Cid con precio cerrado. Reparaciones 
 // CONTENIDO — SUSTITUIR CON TEXTO FINAL
 // ================================
 $contenido_intro = '
-<p>Si necesitas un <strong>fontanero en Monforte del Cid</strong> de confianza, en Hidrofont te damos precio cerrado antes de empezar. Conocemos Monforte del Cid y sus instalaciones.</p>
+<p>Si necesitas un <strong>fontanero en Monforte del Cid</strong> de confianza, en CarolTemp te damos precio cerrado antes de empezar. Conocemos Monforte del Cid y sus instalaciones.</p>
 <p>Contenido provisional pendiente de redacción final optimizada para SEO. Este texto debe sustituirse con contenido único sobre fontanero en Monforte del Cid.</p>
 ';
 

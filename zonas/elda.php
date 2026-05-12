@@ -3,9 +3,9 @@ $zona_nombre  = "Elda";
 $zona_slug    = "elda";
 $zona_cp      = "03600";
 
-$meta_title   = "Fontanería en Elda — Hidrofont";
+$meta_title   = "Fontanería en Elda — CarolTemp";
 $meta_desc    = "Servicios de fontanería en Elda. Consulta todos los trabajos disponibles en tu zona: reparaciones, fugas, desatascos, instalaciones y reformas.";
-$meta_url     = "https://hidrofont.es/zonas/elda";
+$meta_url     = "https://caroltemp.com/zonas/elda";
 $schema_type  = "zona";
 $page_css     = "zona";
 $page_js      = "zona";
@@ -64,7 +64,7 @@ include '../includes/head.php';
       </div>
       <div>
         <div class="zona-icard">
-          <div class="zona-icard-h"><strong>Hidrofont · <?php echo $zona_nombre; ?></strong><span>Fontanería residencial</span></div>
+          <div class="zona-icard-h"><strong>CarolTemp · <?php echo $zona_nombre; ?></strong><span>Fontanería residencial</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v"><?php echo $zona_nombre; ?> · CP <?php echo $zona_cp; ?></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span></div>
@@ -177,7 +177,7 @@ include '../includes/head.php';
           <span>¿Cuánto cuesta un fontanero en <?php echo $zona_nombre; ?>?</span>
           <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
-        <div class="zona-fia">En Hidrofont siempre damos precio cerrado antes de empezar. Una reparación sencilla como un grifo o cisterna suele resolverse desde 60–80€. Para trabajos mayores el precio se cierra tras ver el trabajo.</div>
+        <div class="zona-fia">En CarolTemp siempre damos precio cerrado antes de empezar. Una reparación sencilla como un grifo o cisterna suele resolverse desde 60–80€. Para trabajos mayores el precio se cierra tras ver el trabajo.</div>
       </div>
 
       <div class="zona-fi">

@@ -50,7 +50,7 @@ $servicios = $pdo->query('SELECT DISTINCT servicio FROM proyectos WHERE servicio
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyectos — Hidrofont Admin</title>
+  <title>Proyectos — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <?php include '../includes/admin_style.php'; ?>
 </head>

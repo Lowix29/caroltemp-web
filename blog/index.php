@@ -1,7 +1,7 @@
 <?php
-$meta_title  = "Blog de fontanería — Hidrofont | Consejos y preguntas frecuentes";
+$meta_title  = "Blog de fontanería — CarolTemp | Consejos y preguntas frecuentes";
 $meta_desc   = "Consejos de fontanería, preguntas frecuentes y guías prácticas para el hogar. Todo sobre instalaciones, mantenimiento y agua en el Vinalopó.";
-$meta_url    = "https://hidrofont.es/blog/";
+$meta_url    = "https://caroltemp.com/blog/";
 $schema_type = "default";
 $page_css    = "blog";
 $page_js     = "";

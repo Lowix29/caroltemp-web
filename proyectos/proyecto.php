@@ -13,7 +13,7 @@ $pro = $stmt->fetch();
 
 if (!$pro) {
   header('HTTP/1.0 404 Not Found');
-  $meta_title  = 'Proyecto no encontrado — Hidrofont';
+  $meta_title  = 'Proyecto no encontrado — CarolTemp';
   $meta_desc   = '';
   $meta_url    = '';
   $schema_type = 'default';
@@ -33,9 +33,9 @@ $stmt_arts = $pdo->prepare('SELECT id, titulo, slug, extracto, categoria FROM ar
 $stmt_arts->execute([$pro['zona']]);
 $articulos_rel = $stmt_arts->fetchAll();
 
-$meta_title  = $pro['meta_title'] ?: $pro['titulo'] . ' — Hidrofont';
+$meta_title  = $pro['meta_title'] ?: $pro['titulo'] . ' — CarolTemp';
 $meta_desc   = $pro['meta_desc']  ?: $pro['descripcion'];
-$meta_url    = 'https://hidrofont.es/proyectos/' . $pro['slug'];
+$meta_url    = 'https://caroltemp.com/proyectos/' . $pro['slug'];
 $schema_type = 'proyecto';
 $page_css    = 'proyectos';
 $page_js     = '';

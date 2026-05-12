@@ -9,7 +9,7 @@
  * $contenido_extra (opcional), $ciudades_cercanas
  */
 
-$meta_url    = $meta_url ?? 'https://hidrofont.es/' . $servicio_slug . '/' . $servicio_slug . '-' . $ciudad_slug;
+$meta_url    = $meta_url ?? 'https://caroltemp.com/' . $servicio_slug . '/' . $servicio_slug . '-' . $ciudad_slug;
 $schema_type = 'zona';
 $zona_nombre = $ciudad;
 $page_css    = 'servicio-ciudad';
@@ -69,7 +69,7 @@ include __DIR__ . '/head.php';
       </div>
       <div>
         <div class="zona-icard">
-          <div class="zona-icard-h"><strong>Hidrofont · <?php echo $ciudad; ?></strong><span><?php echo $servicio_nombre; ?></span></div>
+          <div class="zona-icard-h"><strong>CarolTemp · <?php echo $ciudad; ?></strong><span><?php echo $servicio_nombre; ?></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v"><?php echo $ciudad; ?> · CP <?php echo $ciudad_cp; ?></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span></div>

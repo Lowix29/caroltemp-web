@@ -50,7 +50,7 @@ $categorias = $pdo->query('SELECT DISTINCT categoria FROM articulos WHERE catego
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artículos — Hidrofont Admin</title>
+  <title>Artículos — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <?php include '../includes/admin_style.php'; ?>
 </head>

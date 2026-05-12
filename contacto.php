@@ -1,7 +1,7 @@
 <?php
-$meta_title  = "Contacto — Hidrofont | Fontanero en el Vinalopó";
-$meta_desc   = "Contacta con Hidrofont para pedir presupuesto de fontanería en Elda, Petrer, Novelda, Monóvar y toda la comarca del Vinalopó. Llamada, WhatsApp o formulario.";
-$meta_url    = "https://hidrofont.es/contacto.php";
+$meta_title  = "Contacto — CarolTemp | Fontanero en el Vinalopó";
+$meta_desc   = "Contacta con CarolTemp para pedir presupuesto de fontanería en Elda, Petrer, Novelda, Monóvar y toda la comarca del Vinalopó. Llamada, WhatsApp o formulario.";
+$meta_url    = "https://caroltemp.com/contacto.php";
 $schema_type = "contacto";
 $page_css    = "contacto";
 $page_js     = "contacto";
@@ -157,11 +157,11 @@ include 'includes/head.php';
               <small>Te respondemos lo antes posible</small>
             </div>
           </a>
-          <a href="mailto:info@hidrofont.es" class="contacto-metodo">
+          <a href="mailto:info@caroltemp.es" class="contacto-metodo">
             <div class="contacto-metodo-ico">✉️</div>
             <div class="contacto-metodo-texto">
               <strong>Email</strong>
-              <span>info@hidrofont.es</span>
+              <span>info@caroltemp.es</span>
               <small>Respuesta en menos de 24 horas</small>
             </div>
           </a>

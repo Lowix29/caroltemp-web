@@ -1,7 +1,7 @@
 <?php
-$meta_title  = 'Fontanero urgente 24h | Reparaciones, fugas e instalaciones | Hidrofont';
+$meta_title  = 'Fontanero urgente 24h | Reparaciones, fugas e instalaciones | CarolTemp';
 $meta_desc   = 'Fontanero profesional con precio cerrado. Reparaciones urgentes, fugas de agua, termos, reformas e instalaciones. Atención rápida y sin sorpresas.';
-$meta_url    = 'https://hidrofont.es/fontanero/';
+$meta_url    = 'https://caroltemp.com/fontanero/';
 $schema_type = 'servicio';
 $page_css    = 'servicio-ciudad';
 $page_js     = '';

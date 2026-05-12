@@ -1,7 +1,7 @@
 <?php
-$meta_title  = "Proyectos realizados — Hidrofont | Trabajos de fontanería en el Vinalopó";
-$meta_desc   = "Trabajos de fontanería realizados por Hidrofont en Elda, Petrer, Novelda, Monóvar y toda la comarca. Cambios de termo, ósmosis, descalcificadores y reformas.";
-$meta_url    = "https://hidrofont.es/proyectos/";
+$meta_title  = "Proyectos realizados — CarolTemp | Trabajos de fontanería en el Vinalopó";
+$meta_desc   = "Trabajos de fontanería realizados por CarolTemp en Elda, Petrer, Novelda, Monóvar y toda la comarca. Cambios de termo, ósmosis, descalcificadores y reformas.";
+$meta_url    = "https://caroltemp.com/proyectos/";
 $schema_type = "default";
 $page_css    = "proyectos";
 $page_js     = "";

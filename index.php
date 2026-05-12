@@ -1,7 +1,7 @@
 <?php
-$meta_title  = "Hidrofont — Fontanería industrial y residencial en Alicante";
+$meta_title  = "CarolTemp — Fontanería industrial y residencial en Alicante";
 $meta_desc   = "Hacemos fontanería industrial y residencial en Alicante | Instalaciones, reformas y detección de fugas con geófono y cámara.";
-$meta_url    = "https://hidrofont.es/";
+$meta_url    = "https://caroltemp.com/";
 $schema_type = "home";
 $page_css    = "home";
 $page_js     = "home";
@@ -69,7 +69,7 @@ include 'includes/head.php';
     <p class="home-lbl">Fontanería en la comarca</p>
     <h2>Fontanero en Elda, Petrer, Novelda y <span class="hl">toda la comarca del Vinalopó</span></h2>
     <div style="max-width:780px;margin-top:1.25rem">
-      <p style="color:#64748b;font-size:15px;line-height:1.85;margin-bottom:1rem">En Hidrofont trabajamos como fontaneros en Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Salinas y Monforte del Cid. Nos especializamos en fontanería residencial completa: reparaciones urgentes, detección de fugas sin obra, instalación de termos eléctricos, ósmosis inversa, descalcificadores y reformas de baño.</p>
+      <p style="color:#64748b;font-size:15px;line-height:1.85;margin-bottom:1rem">En CarolTemp trabajamos como fontaneros en Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Salinas y Monforte del Cid. Nos especializamos en fontanería residencial completa: reparaciones urgentes, detección de fugas sin obra, instalación de termos eléctricos, ósmosis inversa, descalcificadores y reformas de baño.</p>
       <p style="color:#64748b;font-size:15px;line-height:1.85;margin-bottom:1rem">La comarca combina viviendas antiguas con instalaciones deterioradas y zonas más modernas o urbanizaciones con problemas de presión o suministro. Por eso cada trabajo requiere experiencia real. No improvisamos: analizamos la instalación y damos una solución clara desde el principio.</p>
       <p style="color:#64748b;font-size:15px;line-height:1.85">Si buscas un fontanero en Elda o cerca de ti que trabaje bien, llegue rápido y te diga el precio antes de empezar, estás en el sitio correcto. Trabajamos con precio cerrado y sin sorpresas.</p>
     </div>

@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin — Hidrofont</title>
+  <title>Admin — CarolTemp</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -138,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="login-wrap">
   <div class="login-logo">
-    <img src="../img/logo/logo.webp" alt="Hidrofont" onerror="this.style.display='none'">
+    <img src="../img/logo/logo.webp" alt="CarolTemp" onerror="this.style.display='none'">
     <span>Panel de administración</span>
   </div>
 

@@ -1,7 +1,7 @@
 <?php
-$meta_title  = 'Detección de fugas de agua | Sin obras | Geófono y cámara | Hidrofont';
+$meta_title  = 'Detección de fugas de agua | Sin obras | Geófono y cámara | CarolTemp';
 $meta_desc   = 'Localización de fugas de agua sin romper. Geófono y cámara para detectar fugas ocultas. Precio cerrado y solución profesional.';
-$meta_url    = 'https://hidrofont.es/fugas/';
+$meta_url    = 'https://caroltemp.com/fugas/';
 $schema_type = 'servicio';
 $page_css    = 'servicio-ciudad';
 $page_js     = '';

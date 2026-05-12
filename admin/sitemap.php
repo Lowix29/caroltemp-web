@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar_redireccion']
 // GENERAR SITEMAP
 if (isset($_POST['generar'])) {
 
-  $base = 'https://hidrofont.es';
+  $base = 'https://caroltemp.com';
 
   $urls = [];
   
@@ -122,7 +122,7 @@ if (isset($_POST['generar'])) {
   // Guardar en raíz
   $ruta = dirname(__DIR__) . '/sitemap.xml';
   if (file_put_contents($ruta, $xml) !== false) {
-    $mensaje = '✅ Sitemap generado correctamente con ' . count($urls) . ' URLs. Disponible en: https://hidrofont.es/sitemap.xml';
+    $mensaje = '✅ Sitemap generado correctamente con ' . count($urls) . ' URLs. Disponible en: https://caroltemp.com/sitemap.xml';
   } else {
     $error = '❌ Error al guardar el sitemap. Comprueba los permisos de escritura en la carpeta raíz.';
   }
@@ -152,7 +152,7 @@ $redirecciones = $pdo->query("
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sitemap — Hidrofont Admin</title>
+  <title>Sitemap — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <?php include '../includes/admin_style.php'; ?>
   <style>
@@ -226,23 +226,23 @@ $redirecciones = $pdo->query("
 
         <div class="url-list" style="margin-bottom:1.5rem">
           <div class="url-item">
-            <span class="url-item-loc">hidrofont.es/</span>
+            <span class="url-item-loc">caroltemp.com/</span>
             <span class="url-item-pri">1.0</span>
           </div>
           <div class="url-item">
-            <span class="url-item-loc">hidrofont.es/servicios</span>
+            <span class="url-item-loc">caroltemp.com/servicios</span>
             <span class="url-item-pri">0.9</span>
           </div>
           <div class="url-item">
-            <span class="url-item-loc">hidrofont.es/zonas/elda</span>
+            <span class="url-item-loc">caroltemp.com/zonas/elda</span>
             <span class="url-item-pri">0.9</span>
           </div>
           <div class="url-item">
-            <span class="url-item-loc">hidrofont.es/blog/tu-articulo</span>
+            <span class="url-item-loc">caroltemp.com/blog/tu-articulo</span>
             <span class="url-item-pri">0.7</span>
           </div>
           <div class="url-item">
-            <span class="url-item-loc">hidrofont.es/proyectos/tu-proyecto</span>
+            <span class="url-item-loc">caroltemp.com/proyectos/tu-proyecto</span>
             <span class="url-item-pri">0.7</span>
           </div>
         </div>
@@ -256,7 +256,7 @@ $redirecciones = $pdo->query("
         <?php if ($sitemap_fecha): ?>
           <p style="margin-top:1rem;font-size:13px;color:#7a95b0">
             Añade esta URL a Google Search Console:<br>
-            <strong style="color:#1e3a5f">https://hidrofont.es/sitemap.xml</strong>
+            <strong style="color:#1e3a5f">https://caroltemp.com/sitemap.xml</strong>
           </p>
         <?php endif; ?>
       </div>

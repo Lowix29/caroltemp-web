@@ -1,5 +1,5 @@
 /* ================================
-   HIDROFONT — Nav CSS v2
+   CAROLTEMP — Nav CSS v2
    Tesla / Vercel aesthetic
 ================================ */
 
@@ -18,7 +18,7 @@
 }
 .topbar p strong { color: rgba(255,255,255,.8); font-weight: 600; }
 .topbar p a {
-  color: #60a5fa;
+  color: #64B5F6;
   margin-left: 6px;
   text-decoration: none;
   font-weight: 500;

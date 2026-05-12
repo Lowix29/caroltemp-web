@@ -1,5 +1,5 @@
 /* ================================
-   HIDROFONT — Servicios CSS v2
+   CAROLTEMP — Servicios CSS v2
    Tesla / Vercel aesthetic
 ================================ */
 
@@ -134,9 +134,9 @@
 
 .servicio-visual-badge {
   display: inline-block;
-  background: rgba(37,99,235,.12);
-  border: 1px solid rgba(37,99,235,.25);
-  color: #60a5fa;
+  background: rgba(25,118,210,.12);
+  border: 1px solid rgba(25,118,210,.25);
+  color: #64B5F6;
   font-size: 12px;
   font-weight: 600;
   padding: 4px 14px;
@@ -144,7 +144,7 @@
 }
 .servicio-alt .servicio-visual-badge {
   background: var(--color-accent-soft);
-  border-color: rgba(37,99,235,.2);
+  border-color: rgba(25,118,210,.2);
   color: var(--color-accent);
 }
 

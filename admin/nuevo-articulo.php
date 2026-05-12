@@ -157,7 +157,7 @@ $categorias = $pdo->query('SELECT nombre FROM categorias_blog ORDER BY orden ASC
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo $editando ? 'Editar artículo' : 'Nuevo artículo'; ?> — Hidrofont Admin</title>
+  <title><?php echo $editando ? 'Editar artículo' : 'Nuevo artículo'; ?> — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <?php include '../includes/admin_style.php'; ?>
   <style>
@@ -254,7 +254,7 @@ tinymce.init({
               placeholder="cuanto-cuesta-cambiar-grifo-elda"
               oninput="actualizarPreview()">
             <span class="slug-preview" id="slug-preview">
-              hidrofont.es/blog/<?php echo htmlspecialchars($art['slug'] ?: 'tu-slug-aqui'); ?>
+              caroltemp.com/blog/<?php echo htmlspecialchars($art['slug'] ?: 'tu-slug-aqui'); ?>
             </span>
           </div>
 
@@ -340,7 +340,7 @@ tinymce.init({
             <label for="meta_title">Meta title <span class="label-hint">— 50-60 caracteres recomendado</span></label>
             <input type="text" id="meta_title" name="meta_title"
               value="<?php echo htmlspecialchars($art['meta_title']); ?>"
-              placeholder="Ej: Cuánto cuesta cambiar un grifo en Elda — Hidrofont"
+              placeholder="Ej: Cuánto cuesta cambiar un grifo en Elda — CarolTemp"
               oninput="contarChars(this, 'count-title', 60); actualizarPreview()">
             <span class="char-count" id="count-title"><?php echo strlen($art['meta_title']); ?>/60</span>
           </div>
@@ -358,7 +358,7 @@ tinymce.init({
           <div class="form-group full">
             <div class="google-preview">
               <p class="google-preview-label">Vista previa en Google</p>
-              <p class="gp-url">hidrofont.es › blog › <span id="gp-slug"><?php echo htmlspecialchars($art['slug'] ?: 'tu-slug'); ?></span></p>
+              <p class="gp-url">caroltemp.com › blog › <span id="gp-slug"><?php echo htmlspecialchars($art['slug'] ?: 'tu-slug'); ?></span></p>
               <p class="gp-title" id="gp-title"><?php echo htmlspecialchars($art['meta_title'] ?: $art['titulo'] ?: 'Título del artículo'); ?></p>
               <p class="gp-desc" id="gp-desc"><?php echo htmlspecialchars($art['meta_desc'] ?: 'Descripción del artículo que aparecerá en los resultados de búsqueda de Google...'); ?></p>
             </div>
@@ -400,11 +400,11 @@ function generarSlug(titulo) {
     .replace(/[^a-z0-9\s\-]/g, '')
     .trim().replace(/\s+/g, '-').replace(/-+/g, '-');
   document.getElementById('slug').value = slug;
-  document.getElementById('slug-preview').textContent = 'hidrofont.es/blog/' + (slug || 'tu-slug-aqui');
+  document.getElementById('slug-preview').textContent = 'caroltemp.com/blog/' + (slug || 'tu-slug-aqui');
 }
 
 document.getElementById('slug').addEventListener('input', function() {
-  document.getElementById('slug-preview').textContent = 'hidrofont.es/blog/' + (this.value || 'tu-slug-aqui');
+  document.getElementById('slug-preview').textContent = 'caroltemp.com/blog/' + (this.value || 'tu-slug-aqui');
   actualizarPreview();
 });
 

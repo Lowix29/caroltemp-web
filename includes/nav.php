@@ -8,8 +8,8 @@
   <div class="nav-inner">
 
     <!-- LOGO -->
-    <a href="<?php echo $base_url; ?>" class="nav-logo" aria-label="Hidrofont — Inicio">
-      <img src="<?php echo $base_url; ?>img/logo/logo.png" alt="Hidrofont — Fontanería residencial" >
+    <a href="<?php echo $base_url; ?>" class="nav-logo" aria-label="CarolTemp — Inicio">
+      <img src="<?php echo $base_url; ?>img/logo/logo.svg" alt="CarolTemp — Fontanería residencial" >
     </a>
 
     <!-- LINKS CENTRO -->

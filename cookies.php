@@ -1,7 +1,7 @@
 <?php
-$meta_title  = "Política de cookies — Hidrofont";
-$meta_desc   = "Política de cookies de Hidrofont. Información sobre los tipos de cookies utilizadas en el sitio web y cómo gestionarlas.";
-$meta_url    = "https://hidrofont.es/cookies.php";
+$meta_title  = "Política de cookies — CarolTemp";
+$meta_desc   = "Política de cookies de CarolTemp. Información sobre los tipos de cookies utilizadas en el sitio web y cómo gestionarlas.";
+$meta_url    = "https://caroltemp.com/cookies.php";
 $schema_type = "default";
 $page_css    = "legal";
 $page_js     = "";

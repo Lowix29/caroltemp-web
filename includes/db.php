@@ -1,6 +1,6 @@
 <?php
 /* ================================
-   HIDROFONT — Conexión DB
+   CAROLTEMP — Conexión DB
 ================================ */
 
 // Detectar entorno
@@ -9,7 +9,7 @@ $is_local = in_array($_SERVER['SERVER_NAME'] ?? '', ['localhost', '127.0.0.1']);
 if ($is_local) {
   // LOCAL — XAMPP
   define('DB_HOST', 'localhost');
-  define('DB_NAME', 'hidrofont');
+  define('DB_NAME', 'caroltemp');
   define('DB_USER', 'root');
   define('DB_PASS', '');
 } else {

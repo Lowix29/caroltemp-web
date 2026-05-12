@@ -202,7 +202,7 @@ if ($edit_serv) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Categorías y servicios — Hidrofont Admin</title>
+  <title>Categorías y servicios — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <?php include '../includes/admin_style.php'; ?>
   <style>
@@ -384,7 +384,7 @@ if ($edit_serv) {
                   placeholder="preguntas-frecuentes"
                   oninput="actualizarPreviewCat()">
                 <span class="slug-preview" id="cat-slug-preview">
-                  hidrofont.es/blog/categoria/<?php echo htmlspecialchars($datos_cat['slug'] ?: 'tu-slug'); ?>
+                  caroltemp.com/blog/categoria/<?php echo htmlspecialchars($datos_cat['slug'] ?: 'tu-slug'); ?>
                 </span>
               </div>
             </div>
@@ -421,7 +421,7 @@ if ($edit_serv) {
                 <label>Meta title <span style="color:#a0b5c8;font-weight:400;font-size:11px">— 50-60 caracteres</span></label>
                 <input type="text" name="cat_meta_title" id="cat-meta-title"
                   value="<?php echo htmlspecialchars($datos_cat['meta_title']); ?>"
-                  placeholder="Ej: Preguntas frecuentes sobre fontanería — Hidrofont"
+                  placeholder="Ej: Preguntas frecuentes sobre fontanería — CarolTemp"
                   oninput="contarCat(this,'cat-count-title',60); actualizarPreviewCat()">
                 <span class="char-count" id="cat-count-title"><?php echo strlen($datos_cat['meta_title']); ?>/60</span>
               </div>
@@ -442,7 +442,7 @@ if ($edit_serv) {
             <div class="form-row full">
               <div class="google-preview-mini">
                 <p style="font-size:11px;color:#7a95b0;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem">Vista previa Google</p>
-                <p class="gp-url">hidrofont.es › blog › categoria › <span id="cat-gp-slug"><?php echo htmlspecialchars($datos_cat['slug'] ?: 'tu-slug'); ?></span></p>
+                <p class="gp-url">caroltemp.com › blog › categoria › <span id="cat-gp-slug"><?php echo htmlspecialchars($datos_cat['slug'] ?: 'tu-slug'); ?></span></p>
                 <p class="gp-title" id="cat-gp-title"><?php echo htmlspecialchars($datos_cat['meta_title'] ?: $datos_cat['nombre'] ?: 'Título de la categoría'); ?></p>
                 <p class="gp-desc"  id="cat-gp-desc"><?php echo htmlspecialchars($datos_cat['meta_desc'] ?: 'Descripción de la categoría que aparecerá en Google...'); ?></p>
               </div>
@@ -568,7 +568,7 @@ if ($edit_serv) {
                   placeholder="osmosis-inversa"
                   oninput="actualizarPreviewServ()">
                 <span class="slug-preview" id="serv-slug-preview">
-                  hidrofont.es/proyectos/servicio/<?php echo htmlspecialchars($datos_serv['slug'] ?: 'tu-slug'); ?>
+                  caroltemp.com/proyectos/servicio/<?php echo htmlspecialchars($datos_serv['slug'] ?: 'tu-slug'); ?>
                 </span>
               </div>
             </div>
@@ -605,7 +605,7 @@ if ($edit_serv) {
                 <label>Meta title <span style="color:#a0b5c8;font-weight:400;font-size:11px">— 50-60 caracteres</span></label>
                 <input type="text" name="serv_meta_title" id="serv-meta-title"
                   value="<?php echo htmlspecialchars($datos_serv['meta_title']); ?>"
-                  placeholder="Ej: Instalación de ósmosis inversa en el Vinalopó — Hidrofont"
+                  placeholder="Ej: Instalación de ósmosis inversa en el Vinalopó — CarolTemp"
                   oninput="contarCat(this,'serv-count-title',60); actualizarPreviewServ()">
                 <span class="char-count" id="serv-count-title"><?php echo strlen($datos_serv['meta_title']); ?>/60</span>
               </div>
@@ -626,7 +626,7 @@ if ($edit_serv) {
             <div class="form-row full">
               <div class="google-preview-mini">
                 <p style="font-size:11px;color:#7a95b0;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem">Vista previa Google</p>
-                <p class="gp-url">hidrofont.es › proyectos › servicio › <span id="serv-gp-slug"><?php echo htmlspecialchars($datos_serv['slug'] ?: 'tu-slug'); ?></span></p>
+                <p class="gp-url">caroltemp.com › proyectos › servicio › <span id="serv-gp-slug"><?php echo htmlspecialchars($datos_serv['slug'] ?: 'tu-slug'); ?></span></p>
                 <p class="gp-title" id="serv-gp-title"><?php echo htmlspecialchars($datos_serv['meta_title'] ?: $datos_serv['nombre'] ?: 'Título del servicio'); ?></p>
                 <p class="gp-desc"  id="serv-gp-desc"><?php echo htmlspecialchars($datos_serv['meta_desc'] ?: 'Descripción del servicio que aparecerá en Google...'); ?></p>
               </div>
