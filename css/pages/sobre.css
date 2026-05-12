@@ -1,0 +1,132 @@
+/* ================================
+   HIDROFONT — Sobre nosotros CSS
+================================ */
+
+/* QUIÉNES SOMOS */
+.sobre-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.sobre-texto h2 {
+  margin-bottom: 1.25rem;
+}
+
+.sobre-texto p {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.sobre-texto p:last-child {
+  margin-bottom: 0;
+}
+
+/* VALORES */
+.sobre-valores {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.valor-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  transition: border-color 0.15s;
+}
+
+.valor-item:hover {
+  border-color: var(--color-primary-light);
+}
+
+.valor-ico {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.valor-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.valor-texto strong {
+  color: var(--color-text-main);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.valor-texto span {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* COMPROMISOS */
+.compromisos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.compromiso-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.15s;
+}
+
+.compromiso-card:hover {
+  border-color: var(--color-primary-light);
+}
+
+.compromiso-num {
+  color: var(--color-primary-light);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.compromiso-card h3 {
+  color: var(--color-text-main);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.compromiso-card p {
+  color: var(--color-text-muted);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .sobre-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .compromisos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .compromisos-grid {
+    grid-template-columns: 1fr;
+  }
+}

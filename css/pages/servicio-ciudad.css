@@ -1,0 +1,217 @@
+/* ================================
+   SERVICIO POR CIUDAD — CSS
+================================ */
+
+.sc-sec { padding: 5rem 0; }
+.sc-sec-gray { background: #f8fafc; border-top: 1px solid #f1f5f9; }
+
+.sc-con {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.sc-h2 {
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: #0d1f33;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+  margin-bottom: .75rem;
+}
+.sc-h2 .hl { color: #3b82f6; }
+
+.sc-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.sc-prose { margin: 1.25rem 0; }
+.sc-prose p {
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.sc-chk {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  margin: 1.25rem 0 2rem;
+}
+.sc-chk li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #1e293b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.sc-chk-ico {
+  width: 20px;
+  height: 20px;
+  background: #1e3a5f;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.sc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1e3a5f;
+  color: #fff;
+  padding: 13px 26px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity .15s;
+}
+.sc-btn:hover { opacity: .88; }
+
+/* PROBLEMAS */
+.sc-problemas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #e2e8f0;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.sc-prob {
+  background: #fff;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.sc-prob-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: #cbd5e1;
+  letter-spacing: .1em;
+}
+.sc-prob h3 {
+  color: #0d1f33;
+  font-size: 14.5px;
+  font-weight: 700;
+}
+.sc-prob p {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* FAQ */
+.sc-faq { margin-top: 2rem; }
+
+/* ENLACES INTERNOS */
+.sc-enlaces {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.sc-enlace {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-decoration: none;
+  transition: all .15s;
+}
+.sc-enlace:hover {
+  border-color: #1e3a5f;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.sc-enlace strong {
+  color: #0d1f33;
+  font-size: 14px;
+  font-weight: 700;
+}
+.sc-enlace span {
+  color: #3b82f6;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .sc-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .sc-problemas { grid-template-columns: repeat(2, 1fr); }
+  .sc-enlaces { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .sc-problemas { grid-template-columns: 1fr; }
+  .sc-enlaces { grid-template-columns: 1fr; }
+}
+/* FAQ */
+.zona-fi {
+  border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+.zona-fi:last-child { border-bottom: none; }
+.zona-fiq {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  cursor: pointer;
+  gap: 1rem;
+}
+.zona-fiq span:first-child {
+  color: #0d1f33;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.zona-fiq-i {
+  width: 28px;
+  height: 28px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform .3s, background .3s;
+}
+.zona-fiq-i svg {
+  width: 12px;
+  height: 12px;
+  stroke: #64748b;
+}
+.zona-fia {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.75;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+  padding: 0;
+}
+.zona-fi.open .zona-fia {
+  max-height: 300px;
+  padding: 0 0 1.25rem;
+}
+.zona-fi.open .zona-fiq-i {
+  background: #1e3a5f;
+  transform: rotate(45deg);
+}
+.zona-fi.open .zona-fiq-i svg {
+  stroke: #fff;
+}

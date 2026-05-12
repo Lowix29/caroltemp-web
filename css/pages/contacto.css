@@ -1,0 +1,250 @@
+/* ================================
+   HIDROFONT — Contacto CSS
+================================ */
+
+.contacto-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* FORMULARIO */
+.contacto-form-wrap h2 {
+  margin-bottom: 0;
+}
+
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  color: var(--color-text-main);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.form-opcional {
+  color: var(--color-text-muted);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 14px;
+  font-family: var(--font-main);
+  color: var(--color-text-main);
+  background: #fff;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-color: #e24b4a;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-error {
+  color: #e24b4a;
+  font-size: 12px;
+  min-height: 16px;
+  display: block;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-check input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.form-check label {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.form-check label a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.contacto-submit {
+  width: 100%;
+  justify-content: center;
+  padding: 14px;
+  font-size: 15px;
+}
+
+.contacto-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-success {
+  display: none;
+  background: #eaf3de;
+  border: 1px solid #c0dd97;
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  color: #3b6d11;
+  font-size: 14px;
+  text-align: center;
+}
+
+.form-success.visible {
+  display: block;
+}
+
+/* MÉTODOS DE CONTACTO */
+.contacto-info h2 {
+  margin-bottom: 0;
+}
+
+.contacto-metodos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.contacto-metodo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  transition: border-color 0.15s;
+  cursor: pointer;
+}
+
+.contacto-metodo:hover {
+  border-color: var(--color-primary);
+}
+
+.contacto-metodo-ico {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.contacto-metodo-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contacto-metodo-texto strong {
+  color: var(--color-text-main);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contacto-metodo-texto span {
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.contacto-metodo-texto small {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+/* ZONAS */
+.contacto-zonas {
+  margin-bottom: 2rem;
+}
+
+.contacto-zonas h3 {
+  color: var(--color-text-main);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* HORARIO */
+.contacto-horario h3 {
+  color: var(--color-text-main);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.horario-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.horario-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.horario-item:last-child {
+  border-bottom: none;
+}
+
+.horario-dia {
+  color: var(--color-text-body);
+  font-size: 14px;
+}
+
+.horario-hora {
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contacto-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

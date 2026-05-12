@@ -1,0 +1,53 @@
+<?php
+// Detectar página activa
+$pagina_actual = basename($_SERVER['PHP_SELF']);
+$total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHERE leido = 0')->fetchColumn() : 0;
+?>
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <img src="<?php echo $base_url; ?>hidrofont/img/logo/logo.png" alt="Hidrofont" onerror="this.style.display='none'">
+    <span>Panel admin</span>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="sidebar-label">General</span>
+    <a href="index.php" class="<?php echo $pagina_actual === 'index.php' ? 'active' : ''; ?>">
+      <span>📊</span> Inicio
+    </a>
+    <a href="<?php echo $base_url; ?>/" target="_blank">
+      <span>🌐</span> Ver web
+    </a>
+    <a href="mensajes.php" class="<?php echo $pagina_actual === 'mensajes.php' ? 'active' : ''; ?>">
+  <span>✉️</span> Mensajes
+  <?php if ($total_nuevos_msg > 0): ?>
+    <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;padding:1px 7px;border-radius:20px;margin-left:auto"><?php echo $total_nuevos_msg; ?></span>
+  <?php endif; ?>
+</a>
+    <span class="sidebar-label">Artículos</span>
+    <a href="nuevo-articulo.php" class="<?php echo $pagina_actual === 'nuevo-articulo.php' ? 'active' : ''; ?>">
+      <span>✏️</span> Nuevo artículo
+    </a>
+    <a href="articulos.php" class="<?php echo $pagina_actual === 'articulos.php' ? 'active' : ''; ?>">
+      <span>📋</span> Todos los artículos
+    </a>
+    <span class="sidebar-label">Proyectos</span>
+    <a href="nuevo-proyecto.php" class="<?php echo $pagina_actual === 'nuevo-proyecto.php' ? 'active' : ''; ?>">
+      <span>🔧</span> Nuevo proyecto
+    </a>
+    <a href="proyectos.php" class="<?php echo $pagina_actual === 'proyectos.php' ? 'active' : ''; ?>">
+      <span>📋</span> Todos los proyectos
+    </a>
+    <span class="sidebar-label">Herramientas</span>
+<a href="categorias.php" class="<?php echo $pagina_actual === 'categorias.php' ? 'active' : ''; ?>">
+  <span>🏷️</span> Categorías y servicios
+</a>
+<a href="sitemap.php" class="<?php echo $pagina_actual === 'sitemap.php' ? 'active' : ''; ?>">
+  <span>🗺️</span> Sitemap
+</a>
+<a href="password.php" class="<?php echo $pagina_actual === 'password.php' ? 'active' : ''; ?>">
+  <span>🔒</span> Contraseña
+</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <a href="logout.php"><span>👋</span> Cerrar sesión — <?php echo htmlspecialchars($_SESSION['admin_usuario'] ?? ''); ?></a>
+  </div>
+</aside>

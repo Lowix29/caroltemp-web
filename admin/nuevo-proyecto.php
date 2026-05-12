@@ -1,0 +1,467 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
+  header('Location: login.php');
+  exit;
+}
+require_once '../includes/db.php';
+
+$mensaje = '';
+$error   = '';
+$pro     = [
+  'id'          => '',
+  'titulo'      => '',
+  'slug'        => '',
+  'descripcion' => '',
+  'contenido'   => '',
+  'imagen'      => '',
+  'zona'        => '',
+  'servicio'    => '',
+  'meta_title'  => '',
+  'meta_desc'   => '',
+  'publicado'   => 0,
+];
+
+$editando = false;
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+  $stmt = $pdo->prepare('SELECT * FROM proyectos WHERE id = ? LIMIT 1');
+  $stmt->execute([$_GET['id']]);
+  $found = $stmt->fetch();
+  if ($found) {
+    $pro      = $found;
+    $editando = true;
+  }
+}
+
+function subirImagen($file, $carpeta) {
+  $permitidos = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+  if (!in_array($file['type'], $permitidos)) {
+    return ['error' => 'Formato no permitido. Usa JPG, PNG, WebP o GIF.'];
+  }
+  if ($file['size'] > 3 * 1024 * 1024) {
+    return ['error' => 'La imagen no puede superar 3MB.'];
+  }
+  $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
+  $nombre   = uniqid('img_') . '.' . strtolower($ext);
+  $ruta_abs = dirname(__DIR__) . '/img/' . $carpeta . '/' . $nombre;
+  $ruta_web = '/img/' . $carpeta . '/' . $nombre;
+  if (!move_uploaded_file($file['tmp_name'], $ruta_abs)) {
+    return ['error' => 'Error al guardar la imagen.'];
+  }
+  return ['ruta' => $ruta_web];
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $titulo      = trim($_POST['titulo']      ?? '');
+  $slug        = trim($_POST['slug']        ?? '');
+  $descripcion = trim($_POST['descripcion'] ?? '');
+  $contenido   = trim($_POST['contenido']   ?? '');
+  $imagen      = trim($_POST['imagen']      ?? '');
+  $zona        = trim($_POST['zona']        ?? '');
+  $servicio    = trim($_POST['servicio']    ?? '');
+  $meta_title  = trim($_POST['meta_title']  ?? '');
+  $meta_desc   = trim($_POST['meta_desc']   ?? '');
+  $publicado   = isset($_POST['publicado']) ? 1 : 0;
+
+  if (!empty($_FILES['imagen_file']['name'])) {
+    $resultado = subirImagen($_FILES['imagen_file'], 'proyectos');
+    if (isset($resultado['error'])) {
+      $error = $resultado['error'];
+    } else {
+      $imagen = $resultado['ruta'];
+    }
+  }
+
+  if (!$slug && $titulo) {
+    $slug = strtolower($titulo);
+    $slug = str_replace(
+      ['á','é','í','ó','ú','ñ','ü',' '],
+      ['a','e','i','o','u','n','u','-'],
+      $slug
+    );
+    $slug = preg_replace('/[^a-z0-9\-]/', '', $slug);
+    $slug = preg_replace('/-+/', '-', $slug);
+    $slug = trim($slug, '-');
+  }
+
+  if (!$error) {
+    if (!$titulo || !$slug || !$descripcion || !$contenido) {
+      $error = 'Título, slug, descripción y contenido son obligatorios.';
+    } else {
+      try {
+        if ($editando) {
+          $stmt = $pdo->prepare('
+            UPDATE proyectos SET
+              titulo=?, slug=?, descripcion=?, contenido=?,
+              imagen=?, zona=?, servicio=?,
+              meta_title=?, meta_desc=?, publicado=?
+            WHERE id=?
+          ');
+          $stmt->execute([
+            $titulo, $slug, $descripcion, $contenido,
+            $imagen, $zona, $servicio,
+            $meta_title, $meta_desc, $publicado,
+            $pro['id']
+          ]);
+          $mensaje = '✅ Proyecto actualizado correctamente.';
+          $stmt = $pdo->prepare('SELECT * FROM proyectos WHERE id = ? LIMIT 1');
+          $stmt->execute([$pro['id']]);
+          $pro = $stmt->fetch();
+        } else {
+          $stmt = $pdo->prepare('
+            INSERT INTO proyectos
+              (titulo, slug, descripcion, contenido, imagen, zona, servicio, meta_title, meta_desc, publicado)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          ');
+          $stmt->execute([
+            $titulo, $slug, $descripcion, $contenido,
+            $imagen, $zona, $servicio,
+            $meta_title, $meta_desc, $publicado
+          ]);
+          $newId = $pdo->lastInsertId();
+          header('Location: nuevo-proyecto.php?id=' . $newId . '&ok=1');
+          exit;
+        }
+      } catch (PDOException $e) {
+        $error = 'Error al guardar. El slug puede estar duplicado.';
+      }
+    }
+  }
+
+  if ($error) {
+    $pro = array_merge($pro, [
+      'titulo'      => $titulo,
+      'slug'        => $slug,
+      'descripcion' => $descripcion,
+      'contenido'   => $contenido,
+      'imagen'      => $imagen,
+      'zona'        => $zona,
+      'servicio'    => $servicio,
+      'meta_title'  => $meta_title,
+      'meta_desc'   => $meta_desc,
+      'publicado'   => $publicado,
+    ]);
+  }
+}
+
+if (isset($_GET['ok'])) $mensaje = '✅ Proyecto creado correctamente.';
+
+$zonas     = ['Elda','Petrer','Novelda','Monóvar','Sax','Pinoso','Monforte del Cid','Salinas'];
+$servicios = $pdo->query('SELECT nombre FROM servicios_proyectos ORDER BY orden ASC')->fetchAll(PDO::FETCH_COLUMN);
+?><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo $editando ? 'Editar proyecto' : 'Nuevo proyecto'; ?> — Hidrofont Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <?php include '../includes/admin_style.php'; ?>
+  <style>
+    .google-preview { background: #fff; border: 1px solid #dde6f0; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1.25rem; }
+    .google-preview-label { font-size: 11px; color: #7a95b0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+    .gp-url { color: #006621; font-size: 13px; margin-bottom: 3px; }
+    .gp-title { color: #1a0dab; font-size: 18px; font-weight: 400; line-height: 1.3; margin-bottom: 4px; }
+    .gp-title:hover { text-decoration: underline; }
+    .gp-desc { color: #545454; font-size: 13px; line-height: 1.55; }
+    .gp-title.warn { color: #e74c3c; }
+    .gp-desc.warn  { color: #e74c3c; }
+    .upload-area { border: 2px dashed #dde6f0; border-radius: 8px; padding: 2rem; text-align: center; cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+    .upload-area:hover, .upload-area.drag { border-color: #1e3a5f; background: #f4f7fb; }
+    .upload-area input[type="file"] { display: none; }
+    .upload-area-ico { font-size: 32px; margin-bottom: 0.5rem; }
+    .upload-area-txt { color: #7a95b0; font-size: 13.5px; }
+    .upload-area-txt strong { color: #1e3a5f; }
+    .imagen-preview { margin-top: 1rem; display: none; }
+    .imagen-preview img { max-width: 100%; max-height: 200px; border-radius: 8px; border: 1px solid #dde6f0; object-fit: cover; }
+    .imagen-preview-actual img { max-width: 100%; max-height: 160px; border-radius: 8px; border: 1px solid #dde6f0; object-fit: cover; }
+  </style>
+  <script src="https://cdn.tiny.cloud/1/3eywuy73k0uzt30wiafptfr0tdx5iudt46gbkusw5kr5mjk2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+tinymce.init({
+  selector: '#contenido',
+  language: 'es',
+  height: 500,
+  menubar: false,
+  plugins: 'lists link image media table code wordcount',
+  toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist | link image | table | code',
+  images_upload_handler: function(blobInfo, progress) {
+    return new Promise(function(resolve, reject) {
+      var fd = new FormData();
+      fd.append('image', blobInfo.blob(), blobInfo.filename());
+      fetch('/admin/upload-imagen.php', {
+        method: 'POST',
+        body: fd
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.success) resolve(data.file.url);
+        else reject(data.error);
+      })
+      .catch(() => reject('Error al subir la imagen'));
+    });
+  },
+  content_style: 'body { font-family: Outfit, sans-serif; font-size: 15px; line-height: 1.8; color: #475569; max-width: 100%; }',
+  block_formats: 'Párrafo=p; Título H2=h2; Título H3=h3; Título H4=h4',
+});
+</script>
+</head>
+<body>
+
+<?php include '../includes/admin_sidebar.php'; ?>
+
+<main class="main">
+
+  <div class="topbar">
+    <h1><?php echo $editando ? 'Editar proyecto' : 'Nuevo proyecto'; ?></h1>
+    <a href="proyectos.php">← Volver a proyectos</a>
+  </div>
+
+  <?php if ($mensaje): ?>
+    <div class="mensaje"><?php echo $mensaje; ?></div>
+  <?php endif; ?>
+  <?php if ($error): ?>
+    <div class="error-msg"><?php echo htmlspecialchars($error); ?></div>
+  <?php endif; ?>
+
+  <form method="POST" action="" enctype="multipart/form-data">
+    <div class="card">
+
+      <!-- CONTENIDO -->
+      <div class="form-section">
+        <h2>Contenido</h2>
+        <div class="form-grid">
+
+          <div class="form-group full">
+            <label for="titulo">Título del proyecto</label>
+            <input type="text" id="titulo" name="titulo"
+              value="<?php echo htmlspecialchars($pro['titulo']); ?>"
+              placeholder="Ej: Cambio de termo de 80 litros en Elda"
+              required oninput="generarSlug(this.value); actualizarPreview()">
+          </div>
+
+          <div class="form-group full">
+            <label for="slug">Slug (URL) <span class="label-hint">— se genera automáticamente</span></label>
+            <input type="text" id="slug" name="slug"
+              value="<?php echo htmlspecialchars($pro['slug']); ?>"
+              placeholder="cambio-termo-80-litros-elda"
+              oninput="actualizarPreview()">
+            <span class="slug-preview" id="slug-preview">
+              hidrofont.es/proyectos/<?php echo htmlspecialchars($pro['slug'] ?: 'tu-slug-aqui'); ?>
+            </span>
+          </div>
+
+          <div class="form-group full">
+            <label for="descripcion">Descripción breve <span class="label-hint">— aparece en el listado</span></label>
+            <textarea id="descripcion" name="descripcion" rows="3"
+              placeholder="Breve descripción del trabajo realizado (2-3 frases)..."
+            ><?php echo htmlspecialchars($pro['descripcion']); ?></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label for="contenido">Detalle del proyecto <span class="label-hint">— puedes usar HTML básico</span></label>
+            <textarea id="contenido" name="contenido" class="grande"
+              placeholder="Describe el trabajo con detalle. Problema, solución y resultado. Puedes usar: <h2>, <p>, <ul>, <li>, <strong>..."
+            ><?php echo htmlspecialchars($pro['contenido']); ?></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="form-section">
+        <h2>Imagen del proyecto</h2>
+
+        <?php if ($pro['imagen']): ?>
+          <div class="imagen-preview-actual" style="margin-bottom:1rem">
+            <p style="font-size:12px;color:#7a95b0;margin-bottom:0.5rem">Imagen actual:</p>
+            <img src="<?php echo htmlspecialchars($pro['imagen']); ?>" alt="Imagen actual">
+          </div>
+        <?php endif; ?>
+
+        <div class="upload-area" id="upload-area" onclick="document.getElementById('imagen_file').click()">
+          <input type="file" id="imagen_file" name="imagen_file" accept="image/*" onchange="previsualizarImagen(this)">
+          <div class="upload-area-ico">📸</div>
+          <p class="upload-area-txt"><strong>Haz clic para subir</strong> o arrastra una foto del trabajo</p>
+          <p class="upload-area-txt" style="font-size:12px;margin-top:4px">JPG, PNG, WebP · Máx. 3MB</p>
+        </div>
+
+        <div class="imagen-preview" id="imagen-preview">
+          <img id="imagen-preview-img" src="" alt="Preview">
+        </div>
+
+        <div class="form-group" style="margin-top:1rem">
+          <label for="imagen">O introduce la URL manualmente</label>
+          <input type="text" id="imagen" name="imagen"
+            value="<?php echo htmlspecialchars($pro['imagen']); ?>"
+            placeholder="/img/proyectos/nombre-imagen.webp">
+        </div>
+      </div>
+
+      <!-- CLASIFICACIÓN -->
+      <div class="form-section">
+        <h2>Clasificación</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="zona">Zona</label>
+            <select id="zona" name="zona" required>
+              <option value="">Selecciona zona</option>
+              <?php foreach ($zonas as $z): ?>
+                <option value="<?php echo $z; ?>" <?php echo $pro['zona'] === $z ? 'selected' : ''; ?>><?php echo $z; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio</label>
+            <select id="servicio" name="servicio" required>
+              <option value="">Selecciona servicio</option>
+              <?php foreach ($servicios as $s): ?>
+                <option value="<?php echo $s; ?>" <?php echo $pro['servicio'] === $s ? 'selected' : ''; ?>><?php echo $s; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO -->
+      <div class="form-section">
+        <h2>SEO</h2>
+        <div class="form-grid">
+
+          <div class="form-group full">
+            <label for="meta_title">Meta title <span class="label-hint">— 50-60 caracteres recomendado</span></label>
+            <input type="text" id="meta_title" name="meta_title"
+              value="<?php echo htmlspecialchars($pro['meta_title']); ?>"
+              placeholder="Ej: Cambio de termo 80 litros en Elda — Hidrofont"
+              oninput="contarChars(this, 'count-title', 60); actualizarPreview()">
+            <span class="char-count" id="count-title"><?php echo strlen($pro['meta_title']); ?>/60</span>
+          </div>
+
+          <div class="form-group full">
+            <label for="meta_desc">Meta description <span class="label-hint">— 140-160 caracteres recomendado</span></label>
+            <textarea id="meta_desc" name="meta_desc" rows="3"
+              placeholder="Descripción para Google. Incluye zona, servicio y resultado."
+              oninput="contarChars(this, 'count-desc', 160); actualizarPreview()"
+            ><?php echo htmlspecialchars($pro['meta_desc']); ?></textarea>
+            <span class="char-count" id="count-desc"><?php echo strlen($pro['meta_desc']); ?>/160</span>
+          </div>
+
+          <!-- PREVIEW GOOGLE -->
+          <div class="form-group full">
+            <div class="google-preview">
+              <p class="google-preview-label">Vista previa en Google</p>
+              <p class="gp-url">hidrofont.es › proyectos › <span id="gp-slug"><?php echo htmlspecialchars($pro['slug'] ?: 'tu-slug'); ?></span></p>
+              <p class="gp-title" id="gp-title"><?php echo htmlspecialchars($pro['meta_title'] ?: $pro['titulo'] ?: 'Título del proyecto'); ?></p>
+              <p class="gp-desc" id="gp-desc"><?php echo htmlspecialchars($pro['meta_desc'] ?: 'Descripción del proyecto que aparecerá en los resultados de búsqueda de Google...'); ?></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PUBLICAR -->
+      <div class="form-section">
+        <h2>Publicación</h2>
+        <div class="check-wrap" style="margin-bottom:1.5rem">
+          <input type="checkbox" id="publicado" name="publicado" <?php echo $pro['publicado'] ? 'checked' : ''; ?>>
+          <label for="publicado">Publicar proyecto (visible en la web)</label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-save">
+            <?php echo $editando ? 'Guardar cambios' : 'Crear proyecto'; ?>
+          </button>
+          <?php if ($editando && $pro['slug']): ?>
+            <a href="../proyectos/<?php echo urlencode($pro['slug']); ?>" target="_blank" class="btn-preview">
+              Ver proyecto →
+            </a>
+          <?php endif; ?>
+        </div>
+      </div>
+
+    </div>
+  </form>
+
+</main>
+
+<script>
+function generarSlug(titulo) {
+  const map = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','ñ':'n','ü':'u','Á':'a','É':'e','Í':'i','Ó':'o','Ú':'u','Ñ':'n'};
+  let slug = titulo.toLowerCase()
+    .replace(/[áéíóúñüÁÉÍÓÚÑ]/g, m => map[m] || m)
+    .replace(/[^a-z0-9\s\-]/g, '')
+    .trim().replace(/\s+/g, '-').replace(/-+/g, '-');
+  document.getElementById('slug').value = slug;
+  document.getElementById('slug-preview').textContent = 'hidrofont.es/proyectos/' + (slug || 'tu-slug-aqui');
+}
+
+document.getElementById('slug').addEventListener('input', function() {
+  document.getElementById('slug-preview').textContent = 'hidrofont.es/proyectos/' + (this.value || 'tu-slug-aqui');
+  actualizarPreview();
+});
+
+function contarChars(el, countId, max) {
+  const len  = el.value.length;
+  const span = document.getElementById(countId);
+  span.textContent = len + '/' + max;
+  span.className   = 'char-count ' + (len > max ? 'warn' : 'ok');
+}
+
+function actualizarPreview() {
+  const titulo = document.getElementById('meta_title').value ||
+                 document.getElementById('titulo').value ||
+                 'Título del proyecto';
+  const desc   = document.getElementById('meta_desc').value ||
+                 'Descripción del proyecto que aparecerá en los resultados de búsqueda de Google...';
+  const slug   = document.getElementById('slug').value || 'tu-slug';
+
+  const gpTitle = document.getElementById('gp-title');
+  const gpDesc  = document.getElementById('gp-desc');
+  const gpSlug  = document.getElementById('gp-slug');
+
+  gpTitle.textContent = titulo.length > 60 ? titulo.substring(0, 60) + '...' : titulo;
+  gpDesc.textContent  = desc.length > 160  ? desc.substring(0, 160)  + '...' : desc;
+  gpSlug.textContent  = slug;
+
+  gpTitle.className = 'gp-title' + (document.getElementById('meta_title').value.length > 60 ? ' warn' : '');
+  gpDesc.className  = 'gp-desc'  + (document.getElementById('meta_desc').value.length  > 160 ? ' warn' : '');
+}
+
+function previsualizarImagen(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const preview = document.getElementById('imagen-preview');
+      const img     = document.getElementById('imagen-preview-img');
+      img.src = e.target.result;
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+const uploadArea = document.getElementById('upload-area');
+uploadArea.addEventListener('dragover',  e => { e.preventDefault(); uploadArea.classList.add('drag'); });
+uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag'));
+uploadArea.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadArea.classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) {
+    const input = document.getElementById('imagen_file');
+    const dt    = new DataTransfer();
+    dt.items.add(file);
+    input.files = dt.files;
+    previsualizarImagen(input);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const title = document.getElementById('meta_title');
+  const desc  = document.getElementById('meta_desc');
+  if (title.value) contarChars(title, 'count-title', 60);
+  if (desc.value)  contarChars(desc,  'count-desc',  160);
+  actualizarPreview();
+});
+</script>
+
+</body>
+</html>

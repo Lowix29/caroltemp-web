@@ -1,0 +1,17 @@
+{
+  "name": "Hidrofont",
+  "short_name": "Hidrofont",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#062b63",
+  "background_color": "#062b63",
+
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48 64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

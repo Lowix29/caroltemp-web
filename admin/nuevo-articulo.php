@@ -1,0 +1,482 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
+  header('Location: login.php');
+  exit;
+}
+require_once '../includes/db.php';
+
+$mensaje = '';
+$error   = '';
+$art     = [
+  'id'        => '',
+  'titulo'    => '',
+  'slug'      => '',
+  'extracto'  => '',
+  'contenido' => '',
+  'imagen'    => '',
+  'zona'      => '',
+  'categoria' => '',
+  'meta_title'=> '',
+  'meta_desc' => '',
+  'publicado' => 0,
+];
+
+$editando = false;
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+  $stmt = $pdo->prepare('SELECT * FROM articulos WHERE id = ? LIMIT 1');
+  $stmt->execute([$_GET['id']]);
+  $found = $stmt->fetch();
+  if ($found) {
+    $art      = $found;
+    $editando = true;
+  }
+}
+
+// SUBIDA DE IMAGEN
+function subirImagen($file, $carpeta) {
+  $permitidos = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+  if (!in_array($file['type'], $permitidos)) {
+    return ['error' => 'Formato no permitido. Usa JPG, PNG, WebP o GIF.'];
+  }
+  if ($file['size'] > 3 * 1024 * 1024) {
+    return ['error' => 'La imagen no puede superar 3MB.'];
+  }
+  $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
+  $nombre   = uniqid('img_') . '.' . strtolower($ext);
+  $ruta_abs = dirname(__DIR__) . '/img/' . $carpeta . '/' . $nombre;
+  $ruta_web = '/img/' . $carpeta . '/' . $nombre;
+  if (!move_uploaded_file($file['tmp_name'], $ruta_abs)) {
+    return ['error' => 'Error al guardar la imagen.'];
+  }
+  return ['ruta' => $ruta_web];
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $titulo     = trim($_POST['titulo']     ?? '');
+  $slug       = trim($_POST['slug']       ?? '');
+  $extracto   = trim($_POST['extracto']   ?? '');
+  $contenido  = trim($_POST['contenido']  ?? '');
+  $imagen     = trim($_POST['imagen']     ?? '');
+  $zona       = trim($_POST['zona']       ?? '');
+  $categoria  = trim($_POST['categoria']  ?? '');
+  $meta_title = trim($_POST['meta_title'] ?? '');
+  $meta_desc  = trim($_POST['meta_desc']  ?? '');
+  $publicado  = isset($_POST['publicado']) ? 1 : 0;
+
+  // Subida de imagen si hay archivo
+  if (!empty($_FILES['imagen_file']['name'])) {
+    $resultado = subirImagen($_FILES['imagen_file'], 'blog');
+    if (isset($resultado['error'])) {
+      $error = $resultado['error'];
+    } else {
+      $imagen = $resultado['ruta'];
+    }
+  }
+
+  // Generar slug automático
+  if (!$slug && $titulo) {
+    $slug = strtolower($titulo);
+    $slug = str_replace(
+      ['á','é','í','ó','ú','ñ','ü',' '],
+      ['a','e','i','o','u','n','u','-'],
+      $slug
+    );
+    $slug = preg_replace('/[^a-z0-9\-]/', '', $slug);
+    $slug = preg_replace('/-+/', '-', $slug);
+    $slug = trim($slug, '-');
+  }
+
+  if (!$error) {
+    if (!$titulo || !$slug || !$extracto || !$contenido) {
+      $error = 'Título, slug, extracto y contenido son obligatorios.';
+    } else {
+      try {
+        if ($editando) {
+          $stmt = $pdo->prepare('
+            UPDATE articulos SET
+              titulo=?, slug=?, extracto=?, contenido=?,
+              imagen=?, zona=?, categoria=?,
+              meta_title=?, meta_desc=?, publicado=?
+            WHERE id=?
+          ');
+          $stmt->execute([
+            $titulo, $slug, $extracto, $contenido,
+            $imagen, $zona, $categoria,
+            $meta_title, $meta_desc, $publicado,
+            $art['id']
+          ]);
+          $mensaje = '✅ Artículo actualizado correctamente.';
+          $stmt = $pdo->prepare('SELECT * FROM articulos WHERE id = ? LIMIT 1');
+          $stmt->execute([$art['id']]);
+          $art = $stmt->fetch();
+        } else {
+          $stmt = $pdo->prepare('
+            INSERT INTO articulos
+              (titulo, slug, extracto, contenido, imagen, zona, categoria, meta_title, meta_desc, publicado)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          ');
+          $stmt->execute([
+            $titulo, $slug, $extracto, $contenido,
+            $imagen, $zona, $categoria,
+            $meta_title, $meta_desc, $publicado
+          ]);
+          $newId = $pdo->lastInsertId();
+          header('Location: nuevo-articulo.php?id=' . $newId . '&ok=1');
+          exit;
+        }
+      } catch (PDOException $e) {
+        $error = 'Error al guardar. El slug puede estar duplicado.';
+      }
+    }
+  }
+
+  // Mantener valores en el form si hay error
+  if ($error) {
+    $art = array_merge($art, [
+      'titulo'    => $titulo,
+      'slug'      => $slug,
+      'extracto'  => $extracto,
+      'contenido' => $contenido,
+      'imagen'    => $imagen,
+      'zona'      => $zona,
+      'categoria' => $categoria,
+      'meta_title'=> $meta_title,
+      'meta_desc' => $meta_desc,
+      'publicado' => $publicado,
+    ]);
+  }
+}
+
+if (isset($_GET['ok'])) $mensaje = '✅ Artículo creado correctamente.';
+
+$zonas      = ['Elda','Petrer','Novelda','Monóvar','Sax','Pinoso','Monforte del Cid','Salinas','General'];
+$categorias = $pdo->query('SELECT nombre FROM categorias_blog ORDER BY orden ASC')->fetchAll(PDO::FETCH_COLUMN);
+?><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo $editando ? 'Editar artículo' : 'Nuevo artículo'; ?> — Hidrofont Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <?php include '../includes/admin_style.php'; ?>
+  <style>
+    .google-preview { background: #fff; border: 1px solid #dde6f0; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1.25rem; }
+    .google-preview-label { font-size: 11px; color: #7a95b0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+    .gp-url { color: #006621; font-size: 13px; margin-bottom: 3px; }
+    .gp-title { color: #1a0dab; font-size: 18px; font-weight: 400; line-height: 1.3; margin-bottom: 4px; cursor: pointer; }
+    .gp-title:hover { text-decoration: underline; }
+    .gp-desc { color: #545454; font-size: 13px; line-height: 1.55; }
+    .gp-title.warn { color: #e74c3c; }
+    .gp-desc.warn  { color: #e74c3c; }
+    .upload-area { border: 2px dashed #dde6f0; border-radius: 8px; padding: 2rem; text-align: center; cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+    .upload-area:hover, .upload-area.drag { border-color: #1e3a5f; background: #f4f7fb; }
+    .upload-area input[type="file"] { display: none; }
+    .upload-area-ico { font-size: 32px; margin-bottom: 0.5rem; }
+    .upload-area-txt { color: #7a95b0; font-size: 13.5px; }
+    .upload-area-txt strong { color: #1e3a5f; }
+    .imagen-preview { margin-top: 1rem; display: none; }
+    .imagen-preview img { max-width: 100%; max-height: 200px; border-radius: 8px; border: 1px solid #dde6f0; object-fit: cover; }
+    .imagen-preview-actual { margin-top: 0.5rem; }
+    .imagen-preview-actual img { max-width: 100%; max-height: 160px; border-radius: 8px; border: 1px solid #dde6f0; object-fit: cover; }
+  </style>
+  <script src="https://cdn.tiny.cloud/1/3eywuy73k0uzt30wiafptfr0tdx5iudt46gbkusw5kr5mjk2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+tinymce.init({
+  selector: '#contenido',
+  language: 'es',
+  height: 500,
+  menubar: false,
+  plugins: 'lists link image media table code wordcount',
+  toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist | link image | table | code',
+  images_upload_url: '/admin/upload-imagen.php',
+  images_upload_handler: function(blobInfo, progress) {
+    return new Promise(function(resolve, reject) {
+      var fd = new FormData();
+      fd.append('image', blobInfo.blob(), blobInfo.filename());
+      fetch('/admin/upload-imagen.php', {
+        method: 'POST',
+        body: fd
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.success) resolve(data.file.url);
+        else reject(data.error);
+      })
+      .catch(() => reject('Error al subir la imagen'));
+    });
+  },
+  content_style: 'body { font-family: Outfit, sans-serif; font-size: 15px; line-height: 1.8; color: #475569; max-width: 100%; }',
+  block_formats: 'Párrafo=p; Título H2=h2; Título H3=h3; Título H4=h4',
+  skin: 'oxide',
+  content_css: 'default'
+});
+</script>
+</head>
+<body>
+
+<?php include '../includes/admin_sidebar.php'; ?>
+
+<main class="main">
+
+  <div class="topbar">
+    <h1><?php echo $editando ? 'Editar artículo' : 'Nuevo artículo'; ?></h1>
+    <a href="articulos.php">← Volver a artículos</a>
+  </div>
+
+  <?php if ($mensaje): ?>
+    <div class="mensaje"><?php echo $mensaje; ?></div>
+  <?php endif; ?>
+  <?php if ($error): ?>
+    <div class="error-msg"><?php echo htmlspecialchars($error); ?></div>
+  <?php endif; ?>
+
+  <form method="POST" action="" enctype="multipart/form-data">
+    <div class="card">
+
+      <!-- CONTENIDO -->
+      <div class="form-section">
+        <h2>Contenido</h2>
+        <div class="form-grid">
+
+          <div class="form-group full">
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo"
+              value="<?php echo htmlspecialchars($art['titulo']); ?>"
+              placeholder="Ej: Cuánto cuesta cambiar un grifo en Elda"
+              required oninput="generarSlug(this.value); actualizarPreview()">
+          </div>
+
+          <div class="form-group full">
+            <label for="slug">Slug (URL) <span class="label-hint">— se genera automáticamente</span></label>
+            <input type="text" id="slug" name="slug"
+              value="<?php echo htmlspecialchars($art['slug']); ?>"
+              placeholder="cuanto-cuesta-cambiar-grifo-elda"
+              oninput="actualizarPreview()">
+            <span class="slug-preview" id="slug-preview">
+              hidrofont.es/blog/<?php echo htmlspecialchars($art['slug'] ?: 'tu-slug-aqui'); ?>
+            </span>
+          </div>
+
+          <div class="form-group full">
+            <label for="extracto">Extracto</label>
+            <textarea id="extracto" name="extracto" rows="3"
+              placeholder="Breve descripción del artículo (2-3 frases)..."
+            ><?php echo htmlspecialchars($art['extracto']); ?></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label for="contenido">Contenido <span class="label-hint">— puedes usar HTML básico</span></label>
+            <textarea id="contenido" name="contenido" class="grande"
+              placeholder="Contenido completo. Puedes usar: <h2>, <p>, <ul>, <li>, <strong>..."
+            ><?php echo htmlspecialchars($art['contenido']); ?></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="form-section">
+        <h2>Imagen destacada</h2>
+
+        <?php if ($art['imagen']): ?>
+          <div class="imagen-preview-actual">
+            <p style="font-size:12px;color:#7a95b0;margin-bottom:0.5rem">Imagen actual:</p>
+            <img src="<?php echo htmlspecialchars($art['imagen']); ?>" alt="Imagen actual">
+          </div>
+          <p style="font-size:12px;color:#7a95b0;margin:0.75rem 0">Sube una nueva imagen para reemplazarla, o mantén la actual.</p>
+        <?php endif; ?>
+
+        <div class="upload-area" id="upload-area" onclick="document.getElementById('imagen_file').click()">
+          <input type="file" id="imagen_file" name="imagen_file" accept="image/*" onchange="previsualizarImagen(this)">
+          <div class="upload-area-ico">🖼️</div>
+          <p class="upload-area-txt"><strong>Haz clic para subir</strong> o arrastra una imagen aquí</p>
+          <p class="upload-area-txt" style="font-size:12px;margin-top:4px">JPG, PNG, WebP · Máx. 3MB</p>
+        </div>
+
+        <div class="imagen-preview" id="imagen-preview">
+          <img id="imagen-preview-img" src="" alt="Preview">
+        </div>
+
+        <div class="form-group" style="margin-top:1rem">
+          <label for="imagen">O introduce la URL de la imagen manualmente</label>
+          <input type="text" id="imagen" name="imagen"
+            value="<?php echo htmlspecialchars($art['imagen']); ?>"
+            placeholder="/img/blog/nombre-imagen.webp">
+        </div>
+      </div>
+
+      <!-- CLASIFICACIÓN -->
+      <div class="form-section">
+        <h2>Clasificación</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="zona">Zona</label>
+            <select id="zona" name="zona">
+              <option value="">Sin zona específica</option>
+              <?php foreach ($zonas as $z): ?>
+                <option value="<?php echo $z; ?>" <?php echo $art['zona'] === $z ? 'selected' : ''; ?>><?php echo $z; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria">
+              <option value="">Sin categoría</option>
+              <?php foreach ($categorias as $c): ?>
+                <option value="<?php echo $c; ?>" <?php echo $art['categoria'] === $c ? 'selected' : ''; ?>><?php echo $c; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO -->
+      <div class="form-section">
+        <h2>SEO</h2>
+        <div class="form-grid">
+
+          <div class="form-group full">
+            <label for="meta_title">Meta title <span class="label-hint">— 50-60 caracteres recomendado</span></label>
+            <input type="text" id="meta_title" name="meta_title"
+              value="<?php echo htmlspecialchars($art['meta_title']); ?>"
+              placeholder="Ej: Cuánto cuesta cambiar un grifo en Elda — Hidrofont"
+              oninput="contarChars(this, 'count-title', 60); actualizarPreview()">
+            <span class="char-count" id="count-title"><?php echo strlen($art['meta_title']); ?>/60</span>
+          </div>
+
+          <div class="form-group full">
+            <label for="meta_desc">Meta description <span class="label-hint">— 140-160 caracteres recomendado</span></label>
+            <textarea id="meta_desc" name="meta_desc" rows="3"
+              placeholder="Descripción que aparece en Google. Incluye zona y servicio."
+              oninput="contarChars(this, 'count-desc', 160); actualizarPreview()"
+            ><?php echo htmlspecialchars($art['meta_desc']); ?></textarea>
+            <span class="char-count" id="count-desc"><?php echo strlen($art['meta_desc']); ?>/160</span>
+          </div>
+
+          <!-- PREVIEW GOOGLE -->
+          <div class="form-group full">
+            <div class="google-preview">
+              <p class="google-preview-label">Vista previa en Google</p>
+              <p class="gp-url">hidrofont.es › blog › <span id="gp-slug"><?php echo htmlspecialchars($art['slug'] ?: 'tu-slug'); ?></span></p>
+              <p class="gp-title" id="gp-title"><?php echo htmlspecialchars($art['meta_title'] ?: $art['titulo'] ?: 'Título del artículo'); ?></p>
+              <p class="gp-desc" id="gp-desc"><?php echo htmlspecialchars($art['meta_desc'] ?: 'Descripción del artículo que aparecerá en los resultados de búsqueda de Google...'); ?></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PUBLICAR -->
+      <div class="form-section">
+        <h2>Publicación</h2>
+        <div class="check-wrap" style="margin-bottom:1.5rem">
+          <input type="checkbox" id="publicado" name="publicado" <?php echo $art['publicado'] ? 'checked' : ''; ?>>
+          <label for="publicado">Publicar artículo (visible en la web)</label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-save">
+            <?php echo $editando ? 'Guardar cambios' : 'Crear artículo'; ?>
+          </button>
+          <?php if ($editando && $art['slug']): ?>
+            <a href="../blog/articulo.php?slug=<?php echo urlencode($art['slug']); ?>" target="_blank" class="btn-preview">
+              Ver artículo →
+            </a>
+          <?php endif; ?>
+        </div>
+      </div>
+
+    </div>
+  </form>
+
+</main>
+
+<script>
+// Slug automático
+function generarSlug(titulo) {
+  const map = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','ñ':'n','ü':'u','Á':'a','É':'e','Í':'i','Ó':'o','Ú':'u','Ñ':'n'};
+  let slug = titulo.toLowerCase()
+    .replace(/[áéíóúñüÁÉÍÓÚÑ]/g, m => map[m] || m)
+    .replace(/[^a-z0-9\s\-]/g, '')
+    .trim().replace(/\s+/g, '-').replace(/-+/g, '-');
+  document.getElementById('slug').value = slug;
+  document.getElementById('slug-preview').textContent = 'hidrofont.es/blog/' + (slug || 'tu-slug-aqui');
+}
+
+document.getElementById('slug').addEventListener('input', function() {
+  document.getElementById('slug-preview').textContent = 'hidrofont.es/blog/' + (this.value || 'tu-slug-aqui');
+  actualizarPreview();
+});
+
+// Contador caracteres
+function contarChars(el, countId, max) {
+  const len  = el.value.length;
+  const span = document.getElementById(countId);
+  span.textContent  = len + '/' + max;
+  span.className    = 'char-count ' + (len > max ? 'warn' : 'ok');
+}
+
+// Preview Google
+function actualizarPreview() {
+  const titulo = document.getElementById('meta_title').value ||
+                 document.getElementById('titulo').value ||
+                 'Título del artículo';
+  const desc   = document.getElementById('meta_desc').value ||
+                 'Descripción del artículo que aparecerá en los resultados de búsqueda de Google...';
+  const slug   = document.getElementById('slug').value || 'tu-slug';
+
+  const gpTitle = document.getElementById('gp-title');
+  const gpDesc  = document.getElementById('gp-desc');
+  const gpSlug  = document.getElementById('gp-slug');
+
+  gpTitle.textContent = titulo.length > 60 ? titulo.substring(0, 60) + '...' : titulo;
+  gpDesc.textContent  = desc.length > 160  ? desc.substring(0, 160) + '...'  : desc;
+  gpSlug.textContent  = slug;
+
+  gpTitle.className = 'gp-title' + (document.getElementById('meta_title').value.length > 60 ? ' warn' : '');
+  gpDesc.className  = 'gp-desc'  + (document.getElementById('meta_desc').value.length  > 160 ? ' warn' : '');
+}
+
+// Subida imagen — preview
+function previsualizarImagen(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const preview = document.getElementById('imagen-preview');
+      const img     = document.getElementById('imagen-preview-img');
+      img.src = e.target.result;
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+// Drag & drop
+const uploadArea = document.getElementById('upload-area');
+uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('drag'); });
+uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag'));
+uploadArea.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadArea.classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) {
+    const input = document.getElementById('imagen_file');
+    const dt    = new DataTransfer();
+    dt.items.add(file);
+    input.files = dt.files;
+    previsualizarImagen(input);
+  }
+});
+
+// Inicializar
+document.addEventListener('DOMContentLoaded', function() {
+  const title = document.getElementById('meta_title');
+  const desc  = document.getElementById('meta_desc');
+  if (title.value) contarChars(title, 'count-title', 60);
+  if (desc.value)  contarChars(desc,  'count-desc',  160);
+  actualizarPreview();
+});
+</script>
+
+</body>
+</html>

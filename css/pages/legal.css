@@ -1,0 +1,116 @@
+/* ================================
+   HIDROFONT — Legal CSS
+================================ */
+
+.legal-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.legal-bloque {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.legal-bloque:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.legal-bloque h2 {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.legal-bloque p {
+  color: var(--color-text-body);
+  font-size: 14.5px;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.legal-bloque p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-bloque ul {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal-bloque ul li {
+  color: var(--color-text-body);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.legal-bloque a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.legal-bloque a:hover {
+  opacity: 0.75;
+}
+
+/* TABLA COOKIES */
+.cookies-tabla {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.cookies-fila {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 2fr;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cookies-fila:last-child {
+  border-bottom: none;
+}
+
+.cookies-fila span {
+  padding: 0.75rem 1rem;
+  font-size: 13.5px;
+  color: var(--color-text-body);
+  border-right: 1px solid var(--color-border);
+  line-height: 1.5;
+}
+
+.cookies-fila span:last-child {
+  border-right: none;
+}
+
+.cookies-cabecera {
+  background: var(--color-bg-soft);
+}
+
+.cookies-cabecera span {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .cookies-fila {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cookies-fila span:nth-child(3),
+  .cookies-cabecera span:nth-child(3) {
+    display: none;
+  }
+}
