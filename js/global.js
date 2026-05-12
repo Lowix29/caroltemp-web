@@ -6,40 +6,29 @@
    MENÚ MÓVIL
 -------------------------------- */
 function toggleMenu(btn) {
-  const menu = document.getElementById('nav-mobile');
-  const isOpen = menu.classList.contains('open');
+  const menu    = document.getElementById('nav-mobile');
+  const overlay = document.getElementById('nav-overlay');
+  const isOpen  = menu.classList.contains('open');
 
   menu.classList.toggle('open');
-  btn.setAttribute('aria-expanded', !isOpen);
+  if (overlay) overlay.classList.toggle('open');
+  btn.classList.toggle('open');
+  btn.setAttribute('aria-expanded', String(!isOpen));
   btn.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
 
-  // Animación hamburguesa → X
-  const spans = btn.querySelectorAll('span');
-  if (!isOpen) {
-    spans[0].style.transform = 'translateY(7px) rotate(45deg)';
-    spans[1].style.opacity   = '0';
-    spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-  } else {
-    spans[0].style.transform = '';
-    spans[1].style.opacity   = '';
-    spans[2].style.transform = '';
-  }
+  // Bloquear scroll del body cuando menú está abierto
+  document.body.style.overflow = isOpen ? '' : 'hidden';
 }
 
-// Cerrar menú al hacer clic fuera
+// Cerrar menú al hacer clic fuera (fallback)
 document.addEventListener('click', function(e) {
   const nav    = document.querySelector('.nav');
-  const toggle = document.querySelector('.nav-toggle');
   const menu   = document.getElementById('nav-mobile');
+  const overlay = document.getElementById('nav-overlay');
 
-  if (!nav.contains(e.target) && menu.classList.contains('open')) {
-    menu.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Abrir menú');
-    toggle.querySelectorAll('span').forEach(s => {
-      s.style.transform = '';
-      s.style.opacity   = '';
-    });
+  if (nav && !nav.contains(e.target) && overlay && !overlay.contains(e.target) && menu && menu.classList.contains('open')) {
+    if (typeof closeNavMobile === 'function') closeNavMobile();
+    document.body.style.overflow = '';
   }
 });
 
