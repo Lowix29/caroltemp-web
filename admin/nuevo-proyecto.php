@@ -183,7 +183,14 @@ tinymce.init({
   height: 500,
   menubar: false,
   plugins: 'lists link image media table code wordcount',
-  toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist | link image | table | code',
+  toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist | link image | table | code | bloques',
+  setup: function(editor) {
+    editor.ui.registry.addButton('bloques', {
+      text: '🧱 Bloques',
+      tooltip: 'Insertar bloque de diseño',
+      onAction: function() { abrirModalBloques(); }
+    });
+  },
   images_upload_handler: function(blobInfo, progress) {
     return new Promise(function(resolve, reject) {
       var fd = new FormData();
@@ -381,6 +388,8 @@ tinymce.init({
   </form>
 
 </main>
+
+<?php include 'bloques-modal.php'; ?>
 
 <script>
 function generarSlug(titulo) {
