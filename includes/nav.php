@@ -14,6 +14,7 @@
 
     <!-- LINKS DESKTOP -->
     <nav class="nav-links" aria-label="Navegación principal">
+      <div class="nav-links-group">
 
       <div class="nav-item">
         <button class="nav-link nav-link-pill" type="button">
@@ -70,6 +71,7 @@
       <a href="<?php echo $base_url; ?>zonas" class="nav-link">Zonas</a>
       <a href="<?php echo $base_url; ?>proyectos/" class="nav-link">Proyectos</a>
       <a href="<?php echo $base_url; ?>blog/" class="nav-link">Blog</a>
+      </div><!-- /nav-links-group -->
     </nav>
 
     <!-- CTAs DESKTOP -->

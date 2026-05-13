@@ -13,11 +13,12 @@
 .nav-logo img{height:36px;width:auto;display:block}
 
 /* DESKTOP LINKS — hidden en mobile */
-.nav-links{display:none;align-items:center;gap:2px;flex:1;justify-content:center}
-.nav-link{padding:8px 15px;border-radius:100px;font-size:14px;font-weight:500;color:#0B2447;text-decoration:none;background:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;transition:background .15s,color .15s,border-color .15s;line-height:1}
-.nav-link:hover{background:#EEF4FF;color:#1976D2}
-.nav-link-pill{border:1.5px solid #D6E2F0}
-.nav-link-pill:hover{border-color:#1976D2}
+.nav-links{display:none;align-items:center;flex:1;justify-content:center}
+/* Contenedor agrupado — cápsula gris igual que ContaSimple */
+.nav-links-group{display:flex;align-items:center;gap:2px;background:#F1F3F5;border-radius:100px;padding:4px}
+.nav-link{padding:8px 15px;border-radius:100px;font-size:14px;font-weight:500;color:#0B2447;text-decoration:none;background:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;transition:background .15s,color .15s;line-height:1}
+.nav-link:hover{background:#fff;color:#1976D2;box-shadow:0 1px 4px rgba(11,36,71,.08)}
+.nav-link-pill{background:none}
 .nav-chevron{width:10px;height:10px;transition:transform .2s;flex-shrink:0}
 .nav-item:hover .nav-chevron{transform:rotate(180deg)}
 
