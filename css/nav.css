@@ -23,8 +23,10 @@
 
 /* DROPDOWN */
 .nav-item{position:relative}
-.nav-drop-panel{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);background:#fff;border:1px solid #E8EFF8;border-radius:16px;box-shadow:0 8px 32px rgba(11,36,71,.13);padding:8px;min-width:240px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:200}
-.nav-item:hover .nav-drop-panel{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav-drop-panel{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #E8EFF8;border-radius:16px;box-shadow:0 8px 32px rgba(11,36,71,.13);padding:8px;padding-top:16px;min-width:240px;opacity:0;pointer-events:none;transition:opacity .18s;z-index:200;margin-top:8px}
+/* Puente invisible que cubre el hueco entre botón y panel */
+.nav-drop-panel::before{content:'';position:absolute;top:-16px;left:0;right:0;height:16px}
+.nav-item:hover .nav-drop-panel{opacity:1;pointer-events:all}
 .nav-drop-item{display:flex;flex-direction:column;gap:2px;padding:10px 14px;color:#0B2447;font-size:14px;font-weight:500;text-decoration:none;border-radius:10px;transition:background .15s}
 .nav-drop-item small{color:#8FA3B8;font-size:12px;font-weight:400}
 .nav-drop-item:hover{background:#EEF4FF;color:#1976D2}
