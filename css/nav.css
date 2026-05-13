@@ -56,6 +56,18 @@
 .nav-panel-link{display:flex;align-items:center;justify-content:space-between;padding:17px 20px;color:#0B2447;font-size:16px;font-weight:500;text-decoration:none;border-bottom:1px solid #F5F8FC;transition:background .12s}
 .nav-panel-link:hover{background:#F5F8FC}
 .nav-panel-arrow{color:#B0C4D8;font-size:20px}
+
+/* ACORDEÓN MÓVIL */
+.nav-acc-item{border-bottom:1px solid #F5F8FC}
+.nav-acc-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:17px 20px;color:#0B2447;font-size:16px;font-weight:500;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s}
+.nav-acc-btn:hover{background:#F5F8FC}
+.nav-acc-chevron{width:18px;height:18px;flex-shrink:0;transition:transform .22s;color:#B0C4D8}
+.nav-acc-item.open .nav-acc-chevron{transform:rotate(180deg)}
+.nav-acc-body{display:none;background:#F7F9FC;border-top:1px solid #EEF2F7}
+.nav-acc-item.open .nav-acc-body{display:block}
+.nav-acc-link{display:block;padding:13px 28px;color:#576574;font-size:14px;font-weight:500;text-decoration:none;border-bottom:1px solid #EEF2F7;transition:background .12s,color .12s}
+.nav-acc-link:last-child{border-bottom:none}
+.nav-acc-link:hover{background:#EEF4FF;color:#1976D2}
 .nav-panel-foot{padding:16px 20px;display:flex;flex-direction:column;gap:10px;border-top:1px solid #E8EFF8;background:#FAFCFF;flex-shrink:0}
 .btn-mob-call{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px;border-radius:100px;background:#0B2447;color:#fff;font-size:15px;font-weight:700;text-decoration:none}
 .btn-mob-wa{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px;border-radius:100px;background:#25D366;color:#fff;font-size:15px;font-weight:700;text-decoration:none}

@@ -98,9 +98,62 @@
     </div>
 
     <div class="nav-panel-body">
-      <a href="<?php echo $base_url; ?>fontanero/" class="nav-panel-link">Fontanería <span class="nav-panel-arrow">›</span></a>
-      <a href="<?php echo $base_url; ?>fugas/" class="nav-panel-link">Detección de fugas <span class="nav-panel-arrow">›</span></a>
-      <a href="<?php echo $base_url; ?>desatascos/" class="nav-panel-link">Desatascos <span class="nav-panel-arrow">›</span></a>
+
+      <!-- Acordeón: Fontanería -->
+      <div class="nav-acc-item">
+        <button class="nav-acc-btn" type="button">
+          Fontanería
+          <svg class="nav-acc-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-acc-body">
+          <a href="<?php echo $base_url; ?>fontanero/fontanero-elda" class="nav-acc-link">Fontanero en Elda</a>
+          <a href="<?php echo $base_url; ?>fontanero/fontanero-petrer" class="nav-acc-link">Fontanero en Petrer</a>
+          <a href="<?php echo $base_url; ?>fontanero/fontanero-novelda" class="nav-acc-link">Fontanero en Novelda</a>
+          <a href="<?php echo $base_url; ?>fontanero/fontanero-monovar" class="nav-acc-link">Fontanero en Monóvar</a>
+          <a href="<?php echo $base_url; ?>fontanero/fontanero-sax" class="nav-acc-link">Fontanero en Sax</a>
+          <a href="<?php echo $base_url; ?>fontanero/fontanero-pinoso" class="nav-acc-link">Fontanero en Pinoso</a>
+          <a href="<?php echo $base_url; ?>fontanero/fontanero-monforte" class="nav-acc-link">Fontanero en Monforte</a>
+          <a href="<?php echo $base_url; ?>fontanero/fontanero-salinas" class="nav-acc-link">Fontanero en Salinas</a>
+        </div>
+      </div>
+
+      <!-- Acordeón: Fugas -->
+      <div class="nav-acc-item">
+        <button class="nav-acc-btn" type="button">
+          Detección de fugas
+          <svg class="nav-acc-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-acc-body">
+          <a href="<?php echo $base_url; ?>fugas/deteccion-fugas-elda" class="nav-acc-link">Fugas en Elda</a>
+          <a href="<?php echo $base_url; ?>fugas/deteccion-fugas-petrer" class="nav-acc-link">Fugas en Petrer</a>
+          <a href="<?php echo $base_url; ?>fugas/deteccion-fugas-novelda" class="nav-acc-link">Fugas en Novelda</a>
+          <a href="<?php echo $base_url; ?>fugas/deteccion-fugas-monovar" class="nav-acc-link">Fugas en Monóvar</a>
+          <a href="<?php echo $base_url; ?>fugas/deteccion-fugas-sax" class="nav-acc-link">Fugas en Sax</a>
+          <a href="<?php echo $base_url; ?>fugas/deteccion-fugas-pinoso" class="nav-acc-link">Fugas en Pinoso</a>
+          <a href="<?php echo $base_url; ?>fugas/deteccion-fugas-monforte" class="nav-acc-link">Fugas en Monforte</a>
+          <a href="<?php echo $base_url; ?>fugas/deteccion-fugas-salinas" class="nav-acc-link">Fugas en Salinas</a>
+        </div>
+      </div>
+
+      <!-- Acordeón: Desatascos -->
+      <div class="nav-acc-item">
+        <button class="nav-acc-btn" type="button">
+          Desatascos
+          <svg class="nav-acc-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-acc-body">
+          <a href="<?php echo $base_url; ?>desatascos/desatascos-elda" class="nav-acc-link">Desatascos en Elda</a>
+          <a href="<?php echo $base_url; ?>desatascos/desatascos-petrer" class="nav-acc-link">Desatascos en Petrer</a>
+          <a href="<?php echo $base_url; ?>desatascos/desatascos-novelda" class="nav-acc-link">Desatascos en Novelda</a>
+          <a href="<?php echo $base_url; ?>desatascos/desatascos-monovar" class="nav-acc-link">Desatascos en Monóvar</a>
+          <a href="<?php echo $base_url; ?>desatascos/desatascos-sax" class="nav-acc-link">Desatascos en Sax</a>
+          <a href="<?php echo $base_url; ?>desatascos/desatascos-pinoso" class="nav-acc-link">Desatascos en Pinoso</a>
+          <a href="<?php echo $base_url; ?>desatascos/desatascos-monforte" class="nav-acc-link">Desatascos en Monforte</a>
+          <a href="<?php echo $base_url; ?>desatascos/desatascos-salinas" class="nav-acc-link">Desatascos en Salinas</a>
+        </div>
+      </div>
+
+      <!-- Links directos -->
       <a href="<?php echo $base_url; ?>servicios" class="nav-panel-link">Servicios <span class="nav-panel-arrow">›</span></a>
       <a href="<?php echo $base_url; ?>zonas" class="nav-panel-link">Zonas <span class="nav-panel-arrow">›</span></a>
       <a href="<?php echo $base_url; ?>proyectos/" class="nav-panel-link">Proyectos <span class="nav-panel-arrow">›</span></a>
@@ -150,6 +203,16 @@ document.addEventListener('DOMContentLoaded', function(){
   });
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape') closeMenu();
+  });
+
+  /* Acordeón móvil */
+  document.querySelectorAll('.nav-acc-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = this.closest('.nav-acc-item');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.nav-acc-item.open').forEach(function(i){ i.classList.remove('open'); });
+      if(!wasOpen) item.classList.add('open');
+    });
   });
 });
 </script>
