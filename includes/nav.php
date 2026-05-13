@@ -120,8 +120,8 @@
 
 <!-- BARRA INFERIOR MÓVIL -->
 <div class="sticky-bar" role="complementary">
-  <a href="tel:+34613429032" class="sticky-call">📞 Llamar</a>
-  <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="sticky-wa">💬 WhatsApp</a>
+  <a href="tel:+34613429032" class="sticky-call">📞 Urgencias 24h</a>
+  <a href="https://wa.me/34613429032?text=Hola,%20necesito%20un%20fontanero%20urgente" target="_blank" rel="noopener" class="sticky-wa">💬 WhatsApp</a>
 </div>
 
 <script>

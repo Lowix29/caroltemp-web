@@ -70,59 +70,66 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
+  gap: 8px;
   background: #1976D2;
   color: #fff;
-  padding: 16px 32px;
+  padding: 13px 26px;
   border-radius: 100px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  min-height: 54px;
-  box-shadow: 0 4px 20px rgba(25,118,210,.5);
-  transition: opacity .15s, box-shadow .15s;
+  min-height: 46px;
+  box-shadow: 0 4px 16px rgba(25,118,210,.45);
+  transition: opacity .15s;
 }
 .hero-btn-primary:hover { opacity:.9; }
 .hero-btn-wa {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  background: rgba(255,255,255,.15);
+  gap: 8px;
+  background: #25D366;
   color: #fff;
-  padding: 16px 32px;
+  padding: 13px 26px;
   border-radius: 100px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   text-decoration: none;
-  min-height: 54px;
-  border: 1.5px solid rgba(255,255,255,.4);
-  backdrop-filter: blur(8px);
-  transition: background .15s, border-color .15s;
+  min-height: 46px;
+  box-shadow: 0 4px 16px rgba(37,211,102,.4);
+  transition: opacity .15s;
 }
-.hero-btn-wa:hover { background: rgba(255,255,255,.25); border-color: rgba(255,255,255,.7); }
+.hero-btn-wa:hover { opacity:.9; }
 
 /* Trust badges */
 .hero-trust {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,.15);
-  width: 100%;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0;
+  justify-content: center;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 100px;
+  padding: 10px 20px;
+  width: auto;
+  max-width: 100%;
 }
 .hero-trust-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,.8);
-  font-size: 14px;
-  font-weight: 500;
+  gap: 7px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-right: 1px solid rgba(255,255,255,.2);
 }
+.hero-trust-item:last-child { border-right: none; }
 .hero-trust-icon {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   color: #4CAF50;
   flex-shrink: 0;
 }
@@ -197,11 +204,11 @@
 
 .sec-header {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   margin-bottom: 2.5rem;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .sec-link {
   color: var(--color-accent);
