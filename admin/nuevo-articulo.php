@@ -159,6 +159,21 @@ $categorias = $pdo->query('SELECT nombre FROM categorias_blog ORDER BY orden ASC
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $editando ? 'Editar artículo' : 'Nuevo artículo'; ?> — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
+  <!-- CSS web completo para preview de bloques -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages/home.css">
+  <link rel="stylesheet" href="../css/pages/blog.css">
+  <link rel="stylesheet" href="../css/pages/proyectos.css">
+  <link rel="stylesheet" href="../css/pages/servicios.css">
+  <link rel="stylesheet" href="../css/pages/financiacion.css">
+  <link rel="stylesheet" href="../css/pages/zonas.css">
+  <link rel="stylesheet" href="../css/pages/zona.css">
+  <link rel="stylesheet" href="../css/pages/servicio-ciudad.css">
+  <link rel="stylesheet" href="../css/pages/contacto.css">
+  <link rel="stylesheet" href="../css/pages/sobre.css">
+  <link rel="stylesheet" href="../css/pages/legal.css">
   <?php include '../includes/admin_style.php'; ?>
   <style>
     .google-preview { background: #fff; border: 1px solid #dde6f0; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1.25rem; }
