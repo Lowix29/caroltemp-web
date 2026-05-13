@@ -186,8 +186,8 @@ include 'includes/head.php';
 <section class="home-sec home-sec-dark" aria-labelledby="como-title">
   <div class="home-con">
     <p class="home-lbl home-lbl-light">Proceso de trabajo</p>
-    <h2 id="como-title" style="color:#fff">Así de fácil es <span class="hl">trabajar con nosotros</span></h2>
-    <p class="home-sub" style="color:rgba(255,255,255,.45)">Sin burocracia, sin esperas. Tres pasos y tu problema está resuelto.</p>
+    <h2 id="como-title">Así de fácil es <span class="hl">trabajar con nosotros</span></h2>
+    <p class="home-sub">Sin burocracia, sin esperas. Tres pasos y tu problema está resuelto.</p>
 
     <div class="pasos-grid">
       <div class="paso-card">
@@ -198,7 +198,7 @@ include 'includes/head.php';
         </div>
       </div>
       <div class="paso-sep" aria-hidden="true">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(11,36,71,.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
       <div class="paso-card">
         <div class="paso-num">2</div>
@@ -208,7 +208,7 @@ include 'includes/head.php';
         </div>
       </div>
       <div class="paso-sep" aria-hidden="true">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(11,36,71,.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
       <div class="paso-card">
         <div class="paso-num">3</div>
