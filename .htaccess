@@ -8,8 +8,8 @@ RewriteCond %{HTTP_HOST} !^localhost
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Forzar www a sin www
-RewriteCond %{HTTP_HOST} ^www\.hidrofont\.es [NC]
-RewriteRule ^(.*)$ https://hidrofont.es/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.caroltemp\.com [NC]
+RewriteRule ^(.*)$ https://caroltemp.com/$1 [L,R=301]
 
 # Redirigir .php a sin .php
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
@@ -27,11 +27,13 @@ RewriteRule ^proyectos/?$ proyectos/index.php [L]
 
 # URLs amigables blog
 RewriteRule ^blog/categoria/([^/]+)/?$ blog/index.php?categoria=$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^blog/([^/]+)/?$ blog/articulo.php?slug=$1 [QSA,L]
 
 # URLs amigables proyectos
 RewriteRule ^proyectos/servicio/([^/]+)/?$ proyectos/index.php?servicio=$1 [QSA,L]
 RewriteRule ^proyectos/zona/([^/]+)/?$ proyectos/index.php?zona=$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^proyectos/([^/]+)/?$ proyectos/proyecto.php?slug=$1 [QSA,L]
 
 # Quitar .php de las URLs (general — va al final)
