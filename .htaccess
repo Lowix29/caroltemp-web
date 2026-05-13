@@ -22,6 +22,8 @@ RewriteRule ^zonas/?$ zonas.php [L]
 RewriteRule ^fontanero/?$ fontanero/index.php [L]
 RewriteRule ^fugas/?$ fugas/index.php [L]
 RewriteRule ^desatascos/?$ desatascos/index.php [L]
+RewriteRule ^blog/?$ blog/index.php [L]
+RewriteRule ^proyectos/?$ proyectos/index.php [L]
 
 # URLs amigables blog
 RewriteRule ^blog/categoria/([^/]+)/?$ blog/index.php?categoria=$1 [QSA,L]

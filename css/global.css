@@ -223,29 +223,29 @@ p {
 
 /* ================================
    HERO OSCURO — Subpáginas (estilo ContaSimple card)
+   hz-dark = la tarjeta redondeada (margin + border-radius + overflow)
+   hz-dark-bg = overlay absoluto dentro de la tarjeta
+   hz-dark-con = contenido encima del overlay
 ================================ */
 .hz-dark {
-  background: #fff;
-  padding: 16px 16px 0;
-}
-.hz-dark-bg {
+  position: relative;
+  margin: 16px 16px 0;
   border-radius: 24px;
   overflow: hidden;
-  position: relative;
   min-height: 420px;
-  background: linear-gradient(135deg, #071A36 0%, #0D2B55 60%, #1A4480 100%);
-  background-size: cover;
-  background-position: center 30%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, #071A36 0%, #0D2B55 60%, #1A4480 100%);
 }
-.hz-dark-bg::after {
-  content: '';
+.hz-dark-bg {
   position: absolute;
   inset: 0;
-  background: rgba(5,15,30,.48);
+  background: rgba(5,15,30,.35);
+  z-index: 0;
 }
+.hz-dark-bg::after { display: none; }
+.hz-dark-bg::before { display: none; }
 .hz-dark-glow { display: none; }
 .hz-dark-con {
   position: relative;
@@ -307,8 +307,7 @@ p {
 }
 /* Responsive desktop */
 @media(min-width:900px){
-  .hz-dark { padding: 20px 24px 0; }
-  .hz-dark-bg { border-radius: 32px; min-height: 480px; }
+  .hz-dark { margin: 20px 24px 0; border-radius: 32px; min-height: 480px; }
   .hz-dark-con { padding: 5rem 2rem; }
 }
 
