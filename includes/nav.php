@@ -125,12 +125,14 @@
 </div>
 
 <script>
-(function(){
+document.addEventListener('DOMContentLoaded', function(){
   var burger  = document.getElementById('ct-burger');
   var overlay = document.getElementById('ct-overlay');
   var close   = document.getElementById('ct-close');
+  if (!burger || !overlay || !close) return;
 
-  function openMenu(){
+  function openMenu(e){
+    e.preventDefault();
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -140,12 +142,14 @@
   }
 
   burger.addEventListener('click', openMenu);
+  burger.addEventListener('touchend', openMenu, {passive:false});
   close.addEventListener('click', closeMenu);
+  close.addEventListener('touchend', function(e){ e.preventDefault(); closeMenu(); }, {passive:false});
   overlay.addEventListener('click', function(e){
     if(e.target === overlay) closeMenu();
   });
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape') closeMenu();
   });
-})();
+});
 </script>

@@ -104,29 +104,21 @@
 /* Trust badges */
 .hero-trust {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0;
-  justify-content: center;
-  background: rgba(255,255,255,.12);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 100px;
-  padding: 10px 20px;
-  width: auto;
-  max-width: 100%;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,.15);
+  width: 100%;
+  align-items: center;
 }
 .hero-trust-item {
   display: flex;
   align-items: center;
-  gap: 7px;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 4px 16px;
-  border-right: 1px solid rgba(255,255,255,.2);
+  gap: 8px;
+  color: rgba(255,255,255,.9);
+  font-size: 14px;
+  font-weight: 500;
 }
-.hero-trust-item:last-child { border-right: none; }
 .hero-trust-icon {
   width: 14px;
   height: 14px;
@@ -636,11 +628,24 @@
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border-soft);
   padding: 0.85rem 0;
+  position: relative;
+}
+.zonas-bar-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
-.zonas-bar::-webkit-scrollbar { display: none; }
+.zonas-bar-scroll::-webkit-scrollbar { display: none; }
+/* Fade derecha indicando que hay más */
+.zonas-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 48px;
+  background: linear-gradient(to right, transparent, #fff);
+  pointer-events: none;
+}
+@media(min-width:900px){ .zonas-bar::after { display: none; } }
 .zonas-bar-inner {
   max-width: 1120px;
   margin: 0 auto;

@@ -56,6 +56,7 @@ include 'includes/head.php';
      STRIP DE ZONAS
 ============================= -->
 <div class="zonas-bar" aria-label="Municipios donde trabajamos">
+  <div class="zonas-bar-scroll">
   <div class="zonas-bar-inner">
     <span class="zonas-label">Trabajamos en:</span>
     <div class="zonas-tags">
@@ -68,6 +69,7 @@ include 'includes/head.php';
       <a href="<?php echo $base_url; ?>zonas/monforte" class="zona-tag">Monforte del Cid</a>
       <a href="<?php echo $base_url; ?>zonas/salinas"  class="zona-tag">Salinas</a>
     </div>
+  </div>
   </div>
 </div>
 
