@@ -297,8 +297,16 @@ foreach ($bloques as $b) {
     <div class="mb-grid">
       <?php foreach ($bloques as $i => $b): ?>
         <div class="mb-card" data-cat="<?php echo $b['cat']; ?>" onclick="insertarBloque(<?php echo $i; ?>)">
-          <div class="mb-preview" style="background:<?php echo $b['bg']; ?>">
-            <span class="mb-preview-label" style="color:<?php echo $b['color']; ?>"><?php echo htmlspecialchars($b['nombre']); ?></span>
+          <div class="mb-preview">
+            <iframe class="mb-iframe" scrolling="no" loading="lazy" srcdoc="<?php
+              $srcdoc = '<!DOCTYPE html><html><head><meta charset="UTF-8">'
+                . '<link rel="stylesheet" href="/css/global.css">'
+                . '<link rel="stylesheet" href="/css/pages/home.css">'
+                . '<link rel="stylesheet" href="/css/pages/financiacion.css">'
+                . '<style>body{margin:0;padding:0;overflow:hidden;pointer-events:none}</style>'
+                . '</head><body>' . $b['html'] . '</body></html>';
+              echo htmlspecialchars($srcdoc, ENT_QUOTES);
+            ?>"></iframe>
           </div>
           <div class="mb-card-body">
             <span class="mb-cat-badge"><?php echo $b['label']; ?></span>
@@ -389,7 +397,7 @@ foreach ($bloques as $b) {
 
 .mb-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 1rem;
   padding: 1.25rem 1.5rem;
   overflow-y: auto;
@@ -411,19 +419,21 @@ foreach ($bloques as $b) {
 .mb-card.oculto { display: none; }
 
 .mb-preview {
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 160px;
+  overflow: hidden;
   position: relative;
+  background: #f1f5f9;
+  flex-shrink: 0;
 }
-.mb-preview-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-align: center;
-  padding: 0 1rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,.2);
+/* iframe 1200×800 escalado al 20% → 240×160 */
+.mb-iframe {
+  width: 1200px;
+  height: 800px;
+  transform: scale(0.2);
+  transform-origin: top left;
+  border: none;
+  pointer-events: none;
+  display: block;
 }
 
 .mb-card-body {
