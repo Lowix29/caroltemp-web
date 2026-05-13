@@ -211,6 +211,13 @@ tinymce.init({
   block_formats: 'Párrafo=p; Título H2=h2; Título H3=h3; Título H4=h4',
 });
 </script>
+  <!-- CSS web para preview de bloques -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/pages/home.css">
+  <link rel="stylesheet" href="../css/pages/financiacion.css">
+  <link rel="stylesheet" href="../css/pages/zonas.css">
+  <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
 

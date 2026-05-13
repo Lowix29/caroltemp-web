@@ -267,17 +267,6 @@ foreach ($bloques as $b) {
   if (!isset($cats[$b['cat']])) $cats[$b['cat']] = $b['label'];
 }
 
-/* ── Head compartido para todos los iframes ── */
-$iframe_head = '<!DOCTYPE html><html><head><meta charset="UTF-8">'
-  . '<link rel="stylesheet" href="/css/global.css">'
-  . '<link rel="stylesheet" href="/css/nav.css">'
-  . '<link rel="stylesheet" href="/css/pages/home.css">'
-  . '<link rel="stylesheet" href="/css/pages/financiacion.css">'
-  . '<link rel="stylesheet" href="/css/pages/zonas.css">'
-  . '<link rel="stylesheet" href="/css/footer.css">'
-  . '<style>*{box-sizing:border-box}body{margin:0;padding:0;overflow:hidden;pointer-events:none}</style>'
-  . '</head><body>';
-$iframe_foot = '</body></html>';
 ?>
 
 <!-- ============================================================
@@ -310,9 +299,7 @@ $iframe_foot = '</body></html>';
       <?php foreach ($bloques as $i => $b): ?>
         <div class="mb-card" data-cat="<?php echo $b['cat']; ?>" onclick="insertarBloque(<?php echo $i; ?>)">
           <div class="mb-preview">
-            <iframe class="mb-iframe" scrolling="no" loading="lazy" srcdoc="<?php
-              echo htmlspecialchars($iframe_head . $b['html'] . $iframe_foot, ENT_QUOTES);
-            ?>"></iframe>
+            <div class="mb-scale-wrap"><?php echo $b['html']; ?></div>
           </div>
           <div class="mb-card-body">
             <span class="mb-cat-badge"><?php echo $b['label']; ?></span>
@@ -431,15 +418,12 @@ $iframe_foot = '</body></html>';
   background: #f1f5f9;
   flex-shrink: 0;
 }
-/* iframe 1200×800 escalado al 20% → 240×160 */
-.mb-iframe {
+/* div 1200px escalado al 13.3% → cabe en 160px de alto aprox */
+.mb-scale-wrap {
   width: 1200px;
-  height: 800px;
   transform: scale(0.2);
   transform-origin: top left;
-  border: none;
   pointer-events: none;
-  display: block;
 }
 
 .mb-card-body {
