@@ -266,6 +266,18 @@ $cats = [];
 foreach ($bloques as $b) {
   if (!isset($cats[$b['cat']])) $cats[$b['cat']] = $b['label'];
 }
+
+/* ── Head compartido para todos los iframes ── */
+$iframe_head = '<!DOCTYPE html><html><head><meta charset="UTF-8">'
+  . '<link rel="stylesheet" href="/css/global.css">'
+  . '<link rel="stylesheet" href="/css/nav.css">'
+  . '<link rel="stylesheet" href="/css/pages/home.css">'
+  . '<link rel="stylesheet" href="/css/pages/financiacion.css">'
+  . '<link rel="stylesheet" href="/css/pages/zonas.css">'
+  . '<link rel="stylesheet" href="/css/footer.css">'
+  . '<style>*{box-sizing:border-box}body{margin:0;padding:0;overflow:hidden;pointer-events:none}</style>'
+  . '</head><body>';
+$iframe_foot = '</body></html>';
 ?>
 
 <!-- ============================================================
@@ -299,13 +311,7 @@ foreach ($bloques as $b) {
         <div class="mb-card" data-cat="<?php echo $b['cat']; ?>" onclick="insertarBloque(<?php echo $i; ?>)">
           <div class="mb-preview">
             <iframe class="mb-iframe" scrolling="no" loading="lazy" srcdoc="<?php
-              $srcdoc = '<!DOCTYPE html><html><head><meta charset="UTF-8">'
-                . '<link rel="stylesheet" href="/css/global.css">'
-                . '<link rel="stylesheet" href="/css/pages/home.css">'
-                . '<link rel="stylesheet" href="/css/pages/financiacion.css">'
-                . '<style>body{margin:0;padding:0;overflow:hidden;pointer-events:none}</style>'
-                . '</head><body>' . $b['html'] . '</body></html>';
-              echo htmlspecialchars($srcdoc, ENT_QUOTES);
+              echo htmlspecialchars($iframe_head . $b['html'] . $iframe_foot, ENT_QUOTES);
             ?>"></iframe>
           </div>
           <div class="mb-card-body">
