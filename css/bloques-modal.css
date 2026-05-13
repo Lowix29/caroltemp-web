@@ -1,0 +1,170 @@
+/* ================================
+   CAROLTEMP — Bloques de contenido
+   CSS para bloques insertados via TinyMCE
+================================ */
+
+/* ================================
+   IMAGEN CON PIE DE FOTO
+================================ */
+.bloque-img {
+  margin: 2rem 0;
+  text-align: center;
+}
+.bloque-img img {
+  width: 100%;
+  max-width: 820px;
+  border-radius: 12px;
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+}
+.bloque-img figcaption {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 0.75rem;
+  font-style: italic;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================================
+   GALERÍA 3 COLUMNAS
+================================ */
+.bloque-galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.bloque-galeria figure {
+  margin: 0;
+}
+.bloque-galeria img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.bloque-galeria figcaption {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 0.4rem;
+  text-align: center;
+}
+
+/* ================================
+   GALERÍA ANTES / DESPUÉS
+================================ */
+.bloque-antesdespues {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.bloque-antesdespues figure {
+  margin: 0;
+  position: relative;
+}
+.bloque-antesdespues img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.bloque-antesdespues figcaption {
+  color: #64748b;
+  font-size: 12.5px;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.bloque-ad-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.bloque-ad-badge.antes {
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+}
+.bloque-ad-badge.despues {
+  background: rgba(25, 118, 210, .85);
+  color: #fff;
+}
+
+/* ================================
+   IMAGEN ANCHA CON TÍTULO
+================================ */
+.bloque-img-ancha {
+  margin: 2rem 0;
+}
+.bloque-img-ancha img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+.bloque-img-ancha-footer {
+  padding: 1.25rem 0 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #f1f5f9;
+  margin-top: 0.75rem;
+}
+.bloque-img-ancha-footer p {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d1f33;
+  margin: 0 0 0.25rem;
+}
+.bloque-img-ancha-footer span {
+  font-size: 13px;
+  color: #64748b;
+}
+.bloque-img-ancha-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EEF4FF;
+  color: #1976D2;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 640px) {
+  .bloque-galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bloque-antesdespues {
+    grid-template-columns: 1fr;
+  }
+  .bloque-img-ancha-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+@media (max-width: 400px) {
+  .bloque-galeria {
+    grid-template-columns: 1fr;
+  }
+}

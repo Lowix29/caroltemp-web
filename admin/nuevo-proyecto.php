@@ -170,6 +170,7 @@ $servicios = $pdo->query('SELECT nombre FROM servicios_proyectos ORDER BY orden 
   <link rel="stylesheet" href="../css/pages/contacto.css">
   <link rel="stylesheet" href="../css/pages/sobre.css">
   <link rel="stylesheet" href="../css/pages/legal.css">
+  <link rel="stylesheet" href="../css/bloques-modal.css">
   <?php include '../includes/admin_style.php'; ?>
   <style>
     .google-preview { background: #fff; border: 1px solid #dde6f0; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1.25rem; }

@@ -98,6 +98,7 @@ if (in_array($current_page, $noindex_pages)):
   <?php if (!empty($page_css)): ?>
     <link rel="stylesheet" href="<?php echo $base_url; ?>css/pages/<?php echo $page_css; ?>.css">
   <?php endif; ?>
+  <link rel="stylesheet" href="<?php echo $base_url; ?>css/bloques-modal.css">
 
   <!-- Fuente Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

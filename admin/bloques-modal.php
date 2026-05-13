@@ -804,9 +804,9 @@ $bloques = [
     'label'  => 'Imágenes',
     'nombre' => 'Imagen con pie de foto',
     'desc'   => 'Imagen centrada con alt, borde redondeado y pie de foto en cursiva',
-    'html'   => '<figure style="margin:2rem 0;text-align:center">
-  <img src="/img/contenido/foto.jpg" alt="Descripción de la imagen" loading="lazy" style="width:100%;max-width:820px;border-radius:12px;margin:0 auto;display:block;object-fit:cover">
-  <figcaption style="color:#64748b;font-size:13px;line-height:1.6;margin-top:.75rem;font-style:italic;max-width:620px;margin-left:auto;margin-right:auto">Pie de foto: descripción breve de lo que muestra la imagen y el contexto del trabajo realizado.</figcaption>
+    'html'   => '<figure class="bloque-img">
+  <img src="/img/contenido/foto.jpg" alt="Descripción de la imagen" loading="lazy">
+  <figcaption>Pie de foto: descripción breve de lo que muestra la imagen y el contexto del trabajo realizado.</figcaption>
 </figure>',
   ],
 
@@ -815,30 +815,30 @@ $bloques = [
     'label'  => 'Imágenes',
     'nombre' => 'Galería 3 columnas',
     'desc'   => 'Grid de 6 imágenes en 3 columnas con pie de foto individual',
-    'html'   => '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0">
-  <figure style="margin:0">
-    <img src="/img/contenido/foto-1.jpg" alt="Imagen 1" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block">
-    <figcaption style="color:#64748b;font-size:12px;margin-top:.4rem;text-align:center">Imagen 1</figcaption>
+    'html'   => '<div class="bloque-galeria">
+  <figure>
+    <img src="/img/contenido/foto-1.jpg" alt="Imagen 1" loading="lazy">
+    <figcaption>Imagen 1</figcaption>
   </figure>
-  <figure style="margin:0">
-    <img src="/img/contenido/foto-2.jpg" alt="Imagen 2" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block">
-    <figcaption style="color:#64748b;font-size:12px;margin-top:.4rem;text-align:center">Imagen 2</figcaption>
+  <figure>
+    <img src="/img/contenido/foto-2.jpg" alt="Imagen 2" loading="lazy">
+    <figcaption>Imagen 2</figcaption>
   </figure>
-  <figure style="margin:0">
-    <img src="/img/contenido/foto-3.jpg" alt="Imagen 3" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block">
-    <figcaption style="color:#64748b;font-size:12px;margin-top:.4rem;text-align:center">Imagen 3</figcaption>
+  <figure>
+    <img src="/img/contenido/foto-3.jpg" alt="Imagen 3" loading="lazy">
+    <figcaption>Imagen 3</figcaption>
   </figure>
-  <figure style="margin:0">
-    <img src="/img/contenido/foto-4.jpg" alt="Imagen 4" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block">
-    <figcaption style="color:#64748b;font-size:12px;margin-top:.4rem;text-align:center">Imagen 4</figcaption>
+  <figure>
+    <img src="/img/contenido/foto-4.jpg" alt="Imagen 4" loading="lazy">
+    <figcaption>Imagen 4</figcaption>
   </figure>
-  <figure style="margin:0">
-    <img src="/img/contenido/foto-5.jpg" alt="Imagen 5" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block">
-    <figcaption style="color:#64748b;font-size:12px;margin-top:.4rem;text-align:center">Imagen 5</figcaption>
+  <figure>
+    <img src="/img/contenido/foto-5.jpg" alt="Imagen 5" loading="lazy">
+    <figcaption>Imagen 5</figcaption>
   </figure>
-  <figure style="margin:0">
-    <img src="/img/contenido/foto-6.jpg" alt="Imagen 6" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block">
-    <figcaption style="color:#64748b;font-size:12px;margin-top:.4rem;text-align:center">Imagen 6</figcaption>
+  <figure>
+    <img src="/img/contenido/foto-6.jpg" alt="Imagen 6" loading="lazy">
+    <figcaption>Imagen 6</figcaption>
   </figure>
 </div>',
   ],
@@ -848,16 +848,16 @@ $bloques = [
     'label'  => 'Imágenes',
     'nombre' => 'Galería antes/después',
     'desc'   => '2 imágenes en paralelo con etiquetas "Antes" y "Después"',
-    'html'   => '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0">
-  <figure style="margin:0;position:relative">
-    <img src="/img/contenido/antes.jpg" alt="Antes" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block">
-    <span style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.04em">ANTES</span>
-    <figcaption style="color:#64748b;font-size:12.5px;margin-top:.5rem;text-align:center">Estado inicial</figcaption>
+    'html'   => '<div class="bloque-antesdespues">
+  <figure>
+    <img src="/img/contenido/antes.jpg" alt="Antes" loading="lazy">
+    <span class="bloque-ad-badge antes">ANTES</span>
+    <figcaption>Estado inicial</figcaption>
   </figure>
-  <figure style="margin:0;position:relative">
-    <img src="/img/contenido/despues.jpg" alt="Después" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block">
-    <span style="position:absolute;top:12px;left:12px;background:rgba(25,118,210,.85);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.04em">DESPUÉS</span>
-    <figcaption style="color:#64748b;font-size:12.5px;margin-top:.5rem;text-align:center">Resultado final</figcaption>
+  <figure>
+    <img src="/img/contenido/despues.jpg" alt="Después" loading="lazy">
+    <span class="bloque-ad-badge despues">DESPUÉS</span>
+    <figcaption>Resultado final</figcaption>
   </figure>
 </div>',
   ],
@@ -867,14 +867,14 @@ $bloques = [
     'label'  => 'Imágenes',
     'nombre' => 'Imagen ancha con título',
     'desc'   => 'Imagen a todo ancho con sección de título y descripción debajo',
-    'html'   => '<div style="margin:2rem 0">
-  <img src="/img/contenido/foto.jpg" alt="Descripción de la imagen" loading="lazy" style="width:100%;max-height:420px;object-fit:cover;border-radius:12px;display:block">
-  <div style="padding:1.25rem 0 .5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;border-bottom:1px solid #f1f5f9;margin-top:.75rem">
+    'html'   => '<div class="bloque-img-ancha">
+  <img src="/img/contenido/foto.jpg" alt="Descripción de la imagen" loading="lazy">
+  <div class="bloque-img-ancha-footer">
     <div>
-      <p style="font-size:14px;font-weight:700;color:#0d1f33;margin:0 0 .25rem">Título o nombre del trabajo</p>
-      <p style="font-size:13px;color:#64748b;margin:0">Descripción breve del trabajo o instalación mostrada en la imagen.</p>
+      <p>Título o nombre del trabajo</p>
+      <span>Descripción breve del trabajo o instalación mostrada en la imagen.</span>
     </div>
-    <span style="display:inline-flex;align-items:center;gap:6px;background:#EEF4FF;color:#1976D2;font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;white-space:nowrap;flex-shrink:0">📍 Elda</span>
+    <span class="bloque-img-ancha-badge">📍 Elda</span>
   </div>
 </div>',
   ],
