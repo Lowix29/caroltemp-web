@@ -271,3 +271,13 @@
     align-items: flex-start;
   }
 }
+
+/* ── Resaltado de puntos clave para el cliente ─────────────── */
+.ct-hl {
+  background: linear-gradient(120deg, rgba(25,118,210,.14) 0%, rgba(25,118,210,.08) 100%);
+  color: #0B2447;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  border-bottom: 2px solid rgba(25,118,210,.35);
+}
