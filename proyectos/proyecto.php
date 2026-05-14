@@ -44,30 +44,20 @@ include '../includes/head.php';
 ?>
 
 <!-- HERO -->
-<section class="hz-dark" style="min-height:420px;align-items:stretch">
-  <div class="hz-dark-bg"></div>
-  <div class="hz-dark-glow"></div>
-  <div style="position:relative;z-index:1;width:100%;max-width:1200px;margin:0 auto;padding:3.5rem 1.75rem;display:grid;grid-template-columns:<?php echo $pro['imagen'] ? '1fr 1fr' : '1fr'; ?>;gap:3rem;align-items:center">
-    <!-- Texto -->
-    <div>
-      <div class="articulo-meta" style="justify-content:flex-start">
-        <?php if ($pro['servicio']): ?>
-          <a href="/proyectos/servicio/<?php echo urlencode($pro['servicio']); ?>" class="blog-cat"><?php echo htmlspecialchars($pro['servicio']); ?></a>
-        <?php endif; ?>
-        <?php if ($pro['zona']): ?>
-          <span class="blog-zona">📍 <?php echo htmlspecialchars($pro['zona']); ?></span>
-        <?php endif; ?>
-        <span class="articulo-fecha"><?php echo date('d/m/Y', strtotime($pro['fecha'])); ?></span>
-      </div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;color:#fff;line-height:1.15;letter-spacing:-.025em;margin-top:.75rem"><?php echo htmlspecialchars($pro['titulo']); ?></h1>
-      <p style="color:#94a3b8;font-size:15px;line-height:1.75;margin-top:.875rem"><?php echo htmlspecialchars($pro['descripcion']); ?></p>
+<section class="hz-dark" style="min-height:480px;<?php if ($pro['imagen']): ?>background-image:url('<?php echo htmlspecialchars($pro['imagen']); ?>');background-size:cover;background-position:center;<?php endif; ?>">
+  <div class="hz-dark-bg" style="<?php echo $pro['imagen'] ? 'background:rgba(5,15,30,.62)' : ''; ?>"></div>
+  <div class="hz-dark-con">
+    <div class="articulo-meta">
+      <?php if ($pro['servicio']): ?>
+        <a href="/proyectos/servicio/<?php echo urlencode($pro['servicio']); ?>" class="blog-cat"><?php echo htmlspecialchars($pro['servicio']); ?></a>
+      <?php endif; ?>
+      <?php if ($pro['zona']): ?>
+        <span class="blog-zona">📍 <?php echo htmlspecialchars($pro['zona']); ?></span>
+      <?php endif; ?>
+      <span class="articulo-fecha"><?php echo date('d/m/Y', strtotime($pro['fecha'])); ?></span>
     </div>
-    <!-- Imagen -->
-    <?php if ($pro['imagen']): ?>
-    <div>
-      <img src="<?php echo htmlspecialchars($pro['imagen']); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" loading="eager" style="width:100%;height:320px;object-fit:cover;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.45)">
-    </div>
-    <?php endif; ?>
+    <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.025em;max-width:700px;margin-top:.75rem"><?php echo htmlspecialchars($pro['titulo']); ?></h1>
+    <p style="color:#cbd5e1;font-size:15px;line-height:1.75;max-width:580px;margin-top:.75rem"><?php echo htmlspecialchars($pro['descripcion']); ?></p>
   </div>
 </section>
 
