@@ -56,16 +56,12 @@ include '../includes/head.php';
     <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.025em;max-width:700px;margin-top:.75rem"><?php echo htmlspecialchars($art['titulo']); ?></h1>
     <p style="color:#94a3b8;font-size:15px;line-height:1.75;max-width:580px;margin-top:.75rem"><?php echo htmlspecialchars($art['extracto']); ?></p>
   </div>
-</section>
-
-<!-- IMAGEN DESTACADA -->
-<?php if ($art['imagen']): ?>
-<div class="articulo-imagen">
-  <div style="max-width:1100px;margin:0 auto;padding:2rem var(--space-md)">
-    <img src="<?php echo htmlspecialchars($art['imagen']); ?>" alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="eager" style="width:100%;max-height:480px;object-fit:cover;border-radius:14px">
+  <?php if ($art['imagen']): ?>
+  <div style="max-width:1100px;margin:2rem auto 0;padding:0 var(--space-md) 3rem">
+    <img src="<?php echo htmlspecialchars($art['imagen']); ?>" alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="eager" style="width:100%;max-height:500px;object-fit:cover;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.35)">
   </div>
-</div>
-<?php endif; ?>
+  <?php endif; ?>
+</section>
 
 <!-- CONTENIDO -->
 <section style="padding:4rem 0">
