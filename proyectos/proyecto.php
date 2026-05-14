@@ -44,9 +44,14 @@ include '../includes/head.php';
 ?>
 
 <!-- HERO -->
-<section class="hz-dark" style="min-height:480px;<?php if ($pro['imagen']): ?>background-image:url('<?php echo htmlspecialchars($pro['imagen']); ?>');background-size:cover;background-position:center;<?php endif; ?>">
-  <div class="hz-dark-bg" style="<?php echo $pro['imagen'] ? 'background:rgba(5,15,30,.62)' : ''; ?>"></div>
-  <div class="hz-dark-con">
+<section class="hz-dark" style="min-height:480px">
+  <?php if ($pro['imagen']): ?>
+    <img src="<?php echo htmlspecialchars($pro['imagen']); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0">
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,15,30,.72) 0%,rgba(5,15,30,.55) 60%,rgba(11,36,71,.45) 100%);z-index:1"></div>
+  <?php else: ?>
+    <div class="hz-dark-bg"></div>
+  <?php endif; ?>
+  <div class="hz-dark-con" style="position:relative;z-index:2">
     <div class="articulo-meta">
       <?php if ($pro['servicio']): ?>
         <a href="/proyectos/servicio/<?php echo urlencode($pro['servicio']); ?>" class="blog-cat"><?php echo htmlspecialchars($pro['servicio']); ?></a>

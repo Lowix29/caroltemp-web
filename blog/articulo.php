@@ -40,9 +40,14 @@ include '../includes/head.php';
 ?>
 
 <!-- HERO -->
-<section class="hz-dark" style="min-height:480px;<?php if ($art['imagen']): ?>background-image:url('<?php echo htmlspecialchars($art['imagen']); ?>');background-size:cover;background-position:center;<?php endif; ?>">
-  <div class="hz-dark-bg" style="<?php echo $art['imagen'] ? 'background:rgba(5,15,30,.62)' : ''; ?>"></div>
-  <div class="hz-dark-con">
+<section class="hz-dark" style="min-height:520px">
+  <?php if ($art['imagen']): ?>
+    <img src="<?php echo htmlspecialchars($art['imagen']); ?>" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0">
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,15,30,.72) 0%,rgba(5,15,30,.55) 60%,rgba(11,36,71,.45) 100%);z-index:1"></div>
+  <?php else: ?>
+    <div class="hz-dark-bg"></div>
+  <?php endif; ?>
+  <div class="hz-dark-con" style="position:relative;z-index:2">
     <div class="articulo-meta">
       <?php if ($art['categoria']): ?>
         <a href="/blog/categoria/<?php echo urlencode($art['categoria']); ?>" class="blog-cat"><?php echo htmlspecialchars($art['categoria']); ?></a>
