@@ -1,0 +1,17 @@
+# Configuración privada — nunca subir
+includes/config.php
+
+# Variables de entorno
+.env
+.env.local
+.env.*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
