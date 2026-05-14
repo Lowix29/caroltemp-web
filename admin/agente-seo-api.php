@@ -14,11 +14,6 @@ require_once '../includes/config.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  echo json_encode(['error' => 'Método no permitido']);
-  exit;
-}
-
 $tipo          = $_POST['tipo']          ?? 'articulo';
 $zona          = trim($_POST['zona']          ?? '');
 $keyword       = trim($_POST['keyword']       ?? '');
