@@ -34,7 +34,7 @@ if ($redireccion) {
 }
 
 if ($is_local) {
-  $base_url = 'http://localhost/';
+  $base_url = 'http://localhost/caroltemp/';
 } else {
   $base_url = 'https://' . $_SERVER['HTTP_HOST'] . '/';
 }
