@@ -87,9 +87,15 @@ Responder: qué + dónde + por qué nosotros + llamada a la acción.
 Siempre incluir uno de estos diferenciales: precio cerrado / 24h / presupuesto gratis.
 
 ### SLUG
-Solo minúsculas, guiones, sin tildes ni caracteres especiales.
-Formato: servicio-ciudad (máx 5 palabras, sin artículos ni preposiciones).
-Ejemplos correctos: deteccion-fugas-elda, termo-electrico-novelda, fontanero-urgente-petrer
+Solo minúsculas, guiones, sin tildes ni caracteres especiales. Máx 7 palabras.
+El slug debe ser ESPECÍFICO y ÚNICO — nunca genérico. Incluir: qué (el problema o servicio concreto) + detalle técnico o tipo de inmueble + ciudad.
+Ejemplos correctos:
+- deteccion-fuga-bajo-solado-piso-elda
+- instalacion-termo-electrico-80l-petrer
+- reparacion-fuga-tuberia-cobre-calefaccion-novelda
+- cambio-grifo-monomando-cocina-monovar
+- descalcificador-duplex-vivienda-sax
+Ejemplos INCORRECTOS (demasiado genéricos, evitar): deteccion-fugas-elda, fontanero-elda, reparacion-fuga
 
 ### H1 — exactamente 1
 Incluir keyword principal + ciudad. Máx 70 caracteres. No repetir el meta title palabra por palabra.

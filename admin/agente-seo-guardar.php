@@ -29,24 +29,26 @@ if (!$slug || !$titulo || !$contenido) {
   exit;
 }
 
-// Mover imágenes de /tmp/ a /img/contenido/[slug]/
+// Mover imágenes de /tmp/ a /img/contenido/[slug]/ con nombre descriptivo
 if (!empty($imagenes)) {
   $carpeta = dirname(__DIR__) . '/img/contenido/' . $slug . '/';
   if (!is_dir($carpeta)) {
     mkdir($carpeta, 0755, true);
   }
-  foreach ($imagenes as &$ruta) {
-    $filename  = basename($ruta);
-    $origen    = dirname(__DIR__) . $ruta;
-    $destino   = $carpeta . $filename;
-    $rutaNueva = '/img/contenido/' . $slug . '/' . $filename;
+  foreach ($imagenes as $idx => &$rutaActual) {
+    $ext         = strtolower(pathinfo($rutaActual, PATHINFO_EXTENSION));
+    $n           = $idx + 1;
+    $nombreSeo   = $slug . '-foto-' . $n . '.' . $ext;
+    $origen      = dirname(__DIR__) . $rutaActual;
+    $destino     = $carpeta . $nombreSeo;
+    $rutaNueva   = '/img/contenido/' . $slug . '/' . $nombreSeo;
     if (file_exists($origen)) {
       rename($origen, $destino);
     }
-    $contenido = str_replace($ruta, $rutaNueva, $contenido);
-    $ruta      = $rutaNueva;
+    $contenido   = str_replace($rutaActual, $rutaNueva, $contenido);
+    $rutaActual  = $rutaNueva;
   }
-  unset($ruta);
+  unset($rutaActual);
 }
 
 // Imagen principal: la primera subida o la que venía en el form
