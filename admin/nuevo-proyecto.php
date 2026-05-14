@@ -43,7 +43,9 @@ function subirImagen($file, $carpeta) {
   }
   $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
   $nombre   = uniqid('img_') . '.' . strtolower($ext);
-  $ruta_abs = dirname(__DIR__) . '/img/' . $carpeta . '/' . $nombre;
+  $dir      = dirname(__DIR__) . '/img/' . $carpeta . '/';
+  if (!is_dir($dir)) mkdir($dir, 0755, true);
+  $ruta_abs = $dir . $nombre;
   $ruta_web = '/img/' . $carpeta . '/' . $nombre;
   if (!move_uploaded_file($file['tmp_name'], $ruta_abs)) {
     return ['error' => 'Error al guardar la imagen.'];
