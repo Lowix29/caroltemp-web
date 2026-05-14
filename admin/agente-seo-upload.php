@@ -11,8 +11,28 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 
 header('Content-Type: application/json; charset=utf-8');
 
+if (!isset($_FILES['imagen'])) {
+  echo json_encode(['error' => 'PHP no recibió el archivo. Verifica que file_uploads=On en php.ini']);
+  exit;
+}
+
+$err = $_FILES['imagen']['error'];
+if ($err !== UPLOAD_ERR_OK) {
+  $errores = [
+    UPLOAD_ERR_INI_SIZE   => 'El archivo supera upload_max_filesize en php.ini',
+    UPLOAD_ERR_FORM_SIZE  => 'El archivo supera el límite del formulario',
+    UPLOAD_ERR_PARTIAL    => 'El archivo se subió solo parcialmente',
+    UPLOAD_ERR_NO_FILE    => 'No se seleccionó ningún archivo',
+    UPLOAD_ERR_NO_TMP_DIR => 'Falta la carpeta temporal en el servidor',
+    UPLOAD_ERR_CANT_WRITE => 'No se puede escribir en disco',
+    UPLOAD_ERR_EXTENSION  => 'Una extensión PHP bloqueó la subida',
+  ];
+  echo json_encode(['error' => $errores[$err] ?? 'Error de subida código ' . $err]);
+  exit;
+}
+
 if (empty($_FILES['imagen']['name'])) {
-  echo json_encode(['error' => 'No se recibió ningún archivo']);
+  echo json_encode(['error' => 'Archivo recibido pero sin nombre']);
   exit;
 }
 
