@@ -879,6 +879,55 @@ $bloques = [
 </div>',
   ],
 
+  /* ── PLANTILLA ──────────────────────────── */
+  [
+    'cat'    => 'plantilla',
+    'label'  => 'Plantilla',
+    'nombre' => 'Artículo / Proyecto completo',
+    'desc'   => 'Estructura completa lista para usar: intro, imagen, subtítulos, lista, antes/después y CTA',
+    'html'   => '<div class="ct-tpl-art-v1">
+
+  <p class="ct-tpl-intro">Escribe aquí la introducción del artículo. Un párrafo de 2-3 líneas que resuma el problema o situación que vas a explicar. Sé directo y usa un lenguaje cercano.</p>
+
+  <figure class="bloque-img">
+    <img src="/img/contenido/foto.jpg" alt="Descripción de la imagen" loading="lazy">
+    <figcaption>Pie de foto: describe brevemente qué muestra la imagen.</figcaption>
+  </figure>
+
+  <h2>Subtítulo de la primera sección</h2>
+  <p>Párrafo explicando el primer punto del artículo. Aquí puedes detallar el problema, el proceso o el resultado. Mantén los párrafos cortos para que sea fácil de leer.</p>
+
+  <ul class="ct-tpl-lista">
+    <li>Primer punto de la lista</li>
+    <li>Segundo punto de la lista</li>
+    <li>Tercer punto de la lista</li>
+    <li>Cuarto punto de la lista</li>
+  </ul>
+
+  <h2>Subtítulo de la segunda sección</h2>
+  <p>Otro párrafo con más detalle. Puedes hablar del proceso de trabajo, los materiales utilizados o los resultados obtenidos. Añade toda la información que consideres útil para el lector.</p>
+
+  <div class="bloque-antesdespues">
+    <figure>
+      <img src="/img/contenido/antes.jpg" alt="Antes" loading="lazy">
+      <span class="bloque-ad-badge antes">ANTES</span>
+      <figcaption>Estado inicial</figcaption>
+    </figure>
+    <figure>
+      <img src="/img/contenido/despues.jpg" alt="Después" loading="lazy">
+      <span class="bloque-ad-badge despues">DESPUÉS</span>
+      <figcaption>Resultado final</figcaption>
+    </figure>
+  </div>
+
+  <div class="ct-tpl-cta">
+    <p>¿Tienes un problema similar? Contacta con nosotros y te damos un presupuesto sin compromiso.</p>
+    <a href="/contacto" class="ct-tpl-cta-btn">Pedir presupuesto</a>
+  </div>
+
+</div>',
+  ],
+
 ];
 
 /* ── Agrupa bloques por categoría ── */
