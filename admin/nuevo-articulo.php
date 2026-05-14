@@ -6,6 +6,9 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 require_once '../includes/db.php';
 
+// Base path para rutas de imagen (en local el sitio está en /caroltemp/)
+$img_base = $is_local ? '/caroltemp' : '';
+
 $mensaje = '';
 $error   = '';
 $art     = [
@@ -42,12 +45,13 @@ function subirImagen($file, $carpeta) {
   if ($file['size'] > 3 * 1024 * 1024) {
     return ['error' => 'La imagen no puede superar 3MB.'];
   }
+  global $img_base;
   $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
   $nombre   = uniqid('img_') . '.' . strtolower($ext);
   $dir      = dirname(__DIR__) . '/img/' . $carpeta . '/';
   if (!is_dir($dir)) mkdir($dir, 0755, true);
   $ruta_abs = $dir . $nombre;
-  $ruta_web = '/img/' . $carpeta . '/' . $nombre;
+  $ruta_web = $img_base . '/img/' . $carpeta . '/' . $nombre;
   if (!move_uploaded_file($file['tmp_name'], $ruta_abs)) {
     return ['error' => 'Error al guardar la imagen.'];
   }
