@@ -2,6 +2,10 @@
 /* =============================================
    CAROLTEMP — Agente SEO: llamada a Claude API
 ============================================= */
+// Suprimir errores PHP para que no rompan el JSON
+error_reporting(0);
+ini_set('display_errors', 0);
+
 session_start();
 if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   http_response_code(401);
@@ -13,6 +17,18 @@ require_once '../includes/db.php';
 require_once '../includes/config.php';
 
 header('Content-Type: application/json; charset=utf-8');
+
+// Verificar que curl está disponible
+if (!function_exists('curl_init')) {
+  echo json_encode(['error' => 'curl no está habilitado en PHP. Abre C:/xampp/php/php.ini, busca ";extension=curl" y quítale el punto y coma. Luego reinicia Apache.']);
+  exit;
+}
+
+// Verificar que la key está configurada
+if (!defined('ANTHROPIC_API_KEY') || strlen(ANTHROPIC_API_KEY) < 20) {
+  echo json_encode(['error' => 'API key no configurada. Revisa includes/config.php']);
+  exit;
+}
 
 $tipo          = $_POST['tipo']          ?? 'articulo';
 $zona          = trim($_POST['zona']          ?? '');
