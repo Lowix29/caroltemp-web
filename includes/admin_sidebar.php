@@ -36,6 +36,10 @@ $total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHE
     <a href="proyectos.php" class="<?php echo $pagina_actual === 'proyectos.php' ? 'active' : ''; ?>">
       <span>📋</span> Todos los proyectos
     </a>
+    <span class="sidebar-label">Agente IA</span>
+    <a href="agente-seo.php" class="<?php echo $pagina_actual === 'agente-seo.php' ? 'active' : ''; ?>" style="background:<?php echo $pagina_actual === 'agente-seo.php' ? '' : 'linear-gradient(135deg,rgba(11,36,71,.04),rgba(25,118,210,.06))'; ?>">
+      <span>🤖</span> Agente SEO
+    </a>
     <span class="sidebar-label">Herramientas</span>
 <a href="categorias.php" class="<?php echo $pagina_actual === 'categorias.php' ? 'active' : ''; ?>">
   <span>🏷️</span> Categorías y servicios

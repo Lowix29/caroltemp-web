@@ -1,0 +1,657 @@
+<?php
+/* =============================================
+   CAROLTEMP — Agente SEO
+============================================= */
+session_start();
+if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
+  header('Location: login.php');
+  exit;
+}
+
+require_once '../includes/db.php';
+
+$error_guardado = '';
+if (isset($_SESSION['agente_error'])) {
+  $error_guardado = $_SESSION['agente_error'];
+  unset($_SESSION['agente_error']);
+}
+
+$zonas = ['Elda','Petrer','Novelda','Monóvar','Sax','Pinoso','Monforte del Cid','Salinas','Aspe','Villena'];
+$categorias = [
+  'fontaneria'   => 'Fontanería',
+  'climatizacion'=> 'Climatización',
+  'reformas'     => 'Reformas',
+  'urgencias'    => 'Urgencias',
+];
+try {
+  $servicios = $pdo->query('SELECT nombre FROM servicios_proyectos ORDER BY orden ASC')->fetchAll(PDO::FETCH_COLUMN);
+} catch (Exception $e) {
+  $servicios = ['Fontanería','Climatización','Reformas','Instalaciones','Urgencias'];
+}
+
+// Stats de informes si existen
+$tiene_informes = false;
+try {
+  $n = $pdo->query('SELECT COUNT(*) FROM seo_informes')->fetchColumn();
+  $tiene_informes = $n > 0;
+} catch (Exception $e) {}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agente SEO — CarolTemp Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <?php
+    $base_url = 'http://localhost/';
+    include '../includes/admin_style.php';
+  ?>
+  <style>
+    /* ── Layout ── */
+    .agente-wrap { display: grid; grid-template-columns: 400px 1fr; gap: 1.5rem; align-items: start; }
+    .agente-panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 1.75rem; }
+    .agente-panel-title { font-size: 12px; font-weight: 700; color: #8FA3B8; letter-spacing: .07em;
+      text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: .5rem; }
+
+    /* ── Campos ── */
+    .ag-field { margin-bottom: 1rem; }
+    .ag-field label { display: block; font-size: 13px; font-weight: 600; color: #0B2447; margin-bottom: .375rem; }
+    .ag-field input, .ag-field select, .ag-field textarea {
+      width: 100%; padding: .625rem .875rem; border: 1.5px solid #D6E2F0; border-radius: 8px;
+      font-size: 14px; color: #0B2447; background: #fff; font-family: inherit; box-sizing: border-box;
+      transition: border-color .15s;
+    }
+    .ag-field input:focus, .ag-field select:focus, .ag-field textarea:focus {
+      outline: none; border-color: #1976D2;
+    }
+    .ag-field textarea { resize: vertical; min-height: 85px; line-height: 1.55; }
+    .ag-field small { font-size: 12px; color: #8FA3B8; display: block; margin-top: .25rem; }
+
+    /* ── Selector tipo ── */
+    .tipo-btns { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+    .tipo-btn { padding: .625rem .5rem; border: 1.5px solid #D6E2F0; border-radius: 8px; background: #fff;
+      font-size: 13px; font-weight: 600; color: #576574; cursor: pointer; text-align: center;
+      transition: all .15s; }
+    .tipo-btn.active { border-color: #1976D2; background: #EEF4FF; color: #1976D2; }
+    .tipo-btn:hover:not(.active) { border-color: #8FA3B8; }
+
+    /* ── Audio ── */
+    .audio-box { border: 1.5px dashed #D6E2F0; border-radius: 10px; padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 1rem; }
+    .btn-mic { display: inline-flex; align-items: center; gap: .4rem; background: #0B2447; color: #fff;
+      border: none; padding: .5rem 1.1rem; border-radius: 100px; font-size: 13px; font-weight: 600;
+      cursor: pointer; white-space: nowrap; transition: background .15s; flex-shrink: 0; }
+    .btn-mic:hover { background: #1976D2; }
+    .btn-mic.grabando { background: #dc2626; animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.65} }
+    .audio-status { font-size: 12px; color: #8FA3B8; line-height: 1.4; }
+
+    /* ── Upload imágenes ── */
+    .upload-drop { border: 1.5px dashed #D6E2F0; border-radius: 10px; padding: .875rem;
+      text-align: center; cursor: pointer; transition: border-color .15s, background .15s; }
+    .upload-drop:hover { border-color: #1976D2; background: #F5F8FC; }
+    .upload-drop p { font-size: 13px; color: #8FA3B8; margin: 0; }
+    .upload-drop span { font-size: 11px; color: #B0C4D8; }
+    .thumbs-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: .4rem; margin-top: .625rem; }
+    .thumb-item { position: relative; aspect-ratio: 1; border-radius: 6px; overflow: hidden; background: #f1f5f9; }
+    .thumb-item img { width: 100%; height: 100%; object-fit: cover; }
+    .thumb-remove { position: absolute; top: 3px; right: 3px; background: rgba(0,0,0,.6); color: #fff;
+      border: none; border-radius: 50%; width: 18px; height: 18px; font-size: 10px; cursor: pointer;
+      line-height: 1; display: flex; align-items: center; justify-content: center; }
+
+    /* ── Botón generar ── */
+    .btn-generar { width: 100%; padding: .875rem; margin-top: 1.25rem;
+      background: linear-gradient(135deg, #0B2447 0%, #1976D2 100%);
+      color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .5rem;
+      transition: opacity .15s; }
+    .btn-generar:hover:not(:disabled) { opacity: .88; }
+    .btn-generar:disabled { opacity: .55; cursor: not-allowed; }
+
+    /* ── Loading ── */
+    .ag-loading { display: none; padding: 3.5rem 1rem; text-align: center; }
+    .spinner { width: 42px; height: 42px; border: 3px solid #E8EFF8; border-top-color: #1976D2;
+      border-radius: 50%; animation: spin .75s linear infinite; margin: 0 auto 1.25rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .ag-loading p { color: #576574; font-size: 14px; font-weight: 600; margin: 0 0 .375rem; }
+    .loading-tip { font-size: 12px; color: #8FA3B8; }
+
+    /* ── Empty state ── */
+    .ag-empty { display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 380px; color: #8FA3B8; text-align: center; gap: .5rem; }
+    .ag-empty-icon { font-size: 3.5rem; opacity: .35; }
+
+    /* ── Preview resultado ── */
+    .ag-preview { display: none; }
+    .seo-notes { background: #F0FDF4; border: 1px solid #bbf7d0; border-radius: 10px;
+      padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 13px; color: #166534; line-height: 1.6; }
+    .seo-notes strong { display: block; font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: .375rem; color: #15803d; }
+
+    .pv-field { margin-bottom: 1rem; }
+    .pv-field label { display: block; font-size: 11px; font-weight: 700; color: #8FA3B8;
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: .375rem; }
+    .pv-field input, .pv-field select, .pv-field textarea {
+      width: 100%; padding: .625rem .875rem; border: 1.5px solid #D6E2F0; border-radius: 8px;
+      font-size: 14px; color: #0B2447; font-family: inherit; box-sizing: border-box;
+    }
+    .pv-field input:focus, .pv-field select:focus, .pv-field textarea:focus {
+      outline: none; border-color: #1976D2;
+    }
+    .pv-field textarea { resize: vertical; }
+    .char-info { font-size: 11px; text-align: right; margin-top: .2rem; color: #8FA3B8; }
+    .char-info.ok   { color: #16a34a; font-weight: 600; }
+    .char-info.warn { color: #dc2626; font-weight: 600; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .btn-guardar { width: 100%; padding: .875rem; background: #16a34a; color: #fff; border: none;
+      border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: .5rem;
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+      transition: background .15s; }
+    .btn-guardar:hover { background: #15803d; }
+
+    /* ── Informes tab ── */
+    .tabs { display: flex; gap: .375rem; margin-bottom: 1.5rem; border-bottom: 2px solid #E8EFF8; padding-bottom: 0; }
+    .tab-btn { padding: .625rem 1rem; font-size: 13px; font-weight: 600; color: #576574; background: none;
+      border: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px;
+      transition: color .15s; }
+    .tab-btn.active { color: #1976D2; border-bottom-color: #1976D2; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    .informe-box { border: 1.5px dashed #D6E2F0; border-radius: 10px; padding: 1.5rem; text-align: center; }
+    .informe-box p { font-size: 13px; color: #576574; margin: .5rem 0; line-height: 1.6; }
+    .btn-subir-csv { display: inline-flex; align-items: center; gap: .5rem; background: #0B2447;
+      color: #fff; border: none; padding: .625rem 1.25rem; border-radius: 100px; font-size: 13px;
+      font-weight: 600; cursor: pointer; margin-top: .75rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .agente-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<?php include '../includes/admin_sidebar.php'; ?>
+
+<main class="main">
+
+  <div class="main-header">
+    <div>
+      <h1 class="main-title">🤖 Agente SEO</h1>
+      <p class="main-sub">Genera artículos y proyectos optimizados para Google 2025 y buscadores con IA</p>
+    </div>
+    <?php if ($tiene_informes): ?>
+      <div style="background:#EEF4FF;border:1px solid #BFDBFE;border-radius:8px;padding:.5rem 1rem;font-size:13px;color:#1976D2;font-weight:600">
+        📊 Aprendiendo de tus datos de posicionamiento
+      </div>
+    <?php endif; ?>
+  </div>
+
+  <?php if ($error_guardado): ?>
+    <div style="background:#FEF2F2;border:1px solid #fecaca;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem;color:#dc2626;font-size:14px;">
+      ⚠️ <?= htmlspecialchars($error_guardado) ?>
+    </div>
+  <?php endif; ?>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="cambiarTab('crear', this)">✨ Crear contenido</button>
+    <button class="tab-btn" onclick="cambiarTab('informes', this)">📊 Informes de posicionamiento</button>
+  </div>
+
+  <!-- ── TAB: CREAR ── -->
+  <div class="tab-pane active" id="tab-crear">
+    <div class="agente-wrap">
+
+      <!-- Columna izquierda: formulario -->
+      <div class="agente-panel">
+        <div class="agente-panel-title">⚙️ Configurar generación</div>
+
+        <!-- Tipo -->
+        <div class="ag-field">
+          <label>Tipo de contenido</label>
+          <div class="tipo-btns">
+            <button type="button" class="tipo-btn active" onclick="setTipo('articulo', this)">📄 Artículo</button>
+            <button type="button" class="tipo-btn" onclick="setTipo('proyecto', this)">🔧 Proyecto</button>
+          </div>
+        </div>
+
+        <!-- Keyword -->
+        <div class="ag-field">
+          <label for="keyword">Keyword o tema principal *</label>
+          <input type="text" id="keyword" placeholder="Ej: instalación termo eléctrico, detección de fugas...">
+          <small>La keyword más importante que quieres posicionar</small>
+        </div>
+
+        <!-- Zona -->
+        <div class="ag-field">
+          <label for="zona">Zona / Ciudad</label>
+          <select id="zona">
+            <option value="">Sin zona específica</option>
+            <?php foreach ($zonas as $z): ?>
+              <option value="<?= htmlspecialchars($z) ?>"><?= htmlspecialchars($z) ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+
+        <!-- Audio -->
+        <div class="ag-field">
+          <label>Audio del trabajo (opcional)</label>
+          <div class="audio-box">
+            <button type="button" class="btn-mic" id="btn-mic" onclick="toggleAudio()">
+              🎙️ <span id="mic-txt">Grabar</span>
+            </button>
+            <p class="audio-status" id="audio-status">Graba contando qué hiciste, dónde y cómo quedó. El agente lo usa para dar autenticidad al artículo.</p>
+          </div>
+        </div>
+
+        <!-- Transcripción -->
+        <div class="ag-field">
+          <label for="transcripcion">Descripción del trabajo</label>
+          <textarea id="transcripcion" rows="4" placeholder="Se rellena al grabar, o escribe directamente: qué avería era, cómo la resolviste, qué material usaste, cuánto tardaste..."></textarea>
+        </div>
+
+        <!-- Imágenes -->
+        <div class="ag-field">
+          <label>Fotos del trabajo</label>
+          <div class="upload-drop" id="upload-drop" onclick="document.getElementById('file-input').click()">
+            <p>📷 Haz clic o arrastra fotos aquí</p>
+            <span>JPG, PNG, WebP — máx 5MB por foto</span>
+          </div>
+          <input type="file" id="file-input" accept="image/*" multiple style="display:none" onchange="subirImagenes(this.files)">
+          <div class="thumbs-grid" id="thumbs-grid"></div>
+        </div>
+
+        <!-- Notas -->
+        <div class="ag-field">
+          <label for="notas">Notas adicionales (opcional)</label>
+          <textarea id="notas" rows="2" placeholder="Marca del equipo, precio aproximado, detalle especial del trabajo..."></textarea>
+        </div>
+
+        <button class="btn-generar" id="btn-generar" onclick="generar()">
+          ✨ Generar contenido SEO
+        </button>
+      </div>
+
+      <!-- Columna derecha: resultado -->
+      <div class="agente-panel">
+        <div class="agente-panel-title">👁️ Resultado generado</div>
+
+        <!-- Loading -->
+        <div class="ag-loading" id="ag-loading">
+          <div class="spinner"></div>
+          <p>El agente SEO está trabajando...</p>
+          <p class="loading-tip" id="loading-tip">Analizando keyword y estructura óptima</p>
+        </div>
+
+        <!-- Empty -->
+        <div class="ag-empty" id="ag-empty">
+          <div class="ag-empty-icon">🤖</div>
+          <p><strong>Rellena el formulario</strong> y pulsa<br>Generar contenido SEO</p>
+        </div>
+
+        <!-- Preview -->
+        <div class="ag-preview" id="ag-preview">
+
+          <div class="seo-notes" id="seo-notes-box">
+            <strong>🧠 Decisiones SEO del agente</strong>
+            <span id="seo-notes-txt"></span>
+          </div>
+
+          <form method="POST" action="agente-seo-guardar.php" id="form-guardar">
+            <input type="hidden" name="tipo"      id="f-tipo">
+            <input type="hidden" name="imagenes"  id="f-imagenes">
+            <input type="hidden" name="imagen"    id="f-imagen">
+
+            <div class="grid-2">
+              <div class="pv-field">
+                <label>Meta Title <span id="mt-info" class="char-info"></span></label>
+                <input type="text" name="meta_title" id="f-meta-title" maxlength="70"
+                       oninput="contarChars(this,'mt-info',60)">
+              </div>
+              <div class="pv-field">
+                <label>Slug (URL)</label>
+                <input type="text" name="slug" id="f-slug">
+              </div>
+            </div>
+
+            <div class="pv-field">
+              <label>Meta Description <span id="md-info" class="char-info"></span></label>
+              <textarea name="meta_desc" id="f-meta-desc" rows="2" maxlength="180"
+                        oninput="contarChars(this,'md-info',160)"></textarea>
+            </div>
+
+            <div class="pv-field">
+              <label>Título H1</label>
+              <input type="text" name="titulo" id="f-titulo">
+            </div>
+
+            <div class="pv-field">
+              <label id="extracto-lbl">Extracto</label>
+              <textarea name="extracto" id="f-extracto" rows="2"></textarea>
+              <input type="hidden" name="descripcion" id="f-descripcion">
+            </div>
+
+            <div class="grid-2">
+              <div class="pv-field">
+                <label>Zona</label>
+                <input type="text" name="zona" id="f-zona">
+              </div>
+              <div class="pv-field" id="pv-cat">
+                <label>Categoría</label>
+                <select name="categoria" id="f-categoria">
+                  <?php foreach ($categorias as $v => $l): ?>
+                    <option value="<?= $v ?>"><?= $l ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <div class="pv-field" id="pv-svc" style="display:none">
+                <label>Servicio</label>
+                <select name="servicio" id="f-servicio">
+                  <?php foreach ($servicios as $s): ?>
+                    <option value="<?= htmlspecialchars($s) ?>"><?= htmlspecialchars($s) ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+            </div>
+
+            <div class="pv-field">
+              <label>Contenido HTML <span style="font-weight:400;color:#B0C4D8">(editable antes de guardar)</span></label>
+              <textarea name="contenido" id="f-contenido" rows="16"
+                style="font-family:monospace;font-size:12px;line-height:1.5"></textarea>
+            </div>
+
+            <button type="submit" class="btn-guardar">
+              💾 Guardar como borrador y revisar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB: INFORMES ── -->
+  <div class="tab-pane" id="tab-informes">
+    <div style="max-width:680px">
+      <div class="agente-panel">
+        <div class="agente-panel-title">📊 Informes de posicionamiento</div>
+
+        <p style="font-size:14px;color:#576574;line-height:1.7;margin-bottom:1.5rem">
+          Sube informes de <strong>Google Search Console</strong> para que el agente aprenda qué páginas posicionan mejor y replique esos patrones en el contenido nuevo.
+        </p>
+
+        <div class="informe-box">
+          <p>📥 <strong>Cómo exportar desde Google Search Console:</strong></p>
+          <p>Search Console → Resultados de búsqueda → Exportar → Descargar CSV<br>
+          Filtra por los últimos 3 meses para datos relevantes.</p>
+          <form method="POST" action="agente-seo-importar.php" enctype="multipart/form-data" style="margin-top:1rem">
+            <input type="file" name="csv_gsc" accept=".csv" style="font-size:13px;margin-bottom:.75rem;display:block">
+            <button type="submit" class="btn-subir-csv">📊 Importar informe GSC</button>
+          </form>
+        </div>
+
+        <?php if ($tiene_informes): ?>
+          <div style="margin-top:1.5rem">
+            <p style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem">Top páginas posicionando:</p>
+            <?php
+              try {
+                $rows = $pdo->query('
+                  SELECT url, ROUND(AVG(posicion),1) as pos, SUM(clicks) as clicks
+                  FROM seo_informes GROUP BY url ORDER BY clicks DESC LIMIT 10
+                ')->fetchAll();
+                foreach ($rows as $row):
+            ?>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.625rem .875rem;border:1px solid #E8EFF8;border-radius:8px;margin-bottom:.375rem;font-size:13px">
+              <span style="color:#0B2447;font-weight:500"><?= htmlspecialchars($row['url']) ?></span>
+              <div style="display:flex;gap:1rem;flex-shrink:0">
+                <span style="color:#8FA3B8">Pos. <?= $row['pos'] ?></span>
+                <span style="color:#1976D2;font-weight:600"><?= number_format($row['clicks']) ?> clicks</span>
+              </div>
+            </div>
+            <?php endforeach; } catch (Exception $e) {} ?>
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ── Estado ──
+let tipoActual   = 'articulo';
+let imagenesSubidas = [];
+let recognizing  = false;
+let recognition  = null;
+let tipInterval  = null;
+const tips = [
+  'Analizando la intención de búsqueda...',
+  'Calculando densidad de keyword óptima...',
+  'Estructurando H1 y H2s para posicionamiento...',
+  'Optimizando para Google AI Overviews...',
+  'Generando FAQs con preguntas reales de búsqueda...',
+  'Aplicando señales E-E-A-T...',
+  'Añadiendo interlinking interno...',
+  'Revisando meta title y description...',
+  'Casi listo...',
+];
+let tipIdx = 0;
+
+// ── Tabs ──
+function cambiarTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── Tipo artículo/proyecto ──
+function setTipo(t, btn) {
+  tipoActual = t;
+  document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pv-cat').style.display = t === 'articulo' ? '' : 'none';
+  document.getElementById('pv-svc').style.display = t === 'proyecto' ? '' : 'none';
+  document.getElementById('extracto-lbl').textContent = t === 'proyecto' ? 'Descripción' : 'Extracto';
+}
+
+// ── Grabación de audio ──
+function toggleAudio() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    alert('Tu navegador no soporta grabación de audio.\nUsa Chrome en Android o escribe la descripción directamente.');
+    return;
+  }
+  if (recognizing) {
+    recognition.stop();
+    return;
+  }
+  recognition = new SpeechRecognition();
+  recognition.lang = 'es-ES';
+  recognition.continuous = true;
+  recognition.interimResults = true;
+
+  recognition.onstart = () => {
+    recognizing = true;
+    document.getElementById('btn-mic').classList.add('grabando');
+    document.getElementById('mic-txt').textContent = 'Detener';
+    document.getElementById('audio-status').textContent = '🔴 Grabando... habla sobre el trabajo';
+  };
+  recognition.onend = () => {
+    recognizing = false;
+    document.getElementById('btn-mic').classList.remove('grabando');
+    document.getElementById('mic-txt').textContent = 'Grabar';
+    document.getElementById('audio-status').textContent = '✅ Grabación guardada';
+  };
+  recognition.onresult = (e) => {
+    let texto = '';
+    for (let i = 0; i < e.results.length; i++) {
+      texto += e.results[i][0].transcript + ' ';
+    }
+    document.getElementById('transcripcion').value = texto.trim();
+  };
+  recognition.onerror = (e) => {
+    recognizing = false;
+    document.getElementById('btn-mic').classList.remove('grabando');
+    document.getElementById('mic-txt').textContent = 'Grabar';
+    document.getElementById('audio-status').textContent = 'Error: ' + e.error + '. Escribe manualmente.';
+  };
+  recognition.start();
+}
+
+// ── Subida de imágenes ──
+async function subirImagenes(files) {
+  for (const file of files) {
+    const fd = new FormData();
+    fd.append('imagen', file);
+    try {
+      const r    = await fetch('agente-seo-upload.php', { method: 'POST', body: fd });
+      const data = await r.json();
+      if (data.ok) {
+        imagenesSubidas.push(data.ruta);
+        renderThumb(data.ruta);
+      } else {
+        alert('Error subiendo imagen: ' + (data.error || 'desconocido'));
+      }
+    } catch (e) {
+      alert('Error de red al subir imagen.');
+    }
+  }
+}
+
+function renderThumb(ruta) {
+  const grid = document.getElementById('thumbs-grid');
+  const div  = document.createElement('div');
+  div.className    = 'thumb-item';
+  div.dataset.ruta = ruta;
+  div.innerHTML    = `<img src="${ruta}" alt=""><button type="button" class="thumb-remove" onclick="quitarImg('${ruta}',this.parentNode)">✕</button>`;
+  grid.appendChild(div);
+}
+
+function quitarImg(ruta, el) {
+  imagenesSubidas = imagenesSubidas.filter(r => r !== ruta);
+  el.remove();
+}
+
+// Drag & drop
+const dropArea = document.getElementById('upload-drop');
+dropArea.addEventListener('dragover', e => { e.preventDefault(); dropArea.style.borderColor = '#1976D2'; });
+dropArea.addEventListener('dragleave', () => { dropArea.style.borderColor = ''; });
+dropArea.addEventListener('drop', e => {
+  e.preventDefault();
+  dropArea.style.borderColor = '';
+  subirImagenes(e.dataTransfer.files);
+});
+
+// ── Loading tips ──
+function startTips() {
+  tipIdx = 0;
+  document.getElementById('loading-tip').textContent = tips[0];
+  tipInterval = setInterval(() => {
+    tipIdx = (tipIdx + 1) % tips.length;
+    document.getElementById('loading-tip').textContent = tips[tipIdx];
+  }, 2800);
+}
+function stopTips() { clearInterval(tipInterval); }
+
+// ── Generar ──
+async function generar() {
+  const keyword = document.getElementById('keyword').value.trim();
+  if (!keyword) {
+    alert('Escribe la keyword o tema principal antes de generar.');
+    document.getElementById('keyword').focus();
+    return;
+  }
+
+  // Mostrar loading
+  document.getElementById('ag-empty').style.display    = 'none';
+  document.getElementById('ag-preview').style.display  = 'none';
+  document.getElementById('ag-loading').style.display  = 'block';
+  document.getElementById('btn-generar').disabled      = true;
+  startTips();
+
+  const fd = new FormData();
+  fd.append('tipo',          tipoActual);
+  fd.append('keyword',       keyword);
+  fd.append('zona',          document.getElementById('zona').value);
+  fd.append('transcripcion', document.getElementById('transcripcion').value);
+  fd.append('notas',         document.getElementById('notas').value);
+  fd.append('imagenes',      JSON.stringify(imagenesSubidas));
+
+  try {
+    const r    = await fetch('agente-seo-api.php', { method: 'POST', body: fd });
+    const resp = await r.json();
+
+    stopTips();
+    document.getElementById('ag-loading').style.display = 'none';
+    document.getElementById('btn-generar').disabled     = false;
+
+    if (resp.error) {
+      alert('Error del agente: ' + resp.error);
+      document.getElementById('ag-empty').style.display = 'flex';
+      return;
+    }
+    mostrarPreview(resp.data);
+
+  } catch (e) {
+    stopTips();
+    document.getElementById('ag-loading').style.display = 'none';
+    document.getElementById('btn-generar').disabled     = false;
+    document.getElementById('ag-empty').style.display   = 'flex';
+    alert('Error de conexión. Comprueba que el servidor tiene acceso a internet.');
+  }
+}
+
+function mostrarPreview(d) {
+  // Notas SEO
+  if (d.seo_notas) {
+    document.getElementById('seo-notes-txt').textContent = d.seo_notas;
+    document.getElementById('seo-notes-box').style.display = '';
+  } else {
+    document.getElementById('seo-notes-box').style.display = 'none';
+  }
+
+  // Campos
+  document.getElementById('f-tipo').value        = tipoActual;
+  document.getElementById('f-meta-title').value  = d.meta_title  || '';
+  document.getElementById('f-meta-desc').value   = d.meta_desc   || '';
+  document.getElementById('f-slug').value        = d.slug        || '';
+  document.getElementById('f-titulo').value      = d.titulo      || '';
+  document.getElementById('f-extracto').value    = d.extracto    || '';
+  document.getElementById('f-descripcion').value = d.extracto    || '';
+  document.getElementById('f-zona').value        = d.zona        || document.getElementById('zona').value;
+  document.getElementById('f-contenido').value   = d.contenido   || '';
+  document.getElementById('f-imagenes').value    = JSON.stringify(imagenesSubidas);
+  document.getElementById('f-imagen').value      = imagenesSubidas[0] || '';
+
+  // Selects
+  seleccionar('f-categoria', d.categoria);
+  seleccionar('f-servicio',  d.servicio);
+
+  // Contadores
+  contarChars(document.getElementById('f-meta-title'), 'mt-info', 60);
+  contarChars(document.getElementById('f-meta-desc'),  'md-info', 160);
+
+  document.getElementById('ag-preview').style.display = 'block';
+  document.getElementById('ag-preview').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function seleccionar(selectId, valor) {
+  if (!valor) return;
+  const sel = document.getElementById(selectId);
+  if (!sel) return;
+  [...sel.options].forEach(o => { o.selected = o.value === valor; });
+}
+
+function contarChars(el, infoId, limite) {
+  const n    = el.value.length;
+  const span = document.getElementById(infoId);
+  span.textContent = n + '/' + limite;
+  span.className   = 'char-info ' + (n > limite ? 'warn' : (n >= limite - 8 ? 'ok' : ''));
+}
+</script>
+</body>
+</html>
