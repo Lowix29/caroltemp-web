@@ -46,7 +46,7 @@ include '../includes/head.php';
 <!-- HERO -->
 <section class="hz-dark" style="min-height:480px">
   <?php if ($pro['imagen']): ?>
-    <img src="<?php echo htmlspecialchars($pro['imagen']); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0">
+    <img src="<?php echo htmlspecialchars($pro['imagen']); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" aria-hidden="true" style="position:absolute;inset:-10px;width:calc(100% + 20px);height:calc(100% + 20px);object-fit:cover;object-position:center;z-index:0;filter:blur(3px)">
     <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,15,30,.72) 0%,rgba(5,15,30,.55) 60%,rgba(11,36,71,.45) 100%);z-index:1"></div>
   <?php else: ?>
     <div class="hz-dark-bg"></div>
