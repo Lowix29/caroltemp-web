@@ -301,7 +301,7 @@ try {
             <span id="seo-notes-txt"></span>
           </div>
 
-          <form method="POST" action="agente-seo-guardar.php" id="form-guardar">
+          <form method="POST" action="agente-seo-guardar" id="form-guardar">
             <input type="hidden" name="tipo"      id="f-tipo">
             <input type="hidden" name="imagenes"  id="f-imagenes">
             <input type="hidden" name="imagen"    id="f-imagen">
@@ -508,7 +508,7 @@ async function subirImagenes(files) {
     const fd = new FormData();
     fd.append('imagen', file);
     try {
-      const r    = await fetch('agente-seo-upload.php', { method: 'POST', body: fd });
+      const r    = await fetch('agente-seo-upload', { method: 'POST', body: fd });
       const data = await r.json();
       if (data.ok) {
         imagenesSubidas.push(data.ruta);
@@ -582,7 +582,7 @@ async function generar() {
   fd.append('imagenes',      JSON.stringify(imagenesSubidas));
 
   try {
-    const r    = await fetch('agente-seo-api.php', { method: 'POST', body: fd });
+    const r    = await fetch('agente-seo-api', { method: 'POST', body: fd });
     const resp = await r.json();
 
     stopTips();
