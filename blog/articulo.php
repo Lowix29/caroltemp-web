@@ -40,27 +40,31 @@ include '../includes/head.php';
 ?>
 
 <!-- HERO -->
-<section class="hz-dark" style="min-height:320px">
+<section class="hz-dark" style="min-height:420px;align-items:stretch">
   <div class="hz-dark-bg"></div>
   <div class="hz-dark-glow"></div>
-  <div class="hz-dark-con">
-    <div class="articulo-meta">
-      <?php if ($art['categoria']): ?>
-        <a href="/blog/categoria/<?php echo urlencode($art['categoria']); ?>" class="blog-cat"><?php echo htmlspecialchars($art['categoria']); ?></a>
-      <?php endif; ?>
-      <?php if ($art['zona']): ?>
-        <span class="blog-zona">📍 <?php echo htmlspecialchars($art['zona']); ?></span>
-      <?php endif; ?>
-      <span class="articulo-fecha"><?php echo date('d/m/Y', strtotime($art['fecha'])); ?></span>
+  <div style="position:relative;z-index:1;width:100%;max-width:1200px;margin:0 auto;padding:3.5rem 1.75rem;display:grid;grid-template-columns:<?php echo $art['imagen'] ? '1fr 1fr' : '1fr'; ?>;gap:3rem;align-items:center">
+    <!-- Texto -->
+    <div>
+      <div class="articulo-meta" style="justify-content:flex-start">
+        <?php if ($art['categoria']): ?>
+          <a href="/blog/categoria/<?php echo urlencode($art['categoria']); ?>" class="blog-cat"><?php echo htmlspecialchars($art['categoria']); ?></a>
+        <?php endif; ?>
+        <?php if ($art['zona']): ?>
+          <span class="blog-zona">📍 <?php echo htmlspecialchars($art['zona']); ?></span>
+        <?php endif; ?>
+        <span class="articulo-fecha"><?php echo date('d/m/Y', strtotime($art['fecha'])); ?></span>
+      </div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;color:#fff;line-height:1.15;letter-spacing:-.025em;margin-top:.75rem"><?php echo htmlspecialchars($art['titulo']); ?></h1>
+      <p style="color:#94a3b8;font-size:15px;line-height:1.75;margin-top:.875rem"><?php echo htmlspecialchars($art['extracto']); ?></p>
     </div>
-    <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.025em;max-width:700px;margin-top:.75rem"><?php echo htmlspecialchars($art['titulo']); ?></h1>
-    <p style="color:#94a3b8;font-size:15px;line-height:1.75;max-width:580px;margin-top:.75rem"><?php echo htmlspecialchars($art['extracto']); ?></p>
+    <!-- Imagen -->
+    <?php if ($art['imagen']): ?>
+    <div>
+      <img src="<?php echo htmlspecialchars($art['imagen']); ?>" alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="eager" style="width:100%;height:320px;object-fit:cover;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.45)">
+    </div>
+    <?php endif; ?>
   </div>
-  <?php if ($art['imagen']): ?>
-  <div style="max-width:1100px;margin:2rem auto 0;padding:0 var(--space-md) 3rem">
-    <img src="<?php echo htmlspecialchars($art['imagen']); ?>" alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="eager" style="width:100%;max-height:500px;object-fit:cover;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.35)">
-  </div>
-  <?php endif; ?>
 </section>
 
 <!-- CONTENIDO -->
