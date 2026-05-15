@@ -210,12 +210,14 @@ if ($informe_competencia) {
 $user_msg = implode("\n", $partes);
 
 // ── LLAMADA A CLAUDE API ────────────────────────────────────────────
+// Prefill: forzar que la respuesta empiece con { para garantizar JSON puro
 $payload = [
   'model'      => ANTHROPIC_MODEL,
-  'max_tokens' => 6000,
+  'max_tokens' => 8192,
   'system'     => $system,
   'messages'   => [
-    ['role' => 'user', 'content' => $user_msg]
+    ['role' => 'user',      'content' => $user_msg],
+    ['role' => 'assistant', 'content' => '{'],
   ],
 ];
 
@@ -249,19 +251,29 @@ if ($httpCode !== 200 || empty($response['content'][0]['text'])) {
   exit;
 }
 
-$text = $response['content'][0]['text'];
+$text        = $response['content'][0]['text'];
+$stop_reason = $response['stop_reason'] ?? '';
 
-// Extraer JSON (Claude a veces añade texto extra a pesar de las instrucciones)
-if (preg_match('/\{[\s\S]*\}/m', $text, $m)) {
-  $json_str = $m[0];
-} else {
-  $json_str = $text;
+// Con prefill, Claude devuelve el JSON sin la llave de apertura — añadirla
+$json_str = '{' . $text;
+
+// Si Claude cortó por max_tokens el JSON estará incompleto — informar claro
+if ($stop_reason === 'max_tokens') {
+  echo json_encode(['error' => 'La respuesta fue demasiado larga y se cortó. Prueba con una keyword más corta o sin informe de competencia.']);
+  exit;
 }
 
 $result = json_decode($json_str, true);
 
+// Fallback: intentar extraer el JSON si el prefill trajo texto extra
 if (!$result) {
-  echo json_encode(['error' => 'La IA no devolvió JSON válido. Inténtalo de nuevo.', 'raw' => substr($text, 0, 500)]);
+  if (preg_match('/\{[\s\S]*\}/u', $json_str, $m)) {
+    $result = json_decode($m[0], true);
+  }
+}
+
+if (!$result) {
+  echo json_encode(['error' => 'La IA no devolvió JSON válido. Inténtalo de nuevo.', 'raw' => substr($json_str, 0, 800)]);
   exit;
 }
 
