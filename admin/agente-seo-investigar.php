@@ -80,69 +80,88 @@ function ct_curl($url, $referer = '') {
   return $html;
 }
 
-// ── Scraping de Google ───────────────────────────────────────
+// ── Scraping de Bing (principal) + Google fallback ───────────
 function ct_serp($keyword, $zona) {
-  $q = $keyword . ($zona ? ' ' . $zona : '');
+  $q       = $keyword . ($zona ? ' ' . $zona : '');
+  $excluir = '/\b(bing|microsoft|youtube|facebook|twitter|instagram|wikipedia|gstatic|msn|linkedin|amazon|ebay|tripadvisor|w3\.org|schema\.org)\b/i';
 
-  // Probar primero google.es, luego google.com como fallback
-  $intentos = [
-    'https://www.google.es/search?q=' . urlencode($q) . '&hl=es&num=10&pws=0',
-    'https://www.google.com/search?q=' . urlencode($q) . '&hl=es&gl=es&num=10&pws=0',
-  ];
+  // ── Bing (sin bloqueo EU, resultados similares a Google en local ES) ──
+  $bingUrl = 'https://www.bing.com/search?q=' . urlencode($q) . '&mkt=es-ES&count=10&setlang=es';
+  $res     = ct_curl($bingUrl, 'https://www.bing.com/');
 
-  $html = false;
-  $ultimoError = '';
-  foreach ($intentos as $url) {
-    $res = ct_curl($url, 'https://www.google.es/');
-    if (is_string($res)) { $html = $res; break; }
-    if (isset($res['_curl_error'])) $ultimoError = $res['_curl_error'];
-  }
-
-  if (!$html) {
-    return ['error' => "No se pudo conectar con Google. Detalle: {$ultimoError}. Comprueba que XAMPP tiene acceso a internet."];
-  }
-
-  // Página de consentimiento EU (botón "Aceptar todo")
-  if (stripos($html, 'consent.google') !== false || stripos($html, 'Antes de continuar') !== false) {
-    return ['error' => 'Google muestra página de consentimiento. Abre el navegador, ve a google.es, acepta las cookies y vuelve a intentarlo.'];
-  }
-
-  if (stripos($html, 'g-recaptcha') !== false || stripos($html, 'unusual traffic') !== false) {
-    return ['error' => 'Google ha detectado el bot (CAPTCHA). Espera 5-10 minutos e inténtalo de nuevo. Si persiste, abre google.es en el navegador primero.'];
-  }
-
-  // Guardar HTML para diagnóstico (sobrescribe cada vez)
-  file_put_contents(dirname(__FILE__) . '/seo-debug-google.html', $html);
-
-  $excluir = '/google\.|youtube\.|facebook\.|twitter\.com|instagram\.|wikipedia\.|gstatic\.|schema\.org|w3\.org|tripadvisor\.|amazon\.|ebay\.|linkedin\./';
-  $urls = [];
-
-  // Extraer TODOS los href https del HTML y filtrar externos
-  if (preg_match_all('/href="(https?:\/\/[^"]+)"/i', $html, $all)) {
-    $conteo = array_count_values($all[1]); // URLs repetidas = más probables resultados
-    arsort($conteo);
-    foreach (array_keys($conteo) as $u) {
-      $u = urldecode(strtok($u, '?#'));
-      if (!preg_match($excluir, $u) && filter_var($u, FILTER_VALIDATE_URL) && !in_array($u, $urls)) {
-        $urls[] = $u;
+  if (is_string($res)) {
+    $urls = [];
+    // Resultados orgánicos Bing: <h2><a href="https://...">
+    if (preg_match_all('/<h2[^>]*>\s*<a[^>]+href="(https?:\/\/[^"]+)"/i', $res, $m)) {
+      foreach ($m[1] as $u) {
+        if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
       }
     }
-  }
-
-  // Patrón clásico /url?q= como complemento
-  if (preg_match_all('/[?&](?:url|q)=(https?%3A%2F%2F[^&"]+)/i', $html, $enc)) {
-    foreach ($enc[1] as $u) {
-      $u = urldecode(strtok($u, '&'));
-      if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
+    // Fallback Bing: cualquier cite o enlace de resultado
+    if (count($urls) < 2 && preg_match_all('/<cite[^>]*>(https?:\/\/[^<]+)<\/cite>/i', $res, $mc)) {
+      foreach ($mc[1] as $u) {
+        $u = 'https://' . trim(strip_tags($u));
+        if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
+      }
+    }
+    if (!empty($urls)) {
+      return ['urls' => array_values(array_slice($urls, 0, 6)), 'fuente' => 'Bing'];
     }
   }
 
-  $urls = array_values(array_unique($urls));
-  if (empty($urls)) {
-    $snippet = substr(strip_tags($html), 0, 400);
-    return ['error' => 'Google respondió pero no se encontraron URLs externas. HTML guardado en admin/seo-debug-google.html para revisión. Fragmento: ' . $snippet];
+  // ── Google fallback: acepta cookie de consentimiento EU ──────
+  // Primera petición para obtener cookies de sesión
+  $cookieFile = tempnam(sys_get_temp_dir(), 'ct_g_');
+  $chConsent  = curl_init('https://www.google.es/');
+  curl_setopt_array($chConsent, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_ENCODING       => '',
+    CURLOPT_TIMEOUT        => 10,
+    CURLOPT_SSL_VERIFYPEER => false,
+    CURLOPT_COOKIEJAR      => $cookieFile,
+    CURLOPT_COOKIE         => 'SOCS=CAESEwgDEgk2MDc4MDEwMTcaAmVzIAE; CONSENT=YES+ES',
+    CURLOPT_HTTPHEADER     => ['User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36', 'Accept-Language: es-ES,es;q=0.9'],
+  ]);
+  curl_exec($chConsent);
+  curl_close($chConsent);
+
+  // Segunda petición: búsqueda real con cookie de consentimiento ya establecida
+  $gUrl = 'https://www.google.es/search?q=' . urlencode($q) . '&hl=es&num=10&pws=0';
+  $chG  = curl_init($gUrl);
+  curl_setopt_array($chG, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_ENCODING       => '',
+    CURLOPT_TIMEOUT        => 18,
+    CURLOPT_SSL_VERIFYPEER => false,
+    CURLOPT_COOKIEJAR      => $cookieFile,
+    CURLOPT_COOKIEFILE     => $cookieFile,
+    CURLOPT_COOKIE         => 'SOCS=CAESEwgDEgk2MDc4MDEwMTcaAmVzIAE; CONSENT=YES+ES',
+    CURLOPT_HTTPHEADER     => [
+      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36',
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language: es-ES,es;q=0.9',
+      'Accept-Encoding: gzip, deflate',
+    ],
+  ]);
+  $gHtml = curl_exec($chG);
+  $gCode = curl_getinfo($chG, CURLINFO_HTTP_CODE);
+  curl_close($chG);
+  @unlink($cookieFile);
+
+  if ($gHtml && $gCode < 400 && stripos($gHtml, 'redirecciona') === false) {
+    $urls = [];
+    if (preg_match_all('/href="\/url\?q=(https?:\/\/[^&"]+)/i', $gHtml, $mg)) {
+      foreach ($mg[1] as $u) {
+        $u = urldecode($u);
+        if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
+      }
+    }
+    if (!empty($urls)) return ['urls' => array_slice($urls, 0, 6), 'fuente' => 'Google'];
   }
-  return ['urls' => array_slice($urls, 0, 8)];
+
+  return ['error' => 'No se pudieron obtener resultados de Bing ni Google. Comprueba que XAMPP tiene acceso a internet (prueba abrir bing.com desde el servidor).'];
 }
 
 // ── Análisis de página rival ─────────────────────────────────
@@ -247,8 +266,9 @@ if (empty($analisis)) {
 }
 
 // ── 3. Informe Claude ────────────────────────────────────────
+$fuente    = $serp['fuente'] ?? 'Bing';
 $contexto  = "Keyword: \"{$keyword}\"" . ($zona ? " · Zona: {$zona}" : '') . "\n\n";
-$contexto .= "DATOS DE LOS " . count($analisis) . " PRIMEROS RESULTADOS EN GOOGLE ESPAÑA:\n\n";
+$contexto .= "DATOS DE LOS " . count($analisis) . " PRIMEROS RESULTADOS EN {$fuente} ESPAÑA:\n\n";
 foreach ($analisis as $p) {
   $contexto .= "═══ #{$p['posicion']} — {$p['url']} ═══\n";
   if ($p['titulo'])    $contexto .= "Title: {$p['titulo']}\n";
