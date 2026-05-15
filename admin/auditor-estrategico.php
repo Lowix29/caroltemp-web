@@ -536,9 +536,10 @@ $base_url = 'http://localhost/';
       <div class="au-panel-body">
 
         <div class="au-field">
-          <label for="objetivo">¿Qué quieres conseguir?</label>
+          <label for="objetivo">Briefing para la agencia</label>
+          <p style="font-size:12px;color:#8FA3B8;margin:-.25rem 0 .75rem">La agencia ya conoce tu negocio. Solo dinos qué quieres conseguir o qué te preocupa.</p>
           <textarea id="objetivo" rows="5"
-            placeholder="Ej: Posicionar en #1 para los términos de detección de fugas en todas las ciudades de la comarca. Quiero saber qué páginas faltan y cuáles mejorar primero..."></textarea>
+            placeholder="Ej: Quiero ser el primero en Google para fugas de agua en toda la comarca. / Revisa mi web y dime qué está mal y por dónde empezar. / Me preocupa que no aparezco en desatascos en Novelda."></textarea>
         </div>
 
         <div class="au-field">
