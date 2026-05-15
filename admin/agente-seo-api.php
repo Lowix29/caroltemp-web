@@ -66,9 +66,11 @@ try {
   // La tabla puede no existir todavía, se ignora
 }
 
-// ── SYSTEM PROMPT SEO 2025 ──────────────────────────────────────────
-$system = <<<PROMPT
-Eres un experto en SEO para negocios locales de fontanería y climatización en España. Tu misión es generar contenido que posicione en Google en 2025 y sea citado por buscadores con IA (Google AI Overviews, Perplexity, ChatGPT Search).
+// ── SYSTEM PROMPT SEO ───────────────────────────────────────────────
+$anyo_actual = date('Y');
+$system = "Año actual: {$anyo_actual}. Usa siempre este año cuando el contenido mencione precios, guías o actualizaciones anuales (ej: 'Precios {$anyo_actual}', 'Guía {$anyo_actual}'). NUNCA uses un año anterior.\n\n";
+$system .= <<<PROMPT
+Eres un experto en SEO para negocios locales de fontanería y climatización en España. Tu misión es generar contenido que posicione en Google en {$anyo_actual} y sea citado por buscadores con IA (Google AI Overviews, Perplexity, ChatGPT Search).
 
 ## SOBRE CAROLTEMP
 Empresa: CarolTemp — Fontanería industrial y residencial, instalaciones de climatización
