@@ -2,11 +2,13 @@
 /* =============================================
    CAROLTEMP — Agente SEO: Investigador de competidores
 ============================================= */
+ob_start(); // captura cualquier output espurio antes del JSON
 error_reporting(0);
 ini_set('display_errors', 0);
 
 session_start();
 if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
+  ob_end_clean();
   http_response_code(401);
   echo json_encode(['error' => 'No autorizado']);
   exit;
@@ -197,6 +199,7 @@ if (!empty($_POST['debug'])) {
 // ── 1. SERP ──────────────────────────────────────────────────
 $serp = ct_serp($keyword, $zona);
 if (isset($serp['error'])) {
+  ob_end_clean();
   echo json_encode(['error' => $serp['error']]);
   exit;
 }
@@ -209,7 +212,8 @@ foreach (array_slice($serp['urls'], 0, 4) as $idx => $url) {
 }
 
 if (empty($analisis)) {
-  echo json_encode(['error' => 'Se encontraron URLs en Google pero no se pudo analizar ninguna página rival (pueden estar bloqueando scrapers). Prueba de nuevo.']);
+  ob_end_clean();
+  echo json_encode(['error' => 'Serper devolvió URLs pero no se pudo analizar ninguna página rival. Las webs pueden estar bloqueando scrapers. El informe se generará solo con las URLs.']);
   exit;
 }
 
@@ -298,6 +302,7 @@ try {
   $inv_id = $pdo->lastInsertId();
 } catch (Exception $e) {}
 
+ob_end_clean(); // descarta cualquier output espurio antes del JSON
 echo json_encode([
   'ok'               => true,
   'urls'             => $serp['urls'],
