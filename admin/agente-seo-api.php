@@ -30,12 +30,13 @@ if (!defined('ANTHROPIC_API_KEY') || strlen(ANTHROPIC_API_KEY) < 20) {
   exit;
 }
 
-$tipo          = $_POST['tipo']          ?? 'articulo';
-$zona          = trim($_POST['zona']          ?? '');
-$keyword       = trim($_POST['keyword']       ?? '');
-$transcripcion = trim($_POST['transcripcion'] ?? '');
-$notas         = trim($_POST['notas']         ?? '');
-$imagenes      = json_decode($_POST['imagenes'] ?? '[]', true);
+$tipo                 = $_POST['tipo']                 ?? 'articulo';
+$zona                 = trim($_POST['zona']                 ?? '');
+$keyword              = trim($_POST['keyword']              ?? '');
+$transcripcion        = trim($_POST['transcripcion']        ?? '');
+$notas                = trim($_POST['notas']                ?? '');
+$informe_competencia  = trim($_POST['informe_competencia']  ?? '');
+$imagenes             = json_decode($_POST['imagenes'] ?? '[]', true);
 
 if (!$keyword) {
   echo json_encode(['error' => 'La keyword es obligatoria']);
@@ -196,6 +197,14 @@ if (!empty($imagenes)) {
   else             $partes[] = 'Usa el bloque bloque-img para esta imagen.';
 }
 if ($notas) $partes[] = "\nNotas adicionales: " . $notas;
+
+if ($informe_competencia) {
+  $partes[] = "\n\n══════════════════════════════════════════";
+  $partes[] = "INFORME DE INVESTIGACIÓN COMPETITIVA (usa esto como base obligatoria):";
+  $partes[] = $informe_competencia;
+  $partes[] = "══════════════════════════════════════════";
+  $partes[] = "INSTRUCCIÓN: el artículo debe seguir la estructura recomendada del informe, superar a todos los competidores analizados, y cubrir los gaps identificados.";
+}
 
 $user_msg = implode("\n", $partes);
 

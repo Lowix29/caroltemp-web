@@ -167,6 +167,39 @@ try {
       color: #fff; border: none; padding: .625rem 1.25rem; border-radius: 100px; font-size: 13px;
       font-weight: 600; cursor: pointer; margin-top: .75rem; }
 
+    /* ── Botón investigar ── */
+    .btn-investigar { width: 100%; padding: .7rem; margin-top: .5rem; margin-bottom: .25rem;
+      background: #fff; color: #1976D2; border: 2px solid #1976D2; border-radius: 10px;
+      font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: .4rem; transition: all .15s; }
+    .btn-investigar:hover:not(:disabled) { background: #EEF4FF; }
+    .btn-investigar:disabled { opacity: .5; cursor: not-allowed; }
+    .btn-investigar.hecho { background: #EEF4FF; border-color: #93c5fd; color: #1d4ed8; }
+
+    /* ── Informe de investigación ── */
+    .ag-inv { display: none; }
+    .inv-header { display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1rem; flex-wrap: wrap; gap: .5rem; }
+    .inv-urls { display: flex; flex-wrap: wrap; gap: .375rem; margin-bottom: 1rem; }
+    .inv-url-chip { font-size: 11px; background: #F0F9FF; border: 1px solid #BAE6FD;
+      color: #0369A1; padding: 3px 8px; border-radius: 100px; max-width: 220px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .inv-url-chip span { font-weight: 700; }
+    .inv-report-box { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 10px;
+      padding: 1.25rem 1.5rem; font-size: 13px; color: #334155; line-height: 1.7;
+      max-height: 420px; overflow-y: auto; margin-bottom: 1.25rem; }
+    .inv-report-box h2 { font-size: 13.5px; font-weight: 700; color: #0B2447;
+      margin: 1rem 0 .375rem; border-bottom: 1px solid #E2E8F0; padding-bottom: .25rem; }
+    .inv-report-box h3 { font-size: 13px; font-weight: 700; color: #1976D2; margin: .75rem 0 .25rem; }
+    .inv-report-box ul { margin: .375rem 0 .5rem 1.25rem; }
+    .inv-report-box li { margin-bottom: .2rem; }
+    .inv-report-box strong { color: #0B2447; }
+    .btn-generar-con-inv { width: 100%; padding: .875rem; background: linear-gradient(135deg,#15803d,#16a34a);
+      color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .5rem;
+      transition: opacity .15s; }
+    .btn-generar-con-inv:hover { opacity: .88; }
+
     /* ── Responsive ── */
     @media (max-width: 1024px) {
       .agente-wrap { grid-template-columns: 1fr; }
@@ -237,6 +270,14 @@ try {
           </select>
         </div>
 
+        <!-- Botón investigar -->
+        <button class="btn-investigar" id="btn-investigar" onclick="investigar()">
+          🔍 Investigar competencia en Google
+        </button>
+        <p style="font-size:11.5px;color:#8FA3B8;text-align:center;margin:-.125rem 0 .75rem">
+          Analiza los top 4 rivales antes de escribir el artículo
+        </p>
+
         <!-- Audio -->
         <div class="ag-field">
           <label>Audio del trabajo (opcional)</label>
@@ -279,6 +320,26 @@ try {
       <!-- Columna derecha: resultado -->
       <div class="agente-panel">
         <div class="agente-panel-title">👁️ Resultado generado</div>
+
+        <!-- Investigación loading -->
+        <div class="ag-loading" id="inv-loading" style="display:none">
+          <div class="spinner"></div>
+          <p>Investigando competidores...</p>
+          <p class="loading-tip" id="inv-tip">Buscando en Google...</p>
+        </div>
+
+        <!-- Resultado de investigación -->
+        <div class="ag-inv" id="ag-inv">
+          <div class="inv-header">
+            <div class="agente-panel-title" style="margin-bottom:0">🔍 Investigación competitiva</div>
+            <button onclick="investigar()" style="font-size:12px;background:none;border:1px solid #D6E2F0;border-radius:6px;padding:4px 10px;cursor:pointer;color:#576574">↻ Repetir</button>
+          </div>
+          <div class="inv-urls" id="inv-urls"></div>
+          <div class="inv-report-box" id="inv-report-box"></div>
+          <button class="btn-generar-con-inv" onclick="generar()">
+            ✨ Generar artículo con esta investigación
+          </button>
+        </div>
 
         <!-- Loading -->
         <div class="ag-loading" id="ag-loading">
@@ -422,15 +483,18 @@ try {
 
 <script>
 // ── Estado ──
-let tipoActual   = 'articulo';
-let imagenesSubidas = [];
-let recognizing  = false;
-let recognition  = null;
-let tipInterval  = null;
+let tipoActual        = 'articulo';
+let imagenesSubidas   = [];
+let recognizing       = false;
+let recognition       = null;
+let tipInterval       = null;
+let informeCompetencia = '';  // informe de investigación competitiva
 const tips = [
+  'Leyendo informe de competidores...',
   'Analizando la intención de búsqueda...',
   'Calculando densidad de keyword óptima...',
-  'Estructurando H1 y H2s para posicionamiento...',
+  'Estructurando H1 y H2s para superar a la competencia...',
+  'Cubriendo los gaps detectados en rivales...',
   'Optimizando para Google AI Overviews...',
   'Generando FAQs con preguntas reales de búsqueda...',
   'Aplicando señales E-E-A-T...',
@@ -546,6 +610,106 @@ dropArea.addEventListener('drop', e => {
   subirImagenes(e.dataTransfer.files);
 });
 
+// ── Investigar competencia ──
+const invTips = [
+  'Buscando en Google...',
+  'Analizando página #1...',
+  'Analizando página #2...',
+  'Analizando página #3...',
+  'Analizando página #4...',
+  'Generando informe con IA...',
+];
+let invTipIdx = 0, invTipInt = null;
+
+async function investigar() {
+  const keyword = document.getElementById('keyword').value.trim();
+  if (!keyword) {
+    alert('Escribe la keyword antes de investigar.');
+    document.getElementById('keyword').focus();
+    return;
+  }
+
+  // Ocultar estados previos
+  document.getElementById('ag-empty').style.display   = 'none';
+  document.getElementById('ag-inv').style.display     = 'none';
+  document.getElementById('ag-preview').style.display = 'none';
+  document.getElementById('ag-loading').style.display = 'none';
+  document.getElementById('inv-loading').style.display = 'block';
+  document.getElementById('btn-investigar').disabled   = true;
+  document.getElementById('btn-generar').disabled      = true;
+
+  invTipIdx = 0;
+  document.getElementById('inv-tip').textContent = invTips[0];
+  invTipInt = setInterval(() => {
+    invTipIdx = Math.min(invTipIdx + 1, invTips.length - 1);
+    document.getElementById('inv-tip').textContent = invTips[invTipIdx];
+  }, 4000);
+
+  const fd = new FormData();
+  fd.append('keyword', keyword);
+  fd.append('zona', document.getElementById('zona').value);
+
+  try {
+    const r    = await fetch('agente-seo-investigar', { method: 'POST', body: fd });
+    const data = await r.json();
+    clearInterval(invTipInt);
+    document.getElementById('inv-loading').style.display  = 'none';
+    document.getElementById('btn-investigar').disabled     = false;
+    document.getElementById('btn-generar').disabled        = false;
+
+    if (data.error) {
+      alert('Error en investigación: ' + data.error);
+      document.getElementById('ag-empty').style.display = 'flex';
+      return;
+    }
+    mostrarInvestigacion(data);
+  } catch (e) {
+    clearInterval(invTipInt);
+    document.getElementById('inv-loading').style.display  = 'none';
+    document.getElementById('btn-investigar').disabled     = false;
+    document.getElementById('btn-generar').disabled        = false;
+    document.getElementById('ag-empty').style.display     = 'flex';
+    alert('Error de conexión durante la investigación.');
+  }
+}
+
+function mostrarInvestigacion(data) {
+  informeCompetencia = data.informe || '';
+
+  // Chips de URLs
+  const urlsEl = document.getElementById('inv-urls');
+  urlsEl.innerHTML = '';
+  (data.analisis || []).forEach(p => {
+    const chip = document.createElement('div');
+    chip.className = 'inv-url-chip';
+    chip.title = p.url;
+    chip.innerHTML = `<span>#${p.posicion}</span> ${(new URL(p.url)).hostname.replace('www.','')}`;
+    urlsEl.appendChild(chip);
+  });
+
+  // Informe markdown → HTML básico
+  const box = document.getElementById('inv-report-box');
+  box.innerHTML = markdownSimple(informeCompetencia);
+
+  document.getElementById('ag-inv').style.display = 'block';
+  document.getElementById('btn-investigar').classList.add('hecho');
+  document.getElementById('btn-investigar').textContent = '✅ Investigación completada — repetir';
+  document.getElementById('ag-inv').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function markdownSimple(md) {
+  if (!md) return '';
+  return md
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+    .replace(/\n{2,}/g, '<br>')
+    .replace(/\n/g, ' ');
+}
+
 // ── Loading tips ──
 function startTips() {
   tipIdx = 0;
@@ -569,6 +733,7 @@ async function generar() {
   // Mostrar loading
   document.getElementById('ag-empty').style.display    = 'none';
   document.getElementById('ag-preview').style.display  = 'none';
+  document.getElementById('ag-inv').style.display      = 'none';
   document.getElementById('ag-loading').style.display  = 'block';
   document.getElementById('btn-generar').disabled      = true;
   startTips();
@@ -579,7 +744,8 @@ async function generar() {
   fd.append('zona',          document.getElementById('zona').value);
   fd.append('transcripcion', document.getElementById('transcripcion').value);
   fd.append('notas',         document.getElementById('notas').value);
-  fd.append('imagenes',      JSON.stringify(imagenesSubidas));
+  fd.append('imagenes',           JSON.stringify(imagenesSubidas));
+  fd.append('informe_competencia', informeCompetencia);
 
   try {
     const r    = await fetch('agente-seo-api', { method: 'POST', body: fd });

@@ -18,6 +18,18 @@ CREATE TABLE IF NOT EXISTS seo_informes (
   INDEX idx_fecha (fecha)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Tabla de investigaciones competitivas (scraping + análisis IA)
+CREATE TABLE IF NOT EXISTS seo_investigaciones (
+  id                INT AUTO_INCREMENT PRIMARY KEY,
+  keyword           VARCHAR(255)   NOT NULL,
+  zona              VARCHAR(100)   DEFAULT '',
+  urls_encontradas  TEXT,
+  analisis_json     LONGTEXT,
+  informe           LONGTEXT,
+  created_at        TIMESTAMP      DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_keyword (keyword(100))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Tabla de carpetas de medios por artículo/proyecto
 CREATE TABLE IF NOT EXISTS seo_media (
   id         INT AUTO_INCREMENT PRIMARY KEY,
