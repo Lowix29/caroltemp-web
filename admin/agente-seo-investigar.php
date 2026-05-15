@@ -111,36 +111,38 @@ function ct_serp($keyword, $zona) {
     return ['error' => 'Google ha detectado el bot (CAPTCHA). Espera 5-10 minutos e inténtalo de nuevo. Si persiste, abre google.es en el navegador primero.'];
   }
 
+  // Guardar HTML para diagnóstico (sobrescribe cada vez)
+  file_put_contents(dirname(__FILE__) . '/seo-debug-google.html', $html);
+
   $excluir = '/google\.|youtube\.|facebook\.|twitter\.com|instagram\.|wikipedia\.|gstatic\.|schema\.org|w3\.org|tripadvisor\.|amazon\.|ebay\.|linkedin\./';
   $urls = [];
 
-  // Patrón 1: /url?q= (redirecciones Google clásico)
-  if (preg_match_all('/href="\/url\?q=(https?:\/\/[^&"]+)/i', $html, $m)) {
-    foreach ($m[1] as $u) {
-      $u = urldecode($u);
-      if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
+  // Extraer TODOS los href https del HTML y filtrar externos
+  if (preg_match_all('/href="(https?:\/\/[^"]+)"/i', $html, $all)) {
+    $conteo = array_count_values($all[1]); // URLs repetidas = más probables resultados
+    arsort($conteo);
+    foreach (array_keys($conteo) as $u) {
+      $u = urldecode(strtok($u, '?#'));
+      if (!preg_match($excluir, $u) && filter_var($u, FILTER_VALIDATE_URL) && !in_array($u, $urls)) {
+        $urls[] = $u;
+      }
     }
   }
 
-  // Patrón 2: data-href con https (Google moderno)
-  if (count($urls) < 2 && preg_match_all('/data-href="(https?:\/\/(?!www\.google)[^"]+)"/i', $html, $m2)) {
-    foreach ($m2[1] as $u) {
-      if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
-    }
-  }
-
-  // Patrón 3: href directo https (último recurso)
-  if (count($urls) < 2 && preg_match_all('/<a[^>]+href="(https?:\/\/(?!www\.google|accounts\.google)[^"#]+)"[^>]*class="[^"]*"[^>]*>/i', $html, $m3)) {
-    foreach ($m3[1] as $u) {
+  // Patrón clásico /url?q= como complemento
+  if (preg_match_all('/[?&](?:url|q)=(https?%3A%2F%2F[^&"]+)/i', $html, $enc)) {
+    foreach ($enc[1] as $u) {
+      $u = urldecode(strtok($u, '&'));
       if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
     }
   }
 
   $urls = array_values(array_unique($urls));
   if (empty($urls)) {
-    return ['error' => 'Google respondió pero no se encontraron resultados orgánicos. Puede que el formato haya cambiado o que Google esté mostrando CAPTCHA. Prueba a cambiar la keyword.'];
+    $snippet = substr(strip_tags($html), 0, 400);
+    return ['error' => 'Google respondió pero no se encontraron URLs externas. HTML guardado en admin/seo-debug-google.html para revisión. Fragmento: ' . $snippet];
   }
-  return ['urls' => array_slice($urls, 0, 6)];
+  return ['urls' => array_slice($urls, 0, 8)];
 }
 
 // ── Análisis de página rival ─────────────────────────────────
