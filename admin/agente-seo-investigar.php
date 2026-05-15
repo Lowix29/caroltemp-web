@@ -23,6 +23,8 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 require_once '../includes/db.php';
 require_once '../includes/config.php';
 
+if (!defined('ANTHROPIC_MODEL')) define('ANTHROPIC_MODEL', 'claude-sonnet-4-5');
+
 header('Content-Type: application/json; charset=utf-8');
 
 if (!function_exists('curl_init')) {
