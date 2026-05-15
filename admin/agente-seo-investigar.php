@@ -80,93 +80,47 @@ function ct_curl($url, $referer = '') {
   return $html;
 }
 
-// ── Scraping de Bing (principal) + Google fallback ───────────
+// ── SERP via Serper.dev (Google results, no captcha) ─────────
 function ct_serp($keyword, $zona) {
+  if (!defined('SERPER_API_KEY') || strlen(SERPER_API_KEY) < 10) {
+    return ['error' => 'SERPER_API_KEY no configurada en includes/config.php'];
+  }
+
   $q       = $keyword . ($zona ? ' ' . $zona : '');
-  $excluir = '/\b(bing|microsoft|youtube|facebook|twitter|instagram|wikipedia|gstatic|msn|linkedin|amazon|ebay|tripadvisor|w3\.org|schema\.org)\b/i';
+  $payload = json_encode(['q' => $q, 'gl' => 'es', 'hl' => 'es', 'num' => 10]);
 
-  // ── Bing (sin bloqueo EU, resultados similares a Google en local ES) ──
-  $bingUrl = 'https://www.bing.com/search?q=' . urlencode($q) . '&mkt=es-ES&count=10&setlang=es';
-  $res     = ct_curl($bingUrl, 'https://www.bing.com/');
-
-  if (is_string($res)) {
-    $urls = [];
-    // Resultados orgánicos Bing: <h2><a href="https://...">
-    if (preg_match_all('/<h2[^>]*>\s*<a[^>]+href="(https?:\/\/[^"]+)"/i', $res, $m)) {
-      foreach ($m[1] as $u) {
-        if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
-      }
-    }
-    // Fallback Bing: cualquier cite o enlace de resultado
-    if (count($urls) < 2 && preg_match_all('/<cite[^>]*>(https?:\/\/[^<]+)<\/cite>/i', $res, $mc)) {
-      foreach ($mc[1] as $u) {
-        $u = 'https://' . trim(strip_tags($u));
-        if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
-      }
-    }
-    if (!empty($urls)) {
-      return ['urls' => array_values(array_slice($urls, 0, 6)), 'fuente' => 'Bing'];
-    }
-    // Bing respondió pero no se parsearon URLs — guardar HTML para debug
-    file_put_contents(dirname(__FILE__) . '/seo-debug-bing.html', $res);
-    $bingError = 'Bing respondió (HTTP OK) pero no se encontraron URLs. HTML guardado en seo-debug-bing.html';
-  } else {
-    $bingError = isset($res['_curl_error']) ? 'Bing curl error: ' . $res['_curl_error'] : 'Bing: respuesta vacía';
-  }
-
-  // ── Google fallback: acepta cookie de consentimiento EU ──────
-  // Primera petición para obtener cookies de sesión
-  $cookieFile = tempnam(sys_get_temp_dir(), 'ct_g_');
-  $chConsent  = curl_init('https://www.google.es/');
-  curl_setopt_array($chConsent, [
+  $ch = curl_init('https://google.serper.dev/search');
+  curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_ENCODING       => '',
-    CURLOPT_TIMEOUT        => 10,
-    CURLOPT_SSL_VERIFYPEER => false,
-    CURLOPT_COOKIEJAR      => $cookieFile,
-    CURLOPT_COOKIE         => 'SOCS=CAESEwgDEgk2MDc4MDEwMTcaAmVzIAE; CONSENT=YES+ES',
-    CURLOPT_HTTPHEADER     => ['User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36', 'Accept-Language: es-ES,es;q=0.9'],
-  ]);
-  curl_exec($chConsent);
-  curl_close($chConsent);
-
-  // Segunda petición: búsqueda real con cookie de consentimiento ya establecida
-  $gUrl = 'https://www.google.es/search?q=' . urlencode($q) . '&hl=es&num=10&pws=0';
-  $chG  = curl_init($gUrl);
-  curl_setopt_array($chG, [
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_ENCODING       => '',
-    CURLOPT_TIMEOUT        => 18,
-    CURLOPT_SSL_VERIFYPEER => false,
-    CURLOPT_COOKIEJAR      => $cookieFile,
-    CURLOPT_COOKIEFILE     => $cookieFile,
-    CURLOPT_COOKIE         => 'SOCS=CAESEwgDEgk2MDc4MDEwMTcaAmVzIAE; CONSENT=YES+ES',
+    CURLOPT_POST           => true,
+    CURLOPT_POSTFIELDS     => $payload,
     CURLOPT_HTTPHEADER     => [
-      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36',
-      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language: es-ES,es;q=0.9',
-      'Accept-Encoding: gzip, deflate',
+      'X-API-KEY: ' . SERPER_API_KEY,
+      'Content-Type: application/json',
     ],
+    CURLOPT_TIMEOUT        => 15,
+    CURLOPT_SSL_VERIFYPEER => false,
   ]);
-  $gHtml = curl_exec($chG);
-  $gCode = curl_getinfo($chG, CURLINFO_HTTP_CODE);
-  curl_close($chG);
-  @unlink($cookieFile);
 
-  if ($gHtml && $gCode < 400 && stripos($gHtml, 'redirecciona') === false) {
-    $urls = [];
-    if (preg_match_all('/href="\/url\?q=(https?:\/\/[^&"]+)/i', $gHtml, $mg)) {
-      foreach ($mg[1] as $u) {
-        $u = urldecode($u);
-        if (!preg_match($excluir, $u) && !in_array($u, $urls)) $urls[] = $u;
-      }
-    }
-    if (!empty($urls)) return ['urls' => array_slice($urls, 0, 6), 'fuente' => 'Google'];
+  $raw      = curl_exec($ch);
+  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  $errno    = curl_errno($ch);
+  $errmsg   = curl_error($ch);
+  curl_close($ch);
+
+  if ($errno) return ['error' => "Serper curl error: {$errmsg}"];
+  if ($httpCode !== 200) {
+    $msg = json_decode($raw, true)['message'] ?? $raw;
+    return ['error' => "Serper API error {$httpCode}: {$msg}"];
   }
 
-  return ['error' => "No se pudieron obtener resultados. {$bingError}. Comprueba que XAMPP tiene acceso a internet."];
+  $data = json_decode($raw, true);
+  if (empty($data['organic'])) {
+    return ['error' => 'Serper no devolvió resultados orgánicos para esta keyword.'];
+  }
+
+  $urls = array_column(array_slice($data['organic'], 0, 6), 'link');
+  return ['urls' => $urls, 'fuente' => 'Google (Serper)'];
 }
 
 // ── Análisis de página rival ─────────────────────────────────
@@ -233,21 +187,10 @@ function ct_analizar($url, $pos) {
   ];
 }
 
-// ── Modo debug: devuelve HTML crudo de Google ────────────────
+// ── Modo debug ────────────────────────────────────────────────
 if (!empty($_POST['debug'])) {
-  $q    = $keyword . ($zona ? ' ' . $zona : '');
-  $url  = 'https://www.google.es/search?q=' . urlencode($q) . '&hl=es&num=10&pws=0';
-  $res  = ct_curl($url, 'https://www.google.es/');
-  $html = is_string($res) ? $res : '';
-  // Extraer todos los href https para ver qué hay
-  preg_match_all('/href="(https?:\/\/[^"]{10,}?)"/i', $html, $todosLinks);
-  echo json_encode([
-    'debug'       => true,
-    'html_inicio' => substr($html, 0, 3000),
-    'todos_hrefs' => array_slice(array_unique($todosLinks[1] ?? []), 0, 40),
-    'longitud'    => strlen($html),
-    'curl_error'  => is_array($res) ? $res : null,
-  ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+  $serp = ct_serp($keyword, $zona);
+  echo json_encode(['debug' => true, 'serp' => $serp], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
   exit;
 }
 
