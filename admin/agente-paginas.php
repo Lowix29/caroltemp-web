@@ -145,6 +145,16 @@ $base_url = 'http://localhost/';
       background: #FEE2E2;
       color: #B91C1C;
     }
+    .btn-regen {
+      background: #EEF4FF;
+      color: #1976D2;
+    }
+    .cell-ok-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .3rem;
+    }
 
     /* ── Loading spinner ── */
     .ap-loading {
@@ -479,7 +489,15 @@ function renderMatriz(matriz) {
       if (!svc) { html += '<td>—</td>'; return; }
 
       if (svc.existe && !svc.provisional) {
-        html += '<td><span class="cell-ok"><span class="cell-ok-icon">✓</span> OK</span></td>';
+        const onRegen = col.key === 'zona'
+          ? ''
+          : `onclick="lanzarAccion('mejorar','${escp(col.key)}','${escp(fila.ciudad)}','${escp(fila.slug)}','${escp(fila.cp)}','${escp(svc.filepath)}')"`;
+        html += '<td><div class="cell-ok-wrap">';
+        html += '<span class="cell-ok"><span class="cell-ok-icon">✓</span> OK</span>';
+        if (col.key !== 'zona') {
+          html += `<button class="btn-accion btn-regen" ${onRegen}>↻ Rehacer</button>`;
+        }
+        html += '</div></td>';
       } else if (svc.existe && svc.provisional) {
         const onClick = col.key === 'zona'
           ? '' // zonas no tienen IA por ahora
