@@ -2,9 +2,15 @@
 /* =============================================
    CAROLTEMP — Agente SEO: Investigador de competidores
 ============================================= */
-ob_start(); // captura cualquier output espurio antes del JSON
-error_reporting(0);
-ini_set('display_errors', 0);
+// Modo diagnóstico temporal: ?debug_errors=1
+if (isset($_GET['debug_errors'])) {
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+} else {
+  error_reporting(0);
+  ini_set('display_errors', 0);
+}
+ob_start();
 
 session_start();
 if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
