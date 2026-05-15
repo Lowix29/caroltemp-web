@@ -207,6 +207,24 @@ function ct_analizar($url, $pos) {
   ];
 }
 
+// ── Modo debug: devuelve HTML crudo de Google ────────────────
+if (!empty($_POST['debug'])) {
+  $q    = $keyword . ($zona ? ' ' . $zona : '');
+  $url  = 'https://www.google.es/search?q=' . urlencode($q) . '&hl=es&num=10&pws=0';
+  $res  = ct_curl($url, 'https://www.google.es/');
+  $html = is_string($res) ? $res : '';
+  // Extraer todos los href https para ver qué hay
+  preg_match_all('/href="(https?:\/\/[^"]{10,}?)"/i', $html, $todosLinks);
+  echo json_encode([
+    'debug'       => true,
+    'html_inicio' => substr($html, 0, 3000),
+    'todos_hrefs' => array_slice(array_unique($todosLinks[1] ?? []), 0, 40),
+    'longitud'    => strlen($html),
+    'curl_error'  => is_array($res) ? $res : null,
+  ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+  exit;
+}
+
 // ── 1. SERP ──────────────────────────────────────────────────
 $serp = ct_serp($keyword, $zona);
 if (isset($serp['error'])) {
