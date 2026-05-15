@@ -424,11 +424,13 @@ Sé muy concreto. Cada acción = una URL específica + un motivo de 1-2 frases q
 
 ## FORMATO DE RESPUESTA
 
-DEVUELVE ÚNICAMENTE JSON VÁLIDO. Sin markdown, sin texto antes ni después:
+DEVUELVE ÚNICAMENTE JSON VÁLIDO. Sin markdown, sin texto antes ni después.
+IMPORTANTE: sé conciso en los textos de cada campo — frases cortas y directas. El campo "motivo" de cada acción: máximo 1 frase. No repitas información entre campos.
+
 {
-  "resumen": "2-3 frases del estado actual y diagnóstico principal desde perspectiva de agencia",
-  "diagnostico": "Análisis detallado: problemas encontrados, riesgos SEO, oportunidades perdidas (4-6 líneas)",
-  "arquitectura_ideal": "Cómo debería ser la arquitectura web completa para dominar Google local en esta comarca (5-8 líneas)",
+  "resumen": "2-3 frases cortas del diagnóstico principal",
+  "diagnostico": "Problemas y riesgos SEO concretos (3-4 líneas máx)",
+  "arquitectura_ideal": "Arquitectura web ideal para posicionar #1 (4-5 líneas máx)",
   "estadisticas": {
     "paginas_ok": N,
     "paginas_provisional": N,
@@ -456,7 +458,7 @@ SYS;
   // 5. Llamada a Claude API (prefill { para JSON puro)
   $payload = [
     'model'      => ANTHROPIC_MODEL,
-    'max_tokens' => 4096,
+    'max_tokens' => 8192,
     'system'     => $system,
     'messages'   => [
       ['role' => 'user',      'content' => $user_msg],
