@@ -37,11 +37,14 @@ $total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHE
       <span>📋</span> Todos los proyectos
     </a>
     <span class="sidebar-label">Agente IA</span>
-    <a href="agente-seo.php" class="<?php echo $pagina_actual === 'agente-seo.php' ? 'active' : ''; ?>" style="background:<?php echo $pagina_actual === 'agente-seo.php' ? '' : 'linear-gradient(135deg,rgba(11,36,71,.04),rgba(25,118,210,.06))'; ?>">
-      <span>🤖</span> Agente SEO
+    <a href="auditor-estrategico.php" class="<?php echo $pagina_actual === 'auditor-estrategico.php' ? 'active' : ''; ?>" style="background:<?php echo $pagina_actual === 'auditor-estrategico.php' ? '' : 'linear-gradient(135deg,rgba(11,36,71,.04),rgba(168,85,247,.08))'; ?>">
+      <span>🧠</span> Auditor Estratégico
     </a>
     <a href="agente-paginas.php" class="<?php echo $pagina_actual === 'agente-paginas.php' ? 'active' : ''; ?>" style="background:<?php echo $pagina_actual === 'agente-paginas.php' ? '' : 'linear-gradient(135deg,rgba(11,36,71,.04),rgba(25,118,210,.06))'; ?>">
       <span>🗂️</span> Agente Páginas
+    </a>
+    <a href="agente-seo.php" class="<?php echo $pagina_actual === 'agente-seo.php' ? 'active' : ''; ?>" style="background:<?php echo $pagina_actual === 'agente-seo.php' ? '' : 'linear-gradient(135deg,rgba(11,36,71,.04),rgba(25,118,210,.06))'; ?>">
+      <span>✍️</span> Agente SEO (Contenido)
     </a>
     <span class="sidebar-label">Herramientas</span>
 <a href="categorias.php" class="<?php echo $pagina_actual === 'categorias.php' ? 'active' : ''; ?>">
