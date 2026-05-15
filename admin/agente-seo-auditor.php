@@ -1,7 +1,6 @@
 <?php
 /* =============================================
-   CAROLTEMP — Auditor SEO completo
-   Backend API — devuelve JSON
+   CAROLTEMP — Auditor SEO completo v2
 ============================================= */
 ob_start();
 error_reporting(0);
@@ -18,219 +17,263 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 
 require_once '../includes/db.php';
 require_once '../includes/config.php';
-
 if (!defined('ANTHROPIC_MODEL')) define('ANTHROPIC_MODEL', 'claude-sonnet-4-5');
 
 ob_end_clean();
 header('Content-Type: application/json; charset=utf-8');
 
-// ── Verificaciones básicas ──────────────────────────────────────────────────
 if (!function_exists('curl_init')) {
   echo json_encode(['error' => 'curl no está habilitado en PHP.']);
   exit;
 }
 if (!defined('ANTHROPIC_API_KEY') || strlen(ANTHROPIC_API_KEY) < 20) {
-  echo json_encode(['error' => 'API key no configurada. Revisa includes/config.php']);
+  echo json_encode(['error' => 'API key no configurada en includes/config.php']);
   exit;
 }
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
-function palabras_contenido($html) {
-  return str_word_count(strip_tags($html ?? ''));
+$root = dirname(__DIR__); // ruta absoluta a la raíz del sitio
+
+// Keywords del usuario (pegadas en el textarea, una por línea)
+$keywords_raw = trim($_POST['keywords'] ?? '');
+$keywords_usuario = $keywords_raw
+  ? array_filter(array_map('trim', preg_split('/[\r\n,;]+/', $keywords_raw)))
+  : [];
+
+// ── ZONAS DE SERVICIO (sin Villena) ─────────────────────────────────────────
+$zonas_servicio = [
+  'Elda'            => 'elda',
+  'Petrer'          => 'petrer',
+  'Novelda'         => 'novelda',
+  'Monóvar'         => 'monovar',
+  'Sax'             => 'sax',
+  'Pinoso'          => 'pinoso',
+  'Monforte del Cid'=> 'monforte',
+  'Salinas'         => 'salinas',
+  'Aspe'            => 'aspe',
+];
+
+// ── SERVICIOS ESTÁTICOS POR ZONA ─────────────────────────────────────────────
+// Patrón de archivo para cada tipo de servicio por zona
+$servicios_estaticos = [
+  'Página zona'   => fn($s) => $root . "/zonas/{$s}.php",
+  'Fugas'         => fn($s) => $root . "/fugas/deteccion-fugas-{$s}.php",
+  'Desatascos'    => fn($s) => $root . "/desatascos/desatascos-{$s}.php",
+  'Fontanero'     => fn($s) => $root . "/fontanero/fontanero-{$s}.php",
+];
+
+// ── CONSTRUIR MATRIZ ZONA × SERVICIO ─────────────────────────────────────────
+$matriz = [];
+foreach ($zonas_servicio as $nombre => $slug) {
+  $fila = ['zona' => $nombre, 'slug' => $slug, 'servicios' => []];
+  foreach ($servicios_estaticos as $servicio => $pathFn) {
+    $fila['servicios'][$servicio] = file_exists($pathFn($slug));
+  }
+  $matriz[] = $fila;
 }
 
-function flags_meta($meta_title, $meta_desc, $publicado = 1) {
-  $mt_len = mb_strlen($meta_title ?? '');
-  $md_len = mb_strlen($meta_desc  ?? '');
-  return [
-    'meta_title_len'   => $mt_len,
-    'meta_desc_len'    => $md_len,
-    'sin_meta_title'   => $mt_len === 0,
-    'sin_meta_desc'    => $md_len === 0,
-    'meta_title_largo' => $mt_len > 60,
-    'meta_desc_corta'  => $md_len < 140 && $md_len > 0,
-    'meta_desc_larga'  => $md_len > 165,
-    'no_publicado'     => (int)$publicado === 0,
+// ── LEER PÁGINAS ESTÁTICAS Y EXTRAER META ────────────────────────────────────
+function extraer_meta_php($filepath) {
+  if (!file_exists($filepath)) return ['meta_title' => '', 'meta_desc' => '', 'palabras' => 0];
+  $src = file_get_contents($filepath);
+  $mt = $md = '';
+  if (preg_match('/\$meta_title\s*=\s*["\']([^"\']+)["\']/', $src, $m)) $mt = $m[1];
+  if (preg_match('/\$meta_desc\s*=\s*["\']([^"\']+)["\']/',  $src, $m)) $md = $m[1];
+  $palabras = str_word_count(strip_tags(preg_replace('/<\?php.*?\?>/s', '', $src)));
+  return ['meta_title' => $mt, 'meta_desc' => $md, 'palabras' => $palabras];
+}
+
+$paginas_estaticas = [];
+
+// Todas las páginas de zona y servicio
+foreach ($zonas_servicio as $nombre => $slug) {
+  foreach ($servicios_estaticos as $servicio => $pathFn) {
+    $path = $pathFn($slug);
+    if (!file_exists($path)) continue;
+    $meta = extraer_meta_php($path);
+    $url  = str_replace($root, '', $path);
+    $url  = str_replace('.php', '', $url);
+    $paginas_estaticas[] = [
+      'url'        => $url,
+      'titulo'     => $meta['meta_title'] ?: "{$servicio} en {$nombre}",
+      'meta_title' => $meta['meta_title'],
+      'meta_desc'  => $meta['meta_desc'],
+      'palabras'   => $meta['palabras'],
+      'zona'       => $nombre,
+      'servicio'   => $servicio,
+    ];
+  }
+}
+
+// Páginas generales
+$generales = [
+  $root . '/index.php'    => '/',
+  $root . '/servicios.php'=> '/servicios',
+  $root . '/sobre-nosotros.php' => '/sobre-nosotros',
+  $root . '/contacto.php' => '/contacto',
+];
+foreach ($generales as $path => $url) {
+  if (!file_exists($path)) continue;
+  $meta = extraer_meta_php($path);
+  $paginas_estaticas[] = [
+    'url'        => $url,
+    'titulo'     => $meta['meta_title'] ?: basename($url),
+    'meta_title' => $meta['meta_title'],
+    'meta_desc'  => $meta['meta_desc'],
+    'palabras'   => $meta['palabras'],
+    'zona'       => '',
+    'servicio'   => 'general',
   ];
 }
 
-function build_item($slug, $titulo, $url, $meta_title, $meta_desc, $contenido, $publicado, $tipo) {
-  $palabras = palabras_contenido($contenido);
-  $flags    = flags_meta($meta_title, $meta_desc, $publicado);
-  $flags['contenido_delgado'] = $palabras < 300;
-  $flags['palabras'] = $palabras;
-  return array_merge([
-    'tipo'       => $tipo,
-    'slug'       => $slug,
-    'titulo'     => $titulo,
-    'url'        => $url,
-    'meta_title' => $meta_title ?? '',
-    'meta_desc'  => $meta_desc  ?? '',
-  ], $flags);
-}
-
-// ── PASO 1: Inventario desde BD ─────────────────────────────────────────────
-$inventario = [];
-
-// Artículos
+// ── ARTÍCULOS Y PROYECTOS DE LA BD ───────────────────────────────────────────
+$articulos = $proyectos = [];
 try {
-  $arts = $pdo->query(
-    'SELECT slug, titulo, meta_title, meta_desc, contenido, publicado FROM articulos ORDER BY id'
+  $articulos = $pdo->query(
+    'SELECT slug, titulo, zona, categoria, meta_title, meta_desc, contenido, publicado, created_at FROM articulos ORDER BY id'
   )->fetchAll(PDO::FETCH_ASSOC);
-  foreach ($arts as $a) {
-    $inventario[] = build_item(
-      $a['slug'], $a['titulo'],
-      '/blog/' . $a['slug'],
-      $a['meta_title'], $a['meta_desc'],
-      $a['contenido'], $a['publicado'],
-      'articulo'
-    );
-  }
 } catch (Exception $e) {}
 
-// Proyectos
 try {
-  $projs = $pdo->query(
-    'SELECT slug, titulo, meta_title, meta_desc, contenido, publicado FROM proyectos ORDER BY id'
+  $proyectos = $pdo->query(
+    'SELECT slug, titulo, zona, servicio, meta_title, meta_desc, contenido, publicado, created_at FROM proyectos ORDER BY id'
   )->fetchAll(PDO::FETCH_ASSOC);
-  foreach ($projs as $p) {
-    $inventario[] = build_item(
-      $p['slug'], $p['titulo'],
-      '/proyectos/' . $p['slug'],
-      $p['meta_title'], $p['meta_desc'],
-      $p['contenido'], $p['publicado'],
-      'proyecto'
-    );
-  }
 } catch (Exception $e) {}
 
-// ── PASO 2: Escanear páginas estáticas PHP ───────────────────────────────────
-$dirs_estaticos = [
-  '/tmp/caroltemp-web/zonas'       => '/zonas',
-  '/tmp/caroltemp-web/fugas'       => '/fugas',
-  '/tmp/caroltemp-web/desatascos'  => '/desatascos',
-  '/tmp/caroltemp-web/fontanero'   => '/fontanero',
-];
+function analizar_entrada($row, $tipo, $base_url) {
+  $palabras = str_word_count(strip_tags($row['contenido'] ?? ''));
+  $mt       = $row['meta_title'] ?? '';
+  $md       = $row['meta_desc']  ?? '';
+  $problemas = [];
+  if (!$mt)                       $problemas[] = 'sin_meta_title';
+  if (mb_strlen($mt) > 60)        $problemas[] = 'meta_title_largo('.mb_strlen($mt).'c)';
+  if (!$md)                       $problemas[] = 'sin_meta_desc';
+  if ($md && mb_strlen($md) < 140)$problemas[] = 'meta_desc_corta('.mb_strlen($md).'c)';
+  if ($md && mb_strlen($md) > 165)$problemas[] = 'meta_desc_larga('.mb_strlen($md).'c)';
+  if ($palabras < 400)            $problemas[] = 'contenido_delgado('.$palabras.'p)';
+  if (!(int)($row['publicado'] ?? 1)) $problemas[] = 'borrador';
+  return [
+    'tipo'    => $tipo,
+    'url'     => $base_url . '/' . $row['slug'],
+    'titulo'  => $row['titulo'],
+    'zona'    => $row['zona'] ?? '',
+    'palabras'=> $palabras,
+    'mt_len'  => mb_strlen($mt),
+    'md_len'  => mb_strlen($md),
+    'problemas'=> $problemas,
+  ];
+}
 
-$extra_files = [
-  '/tmp/caroltemp-web/servicios.php' => '/servicios',
-  '/tmp/caroltemp-web/index.php'     => '/',
-];
+$contenido_dinamico = [];
+foreach ($articulos as $a) {
+  $contenido_dinamico[] = analizar_entrada($a, 'articulo', '/blog');
+}
+foreach ($proyectos as $p) {
+  $contenido_dinamico[] = analizar_entrada($p, 'proyecto', '/proyectos');
+}
 
-$archivos_estaticos = [];
+// Artículos por zona (para el contexto de gaps)
+$arts_por_zona = [];
+foreach ($articulos as $a) {
+  $z = $a['zona'] ?? '';
+  if ($z) $arts_por_zona[$z] = ($arts_por_zona[$z] ?? 0) + 1;
+}
+foreach ($proyectos as $p) {
+  $z = $p['zona'] ?? '';
+  if ($z) $arts_por_zona[$z] = ($arts_por_zona[$z] ?? 0) + 1;
+}
 
-foreach ($dirs_estaticos as $dir_fs => $dir_web) {
-  $files = glob($dir_fs . '/*.php');
-  if ($files) {
-    foreach ($files as $f) {
-      $archivos_estaticos[$f] = $dir_web;
-    }
+// ── CONSTRUIR CONTEXTO PARA CLAUDE ───────────────────────────────────────────
+
+// 1. Matriz zona × servicio
+$matriz_txt = "MATRIZ ZONA × SERVICIO ESTÁTICO\n";
+$matriz_txt .= str_pad('Zona', 20) . implode('  ', array_map(fn($s) => str_pad($s, 14), array_keys($servicios_estaticos))) . "  Artículos/Proyectos\n";
+foreach ($matriz as $fila) {
+  $linea = str_pad($fila['zona'], 20);
+  foreach ($fila['servicios'] as $existe) {
+    $linea .= str_pad($existe ? '✓' : '✗ FALTA', 16);
+  }
+  $linea .= ($arts_por_zona[$fila['zona']] ?? 0);
+  $matriz_txt .= $linea . "\n";
+}
+
+// 2. Contenido dinámico con problemas
+$din_txt = "\nCONTENIDO DINÁMICO (artículos y proyectos en BD)\n";
+foreach ($contenido_dinamico as $item) {
+  $probs = $item['problemas'] ? implode(', ', $item['problemas']) : 'ok';
+  $din_txt .= "[{$item['tipo']}] {$item['url']} | \"{$item['titulo']}\" | zona={$item['zona']} | {$item['palabras']}p | {$probs}\n";
+}
+if (!$contenido_dinamico) $din_txt .= "(ninguno en BD)\n";
+
+// 3. Páginas estáticas con meta
+$est_txt = "\nPÁGINAS ESTÁTICAS (zonas, fugas, desatascos, fontanero, generales)\n";
+foreach ($paginas_estaticas as $p) {
+  $probs = [];
+  if (!$p['meta_title'])                  $probs[] = 'sin_meta_title';
+  if ($p['meta_title'] && mb_strlen($p['meta_title']) > 60) $probs[] = 'mt_largo';
+  if (!$p['meta_desc'])                   $probs[] = 'sin_meta_desc';
+  if ($p['meta_desc'] && mb_strlen($p['meta_desc']) < 140)  $probs[] = 'md_corta';
+  $est_txt .= "{$p['url']} | \"{$p['titulo']}\" | md={$p['meta_desc']} | " . ($probs ? implode(',', $probs) : 'ok') . "\n";
+}
+
+// 4. Keywords del usuario
+$kw_txt = '';
+if ($keywords_usuario) {
+  $kw_txt = "\nKEYWORDS QUE EL CLIENTE QUIERE ATACAR (detecta cuáles tienen página y cuáles no):\n";
+  foreach ($keywords_usuario as $kw) {
+    $kw_txt .= "- {$kw}\n";
   }
 }
 
-foreach ($extra_files as $f => $url_base) {
-  $archivos_estaticos[$f] = $url_base;
+$user_prompt = $matriz_txt . $din_txt . $est_txt . $kw_txt;
+
+// ── SYSTEM PROMPT ─────────────────────────────────────────────────────────────
+$system_prompt = <<<SYS
+Eres un auditor SEO técnico para CarolTemp, empresa de fontanería y climatización en Alicante (España).
+
+CONTEXTO DE NEGOCIO:
+- Zonas de servicio: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe. NUNCA Villena.
+- Servicios principales: fontanería urgente, detección de fugas, desatascos, instalación de termos, aire acondicionado, calefacción, reformas de baño, ósmosis inversa
+- Diferenciadores: presupuesto gratis sin compromiso, urgencias 24h, instaladores certificados
+- Estructura URL ideal: /zonas/{ciudad}, /fugas/deteccion-fugas-{ciudad}, /desatascos/desatascos-{ciudad}, /fontanero/fontanero-{ciudad}
+
+INSTRUCCIONES:
+- Analiza la matriz zona×servicio para detectar combinaciones que faltan (gaps estructurales)
+- Analiza el contenido dinámico para detectar problemas de calidad SEO
+- Si hay keywords del usuario, indica cuáles tienen página y cuáles no tienen cobertura
+- Sé concreto y accionable. Prioriza por impacto real en SEO local
+- NUNCA menciones Villena como zona faltante
+- Devuelve ÚNICAMENTE JSON válido, sin markdown ni texto antes/después
+
+Devuelve este JSON exacto:
+{
+  "resumen": {
+    "total_paginas": N,
+    "gaps_estructura": N,
+    "problemas_contenido": N,
+    "keywords_sin_cobertura": N,
+    "oportunidades": N
+  },
+  "matriz_gaps": [
+    {"zona": "Aspe", "faltan": ["Página zona", "Fugas", "Desatascos", "Fontanero"]}
+  ],
+  "problemas_contenido": [
+    {"prioridad": "alta|media|baja", "url": "/blog/slug", "titulo": "Título", "problema": "Descripción concreta del fallo", "accion": "Qué hacer exactamente"}
+  ],
+  "keywords_gaps": [
+    {"keyword": "fontanero urgente elda", "estado": "cubierta|parcial|sin_pagina", "url_existente": "/fugas/deteccion-fugas-elda", "accion": "Qué crear o mejorar"}
+  ],
+  "oportunidades": [
+    {"prioridad": "alta|media", "descripcion": "Qué crear o mejorar", "url_sugerida": "/ruta/sugerida", "razon": "Por qué impacta en SEO"}
+  ],
+  "canibalizacion": [
+    {"urls": ["/blog/a", "/blog/b"], "keyword": "término compartido", "accion": "Qué hacer"}
+  ],
+  "estructura_recomendada": "Descripción en 4-6 líneas de cómo debería ser la arquitectura ideal del sitio para máximo SEO local",
+  "seo_notas": "Resumen ejecutivo de 4-5 líneas: estado actual, mayor problema, mayor oportunidad, prioridad inmediata"
 }
+SYS;
 
-foreach ($archivos_estaticos as $filepath => $url_base) {
-  if (!file_exists($filepath)) continue;
-
-  $contenido_php = file_get_contents($filepath);
-
-  // Extraer meta_title
-  $mt = '';
-  if (preg_match('/\$meta_title\s*=\s*["\']([^"\']+)["\']/', $contenido_php, $m)) {
-    $mt = $m[1];
-  }
-  // Extraer meta_desc
-  $md = '';
-  if (preg_match('/\$meta_desc\s*=\s*["\']([^"\']+)["\']/', $contenido_php, $m)) {
-    $md = $m[1];
-  }
-
-  // Construir URL
-  $basename = basename($filepath, '.php');
-  if ($url_base === '/zonas' || $url_base === '/fugas' || $url_base === '/desatascos' || $url_base === '/fontanero') {
-    if ($basename === 'index') {
-      $url = $url_base;
-    } else {
-      $url = $url_base . '/' . $basename;
-    }
-  } elseif ($url_base === '/servicios' || $url_base === '/') {
-    $url = $url_base;
-  } else {
-    $url = $url_base . '/' . $basename;
-  }
-
-  // El contenido textual de las páginas estáticas es el PHP completo (excluimos tags)
-  $texto_plano = strip_tags($contenido_php);
-  $palabras    = str_word_count($texto_plano);
-  $flags       = flags_meta($mt, $md, 1);
-  $flags['contenido_delgado'] = $palabras < 300;
-  $flags['palabras']          = $palabras;
-
-  $inventario[] = array_merge([
-    'tipo'       => 'estatica',
-    'slug'       => $basename,
-    'titulo'     => $mt ?: $basename,
-    'url'        => $url,
-    'meta_title' => $mt,
-    'meta_desc'  => $md,
-  ], $flags);
-}
-
-// ── PASO 3: Construir resumen compacto para Claude ───────────────────────────
-$lineas = [];
-foreach ($inventario as $item) {
-  $flags_activos = [];
-  foreach (['sin_meta_title','sin_meta_desc','meta_title_largo','meta_desc_corta','meta_desc_larga','contenido_delgado','no_publicado'] as $f) {
-    if (!empty($item[$f])) $flags_activos[] = $f;
-  }
-  $flags_str = $flags_activos ? implode(',', $flags_activos) : 'ok';
-  $lineas[] = sprintf(
-    '[%s] url=%s | mt=%d | md=%d | words=%d | flags=%s',
-    $item['tipo'],
-    $item['url'],
-    $item['meta_title_len'],
-    $item['meta_desc_len'],
-    $item['palabras'],
-    $flags_str
-  );
-}
-
-$resumen_inventario = implode("\n", $lineas);
-
-// Recolectar zonas presentes en páginas estáticas y artículos
-$zonas_conocidas  = ['Elda','Petrer','Novelda','Monóvar','Sax','Pinoso','Monforte del Cid','Salinas','Aspe','Villena'];
-$zonas_con_pagina = [];
-foreach ($inventario as $item) {
-  foreach ($zonas_conocidas as $z) {
-    $z_slug = strtolower(iconv('UTF-8', 'ASCII//TRANSLIT', $z));
-    if (strpos($item['url'], $z_slug) !== false || stripos($item['titulo'], $z) !== false) {
-      $zonas_con_pagina[] = $z;
-    }
-  }
-}
-$zonas_con_pagina = array_unique($zonas_con_pagina);
-
-// ── PASO 4: Llamar a Claude ──────────────────────────────────────────────────
-$system_prompt = 'Eres un auditor SEO experto para CarolTemp, empresa de fontanería y climatización en Alicante (España). '
-  . 'Analiza el inventario de páginas del sitio web y devuelve ÚNICAMENTE JSON válido (sin markdown, sin bloques de código, sin texto antes ni después del JSON). '
-  . 'El JSON debe comenzar directamente con { y terminar con }. '
-  . 'Zonas de servicio conocidas: ' . implode(', ', $zonas_conocidas) . '. '
-  . 'Zonas con página detectadas: ' . (implode(', ', $zonas_con_pagina) ?: 'ninguna') . '.';
-
-$user_prompt = "Inventario completo del sitio CarolTemp (" . count($inventario) . " páginas):\n\n"
-  . "Formato: [tipo] url | mt=longitud_meta_title | md=longitud_meta_desc | words=palabras | flags=problemas\n\n"
-  . $resumen_inventario . "\n\n"
-  . "Analiza y devuelve JSON con esta estructura exacta:\n"
-  . '{"resumen":{"total_paginas":N,"problemas_criticos":N,"problemas_medios":N,"oportunidades":N},'
-  . '"problemas":[{"prioridad":"alta|media|baja","tipo":"meta_ausente|contenido_delgado|canibalizacion|duplicado|meta_largo|no_publicado|estructura","url":"/ruta","titulo":"Título","descripcion":"Qué falla","accion":"Qué hacer"}],'
-  . '"oportunidades":[{"tipo":"pagina_zona_faltante|servicio_faltante|cluster_contenido|interlinking","descripcion":"Qué falta","url_sugerida":"/zonas/aspe","impacto":"alto|medio"}],'
-  . '"canibalizacion":[{"urls":["/blog/slug-1","/blog/slug-2"],"keyword_compartida":"término","recomendacion":"qué hacer"}],'
-  . '"estado_zonas":{"tienen_pagina":["Elda"],"faltan":["Aspe"]},'
-  . '"seo_notas":"Resumen ejecutivo de 3-5 líneas del estado SEO del sitio"}';
-
+// ── LLAMADA A CLAUDE ──────────────────────────────────────────────────────────
 $payload = [
   'model'      => ANTHROPIC_MODEL,
   'max_tokens' => 4000,
@@ -251,42 +294,45 @@ curl_setopt_array($ch, [
     'x-api-key: ' . ANTHROPIC_API_KEY,
     'anthropic-version: 2023-06-01',
   ],
-  CURLOPT_TIMEOUT        => 90,
+  CURLOPT_TIMEOUT => 90,
 ]);
 
-$resp_raw = curl_exec($ch);
-$curl_err  = curl_error($ch);
+$raw      = curl_exec($ch);
+$curl_err = curl_error($ch);
 curl_close($ch);
 
 if ($curl_err) {
-  echo json_encode(['error' => 'Error de conexión con la API: ' . $curl_err]);
+  echo json_encode(['error' => 'Error de conexión: ' . $curl_err]);
   exit;
 }
 
-$resp = json_decode($resp_raw, true);
-if (!$resp || !isset($resp['content'][0]['text'])) {
-  echo json_encode(['error' => 'Respuesta inválida de la API', 'raw' => substr($resp_raw, 0, 500)]);
+$resp = json_decode($raw, true);
+if (!isset($resp['content'][0]['text'])) {
+  echo json_encode(['error' => 'Respuesta inválida de la API', 'raw' => substr($raw, 0, 300)]);
+  exit;
+}
+if (($resp['stop_reason'] ?? '') === 'max_tokens') {
+  echo json_encode(['error' => 'Respuesta demasiado larga — aumentar max_tokens o reducir inventario.']);
   exit;
 }
 
-// Verificar max_tokens
-if (isset($resp['stop_reason']) && $resp['stop_reason'] === 'max_tokens') {
-  echo json_encode(['error' => 'La auditoría es demasiado extensa y se cortó. Reduce el inventario o aumenta max_tokens.']);
-  exit;
-}
-
-// Reconstruir JSON (prefill trick: Claude empezó con "{")
-$texto_respuesta = '{' . $resp['content'][0]['text'];
-
-$analisis = json_decode($texto_respuesta, true);
+$texto   = '{' . $resp['content'][0]['text'];
+$analisis = json_decode($texto, true);
 if (!$analisis) {
-  echo json_encode(['error' => 'La IA devolvió JSON malformado', 'raw' => substr($texto_respuesta, 0, 800)]);
+  // intento de extracción
+  if (preg_match('/\{[\s\S]*\}/u', $texto, $m)) $analisis = json_decode($m[0], true);
+}
+if (!$analisis) {
+  echo json_encode(['error' => 'JSON malformado de la IA', 'raw' => substr($texto, 0, 500)]);
   exit;
 }
 
-// ── Respuesta final ──────────────────────────────────────────────────────────
-echo json_encode([
-  'ok'               => true,
-  'inventario_count' => count($inventario),
-  'analisis'         => $analisis,
-]);
+// Añadir datos de contexto al response (para la UI)
+$analisis['_meta'] = [
+  'total_estaticas'  => count($paginas_estaticas),
+  'total_dinamicas'  => count($contenido_dinamico),
+  'keywords_usuario' => count($keywords_usuario),
+  'matriz'           => $matriz,
+];
+
+echo json_encode(['ok' => true, 'analisis' => $analisis]);

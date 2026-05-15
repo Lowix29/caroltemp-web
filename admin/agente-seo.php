@@ -510,19 +510,27 @@ try {
 
   <!-- ── TAB: AUDITOR SEO ── -->
   <div class="tab-pane" id="tab-auditor">
-    <div style="max-width:900px">
+    <div style="max-width:960px">
 
-      <!-- Botón ejecutar -->
-      <div id="audit-inicio" style="text-align:center;padding:3rem 1rem">
-        <div style="font-size:3rem;margin-bottom:1rem">🔍</div>
-        <h2 style="font-size:1.25rem;font-weight:700;color:#0B2447;margin-bottom:.5rem">Auditor SEO completo</h2>
-        <p style="font-size:14px;color:#576574;margin-bottom:1.75rem;line-height:1.6">
-          Analiza todas las páginas del sitio (artículos, proyectos, páginas de zona y servicio)<br>
-          y genera un informe con problemas, oportunidades y notas ejecutivas.
-        </p>
-        <button onclick="ejecutarAuditoria()" style="display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,#0B2447,#1976D2);color:#fff;border:none;padding:.875rem 2rem;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer">
-          🚀 Ejecutar auditoría completa
-        </button>
+      <!-- Formulario de inicio -->
+      <div id="audit-inicio" style="padding:2rem 0">
+        <div style="background:#fff;border:1px solid #E8EFF8;border-radius:14px;padding:2rem;margin-bottom:1.5rem">
+          <div style="font-size:12px;font-weight:700;color:#8FA3B8;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1rem">⚙️ Configurar auditoría</div>
+
+          <label style="display:block;font-size:13px;font-weight:600;color:#0B2447;margin-bottom:.375rem">
+            Keywords a atacar <span style="font-weight:400;color:#8FA3B8">(opcional — una por línea o separadas por coma)</span>
+          </label>
+          <textarea id="audit-keywords" rows="5" placeholder="fontanero urgente elda&#10;detectar fuga agua sin obra petrer&#10;cambiar termo electrico monovar&#10;instalacion aire acondicionado novelda&#10;desatasco urgente sax" style="width:100%;padding:.625rem .875rem;border:1.5px solid #D6E2F0;border-radius:8px;font-size:13px;color:#0B2447;font-family:inherit;box-sizing:border-box;resize:vertical;line-height:1.6"></textarea>
+          <small style="font-size:12px;color:#8FA3B8;display:block;margin-top:.375rem">Si indicas keywords, el auditor detectará cuáles tienen página y cuáles están sin cobertura.</small>
+        </div>
+
+        <div style="text-align:center">
+          <button onclick="ejecutarAuditoria()" style="display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,#0B2447,#1976D2);color:#fff;border:none;padding:.875rem 2.25rem;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer">
+            🚀 Ejecutar auditoría completa
+          </button>
+          <p style="font-size:12px;color:#8FA3B8;margin-top:.75rem">Analiza toda la estructura del sitio + BD + keywords. Tarda 20-40 segundos.</p>
+        </div>
+      </div>
         <p style="font-size:12px;color:#8FA3B8;margin-top:.875rem">La auditoría tarda entre 20 y 40 segundos</p>
       </div>
 
@@ -536,26 +544,41 @@ try {
       <!-- Resultados -->
       <div id="audit-resultados" style="display:none">
 
-        <!-- Botón repetir -->
-        <div style="text-align:right;margin-bottom:1.25rem">
+        <!-- Cabecera -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+          <h2 style="font-size:1.1rem;font-weight:700;color:#0B2447;margin:0" id="audit-count-lbl"></h2>
           <button onclick="ejecutarAuditoria()" style="font-size:13px;background:#fff;border:1.5px solid #D6E2F0;border-radius:8px;padding:.5rem 1rem;cursor:pointer;color:#576574;font-weight:600">
-            ↻ Repetir auditoría
+            ↻ Nueva auditoría
           </button>
         </div>
 
         <!-- Notas ejecutivas -->
-        <div id="audit-notas-box" class="audit-notas" style="display:none">
+        <div id="audit-notas-box" class="audit-notas" style="display:none;margin-bottom:1.5rem">
           <strong style="display:block;font-size:11px;font-weight:700;color:#1976D2;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.5rem">📋 Resumen ejecutivo</strong>
           <span id="audit-notas-txt"></span>
         </div>
 
         <!-- Tarjetas resumen -->
-        <div class="audit-cards" id="audit-cards"></div>
+        <div class="audit-cards" id="audit-cards" style="margin-bottom:2rem"></div>
 
-        <!-- Estado de zonas -->
-        <div id="audit-zonas-box" style="display:none;margin-bottom:2rem">
-          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🗺️ Estado de zonas</h3>
-          <div style="display:flex;gap:.5rem;flex-wrap:wrap" id="audit-zonas-chips"></div>
+        <!-- Matriz zona × servicio -->
+        <div id="audit-matriz-section" style="display:none;margin-bottom:2rem">
+          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🗺️ Cobertura zona × servicio</h3>
+          <div style="overflow-x:auto">
+            <table id="audit-matriz-tabla" style="width:100%;border-collapse:collapse;font-size:13px"></table>
+          </div>
+        </div>
+
+        <!-- Estructura recomendada -->
+        <div id="audit-estructura-section" style="display:none;margin-bottom:2rem">
+          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🏗️ Arquitectura recomendada</h3>
+          <div class="audit-notas" id="audit-estructura-txt" style="background:#F8FFF9;border-color:#BBF7D0;color:#166534"></div>
+        </div>
+
+        <!-- Keywords gaps -->
+        <div id="audit-kw-section" style="display:none;margin-bottom:2rem">
+          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🔑 Cobertura de keywords</h3>
+          <div id="audit-kw-list"></div>
         </div>
 
         <!-- Canibalización -->
@@ -564,9 +587,9 @@ try {
           <div id="audit-cani-list"></div>
         </div>
 
-        <!-- Problemas -->
+        <!-- Problemas de contenido -->
         <div id="audit-problemas-section" style="display:none;margin-bottom:2rem">
-          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🐛 Problemas detectados</h3>
+          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🐛 Problemas de contenido</h3>
           <div id="audit-problemas-list"></div>
         </div>
 
@@ -940,12 +963,10 @@ const auditTips = [
 let auditTipIdx = 0, auditTipInt = null;
 
 async function ejecutarAuditoria() {
-  // Ocultar estados anteriores
   document.getElementById('audit-inicio').style.display     = 'none';
   document.getElementById('audit-resultados').style.display = 'none';
   document.getElementById('audit-error').style.display      = 'none';
 
-  // Mostrar loading
   document.getElementById('audit-loading').style.display = 'block';
   auditTipIdx = 0;
   document.getElementById('audit-tip').textContent = auditTips[0];
@@ -955,7 +976,11 @@ async function ejecutarAuditoria() {
   }, 3500);
 
   try {
-    const r    = await fetch('agente-seo-auditor', { method: 'POST' });
+    const keywords = document.getElementById('audit-keywords')?.value || '';
+    const fd = new FormData();
+    fd.append('keywords', keywords);
+
+    const r    = await fetch('agente-seo-auditor', { method: 'POST', body: fd });
     const data = await r.json();
 
     clearInterval(auditTipInt);
@@ -982,8 +1007,14 @@ async function ejecutarAuditoria() {
 }
 
 function renderAuditoria(data) {
-  const a = data.analisis || {};
-  const r = a.resumen    || {};
+  const a    = data.analisis || {};
+  const r    = a.resumen    || {};
+  const meta = a._meta      || {};
+
+  // ── Contador cabecera ──
+  const totalPags = (meta.total_estaticas || 0) + (meta.total_dinamicas || 0);
+  document.getElementById('audit-count-lbl').textContent =
+    `Auditoría completada — ${totalPags} páginas analizadas`;
 
   // ── Notas ejecutivas ──
   if (a.seo_notas) {
@@ -995,48 +1026,93 @@ function renderAuditoria(data) {
 
   // ── Tarjetas resumen ──
   const cards = [
-    { lbl: 'Páginas analizadas', val: r.total_paginas    ?? data.inventario_count ?? 0, cls: 'blue'  },
-    { lbl: 'Problemas críticos', val: r.problemas_criticos ?? 0,                        cls: 'red'   },
-    { lbl: 'Problemas medios',   val: r.problemas_medios   ?? 0,                        cls: 'amber' },
-    { lbl: 'Oportunidades',      val: r.oportunidades      ?? 0,                        cls: 'green' },
+    { lbl: 'Páginas analizadas',     val: totalPags || r.total_paginas || 0,          cls: 'blue'  },
+    { lbl: 'Gaps de estructura',     val: r.gaps_estructura          ?? 0,            cls: 'red'   },
+    { lbl: 'Problemas contenido',    val: r.problemas_contenido      ?? 0,            cls: 'amber' },
+    { lbl: 'Oportunidades',          val: r.oportunidades            ?? 0,            cls: 'green' },
   ];
-  const cardsEl = document.getElementById('audit-cards');
-  cardsEl.innerHTML = cards.map(c =>
+  document.getElementById('audit-cards').innerHTML = cards.map(c =>
     `<div class="audit-card ${c.cls}">
        <div class="audit-card-val">${c.val}</div>
        <div class="audit-card-lbl">${c.lbl}</div>
      </div>`
   ).join('');
 
-  // ── Estado de zonas ──
-  const ez = a.estado_zonas;
-  if (ez && (ez.tienen_pagina?.length || ez.faltan?.length)) {
-    const chipsEl = document.getElementById('audit-zonas-chips');
-    chipsEl.innerHTML = '';
-    (ez.tienen_pagina || []).forEach(z => {
-      chipsEl.innerHTML += `<span style="background:#D1FAE5;color:#065F46;font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px">✓ ${escp(z)}</span>`;
-    });
-    (ez.faltan || []).forEach(z => {
-      chipsEl.innerHTML += `<span style="background:#FEE2E2;color:#B91C1C;font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px">✗ ${escp(z)}</span>`;
-    });
-    document.getElementById('audit-zonas-box').style.display = '';
+  // ── Arquitectura recomendada ──
+  if (a.estructura_recomendada) {
+    document.getElementById('audit-estructura-txt').textContent = a.estructura_recomendada;
+    document.getElementById('audit-estructura-section').style.display = '';
   } else {
-    document.getElementById('audit-zonas-box').style.display = 'none';
+    document.getElementById('audit-estructura-section').style.display = 'none';
+  }
+
+  // ── Matriz zona × servicio (datos del backend PHP) ──
+  const matrizData = meta.matriz || [];
+  if (matrizData.length) {
+    const servicios = Object.keys(matrizData[0]?.servicios || {});
+    let html = `<table style="width:100%;border-collapse:collapse;font-size:12px">`;
+    // Cabecera
+    html += `<tr style="background:#F8FAFC">
+      <th style="text-align:left;padding:.5rem .75rem;border:1px solid #E8EFF8;font-weight:700;color:#0B2447">Zona</th>`;
+    servicios.forEach(s => {
+      html += `<th style="padding:.5rem .75rem;border:1px solid #E8EFF8;font-weight:700;color:#0B2447;text-align:center">${escp(s)}</th>`;
+    });
+    html += `</tr>`;
+    // Filas
+    matrizData.forEach(fila => {
+      const completa = Object.values(fila.servicios).every(v => v);
+      html += `<tr style="background:${completa ? '#fff' : '#FFFBEB'}">
+        <td style="padding:.5rem .75rem;border:1px solid #E8EFF8;font-weight:600;color:#0B2447">${escp(fila.zona)}</td>`;
+      servicios.forEach(s => {
+        const ok = fila.servicios[s];
+        html += `<td style="padding:.5rem .75rem;border:1px solid #E8EFF8;text-align:center">
+          ${ok
+            ? '<span style="color:#059669;font-size:16px">✓</span>'
+            : '<span style="color:#DC2626;font-weight:700;font-size:11px">FALTA</span>'}
+        </td>`;
+      });
+      html += `</tr>`;
+    });
+    html += `</table>`;
+    document.getElementById('audit-matriz-tabla').innerHTML = html;
+    document.getElementById('audit-matriz-section').style.display = '';
+  } else {
+    document.getElementById('audit-matriz-section').style.display = 'none';
+  }
+
+  // ── Keywords gaps ──
+  const kwGaps = a.keywords_gaps || [];
+  if (kwGaps.length) {
+    document.getElementById('audit-kw-list').innerHTML = kwGaps.map(k => {
+      const col = k.estado === 'cubierta' ? '#059669' : k.estado === 'parcial' ? '#D97706' : '#DC2626';
+      const bg  = k.estado === 'cubierta' ? '#D1FAE5' : k.estado === 'parcial' ? '#FEF3C7' : '#FEE2E2';
+      const lbl = k.estado === 'cubierta' ? '✓ Cubierta' : k.estado === 'parcial' ? '⚠ Parcial' : '✗ Sin página';
+      return `<div style="background:#fff;border:1px solid #E8EFF8;border-radius:10px;padding:.875rem 1.125rem;margin-bottom:.625rem;display:flex;align-items:flex-start;gap:1rem">
+        <span style="background:${bg};color:${col};font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;white-space:nowrap;flex-shrink:0;margin-top:2px">${lbl}</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.25rem">${escp(k.keyword)}</div>
+          ${k.url_existente ? `<div style="font-size:12px;color:#1976D2;font-family:monospace;margin-bottom:.25rem">${escp(k.url_existente)}</div>` : ''}
+          ${k.accion ? `<div style="font-size:12px;color:#059669;font-weight:600">→ ${escp(k.accion)}</div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+    document.getElementById('audit-kw-section').style.display = '';
+  } else {
+    document.getElementById('audit-kw-section').style.display = 'none';
   }
 
   // ── Canibalización ──
   const canis = a.canibalizacion || [];
   if (canis.length) {
-    const caniEl = document.getElementById('audit-cani-list');
-    caniEl.innerHTML = canis.map(c =>
+    document.getElementById('audit-cani-list').innerHTML = canis.map(c =>
       `<div class="audit-cani">
          <div style="font-size:12px;font-weight:700;color:#92400E;margin-bottom:.375rem">
-           ⚠️ Keyword compartida: <em>${escp(c.keyword_compartida || '')}</em>
+           ⚠️ Keyword: <em>${escp(c.keyword || c.keyword_compartida || '')}</em>
          </div>
          <div style="display:flex;flex-wrap:wrap;gap:.375rem;margin-bottom:.5rem">
            ${(c.urls || []).map(u => `<code style="font-size:11px;background:#FED7AA;color:#7C2D12;padding:2px 8px;border-radius:4px">${escp(u)}</code>`).join('')}
          </div>
-         <div style="font-size:13px;color:#576574">${escp(c.recomendacion || '')}</div>
+         <div style="font-size:13px;color:#576574">${escp(c.accion || c.recomendacion || '')}</div>
        </div>`
     ).join('');
     document.getElementById('audit-cani-section').style.display = '';
@@ -1044,23 +1120,21 @@ function renderAuditoria(data) {
     document.getElementById('audit-cani-section').style.display = 'none';
   }
 
-  // ── Problemas ──
-  const problemas = (a.problemas || []).slice().sort((a, b) => {
+  // ── Problemas de contenido ──
+  const problemas = (a.problemas_contenido || a.problemas || []).slice().sort((x, y) => {
     const ord = { alta: 0, media: 1, baja: 2 };
-    return (ord[a.prioridad] ?? 3) - (ord[b.prioridad] ?? 3);
+    return (ord[x.prioridad] ?? 3) - (ord[y.prioridad] ?? 3);
   });
   if (problemas.length) {
-    const probEl = document.getElementById('audit-problemas-list');
-    probEl.innerHTML = problemas.map(p =>
+    document.getElementById('audit-problemas-list').innerHTML = problemas.map(p =>
       `<div class="audit-issue">
-         <span class="audit-badge ${escp(p.prioridad || 'baja')}">${escp((p.prioridad || 'baja').toUpperCase())}</span>
+         <span class="audit-badge ${escp(p.prioridad || 'baja')}">${(p.prioridad || 'baja').toUpperCase()}</span>
          <div style="flex:1;min-width:0">
            <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.25rem">
              <span class="audit-issue-url">${escp(p.url || '')}</span>
-             <span style="font-size:11px;background:#F1F5F9;color:#64748B;padding:2px 8px;border-radius:100px">${escp(p.tipo || '')}</span>
            </div>
            ${p.titulo ? `<div style="font-size:13px;font-weight:600;color:#0B2447;margin-bottom:.25rem">${escp(p.titulo)}</div>` : ''}
-           <div class="audit-issue-desc">${escp(p.descripcion || '')}</div>
+           <div class="audit-issue-desc">${escp(p.problema || p.descripcion || '')}</div>
            ${p.accion ? `<div class="audit-issue-accion">→ ${escp(p.accion)}</div>` : ''}
          </div>
        </div>`
@@ -1073,15 +1147,14 @@ function renderAuditoria(data) {
   // ── Oportunidades ──
   const opps = a.oportunidades || [];
   if (opps.length) {
-    const oppsEl = document.getElementById('audit-opps-list');
-    oppsEl.innerHTML = opps.map(o =>
+    document.getElementById('audit-opps-list').innerHTML = opps.map(o =>
       `<div class="audit-opp">
          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.375rem">
            ${o.url_sugerida ? `<span class="audit-opp-url">${escp(o.url_sugerida)}</span>` : ''}
-           <span style="font-size:11px;background:#D1FAE5;color:#065F46;padding:2px 8px;border-radius:100px">${escp(o.tipo || '')}</span>
-           ${o.impacto ? `<span style="font-size:11px;font-weight:700;color:${o.impacto === 'alto' ? '#B45309' : '#0369A1'}">${o.impacto === 'alto' ? '🔥 ALTO' : '📈 MEDIO'}</span>` : ''}
+           <span style="font-size:11px;font-weight:700;color:${(o.prioridad||o.impacto) === 'alta' || (o.prioridad||o.impacto) === 'alto' ? '#B45309' : '#0369A1'}">${(o.prioridad||o.impacto) === 'alta' || (o.prioridad||o.impacto) === 'alto' ? '🔥 ALTA' : '📈 MEDIA'}</span>
          </div>
-         <div style="font-size:13px;color:#576574">${escp(o.descripcion || '')}</div>
+         <div style="font-size:13px;color:#576574;margin-bottom:.25rem">${escp(o.descripcion || '')}</div>
+         ${o.razon ? `<div style="font-size:12px;color:#059669;font-weight:600">${escp(o.razon)}</div>` : ''}
        </div>`
     ).join('');
     document.getElementById('audit-opps-section').style.display = '';
@@ -1089,7 +1162,6 @@ function renderAuditoria(data) {
     document.getElementById('audit-opps-section').style.display = 'none';
   }
 
-  // Mostrar resultados
   document.getElementById('audit-resultados').style.display = 'block';
   document.getElementById('audit-resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
