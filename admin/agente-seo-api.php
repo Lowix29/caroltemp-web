@@ -161,17 +161,23 @@ Antes/Después (para 2 imágenes):
 
 ## FORMATO DE RESPUESTA
 Devuelve ÚNICAMENTE JSON válido. Sin markdown, sin bloques de código, sin texto antes ni después del JSON.
+
+CRÍTICO PARA JSON VÁLIDO: En el campo "contenido", usa SIEMPRE comillas simples para los atributos HTML.
+Correcto: <a href='/contacto' class='ct-tpl-cta-btn'>texto</a>
+Incorrecto: <a href="/contacto" class="ct-tpl-cta-btn">texto</a>
+Las comillas dobles dentro de un valor JSON rompen el JSON. USA SOLO COMILLAS SIMPLES EN HTML.
+
 {
   "meta_title": "máx 60 chars",
   "meta_desc": "entre 150-160 chars EXACTOS",
   "slug": "slug-url",
   "titulo": "H1 del contenido",
   "extracto": "2-3 frases resumen para listados y redes sociales",
-  "contenido": "HTML completo con todos los bloques y estructura SEO",
+  "contenido": "HTML completo — atributos con comillas simples",
   "zona": "ciudad principal",
   "categoria": "fontaneria|climatizacion|reformas|urgencias",
   "servicio": "nombre del servicio si es proyecto",
-  "seo_notas": "explica en 3-4 líneas las decisiones SEO: keyword elegida, intención detectada, estructura usada, por qué este enfoque posicionará"
+  "seo_notas": "explica en 3-4 líneas las decisiones SEO"
 }
 PROMPT;
 
@@ -200,10 +206,10 @@ if (!empty($imagenes)) {
 if ($notas) $partes[] = "\nNotas adicionales: " . $notas;
 
 if ($informe_competencia) {
-  // Limitar el informe a 3500 caracteres para no saturar el contexto de salida
-  $informe_truncado = mb_substr($informe_competencia, 0, 3500, 'UTF-8');
-  if (mb_strlen($informe_competencia, 'UTF-8') > 3500) {
-    $informe_truncado .= "\n[...informe resumido para optimizar tokens...]";
+  // Limitar el informe a 5500 chars (seguridad para tokens de salida)
+  $informe_truncado = mb_substr($informe_competencia, 0, 5500, 'UTF-8');
+  if (mb_strlen($informe_competencia, 'UTF-8') > 5500) {
+    $informe_truncado .= "\n[...informe cortado por longitud...]";
   }
   $partes[] = "\n\n══════════════════════════════════════════";
   $partes[] = "INFORME DE INVESTIGACIÓN COMPETITIVA (úsalo como guía de estructura y gaps):";
