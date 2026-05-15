@@ -307,13 +307,17 @@ foreach ($paginas_estaticas as $p) {
 // 4. Clústeres de intención (del Excel) o keywords planas
 $kw_txt = '';
 if ($clusters_intencion) {
+  // Máx 20 clústeres para no sobrepasar tokens — ya están ordenados por volumen desc
+  $clusters_para_claude = array_slice($clusters_intencion, 0, 20, true);
   $kw_txt  = "\nCLÚSTERES DE INTENCIÓN DE BÚSQUEDA (agrupados por Semrush — mismo seed = misma intención):\n";
   $kw_txt .= "Formato: [Seed/Intención] — Volumen total — Keywords del grupo\n\n";
-  foreach ($clusters_intencion as $seed => $datos) {
-    $kws_str = implode(' | ', array_slice($datos['keywords'], 0, 6));
-    $mas     = count($datos['keywords']) > 6 ? ' (+' . (count($datos['keywords']) - 6) . ' más)' : '';
-    $kw_txt .= "INTENCIÓN: \"{$seed}\" | vol={$datos['vol_total']} | dif={$datos['dificultad_max']}\n";
-    $kw_txt .= "  Variantes: {$kws_str}{$mas}\n";
+  foreach ($clusters_para_claude as $seed => $datos) {
+    $kws_str = implode(' | ', array_slice($datos['keywords'], 0, 4));
+    $mas     = count($datos['keywords']) > 4 ? ' (+' . (count($datos['keywords']) - 4) . ')' : '';
+    $kw_txt .= "INTENCIÓN: \"{$seed}\" | vol={$datos['vol_total']} | dif={$datos['dificultad_max']} | variantes: {$kws_str}{$mas}\n";
+  }
+  if (count($clusters_intencion) > 20) {
+    $kw_txt .= "(+" . (count($clusters_intencion) - 20) . " clústeres adicionales no mostrados)\n";
   }
 } elseif ($keywords_planas) {
   $kw_txt = "\nKEYWORDS A ATACAR:\n";
@@ -387,7 +391,7 @@ SYS;
 // ── LLAMADA A CLAUDE ──────────────────────────────────────────────────────────
 $payload = [
   'model'      => ANTHROPIC_MODEL,
-  'max_tokens' => 4000,
+  'max_tokens' => 8192,
   'system'     => $system_prompt,
   'messages'   => [
     ['role' => 'user',      'content' => $user_prompt],
