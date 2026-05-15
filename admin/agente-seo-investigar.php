@@ -107,6 +107,11 @@ function ct_serp($keyword, $zona) {
     if (!empty($urls)) {
       return ['urls' => array_values(array_slice($urls, 0, 6)), 'fuente' => 'Bing'];
     }
+    // Bing respondió pero no se parsearon URLs — guardar HTML para debug
+    file_put_contents(dirname(__FILE__) . '/seo-debug-bing.html', $res);
+    $bingError = 'Bing respondió (HTTP OK) pero no se encontraron URLs. HTML guardado en seo-debug-bing.html';
+  } else {
+    $bingError = isset($res['_curl_error']) ? 'Bing curl error: ' . $res['_curl_error'] : 'Bing: respuesta vacía';
   }
 
   // ── Google fallback: acepta cookie de consentimiento EU ──────
@@ -161,7 +166,7 @@ function ct_serp($keyword, $zona) {
     if (!empty($urls)) return ['urls' => array_slice($urls, 0, 6), 'fuente' => 'Google'];
   }
 
-  return ['error' => 'No se pudieron obtener resultados de Bing ni Google. Comprueba que XAMPP tiene acceso a internet (prueba abrir bing.com desde el servidor).'];
+  return ['error' => "No se pudieron obtener resultados. {$bingError}. Comprueba que XAMPP tiene acceso a internet."];
 }
 
 // ── Análisis de página rival ─────────────────────────────────
