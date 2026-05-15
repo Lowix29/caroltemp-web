@@ -33,11 +33,100 @@ if (!defined('ANTHROPIC_API_KEY') || strlen(ANTHROPIC_API_KEY) < 20) {
 
 $root = dirname(__DIR__); // ruta absoluta a la raíz del sitio
 
-// Keywords del usuario (pegadas en el textarea, una por línea)
+// ── PARSER XLSX (sin librerías externas) ─────────────────────────────────────
+function col_letra_a_idx($col) {
+  $col = strtoupper(preg_replace('/[^A-Za-z]/', '', $col));
+  $idx = 0;
+  for ($i = 0; $i < strlen($col); $i++) {
+    $idx = $idx * 26 + (ord($col[$i]) - 64);
+  }
+  return $idx - 1;
+}
+
+function parse_xlsx_semrush($filepath) {
+  if (!class_exists('ZipArchive')) return ['error' => 'ZipArchive no disponible en PHP'];
+  $zip = new ZipArchive();
+  if ($zip->open($filepath) !== true) return ['error' => 'No se pudo abrir el archivo xlsx'];
+
+  // Shared strings
+  $ss = [];
+  $ssRaw = $zip->getFromName('xl/sharedStrings.xml');
+  if ($ssRaw) {
+    $ssXml = @simplexml_load_string($ssRaw);
+    if ($ssXml) {
+      foreach ($ssXml->si as $si) {
+        if (isset($si->t)) {
+          $ss[] = (string)$si->t;
+        } else {
+          $txt = '';
+          foreach ($si->r as $r) $txt .= (string)$r->t;
+          $ss[] = $txt;
+        }
+      }
+    }
+  }
+
+  $sheetRaw = $zip->getFromName('xl/worksheets/sheet1.xml');
+  $zip->close();
+  if (!$sheetRaw) return ['error' => 'No se encontró sheet1.xml en el xlsx'];
+
+  $sheet = @simplexml_load_string($sheetRaw);
+  if (!$sheet) return ['error' => 'XML de la hoja no válido'];
+
+  $filas = [];
+  foreach ($sheet->sheetData->row as $row) {
+    $fila = [];
+    foreach ($row->c as $cell) {
+      preg_match('/^([A-Z]+)/', (string)$cell['r'], $m);
+      $colIdx = col_letra_a_idx($m[1] ?? 'A');
+      $tipo   = (string)$cell['t'];
+      $val    = isset($cell->v) ? (string)$cell->v : '';
+      if ($tipo === 's')       $val = $ss[(int)$val] ?? '';
+      elseif ($tipo !== 'str') $val = is_numeric($val) ? $val + 0 : $val;
+      $fila[$colIdx] = $val;
+    }
+    $filas[] = $fila;
+  }
+  return $filas;
+}
+
+// ── LEER KEYWORDS: Excel .xlsx o texto plano ──────────────────────────────────
+// Estructura Excel Semrush: col0=Keyword, col1=Seed keyword, col2=Volume, col3=Dificultad
+$clusters_intencion = []; // [seed_keyword => ['keywords'=>[], 'vol_total'=>0, 'dificultad'=>0]]
+$keywords_planas    = []; // fallback si no hay xlsx
+
+if (!empty($_FILES['keywords_xlsx']['tmp_name']) && $_FILES['keywords_xlsx']['error'] === UPLOAD_ERR_OK) {
+  $filas = parse_xlsx_semrush($_FILES['keywords_xlsx']['tmp_name']);
+  if (isset($filas['error'])) {
+    // Guardar el error para devolverlo junto con el resto del análisis
+    $xlsx_parse_error = $filas['error'];
+  } else {
+    $skip_header = true;
+    foreach ($filas as $fila) {
+      if ($skip_header) { $skip_header = false; continue; } // saltar cabecera
+      $kw   = trim($fila[0] ?? '');
+      $seed = trim($fila[1] ?? $kw);
+      $vol  = (int)($fila[2] ?? 0);
+      $dif  = (int)($fila[3] ?? 0);
+      if (!$kw) continue;
+      if (!$seed) $seed = $kw;
+      if (!isset($clusters_intencion[$seed])) {
+        $clusters_intencion[$seed] = ['keywords' => [], 'vol_total' => 0, 'dificultad_max' => 0];
+      }
+      $clusters_intencion[$seed]['keywords'][]  = $kw;
+      $clusters_intencion[$seed]['vol_total']   += $vol;
+      $clusters_intencion[$seed]['dificultad_max'] = max($clusters_intencion[$seed]['dificultad_max'], $dif);
+    }
+    // Ordenar clústeres por volumen total desc
+    uasort($clusters_intencion, fn($a, $b) => $b['vol_total'] - $a['vol_total']);
+  }
+}
+
+// Textarea de respaldo
 $keywords_raw = trim($_POST['keywords'] ?? '');
-$keywords_usuario = $keywords_raw
-  ? array_filter(array_map('trim', preg_split('/[\r\n,;]+/', $keywords_raw)))
-  : [];
+if ($keywords_raw && empty($clusters_intencion)) {
+  $keywords_planas = array_filter(array_map('trim', preg_split('/[\r\n,;]+/', $keywords_raw)));
+}
 
 // ── ZONAS DE SERVICIO (sin Villena) ─────────────────────────────────────────
 $zonas_servicio = [
@@ -215,13 +304,20 @@ foreach ($paginas_estaticas as $p) {
   $est_txt .= "{$p['url']} | \"{$p['titulo']}\" | md={$p['meta_desc']} | " . ($probs ? implode(',', $probs) : 'ok') . "\n";
 }
 
-// 4. Keywords del usuario
+// 4. Clústeres de intención (del Excel) o keywords planas
 $kw_txt = '';
-if ($keywords_usuario) {
-  $kw_txt = "\nKEYWORDS QUE EL CLIENTE QUIERE ATACAR (detecta cuáles tienen página y cuáles no):\n";
-  foreach ($keywords_usuario as $kw) {
-    $kw_txt .= "- {$kw}\n";
+if ($clusters_intencion) {
+  $kw_txt  = "\nCLÚSTERES DE INTENCIÓN DE BÚSQUEDA (agrupados por Semrush — mismo seed = misma intención):\n";
+  $kw_txt .= "Formato: [Seed/Intención] — Volumen total — Keywords del grupo\n\n";
+  foreach ($clusters_intencion as $seed => $datos) {
+    $kws_str = implode(' | ', array_slice($datos['keywords'], 0, 6));
+    $mas     = count($datos['keywords']) > 6 ? ' (+' . (count($datos['keywords']) - 6) . ' más)' : '';
+    $kw_txt .= "INTENCIÓN: \"{$seed}\" | vol={$datos['vol_total']} | dif={$datos['dificultad_max']}\n";
+    $kw_txt .= "  Variantes: {$kws_str}{$mas}\n";
   }
+} elseif ($keywords_planas) {
+  $kw_txt = "\nKEYWORDS A ATACAR:\n";
+  foreach ($keywords_planas as $kw) $kw_txt .= "- {$kw}\n";
 }
 
 $user_prompt = $matriz_txt . $din_txt . $est_txt . $kw_txt;
@@ -232,44 +328,59 @@ Eres un auditor SEO técnico para CarolTemp, empresa de fontanería y climatizac
 
 CONTEXTO DE NEGOCIO:
 - Zonas de servicio: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe. NUNCA Villena.
-- Servicios principales: fontanería urgente, detección de fugas, desatascos, instalación de termos, aire acondicionado, calefacción, reformas de baño, ósmosis inversa
+- Servicios: fontanería urgente, detección de fugas, desatascos, termos, aire acondicionado, calefacción, reformas de baño, ósmosis inversa
 - Diferenciadores: presupuesto gratis sin compromiso, urgencias 24h, instaladores certificados
-- Estructura URL ideal: /zonas/{ciudad}, /fugas/deteccion-fugas-{ciudad}, /desatascos/desatascos-{ciudad}, /fontanero/fontanero-{ciudad}
+- URLs estáticas existentes: /zonas/{ciudad}, /fugas/deteccion-fugas-{ciudad}, /desatascos/desatascos-{ciudad}, /fontanero/fontanero-{ciudad}
+- Artículos y proyectos se guardan en BD y tienen URLs /blog/{slug} y /proyectos/{slug}
+
+SOBRE LOS CLÚSTERES DE INTENCIÓN:
+Cuando el usuario sube un Excel de Semrush, las keywords vienen agrupadas por "Seed keyword".
+El Seed keyword es la intención de búsqueda — todas las variantes del mismo seed buscan lo mismo.
+Por ejemplo: "fontaneros económicos elda" y "fontaneros elda baratos" tienen el mismo seed "fontanero elda" → misma intención → UNA sola página es suficiente para cubrirlas todas.
+Analiza si alguna página existente ya cubre esa intención (aunque no sea exactamente esa keyword).
 
 INSTRUCCIONES:
-- Analiza la matriz zona×servicio para detectar combinaciones que faltan (gaps estructurales)
-- Analiza el contenido dinámico para detectar problemas de calidad SEO
-- Si hay keywords del usuario, indica cuáles tienen página y cuáles no tienen cobertura
-- Sé concreto y accionable. Prioriza por impacto real en SEO local
-- NUNCA menciones Villena como zona faltante
+- Analiza la matriz zona×servicio para gaps estructurales
+- Para cada clúster de intención: determina si hay página que lo cubre, si es parcial, o si falta
+- Prioriza clústeres por volumen (mayor volumen = mayor impacto)
+- Detecta canibalización entre páginas existentes
+- Sé muy concreto: di exactamente qué URL crear y qué keyword usar como principal
+- NUNCA menciones Villena
 - Devuelve ÚNICAMENTE JSON válido, sin markdown ni texto antes/después
 
-Devuelve este JSON exacto:
+Estructura JSON de respuesta:
 {
   "resumen": {
     "total_paginas": N,
     "gaps_estructura": N,
     "problemas_contenido": N,
-    "keywords_sin_cobertura": N,
+    "clusters_sin_cobertura": N,
     "oportunidades": N
   },
+  "clusters_analisis": [
+    {
+      "seed": "fontanero elda",
+      "vol_total": 270,
+      "estado": "cubierta|parcial|sin_pagina",
+      "url_existente": "/fontanero/fontanero-elda",
+      "nota": "La página de fontanero cubre bien esta intención",
+      "accion": "null o qué crear/mejorar"
+    }
+  ],
   "matriz_gaps": [
     {"zona": "Aspe", "faltan": ["Página zona", "Fugas", "Desatascos", "Fontanero"]}
   ],
   "problemas_contenido": [
-    {"prioridad": "alta|media|baja", "url": "/blog/slug", "titulo": "Título", "problema": "Descripción concreta del fallo", "accion": "Qué hacer exactamente"}
-  ],
-  "keywords_gaps": [
-    {"keyword": "fontanero urgente elda", "estado": "cubierta|parcial|sin_pagina", "url_existente": "/fugas/deteccion-fugas-elda", "accion": "Qué crear o mejorar"}
+    {"prioridad": "alta|media|baja", "url": "/blog/slug", "titulo": "Título", "problema": "Qué falla", "accion": "Qué hacer"}
   ],
   "oportunidades": [
-    {"prioridad": "alta|media", "descripcion": "Qué crear o mejorar", "url_sugerida": "/ruta/sugerida", "razon": "Por qué impacta en SEO"}
+    {"prioridad": "alta|media", "descripcion": "Qué crear", "url_sugerida": "/ruta", "razon": "Por qué impacta"}
   ],
   "canibalizacion": [
-    {"urls": ["/blog/a", "/blog/b"], "keyword": "término compartido", "accion": "Qué hacer"}
+    {"urls": ["/blog/a", "/blog/b"], "keyword": "término", "accion": "Qué hacer"}
   ],
-  "estructura_recomendada": "Descripción en 4-6 líneas de cómo debería ser la arquitectura ideal del sitio para máximo SEO local",
-  "seo_notas": "Resumen ejecutivo de 4-5 líneas: estado actual, mayor problema, mayor oportunidad, prioridad inmediata"
+  "estructura_recomendada": "4-6 líneas sobre arquitectura ideal del sitio",
+  "seo_notas": "4-5 líneas: estado actual, mayor problema, mayor oportunidad, prioridad inmediata"
 }
 SYS;
 
@@ -329,10 +440,12 @@ if (!$analisis) {
 
 // Añadir datos de contexto al response (para la UI)
 $analisis['_meta'] = [
-  'total_estaticas'  => count($paginas_estaticas),
-  'total_dinamicas'  => count($contenido_dinamico),
-  'keywords_usuario' => count($keywords_usuario),
-  'matriz'           => $matriz,
+  'total_estaticas'   => count($paginas_estaticas),
+  'total_dinamicas'   => count($contenido_dinamico),
+  'clusters_count'    => count($clusters_intencion),
+  'keywords_planas'   => count($keywords_planas),
+  'matriz'            => $matriz,
+  'xlsx_error'        => $xlsx_parse_error ?? null,
 ];
 
 echo json_encode(['ok' => true, 'analisis' => $analisis]);

@@ -517,11 +517,24 @@ try {
         <div style="background:#fff;border:1px solid #E8EFF8;border-radius:14px;padding:2rem;margin-bottom:1.5rem">
           <div style="font-size:12px;font-weight:700;color:#8FA3B8;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1rem">⚙️ Configurar auditoría</div>
 
+          <!-- Upload Excel -->
           <label style="display:block;font-size:13px;font-weight:600;color:#0B2447;margin-bottom:.375rem">
-            Keywords a atacar <span style="font-weight:400;color:#8FA3B8">(opcional — una por línea o separadas por coma)</span>
+            Excel de Semrush <span style="font-weight:400;color:#8FA3B8">(opcional — .xlsx con columnas Keyword, Seed keyword, Volume, Difficulty)</span>
           </label>
-          <textarea id="audit-keywords" rows="5" placeholder="fontanero urgente elda&#10;detectar fuga agua sin obra petrer&#10;cambiar termo electrico monovar&#10;instalacion aire acondicionado novelda&#10;desatasco urgente sax" style="width:100%;padding:.625rem .875rem;border:1.5px solid #D6E2F0;border-radius:8px;font-size:13px;color:#0B2447;font-family:inherit;box-sizing:border-box;resize:vertical;line-height:1.6"></textarea>
-          <small style="font-size:12px;color:#8FA3B8;display:block;margin-top:.375rem">Si indicas keywords, el auditor detectará cuáles tienen página y cuáles están sin cobertura.</small>
+          <div id="audit-drop-zone" onclick="document.getElementById('audit-xlsx-input').click()"
+               style="border:2px dashed #D6E2F0;border-radius:10px;padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .2s;background:#FAFCFF">
+            <div style="font-size:1.5rem;margin-bottom:.5rem">📊</div>
+            <div id="audit-file-lbl" style="font-size:13px;color:#576574;font-weight:600">Arrastra el .xlsx aquí o haz clic para seleccionar</div>
+            <div style="font-size:11px;color:#8FA3B8;margin-top:.25rem">Exporta desde Semrush → Keyword Overview → Export</div>
+          </div>
+          <input type="file" id="audit-xlsx-input" accept=".xlsx,.csv" style="display:none" onchange="auditArchivoSeleccionado(this)">
+
+          <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem">
+            <div style="flex:1;height:1px;background:#E8EFF8"></div>
+            <span style="font-size:11px;color:#8FA3B8;font-weight:600">O PEGA KEYWORDS MANUALMENTE</span>
+            <div style="flex:1;height:1px;background:#E8EFF8"></div>
+          </div>
+          <textarea id="audit-keywords" rows="3" placeholder="fontanero urgente elda&#10;detectar fuga agua petrer&#10;cambiar termo monovar" style="width:100%;margin-top:.75rem;padding:.625rem .875rem;border:1.5px solid #D6E2F0;border-radius:8px;font-size:13px;color:#0B2447;font-family:inherit;box-sizing:border-box;resize:vertical;line-height:1.6"></textarea>
         </div>
 
         <div style="text-align:center">
@@ -575,7 +588,13 @@ try {
           <div class="audit-notas" id="audit-estructura-txt" style="background:#F8FFF9;border-color:#BBF7D0;color:#166534"></div>
         </div>
 
-        <!-- Keywords gaps -->
+        <!-- Clústeres de intención -->
+        <div id="audit-clusters-section" style="display:none;margin-bottom:2rem">
+          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🔑 Clústeres de intención (Semrush)</h3>
+          <div id="audit-clusters-list"></div>
+        </div>
+
+        <!-- Keywords gaps (modo manual) -->
         <div id="audit-kw-section" style="display:none;margin-bottom:2rem">
           <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🔑 Cobertura de keywords</h3>
           <div id="audit-kw-list"></div>
@@ -976,11 +995,13 @@ async function ejecutarAuditoria() {
   }, 3500);
 
   try {
-    const keywords = document.getElementById('audit-keywords')?.value || '';
+    const keywords  = document.getElementById('audit-keywords')?.value || '';
+    const xlsxInput = document.getElementById('audit-xlsx-input');
     const fd = new FormData();
     fd.append('keywords', keywords);
+    if (xlsxInput?.files[0]) fd.append('keywords_xlsx', xlsxInput.files[0]);
 
-    const r    = await fetch('agente-seo-auditor', { method: 'POST', body: fd });
+    const r = await fetch('agente-seo-auditor', { method: 'POST', body: fd });
     const data = await r.json();
 
     clearInterval(auditTipInt);
@@ -1026,10 +1047,11 @@ function renderAuditoria(data) {
 
   // ── Tarjetas resumen ──
   const cards = [
-    { lbl: 'Páginas analizadas',     val: totalPags || r.total_paginas || 0,          cls: 'blue'  },
-    { lbl: 'Gaps de estructura',     val: r.gaps_estructura          ?? 0,            cls: 'red'   },
-    { lbl: 'Problemas contenido',    val: r.problemas_contenido      ?? 0,            cls: 'amber' },
-    { lbl: 'Oportunidades',          val: r.oportunidades            ?? 0,            cls: 'green' },
+    { lbl: 'Páginas analizadas',     val: totalPags || r.total_paginas || 0,                                            cls: 'blue'  },
+    { lbl: 'Gaps de estructura',     val: r.gaps_estructura ?? 0,                                                       cls: 'red'   },
+    { lbl: 'Problemas contenido',    val: r.problemas_contenido ?? 0,                                                   cls: 'amber' },
+    { lbl: meta.clusters_count ? 'Sin cobertura (clusters)' : 'Oportunidades',
+      val: meta.clusters_count ? (r.clusters_sin_cobertura ?? 0) : (r.oportunidades ?? 0),                             cls: 'green' },
   ];
   document.getElementById('audit-cards').innerHTML = cards.map(c =>
     `<div class="audit-card ${c.cls}">
@@ -1080,7 +1102,10 @@ function renderAuditoria(data) {
     document.getElementById('audit-matriz-section').style.display = 'none';
   }
 
-  // ── Keywords gaps ──
+  // ── Clústeres de intención (Excel Semrush) ──
+  renderClusters(a.clusters_analisis || []);
+
+  // ── Keywords gaps (manual) ──
   const kwGaps = a.keywords_gaps || [];
   if (kwGaps.length) {
     document.getElementById('audit-kw-list').innerHTML = kwGaps.map(k => {
@@ -1164,6 +1189,44 @@ function renderAuditoria(data) {
 
   document.getElementById('audit-resultados').style.display = 'block';
   document.getElementById('audit-resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── Archivo xlsx seleccionado ──
+function auditArchivoSeleccionado(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const lbl = document.getElementById('audit-file-lbl');
+  lbl.textContent = '✓ ' + file.name + ' (' + Math.round(file.size / 1024) + ' KB)';
+  lbl.style.color = '#059669';
+  document.getElementById('audit-drop-zone').style.borderColor = '#059669';
+  document.getElementById('audit-drop-zone').style.background  = '#F0FDF4';
+}
+
+// ── Render clústeres de intención ──
+function renderClusters(clusters) {
+  if (!clusters || !clusters.length) {
+    document.getElementById('audit-clusters-section').style.display = 'none';
+    return;
+  }
+  const colMap = {
+    cubierta:   { bg: '#D1FAE5', col: '#065F46', lbl: '✓ Cubierta'  },
+    parcial:    { bg: '#FEF3C7', col: '#92400E', lbl: '⚠ Parcial'   },
+    sin_pagina: { bg: '#FEE2E2', col: '#B91C1C', lbl: '✗ Sin página' },
+  };
+  document.getElementById('audit-clusters-list').innerHTML = clusters.map(c => {
+    const s = colMap[c.estado] || colMap['sin_pagina'];
+    return `<div style='background:#fff;border:1px solid #E8EFF8;border-radius:10px;padding:1rem 1.25rem;margin-bottom:.625rem'>
+      <div style='display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-bottom:.375rem'>
+        <span style='background:${s.bg};color:${s.col};font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;white-space:nowrap'>${s.lbl}</span>
+        <strong style='font-size:14px;color:#0B2447'>${escp(c.seed)}</strong>
+        ${c.vol_total ? `<span style='font-size:11px;color:#8FA3B8;background:#F1F5F9;padding:2px 8px;border-radius:100px'>${c.vol_total} búsq/mes</span>` : ''}
+      </div>
+      ${c.url_existente ? `<div style='font-size:12px;color:#1976D2;font-family:monospace;margin-bottom:.25rem'>${escp(c.url_existente)}</div>` : ''}
+      ${c.nota   ? `<div style='font-size:13px;color:#576574;margin-bottom:.25rem'>${escp(c.nota)}</div>` : ''}
+      ${c.accion && c.accion !== 'null' ? `<div style='font-size:12px;color:#059669;font-weight:600'>→ ${escp(c.accion)}</div>` : ''}
+    </div>`;
+  }).join('');
+  document.getElementById('audit-clusters-section').style.display = '';
 }
 
 // Escape HTML helper
