@@ -87,40 +87,30 @@ $base_url = 'http://localhost/';
     }
     .au-field textarea { resize: vertical; }
 
-    /* ── Checkbox toggle ── */
-    .au-check-wrap {
+    /* ── File upload label ── */
+    .au-file-label {
       display: flex;
       align-items: center;
-      gap: .625rem;
+      gap: .75rem;
       padding: .875rem 1rem;
       background: #F8FAFC;
-      border: 1.5px solid #E2E8F0;
+      border: 1.5px dashed #CBD5E1;
       border-radius: 10px;
       cursor: pointer;
-      user-select: none;
       transition: border-color .15s, background .15s;
-    }
-    .au-check-wrap:hover { border-color: #B6CCE0; background: #F0F6FF; }
-    .au-check-wrap input[type="checkbox"] {
-      width: 17px;
-      height: 17px;
-      accent-color: #1976D2;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-    .au-check-wrap span {
       font-size: 13.5px;
-      font-weight: 600;
-      color: #334155;
+      color: #475569;
+      font-weight: 500;
     }
-    .au-check-wrap small {
-      font-size: 12px;
-      color: #8FA3B8;
-      font-weight: 400;
-      margin-left: auto;
+    .au-file-label:hover { border-color: #1976D2; background: #EEF4FF; color: #1976D2; }
+    .au-file-label.tiene-archivo {
+      border-style: solid;
+      border-color: #16a34a;
+      background: #F0FDF4;
+      color: #15803d;
     }
 
-    /* ── Keywords field (shown conditionally) ── */
+    /* ── dead CSS (kept to avoid removing something else) ── */
     #kw-wrap {
       display: none;
       margin-top: .75rem;
@@ -543,17 +533,14 @@ $base_url = 'http://localhost/';
         </div>
 
         <div class="au-field">
-          <label>Investigación competitiva</label>
-          <label class="au-check-wrap">
-            <input type="checkbox" id="investigar" onchange="toggleKw(this)">
-            <span>Buscar competidores con Serper</span>
-            <small>Requiere API Key</small>
+          <label for="keywords_xlsx">Export de keywords Semrush <span style="font-weight:400;color:#94A3B8">(opcional)</span></label>
+          <p style="font-size:12px;color:#8FA3B8;margin:-.25rem 0 .75rem">Si tienes un Excel de Semrush con tus keywords, el auditor lo procesa automáticamente, decide qué investigar y consulta Google sin que tengas que indicar nada.</p>
+          <label class="au-file-label" id="au-file-label" for="keywords_xlsx">
+            <span id="au-file-icon">📂</span>
+            <span id="au-file-text">Seleccionar archivo .xlsx</span>
           </label>
-          <div id="kw-wrap">
-            <label for="keywords_investigar">Keywords a investigar (separadas por comas, máx 3)</label>
-            <input type="text" id="keywords_investigar"
-              placeholder="ej: detección fugas Elda, fontanero urgente Novelda, desatascos Petrer">
-          </div>
+          <input type="file" id="keywords_xlsx" name="keywords_xlsx" accept=".xlsx"
+            style="display:none" onchange="onXlsxChange(this)">
         </div>
 
         <button class="btn-analizar" id="btn-analizar" onclick="analizar()">
@@ -660,10 +647,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── Toggle keywords field ─────────────────────────────────────────────────────
-function toggleKw(cb) {
-  document.getElementById('kw-wrap').style.display = cb.checked ? 'block' : 'none';
-}
-
 // ── Verificar si hay plan guardado (para mostrar el botón) ────────────────────
 async function verificarPlanGuardado() {
   try {
@@ -686,13 +669,28 @@ async function verificarPlanGuardado() {
 }
 
 // ── Analizar ──────────────────────────────────────────────────────────────────
+function onXlsxChange(input) {
+  const label    = document.getElementById('au-file-label');
+  const textEl   = document.getElementById('au-file-text');
+  const iconEl   = document.getElementById('au-file-icon');
+  if (input.files && input.files[0]) {
+    label.classList.add('tiene-archivo');
+    iconEl.textContent  = '✅';
+    textEl.textContent  = input.files[0].name;
+  } else {
+    label.classList.remove('tiene-archivo');
+    iconEl.textContent  = '📂';
+    textEl.textContent  = 'Seleccionar archivo .xlsx';
+  }
+}
+
 async function analizar() {
-  const objetivo    = document.getElementById('objetivo').value.trim();
-  const investigar  = document.getElementById('investigar').checked ? 1 : 0;
-  const kw          = document.getElementById('keywords_investigar').value.trim();
+  const objetivo  = document.getElementById('objetivo').value.trim();
+  const xlsxInput = document.getElementById('keywords_xlsx');
+  const tieneXlsx = xlsxInput && xlsxInput.files && xlsxInput.files[0];
 
   if (!objetivo) {
-    mostrarFlash('err', '⚠️ Escribe el objetivo antes de analizar.');
+    mostrarFlash('err', '⚠️ Escribe el briefing antes de analizar.');
     return;
   }
 
@@ -702,11 +700,10 @@ async function analizar() {
   const btn = document.getElementById('btn-analizar');
   btn.disabled = true;
 
-  // Tips rotativos
   const tips = [
     'Escaneando páginas del sitio...',
-    investigar ? 'Consultando competidores en Google...' : 'Construyendo el inventario...',
-    'Enviando contexto a Claude...',
+    tieneXlsx ? 'Procesando keywords del Excel...' : 'Construyendo el inventario...',
+    tieneXlsx ? 'Investigando competidores en Google...' : 'Enviando contexto a Claude...',
     'Generando plan estratégico...',
     'Analizando prioridades SEO...',
     'Casi listo...',
@@ -721,10 +718,9 @@ async function analizar() {
 
   try {
     const fd = new FormData();
-    fd.append('accion',               'analizar');
-    fd.append('objetivo',             objetivo);
-    fd.append('investigar',           investigar);
-    fd.append('keywords_investigar',  kw);
+    fd.append('accion',   'analizar');
+    fd.append('objetivo', objetivo);
+    if (tieneXlsx) fd.append('keywords_xlsx', xlsxInput.files[0]);
 
     const r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
     const data = await r.json();

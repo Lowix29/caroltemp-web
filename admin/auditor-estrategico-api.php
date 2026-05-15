@@ -47,6 +47,64 @@ $tipos_servicio = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────
+// Helpers: parseo de Excel Semrush (.xlsx)
+// ─────────────────────────────────────────────────────────────────────
+function col_letra_a_idx($col) {
+  $col = strtoupper(preg_replace('/[^A-Za-z]/', '', $col));
+  $idx = 0;
+  for ($i = 0; $i < strlen($col); $i++) {
+    $idx = $idx * 26 + (ord($col[$i]) - 64);
+  }
+  return $idx - 1;
+}
+
+function parse_xlsx_semrush($filepath) {
+  if (!class_exists('ZipArchive')) return ['error' => 'ZipArchive no disponible en PHP'];
+  $zip = new ZipArchive();
+  if ($zip->open($filepath) !== true) return ['error' => 'No se pudo abrir el archivo xlsx'];
+
+  $ss    = [];
+  $ssRaw = $zip->getFromName('xl/sharedStrings.xml');
+  if ($ssRaw) {
+    $ssXml = @simplexml_load_string($ssRaw);
+    if ($ssXml) {
+      foreach ($ssXml->si as $si) {
+        if (isset($si->t)) {
+          $ss[] = (string)$si->t;
+        } else {
+          $txt = '';
+          foreach ($si->r as $r) $txt .= (string)$r->t;
+          $ss[] = $txt;
+        }
+      }
+    }
+  }
+
+  $sheetRaw = $zip->getFromName('xl/worksheets/sheet1.xml');
+  $zip->close();
+  if (!$sheetRaw) return ['error' => 'No se encontró sheet1.xml en el xlsx'];
+
+  $sheet = @simplexml_load_string($sheetRaw);
+  if (!$sheet) return ['error' => 'XML de la hoja no válido'];
+
+  $filas = [];
+  foreach ($sheet->sheetData->row as $row) {
+    $fila = [];
+    foreach ($row->c as $cell) {
+      preg_match('/^([A-Z]+)/', (string)$cell['r'], $m);
+      $colIdx = col_letra_a_idx($m[1] ?? 'A');
+      $tipo   = (string)$cell['t'];
+      $val    = isset($cell->v) ? (string)$cell->v : '';
+      if ($tipo === 's')       $val = $ss[(int)$val] ?? '';
+      elseif ($tipo !== 'str') $val = is_numeric($val) ? $val + 0 : $val;
+      $fila[$colIdx] = $val;
+    }
+    $filas[] = $fila;
+  }
+  return $filas;
+}
+
+// ─────────────────────────────────────────────────────────────────────
 // Función: construir inventario completo
 // ─────────────────────────────────────────────────────────────────────
 function construir_inventario($site_root, $ciudades, $tipos_servicio) {
@@ -190,9 +248,7 @@ if ($accion === 'analizar') {
     exit;
   }
 
-  $objetivo   = trim($_POST['objetivo']           ?? '');
-  $investigar = intval($_POST['investigar']        ?? 0);
-  $kw_raw     = trim($_POST['keywords_investigar'] ?? '');
+  $objetivo = trim($_POST['objetivo'] ?? '');
 
   if (!$objetivo) {
     echo json_encode(['error' => 'El campo objetivo es obligatorio.']);
@@ -200,19 +256,65 @@ if ($accion === 'analizar') {
   }
 
   // 1. Inventario de páginas
-  $paginas    = construir_inventario($site_root, $ciudades, $tipos_servicio);
-  $inv        = texto_inventario($paginas);
-  $inv_texto  = $inv['texto'];
+  $paginas   = construir_inventario($site_root, $ciudades, $tipos_servicio);
+  $inv       = texto_inventario($paginas);
+  $inv_texto = $inv['texto'];
 
-  // 2. Investigación competitiva con Serper (opcional)
+  // 2. Procesar Excel de keywords (opcional) — el auditor elige qué investigar
+  $clusters_contexto = '';
+  $keywords_para_serper = [];
+
+  $tiene_xlsx = !empty($_FILES['keywords_xlsx']['tmp_name'])
+                && $_FILES['keywords_xlsx']['error'] === UPLOAD_ERR_OK;
+
+  if ($tiene_xlsx) {
+    $filas = parse_xlsx_semrush($_FILES['keywords_xlsx']['tmp_name']);
+
+    if (!isset($filas['error']) && count($filas) > 1) {
+      // Estructura: col0=Keyword, col1=Seed keyword, col2=Volume, col3=Dificultad
+      $clusters = [];
+      $header   = true;
+      foreach ($filas as $fila) {
+        if ($header) { $header = false; continue; }
+        $kw   = trim($fila[0] ?? '');
+        $seed = trim($fila[1] ?? $kw);
+        $vol  = intval($fila[2] ?? 0);
+        if (!$kw) continue;
+        if (!isset($clusters[$seed])) {
+          $clusters[$seed] = ['vol_total' => 0, 'keywords' => []];
+        }
+        $clusters[$seed]['vol_total'] += $vol;
+        $clusters[$seed]['keywords'][] = ['kw' => $kw, 'vol' => $vol];
+      }
+
+      // Ordenar clusters por volumen total desc, coger top 8
+      uasort($clusters, fn($a, $b) => $b['vol_total'] - $a['vol_total']);
+      $top_clusters = array_slice($clusters, 0, 8, true);
+
+      // Construir contexto de clusters para Claude
+      $clusters_contexto = "\nCLUSTERS DE KEYWORDS (Export Semrush):\n";
+      foreach ($top_clusters as $seed => $data) {
+        $clusters_contexto .= "Cluster '{$seed}' — vol. total {$data['vol_total']}\n";
+        $top_kws = array_slice($data['keywords'], 0, 4);
+        foreach ($top_kws as $k) {
+          $clusters_contexto .= "  · {$k['kw']} ({$k['vol']})\n";
+        }
+        // La keyword con más volumen del cluster va a Serper
+        usort($data['keywords'], fn($a, $b) => $b['vol'] - $a['vol']);
+        if (!empty($data['keywords'][0]['kw'])) {
+          $keywords_para_serper[] = $data['keywords'][0]['kw'];
+        }
+      }
+      $keywords_para_serper = array_slice($keywords_para_serper, 0, 5);
+    }
+  }
+
+  // 3. Serper: el auditor investiga automáticamente las keywords más relevantes del Excel
   $serp_contexto = '';
-  if ($investigar === 1 && defined('SERPER_API_KEY') && strlen(SERPER_API_KEY) >= 10 && $kw_raw !== '') {
-    $keywords = array_slice(
-      array_filter(array_map('trim', explode(',', $kw_raw))),
-      0, 3
-    );
+  $tiene_serper  = defined('SERPER_API_KEY') && strlen(SERPER_API_KEY) >= 10;
 
-    foreach ($keywords as $kw) {
+  if ($tiene_serper && !empty($keywords_para_serper)) {
+    foreach ($keywords_para_serper as $kw) {
       $ch = curl_init('https://google.serper.dev/search');
       curl_setopt_array($ch, [
         CURLOPT_RETURNTRANSFER => true,
@@ -224,7 +326,7 @@ if ($accion === 'analizar') {
         ],
         CURLOPT_TIMEOUT => 15,
       ]);
-      $raw_serp  = curl_exec($ch);
+      $raw_serp = curl_exec($ch);
       curl_close($ch);
 
       if ($raw_serp) {
@@ -244,14 +346,17 @@ if ($accion === 'analizar') {
     }
   }
 
-  // 3. Construir prompt de usuario
+  // 4. Construir mensaje de usuario
   $anyo = date('Y');
 
   $user_msg  = "BRIEFING DEL CLIENTE:\n{$objetivo}\n\n";
   $user_msg .= "ESTADO ACTUAL DE LA WEB (escaneado automáticamente):\n{$inv_texto}\n";
 
+  if ($clusters_contexto) {
+    $user_msg .= "\n{$clusters_contexto}";
+  }
   if ($serp_contexto) {
-    $user_msg .= "\nDATOS SERP (competidores actuales en Google España):\n{$serp_contexto}\n";
+    $user_msg .= "\nDATOS SERP — competidores que posicionan ahora mismo en Google España (investigado automáticamente desde el Excel):\n{$serp_contexto}\n";
   }
 
   // 4. System prompt
