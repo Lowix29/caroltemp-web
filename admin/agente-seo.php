@@ -204,6 +204,34 @@ try {
     @media (max-width: 1024px) {
       .agente-wrap { grid-template-columns: 1fr; }
     }
+
+    /* ── Auditor SEO ── */
+    .audit-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .audit-card { background: #fff; border: 1px solid #E8EFF8; border-radius: 12px; padding: 1.25rem; text-align: center; }
+    .audit-card-val { font-size: 2rem; font-weight: 800; line-height: 1; }
+    .audit-card-lbl { font-size: 12px; color: #8FA3B8; margin-top: .375rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+    .audit-card.red .audit-card-val { color: #E53E3E; }
+    .audit-card.amber .audit-card-val { color: #D97706; }
+    .audit-card.green .audit-card-val { color: #059669; }
+    .audit-card.blue .audit-card-val { color: #1976D2; }
+
+    .audit-issue { background: #fff; border: 1px solid #E8EFF8; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: .75rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .audit-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; white-space: nowrap; text-transform: uppercase; letter-spacing: .05em; flex-shrink: 0; margin-top: 2px; }
+    .audit-badge.alta { background: #FEE2E2; color: #B91C1C; }
+    .audit-badge.media { background: #FEF3C7; color: #92400E; }
+    .audit-badge.baja { background: #F1F5F9; color: #64748B; }
+    .audit-issue-url { font-size: 12px; color: #1976D2; font-family: monospace; margin-bottom: .25rem; }
+    .audit-issue-desc { font-size: 13px; color: #576574; margin-bottom: .375rem; line-height: 1.5; }
+    .audit-issue-accion { font-size: 12px; color: #059669; font-weight: 600; }
+
+    .audit-opp { background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: .625rem; }
+    .audit-opp-url { font-size: 12px; color: #059669; font-family: monospace; margin-bottom: .25rem; }
+    .audit-cani { background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: .625rem; }
+    .audit-notas { background: #EEF4FF; border: 1px solid #BFDBFE; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; font-size: 14px; color: #1E3A5F; line-height: 1.7; }
+
+    @media (max-width: 768px) {
+      .audit-cards { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -233,6 +261,7 @@ try {
   <div class="tabs">
     <button class="tab-btn active" onclick="cambiarTab('crear', this)">✨ Crear contenido</button>
     <button class="tab-btn" onclick="cambiarTab('informes', this)">📊 Informes de posicionamiento</button>
+    <button class="tab-btn" onclick="cambiarTab('auditor', this)">🔍 Auditor SEO</button>
   </div>
 
   <!-- ── TAB: CREAR ── -->
@@ -476,6 +505,82 @@ try {
           </div>
         <?php endif; ?>
       </div>
+    </div>
+  </div>
+
+  <!-- ── TAB: AUDITOR SEO ── -->
+  <div class="tab-pane" id="tab-auditor">
+    <div style="max-width:900px">
+
+      <!-- Botón ejecutar -->
+      <div id="audit-inicio" style="text-align:center;padding:3rem 1rem">
+        <div style="font-size:3rem;margin-bottom:1rem">🔍</div>
+        <h2 style="font-size:1.25rem;font-weight:700;color:#0B2447;margin-bottom:.5rem">Auditor SEO completo</h2>
+        <p style="font-size:14px;color:#576574;margin-bottom:1.75rem;line-height:1.6">
+          Analiza todas las páginas del sitio (artículos, proyectos, páginas de zona y servicio)<br>
+          y genera un informe con problemas, oportunidades y notas ejecutivas.
+        </p>
+        <button onclick="ejecutarAuditoria()" style="display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,#0B2447,#1976D2);color:#fff;border:none;padding:.875rem 2rem;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer">
+          🚀 Ejecutar auditoría completa
+        </button>
+        <p style="font-size:12px;color:#8FA3B8;margin-top:.875rem">La auditoría tarda entre 20 y 40 segundos</p>
+      </div>
+
+      <!-- Loading -->
+      <div id="audit-loading" style="display:none;text-align:center;padding:4rem 1rem">
+        <div class="spinner" style="margin:0 auto 1.25rem"></div>
+        <p style="color:#576574;font-size:14px;font-weight:600;margin:0 0 .375rem">Auditando el sitio con IA...</p>
+        <p id="audit-tip" style="font-size:12px;color:#8FA3B8">Construyendo inventario de páginas...</p>
+      </div>
+
+      <!-- Resultados -->
+      <div id="audit-resultados" style="display:none">
+
+        <!-- Botón repetir -->
+        <div style="text-align:right;margin-bottom:1.25rem">
+          <button onclick="ejecutarAuditoria()" style="font-size:13px;background:#fff;border:1.5px solid #D6E2F0;border-radius:8px;padding:.5rem 1rem;cursor:pointer;color:#576574;font-weight:600">
+            ↻ Repetir auditoría
+          </button>
+        </div>
+
+        <!-- Notas ejecutivas -->
+        <div id="audit-notas-box" class="audit-notas" style="display:none">
+          <strong style="display:block;font-size:11px;font-weight:700;color:#1976D2;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.5rem">📋 Resumen ejecutivo</strong>
+          <span id="audit-notas-txt"></span>
+        </div>
+
+        <!-- Tarjetas resumen -->
+        <div class="audit-cards" id="audit-cards"></div>
+
+        <!-- Estado de zonas -->
+        <div id="audit-zonas-box" style="display:none;margin-bottom:2rem">
+          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🗺️ Estado de zonas</h3>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap" id="audit-zonas-chips"></div>
+        </div>
+
+        <!-- Canibalización -->
+        <div id="audit-cani-section" style="display:none;margin-bottom:2rem">
+          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">⚠️ Posible canibalización</h3>
+          <div id="audit-cani-list"></div>
+        </div>
+
+        <!-- Problemas -->
+        <div id="audit-problemas-section" style="display:none;margin-bottom:2rem">
+          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🐛 Problemas detectados</h3>
+          <div id="audit-problemas-list"></div>
+        </div>
+
+        <!-- Oportunidades -->
+        <div id="audit-opps-section" style="display:none;margin-bottom:2rem">
+          <h3 style="font-size:13px;font-weight:700;color:#0B2447;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em">🚀 Oportunidades de crecimiento</h3>
+          <div id="audit-opps-list"></div>
+        </div>
+
+      </div>
+
+      <!-- Error -->
+      <div id="audit-error" style="display:none;background:#FEF2F2;border:1px solid #fecaca;border-radius:10px;padding:1rem 1.25rem;color:#dc2626;font-size:14px;margin-top:1rem"></div>
+
     </div>
   </div>
 
@@ -817,6 +922,185 @@ function contarChars(el, infoId, limite) {
   const span = document.getElementById(infoId);
   span.textContent = n + '/' + limite;
   span.className   = 'char-info ' + (n > limite ? 'warn' : (n >= limite - 8 ? 'ok' : ''));
+}
+
+// ── Auditor SEO ──────────────────────────────────────────────────────────────
+const auditTips = [
+  'Construyendo inventario de páginas...',
+  'Leyendo artículos y proyectos de la base de datos...',
+  'Escaneando páginas de zona y servicio...',
+  'Calculando métricas SEO de cada página...',
+  'Enviando inventario al auditor IA...',
+  'Analizando canibalizaciones de keywords...',
+  'Detectando oportunidades de contenido...',
+  'Revisando cobertura de zonas geográficas...',
+  'Generando informe ejecutivo...',
+  'Casi listo...',
+];
+let auditTipIdx = 0, auditTipInt = null;
+
+async function ejecutarAuditoria() {
+  // Ocultar estados anteriores
+  document.getElementById('audit-inicio').style.display     = 'none';
+  document.getElementById('audit-resultados').style.display = 'none';
+  document.getElementById('audit-error').style.display      = 'none';
+
+  // Mostrar loading
+  document.getElementById('audit-loading').style.display = 'block';
+  auditTipIdx = 0;
+  document.getElementById('audit-tip').textContent = auditTips[0];
+  auditTipInt = setInterval(() => {
+    auditTipIdx = Math.min(auditTipIdx + 1, auditTips.length - 1);
+    document.getElementById('audit-tip').textContent = auditTips[auditTipIdx];
+  }, 3500);
+
+  try {
+    const r    = await fetch('agente-seo-auditor', { method: 'POST' });
+    const data = await r.json();
+
+    clearInterval(auditTipInt);
+    document.getElementById('audit-loading').style.display = 'none';
+
+    if (!data.ok || data.error) {
+      const errEl = document.getElementById('audit-error');
+      errEl.textContent = '⚠️ ' + (data.error || 'Error desconocido en la auditoría');
+      errEl.style.display = 'block';
+      document.getElementById('audit-inicio').style.display = 'block';
+      return;
+    }
+
+    renderAuditoria(data);
+
+  } catch (e) {
+    clearInterval(auditTipInt);
+    document.getElementById('audit-loading').style.display = 'none';
+    const errEl = document.getElementById('audit-error');
+    errEl.textContent = '⚠️ Error de conexión. Comprueba que el servidor responde correctamente.';
+    errEl.style.display = 'block';
+    document.getElementById('audit-inicio').style.display = 'block';
+  }
+}
+
+function renderAuditoria(data) {
+  const a = data.analisis || {};
+  const r = a.resumen    || {};
+
+  // ── Notas ejecutivas ──
+  if (a.seo_notas) {
+    document.getElementById('audit-notas-txt').textContent = a.seo_notas;
+    document.getElementById('audit-notas-box').style.display = '';
+  } else {
+    document.getElementById('audit-notas-box').style.display = 'none';
+  }
+
+  // ── Tarjetas resumen ──
+  const cards = [
+    { lbl: 'Páginas analizadas', val: r.total_paginas    ?? data.inventario_count ?? 0, cls: 'blue'  },
+    { lbl: 'Problemas críticos', val: r.problemas_criticos ?? 0,                        cls: 'red'   },
+    { lbl: 'Problemas medios',   val: r.problemas_medios   ?? 0,                        cls: 'amber' },
+    { lbl: 'Oportunidades',      val: r.oportunidades      ?? 0,                        cls: 'green' },
+  ];
+  const cardsEl = document.getElementById('audit-cards');
+  cardsEl.innerHTML = cards.map(c =>
+    `<div class="audit-card ${c.cls}">
+       <div class="audit-card-val">${c.val}</div>
+       <div class="audit-card-lbl">${c.lbl}</div>
+     </div>`
+  ).join('');
+
+  // ── Estado de zonas ──
+  const ez = a.estado_zonas;
+  if (ez && (ez.tienen_pagina?.length || ez.faltan?.length)) {
+    const chipsEl = document.getElementById('audit-zonas-chips');
+    chipsEl.innerHTML = '';
+    (ez.tienen_pagina || []).forEach(z => {
+      chipsEl.innerHTML += `<span style="background:#D1FAE5;color:#065F46;font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px">✓ ${escp(z)}</span>`;
+    });
+    (ez.faltan || []).forEach(z => {
+      chipsEl.innerHTML += `<span style="background:#FEE2E2;color:#B91C1C;font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px">✗ ${escp(z)}</span>`;
+    });
+    document.getElementById('audit-zonas-box').style.display = '';
+  } else {
+    document.getElementById('audit-zonas-box').style.display = 'none';
+  }
+
+  // ── Canibalización ──
+  const canis = a.canibalizacion || [];
+  if (canis.length) {
+    const caniEl = document.getElementById('audit-cani-list');
+    caniEl.innerHTML = canis.map(c =>
+      `<div class="audit-cani">
+         <div style="font-size:12px;font-weight:700;color:#92400E;margin-bottom:.375rem">
+           ⚠️ Keyword compartida: <em>${escp(c.keyword_compartida || '')}</em>
+         </div>
+         <div style="display:flex;flex-wrap:wrap;gap:.375rem;margin-bottom:.5rem">
+           ${(c.urls || []).map(u => `<code style="font-size:11px;background:#FED7AA;color:#7C2D12;padding:2px 8px;border-radius:4px">${escp(u)}</code>`).join('')}
+         </div>
+         <div style="font-size:13px;color:#576574">${escp(c.recomendacion || '')}</div>
+       </div>`
+    ).join('');
+    document.getElementById('audit-cani-section').style.display = '';
+  } else {
+    document.getElementById('audit-cani-section').style.display = 'none';
+  }
+
+  // ── Problemas ──
+  const problemas = (a.problemas || []).slice().sort((a, b) => {
+    const ord = { alta: 0, media: 1, baja: 2 };
+    return (ord[a.prioridad] ?? 3) - (ord[b.prioridad] ?? 3);
+  });
+  if (problemas.length) {
+    const probEl = document.getElementById('audit-problemas-list');
+    probEl.innerHTML = problemas.map(p =>
+      `<div class="audit-issue">
+         <span class="audit-badge ${escp(p.prioridad || 'baja')}">${escp((p.prioridad || 'baja').toUpperCase())}</span>
+         <div style="flex:1;min-width:0">
+           <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.25rem">
+             <span class="audit-issue-url">${escp(p.url || '')}</span>
+             <span style="font-size:11px;background:#F1F5F9;color:#64748B;padding:2px 8px;border-radius:100px">${escp(p.tipo || '')}</span>
+           </div>
+           ${p.titulo ? `<div style="font-size:13px;font-weight:600;color:#0B2447;margin-bottom:.25rem">${escp(p.titulo)}</div>` : ''}
+           <div class="audit-issue-desc">${escp(p.descripcion || '')}</div>
+           ${p.accion ? `<div class="audit-issue-accion">→ ${escp(p.accion)}</div>` : ''}
+         </div>
+       </div>`
+    ).join('');
+    document.getElementById('audit-problemas-section').style.display = '';
+  } else {
+    document.getElementById('audit-problemas-section').style.display = 'none';
+  }
+
+  // ── Oportunidades ──
+  const opps = a.oportunidades || [];
+  if (opps.length) {
+    const oppsEl = document.getElementById('audit-opps-list');
+    oppsEl.innerHTML = opps.map(o =>
+      `<div class="audit-opp">
+         <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.375rem">
+           ${o.url_sugerida ? `<span class="audit-opp-url">${escp(o.url_sugerida)}</span>` : ''}
+           <span style="font-size:11px;background:#D1FAE5;color:#065F46;padding:2px 8px;border-radius:100px">${escp(o.tipo || '')}</span>
+           ${o.impacto ? `<span style="font-size:11px;font-weight:700;color:${o.impacto === 'alto' ? '#B45309' : '#0369A1'}">${o.impacto === 'alto' ? '🔥 ALTO' : '📈 MEDIO'}</span>` : ''}
+         </div>
+         <div style="font-size:13px;color:#576574">${escp(o.descripcion || '')}</div>
+       </div>`
+    ).join('');
+    document.getElementById('audit-opps-section').style.display = '';
+  } else {
+    document.getElementById('audit-opps-section').style.display = 'none';
+  }
+
+  // Mostrar resultados
+  document.getElementById('audit-resultados').style.display = 'block';
+  document.getElementById('audit-resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Escape HTML helper
+function escp(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 </script>
 </body>
