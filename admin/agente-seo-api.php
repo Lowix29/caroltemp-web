@@ -111,7 +111,7 @@ Responder preguntas reales de búsqueda: "Cómo...", "Cuánto cuesta...", "Por q
 Incluir variaciones long-tail de la keyword.
 
 ### CUERPO DEL CONTENIDO
-Mínimo 1000 palabras, ideal 1200-1500.
+Objetivo: 900-1100 palabras. No superar 1200 — cada párrafo debe aportar valor, sin relleno.
 PRIMER PÁRRAFO: responder la intención de búsqueda en las primeras 2 frases (≤50 palabras). Google AI Overviews cita este párrafo.
 Densidad keyword principal: 1-1.5% (no más).
 Mencionar zona/ciudad al menos 4 veces de forma natural en el texto.
@@ -200,11 +200,16 @@ if (!empty($imagenes)) {
 if ($notas) $partes[] = "\nNotas adicionales: " . $notas;
 
 if ($informe_competencia) {
+  // Limitar el informe a 3500 caracteres para no saturar el contexto de salida
+  $informe_truncado = mb_substr($informe_competencia, 0, 3500, 'UTF-8');
+  if (mb_strlen($informe_competencia, 'UTF-8') > 3500) {
+    $informe_truncado .= "\n[...informe resumido para optimizar tokens...]";
+  }
   $partes[] = "\n\n══════════════════════════════════════════";
-  $partes[] = "INFORME DE INVESTIGACIÓN COMPETITIVA (usa esto como base obligatoria):";
-  $partes[] = $informe_competencia;
+  $partes[] = "INFORME DE INVESTIGACIÓN COMPETITIVA (úsalo como guía de estructura y gaps):";
+  $partes[] = $informe_truncado;
   $partes[] = "══════════════════════════════════════════";
-  $partes[] = "INSTRUCCIÓN: el artículo debe seguir la estructura recomendada del informe, superar a todos los competidores analizados, y cubrir los gaps identificados.";
+  $partes[] = "INSTRUCCIÓN: sigue la estructura H2 recomendada del informe y cubre los gaps identificados. Artículo entre 900 y 1200 palabras (no más — prioriza calidad sobre cantidad).";
 }
 
 $user_msg = implode("\n", $partes);
