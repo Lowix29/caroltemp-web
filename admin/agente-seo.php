@@ -242,7 +242,7 @@ try {
   <div class="main-header">
     <div>
       <h1 class="main-title">🤖 Agente SEO</h1>
-      <p class="main-sub">Genera artículos y proyectos optimizados para Google 2025 y buscadores con IA</p>
+      <p class="main-sub">Genera artículos y proyectos optimizados para Google 2026 y buscadores con IA</p>
     </div>
     <?php if ($tiene_informes): ?>
       <div style="background:#EEF4FF;border:1px solid #BFDBFE;border-radius:8px;padding:.5rem 1rem;font-size:13px;color:#1976D2;font-weight:600">
