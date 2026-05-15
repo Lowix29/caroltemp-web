@@ -44,8 +44,9 @@ $tipos_servicio = [
 
 $site_root = dirname(__DIR__);
 $accion    = trim($_POST['accion'] ?? '');
+$plan_file = dirname(__FILE__) . '/plan-auditor.json';
 
-// ── Allowed dirs for guardar (security) ─────────────────────────────
+// ── Allowed dirs for guardar/eliminar (security) ────────────────────
 $allowed_dirs = ['fugas', 'desatascos', 'fontanero', 'zonas'];
 
 // ─────────────────────────────────────────────────────────────────────
@@ -342,8 +343,9 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
 // ACCIÓN: guardar
 // ─────────────────────────────────────────────────────────────────────
 if ($accion === 'guardar') {
-  $filepath_rel = trim($_POST['filepath'] ?? '');
-  $contenido    = $_POST['contenido'] ?? '';
+  $filepath_rel   = trim($_POST['filepath']        ?? '');
+  $contenido      = $_POST['contenido']             ?? '';
+  $plan_accion_id = intval($_POST['plan_accion_id'] ?? 0);
 
   if (!$filepath_rel || !$contenido) {
     echo json_encode(['error' => 'Faltan parámetros: filepath y contenido']);
@@ -391,7 +393,186 @@ if ($accion === 'guardar') {
     exit;
   }
 
+  // ── Si viene plan_accion_id, marcar como completado ──────────────
+  if ($plan_accion_id > 0 && file_exists($plan_file)) {
+    $plan_raw = file_get_contents($plan_file);
+    $plan     = json_decode($plan_raw, true);
+    if ($plan && isset($plan['plan']) && is_array($plan['plan'])) {
+      foreach ($plan['plan'] as &$item) {
+        if (isset($item['id']) && intval($item['id']) === $plan_accion_id) {
+          $item['estado'] = 'completado';
+          break;
+        }
+      }
+      unset($item);
+      file_put_contents($plan_file, json_encode($plan, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+  }
+
   echo json_encode(['ok' => true, 'bytes' => $bytes, 'filepath' => $filepath_rel]);
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// ACCIÓN: cargar_plan
+// ─────────────────────────────────────────────────────────────────────
+if ($accion === 'cargar_plan') {
+  if (!file_exists($plan_file)) {
+    echo json_encode(['ok' => false, 'error' => 'No hay plan del auditor. Genera uno primero.']);
+    exit;
+  }
+
+  $plan_raw = file_get_contents($plan_file);
+  $plan     = json_decode($plan_raw, true);
+
+  if (!$plan) {
+    echo json_encode(['ok' => false, 'error' => 'El archivo del plan está corrupto o no es JSON válido.']);
+    exit;
+  }
+
+  echo json_encode(['ok' => true, 'plan' => $plan]);
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// ACCIÓN: actualizar_estado_accion
+// ─────────────────────────────────────────────────────────────────────
+if ($accion === 'actualizar_estado_accion') {
+  $plan_id = intval($_POST['plan_id'] ?? 0);
+  $estado  = trim($_POST['estado']   ?? '');
+
+  if ($plan_id <= 0) {
+    echo json_encode(['error' => 'plan_id inválido']);
+    exit;
+  }
+
+  $estados_validos = ['completado', 'ignorado', 'pendiente'];
+  if (!in_array($estado, $estados_validos, true)) {
+    echo json_encode(['error' => 'Estado no válido. Use: completado, ignorado o pendiente']);
+    exit;
+  }
+
+  if (!file_exists($plan_file)) {
+    echo json_encode(['error' => 'No hay plan del auditor.']);
+    exit;
+  }
+
+  $plan_raw = file_get_contents($plan_file);
+  $plan     = json_decode($plan_raw, true);
+
+  if (!$plan || !isset($plan['plan']) || !is_array($plan['plan'])) {
+    echo json_encode(['error' => 'El archivo del plan está corrupto.']);
+    exit;
+  }
+
+  $encontrado = false;
+  foreach ($plan['plan'] as &$item) {
+    if (isset($item['id']) && intval($item['id']) === $plan_id) {
+      $item['estado'] = $estado;
+      $encontrado = true;
+      break;
+    }
+  }
+  unset($item);
+
+  if (!$encontrado) {
+    echo json_encode(['error' => 'No se encontró la acción con id ' . $plan_id]);
+    exit;
+  }
+
+  $ok = file_put_contents($plan_file, json_encode($plan, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+  if ($ok === false) {
+    echo json_encode(['error' => 'No se pudo guardar el plan. Verifica permisos.']);
+    exit;
+  }
+
+  echo json_encode(['ok' => true]);
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// ACCIÓN: eliminar_pagina
+// ─────────────────────────────────────────────────────────────────────
+if ($accion === 'eliminar_pagina') {
+  $filepath_rel = trim($_POST['filepath'] ?? '');
+
+  if (!$filepath_rel) {
+    echo json_encode(['error' => 'Falta el parámetro filepath']);
+    exit;
+  }
+
+  $filepath_rel = ltrim($filepath_rel, '/');
+
+  // Validar directorio permitido
+  $parts   = explode('/', $filepath_rel);
+  $top_dir = $parts[0] ?? '';
+
+  if (!in_array($top_dir, $allowed_dirs, true)) {
+    echo json_encode(['error' => 'Directorio no permitido: ' . $top_dir]);
+    exit;
+  }
+
+  // Solo .php y sin traversal
+  if (!preg_match('/^[a-z0-9\-\/]+\.php$/', $filepath_rel)) {
+    echo json_encode(['error' => 'Nombre de archivo no válido']);
+    exit;
+  }
+
+  $abs_path = $site_root . '/' . $filepath_rel;
+
+  // Verificar que la ruta resultante está dentro del site_root
+  $real_site_root = realpath($site_root);
+  $real_dir       = realpath(dirname($abs_path));
+  if ($real_dir === false || strpos($real_dir, $real_site_root) !== 0) {
+    echo json_encode(['error' => 'Ruta fuera del directorio permitido']);
+    exit;
+  }
+
+  if (!file_exists($abs_path)) {
+    echo json_encode(['error' => 'El archivo no existe: ' . $filepath_rel]);
+    exit;
+  }
+
+  // ── Backup antes de eliminar ──────────────────────────────────────
+  $bak_path = $abs_path . '.bak';
+  if (!copy($abs_path, $bak_path)) {
+    echo json_encode(['error' => 'No se pudo crear la copia de seguridad. Abortando.']);
+    exit;
+  }
+
+  // ── Eliminar el archivo ───────────────────────────────────────────
+  if (!unlink($abs_path)) {
+    echo json_encode(['error' => 'No se pudo eliminar el archivo. Verifica permisos.']);
+    exit;
+  }
+
+  echo json_encode(['ok' => true, 'backup' => $filepath_rel . '.bak']);
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// ACCIÓN: redireccion_htaccess
+// ─────────────────────────────────────────────────────────────────────
+if ($accion === 'redireccion_htaccess') {
+  $desde = trim($_POST['desde'] ?? '');
+  $hacia = trim($_POST['hacia'] ?? '');
+
+  if (!$desde || !$hacia) {
+    echo json_encode(['error' => 'Faltan parámetros: desde y hacia']);
+    exit;
+  }
+
+  // Asegurar que empiezan con /
+  if ($desde[0] !== '/') $desde = '/' . $desde;
+  if ($hacia[0] !== '/') $hacia = '/' . $hacia;
+
+  $regla = 'Redirect 301 ' . $desde . ' ' . $hacia;
+
+  echo json_encode([
+    'ok'         => true,
+    'regla'      => $regla,
+    'instruccion' => 'Añade esta línea al archivo .htaccess en la raíz del sitio, antes de las reglas de rewrite existentes.',
+  ]);
   exit;
 }
 

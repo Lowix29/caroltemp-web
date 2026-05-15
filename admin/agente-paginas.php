@@ -3,6 +3,10 @@
    CAROLTEMP — Agente de Páginas
    Gestión de páginas estructurales del sitio
 ============================================= */
+ob_start();
+error_reporting(0);
+ini_set('display_errors', 0);
+
 session_start();
 if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   header('Location: login.php');
@@ -55,6 +59,35 @@ $base_url = 'http://localhost/';
       text-transform: uppercase;
     }
     .ap-panel-body { padding: 1.5rem; }
+
+    /* ── Tabs ── */
+    .ap-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid #f1f5f9;
+      padding: 0 1.5rem;
+      background: #fafbfc;
+    }
+    .ap-tab-btn {
+      padding: .75rem 1.25rem;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8FA3B8;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .ap-tab-btn:hover { color: #1976D2; }
+    .ap-tab-btn.active {
+      color: #1976D2;
+      border-bottom-color: #1976D2;
+    }
+    .ap-tab-content { display: none; }
+    .ap-tab-content.active { display: block; }
 
     /* ── Tabla matriz ── */
     .matriz-table {
@@ -156,6 +189,152 @@ $base_url = 'http://localhost/';
       gap: .3rem;
     }
 
+    /* ── Plan del auditor ── */
+    .plan-info-bar {
+      background: #f8fafc;
+      border-bottom: 1px solid #f1f5f9;
+      padding: .75rem 1.5rem;
+      font-size: 12px;
+      color: #576574;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .plan-info-bar strong { color: #0B2447; }
+
+    .plan-group-header {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #8FA3B8;
+      padding: 1rem 1.5rem .375rem;
+    }
+
+    .plan-accion-card {
+      display: flex;
+      align-items: flex-start;
+      gap: .875rem;
+      padding: .875rem 1.5rem;
+      border-bottom: 1px solid #f8fafc;
+      transition: background .1s;
+      border-left: 3px solid transparent;
+    }
+    .plan-accion-card:hover { background: #fafbff; }
+    .plan-accion-card.completado { opacity: .45; }
+    .plan-accion-card.ignorado  { opacity: .3; }
+
+    .plan-accion-left { flex: 1; min-width: 0; }
+
+    .plan-accion-badges {
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+      margin-bottom: .3rem;
+      flex-wrap: wrap;
+    }
+    .plan-accion-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .badge-tipo {
+      background: #f1f5f9;
+      color: #576574;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 100px;
+    }
+    .plan-accion-filepath {
+      font-family: monospace;
+      font-size: 11.5px;
+      color: #1e3a5f;
+      margin-bottom: .25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 280px;
+    }
+    .plan-accion-card.completado .plan-accion-filepath {
+      text-decoration: line-through;
+      color: #94a3b8;
+    }
+    .plan-accion-motivo {
+      font-size: 11.5px;
+      color: #8FA3B8;
+      line-height: 1.4;
+    }
+
+    .plan-accion-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: .375rem;
+      flex-shrink: 0;
+    }
+    .plan-accion-estado {
+      font-size: 11px;
+      padding: 3px 6px;
+      border: 1px solid #D6E2F0;
+      border-radius: 6px;
+      color: #576574;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .btn-plan {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+    .btn-plan:hover { opacity: .8; }
+    .btn-plan-crear    { background: #dcfce7; color: #15803d; }
+    .btn-plan-mejorar  { background: #fef3c7; color: #b45309; }
+    .btn-plan-redirigir { background: #dbeafe; color: #1d4ed8; }
+    .btn-plan-eliminar { background: #fee2e2; color: #b91c1c; }
+    .btn-plan-ok       {
+      font-size: 11px; color: #94a3b8;
+      background: none; border: none; cursor: default; padding: 4px 8px;
+    }
+
+    /* ── Plan empty state ── */
+    .plan-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      text-align: center;
+      gap: .75rem;
+      padding: 2rem;
+    }
+    .plan-empty-icon { font-size: 2.5rem; opacity: .25; }
+    .plan-empty p { font-size: 14px; color: #8FA3B8; line-height: 1.5; }
+    .btn-ir-auditor {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: #1976D2;
+      color: #fff;
+      text-decoration: none;
+      padding: .625rem 1.25rem;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: background .15s;
+    }
+    .btn-ir-auditor:hover { background: #1565C0; }
+
     /* ── Loading spinner ── */
     .ap-loading {
       display: none;
@@ -175,7 +354,7 @@ $base_url = 'http://localhost/';
     .ap-loading p { color: #576574; font-size: 14px; font-weight: 600; margin: 0 0 .375rem; }
     .ap-loading small { font-size: 12px; color: #8FA3B8; }
 
-    /* ── Empty state ── */
+    /* ── Empty state editor ── */
     .ap-empty {
       display: flex;
       flex-direction: column;
@@ -191,7 +370,7 @@ $base_url = 'http://localhost/';
     .ap-empty p { font-size: 14px; line-height: 1.6; }
     .ap-empty strong { color: #576574; }
 
-    /* ── Resultado ── */
+    /* ── Resultado editor ── */
     .ap-result { display: none; padding: 1.5rem; }
 
     .result-context {
@@ -265,6 +444,120 @@ $base_url = 'http://localhost/';
     .btn-guardar-disco:hover:not(:disabled) { background: #15803d; }
     .btn-guardar-disco:disabled { opacity: .55; cursor: not-allowed; }
 
+    /* ── Redirect result ── */
+    .redirect-code {
+      background: #1e293b;
+      color: #7dd3fc;
+      font-family: monospace;
+      font-size: 13px;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      margin: .875rem 0;
+      word-break: break-all;
+      position: relative;
+    }
+    .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: .375rem;
+      background: #f1f5f9;
+      color: #576574;
+      border: 1.5px solid #D6E2F0;
+      border-radius: 7px;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: .45rem .875rem;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-copy:hover { background: #e2e8f0; border-color: #8FA3B8; color: #0B2447; }
+    .redirect-info {
+      font-size: 12.5px;
+      color: #576574;
+      margin: .625rem 0 1rem;
+      line-height: 1.5;
+    }
+    .btn-marcar-aplicada {
+      width: 100%;
+      padding: .75rem;
+      background: #1976D2;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s;
+      margin-top: .5rem;
+    }
+    .btn-marcar-aplicada:hover { background: #1565C0; }
+
+    /* ── Delete warning ── */
+    .delete-warning {
+      background: #FEF2F2;
+      border: 1.5px solid #FCA5A5;
+      border-radius: 10px;
+      padding: 1.125rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .delete-warning h3 {
+      color: #991B1B;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+    .delete-warning p {
+      font-size: 13px;
+      color: #B91C1C;
+      line-height: 1.5;
+    }
+    .delete-filepath {
+      font-family: monospace;
+      font-size: 12px;
+      background: #FEE2E2;
+      padding: .375rem .625rem;
+      border-radius: 6px;
+      margin: .5rem 0;
+      color: #7f1d1d;
+    }
+    .delete-backup-note {
+      font-size: 11.5px;
+      color: #9CA3AF;
+      margin-top: .5rem;
+    }
+    .delete-actions {
+      display: flex;
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+    .btn-cancelar {
+      flex: 1;
+      padding: .75rem;
+      background: #f1f5f9;
+      color: #576574;
+      border: 1.5px solid #D6E2F0;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-cancelar:hover { background: #e2e8f0; }
+    .btn-eliminar-confirm {
+      flex: 1;
+      padding: .75rem;
+      background: #DC2626;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .btn-eliminar-confirm:hover { background: #b91c1c; }
+    .btn-eliminar-confirm:disabled { opacity: .55; cursor: not-allowed; }
+
     /* ── Notificación flash ── */
     .ap-flash {
       display: none;
@@ -323,6 +616,18 @@ $base_url = 'http://localhost/';
       transition: all .15s;
     }
     .btn-reload:hover { border-color: #8FA3B8; color: #0B2447; }
+
+    /* ── No disponible mensaje ── */
+    .tipo-no-disponible {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.125rem 1.25rem;
+      font-size: 13px;
+      color: #576574;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -341,39 +646,57 @@ $base_url = 'http://localhost/';
   <div class="ap-wrap">
 
     <!-- ══════════════════════════════════════════════════════ -->
-    <!-- PANEL IZQUIERDO: MATRIZ                               -->
+    <!-- PANEL IZQUIERDO: COLA DE TRABAJO                       -->
     <!-- ══════════════════════════════════════════════════════ -->
     <div class="ap-panel">
       <div class="ap-panel-head">
-        <span class="ap-panel-title">🗺️ Mapa de páginas</span>
-        <button class="btn-reload" onclick="cargarInventario()">↻ Actualizar</button>
+        <span class="ap-panel-title">🗂️ Cola de trabajo</span>
+        <button class="btn-reload" id="btn-reload-panel" onclick="recargarTab()">↻ Actualizar</button>
       </div>
 
-      <div id="matriz-wrap">
-        <div class="matriz-loading">
-          <div class="spinner" style="margin:0 auto .875rem"></div>
-          Cargando inventario de páginas...
+      <!-- Tabs -->
+      <div class="ap-tabs">
+        <button class="ap-tab-btn active" id="tab-btn-plan" onclick="cambiarTab('plan')">📋 Plan del Auditor</button>
+        <button class="ap-tab-btn" id="tab-btn-mapa" onclick="cambiarTab('mapa')">🗺️ Mapa de páginas</button>
+      </div>
+
+      <!-- Tab 1: Plan del Auditor -->
+      <div class="ap-tab-content active" id="tab-plan">
+        <div id="plan-wrap">
+          <div class="matriz-loading">
+            <div class="spinner" style="margin:0 auto .875rem"></div>
+            Cargando plan del auditor...
+          </div>
         </div>
       </div>
 
-      <div class="leyenda">
-        <div class="leyenda-item">
-          <span style="color:#16a34a;font-size:14px">✓</span>
-          <span>Contenido OK</span>
+      <!-- Tab 2: Mapa de páginas -->
+      <div class="ap-tab-content" id="tab-mapa">
+        <div id="matriz-wrap">
+          <div class="matriz-loading" style="color:#8FA3B8">
+            Activa esta pestaña para cargar el mapa de páginas...
+          </div>
         </div>
-        <div class="leyenda-item">
-          <span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px">⚠</span>
-          <span>Provisional</span>
-        </div>
-        <div class="leyenda-item">
-          <span style="background:#FEE2E2;color:#B91C1C;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px">✗</span>
-          <span>No existe</span>
+
+        <div class="leyenda">
+          <div class="leyenda-item">
+            <span style="color:#16a34a;font-size:14px">✓</span>
+            <span>Contenido OK</span>
+          </div>
+          <div class="leyenda-item">
+            <span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px">⚠</span>
+            <span>Provisional</span>
+          </div>
+          <div class="leyenda-item">
+            <span style="background:#FEE2E2;color:#B91C1C;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px">✗</span>
+            <span>No existe</span>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- ══════════════════════════════════════════════════════ -->
-    <!-- PANEL DERECHO: EDITOR                                 -->
+    <!-- PANEL DERECHO: EDITOR                                  -->
     <!-- ══════════════════════════════════════════════════════ -->
     <div class="ap-panel">
       <div class="ap-panel-head">
@@ -391,8 +714,8 @@ $base_url = 'http://localhost/';
       <!-- Empty state -->
       <div class="ap-empty" id="ap-empty">
         <div class="ap-empty-icon">📄</div>
-        <p><strong>Selecciona una página del mapa</strong><br>para mejorarla o crearla con IA</p>
-        <p style="font-size:12px">Pulsa "Mejorar" en las páginas provisionales<br>o "Crear" en las que no existen todavía</p>
+        <p><strong>Selecciona una acción del plan</strong><br>o una página del mapa para empezar</p>
+        <p style="font-size:12px">Usa las pestañas de la izquierda para navegar<br>entre el plan del auditor y el mapa de páginas</p>
       </div>
 
       <!-- Resultado -->
@@ -400,36 +723,69 @@ $base_url = 'http://localhost/';
 
         <div id="ap-flash" class="ap-flash"></div>
 
-        <div class="result-context" id="result-context"></div>
+        <!-- Contenido CREAR / MEJORAR -->
+        <div id="result-crear-mejorar" style="display:none">
+          <div class="result-context" id="result-context-cm"></div>
 
-        <div class="pv-field">
-          <label>
-            Meta Title
-            <span class="char-info neu" id="mt-info"></span>
-          </label>
-          <input type="text" id="pv-meta-title" maxlength="80"
-                 oninput="contarChars(this,'mt-info',60)">
+          <div class="pv-field">
+            <label>
+              Meta Title
+              <span class="char-info neu" id="mt-info"></span>
+            </label>
+            <input type="text" id="pv-meta-title" maxlength="80"
+                   oninput="contarChars(this,'mt-info',60)">
+          </div>
+
+          <div class="pv-field">
+            <label>
+              Meta Description
+              <span class="char-info neu" id="md-info"></span>
+            </label>
+            <input type="text" id="pv-meta-desc" maxlength="200"
+                   oninput="contarChars(this,'md-info',160)">
+          </div>
+
+          <div class="pv-field">
+            <label>Contenido PHP generado <span style="font-weight:400;color:#B0C4D8;text-transform:none;letter-spacing:0">(editable antes de guardar)</span></label>
+            <textarea id="pv-php-content" rows="24"></textarea>
+          </div>
+
+          <input type="hidden" id="pv-filepath">
+          <input type="hidden" id="pv-plan-accion-id" value="">
+
+          <button class="btn-guardar-disco" id="btn-guardar" onclick="guardar()">
+            💾 Guardar en disco
+          </button>
         </div>
 
-        <div class="pv-field">
-          <label>
-            Meta Description
-            <span class="char-info neu" id="md-info"></span>
-          </label>
-          <input type="text" id="pv-meta-desc" maxlength="200"
-                 oninput="contarChars(this,'md-info',160)">
+        <!-- Contenido REDIRIGIR -->
+        <div id="result-redirigir" style="display:none">
+          <div class="result-context" id="result-context-red"></div>
+          <p style="font-size:13px;color:#576574;margin-bottom:.25rem">Regla .htaccess a añadir:</p>
+          <div class="redirect-code" id="redirect-code-block"></div>
+          <div style="display:flex;gap:.75rem;margin-bottom:.625rem">
+            <button class="btn-copy" onclick="copiarRegla()">📋 Copiar regla</button>
+          </div>
+          <div class="redirect-info" id="redirect-instruccion"></div>
+          <button class="btn-marcar-aplicada" id="btn-marcar-aplicada" onclick="marcarRedireccionAplicada()">
+            ✓ Marcar como aplicada
+          </button>
         </div>
 
-        <div class="pv-field">
-          <label>Contenido PHP generado <span style="font-weight:400;color:#B0C4D8;text-transform:none;letter-spacing:0">(editable antes de guardar)</span></label>
-          <textarea id="pv-php-content" rows="22"></textarea>
+        <!-- Contenido ELIMINAR -->
+        <div id="result-eliminar" style="display:none">
+          <div class="delete-warning">
+            <h3>⚠️ ¿Seguro que quieres eliminar esta página?</h3>
+            <div class="delete-filepath" id="delete-filepath-display"></div>
+            <p class="delete-backup-note">📦 Se creará una copia de seguridad (.bak) antes de eliminar</p>
+          </div>
+          <div class="delete-actions">
+            <button class="btn-cancelar" onclick="mostrarEstadoEditor('empty')">Cancelar</button>
+            <button class="btn-eliminar-confirm" id="btn-eliminar-confirm" onclick="ejecutarEliminar()">
+              🗑️ Eliminar página
+            </button>
+          </div>
         </div>
-
-        <input type="hidden" id="pv-filepath">
-
-        <button class="btn-guardar-disco" id="btn-guardar" onclick="guardar()">
-          💾 Guardar en disco
-        </button>
 
       </div>
     </div>
@@ -439,13 +795,426 @@ $base_url = 'http://localhost/';
 </main>
 
 <script>
-// ── Estado ───────────────────────────────────────────────────────────────────
-let filepathActual = '';
+// ── Estado global ────────────────────────────────────────────────────────────
+let filepathActual     = '';
+let planAccionIdActual = 0;
+let deleteFilepathActual = '';
+let deleteAccionId       = 0;
+let redirectAccionId     = 0;
+let redirectReglaActual  = '';
+let mapaYaCargado = false;
+let tabActual = 'plan';
 
-// ── Carga automática al arrancar ─────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', cargarInventario);
+// ── Mapa de ciudades para parsear filepath del plan ──────────────────────────
+const CIUDADES_MAP = {
+  'elda':     { nombre: 'Elda',             cp: '03600' },
+  'petrer':   { nombre: 'Petrer',           cp: '03610' },
+  'novelda':  { nombre: 'Novelda',          cp: '03660' },
+  'monovar':  { nombre: 'Monóvar',          cp: '03640' },
+  'sax':      { nombre: 'Sax',              cp: '03630' },
+  'pinoso':   { nombre: 'Pinoso',           cp: '03650' },
+  'monforte': { nombre: 'Monforte del Cid', cp: '03670' },
+  'salinas':  { nombre: 'Salinas',          cp: '03688' },
+  'aspe':     { nombre: 'Aspe',             cp: '03680' },
+};
+const PREFIJOS_MAP = {
+  'fugas':      'deteccion-fugas-',
+  'desatascos': 'desatascos-',
+  'fontanero':  'fontanero-',
+};
 
-// ── Cargar inventario de páginas ─────────────────────────────────────────────
+// ── Colores por acción ────────────────────────────────────────────────────────
+const ACCION_COLORS = {
+  'CREAR':     '#16a34a',
+  'MEJORAR':   '#d97706',
+  'REDIRIGIR': '#1976D2',
+  'ELIMINAR':  '#dc2626',
+  'MANTENER':  '#94a3b8',
+};
+const ACCION_BG = {
+  'CREAR':     '#dcfce7',
+  'MEJORAR':   '#fef3c7',
+  'REDIRIGIR': '#dbeafe',
+  'ELIMINAR':  '#fee2e2',
+  'MANTENER':  '#f1f5f9',
+};
+
+// ── Auto-carga al arrancar ────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  cargarPlan();
+});
+
+// ── Cambiar pestaña ───────────────────────────────────────────────────────────
+function cambiarTab(tab) {
+  tabActual = tab;
+  document.getElementById('tab-btn-plan').classList.toggle('active', tab === 'plan');
+  document.getElementById('tab-btn-mapa').classList.toggle('active', tab === 'mapa');
+  document.getElementById('tab-plan').classList.toggle('active', tab === 'plan');
+  document.getElementById('tab-mapa').classList.toggle('active', tab === 'mapa');
+
+  if (tab === 'mapa' && !mapaYaCargado) {
+    cargarInventario();
+  }
+}
+
+function recargarTab() {
+  if (tabActual === 'plan') {
+    cargarPlan();
+  } else {
+    mapaYaCargado = false;
+    cargarInventario();
+  }
+}
+
+// ── Cargar plan del auditor ───────────────────────────────────────────────────
+async function cargarPlan() {
+  const wrap = document.getElementById('plan-wrap');
+  wrap.innerHTML = '<div class="matriz-loading"><div class="spinner" style="margin:0 auto .875rem"></div>Cargando plan...</div>';
+
+  try {
+    const fd = new FormData();
+    fd.append('accion', 'cargar_plan');
+    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const data = await r.json();
+
+    if (!data.ok) {
+      // Mostrar empty state con botón al auditor
+      wrap.innerHTML =
+        '<div class="plan-empty">' +
+          '<div class="plan-empty-icon">📋</div>' +
+          '<p>No hay ningún plan activo.<br>Genera uno desde el Auditor Estratégico.</p>' +
+          '<a href="auditor-estrategico" class="btn-ir-auditor">🔍 Ir al Auditor Estratégico</a>' +
+        '</div>';
+      return;
+    }
+
+    renderPlan(data.plan);
+  } catch (e) {
+    wrap.innerHTML = '<div class="matriz-error">⚠️ Error de conexión al cargar el plan.</div>';
+  }
+}
+
+// ── Renderizar plan ───────────────────────────────────────────────────────────
+function renderPlan(plan) {
+  const wrap = document.getElementById('plan-wrap');
+
+  // Barra de info
+  const fechaStr = plan.fecha_generacion
+    ? new Date(plan.fecha_generacion).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' })
+    : '—';
+  const objetivo = plan.objetivo || '';
+
+  let html = '<div class="plan-info-bar">';
+  html += '<span>📅 <strong>' + escp(fechaStr) + '</strong></span>';
+  if (objetivo) html += '<span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + escp(objetivo) + '">' + escp(objetivo.substring(0, 80)) + (objetivo.length > 80 ? '…' : '') + '</span>';
+  // estadísticas
+  const st = plan.estadisticas || {};
+  if (st.paginas_total_ideal) {
+    html += '<span style="margin-left:auto;white-space:nowrap">';
+    html += '✓ ' + (st.paginas_ok || 0) + ' · ⚠ ' + (st.paginas_provisional || 0) + ' · ✗ ' + (st.paginas_faltantes || 0);
+    html += '</span>';
+  }
+  html += '</div>';
+
+  // Agrupar por prioridad
+  const acciones = plan.plan || [];
+  const grupos = { alta: [], media: [], baja: [] };
+  acciones.forEach(function(a) {
+    const p = (a.prioridad || 'baja').toLowerCase();
+    if (grupos[p]) grupos[p].push(a);
+    else grupos.baja.push(a);
+  });
+
+  const labelGrupo = { alta: 'Prioridad Alta', media: 'Prioridad Media', baja: 'Prioridad Baja' };
+  ['alta', 'media', 'baja'].forEach(function(prio) {
+    if (!grupos[prio].length) return;
+    html += '<div class="plan-group-header">' + labelGrupo[prio] + ' <span style="font-size:10px;font-weight:400;color:#b0c4d8">(' + grupos[prio].length + ')</span></div>';
+    grupos[prio].forEach(function(accion) {
+      html += renderAccionCard(accion);
+    });
+  });
+
+  if (!acciones.length) {
+    html += '<div class="plan-empty"><p>El plan no tiene acciones.</p></div>';
+  }
+
+  wrap.innerHTML = html;
+}
+
+// ── Renderizar tarjeta de acción ──────────────────────────────────────────────
+function renderAccionCard(accion) {
+  const accionKey = (accion.accion || '').toUpperCase();
+  const estado    = accion.estado || 'pendiente';
+  const color     = ACCION_COLORS[accionKey] || '#94a3b8';
+  const bgColor   = ACCION_BG[accionKey]     || '#f1f5f9';
+  const filepath  = accion.pagina            || '';
+  const motivo    = accion.motivo            || '';
+  const tipo      = accion.tipo              || '';
+
+  const isPendiente = estado === 'pendiente';
+
+  let card = '<div class="plan-accion-card ' + escp(estado) + '" id="card-' + escp(String(accion.id)) + '" style="border-left-color:' + color + '">';
+  card += '<div class="plan-accion-left">';
+
+  // Badges
+  card += '<div class="plan-accion-badges">';
+  card += '<span class="plan-accion-badge" style="background:' + bgColor + ';color:' + color + '">' + escp(accionKey) + '</span>';
+  if (tipo) card += '<span class="badge-tipo">' + escp(tipo) + '</span>';
+  card += '</div>';
+
+  // Filepath
+  card += '<div class="plan-accion-filepath" title="' + escp(filepath) + '">' + escp(filepath) + '</div>';
+
+  // Motivo
+  if (motivo) card += '<div class="plan-accion-motivo">' + escp(motivo) + '</div>';
+
+  card += '</div>'; // left
+
+  // Right: botones + estado select
+  card += '<div class="plan-accion-right">';
+
+  if (isPendiente) {
+    // Botón de acción
+    if (accionKey === 'CREAR') {
+      card += '<button class="btn-plan btn-plan-crear" onclick="ejecutarAccion(' + JSON.stringify(accion) + ')">Crear</button>';
+    } else if (accionKey === 'MEJORAR') {
+      card += '<button class="btn-plan btn-plan-mejorar" onclick="ejecutarAccion(' + JSON.stringify(accion) + ')">Mejorar</button>';
+    } else if (accionKey === 'REDIRIGIR') {
+      card += '<button class="btn-plan btn-plan-redirigir" onclick="verReglaRedireccion(' + JSON.stringify(accion) + ')">Ver regla</button>';
+    } else if (accionKey === 'ELIMINAR') {
+      card += '<button class="btn-plan btn-plan-eliminar" onclick="confirmarEliminar(' + JSON.stringify(accion) + ')">Eliminar</button>';
+    } else {
+      card += '<span class="btn-plan btn-plan-ok">OK</span>';
+    }
+  }
+
+  // Select de estado (solo si no es MANTENER)
+  if (accionKey !== 'MANTENER') {
+    card += '<select class="plan-accion-estado" onchange="actualizarEstado(' + accion.id + ', this.value)">';
+    ['pendiente', 'completado', 'ignorado'].forEach(function(opt) {
+      card += '<option value="' + opt + '"' + (estado === opt ? ' selected' : '') + '>' + opt + '</option>';
+    });
+    card += '</select>';
+  }
+
+  card += '</div>'; // right
+  card += '</div>'; // card
+
+  return card;
+}
+
+// ── ejecutarAccion — desde tarjeta del plan ───────────────────────────────────
+async function ejecutarAccion(accionObj) {
+  const filepath = accionObj.pagina || '';
+  const accionId = accionObj.id     || 0;
+
+  // Parsear filepath para extraer tipo, ciudad, slug, cp
+  const partes = filepath.split('/');
+  if (partes.length < 2) {
+    mostrarNoDisponible(accionId);
+    return;
+  }
+  const dir      = partes[0]; // fugas, desatascos, fontanero, zonas...
+  const filename = partes[1].replace('.php', '');
+
+  const prefijo = PREFIJOS_MAP[dir];
+  if (!prefijo) {
+    mostrarNoDisponible(accionId);
+    return;
+  }
+
+  // Extraer ciudad slug: filename sin el prefijo
+  if (!filename.startsWith(prefijo)) {
+    mostrarNoDisponible(accionId);
+    return;
+  }
+  const ciudadSlug = filename.substring(prefijo.length);
+  const ciudadInfo = CIUDADES_MAP[ciudadSlug];
+
+  if (!ciudadInfo) {
+    mostrarNoDisponible(accionId);
+    return;
+  }
+
+  const apiAccion = (accionObj.accion || '').toLowerCase() === 'crear' ? 'crear' : 'mejorar';
+  await lanzarAccion(apiAccion, dir, ciudadInfo.nombre, ciudadSlug, ciudadInfo.cp, filepath, accionId);
+}
+
+// ── mostrarNoDisponible ───────────────────────────────────────────────────────
+function mostrarNoDisponible(accionId) {
+  mostrarEstadoEditor('result');
+  document.getElementById('result-crear-mejorar').style.display = 'none';
+  document.getElementById('result-redirigir').style.display     = 'none';
+  document.getElementById('result-eliminar').style.display      = 'none';
+  ocultarFlash();
+
+  const wrap = document.getElementById('ap-result');
+  // Eliminar si ya existe
+  const prev = document.getElementById('no-disponible-msg');
+  if (prev) prev.remove();
+
+  const div = document.createElement('div');
+  div.id = 'no-disponible-msg';
+  div.className = 'tipo-no-disponible';
+  div.innerHTML = '⚠️ La generación automática no está disponible aún para este tipo de página. ' +
+    'Puedes marcarla manualmente como completada o ignorada desde la tarjeta del plan.';
+  wrap.prepend(div);
+}
+
+// ── verReglaRedireccion ───────────────────────────────────────────────────────
+async function verReglaRedireccion(accionObj) {
+  redirectAccionId = accionObj.id || 0;
+  const desde = accionObj.desde || '';
+  const hacia  = accionObj.hacia || accionObj.pagina || '';
+
+  if (!desde || !hacia) {
+    mostrarEstadoEditor('result');
+    mostrarFlash('err', '⚠️ Esta acción no tiene campos desde/hacia definidos en el plan.');
+    return;
+  }
+
+  try {
+    const fd = new FormData();
+    fd.append('accion', 'redireccion_htaccess');
+    fd.append('desde', desde);
+    fd.append('hacia', hacia.startsWith('/') ? hacia : '/' + hacia.replace('.php',''));
+    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const data = await r.json();
+
+    if (!data.ok) {
+      mostrarEstadoEditor('result');
+      mostrarFlash('err', '⚠️ ' + (data.error || 'Error al generar regla'));
+      return;
+    }
+
+    mostrarResultadoRedireccion(data, desde, hacia.replace('.php',''));
+  } catch (e) {
+    mostrarEstadoEditor('result');
+    mostrarFlash('err', '⚠️ Error de conexión.');
+  }
+}
+
+function mostrarResultadoRedireccion(data, desde, hacia) {
+  redirectReglaActual = data.regla || '';
+  mostrarEstadoEditor('result');
+  ocultarFlash();
+
+  document.getElementById('result-crear-mejorar').style.display = 'none';
+  document.getElementById('result-redirigir').style.display     = 'block';
+  document.getElementById('result-eliminar').style.display      = 'none';
+
+  const noDisp = document.getElementById('no-disponible-msg');
+  if (noDisp) noDisp.remove();
+
+  document.getElementById('result-context-red').innerHTML =
+    '<strong>Redirección 301:</strong> ' + escp(desde) + ' → ' + escp(hacia);
+  document.getElementById('redirect-code-block').textContent = data.regla || '';
+  document.getElementById('redirect-instruccion').textContent = data.instruccion || '';
+
+  const badge = document.getElementById('editor-ctx-badge');
+  badge.textContent = 'REDIRIGIR';
+  badge.style.display = '';
+}
+
+function copiarRegla() {
+  if (!redirectReglaActual) return;
+  navigator.clipboard.writeText(redirectReglaActual).then(function() {
+    const btn = document.querySelector('.btn-copy');
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✓ ¡Copiado!';
+    setTimeout(function() { btn.innerHTML = orig; }, 1800);
+  });
+}
+
+function marcarRedireccionAplicada() {
+  if (redirectAccionId > 0) {
+    actualizarEstado(redirectAccionId, 'completado');
+  }
+  mostrarEstadoEditor('empty');
+}
+
+// ── confirmarEliminar ─────────────────────────────────────────────────────────
+function confirmarEliminar(accionObj) {
+  deleteFilepathActual = accionObj.pagina || '';
+  deleteAccionId       = accionObj.id     || 0;
+
+  mostrarEstadoEditor('result');
+  ocultarFlash();
+
+  document.getElementById('result-crear-mejorar').style.display = 'none';
+  document.getElementById('result-redirigir').style.display     = 'none';
+  document.getElementById('result-eliminar').style.display      = 'block';
+
+  const noDisp = document.getElementById('no-disponible-msg');
+  if (noDisp) noDisp.remove();
+
+  document.getElementById('delete-filepath-display').textContent = deleteFilepathActual;
+
+  const badge = document.getElementById('editor-ctx-badge');
+  badge.textContent = 'ELIMINAR';
+  badge.style.display = '';
+}
+
+async function ejecutarEliminar() {
+  if (!deleteFilepathActual) return;
+
+  const btn = document.getElementById('btn-eliminar-confirm');
+  btn.disabled    = true;
+  btn.textContent = '⏳ Eliminando...';
+
+  try {
+    const fd = new FormData();
+    fd.append('accion',   'eliminar_pagina');
+    fd.append('filepath', deleteFilepathActual);
+    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const data = await r.json();
+
+    btn.disabled    = false;
+    btn.innerHTML   = '🗑️ Eliminar página';
+
+    if (data.ok) {
+      if (deleteAccionId > 0) {
+        actualizarEstado(deleteAccionId, 'completado', false); // false = no recargar plan aquí
+      }
+      mostrarEstadoEditor('result');
+      document.getElementById('result-eliminar').style.display = 'none';
+      document.getElementById('result-crear-mejorar').style.display = 'none';
+      document.getElementById('result-redirigir').style.display     = 'none';
+      mostrarFlash('ok', '✓ Página eliminada. Backup: ' + escp(data.backup || ''));
+      // Refrescar
+      setTimeout(function() { if (mapaYaCargado) cargarInventario(); cargarPlan(); }, 900);
+    } else {
+      mostrarFlash('err', '⚠️ ' + (data.error || 'Error al eliminar'));
+    }
+  } catch (e) {
+    btn.disabled  = false;
+    btn.innerHTML = '🗑️ Eliminar página';
+    mostrarFlash('err', '⚠️ Error de conexión al eliminar');
+  }
+}
+
+// ── actualizarEstado ──────────────────────────────────────────────────────────
+async function actualizarEstado(id, estado, recargar) {
+  if (recargar === undefined) recargar = true;
+  try {
+    const fd = new FormData();
+    fd.append('accion',  'actualizar_estado_accion');
+    fd.append('plan_id', id);
+    fd.append('estado',  estado);
+    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const data = await r.json();
+
+    if (data.ok && recargar) {
+      cargarPlan();
+    } else if (!data.ok) {
+      mostrarFlash('err', '⚠️ ' + (data.error || 'Error al actualizar estado'));
+    }
+  } catch (e) {
+    mostrarFlash('err', '⚠️ Error de conexión');
+  }
+}
+
+// ── Cargar inventario (tab mapa) ──────────────────────────────────────────────
 async function cargarInventario() {
   const wrap = document.getElementById('matriz-wrap');
   wrap.innerHTML = '<div class="matriz-loading"><div class="spinner" style="margin:0 auto .875rem"></div>Cargando inventario...</div>';
@@ -461,6 +1230,7 @@ async function cargarInventario() {
       return;
     }
 
+    mapaYaCargado = true;
     renderMatriz(data.matriz);
   } catch (e) {
     wrap.innerHTML = '<div class="matriz-error">⚠️ Error de conexión al cargar el inventario.</div>';
@@ -478,44 +1248,44 @@ function renderMatriz(matriz) {
 
   let html = '<div style="overflow-x:auto"><table class="matriz-table"><thead><tr>';
   html += '<th>Ciudad</th>';
-  cols.forEach(c => { html += '<th>' + escp(c.label) + '</th>'; });
+  cols.forEach(function(c) { html += '<th>' + escp(c.label) + '</th>'; });
   html += '</tr></thead><tbody>';
 
-  matriz.forEach(fila => {
+  matriz.forEach(function(fila) {
     html += '<tr>';
     html += '<td>' + escp(fila.ciudad) + '</td>';
-    cols.forEach(col => {
+    cols.forEach(function(col) {
       const svc = fila.servicios[col.key];
       if (!svc) { html += '<td>—</td>'; return; }
 
       if (svc.existe && !svc.provisional) {
         const onRegen = col.key === 'zona'
           ? ''
-          : `onclick="lanzarAccion('mejorar','${escp(col.key)}','${escp(fila.ciudad)}','${escp(fila.slug)}','${escp(fila.cp)}','${escp(svc.filepath)}')"`;
+          : 'onclick="lanzarAccion(\'mejorar\',\'' + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
         html += '<td><div class="cell-ok-wrap">';
         html += '<span class="cell-ok"><span class="cell-ok-icon">✓</span> OK</span>';
         if (col.key !== 'zona') {
-          html += `<button class="btn-accion btn-regen" ${onRegen}>↻ Rehacer</button>`;
+          html += '<button class="btn-accion btn-regen" ' + onRegen + '>↻ Rehacer</button>';
         }
         html += '</div></td>';
       } else if (svc.existe && svc.provisional) {
         const onClick = col.key === 'zona'
-          ? '' // zonas no tienen IA por ahora
-          : `onclick="lanzarAccion('mejorar','${escp(col.key)}','${escp(fila.ciudad)}','${escp(fila.slug)}','${escp(fila.cp)}','${escp(svc.filepath)}')"`;
+          ? ''
+          : 'onclick="lanzarAccion(\'mejorar\',\'' + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
         html += '<td><div class="cell-prov">';
         html += '<span class="cell-prov-lbl">⚠ Provisional</span>';
         if (col.key !== 'zona') {
-          html += `<button class="btn-accion btn-mejorar" ${onClick}>Mejorar</button>`;
+          html += '<button class="btn-accion btn-mejorar" ' + onClick + '>Mejorar</button>';
         }
         html += '</div></td>';
       } else {
         const onClick = col.key === 'zona'
-          ? '' // zonas no tienen IA por ahora
-          : `onclick="lanzarAccion('crear','${escp(col.key)}','${escp(fila.ciudad)}','${escp(fila.slug)}','${escp(fila.cp)}','${escp(svc.filepath)}')"`;
+          ? ''
+          : 'onclick="lanzarAccion(\'crear\',\'' + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
         html += '<td><div class="cell-falta">';
         html += '<span class="cell-falta-lbl">✗ Falta</span>';
         if (col.key !== 'zona') {
-          html += `<button class="btn-accion btn-crear" ${onClick}>Crear</button>`;
+          html += '<button class="btn-accion btn-crear" ' + onClick + '>Crear</button>';
         }
         html += '</div></td>';
       }
@@ -527,20 +1297,18 @@ function renderMatriz(matriz) {
   document.getElementById('matriz-wrap').innerHTML = html;
 }
 
-// ── Lanzar acción IA ──────────────────────────────────────────────────────────
-async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath) {
-  // Mostrar panel de carga
+// ── lanzarAccion — desde mapa o ejecutarAccion ────────────────────────────────
+async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath, planAccionId) {
   mostrarEstadoEditor('loading');
-  filepathActual = filepath;
+  filepathActual     = filepath;
+  planAccionIdActual = planAccionId || 0;
 
-  // Badge de contexto
   const badge = document.getElementById('editor-ctx-badge');
   const accionLabel = accion === 'mejorar' ? 'Mejorando' : 'Creando';
   const tipoLabel   = { fugas: 'Fugas', desatascos: 'Desatascos', fontanero: 'Fontanero' }[tipo] || tipo;
   badge.textContent = accionLabel + ' · ' + tipoLabel + ' · ' + ciudad;
   badge.style.display = '';
 
-  // Tip rotativo
   const tips = [
     'Analizando el contenido actual...',
     'Investigando keywords locales...',
@@ -552,7 +1320,7 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
   let tipIdx = 0;
   const tipEl = document.getElementById('ap-loading-tip');
   tipEl.textContent = tips[0];
-  const tipInterval = setInterval(() => {
+  const tipInterval = setInterval(function() {
     tipIdx = Math.min(tipIdx + 1, tips.length - 1);
     tipEl.textContent = tips[tipIdx];
   }, 4500);
@@ -570,21 +1338,16 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
     clearInterval(tipInterval);
 
     if (!data.ok) {
-      mostrarEstadoEditor('empty');
-      badge.style.display = 'none';
-      mostrarFlash('err', '⚠️ ' + (data.error || 'Error desconocido del agente'));
-      // Mostrar el resultado vacío con error
       mostrarEstadoEditor('result');
-      document.getElementById('result-context').innerHTML = '';
-      document.getElementById('pv-meta-title').value  = '';
-      document.getElementById('pv-meta-desc').value   = '';
-      document.getElementById('pv-php-content').value = '';
-      document.getElementById('pv-filepath').value    = '';
+      badge.style.display = 'none';
+      document.getElementById('result-crear-mejorar').style.display = 'none';
+      document.getElementById('result-redirigir').style.display     = 'none';
+      document.getElementById('result-eliminar').style.display      = 'none';
       mostrarFlash('err', '⚠️ ' + (data.error || 'Error desconocido del agente'));
       return;
     }
 
-    mostrarResultado(data, accion, tipoLabel, ciudad, filepath);
+    mostrarResultado(data, accion, tipoLabel, ciudad, filepath, planAccionId);
 
   } catch (e) {
     clearInterval(tipInterval);
@@ -594,18 +1357,23 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
   }
 }
 
-// ── Mostrar resultado en el panel ─────────────────────────────────────────────
-function mostrarResultado(data, accion, tipoLabel, ciudad, filepath) {
+// ── mostrarResultado CREAR/MEJORAR ────────────────────────────────────────────
+function mostrarResultado(data, accion, tipoLabel, ciudad, filepath, planAccionId) {
   mostrarEstadoEditor('result');
   ocultarFlash();
 
-  // Contexto
-  const accionLabel = accion === 'mejorar' ? 'Página mejorada' : 'Página creada';
-  document.getElementById('result-context').innerHTML =
+  document.getElementById('result-crear-mejorar').style.display = 'block';
+  document.getElementById('result-redirigir').style.display     = 'none';
+  document.getElementById('result-eliminar').style.display      = 'none';
+
+  const noDisp = document.getElementById('no-disponible-msg');
+  if (noDisp) noDisp.remove();
+
+  const accionLabel = accion === 'mejorar' ? 'Mejorando' : 'Creando';
+  document.getElementById('result-context-cm').innerHTML =
     '<strong>' + accionLabel + ':</strong> ' + escp(tipoLabel) + ' en ' + escp(ciudad) +
     (filepath ? ' <span style="font-size:11px;color:#8FA3B8;font-family:monospace">→ ' + escp(filepath) + '</span>' : '');
 
-  // Campos
   const metaTitle = data.data ? (data.data.meta_title || '') : (data.meta_title || '');
   const metaDesc  = data.data ? (data.data.meta_desc  || '') : (data.meta_desc  || '');
 
@@ -613,7 +1381,9 @@ function mostrarResultado(data, accion, tipoLabel, ciudad, filepath) {
   document.getElementById('pv-meta-desc').value   = metaDesc;
   document.getElementById('pv-php-content').value = data.php_contenido || '';
   document.getElementById('pv-filepath').value    = filepath;
-  filepathActual = filepath;
+  document.getElementById('pv-plan-accion-id').value = planAccionId || '';
+  filepathActual     = filepath;
+  planAccionIdActual = planAccionId || 0;
 
   contarChars(document.getElementById('pv-meta-title'), 'mt-info', 60);
   contarChars(document.getElementById('pv-meta-desc'),  'md-info', 160);
@@ -621,8 +1391,9 @@ function mostrarResultado(data, accion, tipoLabel, ciudad, filepath) {
 
 // ── Guardar en disco ──────────────────────────────────────────────────────────
 async function guardar() {
-  const contenido = document.getElementById('pv-php-content').value.trim();
-  const filepath  = document.getElementById('pv-filepath').value.trim() || filepathActual;
+  const contenido      = document.getElementById('pv-php-content').value.trim();
+  const filepath       = document.getElementById('pv-filepath').value.trim() || filepathActual;
+  const planAccionId   = document.getElementById('pv-plan-accion-id').value || '';
 
   if (!contenido) {
     mostrarFlash('err', '⚠️ El contenido PHP está vacío');
@@ -639,42 +1410,43 @@ async function guardar() {
 
   try {
     const fd = new FormData();
-    fd.append('accion',    'guardar');
-    fd.append('filepath',  filepath);
-    fd.append('contenido', contenido);
+    fd.append('accion',          'guardar');
+    fd.append('filepath',        filepath);
+    fd.append('contenido',       contenido);
+    if (planAccionId) fd.append('plan_accion_id', planAccionId);
 
     const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
     const data = await r.json();
 
-    btn.disabled    = false;
-    btn.innerHTML   = '💾 Guardar en disco';
+    btn.disabled  = false;
+    btn.innerHTML = '💾 Guardar en disco';
 
     if (data.ok) {
       mostrarFlash('ok', '✓ Guardado correctamente en ' + escp(data.filepath || filepath));
-      // Refrescar el inventario para actualizar los estados
-      setTimeout(cargarInventario, 800);
+      if (mapaYaCargado) setTimeout(cargarInventario, 800);
+      if (planAccionId) setTimeout(cargarPlan, 900);
     } else {
       mostrarFlash('err', '⚠️ ' + (data.error || 'Error al guardar'));
     }
   } catch (e) {
-    btn.disabled   = false;
-    btn.innerHTML  = '💾 Guardar en disco';
+    btn.disabled  = false;
+    btn.innerHTML = '💾 Guardar en disco';
     mostrarFlash('err', '⚠️ Error de conexión al guardar');
   }
 }
 
 // ── Helpers de estado del panel editor ───────────────────────────────────────
 function mostrarEstadoEditor(estado) {
-  document.getElementById('ap-loading').style.display = estado === 'loading' ? 'block'  : 'none';
-  document.getElementById('ap-empty').style.display   = estado === 'empty'   ? 'flex'   : 'none';
-  document.getElementById('ap-result').style.display  = estado === 'result'  ? 'block'  : 'none';
+  document.getElementById('ap-loading').style.display = estado === 'loading' ? 'block' : 'none';
+  document.getElementById('ap-empty').style.display   = estado === 'empty'   ? 'flex'  : 'none';
+  document.getElementById('ap-result').style.display  = estado === 'result'  ? 'block' : 'none';
 }
 
 // ── Helpers de flash ──────────────────────────────────────────────────────────
 function mostrarFlash(tipo, msg) {
   const el = document.getElementById('ap-flash');
-  el.className  = 'ap-flash ' + tipo;
-  el.innerHTML  = msg;
+  el.className     = 'ap-flash ' + tipo;
+  el.innerHTML     = msg;
   el.style.display = 'flex';
 }
 function ocultarFlash() {
