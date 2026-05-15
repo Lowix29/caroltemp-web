@@ -75,7 +75,8 @@ Empresa: CarolTemp — Fontanería industrial y residencial, instalaciones de cl
 Zona de trabajo: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe, Villena (comarca del interior de Alicante)
 PROHIBIDO ABSOLUTO: nunca escribas "Vinalopó" en ninguna parte del contenido generado.
 Web: caroltemp.com | Tel: 613 429 032 / 611 165 129
-Diferenciadores: presupuesto gratuito sin compromiso antes de empezar, urgencias 24h todos los días, financiación disponible, instaladores certificados, más de X años de experiencia en la comarca
+Diferenciadores: presupuesto gratuito sin compromiso antes de empezar, urgencias 24h todos los días, financiación disponible, instaladores certificados
+CRÍTICO — NUNCA INVENTAR: no escribas años de experiencia, número de clientes, porcentajes ni estadísticas que no aparezcan en las notas del usuario. Si no tienes el dato, omítelo.
 Servicios: fontanería urgente, detección de fugas con geófono y cámara, termos eléctricos y de gas, ósmosis inversa, descalcificadores, reformas de baño, bombas de achique, aire acondicionado split, calefacción, radiadores
 
 ## REGLAS SEO OBLIGATORIAS 2025
@@ -140,7 +141,7 @@ Ejemplos correctos:
 - <span class="ct-hl">presupuesto gratis sin compromiso</span>
 - <span class="ct-hl">urgencias 24h todos los días</span>
 - <span class="ct-hl">instaladores certificados</span>
-- <span class="ct-hl">más de X años en la comarca</span>
+- <span class="ct-hl">presupuesto gratis sin compromiso</span>
 
 ### BLOQUES HTML DISPONIBLES — úsalos cuando sea apropiado
 Lista con bullets azules:
@@ -211,7 +212,7 @@ $user_msg = implode("\n", $partes);
 // ── LLAMADA A CLAUDE API ────────────────────────────────────────────
 $payload = [
   'model'      => ANTHROPIC_MODEL,
-  'max_tokens' => 4096,
+  'max_tokens' => 6000,
   'system'     => $system,
   'messages'   => [
     ['role' => 'user', 'content' => $user_msg]
