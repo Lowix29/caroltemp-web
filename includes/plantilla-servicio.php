@@ -100,6 +100,72 @@ include __DIR__ . '/head.php';
 </section>
 <?php endif; ?>
 
+<!-- CARDS VISUALES — fijas por tipo de servicio, no generadas por Claude -->
+<?php if ($servicio_slug === 'fugas'): ?>
+<section class="sc-sec">
+  <div class="sc-con">
+    <p class="zona-lbl">Sin obras innecesarias</p>
+    <h2 class="sc-h2">Localizamos la fuga <span class="hl">con tecnología</span></h2>
+    <div class="sc-cards">
+      <div class="sc-card">
+        <span class="sc-card-badge">Geófono acústico</span>
+        <h4>Detección por sonido</h4>
+        <p>Capta el sonido del agua al escapar por fisuras. Localizamos el punto exacto sin abrir paredes ni levantar suelos.</p>
+      </div>
+      <div class="sc-card">
+        <span class="sc-card-badge">Cámara endoscópica</span>
+        <h4>Inspección interior</h4>
+        <p>Introducimos cámara por los registros para visualizar el interior de tuberías y bajantes. Detectamos roturas antes de intervenir.</p>
+      </div>
+      <div class="sc-card">
+        <span class="sc-card-badge">Resultado</span>
+        <h4>Reparación precisa</h4>
+        <p>Con la fuga localizada abrimos solo donde hace falta. Obra mínima y coste menor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<?php elseif ($servicio_slug === 'desatascos'): ?>
+<section class="sc-sec">
+  <div class="sc-con">
+    <p class="zona-lbl">¿Qué desatascamos?</p>
+    <h2 class="sc-h2">Desatascos de <span class="hl">todo tipo</span></h2>
+    <div class="sc-cards">
+      <div class="sc-card">
+        <span class="sc-card-badge">Cocina y baño</span>
+        <h4>Fregaderos y lavabos</h4>
+        <p>Obstrucciones por grasa, jabón y residuos. Solución rápida sin riesgo para las tuberías.</p>
+      </div>
+      <div class="sc-card">
+        <span class="sc-card-badge">Tuberías</span>
+        <h4>Bajantes y colectores</h4>
+        <p>Atascos en bajantes del edificio que afectan a varios pisos. Actuación con maquinaria profesional.</p>
+      </div>
+      <div class="sc-card">
+        <span class="sc-card-badge">Exterior</span>
+        <h4>Arquetas y saneamiento</h4>
+        <p>Arquetas bloqueadas, sifones de patio y tuberías exteriores. Limpieza a presión para restablecer el caudal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<?php elseif ($servicio_slug === 'fontanero'): ?>
+<section class="sc-sec">
+  <div class="sc-con">
+    <p class="zona-lbl">¿Qué hacemos?</p>
+    <h2 class="sc-h2">Fontanería <span class="hl">completa</span> en <?php echo $ciudad; ?></h2>
+    <div class="sc-enlaces">
+      <div class="sc-enlace"><strong>🔧 Reparaciones urgentes</strong><span>Fugas, grifos, cisternas y tuberías. Presupuesto antes de empezar.</span></div>
+      <div class="sc-enlace"><strong>🔍 Detección de fugas</strong><span>Con geófono y cámara. Sin obras innecesarias.</span></div>
+      <div class="sc-enlace"><strong>🌊 Desatascos</strong><span>Fregaderos, bajantes, arquetas y colectores.</span></div>
+      <div class="sc-enlace"><strong>🔥 Termos y calentadores</strong><span>Instalación y sustitución de termos eléctricos y de gas.</span></div>
+      <div class="sc-enlace"><strong>💧 Descalcificadores y ósmosis</strong><span>Instalación y mantenimiento para agua de calidad.</span></div>
+      <div class="sc-enlace"><strong>🛁 Reformas de baño</strong><span>Completas o parciales con precio cerrado.</span></div>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
 <!-- CONTENIDO EXTRA -->
 <?php if (!empty($contenido_extra)): ?>
 <section class="sc-sec">
