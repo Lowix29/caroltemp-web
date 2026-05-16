@@ -35,6 +35,19 @@ $ciudades = [
   'Aspe'             => ['slug' => 'aspe',     'cp' => '03680'],
 ];
 
+// ── Perfiles por ciudad para diferenciación de contenido ───────────
+$ciudad_perfiles = [
+  'Elda'             => 'Ciudad industrial del calzado, con muchos edificios de los años 60-80 y instalaciones antiguas. Agua con dureza media-alta.',
+  'Petrer'           => 'Zona residencial y urbanizaciones bien consolidadas. Agua muy dura y calcárea — problemas frecuentes de cal en conducciones y electrodomésticos.',
+  'Novelda'          => 'Capital del mármol, alta actividad industrial. Agua durísima, la más calcárea de la comarca. Fincas y naves industriales mezcladas con residencial.',
+  'Monóvar'          => 'Municipio rural y vinícola. Casas antiguas en el pueblo y chalets en campo. Muchas fincas con pozos y depósitos privados.',
+  'Sax'              => 'Pueblo tranquilo con predominio de viviendas unifamiliares y chalets. Centro histórico con instalaciones antiguas, extrarradio más moderno.',
+  'Pinoso'           => 'Municipio rural extenso con muchas casas de campo dispersas. Muchas propiedades con depósitos y pozos. Urgencias en zonas rurales con acceso difícil.',
+  'Monforte del Cid' => 'Cerca del aeropuerto de Alicante. Urbanizaciones nuevas y segunda residencia. Mezcla de viviendas modernas y fincas rurales en las afueras.',
+  'Salinas'          => 'Pueblo pequeño y tranquilo. Casco urbano con casas antiguas y alguna urbanización exterior. Acceso rápido por carretera.',
+  'Aspe'             => 'Ciudad de tamaño medio con barrios variados. Edificios de los 70-80 en el centro y zonas residenciales nuevas. Agua con cal moderada.',
+];
+
 // ── Tipos de servicio y sus patrones de archivo ─────────────────────
 $tipos_servicio = [
   'fugas'      => ['dir' => 'fugas',      'prefijo_archivo' => 'deteccion-fugas-', 'prefijo_url' => 'deteccion-fugas', 'nombre' => 'Detección de fugas'],
@@ -137,12 +150,135 @@ if ($accion === 'mejorar' || $accion === 'crear') {
     echo json_encode(['error' => 'Faltan parámetros requeridos: tipo, ciudad, ciudad_slug']);
     exit;
   }
-  if (!isset($tipos_servicio[$tipo])) {
-    echo json_encode(['error' => 'Tipo de servicio no válido: ' . $tipo]);
-    exit;
-  }
   if (!isset($ciudades[$ciudad])) {
     echo json_encode(['error' => 'Ciudad no válida: ' . $ciudad]);
+    exit;
+  }
+
+  // ── Generación especial para páginas de zona ──────────────────────
+  if ($tipo === 'zona') {
+    $perfil_ciudad = $ciudad_perfiles[$ciudad] ?? 'Municipio de la comarca interior de Alicante.';
+    $otras_zonas   = [];
+    foreach ($ciudades as $c_nombre => $c_info) {
+      if ($c_info['slug'] === $ciudad_slug) continue;
+      $otras_zonas[] = ['nombre' => $c_nombre, 'slug' => $c_info['slug']];
+    }
+    $zona_filename = $ciudad_slug . '.php';
+
+    $system_zona = <<<SYS
+Eres un experto en SEO local para CarolTemp, empresa de fontanería en la comarca interior de Alicante.
+
+REGLAS ABSOLUTAS:
+- NUNCA escribas "Vinalopó" en ningún sitio
+- NUNCA inventes estadísticas, años de experiencia, número de clientes ni porcentajes
+- Texto CORTO y directo — cada frase debe aportar algo útil al cliente
+- Año actual: {$anyo}
+
+SOBRE CAROLTEMP:
+- Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
+- Diferenciadores: presupuesto gratuito sin compromiso, urgencias, instaladores certificados Nubeco
+- Servicios: fontanería urgente, fugas (geófono+cámara), desatascos, termos, descalcificadores, reformas
+
+DIFERENCIACIÓN: El contenido DEBE reflejar las características concretas de la ciudad. NO copies texto genérico.
+
+DEVUELVE ÚNICAMENTE JSON VÁLIDO con esta estructura:
+{
+  "meta_title": "máx 60 chars — 'Fontanería en [Ciudad] — CarolTemp'",
+  "meta_desc": "150-160 chars — qué + dónde + por qué CarolTemp",
+  "hero_sub": "1 frase de 10-15 palabras describiendo el servicio en la ciudad",
+  "intro_p1": "2-3 frases sobre las características concretas de la ciudad y cómo afectan a la fontanería",
+  "intro_p2": "1-2 frases sobre qué cubre CarolTemp en esta ciudad",
+  "checklist": ["ítem específico 1", "ítem específico 2", "ítem específico 3", "ítem específico 4", "ítem específico 5"],
+  "faq": [
+    {"pregunta": "¿Cuánto cuesta un fontanero en [Ciudad]?", "respuesta": "Precio cerrado antes de empezar. Una reparación sencilla desde 60-80€."},
+    {"pregunta": "¿Tenéis servicio urgente en [Ciudad]?", "respuesta": "Sí, atendemos urgencias en [Ciudad] dentro del horario de servicio."},
+    {"pregunta": "¿Cómo detectáis fugas sin romper en [Ciudad]?", "respuesta": "Con geófono y cámara localizamos el punto exacto antes de abrir."},
+    {"pregunta": "¿Hacéis desatascos en [Ciudad]?", "respuesta": "Sí, fregaderos, lavabos, bajantes y arquetas en [Ciudad]."},
+    {"pregunta": "¿Ofrecéis financiación en [Ciudad]?", "respuesta": "Sí, para reformas, descalcificadores y proyectos grandes."}
+  ]
+}
+
+CRÍTICO: Usa comillas dobles para todo el JSON. No uses comillas dobles DENTRO de los valores.
+SYS;
+
+    $user_zona  = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n";
+    $user_zona .= "Características de {$ciudad}: {$perfil_ciudad}\n\n";
+    $user_zona .= "Genera la página de zona. intro_p1 y checklist deben reflejar las características específicas de {$ciudad}, no texto genérico.";
+
+    $payload_zona = [
+      'model'      => ANTHROPIC_MODEL,
+      'max_tokens' => 2048,
+      'system'     => $system_zona,
+      'messages'   => [
+        ['role' => 'user',      'content' => $user_zona],
+        ['role' => 'assistant', 'content' => '{'],
+      ],
+    ];
+
+    $ch = curl_init('https://api.anthropic.com/v1/messages');
+    curl_setopt_array($ch, [
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_POST           => true,
+      CURLOPT_POSTFIELDS     => json_encode($payload_zona),
+      CURLOPT_HTTPHEADER     => [
+        'x-api-key: '         . ANTHROPIC_API_KEY,
+        'anthropic-version: 2023-06-01',
+        'content-type: application/json',
+      ],
+      CURLOPT_TIMEOUT => 60,
+    ]);
+
+    $raw_zona  = curl_exec($ch);
+    $http_zona = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if (!$raw_zona) {
+      echo json_encode(['error' => 'No se pudo conectar con la API de Claude.']);
+      exit;
+    }
+
+    $resp_zona = json_decode($raw_zona, true);
+
+    if ($http_zona !== 200 || empty($resp_zona['content'][0]['text'])) {
+      $msg = $resp_zona['error']['message'] ?? 'Error desconocido';
+      echo json_encode(['error' => "Error API Claude ({$http_zona}): {$msg}"]);
+      exit;
+    }
+
+    $text_zona   = $resp_zona['content'][0]['text'];
+    $stop_zona   = $resp_zona['stop_reason'] ?? '';
+
+    if ($stop_zona === 'max_tokens') {
+      echo json_encode(['error' => 'Respuesta demasiado larga. Inténtalo de nuevo.']);
+      exit;
+    }
+
+    $json_zona = '{' . $text_zona;
+    $data_zona = json_decode($json_zona, true);
+    if (!$data_zona) {
+      if (preg_match('/\{[\s\S]*\}/u', $json_zona, $m)) {
+        $data_zona = json_decode($m[0], true);
+      }
+    }
+    if (!$data_zona) {
+      echo json_encode(['error' => 'Claude no devolvió JSON válido. Inténtalo de nuevo.', 'raw' => substr($json_zona, 0, 500)]);
+      exit;
+    }
+
+    $php_zona = generar_php_zona($data_zona, $ciudad, $ciudad_slug, $ciudad_cp, $otras_zonas);
+
+    echo json_encode([
+      'ok'            => true,
+      'php_contenido' => $php_zona,
+      'filepath'      => 'zonas/' . $zona_filename,
+      'meta_title'    => $data_zona['meta_title'] ?? '',
+      'meta_desc'     => $data_zona['meta_desc']  ?? '',
+    ]);
+    exit;
+  }
+
+  if (!isset($tipos_servicio[$tipo])) {
+    echo json_encode(['error' => 'Tipo de servicio no válido: ' . $tipo]);
     exit;
   }
 
@@ -185,6 +321,8 @@ SOBRE CAROLTEMP:
 - Diferenciadores: presupuesto gratuito sin compromiso, urgencias 24h, instaladores certificados
 - Servicios: fontanería urgente, fugas (geófono+cámara), desatascos, termos, aire acondicionado, reformas
 
+DIFERENCIACIÓN POR CIUDAD: El contenido DEBE ser específico para esa ciudad. En problemas_zona describe 3 problemas REALES y distintos de esa ciudad concreta (agua dura en Petrer/Novelda, tuberías antiguas en Elda, instalaciones rurales en Pinoso/Monóvar, etc.). Las FAQs deben mencionar la ciudad por nombre y reflejar sus características. PROHIBIDO copiar el mismo texto cambiando solo el nombre de ciudad.
+
 DEVUELVE ÚNICAMENTE JSON VÁLIDO con esta estructura exacta:
 {
   "meta_title": "máx 60 chars con keyword + ciudad + | CarolTemp",
@@ -216,7 +354,11 @@ SYS;
     'fontanero' => "Página de FONTANERO en {$ciudad}.\n- meta_title: incluye 'fontanero' + ciudad\n- hero_titulo gancho: '...urgencias 24h.' o '...precio cerrado.'\n- servicios_lista: 6 trabajos (reparaciones urgentes, fugas, desatascos, termos, descalcificadores, reformas de baño)\n- problemas_zona: 3 situaciones típicas de fontanería en {$ciudad} donde llaman a CarolTemp\n- faq: 4 preguntas sobre fontanero en {$ciudad} (precio visita, urgencias, garantía, qué hacen)",
   ];
 
+  $perfil_ciudad = $ciudad_perfiles[$ciudad] ?? '';
   $user_msg  = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n";
+  if ($perfil_ciudad) {
+    $user_msg .= "Características de {$ciudad}: {$perfil_ciudad}\n";
+  }
   $user_msg .= "Servicio: {$servicio_nombre}\n\n";
   $user_msg .= $instrucciones[$tipo] ?? '';
 
@@ -335,6 +477,257 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "\$contenido_extra  = '';\n\n";
   $php .= "\$ciudades_cercanas = {$e($otras_ciudades)};\n\n";
   $php .= "include __DIR__ . '/../includes/plantilla-servicio.php';\n";
+
+  return $php;
+}
+
+// ═════════════════════════════════════════════════════════════════════
+// Genera el archivo PHP de zona (standalone, como zonas/petrer.php)
+// ═════════════════════════════════════════════════════════════════════
+function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades) {
+  $meta_title = $data['meta_title'] ?? "Fontanería en {$ciudad} — CarolTemp";
+  $meta_desc  = $data['meta_desc']  ?? "Servicios de fontanería en {$ciudad}. Reparaciones, fugas, desatascos e instalaciones.";
+  $hero_sub   = $data['hero_sub']   ?? "Trabajamos en {$ciudad} realizando todo tipo de servicios de fontanería.";
+  $intro_p1   = $data['intro_p1']   ?? "Trabajamos en toda la localidad de {$ciudad}, cubriendo tanto viviendas como comunidades.";
+  $intro_p2   = $data['intro_p2']   ?? "En esta página puedes ver todos los servicios disponibles.";
+  $checklist  = $data['checklist']  ?? ["Servicios para todo tipo de viviendas", "Reparaciones, instalaciones y mantenimiento", "Atención rápida", "Precio claro antes de empezar", "Presupuesto gratuito sin compromiso"];
+  $faq        = $data['faq']        ?? [];
+
+  $meta_url = "https://caroltemp.com/zonas/{$ciudad_slug}";
+  $e        = fn($v) => var_export($v, true);
+
+  // Build checklist items HTML
+  $svg_chk = '<svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  $chk_items = '';
+  foreach ($checklist as $item) {
+    $item_h = htmlspecialchars($item, ENT_QUOTES, 'UTF-8');
+    $chk_items .= "          <li><span class=\"chk-ico\">{$svg_chk}</span>{$item_h}</li>\n";
+  }
+
+  // Build FAQ HTML
+  $svg_faq   = '<svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg>';
+  $faq_items = '';
+  $first     = true;
+  foreach ($faq as $f) {
+    $preg_h = htmlspecialchars($f['pregunta']  ?? '', ENT_QUOTES, 'UTF-8');
+    $resp_h = htmlspecialchars($f['respuesta'] ?? '', ENT_QUOTES, 'UTF-8');
+    $open   = $first ? ' open' : '';
+    $faq_items .= "      <div class=\"zona-fi{$open}\">\n";
+    $faq_items .= "        <div class=\"zona-fiq\" onclick=\"togFaq(this)\"><span>{$preg_h}</span><span class=\"zona-fiq-i\">{$svg_faq}</span></div>\n";
+    $faq_items .= "        <div class=\"zona-fia\">{$resp_h}</div>\n";
+    $faq_items .= "      </div>\n";
+    $first = false;
+  }
+
+  // Build nearby zones tags
+  $ztags = '';
+  foreach ($otras_ciudades as $otra) {
+    $n_h = htmlspecialchars($otra['nombre'], ENT_QUOTES, 'UTF-8');
+    $s_h = htmlspecialchars($otra['slug'],   ENT_QUOTES, 'UTF-8');
+    $ztags .= "      <a href=\"<?php echo \$base_url; ?>zonas/{$s_h}\" class=\"zona-ztag\">{$n_h}</a>\n";
+  }
+
+  $hero_sub_h = htmlspecialchars($hero_sub, ENT_QUOTES, 'UTF-8');
+  $intro_p1_h = htmlspecialchars($intro_p1, ENT_QUOTES, 'UTF-8');
+  $intro_p2_h = htmlspecialchars($intro_p2, ENT_QUOTES, 'UTF-8');
+
+  $php  = "<?php\n";
+  $php .= "\$zona_nombre = {$e($ciudad)};\n";
+  $php .= "\$zona_slug   = {$e($ciudad_slug)};\n";
+  $php .= "\$zona_cp     = {$e($ciudad_cp)};\n\n";
+  $php .= "\$meta_title  = {$e($meta_title)};\n";
+  $php .= "\$meta_desc   = {$e($meta_desc)};\n";
+  $php .= "\$meta_url    = {$e($meta_url)};\n";
+  $php .= "\$schema_type = 'zona';\n";
+  $php .= "\$page_css    = 'zona';\n";
+  $php .= "\$page_js     = 'zona';\n\n";
+  $php .= "include '../includes/head.php';\n";
+  $php .= "?>\n\n";
+
+  $php .= "<!-- HERO -->\n";
+  $php .= "<section class=\"hz-dark\">\n";
+  $php .= "  <div class=\"hz-dark-bg\"></div>\n";
+  $php .= "  <div class=\"hz-dark-glow\"></div>\n";
+  $php .= "  <div class=\"hz-dark-con\">\n";
+  $php .= "    <div class=\"hz-dark-tag\"><span class=\"hz-dark-dot\"></span>Servicio en <?php echo \$zona_nombre; ?> &middot; CP <?php echo \$zona_cp; ?></div>\n";
+  $php .= "    <h1>Fontanería en <span class=\"hl\"><?php echo \$zona_nombre; ?>.</span></h1>\n";
+  $php .= "    <p class=\"hz-dark-sub\">{$hero_sub_h}</p>\n";
+  $php .= "    <div class=\"hz-dark-btns\">\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>contacto\" class=\"btn-hz-g\">Solicitar visita</a>\n";
+  $php .= "    </div>\n";
+  $php .= "    <div class=\"hero-dark-kpis\" style=\"margin-top:2rem\">\n";
+  $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">Nubeco</span><span class=\"hero-dark-kpi-lbl\">Instalador oficial en <?php echo \$zona_nombre; ?></span></div>\n";
+  $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">100%</span><span class=\"hero-dark-kpi-lbl\">Precio cerrado siempre</span></div>\n";
+  $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">0&euro;</span><span class=\"hero-dark-kpi-lbl\">Sin adelantos con financiaci&oacute;n</span></div>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<!-- STRIP -->\n";
+  $php .= "<div class=\"dif-strip\">\n";
+  $php .= "  <div class=\"dif-strip-in\">\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#9889; Urgencias</span><span class=\"dif-lbl\">Atenci&oacute;n r&aacute;pida en <?php echo \$zona_nombre; ?></span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128269; Sin obras</span><span class=\"dif-lbl\">Ge&oacute;fono y c&aacute;mara</span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128176; Precio cerrado</span><span class=\"dif-lbl\">Antes de empezar</span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128205; Comarca</span><span class=\"dif-lbl\">Somos de aqu&iacute;</span></div>\n";
+  $php .= "  </div>\n";
+  $php .= "</div>\n\n";
+
+  $php .= "<!-- TEXTO CENTRAL -->\n";
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <div class=\"zona-tcol\">\n";
+  $php .= "      <div>\n";
+  $php .= "        <p class=\"zona-lbl\">Fontan&eacute;r&iacute;a en <?php echo \$zona_nombre; ?></p>\n";
+  $php .= "        <h2>Servicios de fontaner&iacute;a en <span class=\"hl\"><?php echo \$zona_nombre; ?></span></h2>\n";
+  $php .= "        <div class=\"zona-prose\">\n";
+  $php .= "          <p>{$intro_p1_h}</p>\n";
+  $php .= "          <p>{$intro_p2_h}</p>\n";
+  $php .= "        </div>\n";
+  $php .= "        <ul class=\"zona-chk\">\n";
+  $php .= $chk_items;
+  $php .= "        </ul>\n";
+  $php .= "      </div>\n";
+  $php .= "      <div>\n";
+  $php .= "        <div class=\"zona-icard\">\n";
+  $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; <?php echo \$zona_nombre; ?></strong><span>Fontaner&iacute;a residencial</span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\"><?php echo \$zona_nombre; ?> &middot; CP <?php echo \$zona_cp; ?></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Horario</span><span class=\"zona-ir-v\">Lun&ndash;Vie 8&ndash;20h &middot; S&aacute;b 9&ndash;14h</span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Financiaci&oacute;n</span><span class=\"zona-ir-v\">Disponible para proyectos grandes</span></div>\n";
+  $php .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
+  $php .= "        </div>\n";
+  $php .= "      </div>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<!-- SERVICIOS DISPONIBLES -->\n";
+  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Servicios en <?php echo \$zona_nombre; ?></p>\n";
+  $php .= "    <h2>Servicios disponibles <span class=\"hl\">en <?php echo \$zona_nombre; ?></span></h2>\n";
+  $php .= "    <p class=\"zona-sub\">Selecciona el servicio que necesitas para ver el detalle completo.</p>\n";
+  $php .= "    <div class=\"zona-svc\">\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/fontanero-<?php echo \$zona_slug; ?>\" class=\"zona-sc\"><span class=\"zona-sc-n\">01</span><h3>Reparaciones urgentes en <?php echo \$zona_nombre; ?></h3><p>Fugas de agua, grifos, cisternas y tuber&iacute;as con soluci&oacute;n r&aacute;pida y precio cerrado.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>fugas/deteccion-fugas-<?php echo \$zona_slug; ?>\" class=\"zona-sc\"><span class=\"zona-sc-n\">02</span><h3>Detecci&oacute;n de fugas en <?php echo \$zona_nombre; ?></h3><p>Localizaci&oacute;n de fugas con ge&oacute;fono y c&aacute;mara sin romper innecesariamente.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>desatascos/desatascos-<?php echo \$zona_slug; ?>\" class=\"zona-sc\"><span class=\"zona-sc-n\">03</span><h3>Desatascos en <?php echo \$zona_nombre; ?></h3><p>Desatascos de fregaderos, bajantes y arquetas para recuperar el funcionamiento normal.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#termos\" class=\"zona-sc\"><span class=\"zona-sc-n\">04</span><h3>Termos el&eacute;ctricos en <?php echo \$zona_nombre; ?></h3><p>Instalaci&oacute;n de termos el&eacute;ctricos con asesoramiento y puesta en marcha.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#descalcificadores\" class=\"zona-sc\"><span class=\"zona-sc-n\">05</span><h3>Descalcificadores en <?php echo \$zona_nombre; ?></h3><p>Soluci&oacute;n para el agua dura con instalaci&oacute;n y mantenimiento de descalcificadores.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#reformas\" class=\"zona-sc\"><span class=\"zona-sc-n\">06</span><h3>Reformas de ba&ntilde;o en <?php echo \$zona_nombre; ?></h3><p>Reformas completas o parciales con precio cerrado antes de empezar.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<!-- FUGAS CON GEÓFONO Y CÁMARA -->\n";
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <div class=\"zona-fugas\">\n";
+  $php .= "      <div class=\"fg-top\">\n";
+  $php .= "        <div>\n";
+  $php .= "          <p class=\"fg-lbl\">Detecci&oacute;n de fugas en <?php echo \$zona_nombre; ?></p>\n";
+  $php .= "          <h2>B&uacute;squeda de fugas con<br><span>c&aacute;mara y ge&oacute;fono en <?php echo \$zona_nombre; ?></span></h2>\n";
+  $php .= "          <p>Localizamos el origen exacto de cualquier fuga en <?php echo \$zona_nombre; ?> sin necesidad de romper paredes ni levantar suelos.</p>\n";
+  $php .= "        </div>\n";
+  $php .= "        <div>\n";
+  $php .= "          <ul class=\"fg-chk\">\n";
+  $php .= "            <li>Detecci&oacute;n de fugas de agua en viviendas en <?php echo \$zona_nombre; ?></li>\n";
+  $php .= "            <li>Fugas de agua urgentes en <?php echo \$zona_nombre; ?></li>\n";
+  $php .= "            <li>Fugas en tuber&iacute;as y bajantes</li>\n";
+  $php .= "            <li>Fugas en comunidades de vecinos</li>\n";
+  $php .= "            <li>Detecci&oacute;n de fugas en piscinas</li>\n";
+  $php .= "            <li>Localizaci&oacute;n precisa sin obras innecesarias</li>\n";
+  $php .= "          </ul>\n";
+  $php .= "          <a href=\"<?php echo \$base_url; ?>fugas/deteccion-fugas-<?php echo \$zona_slug; ?>\" class=\"fg-btn\">Ver detalle completo &rarr;</a>\n";
+  $php .= "        </div>\n";
+  $php .= "      </div>\n";
+  $php .= "      <div class=\"fg-cards\">\n";
+  $php .= "        <div class=\"fg-card\">\n";
+  $php .= "          <div class=\"fg-card-img\"><div class=\"fg-card-img-ph\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" stroke=\"rgba(255,255,255,.5)\" stroke-width=\"1.5\"/><circle cx=\"8\" cy=\"10\" r=\"2\" stroke=\"rgba(255,255,255,.5)\" stroke-width=\"1.5\"/><path d=\"M2 17l5-5 4 4 3-3 5 5\" stroke=\"rgba(255,255,255,.5)\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span>Foto del ge&oacute;fono</span></div></div>\n";
+  $php .= "          <span class=\"fg-badge\">Ge&oacute;fono</span>\n";
+  $php .= "          <h4>Detecci&oacute;n ac&uacute;stica de fugas</h4>\n";
+  $php .= "          <p>El ge&oacute;fono detecta el sonido del agua al escapar por fisuras en tuber&iacute;as. Permite localizar la fuga exacta sin necesidad de abrir.</p>\n";
+  $php .= "        </div>\n";
+  $php .= "        <div class=\"fg-card\">\n";
+  $php .= "          <div class=\"fg-card-img\"><div class=\"fg-card-img-ph\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" stroke=\"rgba(255,255,255,.5)\" stroke-width=\"1.5\"/><circle cx=\"8\" cy=\"10\" r=\"2\" stroke=\"rgba(255,255,255,.5)\" stroke-width=\"1.5\"/><path d=\"M2 17l5-5 4 4 3-3 5 5\" stroke=\"rgba(255,255,255,.5)\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span>Foto de la c&aacute;mara</span></div></div>\n";
+  $php .= "          <span class=\"fg-badge\">C&aacute;mara</span>\n";
+  $php .= "          <h4>Inspecci&oacute;n visual de tuber&iacute;as</h4>\n";
+  $php .= "          <p>La c&aacute;mara inspecciona el interior de tuber&iacute;as y bajantes. Permite detectar roturas, obstrucciones o fisuras antes de intervenir.</p>\n";
+  $php .= "        </div>\n";
+  $php .= "      </div>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<!-- IMÁGENES -->\n";
+  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Trabajos en <?php echo \$zona_nombre; ?></p>\n";
+  $php .= "    <h2>Fontaner&iacute;a en <?php echo \$zona_nombre; ?> &mdash; <span class=\"hl\">proyectos realizados</span></h2>\n";
+  $php .= "    <p class=\"zona-sub\">Trabajos reales de fontaner&iacute;a en <?php echo \$zona_nombre; ?>.</p>\n";
+  $php .= "    <div class=\"zona-ig\">\n";
+  $php .= "      <?php\n";
+  $php .= "      \$imgs = [\n";
+  $php .= "        ['src' => '', 'alt' => 'Fontanero en ' . \$zona_nombre . ' — trabajo 1'],\n";
+  $php .= "        ['src' => '', 'alt' => 'Fontanería en ' . \$zona_nombre . ' — trabajo 2'],\n";
+  $php .= "        ['src' => '', 'alt' => 'Reparación en ' . \$zona_nombre . ' — trabajo 3'],\n";
+  $php .= "        ['src' => '', 'alt' => 'Instalación en ' . \$zona_nombre . ' — trabajo 4'],\n";
+  $php .= "        ['src' => '', 'alt' => 'Reforma de baño en ' . \$zona_nombre . ' — trabajo 5'],\n";
+  $php .= "        ['src' => '', 'alt' => 'Detección de fugas en ' . \$zona_nombre . ' — trabajo 6'],\n";
+  $php .= "      ];\n";
+  $php .= "      foreach (\$imgs as \$img):\n";
+  $php .= "      ?>\n";
+  $php .= "        <div class=\"zona-ip\">\n";
+  $php .= "          <?php if (\$img['src']): ?>\n";
+  $php .= "            <img src=\"<?php echo \$base_url . \$img['src']; ?>\" alt=\"<?php echo htmlspecialchars(\$img['alt']); ?>\" loading=\"lazy\">\n";
+  $php .= "          <?php else: ?>\n";
+  $php .= "            <svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" stroke=\"#94a3b8\" stroke-width=\"1.5\"/><circle cx=\"8\" cy=\"10\" r=\"2\" stroke=\"#94a3b8\" stroke-width=\"1.5\"/><path d=\"M2 17l5-5 4 4 3-3 5 5\" stroke=\"#94a3b8\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n";
+  $php .= "            <span><?php echo htmlspecialchars(\$img['alt']); ?></span>\n";
+  $php .= "          <?php endif; ?>\n";
+  $php .= "        </div>\n";
+  $php .= "      <?php endforeach; ?>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<!-- FAQ -->\n";
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Preguntas frecuentes</p>\n";
+  $php .= "    <h2>Fontaner&iacute;a en <?php echo \$zona_nombre; ?> &mdash; <span class=\"hl\">dudas habituales</span></h2>\n";
+  $php .= "    <div class=\"zona-faq\" style=\"margin-top:2rem\">\n";
+  $php .= $faq_items;
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<!-- ZONAS CERCANAS -->\n";
+  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Zonas donde trabajamos</p>\n";
+  $php .= "    <h2>Tambi&eacute;n trabajamos en <span class=\"hl\">zonas cercanas</span></h2>\n";
+  $php .= "    <div class=\"zona-ztags\">\n";
+  $php .= $ztags;
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<!-- CTA FINAL -->\n";
+  $php .= "<section class=\"cta-dark\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <h2>&iquest;Necesitas fontaner&iacute;a <span>en <?php echo \$zona_nombre; ?>?</span></h2>\n";
+  $php .= "    <p>Ll&aacute;menos o escr&iacute;benos y te atendemos hoy.</p>\n";
+  $php .= "    <div class=\"cta-dark-btns\">\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "    </div>\n";
+  $php .= "    <div class=\"cta-dark-tel\">Tel&eacute;fono directo<strong>613 429 032</strong></div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<?php include '../includes/footer.php'; ?>\n";
 
   return $php;
 }

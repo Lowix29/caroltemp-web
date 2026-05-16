@@ -277,16 +277,6 @@ $base_url = 'http://localhost/';
       gap: .375rem;
       flex-shrink: 0;
     }
-    .plan-accion-estado {
-      font-size: 11px;
-      padding: 3px 6px;
-      border: 1px solid #D6E2F0;
-      border-radius: 6px;
-      color: #576574;
-      background: #fff;
-      cursor: pointer;
-    }
-
     .btn-plan {
       font-size: 11.5px;
       font-weight: 700;
@@ -306,6 +296,7 @@ $base_url = 'http://localhost/';
       font-size: 11px; color: #94a3b8;
       background: none; border: none; cursor: default; padding: 4px 8px;
     }
+    .btn-plan-rehacer  { background: #f1f5f9; color: #475569; }
 
     /* ── Plan empty state ── */
     .plan-empty {
@@ -970,31 +961,32 @@ function renderAccionCard(accion) {
 
   card += '</div>'; // left
 
-  // Right: botones + estado select
+  // Right: botones de acción (sin dropdown de estado)
   card += '<div class="plan-accion-right">';
 
-  if (isPendiente) {
-    // Botón de acción
-    if (accionKey === 'CREAR') {
-      card += '<button class="btn-plan btn-plan-crear" onclick="ejecutarAccion(' + JSON.stringify(accion) + ')">Crear</button>';
-    } else if (accionKey === 'MEJORAR') {
-      card += '<button class="btn-plan btn-plan-mejorar" onclick="ejecutarAccion(' + JSON.stringify(accion) + ')">Mejorar</button>';
-    } else if (accionKey === 'REDIRIGIR') {
-      card += '<button class="btn-plan btn-plan-redirigir" onclick="verReglaRedireccion(' + JSON.stringify(accion) + ')">Ver regla</button>';
-    } else if (accionKey === 'ELIMINAR') {
-      card += '<button class="btn-plan btn-plan-eliminar" onclick="confirmarEliminar(' + JSON.stringify(accion) + ')">Eliminar</button>';
-    } else {
-      card += '<span class="btn-plan btn-plan-ok">OK</span>';
-    }
-  }
+  const accionJSON = JSON.stringify(accion);
+  const esCompletado = estado === 'completado';
 
-  // Select de estado (solo si no es MANTENER)
-  if (accionKey !== 'MANTENER') {
-    card += '<select class="plan-accion-estado" onchange="actualizarEstado(' + accion.id + ', this.value)">';
-    ['pendiente', 'completado', 'ignorado'].forEach(function(opt) {
-      card += '<option value="' + opt + '"' + (estado === opt ? ' selected' : '') + '>' + opt + '</option>';
-    });
-    card += '</select>';
+  if (accionKey === 'CREAR' || accionKey === 'MEJORAR') {
+    if (esCompletado) {
+      card += '<button class="btn-plan btn-plan-rehacer" onclick="ejecutarAccion(' + accionJSON + ')">↻ Rehacer</button>';
+    } else {
+      if (accionKey === 'CREAR') {
+        card += '<button class="btn-plan btn-plan-crear" onclick="ejecutarAccion(' + accionJSON + ')">Crear</button>';
+      } else {
+        card += '<button class="btn-plan btn-plan-mejorar" onclick="ejecutarAccion(' + accionJSON + ')">Mejorar</button>';
+      }
+    }
+  } else if (accionKey === 'REDIRIGIR') {
+    if (esCompletado) {
+      card += '<button class="btn-plan btn-plan-rehacer" onclick="verReglaRedireccion(' + accionJSON + ')">↻ Regla</button>';
+    } else {
+      card += '<button class="btn-plan btn-plan-redirigir" onclick="verReglaRedireccion(' + accionJSON + ')">Ver regla</button>';
+    }
+  } else if (accionKey === 'ELIMINAR') {
+    if (!esCompletado) {
+      card += '<button class="btn-plan btn-plan-eliminar" onclick="confirmarEliminar(' + accionJSON + ')">Eliminar</button>';
+    }
   }
 
   card += '</div>'; // right
@@ -1008,33 +1000,24 @@ async function ejecutarAccion(accionObj) {
   const filepath = accionObj.pagina || '';
   const accionId = accionObj.id     || 0;
 
-  // Parsear filepath para extraer tipo, ciudad, slug, cp
   const partes = filepath.split('/');
-  if (partes.length < 2) {
-    mostrarNoDisponible(accionId);
-    return;
-  }
-  const dir      = partes[0]; // fugas, desatascos, fontanero, zonas...
+  if (partes.length < 2) { mostrarNoDisponible(accionId); return; }
+  const dir      = partes[0];
   const filename = partes[1].replace('.php', '');
 
-  const prefijo = PREFIJOS_MAP[dir];
-  if (!prefijo) {
-    mostrarNoDisponible(accionId);
-    return;
+  let ciudadSlug;
+  if (dir === 'zonas') {
+    // Zone pages: filename IS the slug directly
+    ciudadSlug = filename;
+  } else {
+    const prefijo = PREFIJOS_MAP[dir];
+    if (!prefijo)                      { mostrarNoDisponible(accionId); return; }
+    if (!filename.startsWith(prefijo)) { mostrarNoDisponible(accionId); return; }
+    ciudadSlug = filename.substring(prefijo.length);
   }
 
-  // Extraer ciudad slug: filename sin el prefijo
-  if (!filename.startsWith(prefijo)) {
-    mostrarNoDisponible(accionId);
-    return;
-  }
-  const ciudadSlug = filename.substring(prefijo.length);
   const ciudadInfo = CIUDADES_MAP[ciudadSlug];
-
-  if (!ciudadInfo) {
-    mostrarNoDisponible(accionId);
-    return;
-  }
+  if (!ciudadInfo) { mostrarNoDisponible(accionId); return; }
 
   const apiAccion = (accionObj.accion || '').toLowerCase() === 'crear' ? 'crear' : 'mejorar';
   await lanzarAccion(apiAccion, dir, ciudadInfo.nombre, ciudadSlug, ciudadInfo.cp, filepath, accionId);
@@ -1258,35 +1241,23 @@ function renderMatriz(matriz) {
       const svc = fila.servicios[col.key];
       if (!svc) { html += '<td>—</td>'; return; }
 
+      const onMejorar = 'onclick="lanzarAccion(\'mejorar\',\'' + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
+      const onCrear   = 'onclick="lanzarAccion(\'crear\',\''   + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
+
       if (svc.existe && !svc.provisional) {
-        const onRegen = col.key === 'zona'
-          ? ''
-          : 'onclick="lanzarAccion(\'mejorar\',\'' + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
         html += '<td><div class="cell-ok-wrap">';
         html += '<span class="cell-ok"><span class="cell-ok-icon">✓</span> OK</span>';
-        if (col.key !== 'zona') {
-          html += '<button class="btn-accion btn-regen" ' + onRegen + '>↻ Rehacer</button>';
-        }
+        html += '<button class="btn-accion btn-regen" ' + onMejorar + '>↻ Rehacer</button>';
         html += '</div></td>';
       } else if (svc.existe && svc.provisional) {
-        const onClick = col.key === 'zona'
-          ? ''
-          : 'onclick="lanzarAccion(\'mejorar\',\'' + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
         html += '<td><div class="cell-prov">';
         html += '<span class="cell-prov-lbl">⚠ Provisional</span>';
-        if (col.key !== 'zona') {
-          html += '<button class="btn-accion btn-mejorar" ' + onClick + '>Mejorar</button>';
-        }
+        html += '<button class="btn-accion btn-mejorar" ' + onMejorar + '>Mejorar</button>';
         html += '</div></td>';
       } else {
-        const onClick = col.key === 'zona'
-          ? ''
-          : 'onclick="lanzarAccion(\'crear\',\'' + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
         html += '<td><div class="cell-falta">';
         html += '<span class="cell-falta-lbl">✗ Falta</span>';
-        if (col.key !== 'zona') {
-          html += '<button class="btn-accion btn-crear" ' + onClick + '>Crear</button>';
-        }
+        html += '<button class="btn-accion btn-crear" ' + onCrear + '>Crear</button>';
         html += '</div></td>';
       }
     });
@@ -1305,7 +1276,7 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
 
   const badge = document.getElementById('editor-ctx-badge');
   const accionLabel = accion === 'mejorar' ? 'Mejorando' : 'Creando';
-  const tipoLabel   = { fugas: 'Fugas', desatascos: 'Desatascos', fontanero: 'Fontanero' }[tipo] || tipo;
+  const tipoLabel   = { fugas: 'Fugas', desatascos: 'Desatascos', fontanero: 'Fontanero', zonas: 'Zona' }[tipo] || tipo;
   badge.textContent = accionLabel + ' · ' + tipoLabel + ' · ' + ciudad;
   badge.style.display = '';
 
