@@ -321,8 +321,9 @@ if ($accion === 'debatir') {
   // Solo en el primer turno: procesar Excel de Semrush
   if ($es_primer_turno) {
     // Recibir Excel como base64 (enviado por JS con FileReader, evita problemas mod_rewrite)
-    $xlsx_b64 = trim($_POST['xlsx_b64'] ?? '');
-    $tiene_xlsx = !empty($xlsx_b64);
+    $xlsx_b64 = $_POST['xlsx_b64'] ?? '';
+    $xlsx_debug['b64_len']  = strlen($xlsx_b64);
+    $tiene_xlsx = strlen($xlsx_b64) > 100;
     $xlsx_debug['recibido'] = $tiene_xlsx;
 
     if ($tiene_xlsx) {

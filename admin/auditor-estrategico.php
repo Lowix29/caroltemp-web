@@ -749,11 +749,14 @@ async function iniciarDebate() {
     fd.append('mensaje',   objetivo);
     fd.append('historial', '[]');
 
-    // Enviar Excel como base64 (evita problemas de file upload con mod_rewrite)
+    // Enviar Excel como base64
     if (tieneXlsx) {
       try {
+        console.log('[Excel] Leyendo archivo:', xlsxInput.files[0].name, xlsxInput.files[0].size, 'bytes');
         var b64 = await leerArchivoBase64(xlsxInput.files[0]);
+        console.log('[Excel] Base64 generado, longitud:', b64.length, 'chars');
         fd.append('xlsx_b64', b64);
+        console.log('[Excel] Añadido al FormData OK');
       } catch(e) {
         mostrarTyping(false);
         btn.disabled    = false;
@@ -762,6 +765,8 @@ async function iniciarDebate() {
         alert('No se pudo leer el archivo Excel: ' + e + '\nPrueba con un archivo más pequeño o en formato .xlsx');
         return;
       }
+    } else {
+      console.log('[Excel] No hay archivo seleccionado (tieneXlsx=false)');
     }
 
     var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
@@ -784,21 +789,22 @@ async function iniciarDebate() {
     agregarMensaje('user', objetivo);
     agregarMensaje('ai',   data.respuesta);
 
-    // Badge de estado Excel
-    if (tieneXlsx) {
-      var xd = data.xlsx_debug || {};
-      var badge = document.createElement('div');
-      badge.style.cssText = 'margin:6px 0 0 48px;font-size:12px;';
-      if (xd.procesado) {
-        badge.innerHTML = '<span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:8px;">📊 Semrush procesado — modo ' + (xd.modo||'?') + ', ' + xd.filas + ' filas</span>';
-      } else if (xd.recibido && xd.parse_error) {
-        badge.innerHTML = '<span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:8px;">⚠️ Excel recibido pero no se pudo parsear: ' + xd.parse_error + '</span>';
-      } else {
-        badge.innerHTML = '<span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:8px;">❌ Excel NO recibido por PHP</span>';
-      }
-      var chat = document.getElementById('au-chat-messages');
-      if (chat) chat.appendChild(badge);
+    // Badge de estado Excel — siempre visible para diagnóstico
+    var xd = data.xlsx_debug || {};
+    console.log('[Excel] xlsx_debug de PHP:', xd);
+    var badge = document.createElement('div');
+    badge.style.cssText = 'margin:6px 0 0 48px;font-size:12px;';
+    if (!tieneXlsx) {
+      badge.innerHTML = '<span style="background:#e2e8f0;color:#475569;padding:2px 8px;border-radius:8px;">ℹ️ Sin Excel adjunto</span>';
+    } else if (xd.procesado) {
+      badge.innerHTML = '<span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:8px;">📊 Semrush procesado — modo ' + (xd.modo||'?') + ', ' + xd.filas + ' filas</span>';
+    } else if (xd.recibido && xd.parse_error) {
+      badge.innerHTML = '<span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:8px;">⚠️ Excel recibido ('+xd.b64_len+' chars) pero no se pudo parsear: ' + xd.parse_error + '</span>';
+    } else {
+      badge.innerHTML = '<span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:8px;">❌ Excel NO llegó a PHP (b64_len='+xd.b64_len+', php_uploads='+xd.php_uploads+', post_max='+xd.php_max_post+')</span>';
     }
+    var chat = document.getElementById('au-chat-messages');
+    if (chat) chat.appendChild(badge);
 
     actualizarBtnGenerar();
 
