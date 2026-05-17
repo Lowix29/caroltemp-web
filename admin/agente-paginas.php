@@ -865,7 +865,7 @@ async function cargarPlan() {
   try {
     const fd = new FormData();
     fd.append('accion', 'cargar_plan');
-    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
     const data = await r.json();
 
     if (!data.ok) {
@@ -1061,7 +1061,7 @@ async function verReglaRedireccion(accionObj) {
     fd.append('accion', 'redireccion_htaccess');
     fd.append('desde', desde);
     fd.append('hacia', hacia.startsWith('/') ? hacia : '/' + hacia.replace('.php',''));
-    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
     const data = await r.json();
 
     if (!data.ok) {
@@ -1149,7 +1149,7 @@ async function ejecutarEliminar() {
     const fd = new FormData();
     fd.append('accion',   'eliminar_pagina');
     fd.append('filepath', deleteFilepathActual);
-    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
     const data = await r.json();
 
     btn.disabled    = false;
@@ -1184,7 +1184,7 @@ async function actualizarEstado(id, estado, recargar) {
     fd.append('accion',  'actualizar_estado_accion');
     fd.append('plan_id', id);
     fd.append('estado',  estado);
-    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
     const data = await r.json();
 
     if (data.ok && recargar) {
@@ -1205,7 +1205,7 @@ async function cargarInventario() {
   try {
     const fd = new FormData();
     fd.append('accion', 'inventario');
-    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
     const data = await r.json();
 
     if (!data.ok) {
@@ -1304,7 +1304,7 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
     fd.append('ciudad_slug', ciudadSlug);
     fd.append('ciudad_cp',   ciudadCp);
 
-    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
     const data = await r.json();
     clearInterval(tipInterval);
 
@@ -1386,7 +1386,7 @@ async function guardar() {
     fd.append('contenido',       contenido);
     if (planAccionId) fd.append('plan_accion_id', planAccionId);
 
-    const r    = await fetch('agente-paginas-api', { method: 'POST', body: fd });
+    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
     const data = await r.json();
 
     btn.disabled  = false;

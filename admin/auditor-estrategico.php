@@ -686,7 +686,7 @@ async function verificarPlanGuardado() {
   try {
     var fd = new FormData();
     fd.append('accion', 'cargar_plan');
-    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
     var data = await r.json();
     if (data.ok && data.plan) {
       var card  = document.getElementById('au-saved-card');
@@ -725,7 +725,7 @@ async function iniciarDebate() {
     fd.append('historial', '[]');
     if (tieneXlsx) fd.append('keywords_xlsx', xlsxInput.files[0]);
 
-    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
     var data = await r.json();
 
     mostrarTyping(false);
@@ -795,7 +795,7 @@ async function enviarMensaje() {
     fd.append('mensaje',   mensaje);
     fd.append('historial', JSON.stringify(historial));
 
-    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
     var data = await r.json();
 
     mostrarTyping(false);
@@ -831,7 +831,7 @@ async function generarPlan() {
     fd.append('accion',    'finalizar_plan');
     fd.append('historial', JSON.stringify(historial));
 
-    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
     var data = await r.json();
 
     document.getElementById('btn-generar-plan').disabled = false;
@@ -861,7 +861,7 @@ async function cargarPlan() {
   try {
     var fd = new FormData();
     fd.append('accion', 'cargar_plan');
-    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
     var data = await r.json();
     if (!data.ok || !data.plan) {
       mostrarEstadoDerecho('empty');
@@ -886,7 +886,7 @@ async function guardarPlan() {
     var fd = new FormData();
     fd.append('accion', 'guardar_plan');
     fd.append('plan',   JSON.stringify(planActual));
-    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
     var data = await r.json();
     btn.disabled    = false;
     btn.textContent = '💾 Guardar plan';
