@@ -308,43 +308,167 @@ if ($accion === 'debatir') {
   $clusters_contexto = '';
   $serp_contexto     = '';
 
-  // Solo en el primer turno: procesar Excel y Serper
+  // Solo en el primer turno: procesar Excel de Semrush
   if ($es_primer_turno) {
     $tiene_xlsx = !empty($_FILES['keywords_xlsx']['tmp_name'])
                   && $_FILES['keywords_xlsx']['error'] === UPLOAD_ERR_OK;
 
     if ($tiene_xlsx) {
       $filas = parse_xlsx_semrush($_FILES['keywords_xlsx']['tmp_name']);
+
       if (!isset($filas['error']) && count($filas) > 1) {
-        $clusters = [];
-        $header   = true;
-        foreach ($filas as $fila) {
-          if ($header) { $header = false; continue; }
-          $kw   = trim($fila[0] ?? '');
-          $seed = trim($fila[1] ?? $kw);
-          $vol  = intval($fila[2] ?? 0);
-          if (!$kw) continue;
-          if (!isset($clusters[$seed])) $clusters[$seed] = ['vol_total' => 0, 'keywords' => []];
-          $clusters[$seed]['vol_total'] += $vol;
-          $clusters[$seed]['keywords'][] = ['kw' => $kw, 'vol' => $vol];
-        }
-        uasort($clusters, fn($a, $b) => $b['vol_total'] - $a['vol_total']);
-        $top_clusters = array_slice($clusters, 0, 8, true);
-        $kws_serper   = [];
 
-        $clusters_contexto = "\nCLUSTERS DE KEYWORDS (Export Semrush):\n";
-        foreach ($top_clusters as $seed => $data) {
-          $clusters_contexto .= "Cluster '{$seed}' — vol. total {$data['vol_total']}\n";
-          foreach (array_slice($data['keywords'], 0, 4) as $k) {
-            $clusters_contexto .= "  · {$k['kw']} ({$k['vol']})\n";
+        // ── Detectar columnas por cabecera ────────────────────────────
+        $cabecera   = $filas[0];
+        $col_kw     = null; $col_pos  = null; $col_vol  = null;
+        $col_url    = null; $col_prev = null; $col_dif  = null;
+
+        $mapeo = [
+          'keyword'         => &$col_kw,  'palabra clave'   => &$col_kw,
+          'position'        => &$col_pos, 'posición'        => &$col_pos, 'pos'  => &$col_pos,
+          'search volume'   => &$col_vol, 'volumen'         => &$col_vol, 'volume' => &$col_vol,
+          'url'             => &$col_url, 'landing page'    => &$col_url, 'landing' => &$col_url,
+          'previous position' => &$col_prev, 'posición anterior' => &$col_prev,
+          'keyword difficulty' => &$col_dif, 'dificultad'   => &$col_dif, 'kd'  => &$col_dif,
+        ];
+        foreach ($cabecera as $idx => $nombre) {
+          $n = mb_strtolower(trim((string)$nombre));
+          foreach ($mapeo as $patron => &$ref) {
+            if ($ref === null && strpos($n, $patron) !== false) {
+              $ref = $idx;
+              break;
+            }
           }
-          usort($data['keywords'], fn($a, $b) => $b['vol'] - $a['vol']);
-          if (!empty($data['keywords'][0]['kw'])) $kws_serper[] = $data['keywords'][0]['kw'];
+          unset($ref);
         }
-        $kws_serper = array_slice($kws_serper, 0, 5);
 
+        // Si no detectamos posición ni keyword, fallback a índices 0,2 (formato cluster antiguo)
+        if ($col_kw === null)  $col_kw  = 0;
+        if ($col_vol === null) $col_vol = 2;
+
+        // ── Procesar filas ────────────────────────────────────────────
+        $tiene_posiciones = ($col_pos !== null);
+        $filas_datos      = array_slice($filas, 1); // sin cabecera
+
+        if ($tiene_posiciones) {
+          // ── Modo análisis de posiciones (Position Tracking / Organic Research) ──
+          $por_pagina   = []; // URL → [keywords con posición]
+          $top3         = []; // pos 1-3
+          $oportunidad  = []; // pos 4-10
+          $seguimiento  = []; // pos 11-20
+          $sin_posicion = []; // vol > 0 pero sin ranking
+
+          foreach ($filas_datos as $fila) {
+            $kw  = trim((string)($fila[$col_kw]  ?? ''));
+            $pos = $col_pos !== null ? intval($fila[$col_pos] ?? 0) : 0;
+            $vol = intval($fila[$col_vol] ?? 0);
+            $url = $col_url !== null ? trim((string)($fila[$col_url] ?? '')) : '';
+            $dif = $col_dif !== null ? intval($fila[$col_dif] ?? 0) : 0;
+
+            if (!$kw) continue;
+
+            $entrada = ['kw' => $kw, 'pos' => $pos, 'vol' => $vol, 'url' => $url, 'dif' => $dif];
+
+            if ($pos > 0 && $pos <= 3)  $top3[]        = $entrada;
+            elseif ($pos > 3 && $pos <= 10) $oportunidad[] = $entrada;
+            elseif ($pos > 10 && $pos <= 20) $seguimiento[] = $entrada;
+            elseif ($pos === 0 && $vol > 0) $sin_posicion[] = $entrada;
+
+            if ($url) {
+              // Extraer path relativo (quitar dominio)
+              $path = preg_replace('/^https?:\/\/[^\/]+/', '', $url) ?: $url;
+              if (!isset($por_pagina[$path])) $por_pagina[$path] = [];
+              $por_pagina[$path][] = $entrada;
+            }
+          }
+
+          // Ordenar oportunidades por volumen desc
+          usort($oportunidad,  fn($a,$b) => $b['vol'] - $a['vol']);
+          usort($sin_posicion, fn($a,$b) => $b['vol'] - $a['vol']);
+
+          // Ordenar páginas por número de keywords
+          uasort($por_pagina, fn($a,$b) => count($b) - count($a));
+
+          // ── Construir contexto para Claude ────────────────────────
+          $clusters_contexto  = "\n=== ANÁLISIS DE POSICIONAMIENTO SEMRUSH ===\n";
+          $clusters_contexto .= "Total keywords con ranking: " . (count($top3) + count($oportunidad) + count($seguimiento)) . "\n";
+          $clusters_contexto .= "Top 3: " . count($top3) . " | Pos 4-10 (oportunidad): " . count($oportunidad) . " | Pos 11-20: " . count($seguimiento) . " | Sin ranking: " . count($sin_posicion) . "\n";
+
+          if (!empty($top3)) {
+            $clusters_contexto .= "\n--- POSICIONES TOP 3 (defender) ---\n";
+            foreach (array_slice($top3, 0, 10) as $r) {
+              $clusters_contexto .= "  Pos.{$r['pos']} · \"{$r['kw']}\" (vol:{$r['vol']})";
+              if ($r['url']) $clusters_contexto .= " → {$r['url']}";
+              $clusters_contexto .= "\n";
+            }
+          }
+
+          if (!empty($oportunidad)) {
+            $clusters_contexto .= "\n--- POSICIONES 4-10 (oportunidad de subir a top 3) ---\n";
+            foreach (array_slice($oportunidad, 0, 15) as $r) {
+              $clusters_contexto .= "  Pos.{$r['pos']} · \"{$r['kw']}\" (vol:{$r['vol']})";
+              if ($r['url']) $clusters_contexto .= " → {$r['url']}";
+              $clusters_contexto .= "\n";
+            }
+          }
+
+          if (!empty($sin_posicion)) {
+            $clusters_contexto .= "\n--- KEYWORDS CON VOLUMEN SIN RANKING (gaps) ---\n";
+            foreach (array_slice($sin_posicion, 0, 12) as $r) {
+              $clusters_contexto .= "  \"{$r['kw']}\" (vol:{$r['vol']}";
+              if ($r['dif']) $clusters_contexto .= ", dif:{$r['dif']}";
+              $clusters_contexto .= ")\n";
+            }
+          }
+
+          if (!empty($por_pagina)) {
+            $clusters_contexto .= "\n--- PÁGINAS CON MÁS KEYWORDS POSICIONADAS ---\n";
+            $n = 0;
+            foreach ($por_pagina as $path => $kws) {
+              if ($n++ >= 8) break;
+              $vol_total = array_sum(array_column($kws, 'vol'));
+              $clusters_contexto .= "  {$path} → " . count($kws) . " keywords (vol.total:{$vol_total})\n";
+            }
+          }
+
+          // Serper: consultar las keywords de mayor oportunidad
+          $kws_serper = array_column(array_slice($oportunidad, 0, 3), 'kw');
+          if (empty($kws_serper) && !empty($top3)) {
+            $kws_serper = array_column(array_slice($top3, 0, 2), 'kw');
+          }
+
+        } else {
+          // ── Modo cluster de keywords (sin datos de posición) ─────────
+          $clusters = [];
+          foreach ($filas_datos as $fila) {
+            $kw   = trim((string)($fila[$col_kw]  ?? ''));
+            $seed = trim((string)($fila[1]         ?? $kw));
+            $vol  = intval($fila[$col_vol] ?? 0);
+            if (!$kw) continue;
+            if (!isset($clusters[$seed])) $clusters[$seed] = ['vol_total' => 0, 'keywords' => []];
+            $clusters[$seed]['vol_total'] += $vol;
+            $clusters[$seed]['keywords'][] = ['kw' => $kw, 'vol' => $vol];
+          }
+          uasort($clusters, fn($a,$b) => $b['vol_total'] - $a['vol_total']);
+          $top_clusters = array_slice($clusters, 0, 8, true);
+          $kws_serper   = [];
+
+          $clusters_contexto = "\n=== KEYWORDS SEMRUSH (por clusters de volumen) ===\n";
+          foreach ($top_clusters as $seed => $data) {
+            $clusters_contexto .= "Cluster '{$seed}' — vol.total {$data['vol_total']}\n";
+            foreach (array_slice($data['keywords'], 0, 4) as $k) {
+              $clusters_contexto .= "  · {$k['kw']} (vol:{$k['vol']})\n";
+            }
+            usort($data['keywords'], fn($a,$b) => $b['vol'] - $a['vol']);
+            if (!empty($data['keywords'][0]['kw'])) $kws_serper[] = $data['keywords'][0]['kw'];
+          }
+          $kws_serper = array_slice($kws_serper, 0, 5);
+        }
+
+        // ── Serper: consultar competidores para keywords clave ────────
         $tiene_serper = defined('SERPER_API_KEY') && strlen(SERPER_API_KEY) >= 10;
         if ($tiene_serper && !empty($kws_serper)) {
+          $serp_contexto = "\n=== COMPETIDORES EN GOOGLE ESPAÑA (top resultados) ===\n";
           foreach ($kws_serper as $kw) {
             $ch = curl_init('https://google.serper.dev/search');
             curl_setopt_array($ch, [
@@ -362,9 +486,8 @@ if ($accion === 'debatir') {
                 $serp_contexto .= "\nKeyword: \"{$kw}\"\n";
                 $count = 0;
                 foreach ($serp_data['organic'] as $item) {
-                  if ($count >= 5) break;
+                  if ($count++ >= 5) break;
                   $serp_contexto .= "  - " . ($item['title'] ?? '') . " → " . ($item['link'] ?? '') . "\n";
-                  $count++;
                 }
               }
             }
@@ -376,7 +499,7 @@ if ($accion === 'debatir') {
     // Construir primer mensaje con todo el contexto
     $contenido_primer_msg = "BRIEFING DEL CLIENTE:\n{$mensaje}";
     if ($clusters_contexto) $contenido_primer_msg .= "\n\n{$clusters_contexto}";
-    if ($serp_contexto)     $contenido_primer_msg .= "\n\nDATOS SERP — competidores en Google España:\n{$serp_contexto}";
+    if ($serp_contexto)     $contenido_primer_msg .= "\n\n{$serp_contexto}";
     $historial[] = ['role' => 'user', 'content' => $contenido_primer_msg];
   } else {
     $historial[] = ['role' => 'user', 'content' => $mensaje];
