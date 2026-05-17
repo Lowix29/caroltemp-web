@@ -12,8 +12,8 @@ RewriteCond %{HTTP_HOST} ^www\.caroltemp\.com [NC]
 RewriteRule ^(.*)$ https://caroltemp.com/$1 [L,R=301]
 
 # Redirigir .php a sin .php (excepto APIs admin que reciben file uploads)
-RewriteCond %{REQUEST_URI} !^/admin/auditor-estrategico-api\.php$ [NC]
-RewriteCond %{REQUEST_URI} !^/admin/agente-paginas-api\.php$ [NC]
+RewriteCond %{REQUEST_URI} !auditor-estrategico-api\.php [NC]
+RewriteCond %{REQUEST_URI} !agente-paginas-api\.php [NC]
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
