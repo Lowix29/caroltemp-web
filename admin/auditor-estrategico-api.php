@@ -320,14 +320,26 @@ if ($accion === 'debatir') {
 
   // Solo en el primer turno: procesar Excel de Semrush
   if ($es_primer_turno) {
-    $xlsx_upload_error = $_FILES['keywords_xlsx']['error'] ?? UPLOAD_ERR_NO_FILE;
-    $xlsx_debug['error_code'] = $xlsx_upload_error;
-    $tiene_xlsx = !empty($_FILES['keywords_xlsx']['tmp_name'])
-                  && $xlsx_upload_error === UPLOAD_ERR_OK;
+    // Recibir Excel como base64 (enviado por JS con FileReader, evita problemas mod_rewrite)
+    $xlsx_b64 = trim($_POST['xlsx_b64'] ?? '');
+    $tiene_xlsx = !empty($xlsx_b64);
     $xlsx_debug['recibido'] = $tiene_xlsx;
 
     if ($tiene_xlsx) {
-      $filas = parse_xlsx_semrush($_FILES['keywords_xlsx']['tmp_name']);
+      $bin = base64_decode($xlsx_b64, true);
+      if ($bin === false) {
+        $xlsx_debug['parse_error'] = 'base64 inválido';
+        $tiene_xlsx = false;
+      } else {
+        // Guardar en archivo temporal para parsearlo
+        $tmp = tempnam(sys_get_temp_dir(), 'xlsx_');
+        file_put_contents($tmp, $bin);
+        $filas = parse_xlsx_semrush($tmp);
+        @unlink($tmp);
+      }
+    }
+
+    if ($tiene_xlsx && isset($filas)) {
 
       if (isset($filas['error'])) {
         $xlsx_debug['parse_error'] = $filas['error'];

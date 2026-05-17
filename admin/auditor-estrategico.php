@@ -699,6 +699,19 @@ async function verificarPlanGuardado() {
   } catch(e) {}
 }
 
+// ── Leer archivo como base64 ─────────────────────────────────────────────────
+function leerArchivoBase64(file) {
+  return new Promise(function(resolve, reject) {
+    var reader = new FileReader();
+    reader.onload  = function(e) {
+      var b64 = btoa(String.fromCharCode.apply(null, new Uint8Array(e.target.result)));
+      resolve(b64);
+    };
+    reader.onerror = function() { reject('Error leyendo archivo'); };
+    reader.readAsArrayBuffer(file);
+  });
+}
+
 // ── Iniciar debate ────────────────────────────────────────────────────────────
 async function iniciarDebate() {
   var objetivo  = document.getElementById('objetivo').value.trim();
@@ -720,10 +733,19 @@ async function iniciarDebate() {
 
   try {
     var fd = new FormData();
-    fd.append('accion',  'debatir');
-    fd.append('mensaje', objetivo);
+    fd.append('accion',    'debatir');
+    fd.append('mensaje',   objetivo);
     fd.append('historial', '[]');
-    if (tieneXlsx) fd.append('keywords_xlsx', xlsxInput.files[0]);
+
+    // Enviar Excel como base64 (evita problemas de file upload con mod_rewrite)
+    if (tieneXlsx) {
+      try {
+        var b64 = await leerArchivoBase64(xlsxInput.files[0]);
+        fd.append('xlsx_b64', b64);
+      } catch(e) {
+        console.warn('No se pudo leer el Excel:', e);
+      }
+    }
 
     var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
     var data = await r.json();
@@ -753,10 +775,9 @@ async function iniciarDebate() {
       if (xd.procesado) {
         badge.innerHTML = '<span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:8px;">📊 Semrush procesado — modo ' + (xd.modo||'?') + ', ' + xd.filas + ' filas</span>';
       } else if (xd.recibido && xd.parse_error) {
-        badge.innerHTML = '<span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:8px;">⚠️ Excel recibido pero error al parsear: ' + xd.parse_error + '</span>';
+        badge.innerHTML = '<span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:8px;">⚠️ Excel recibido pero no se pudo parsear: ' + xd.parse_error + '</span>';
       } else {
-        var errorMsg = {0:'OK',1:'Archivo demasiado grande (ini)',2:'Archivo demasiado grande (form)',3:'Upload incompleto',4:'No se recibió archivo',6:'Falta carpeta temporal',7:'Error escritura disco'}[xd.error_code] || ('código '+xd.error_code);
-        badge.innerHTML = '<span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:8px;">❌ Excel NO recibido: ' + errorMsg + '</span>';
+        badge.innerHTML = '<span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:8px;">❌ Excel NO recibido por PHP</span>';
       }
       var chat = document.getElementById('au-chat-messages');
       if (chat) chat.appendChild(badge);
