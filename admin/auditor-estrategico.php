@@ -576,6 +576,9 @@ $base_url = 'http://localhost/';
           <button class="btn-generar-plan" id="btn-generar-plan" onclick="generarPlan()" style="display:none">
             📋 Generar plan definitivo
           </button>
+          <button class="btn-exportar-conv" id="btn-exportar-conv" onclick="exportarConversacion()" style="display:none;margin-top:6px;width:100%;padding:7px;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:8px;color:#475569;font-size:13px;cursor:pointer;">
+            💬 Exportar conversación (para revisión)
+          </button>
           <p class="chat-hint">Cuando estés de acuerdo con la estrategia, genera el plan</p>
         </div>
 
@@ -977,7 +980,32 @@ function scrollChat() {
 
 function actualizarBtnGenerar() {
   var btn = document.getElementById('btn-generar-plan');
-  if (turnoCount >= 1) btn.style.display = 'flex';
+  var btnExp = document.getElementById('btn-exportar-conv');
+  if (turnoCount >= 1) {
+    btn.style.display = 'flex';
+    if (btnExp) btnExp.style.display = 'block';
+  }
+}
+
+function exportarConversacion() {
+  if (!historial || historial.length === 0) return;
+
+  var lineas = ['=== CONVERSACIÓN AUDITOR ESTRATÉGICO ===', ''];
+  historial.forEach(function(msg, i) {
+    var rol = msg.role === 'user' ? '👤 USUARIO' : '🧠 AUDITOR';
+    lineas.push('--- ' + rol + ' ---');
+    lineas.push(msg.content);
+    lineas.push('');
+  });
+
+  var txt  = lineas.join('\n');
+  var blob = new Blob([txt], { type: 'text/plain; charset=utf-8' });
+  var url  = URL.createObjectURL(blob);
+  var a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'conversacion-auditor.txt';
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 function autoResize(el) {
