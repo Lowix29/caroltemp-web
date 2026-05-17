@@ -275,6 +275,347 @@ function texto_inventario($paginas, $otros_archivos = []) {
 }
 
 // ─────────────────────────────────────────────────────────────────────
+// ACCIÓN: debatir (conversación multi-turno)
+// ─────────────────────────────────────────────────────────────────────
+if ($accion === 'debatir') {
+  if (!function_exists('curl_init')) {
+    echo json_encode(['error' => 'curl no está habilitado en PHP.']);
+    exit;
+  }
+  if (!defined('ANTHROPIC_API_KEY') || strlen(ANTHROPIC_API_KEY) < 20) {
+    echo json_encode(['error' => 'API key no configurada.']);
+    exit;
+  }
+
+  $mensaje       = trim($_POST['mensaje']   ?? '');
+  $historial_raw = trim($_POST['historial'] ?? '[]');
+  $historial     = json_decode($historial_raw, true);
+  if (!is_array($historial)) $historial = [];
+
+  if (!$mensaje) {
+    echo json_encode(['error' => 'El mensaje no puede estar vacío.']);
+    exit;
+  }
+
+  // Inventario siempre actualizado
+  $paginas        = construir_inventario($site_root, $ciudades, $tipos_servicio);
+  $otros_archivos = escanear_sitio($site_root, $paginas);
+  $inv            = texto_inventario($paginas, $otros_archivos);
+  $inv_texto      = $inv['texto'];
+
+  $anyo              = date('Y');
+  $es_primer_turno   = empty($historial);
+  $clusters_contexto = '';
+  $serp_contexto     = '';
+
+  // Solo en el primer turno: procesar Excel y Serper
+  if ($es_primer_turno) {
+    $tiene_xlsx = !empty($_FILES['keywords_xlsx']['tmp_name'])
+                  && $_FILES['keywords_xlsx']['error'] === UPLOAD_ERR_OK;
+
+    if ($tiene_xlsx) {
+      $filas = parse_xlsx_semrush($_FILES['keywords_xlsx']['tmp_name']);
+      if (!isset($filas['error']) && count($filas) > 1) {
+        $clusters = [];
+        $header   = true;
+        foreach ($filas as $fila) {
+          if ($header) { $header = false; continue; }
+          $kw   = trim($fila[0] ?? '');
+          $seed = trim($fila[1] ?? $kw);
+          $vol  = intval($fila[2] ?? 0);
+          if (!$kw) continue;
+          if (!isset($clusters[$seed])) $clusters[$seed] = ['vol_total' => 0, 'keywords' => []];
+          $clusters[$seed]['vol_total'] += $vol;
+          $clusters[$seed]['keywords'][] = ['kw' => $kw, 'vol' => $vol];
+        }
+        uasort($clusters, fn($a, $b) => $b['vol_total'] - $a['vol_total']);
+        $top_clusters = array_slice($clusters, 0, 8, true);
+        $kws_serper   = [];
+
+        $clusters_contexto = "\nCLUSTERS DE KEYWORDS (Export Semrush):\n";
+        foreach ($top_clusters as $seed => $data) {
+          $clusters_contexto .= "Cluster '{$seed}' — vol. total {$data['vol_total']}\n";
+          foreach (array_slice($data['keywords'], 0, 4) as $k) {
+            $clusters_contexto .= "  · {$k['kw']} ({$k['vol']})\n";
+          }
+          usort($data['keywords'], fn($a, $b) => $b['vol'] - $a['vol']);
+          if (!empty($data['keywords'][0]['kw'])) $kws_serper[] = $data['keywords'][0]['kw'];
+        }
+        $kws_serper = array_slice($kws_serper, 0, 5);
+
+        $tiene_serper = defined('SERPER_API_KEY') && strlen(SERPER_API_KEY) >= 10;
+        if ($tiene_serper && !empty($kws_serper)) {
+          foreach ($kws_serper as $kw) {
+            $ch = curl_init('https://google.serper.dev/search');
+            curl_setopt_array($ch, [
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_POST           => true,
+              CURLOPT_POSTFIELDS     => json_encode(['q' => $kw, 'gl' => 'es', 'hl' => 'es', 'num' => 5]),
+              CURLOPT_HTTPHEADER     => ['X-API-KEY: ' . SERPER_API_KEY, 'Content-Type: application/json'],
+              CURLOPT_TIMEOUT        => 15,
+            ]);
+            $raw_serp = curl_exec($ch);
+            curl_close($ch);
+            if ($raw_serp) {
+              $serp_data = json_decode($raw_serp, true);
+              if (!empty($serp_data['organic'])) {
+                $serp_contexto .= "\nKeyword: \"{$kw}\"\n";
+                $count = 0;
+                foreach ($serp_data['organic'] as $item) {
+                  if ($count >= 5) break;
+                  $serp_contexto .= "  - " . ($item['title'] ?? '') . " → " . ($item['link'] ?? '') . "\n";
+                  $count++;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Construir primer mensaje con todo el contexto
+    $contenido_primer_msg = "BRIEFING DEL CLIENTE:\n{$mensaje}";
+    if ($clusters_contexto) $contenido_primer_msg .= "\n\n{$clusters_contexto}";
+    if ($serp_contexto)     $contenido_primer_msg .= "\n\nDATOS SERP — competidores en Google España:\n{$serp_contexto}";
+    $historial[] = ['role' => 'user', 'content' => $contenido_primer_msg];
+  } else {
+    $historial[] = ['role' => 'user', 'content' => $mensaje];
+  }
+
+  $system_debate = <<<SYS
+Eres el Director de Estrategia SEO de una agencia digital especializada en fontanería y climatización local en España. Llevas meses trabajando con CarolTemp y conoces el negocio perfectamente. Año actual: {$anyo}.
+
+## CAROLTEMP — LO QUE SABES DE ESTE CLIENTE
+
+CarolTemp es una empresa familiar de fontanería y climatización con sede en Elda (Alicante). Zona de trabajo: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas y Aspe. No trabajan en Villena ni en la costa.
+
+Servicios: detección de fugas (geófono + cámara), desatascos urgentes, fontanero urgente, termos eléctricos, descalcificadores, ósmosis inversa, reformas de baño, aire acondicionado, bombas de achique.
+
+Diferenciadores reales: presupuesto gratuito antes de empezar, urgencias los 7 días, instaladores certificados Nubeco, financiación disponible.
+
+Cliente tipo: particular con fuga urgente buscando desde el móvil, comunidad de vecinos con atasco, propietario que necesita cambiar el termo.
+
+Competencia: fontaneros individuales sin web, empresas de mantenimiento generalistas. CarolTemp tiene ventaja SEO si trabaja bien la arquitectura.
+
+**PROHIBIDO ABSOLUTO:** nunca escribas "Vinalopó".
+
+## ESTADO ACTUAL DE LA WEB (escaneado automáticamente)
+
+{$inv_texto}
+
+## TU ROL EN ESTA CONVERSACIÓN
+
+Eres el estratega que decide. Analiza la web, el mercado, el briefing del cliente y los datos de keywords/competidores que te llegan, y propón LO QUE TÚ CREAS MEJOR.
+
+Nadie te dice qué proponer. Usas tu criterio de experto SEO senior. Si ves que la arquitectura actual es incompleta o errónea, dilo. Si hay servicios que deberían tener páginas y no las tienen, propónlo. Si la estructura de URLs es mejorable, explícalo. Piensa en el negocio real, no solo en rellenar huecos.
+
+Sé directo, estratégico y concreto. Cuando propongas algo, explica el razonamiento. Si el cliente te cuestiona, defiende tu postura con argumentos o reconoce si tiene razón.
+
+**IMPORTANTE:** En esta fase de debate NO generes JSON. Es una conversación estratégica. Responde siempre en español.
+SYS;
+
+  $payload = [
+    'model'      => ANTHROPIC_MODEL,
+    'max_tokens' => 2048,
+    'system'     => $system_debate,
+    'messages'   => $historial,
+  ];
+
+  $ch = curl_init('https://api.anthropic.com/v1/messages');
+  curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST           => true,
+    CURLOPT_POSTFIELDS     => json_encode($payload),
+    CURLOPT_HTTPHEADER     => [
+      'x-api-key: '         . ANTHROPIC_API_KEY,
+      'anthropic-version: 2023-06-01',
+      'content-type: application/json',
+    ],
+    CURLOPT_TIMEOUT => 90,
+  ]);
+
+  $raw      = curl_exec($ch);
+  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+
+  if (!$raw) {
+    echo json_encode(['error' => 'No se pudo conectar con la API de Claude.']);
+    exit;
+  }
+
+  $response = json_decode($raw, true);
+
+  if ($httpCode !== 200 || empty($response['content'][0]['text'])) {
+    $msg = $response['error']['message'] ?? 'Error desconocido';
+    echo json_encode(['error' => "Error API Claude ({$httpCode}): {$msg}"]);
+    exit;
+  }
+
+  $respuesta_text = $response['content'][0]['text'];
+
+  if (($response['stop_reason'] ?? '') === 'max_tokens') {
+    // Truncated but still usable — return what we have
+  }
+
+  // Añadir respuesta al historial
+  $historial[] = ['role' => 'assistant', 'content' => $respuesta_text];
+
+  echo json_encode([
+    'ok'       => true,
+    'respuesta'=> $respuesta_text,
+    'historial'=> $historial,
+  ]);
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// ACCIÓN: finalizar_plan (genera JSON a partir de la conversación)
+// ─────────────────────────────────────────────────────────────────────
+if ($accion === 'finalizar_plan') {
+  if (!function_exists('curl_init')) {
+    echo json_encode(['error' => 'curl no está habilitado en PHP.']);
+    exit;
+  }
+  if (!defined('ANTHROPIC_API_KEY') || strlen(ANTHROPIC_API_KEY) < 20) {
+    echo json_encode(['error' => 'API key no configurada.']);
+    exit;
+  }
+
+  $historial_raw = trim($_POST['historial'] ?? '[]');
+  $historial     = json_decode($historial_raw, true);
+  if (!is_array($historial) || empty($historial)) {
+    echo json_encode(['error' => 'No hay conversación para generar el plan.']);
+    exit;
+  }
+
+  $anyo = date('Y');
+
+  $system_plan = <<<SYS
+Eres el Director de Estrategia SEO de una agencia digital especializada en fontanería local. Año actual: {$anyo}.
+
+Basándote en la conversación de debate estratégico que has mantenido con el cliente, genera ahora el plan de acción definitivo.
+
+**PROHIBIDO:** nunca escribas "Vinalopó".
+**NUNCA** inventes estadísticas, años de experiencia ni porcentajes.
+
+Acciones posibles en el plan:
+- CREAR — página que no existe y debería existir
+- MEJORAR — existe pero tiene contenido provisional o pobre
+- REDIRIGIR — URL incorrecta o duplicada, necesita 301
+- ELIMINAR — página sin valor o canibalización
+- MANTENER — está bien, no tocar
+
+Para las rutas de archivo: usa la convención actual de la web (`directorio/nombre-servicio-ciudad.php`). Si propones nuevos directorios, sé coherente con la estructura existente.
+
+DEVUELVE ÚNICAMENTE JSON VÁLIDO. Sin markdown, sin texto antes ni después.
+
+{
+  "resumen": "2-3 frases del diagnóstico principal",
+  "diagnostico": "Problemas y riesgos SEO concretos (3-4 líneas)",
+  "arquitectura_ideal": "Arquitectura web ideal propuesta (4-5 líneas)",
+  "estadisticas": {
+    "paginas_ok": N,
+    "paginas_provisional": N,
+    "paginas_faltantes": N,
+    "paginas_total_ideal": N
+  },
+  "plan": [
+    {
+      "id": 1,
+      "accion": "CREAR|MEJORAR|REDIRIGIR|ELIMINAR|MANTENER",
+      "prioridad": "alta|media|baja",
+      "impacto": "muy_alto|alto|medio|bajo",
+      "tipo": "servicio|zona|corporativa|indice",
+      "pagina": "ruta/relativa/al-archivo.php",
+      "titulo_sugerido": "Título H1 propuesto o null",
+      "motivo": "Por qué esta acción en 1 frase directa",
+      "desde": null,
+      "hacia": null
+    }
+  ],
+  "recomendaciones": "Consejos adicionales: interlinking, schema, velocidad (3-5 líneas)"
+}
+SYS;
+
+  $messages = array_merge($historial, [
+    ['role' => 'user',      'content' => 'Perfecto. Genera ahora el plan de acción definitivo en JSON basándote en todo lo que hemos debatido.'],
+    ['role' => 'assistant', 'content' => '{'],
+  ]);
+
+  $payload = [
+    'model'      => ANTHROPIC_MODEL,
+    'max_tokens' => 8192,
+    'system'     => $system_plan,
+    'messages'   => $messages,
+  ];
+
+  $ch = curl_init('https://api.anthropic.com/v1/messages');
+  curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST           => true,
+    CURLOPT_POSTFIELDS     => json_encode($payload),
+    CURLOPT_HTTPHEADER     => [
+      'x-api-key: '         . ANTHROPIC_API_KEY,
+      'anthropic-version: 2023-06-01',
+      'content-type: application/json',
+    ],
+    CURLOPT_TIMEOUT => 120,
+  ]);
+
+  $raw      = curl_exec($ch);
+  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+
+  if (!$raw) {
+    echo json_encode(['error' => 'No se pudo conectar con la API de Claude.']);
+    exit;
+  }
+
+  $response = json_decode($raw, true);
+
+  if ($httpCode !== 200 || empty($response['content'][0]['text'])) {
+    $msg = $response['error']['message'] ?? 'Error desconocido';
+    echo json_encode(['error' => "Error API Claude ({$httpCode}): {$msg}"]);
+    exit;
+  }
+
+  $text        = $response['content'][0]['text'];
+  $stop_reason = $response['stop_reason'] ?? '';
+
+  if ($stop_reason === 'max_tokens') {
+    echo json_encode(['error' => 'La respuesta fue demasiado larga y se cortó. Inténtalo de nuevo.']);
+    exit;
+  }
+
+  $json_str = '{' . $text;
+  $plan     = json_decode($json_str, true);
+
+  if (!$plan) {
+    if (preg_match('/\{[\s\S]*\}/u', $json_str, $m)) {
+      $plan = json_decode($m[0], true);
+    }
+  }
+
+  if (!$plan) {
+    echo json_encode(['error' => 'Claude no devolvió JSON válido.', 'raw' => substr($json_str, 0, 500)]);
+    exit;
+  }
+
+  // Añadir estados y metadatos
+  $plan['fecha_generacion'] = date('c');
+  if (isset($plan['plan']) && is_array($plan['plan'])) {
+    foreach ($plan['plan'] as &$item) {
+      if (!isset($item['estado'])) $item['estado'] = 'pendiente';
+      if (!isset($item['id']))     $item['id']     = rand(1000, 9999);
+    }
+    unset($item);
+  }
+
+  echo json_encode(['ok' => true, 'plan' => $plan]);
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
 // ACCIÓN: analizar
 // ─────────────────────────────────────────────────────────────────────
 if ($accion === 'analizar') {
