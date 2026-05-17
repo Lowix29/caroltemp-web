@@ -194,9 +194,43 @@ function construir_inventario($site_root, $ciudades, $tipos_servicio) {
 }
 
 // ─────────────────────────────────────────────────────────────────────
+// Función: escanear archivos reales del sitio (más allá de los tipos conocidos)
+// ─────────────────────────────────────────────────────────────────────
+function escanear_sitio($site_root, $paginas_conocidas) {
+  $conocidos = [];
+  foreach ($paginas_conocidas as $p) {
+    $conocidos[$p['filepath']] = true;
+  }
+
+  $ignorar_dirs  = ['admin', 'includes', 'css', 'js', 'img', 'vendor', 'node_modules', '.git'];
+  $ignorar_files = ['404.php', 'cambiar-password.php', 'aviso-legal.php', 'privacidad.php', 'cookies.php'];
+
+  $otros = [];
+  $iter  = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($site_root, FilesystemIterator::SKIP_DOTS));
+
+  foreach ($iter as $file) {
+    if ($file->getExtension() !== 'php') continue;
+
+    $rel = ltrim(str_replace($site_root, '', $file->getPathname()), '/');
+
+    // Ignorar dirs y archivos administrativos
+    $parts   = explode('/', $rel);
+    $top_dir = $parts[0] ?? '';
+    if (in_array($top_dir, $ignorar_dirs, true)) continue;
+    if (in_array(basename($rel), $ignorar_files, true)) continue;
+    if (isset($conocidos[$rel])) continue;
+
+    $otros[] = $rel;
+  }
+
+  sort($otros);
+  return $otros;
+}
+
+// ─────────────────────────────────────────────────────────────────────
 // Función: construir texto de inventario para Claude
 // ─────────────────────────────────────────────────────────────────────
-function texto_inventario($paginas) {
+function texto_inventario($paginas, $otros_archivos = []) {
   $total       = count($paginas);
   $ok          = 0;
   $provisional = 0;
@@ -222,8 +256,14 @@ function texto_inventario($paginas) {
     $lineas[] = "[{$estado}] {$desc}";
   }
 
-  $resumen = "Total páginas rastreadas: {$total} | OK: {$ok} | Provisional: {$provisional} | Faltan: {$faltantes}\n\n";
+  $resumen = "=== PÁGINAS DE SERVICIO Y ZONA (arquitectura conocida) ===\n";
+  $resumen .= "Total: {$total} | OK: {$ok} | Provisional: {$provisional} | Faltan: {$faltantes}\n\n";
   $resumen .= implode("\n", $lineas);
+
+  if (!empty($otros_archivos)) {
+    $resumen .= "\n\n=== OTRAS PÁGINAS EXISTENTES EN EL SITIO ===\n";
+    $resumen .= implode("\n", array_map(fn($f) => "[EXISTE] {$f}", $otros_archivos));
+  }
 
   return [
     'texto'      => $resumen,
@@ -256,9 +296,10 @@ if ($accion === 'analizar') {
   }
 
   // 1. Inventario de páginas
-  $paginas   = construir_inventario($site_root, $ciudades, $tipos_servicio);
-  $inv       = texto_inventario($paginas);
-  $inv_texto = $inv['texto'];
+  $paginas        = construir_inventario($site_root, $ciudades, $tipos_servicio);
+  $otros_archivos = escanear_sitio($site_root, $paginas);
+  $inv            = texto_inventario($paginas, $otros_archivos);
+  $inv_texto      = $inv['texto'];
 
   // 2. Procesar Excel de keywords (opcional) — el auditor elige qué investigar
   $clusters_contexto = '';
@@ -409,18 +450,34 @@ Actúas como el estratega que lleva la cuenta. El cliente te da un briefing o un
 - Elda y Petrer tienen más población y más búsquedas — van primero
 - Las páginas con 'CONTENIDO PROVISIONAL' son riesgo de thin content — priorizar mejora
 - Páginas que no existen = oportunidad perdida directa
-- Arquitectura ideal: 1 página por combinación servicio×ciudad + 1 página de zona por ciudad + páginas de categoría (índice de fugas, índice de desatascos, etc.)
+
+**TU TRABAJO ES DISEÑAR LA ARQUITECTURA IDEAL COMPLETA, no solo rellenar huecos de lo que ya existe.**
+
+La arquitectura actual (fugas/desatascos/fontanero × 9 ciudades + zonas) es solo el punto de partida. Si ves oportunidades de negocio real que no están cubiertas, PROPONLAS:
+- Páginas de aire acondicionado por ciudad (`aire-acondicionado/aire-acondicionado-elda.php`, etc.)
+- Páginas de termos por ciudad (`termos/termos-elda.php`, etc.)
+- Páginas de descalcificadores por ciudad
+- Páginas de reformas de baño por ciudad
+- Páginas de índice de categoría (`/aire-acondicionado/`, `/termos/`) si tienen volumen
+- Páginas de servicios generales que faltan o están mal enfocadas
+- Cualquier otra estructura que un fontanero en España necesitaría para dominar Google local
+
+Si el briefing o el Excel de keywords apunta a oportunidades concretas, prioriza esas.
+Si no hay datos externos, usa tu criterio como estratega SEO senior.
+
+**Coherencia de rutas:** usa la misma convención de la web actual: `/directorio/nombre-servicio-ciudad.php`
 
 ## REGLAS DEL PLAN
 
 Acciones posibles:
-- CREAR — página que no existe y debería existir
+- CREAR — página que no existe y debería existir (puede ser en directorios nuevos)
 - MEJORAR — existe pero tiene contenido provisional o pobre
 - REDIRIGIR — URL incorrecta o duplicada, necesita 301
 - ELIMINAR — página sin valor, canibalización, duplicado
 - MANTENER — está bien, no tocar
 
 Sé muy concreto. Cada acción = una URL específica + un motivo de 1-2 frases que el cliente entienda.
+Para CREAR de nuevas categorías: indica la ruta exacta del archivo y la estructura de directorio sugerida.
 
 ## FORMATO DE RESPUESTA
 
