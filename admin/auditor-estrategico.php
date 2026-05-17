@@ -744,6 +744,24 @@ async function iniciarDebate() {
     // Mostrar mensaje del usuario (primer turno)
     agregarMensaje('user', objetivo);
     agregarMensaje('ai',   data.respuesta);
+
+    // Badge de estado Excel
+    if (tieneXlsx) {
+      var xd = data.xlsx_debug || {};
+      var badge = document.createElement('div');
+      badge.style.cssText = 'margin:6px 0 0 48px;font-size:12px;';
+      if (xd.procesado) {
+        badge.innerHTML = '<span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:8px;">📊 Semrush procesado — modo ' + (xd.modo||'?') + ', ' + xd.filas + ' filas</span>';
+      } else if (xd.recibido && xd.parse_error) {
+        badge.innerHTML = '<span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:8px;">⚠️ Excel recibido pero error al parsear: ' + xd.parse_error + '</span>';
+      } else {
+        var errorMsg = {0:'OK',1:'Archivo demasiado grande (ini)',2:'Archivo demasiado grande (form)',3:'Upload incompleto',4:'No se recibió archivo',6:'Falta carpeta temporal',7:'Error escritura disco'}[xd.error_code] || ('código '+xd.error_code);
+        badge.innerHTML = '<span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:8px;">❌ Excel NO recibido: ' + errorMsg + '</span>';
+      }
+      var chat = document.getElementById('au-chat-messages');
+      if (chat) chat.appendChild(badge);
+    }
+
     actualizarBtnGenerar();
 
   } catch(e) {

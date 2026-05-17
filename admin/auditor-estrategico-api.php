@@ -307,14 +307,26 @@ if ($accion === 'debatir') {
   $es_primer_turno   = empty($historial);
   $clusters_contexto = '';
   $serp_contexto     = '';
+  $xlsx_debug        = ['recibido' => false, 'error_code' => null, 'filas' => 0, 'procesado' => false, 'parse_error' => null];
 
   // Solo en el primer turno: procesar Excel de Semrush
   if ($es_primer_turno) {
+    $xlsx_upload_error = $_FILES['keywords_xlsx']['error'] ?? UPLOAD_ERR_NO_FILE;
+    $xlsx_debug['error_code'] = $xlsx_upload_error;
     $tiene_xlsx = !empty($_FILES['keywords_xlsx']['tmp_name'])
-                  && $_FILES['keywords_xlsx']['error'] === UPLOAD_ERR_OK;
+                  && $xlsx_upload_error === UPLOAD_ERR_OK;
+    $xlsx_debug['recibido'] = $tiene_xlsx;
 
     if ($tiene_xlsx) {
       $filas = parse_xlsx_semrush($_FILES['keywords_xlsx']['tmp_name']);
+
+      if (isset($filas['error'])) {
+        $xlsx_debug['parse_error'] = $filas['error'];
+      } elseif (count($filas) <= 1) {
+        $xlsx_debug['parse_error'] = 'Solo ' . count($filas) . ' fila(s) — ¿archivo vacío?';
+      }
+
+      $xlsx_debug['filas'] = count($filas);
 
       if (!isset($filas['error']) && count($filas) > 1) {
 
@@ -431,6 +443,9 @@ if ($accion === 'debatir') {
             }
           }
 
+          $xlsx_debug['procesado'] = true;
+          $xlsx_debug['modo']      = 'posiciones';
+
           // Serper: consultar las keywords de mayor oportunidad
           $kws_serper = array_column(array_slice($oportunidad, 0, 3), 'kw');
           if (empty($kws_serper) && !empty($top3)) {
@@ -463,6 +478,8 @@ if ($accion === 'debatir') {
             if (!empty($data['keywords'][0]['kw'])) $kws_serper[] = $data['keywords'][0]['kw'];
           }
           $kws_serper = array_slice($kws_serper, 0, 5);
+          $xlsx_debug['procesado'] = true;
+          $xlsx_debug['modo']      = 'clusters';
         }
 
         // ── Serper: consultar competidores para keywords clave ────────
@@ -586,9 +603,10 @@ SYS;
   $historial[] = ['role' => 'assistant', 'content' => $respuesta_text];
 
   echo json_encode([
-    'ok'       => true,
-    'respuesta'=> $respuesta_text,
-    'historial'=> $historial,
+    'ok'          => true,
+    'respuesta'   => $respuesta_text,
+    'historial'   => $historial,
+    'xlsx_debug'  => $xlsx_debug,
   ]);
   exit;
 }
