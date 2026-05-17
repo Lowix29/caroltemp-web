@@ -1,7 +1,7 @@
 <?php
 /* =============================================
    CAROLTEMP — Auditor Estratégico
-   Análisis de arquitectura web y plan de acción SEO
+   Debate estratégico SEO + generación de plan
 ============================================= */
 session_start();
 if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
@@ -67,8 +67,7 @@ $base_url = 'http://localhost/';
       letter-spacing: .06em;
       margin-bottom: .5rem;
     }
-    .au-field textarea,
-    .au-field input[type="text"] {
+    .au-field textarea {
       width: 100%;
       padding: .75rem 1rem;
       border: 1.5px solid #D6E2F0;
@@ -78,16 +77,15 @@ $base_url = 'http://localhost/';
       font-family: inherit;
       box-sizing: border-box;
       transition: border-color .15s;
+      resize: vertical;
     }
-    .au-field textarea:focus,
-    .au-field input[type="text"]:focus {
+    .au-field textarea:focus {
       outline: none;
       border-color: #1976D2;
       box-shadow: 0 0 0 3px rgba(25,118,210,.08);
     }
-    .au-field textarea { resize: vertical; }
 
-    /* ── File upload label ── */
+    /* ── File upload ── */
     .au-file-label {
       display: flex;
       align-items: center;
@@ -110,42 +108,8 @@ $base_url = 'http://localhost/';
       color: #15803d;
     }
 
-    /* ── dead CSS (kept to avoid removing something else) ── */
-    #kw-wrap {
-      display: none;
-      margin-top: .75rem;
-      padding: .875rem 1rem;
-      background: #EEF4FF;
-      border: 1.5px solid #BFDBFE;
-      border-radius: 10px;
-    }
-    #kw-wrap label {
-      font-size: 11px;
-      font-weight: 700;
-      color: #1976D2;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      display: block;
-      margin-bottom: .5rem;
-    }
-    #kw-wrap input {
-      width: 100%;
-      padding: .5rem .875rem;
-      border: 1.5px solid #BFDBFE;
-      border-radius: 8px;
-      font-size: 13.5px;
-      color: #0B2447;
-      font-family: inherit;
-      background: #fff;
-      box-sizing: border-box;
-    }
-    #kw-wrap input:focus {
-      outline: none;
-      border-color: #1976D2;
-    }
-
-    /* ── Primary action button ── */
-    .btn-analizar {
+    /* ── Botones ── */
+    .btn-iniciar {
       width: 100%;
       padding: .9rem;
       background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
@@ -159,12 +123,196 @@ $base_url = 'http://localhost/';
       align-items: center;
       justify-content: center;
       gap: .5rem;
-      transition: opacity .15s, transform .1s;
+      transition: opacity .15s;
       margin-top: .25rem;
     }
-    .btn-analizar:hover:not(:disabled) { opacity: .9; }
-    .btn-analizar:active:not(:disabled) { transform: scale(.99); }
-    .btn-analizar:disabled { opacity: .55; cursor: not-allowed; }
+    .btn-iniciar:hover:not(:disabled) { opacity: .9; }
+    .btn-iniciar:disabled { opacity: .55; cursor: not-allowed; }
+
+    /* ── Chat interface ── */
+    #au-chat-section { display: none; flex-direction: column; height: 100%; }
+
+    .chat-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      flex-shrink: 0;
+    }
+    .chat-header-info {
+      font-size: 12px;
+      color: #8FA3B8;
+      font-weight: 600;
+    }
+    .btn-nueva-conv {
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1.5px solid #D6E2F0;
+      background: #F8FAFC;
+      color: #576574;
+      cursor: pointer;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .btn-nueva-conv:hover { border-color: #8FA3B8; color: #0B2447; }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-height: 320px;
+      max-height: 480px;
+    }
+
+    .au-msg {
+      display: flex;
+      gap: .75rem;
+      max-width: 92%;
+      animation: fadeInMsg .2s ease;
+    }
+    @keyframes fadeInMsg { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+    .au-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+    .au-msg.ai   { align-self: flex-start; }
+
+    .au-msg-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .au-msg.user .au-msg-avatar { background: #EEF4FF; }
+    .au-msg.ai   .au-msg-avatar { background: linear-gradient(135deg,#1565C0,#1976D2); }
+
+    .au-msg-bubble {
+      padding: .75rem 1rem;
+      border-radius: 12px;
+      font-size: 13.5px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .au-msg.user .au-msg-bubble {
+      background: #1976D2;
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    .au-msg.ai .au-msg-bubble {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      color: #0B2447;
+      border-bottom-left-radius: 4px;
+    }
+
+    .au-msg-typing {
+      align-self: flex-start;
+      display: none;
+      gap: .75rem;
+    }
+    .au-msg-typing .au-msg-avatar { background: linear-gradient(135deg,#1565C0,#1976D2); }
+    .typing-dots {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: .75rem 1rem;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      border-bottom-left-radius: 4px;
+    }
+    .typing-dots span {
+      width: 7px;
+      height: 7px;
+      background: #94A3B8;
+      border-radius: 50%;
+      animation: typing .9s infinite;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: .2s; }
+    .typing-dots span:nth-child(3) { animation-delay: .4s; }
+    @keyframes typing { 0%,60%,100% { transform:translateY(0); opacity:.4; } 30% { transform:translateY(-5px); opacity:1; } }
+
+    .chat-input-area {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid #F1F5F9;
+      flex-shrink: 0;
+    }
+    .chat-input-row {
+      display: flex;
+      gap: .625rem;
+      align-items: flex-end;
+    }
+    .chat-textarea {
+      flex: 1;
+      padding: .625rem .875rem;
+      border: 1.5px solid #D6E2F0;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-family: inherit;
+      color: #0B2447;
+      resize: none;
+      min-height: 42px;
+      max-height: 120px;
+      overflow-y: auto;
+      transition: border-color .15s;
+      line-height: 1.5;
+      box-sizing: border-box;
+    }
+    .chat-textarea:focus {
+      outline: none;
+      border-color: #1976D2;
+      box-shadow: 0 0 0 3px rgba(25,118,210,.08);
+    }
+    .btn-enviar {
+      padding: .625rem 1rem;
+      background: #1976D2;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity .15s;
+      flex-shrink: 0;
+      height: 42px;
+    }
+    .btn-enviar:hover:not(:disabled) { opacity: .88; }
+    .btn-enviar:disabled { opacity: .5; cursor: not-allowed; }
+
+    .btn-generar-plan {
+      width: 100%;
+      margin-top: .75rem;
+      padding: .8rem;
+      background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      transition: opacity .15s;
+    }
+    .btn-generar-plan:hover:not(:disabled) { opacity: .9; }
+    .btn-generar-plan:disabled { opacity: .55; cursor: not-allowed; }
+    .chat-hint {
+      font-size: 11px;
+      color: #94A3B8;
+      text-align: center;
+      margin-top: .5rem;
+    }
 
     /* ── Saved plan card ── */
     .au-saved-card {
@@ -194,7 +342,7 @@ $base_url = 'http://localhost/';
     }
     .au-saved-card button:hover { background: #A7F3D0; }
 
-    /* ── Loading state ── */
+    /* ── Right panel states ── */
     .au-loading {
       display: none;
       padding: 4rem 1.5rem;
@@ -213,7 +361,6 @@ $base_url = 'http://localhost/';
     .au-loading p { color: #576574; font-size: 14px; font-weight: 600; margin: 0 0 .375rem; }
     .au-loading small { font-size: 12px; color: #8FA3B8; }
 
-    /* ── Empty state ── */
     .au-empty {
       display: flex;
       flex-direction: column;
@@ -229,27 +376,17 @@ $base_url = 'http://localhost/';
     .au-empty p { font-size: 14px; line-height: 1.6; }
     .au-empty strong { color: #576574; }
 
-    /* ── Results wrapper ── */
     .au-result { display: none; }
 
-    /* ── Summary card ── */
+    /* ── Summary ── */
     .au-summary {
-      background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #1E88E5 100%);
+      background: linear-gradient(135deg, #6D28D9 0%, #7C3AED 60%, #8B5CF6 100%);
       color: #fff;
       padding: 1.5rem;
       border-bottom: 1px solid rgba(255,255,255,.12);
     }
-    .au-summary-text {
-      font-size: 14px;
-      line-height: 1.65;
-      margin-bottom: 1.25rem;
-      opacity: .95;
-    }
-    .au-stats-row {
-      display: flex;
-      gap: .75rem;
-      flex-wrap: wrap;
-    }
+    .au-summary-text { font-size: 14px; line-height: 1.65; margin-bottom: 1.25rem; opacity: .95; }
+    .au-stats-row { display: flex; gap: .75rem; flex-wrap: wrap; }
     .au-stat {
       background: rgba(255,255,255,.15);
       border: 1px solid rgba(255,255,255,.22);
@@ -260,42 +397,20 @@ $base_url = 'http://localhost/';
       align-items: center;
       min-width: 70px;
     }
-    .au-stat-n {
-      font-size: 22px;
-      font-weight: 800;
-      line-height: 1;
-    }
-    .au-stat-lbl {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      opacity: .8;
-      margin-top: 2px;
-    }
+    .au-stat-n { font-size: 22px; font-weight: 800; line-height: 1; }
+    .au-stat-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; opacity: .8; margin-top: 2px; }
     .au-stat.ok   { background: rgba(22,163,74,.25);  border-color: rgba(22,163,74,.4); }
     .au-stat.warn { background: rgba(217,119,6,.25);  border-color: rgba(217,119,6,.4); }
     .au-stat.bad  { background: rgba(220,38,38,.25);  border-color: rgba(220,38,38,.4); }
     .au-stat.neu  { background: rgba(255,255,255,.12); }
 
     /* ── Info cards ── */
-    .au-info-card {
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid #F1F5F9;
-    }
+    .au-info-card { padding: 1.25rem 1.5rem; border-bottom: 1px solid #F1F5F9; }
     .au-section-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: #8FA3B8;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      margin-bottom: .625rem;
+      font-size: 11px; font-weight: 700; color: #8FA3B8;
+      text-transform: uppercase; letter-spacing: .07em; margin-bottom: .625rem;
     }
-    .au-info-text {
-      font-size: 13.5px;
-      color: #334155;
-      line-height: 1.7;
-    }
+    .au-info-text { font-size: 13.5px; color: #334155; line-height: 1.7; }
 
     /* ── Plan section ── */
     .au-plan-head {
@@ -307,195 +422,68 @@ $base_url = 'http://localhost/';
       gap: 1rem;
       flex-wrap: wrap;
     }
-    .au-plan-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #0B2447;
-    }
-    .au-filter-row {
-      display: flex;
-      gap: .375rem;
-      flex-wrap: wrap;
-    }
+    .au-plan-title { font-size: 13px; font-weight: 700; color: #0B2447; }
+    .au-filter-row { display: flex; gap: .375rem; flex-wrap: wrap; }
     .au-filter-btn {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 100px;
-      border: 1.5px solid #D6E2F0;
-      background: #F8FAFC;
-      color: #576574;
-      cursor: pointer;
-      transition: all .15s;
+      font-size: 11px; font-weight: 700; padding: 4px 12px;
+      border-radius: 100px; border: 1.5px solid #D6E2F0;
+      background: #F8FAFC; color: #576574; cursor: pointer; transition: all .15s;
     }
     .au-filter-btn:hover { border-color: #8FA3B8; color: #0B2447; }
-    .au-filter-btn.active {
-      background: #1976D2;
-      border-color: #1976D2;
-      color: #fff;
-    }
+    .au-filter-btn.active { background: #7C3AED; border-color: #7C3AED; color: #fff; }
 
     /* ── Action cards ── */
-    .au-cards-list {
-      padding: 1rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: .75rem;
-    }
+    .au-cards-list { padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
     .au-card {
-      background: #fff;
-      border: 1.5px solid #E2E8F0;
-      border-left-width: 4px;
-      border-radius: 10px;
-      padding: .875rem 1rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      transition: box-shadow .15s;
+      background: #fff; border: 1.5px solid #E2E8F0; border-left-width: 4px;
+      border-radius: 10px; padding: .875rem 1rem;
+      display: flex; align-items: flex-start; gap: 1rem; transition: box-shadow .15s;
     }
     .au-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.06); }
-    .au-card.prio-alta   { border-left-color: #DC2626; }
-    .au-card.prio-media  { border-left-color: #D97706; }
-    .au-card.prio-baja   { border-left-color: #94A3B8; }
-    .au-card.completado  { opacity: .55; }
-    .au-card.completado .au-card-filepath { text-decoration: line-through; color: #94A3B8; }
-    .au-card.ignorado    { opacity: .4; }
+    .au-card.prio-alta  { border-left-color: #DC2626; }
+    .au-card.prio-media { border-left-color: #D97706; }
+    .au-card.prio-baja  { border-left-color: #94A3B8; }
 
     .au-card-left { flex: 1; min-width: 0; }
-    .au-card-badges {
-      display: flex;
-      align-items: center;
-      gap: .375rem;
-      flex-wrap: wrap;
-      margin-bottom: .5rem;
-    }
-
+    .au-card-badges { display: flex; align-items: center; gap: .375rem; flex-wrap: wrap; margin-bottom: .5rem; }
     .au-accion-badge {
-      font-size: 10px;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
+      font-size: 10px; font-weight: 800; padding: 2px 8px;
+      border-radius: 4px; text-transform: uppercase; letter-spacing: .06em;
     }
     .au-accion-badge.crear    { background: #D1FAE5; color: #065F46; }
     .au-accion-badge.mejorar  { background: #FEF3C7; color: #92400E; }
     .au-accion-badge.redirigir{ background: #DBEAFE; color: #1E40AF; }
     .au-accion-badge.eliminar { background: #FEE2E2; color: #991B1B; }
     .au-accion-badge.mantener { background: #F1F5F9; color: #475569; }
+    .au-prio { display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: #576574; }
+    .au-prio-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .au-prio-dot.alta  { background: #DC2626; }
+    .au-prio-dot.media { background: #D97706; }
+    .au-prio-dot.baja  { background: #94A3B8; }
+    .au-impacto { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; background: #EEF4FF; color: #7C3AED; }
+    .au-tipo-badge { font-size: 10px; font-weight: 600; color: #94A3B8; padding: 2px 6px; border: 1px solid #E2E8F0; border-radius: 4px; }
+    .au-card-filepath { font-family: monospace; font-size: 12.5px; color: #0B2447; font-weight: 600; margin-bottom: .375rem; word-break: break-all; }
+    .au-card-motivo { font-size: 13px; color: #475569; line-height: 1.55; }
+    .au-card-redirect { font-size: 12px; color: #1976D2; font-family: monospace; margin-top: .375rem; word-break: break-all; }
 
-    .au-prio {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #576574;
-    }
-    .au-prio-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .au-prio-dot.alta   { background: #DC2626; }
-    .au-prio-dot.media  { background: #D97706; }
-    .au-prio-dot.baja   { background: #94A3B8; }
-
-    .au-impacto {
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 4px;
-      background: #EEF4FF;
-      color: #1976D2;
-    }
-    .au-tipo-badge {
-      font-size: 10px;
-      font-weight: 600;
-      color: #94A3B8;
-      padding: 2px 6px;
-      border: 1px solid #E2E8F0;
-      border-radius: 4px;
-    }
-
-    .au-card-filepath {
-      font-family: monospace;
-      font-size: 12.5px;
-      color: #0B2447;
-      font-weight: 600;
-      margin-bottom: .375rem;
-      word-break: break-all;
-    }
-    .au-card-motivo {
-      font-size: 13px;
-      color: #475569;
-      line-height: 1.55;
-    }
-    .au-card-redirect {
-      font-size: 12px;
-      color: #1976D2;
-      font-family: monospace;
-      margin-top: .375rem;
-      word-break: break-all;
-    }
-
-    /* ── Card right (status controls) ── */
-    .au-card-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: .5rem;
-      flex-shrink: 0;
-    }
-    .au-card-right select {
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 4px 8px;
-      border: 1.5px solid #D6E2F0;
-      border-radius: 7px;
-      background: #F8FAFC;
-      color: #334155;
-      cursor: pointer;
-      font-family: inherit;
-    }
-    .au-card-right select:focus {
-      outline: none;
-      border-color: #1976D2;
-    }
-
-    /* ── Bottom action bar ── */
+    /* ── Bottom bar ── */
     .au-action-bar {
-      padding: 1rem 1.5rem;
-      border-top: 1px solid #F1F5F9;
-      display: flex;
-      justify-content: flex-end;
-      gap: .75rem;
+      padding: 1rem 1.5rem; border-top: 1px solid #F1F5F9;
+      display: flex; justify-content: flex-end; gap: .75rem;
     }
     .btn-guardar-plan {
-      padding: .65rem 1.5rem;
-      background: #1976D2;
-      color: #fff;
-      border: none;
-      border-radius: 9px;
-      font-size: 13.5px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity .15s;
+      padding: .65rem 1.5rem; background: #7C3AED; color: #fff;
+      border: none; border-radius: 9px; font-size: 13.5px; font-weight: 700;
+      cursor: pointer; transition: opacity .15s;
     }
     .btn-guardar-plan:hover:not(:disabled) { opacity: .88; }
     .btn-guardar-plan:disabled { opacity: .55; cursor: not-allowed; }
 
-    /* ── Flash messages ── */
+    /* ── Flash ── */
     .au-flash {
-      display: none;
-      padding: .75rem 1.125rem;
-      border-radius: 8px;
-      font-size: 13.5px;
-      font-weight: 600;
-      margin: 1rem 1.5rem 0;
-      align-items: center;
-      gap: .5rem;
+      display: none; padding: .75rem 1.125rem; border-radius: 8px;
+      font-size: 13.5px; font-weight: 600; margin: 1rem 1.5rem 0;
+      align-items: center; gap: .5rem;
     }
     .au-flash.ok  { background: #D1FAE5; border: 1px solid #A7F3D0; color: #065F46; display: flex; }
     .au-flash.err { background: #FEE2E2; border: 1px solid #FCA5A5; color: #991B1B; display: flex; }
@@ -510,102 +498,133 @@ $base_url = 'http://localhost/';
   <div class="topbar">
     <div>
       <h1 style="font-size:20px;font-weight:700;color:#0f172a;letter-spacing:-.01em">🧠 Auditor Estratégico</h1>
-      <p style="color:#64748b;font-size:13.5px;margin-top:.25rem">Analiza tu arquitectura web y genera un plan de acción SEO</p>
+      <p style="color:#64748b;font-size:13.5px;margin-top:.25rem">Debate la estrategia SEO con el auditor antes de generar el plan</p>
     </div>
   </div>
 
   <div class="au-wrap">
 
-    <!-- ══════════════════════════════════════════════════════ -->
-    <!-- PANEL IZQUIERDO: CONFIGURAR ANÁLISIS                  -->
-    <!-- ══════════════════════════════════════════════════════ -->
-    <div class="au-panel">
+    <!-- ══════════════════════════════════ -->
+    <!-- PANEL IZQUIERDO                   -->
+    <!-- ══════════════════════════════════ -->
+    <div class="au-panel" id="panel-izquierdo">
       <div class="au-panel-head">
-        <span class="au-panel-title">⚙️ Configurar análisis</span>
+        <span class="au-panel-title" id="panel-izq-title">⚙️ Configurar análisis</span>
       </div>
-      <div class="au-panel-body">
 
-        <div class="au-field">
-          <label for="objetivo">Briefing para la agencia</label>
-          <p style="font-size:12px;color:#8FA3B8;margin:-.25rem 0 .75rem">La agencia ya conoce tu negocio. Solo dinos qué quieres conseguir o qué te preocupa.</p>
-          <textarea id="objetivo" rows="5"
-            placeholder="Ej: Quiero ser el primero en Google para fugas de agua en toda la comarca. / Revisa mi web y dime qué está mal y por dónde empezar. / Me preocupa que no aparezco en desatascos en Novelda."></textarea>
+      <!-- FASE 1: Formulario inicial -->
+      <div id="au-form-section">
+        <div class="au-panel-body">
+
+          <div class="au-field">
+            <label for="objetivo">Briefing para el auditor</label>
+            <p style="font-size:12px;color:#8FA3B8;margin:-.25rem 0 .75rem">El auditor ya conoce tu negocio. Cuéntale qué quieres conseguir, qué te preocupa, o simplemente pídele que analice la web.</p>
+            <textarea id="objetivo" rows="5"
+              placeholder="Ej: Revisa la web y dime qué mejorarías. / Quiero ser el primero en Google en toda la comarca. / Me parece que hay páginas que se están comiendo entre ellas."></textarea>
+          </div>
+
+          <div class="au-field">
+            <label for="keywords_xlsx">Export Semrush <span style="font-weight:400;color:#94A3B8">(opcional)</span></label>
+            <p style="font-size:12px;color:#8FA3B8;margin:-.25rem 0 .75rem">El auditor procesa el Excel automáticamente y decide qué investigar.</p>
+            <label class="au-file-label" id="au-file-label" for="keywords_xlsx">
+              <span id="au-file-icon">📂</span>
+              <span id="au-file-text">Seleccionar archivo .xlsx</span>
+            </label>
+            <input type="file" id="keywords_xlsx" name="keywords_xlsx" accept=".xlsx"
+              style="display:none" onchange="onXlsxChange(this)">
+          </div>
+
+          <button class="btn-iniciar" id="btn-iniciar" onclick="iniciarDebate()">
+            🧠 Iniciar debate estratégico
+          </button>
+
+          <!-- Saved plan card -->
+          <div class="au-saved-card" id="au-saved-card">
+            <p id="au-saved-fecha">Plan guardado</p>
+            <button onclick="cargarPlan()">↩ Cargar plan guardado</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FASE 2: Chat de debate -->
+      <div id="au-chat-section" style="display:none;flex-direction:column;">
+
+        <div class="chat-header">
+          <span class="chat-header-info" id="chat-turno-info">Debatiendo estrategia...</span>
+          <button class="btn-nueva-conv" onclick="nuevaConversacion()">↩ Nueva</button>
         </div>
 
-        <div class="au-field">
-          <label for="keywords_xlsx">Export de keywords Semrush <span style="font-weight:400;color:#94A3B8">(opcional)</span></label>
-          <p style="font-size:12px;color:#8FA3B8;margin:-.25rem 0 .75rem">Si tienes un Excel de Semrush con tus keywords, el auditor lo procesa automáticamente, decide qué investigar y consulta Google sin que tengas que indicar nada.</p>
-          <label class="au-file-label" id="au-file-label" for="keywords_xlsx">
-            <span id="au-file-icon">📂</span>
-            <span id="au-file-text">Seleccionar archivo .xlsx</span>
-          </label>
-          <input type="file" id="keywords_xlsx" name="keywords_xlsx" accept=".xlsx"
-            style="display:none" onchange="onXlsxChange(this)">
+        <div class="chat-messages" id="chat-messages">
+          <!-- Los mensajes se renderizan aquí -->
+          <div class="au-msg-typing" id="msg-typing">
+            <div class="au-msg-avatar">🧠</div>
+            <div class="typing-dots">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
         </div>
 
-        <button class="btn-analizar" id="btn-analizar" onclick="analizar()">
-          🧠 Analizar y generar plan
-        </button>
-
-        <!-- Saved plan card -->
-        <div class="au-saved-card" id="au-saved-card">
-          <p id="au-saved-fecha">Plan guardado</p>
-          <button onclick="cargarPlan()">↩ Cargar plan guardado</button>
+        <div class="chat-input-area">
+          <div class="chat-input-row">
+            <textarea class="chat-textarea" id="chat-input"
+              placeholder="Escribe tu respuesta... (Ctrl+Enter para enviar)"
+              rows="1" oninput="autoResize(this)"
+              onkeydown="onChatKeydown(event)"></textarea>
+            <button class="btn-enviar" id="btn-enviar" onclick="enviarMensaje()">↑</button>
+          </div>
+          <button class="btn-generar-plan" id="btn-generar-plan" onclick="generarPlan()" style="display:none">
+            📋 Generar plan definitivo
+          </button>
+          <p class="chat-hint">Cuando estés de acuerdo con la estrategia, genera el plan</p>
         </div>
 
       </div>
-    </div>
 
-    <!-- ══════════════════════════════════════════════════════ -->
-    <!-- PANEL DERECHO: PLAN ESTRATÉGICO                       -->
-    <!-- ══════════════════════════════════════════════════════ -->
+    </div><!-- /panel-izquierdo -->
+
+    <!-- ══════════════════════════════════ -->
+    <!-- PANEL DERECHO: PLAN               -->
+    <!-- ══════════════════════════════════ -->
     <div class="au-panel" id="panel-resultado">
 
       <div class="au-panel-head">
         <span class="au-panel-title">📋 Plan estratégico</span>
       </div>
 
-      <!-- Flash -->
       <div class="au-flash" id="au-flash"></div>
 
-      <!-- Loading -->
       <div class="au-loading" id="au-loading">
         <div class="spinner"></div>
-        <p>El auditor está analizando la arquitectura...</p>
-        <small id="au-loading-tip">Escaneando páginas y consultando a Claude...</small>
+        <p>Generando plan de acción...</p>
+        <small>Convirtiendo el debate en acciones concretas...</small>
       </div>
 
-      <!-- Empty state -->
       <div class="au-empty" id="au-empty">
-        <div class="au-empty-icon">🧠</div>
-        <p><strong>Configura el análisis y pulsa Analizar</strong><br>El auditor escaneará todas tus páginas<br>y generará un plan de acción priorizado</p>
+        <div class="au-empty-icon">📋</div>
+        <p><strong>El plan aparece aquí</strong><br>Debate con el auditor y cuando<br>estés de acuerdo, genera el plan</p>
       </div>
 
-      <!-- Results -->
       <div class="au-result" id="au-result">
 
-        <!-- 1. Summary -->
         <div class="au-summary" id="au-summary">
           <div class="au-summary-text" id="au-resumen"></div>
           <div class="au-stats-row" id="au-stats"></div>
         </div>
 
-        <!-- 2. Diagnostic -->
         <div class="au-info-card">
           <div class="au-section-title">🔍 Diagnóstico</div>
           <div class="au-info-text" id="au-diagnostico"></div>
         </div>
 
-        <!-- 3. Ideal architecture -->
         <div class="au-info-card">
           <div class="au-section-title">🏗️ Arquitectura ideal</div>
           <div class="au-info-text" id="au-arquitectura"></div>
         </div>
 
-        <!-- 4. Plan de acción -->
         <div class="au-plan-head">
           <span class="au-plan-title" id="au-plan-count">Plan de acción</span>
-          <div class="au-filter-row" id="au-filters">
+          <div class="au-filter-row">
             <button class="au-filter-btn active" onclick="filtrarPrioridad('todas', this)">Todas</button>
             <button class="au-filter-btn" onclick="filtrarPrioridad('alta', this)">🔴 Alta</button>
             <button class="au-filter-btn" onclick="filtrarPrioridad('media', this)">🟡 Media</button>
@@ -615,120 +634,193 @@ $base_url = 'http://localhost/';
 
         <div class="au-cards-list" id="au-cards"></div>
 
-        <!-- 5. Recommendations -->
         <div class="au-info-card" id="au-recom-wrap">
           <div class="au-section-title">💡 Recomendaciones adicionales</div>
           <div class="au-info-text" id="au-recomendaciones"></div>
         </div>
 
-        <!-- Bottom bar -->
         <div class="au-action-bar">
           <button class="btn-guardar-plan" id="btn-guardar" onclick="guardarPlan()">
             💾 Guardar plan
           </button>
         </div>
 
-      </div><!-- /au-result -->
+      </div>
 
     </div><!-- /panel-resultado -->
 
-  </div><!-- /au-wrap -->
+  </div>
 
 </main>
 
 <script>
 // ── Estado global ─────────────────────────────────────────────────────────────
+let historial  = [];
 let planActual = null;
+let enviando   = false;
+let turnoCount = 0;
 
-// ── Al cargar la página ───────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  // Intentar cargar plan guardado automáticamente
+// ── Al cargar ─────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
   verificarPlanGuardado();
 });
 
-// ── Toggle keywords field ─────────────────────────────────────────────────────
-// ── Verificar si hay plan guardado (para mostrar el botón) ────────────────────
+// ── xlsx change ───────────────────────────────────────────────────────────────
+function onXlsxChange(input) {
+  var label  = document.getElementById('au-file-label');
+  var textEl = document.getElementById('au-file-text');
+  var iconEl = document.getElementById('au-file-icon');
+  if (input.files && input.files[0]) {
+    label.classList.add('tiene-archivo');
+    iconEl.textContent = '✅';
+    textEl.textContent = input.files[0].name;
+  } else {
+    label.classList.remove('tiene-archivo');
+    iconEl.textContent = '📂';
+    textEl.textContent = 'Seleccionar archivo .xlsx';
+  }
+}
+
+// ── Verificar plan guardado ───────────────────────────────────────────────────
 async function verificarPlanGuardado() {
   try {
-    const fd = new FormData();
+    var fd = new FormData();
     fd.append('accion', 'cargar_plan');
-    const r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
-    const data = await r.json();
-
+    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var data = await r.json();
     if (data.ok && data.plan) {
-      const card = document.getElementById('au-saved-card');
-      const fecha = data.plan.fecha_generacion
+      var card  = document.getElementById('au-saved-card');
+      var fecha = data.plan.fecha_generacion
         ? new Date(data.plan.fecha_generacion).toLocaleString('es-ES', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' })
         : 'fecha desconocida';
       document.getElementById('au-saved-fecha').textContent = '📄 Plan guardado el ' + fecha;
       card.style.display = 'block';
     }
-  } catch (e) {
-    // silencioso
-  }
+  } catch(e) {}
 }
 
-// ── Analizar ──────────────────────────────────────────────────────────────────
-function onXlsxChange(input) {
-  const label    = document.getElementById('au-file-label');
-  const textEl   = document.getElementById('au-file-text');
-  const iconEl   = document.getElementById('au-file-icon');
-  if (input.files && input.files[0]) {
-    label.classList.add('tiene-archivo');
-    iconEl.textContent  = '✅';
-    textEl.textContent  = input.files[0].name;
-  } else {
-    label.classList.remove('tiene-archivo');
-    iconEl.textContent  = '📂';
-    textEl.textContent  = 'Seleccionar archivo .xlsx';
-  }
-}
-
-async function analizar() {
-  const objetivo  = document.getElementById('objetivo').value.trim();
-  const xlsxInput = document.getElementById('keywords_xlsx');
-  const tieneXlsx = xlsxInput && xlsxInput.files && xlsxInput.files[0];
+// ── Iniciar debate ────────────────────────────────────────────────────────────
+async function iniciarDebate() {
+  var objetivo  = document.getElementById('objetivo').value.trim();
+  var xlsxInput = document.getElementById('keywords_xlsx');
+  var tieneXlsx = xlsxInput && xlsxInput.files && xlsxInput.files[0];
 
   if (!objetivo) {
-    mostrarFlash('err', '⚠️ Escribe el briefing antes de analizar.');
+    alert('Escribe el briefing antes de iniciar el debate.');
     return;
   }
 
-  mostrarEstado('loading');
-  ocultarFlash();
+  var btn = document.getElementById('btn-iniciar');
+  btn.disabled    = true;
+  btn.textContent = '⏳ Conectando con el auditor...';
 
-  const btn = document.getElementById('btn-analizar');
-  btn.disabled = true;
-
-  const tips = [
-    'Escaneando páginas del sitio...',
-    tieneXlsx ? 'Procesando keywords del Excel...' : 'Construyendo el inventario...',
-    tieneXlsx ? 'Investigando competidores en Google...' : 'Enviando contexto a Claude...',
-    'Generando plan estratégico...',
-    'Analizando prioridades SEO...',
-    'Casi listo...',
-  ];
-  let tipIdx = 0;
-  const tipEl = document.getElementById('au-loading-tip');
-  tipEl.textContent = tips[0];
-  const tipInterval = setInterval(() => {
-    tipIdx = Math.min(tipIdx + 1, tips.length - 1);
-    tipEl.textContent = tips[tipIdx];
-  }, 4000);
+  // Transición a chat
+  mostrarChat();
+  mostrarTyping(true);
 
   try {
-    const fd = new FormData();
-    fd.append('accion',   'analizar');
-    fd.append('objetivo', objetivo);
+    var fd = new FormData();
+    fd.append('accion',  'debatir');
+    fd.append('mensaje', objetivo);
+    fd.append('historial', '[]');
     if (tieneXlsx) fd.append('keywords_xlsx', xlsxInput.files[0]);
 
-    const r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
-    const data = await r.json();
-    clearInterval(tipInterval);
-    btn.disabled = false;
+    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var data = await r.json();
+
+    mostrarTyping(false);
+    btn.disabled    = false;
+    btn.textContent = '🧠 Iniciar debate estratégico';
 
     if (!data.ok) {
-      mostrarEstado('empty');
+      volverAForm();
+      alert('Error: ' + (data.error || 'Error desconocido'));
+      return;
+    }
+
+    historial  = data.historial;
+    turnoCount = 1;
+
+    // Mostrar mensaje del usuario (primer turno)
+    agregarMensaje('user', objetivo);
+    agregarMensaje('ai',   data.respuesta);
+    actualizarBtnGenerar();
+
+  } catch(e) {
+    mostrarTyping(false);
+    btn.disabled    = false;
+    btn.textContent = '🧠 Iniciar debate estratégico';
+    volverAForm();
+    alert('Error de conexión.');
+  }
+}
+
+// ── Enviar mensaje de seguimiento ─────────────────────────────────────────────
+async function enviarMensaje() {
+  if (enviando) return;
+  var input   = document.getElementById('chat-input');
+  var mensaje = input.value.trim();
+  if (!mensaje) return;
+
+  enviando = true;
+  input.value = '';
+  autoResize(input);
+  document.getElementById('btn-enviar').disabled = true;
+
+  agregarMensaje('user', mensaje);
+  mostrarTyping(true);
+  scrollChat();
+
+  try {
+    var fd = new FormData();
+    fd.append('accion',    'debatir');
+    fd.append('mensaje',   mensaje);
+    fd.append('historial', JSON.stringify(historial));
+
+    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var data = await r.json();
+
+    mostrarTyping(false);
+
+    if (!data.ok) {
+      agregarMensaje('ai', '⚠️ Error: ' + (data.error || 'Error desconocido'));
+    } else {
+      historial = data.historial;
+      turnoCount++;
+      agregarMensaje('ai', data.respuesta);
+      actualizarBtnGenerar();
+    }
+  } catch(e) {
+    mostrarTyping(false);
+    agregarMensaje('ai', '⚠️ Error de conexión. Inténtalo de nuevo.');
+  }
+
+  enviando = false;
+  document.getElementById('btn-enviar').disabled = false;
+  scrollChat();
+}
+
+// ── Generar plan definitivo ───────────────────────────────────────────────────
+async function generarPlan() {
+  if (historial.length === 0) return;
+
+  document.getElementById('btn-generar-plan').disabled    = true;
+  document.getElementById('btn-generar-plan').textContent = '⏳ Generando plan...';
+  mostrarEstadoDerecho('loading');
+
+  try {
+    var fd = new FormData();
+    fd.append('accion',    'finalizar_plan');
+    fd.append('historial', JSON.stringify(historial));
+
+    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var data = await r.json();
+
+    document.getElementById('btn-generar-plan').disabled = false;
+    document.getElementById('btn-generar-plan').innerHTML = '📋 Generar plan definitivo';
+
+    if (!data.ok) {
+      mostrarEstadoDerecho('empty');
       mostrarFlash('err', '⚠️ ' + escp(data.error || 'Error desconocido'));
       return;
     }
@@ -737,219 +829,195 @@ async function analizar() {
     renderPlan(planActual);
     verificarPlanGuardado();
 
-  } catch (e) {
-    clearInterval(tipInterval);
-    btn.disabled = false;
-    mostrarEstado('empty');
-    mostrarFlash('err', '⚠️ Error de conexión. Comprueba que el servidor responde.');
+  } catch(e) {
+    document.getElementById('btn-generar-plan').disabled = false;
+    document.getElementById('btn-generar-plan').innerHTML = '📋 Generar plan definitivo';
+    mostrarEstadoDerecho('empty');
+    mostrarFlash('err', '⚠️ Error de conexión al generar el plan.');
   }
 }
 
 // ── Cargar plan guardado ──────────────────────────────────────────────────────
 async function cargarPlan() {
-  mostrarEstado('loading');
-  ocultarFlash();
-
+  mostrarEstadoDerecho('loading');
   try {
-    const fd = new FormData();
+    var fd = new FormData();
     fd.append('accion', 'cargar_plan');
-    const r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
-    const data = await r.json();
-
+    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var data = await r.json();
     if (!data.ok || !data.plan) {
-      mostrarEstado('empty');
+      mostrarEstadoDerecho('empty');
       mostrarFlash('err', '⚠️ ' + escp(data.error || 'No se pudo cargar el plan'));
       return;
     }
-
     planActual = data.plan;
     renderPlan(planActual);
-
-    // Rellenar el textarea de objetivo si existe
-    if (data.plan.objetivo) {
-      document.getElementById('objetivo').value = data.plan.objetivo;
-    }
-
-  } catch (e) {
-    mostrarEstado('empty');
-    mostrarFlash('err', '⚠️ Error de conexión al cargar el plan.');
+  } catch(e) {
+    mostrarEstadoDerecho('empty');
+    mostrarFlash('err', '⚠️ Error de conexión.');
   }
 }
 
 // ── Guardar plan ──────────────────────────────────────────────────────────────
 async function guardarPlan() {
-  if (!planActual) {
-    mostrarFlash('err', '⚠️ No hay ningún plan para guardar.');
-    return;
-  }
-
-  const btn = document.getElementById('btn-guardar');
+  if (!planActual) return;
+  var btn = document.getElementById('btn-guardar');
   btn.disabled    = true;
   btn.textContent = '⏳ Guardando...';
-
   try {
-    const fd = new FormData();
+    var fd = new FormData();
     fd.append('accion', 'guardar_plan');
     fd.append('plan',   JSON.stringify(planActual));
-
-    const r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
-    const data = await r.json();
-
+    var r    = await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
+    var data = await r.json();
     btn.disabled    = false;
     btn.textContent = '💾 Guardar plan';
-
     if (data.ok) {
-      mostrarFlash('ok', '✓ Plan guardado correctamente.');
+      mostrarFlash('ok', '✓ Plan guardado. Ya puedes ejecutarlo desde el Agente de Páginas.');
       verificarPlanGuardado();
     } else {
       mostrarFlash('err', '⚠️ ' + escp(data.error || 'Error al guardar'));
     }
-  } catch (e) {
+  } catch(e) {
     btn.disabled    = false;
     btn.textContent = '💾 Guardar plan';
-    mostrarFlash('err', '⚠️ Error de conexión al guardar.');
+    mostrarFlash('err', '⚠️ Error de conexión.');
   }
 }
 
-// ── Marcar acción como completada / cambiar estado ────────────────────────────
-async function marcarCompletado(id, estado) {
-  if (!planActual) return;
+// ── Nueva conversación ────────────────────────────────────────────────────────
+function nuevaConversacion() {
+  historial  = [];
+  turnoCount = 0;
+  planActual = null;
+  volverAForm();
+  mostrarEstadoDerecho('empty');
+  ocultarFlash();
+}
 
-  // Actualizar localmente
-  if (planActual.plan) {
-    planActual.plan.forEach(item => {
-      if (parseInt(item.id) === parseInt(id)) {
-        item.estado = estado;
-      }
-    });
-  }
+// ── UI helpers ────────────────────────────────────────────────────────────────
+function mostrarChat() {
+  document.getElementById('au-form-section').style.display = 'none';
+  var chat = document.getElementById('au-chat-section');
+  chat.style.display = 'flex';
+  document.getElementById('panel-izq-title').textContent = '💬 Debate estratégico';
+}
 
-  // Actualizar visual de la card
-  const card = document.querySelector('[data-id="' + id + '"]');
-  if (card) {
-    card.classList.remove('completado', 'ignorado');
-    if (estado === 'completado') card.classList.add('completado');
-    if (estado === 'ignorado')   card.classList.add('ignorado');
-  }
+function volverAForm() {
+  document.getElementById('au-form-section').style.display = 'block';
+  document.getElementById('au-chat-section').style.display = 'none';
+  document.getElementById('panel-izq-title').textContent   = '⚙️ Configurar análisis';
+  document.getElementById('chat-messages').innerHTML =
+    '<div class="au-msg-typing" id="msg-typing"><div class="au-msg-avatar">🧠</div><div class="typing-dots"><span></span><span></span><span></span></div></div>';
+  document.getElementById('btn-generar-plan').style.display = 'none';
+}
 
-  // Persistir en servidor
-  try {
-    const fd = new FormData();
-    fd.append('accion', 'actualizar_accion');
-    fd.append('id',     id);
-    fd.append('estado', estado);
-    await fetch('auditor-estrategico-api', { method: 'POST', body: fd });
-  } catch (e) {
-    // silencioso
+function agregarMensaje(rol, texto) {
+  var wrap   = document.getElementById('chat-messages');
+  var typing = document.getElementById('msg-typing');
+
+  var div = document.createElement('div');
+  div.className = 'au-msg ' + rol;
+  div.innerHTML =
+    '<div class="au-msg-avatar">' + (rol === 'user' ? '👤' : '🧠') + '</div>' +
+    '<div class="au-msg-bubble">' + escp(texto) + '</div>';
+
+  wrap.insertBefore(div, typing);
+  scrollChat();
+}
+
+function mostrarTyping(show) {
+  var el = document.getElementById('msg-typing');
+  if (el) el.style.display = show ? 'flex' : 'none';
+}
+
+function scrollChat() {
+  var wrap = document.getElementById('chat-messages');
+  if (wrap) wrap.scrollTop = wrap.scrollHeight;
+}
+
+function actualizarBtnGenerar() {
+  var btn = document.getElementById('btn-generar-plan');
+  if (turnoCount >= 1) btn.style.display = 'flex';
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+function onChatKeydown(e) {
+  if (e.key === 'Enter' && e.ctrlKey) {
+    e.preventDefault();
+    enviarMensaje();
   }
 }
 
 // ── Filtrar por prioridad ─────────────────────────────────────────────────────
 function filtrarPrioridad(prioridad, btn) {
-  // Actualizar botones activos
-  document.querySelectorAll('.au-filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.au-filter-btn').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
-
-  // Mostrar / ocultar cards
-  document.querySelectorAll('.au-card').forEach(card => {
-    if (prioridad === 'todas') {
-      card.style.display = '';
-    } else {
-      card.style.display = card.dataset.prioridad === prioridad ? '' : 'none';
-    }
+  document.querySelectorAll('.au-card').forEach(function(card) {
+    card.style.display = prioridad === 'todas' || card.dataset.prioridad === prioridad ? '' : 'none';
   });
 }
 
 // ── Renderizar plan ───────────────────────────────────────────────────────────
 function renderPlan(plan) {
-  mostrarEstado('result');
+  mostrarEstadoDerecho('result');
   ocultarFlash();
 
-  // 1. Resumen
   document.getElementById('au-resumen').textContent = plan.resumen || '';
 
-  // 2. Stats
-  const stats = plan.estadisticas || {};
-  const statsHtml = [
-    { n: stats.paginas_ok          ?? '?', lbl: 'OK',          cls: 'ok'   },
-    { n: stats.paginas_provisional ?? '?', lbl: 'Provisional', cls: 'warn' },
-    { n: stats.paginas_faltantes   ?? '?', lbl: 'Faltan',      cls: 'bad'  },
-    { n: stats.paginas_total_ideal ?? '?', lbl: 'Total ideal', cls: 'neu'  },
-  ].map(s =>
-    `<div class="au-stat ${s.cls}"><span class="au-stat-n">${escp(String(s.n))}</span><span class="au-stat-lbl">${s.lbl}</span></div>`
-  ).join('');
-  document.getElementById('au-stats').innerHTML = statsHtml;
+  var stats = plan.estadisticas || {};
+  var statsData = [
+    { n: stats.paginas_ok          != null ? stats.paginas_ok          : '?', lbl: 'OK',          cls: 'ok'   },
+    { n: stats.paginas_provisional != null ? stats.paginas_provisional : '?', lbl: 'Provisional', cls: 'warn' },
+    { n: stats.paginas_faltantes   != null ? stats.paginas_faltantes   : '?', lbl: 'Faltan',      cls: 'bad'  },
+    { n: stats.paginas_total_ideal != null ? stats.paginas_total_ideal : '?', lbl: 'Total ideal', cls: 'neu'  },
+  ];
+  document.getElementById('au-stats').innerHTML = statsData.map(function(s) {
+    return '<div class="au-stat ' + s.cls + '"><span class="au-stat-n">' + escp(String(s.n)) + '</span><span class="au-stat-lbl">' + s.lbl + '</span></div>';
+  }).join('');
 
-  // 3. Diagnóstico
-  document.getElementById('au-diagnostico').textContent = plan.diagnostico || '';
+  document.getElementById('au-diagnostico').textContent   = plan.diagnostico        || '';
+  document.getElementById('au-arquitectura').textContent  = plan.arquitectura_ideal  || '';
+  document.getElementById('au-recomendaciones').textContent = plan.recomendaciones  || '';
 
-  // 4. Arquitectura ideal
-  document.getElementById('au-arquitectura').textContent = plan.arquitectura_ideal || '';
-
-  // 5. Plan de acción
-  const acciones = plan.plan || [];
+  var acciones = plan.plan || [];
   document.getElementById('au-plan-count').textContent = 'Plan de acción — ' + acciones.length + ' acciones';
 
-  const accionColors = {
-    crear:     'crear',
-    mejorar:   'mejorar',
-    redirigir: 'redirigir',
-    eliminar:  'eliminar',
-    mantener:  'mantener',
-  };
-
-  let cardsHtml = '';
-  acciones.forEach(item => {
-    const accionKey    = (item.accion || '').toLowerCase();
-    const accionClass  = accionColors[accionKey] || '';
-    const prioClass    = (item.prioridad || 'baja').toLowerCase();
-    const estadoClass  = item.estado && item.estado !== 'pendiente' ? item.estado : '';
-    const redirectLine = (accionKey === 'redirigir' && (item.desde || item.hacia))
-      ? `<div class="au-card-redirect">${escp(item.desde || '')} → ${escp(item.hacia || '')}</div>`
+  var cardsHtml = '';
+  acciones.forEach(function(item) {
+    var ak   = (item.accion || '').toLowerCase();
+    var pc   = (item.prioridad || 'baja').toLowerCase();
+    var redir = (ak === 'redirigir' && (item.desde || item.hacia))
+      ? '<div class="au-card-redirect">' + escp(item.desde || '') + ' → ' + escp(item.hacia || '') + '</div>'
       : '';
-
-    cardsHtml += `
-      <div class="au-card prio-${escp(prioClass)} ${escp(estadoClass)}"
-           data-id="${escp(String(item.id ?? ''))}"
-           data-prioridad="${escp(prioClass)}">
-        <div class="au-card-left">
-          <div class="au-card-badges">
-            <span class="au-accion-badge ${accionClass}">${escp(item.accion || '')}</span>
-            <span class="au-prio">
-              <span class="au-prio-dot ${escp(prioClass)}"></span>
-              ${escp(item.prioridad || '')}
-            </span>
-            ${item.impacto ? `<span class="au-impacto">${escp(item.impacto.replace('_',' '))}</span>` : ''}
-            ${item.tipo    ? `<span class="au-tipo-badge">${escp(item.tipo)}</span>` : ''}
-          </div>
-          <div class="au-card-filepath">${escp(item.pagina || '')}</div>
-          <div class="au-card-motivo">${escp(item.motivo || '')}</div>
-          ${redirectLine}
-        </div>
-        <div class="au-card-right">
-          <select onchange="marcarCompletado(${parseInt(item.id ?? 0)}, this.value)"
-                  title="Estado de esta acción">
-            <option value="pendiente"  ${(item.estado === 'pendiente'  || !item.estado) ? 'selected' : ''}>⏳ Pendiente</option>
-            <option value="completado" ${item.estado === 'completado'  ? 'selected' : ''}>✅ Completado</option>
-            <option value="ignorado"   ${item.estado === 'ignorado'    ? 'selected' : ''}>🚫 Ignorado</option>
-          </select>
-        </div>
-      </div>`;
+    cardsHtml += '<div class="au-card prio-' + escp(pc) + '" data-id="' + escp(String(item.id != null ? item.id : '')) + '" data-prioridad="' + escp(pc) + '">' +
+      '<div class="au-card-left">' +
+        '<div class="au-card-badges">' +
+          '<span class="au-accion-badge ' + ak + '">' + escp(item.accion || '') + '</span>' +
+          '<span class="au-prio"><span class="au-prio-dot ' + escp(pc) + '"></span>' + escp(item.prioridad || '') + '</span>' +
+          (item.impacto ? '<span class="au-impacto">' + escp(item.impacto.replace('_',' ')) + '</span>' : '') +
+          (item.tipo    ? '<span class="au-tipo-badge">' + escp(item.tipo) + '</span>' : '') +
+        '</div>' +
+        '<div class="au-card-filepath">' + escp(item.pagina || '') + '</div>' +
+        '<div class="au-card-motivo">' + escp(item.motivo || '') + '</div>' +
+        redir +
+      '</div>' +
+    '</div>';
   });
 
   document.getElementById('au-cards').innerHTML = cardsHtml || '<p style="color:#8FA3B8;font-size:13.5px;padding:.5rem 0">No hay acciones en el plan.</p>';
 
-  // 6. Recomendaciones
-  document.getElementById('au-recomendaciones').textContent = plan.recomendaciones || '';
-
-  // Reset filtros
-  document.querySelectorAll('.au-filter-btn').forEach(b => b.classList.remove('active'));
-  const todasBtn = document.querySelector('.au-filter-btn');
-  if (todasBtn) todasBtn.classList.add('active');
+  document.querySelectorAll('.au-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  var primera = document.querySelector('.au-filter-btn');
+  if (primera) primera.classList.add('active');
 }
 
-// ── Estado de los paneles ─────────────────────────────────────────────────────
-function mostrarEstado(estado) {
+// ── Estado panel derecho ──────────────────────────────────────────────────────
+function mostrarEstadoDerecho(estado) {
   document.getElementById('au-loading').style.display = estado === 'loading' ? 'block' : 'none';
   document.getElementById('au-empty').style.display   = estado === 'empty'   ? 'flex'  : 'none';
   document.getElementById('au-result').style.display  = estado === 'result'  ? 'block' : 'none';
@@ -957,24 +1025,17 @@ function mostrarEstado(estado) {
 
 // ── Flash ─────────────────────────────────────────────────────────────────────
 function mostrarFlash(tipo, msg) {
-  const el = document.getElementById('au-flash');
+  var el = document.getElementById('au-flash');
   el.className = 'au-flash ' + tipo;
   el.innerHTML = msg;
-  el.style.display = 'flex';
 }
 function ocultarFlash() {
-  const el = document.getElementById('au-flash');
-  el.style.display = 'none';
+  document.getElementById('au-flash').className = 'au-flash';
 }
 
-// ── Escape HTML ───────────────────────────────────────────────────────────────
+// ── Escape ────────────────────────────────────────────────────────────────────
 function escp(str) {
-  return String(str || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 </script>
 </body>
