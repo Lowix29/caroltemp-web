@@ -1,0 +1,24 @@
+{
+  "arquitectura_decidida": {
+    "patron": "silo por ciudad",
+    "descripcion": "Cada ciudad tiene una página hub que habla de TODOS los servicios. Los servicios más importantes tienen subpáginas dentro de esa ciudad.",
+    "estructura": {
+      "hub_ciudad": "/fontanero/{ciudad} → página principal de esa ciudad, cubre todos los servicios que ofrece CarolTemp allí",
+      "subpaginas_servicio": "/fontanero/{ciudad}/{servicio} → para servicios con suficiente volumen o importancia (urgencias, desatascos, fugas...)",
+      "ejemplos": [
+        "/fontanero/elda (hub: habla de todo)",
+        "/fontanero/elda/urgencias",
+        "/fontanero/elda/desatascos",
+        "/fontanero/elda/fugas",
+        "/fontanero/monovar (hub: habla de todo)",
+        "/fontanero/monovar/urgencias"
+      ]
+    },
+    "ciudades": ["elda", "petrer", "novelda", "monovar", "sax", "pinoso", "monforte", "salinas", "aspe"],
+    "paginas_secundarias": ["home", "sobre-nosotros", "contacto"],
+    "notas": "Las páginas hub de ciudad son lo más importante. La home cubre overview + enlaces a ciudades. Las páginas corporativas (quiénes somos, contacto) son secundarias."
+  },
+  "historial_decisiones": [],
+  "servicios_confirmados": [],
+  "ultima_actualizacion": null
+}

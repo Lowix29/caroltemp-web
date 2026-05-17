@@ -577,7 +577,10 @@ $base_url = 'http://localhost/';
             📋 Generar plan definitivo
           </button>
           <button class="btn-exportar-conv" id="btn-exportar-conv" onclick="exportarConversacion()" style="display:none;margin-top:6px;width:100%;padding:7px;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:8px;color:#475569;font-size:13px;cursor:pointer;">
-            💬 Exportar conversación (para revisión)
+            💬 Exportar conversación
+          </button>
+          <button id="btn-guardar-memoria" onclick="guardarEnMemoria()" style="display:none;margin-top:6px;width:100%;padding:7px;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;color:#92400e;font-size:13px;cursor:pointer;">
+            🧠 Guardar decisiones en memoria
           </button>
           <p class="chat-hint">Cuando estés de acuerdo con la estrategia, genera el plan</p>
         </div>
@@ -1060,11 +1063,51 @@ function scrollChat() {
 }
 
 function actualizarBtnGenerar() {
-  var btn = document.getElementById('btn-generar-plan');
+  var btn    = document.getElementById('btn-generar-plan');
   var btnExp = document.getElementById('btn-exportar-conv');
+  var btnMem = document.getElementById('btn-guardar-memoria');
   if (turnoCount >= 1) {
     btn.style.display = 'flex';
     if (btnExp) btnExp.style.display = 'block';
+    if (btnMem) btnMem.style.display = 'block';
+  }
+}
+
+async function guardarEnMemoria() {
+  if (!historial || historial.length === 0) return;
+  var btn = document.getElementById('btn-guardar-memoria');
+  btn.disabled = true;
+  btn.textContent = '⏳ Guardando...';
+
+  // Extraer las decisiones del usuario de la conversación
+  var decisiones = [];
+  historial.forEach(function(msg) {
+    if (msg.role === 'user') decisiones.push(msg.content.substring(0, 300));
+  });
+
+  var fd = new FormData();
+  fd.append('accion', 'guardar_memoria');
+  fd.append('memoria', JSON.stringify({
+    historial_decisiones: decisiones
+  }));
+
+  try {
+    var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
+    var data = await r.json();
+    if (data.ok) {
+      btn.textContent = '✅ Guardado en memoria';
+      setTimeout(function() {
+        btn.disabled = false;
+        btn.textContent = '🧠 Guardar decisiones en memoria';
+      }, 3000);
+    } else {
+      btn.disabled = false;
+      btn.textContent = '🧠 Guardar decisiones en memoria';
+      alert('Error: ' + (data.error || 'desconocido'));
+    }
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = '🧠 Guardar decisiones en memoria';
   }
 }
 

@@ -194,8 +194,42 @@ function construir_inventario($site_root, $ciudades, $tipos_servicio) {
 }
 
 // ─────────────────────────────────────────────────────────────────────
-// Función: escanear archivos reales del sitio (más allá de los tipos conocidos)
+// Cargar memoria del cliente (decisiones pasadas)
 // ─────────────────────────────────────────────────────────────────────
+$memoria_file = dirname(__FILE__) . '/auditor-memoria.json';
+$memoria_texto = '';
+if (file_exists($memoria_file)) {
+  $memoria = json_decode(file_get_contents($memoria_file), true);
+  if (!empty($memoria['arquitectura_decidida'])) {
+    $arq = $memoria['arquitectura_decidida'];
+    $memoria_texto = "\n## DECISIONES YA TOMADAS POR ESTE CLIENTE (respétalas siempre)\n";
+    $memoria_texto .= "Patrón elegido: " . ($arq['descripcion'] ?? '') . "\n";
+    if (!empty($arq['estructura'])) {
+      $memoria_texto .= "Hub ciudad: " . ($arq['estructura']['hub_ciudad'] ?? '') . "\n";
+      $memoria_texto .= "Subpáginas: " . ($arq['estructura']['subpaginas_servicio'] ?? '') . "\n";
+      if (!empty($arq['estructura']['ejemplos'])) {
+        $memoria_texto .= "Ejemplos: " . implode(', ', $arq['estructura']['ejemplos']) . "\n";
+      }
+    }
+    if (!empty($arq['ciudades'])) {
+      $memoria_texto .= "Ciudades confirmadas: " . implode(', ', $arq['ciudades']) . "\n";
+    }
+    if (!empty($arq['notas'])) {
+      $memoria_texto .= "Nota del cliente: " . $arq['notas'] . "\n";
+    }
+  }
+  if (!empty($memoria['servicios_confirmados'])) {
+    $memoria_texto .= "Servicios confirmados: " . implode(', ', $memoria['servicios_confirmados']) . "\n";
+  }
+  if (!empty($memoria['historial_decisiones'])) {
+    $memoria_texto .= "\nDecisiones previas:\n";
+    foreach (array_slice($memoria['historial_decisiones'], -5) as $dec) {
+      $memoria_texto .= "- " . $dec . "\n";
+    }
+  }
+}
+
+
 function escanear_sitio($site_root, $paginas_conocidas) {
   $conocidos = [];
   foreach ($paginas_conocidas as $p) {
@@ -561,6 +595,7 @@ Eres un consultor SEO senior con especialización en negocios locales de servici
 - FORMATO PLANO OBLIGATORIO: cero markdown. Sin asteriscos, sin #, sin **, sin __. Cero. Escribe como un WhatsApp profesional: texto directo, listas con guión simple si las necesitas, punto y aparte para separar ideas. Nada de headers ni negritas.
 - RESPUESTAS CORTAS: máximo 150 palabras por turno en la fase de preguntas. Si tienes mucho que decir, prioriza lo más importante y deja el resto para cuando el cliente responda.
 
+{$memoria_texto}
 ## CONTEXTO DEL CLIENTE
 - Empresa: CarolTemp, fontanería y climatización, Elda (Alicante)
 - Zona de cobertura: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
@@ -1366,6 +1401,44 @@ if ($accion === 'actualizar_accion') {
   }
 
   file_put_contents($plan_file, json_encode($plan, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+  echo json_encode(['ok' => true]);
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// ACCIÓN: guardar_memoria
+// ─────────────────────────────────────────────────────────────────────
+if ($accion === 'guardar_memoria') {
+  $datos_raw = $_POST['memoria'] ?? '';
+  if (!$datos_raw) {
+    echo json_encode(['error' => 'No se recibieron datos.']);
+    exit;
+  }
+  $datos = json_decode($datos_raw, true);
+  if (!$datos) {
+    echo json_encode(['error' => 'Datos no válidos.']);
+    exit;
+  }
+
+  // Cargar memoria existente y fusionar
+  $memoria_actual = [];
+  if (file_exists($memoria_file)) {
+    $memoria_actual = json_decode(file_get_contents($memoria_file), true) ?: [];
+  }
+
+  // Fusionar campos recibidos
+  foreach ($datos as $k => $v) {
+    if ($k === 'historial_decisiones' && is_array($v)) {
+      $memoria_actual['historial_decisiones'] = array_merge(
+        $memoria_actual['historial_decisiones'] ?? [], $v
+      );
+    } else {
+      $memoria_actual[$k] = $v;
+    }
+  }
+  $memoria_actual['ultima_actualizacion'] = date('c');
+
+  file_put_contents($memoria_file, json_encode($memoria_actual, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
   echo json_encode(['ok' => true]);
   exit;
 }
