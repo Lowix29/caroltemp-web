@@ -307,7 +307,16 @@ if ($accion === 'debatir') {
   $es_primer_turno   = empty($historial);
   $clusters_contexto = '';
   $serp_contexto     = '';
-  $xlsx_debug        = ['recibido' => false, 'error_code' => null, 'filas' => 0, 'procesado' => false, 'parse_error' => null];
+  $xlsx_debug = [
+    'recibido'     => false,
+    'error_code'   => null,
+    'filas'        => 0,
+    'procesado'    => false,
+    'parse_error'  => null,
+    'php_uploads'  => ini_get('file_uploads'),
+    'php_max_file' => ini_get('upload_max_filesize'),
+    'php_max_post' => ini_get('post_max_size'),
+  ];
 
   // Solo en el primer turno: procesar Excel de Semrush
   if ($es_primer_turno) {
