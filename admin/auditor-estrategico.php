@@ -702,13 +702,22 @@ async function verificarPlanGuardado() {
   } catch(e) {}
 }
 
-// ── Leer archivo como base64 ─────────────────────────────────────────────────
+// ── Leer archivo como base64 (chunked para archivos grandes) ─────────────────
 function leerArchivoBase64(file) {
   return new Promise(function(resolve, reject) {
     var reader = new FileReader();
-    reader.onload  = function(e) {
-      var b64 = btoa(String.fromCharCode.apply(null, new Uint8Array(e.target.result)));
-      resolve(b64);
+    reader.onload = function(e) {
+      try {
+        var bytes     = new Uint8Array(e.target.result);
+        var binary    = '';
+        var chunkSize = 8192;
+        for (var i = 0; i < bytes.length; i += chunkSize) {
+          binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+        }
+        resolve(btoa(binary));
+      } catch(err) {
+        reject('Error convirtiendo a base64: ' + err.message);
+      }
     };
     reader.onerror = function() { reject('Error leyendo archivo'); };
     reader.readAsArrayBuffer(file);
@@ -746,7 +755,12 @@ async function iniciarDebate() {
         var b64 = await leerArchivoBase64(xlsxInput.files[0]);
         fd.append('xlsx_b64', b64);
       } catch(e) {
-        console.warn('No se pudo leer el Excel:', e);
+        mostrarTyping(false);
+        btn.disabled    = false;
+        btn.textContent = '🧠 Iniciar debate estratégico';
+        volverAForm();
+        alert('No se pudo leer el archivo Excel: ' + e + '\nPrueba con un archivo más pequeño o en formato .xlsx');
+        return;
       }
     }
 
