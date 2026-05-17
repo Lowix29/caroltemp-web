@@ -1000,27 +1000,44 @@ async function ejecutarAccion(accionObj) {
   const filepath = accionObj.pagina || '';
   const accionId = accionObj.id     || 0;
 
-  const partes = filepath.split('/');
-  if (partes.length < 2) { mostrarNoDisponible(accionId); return; }
-  const dir      = partes[0];
-  const filename = partes[1].replace('.php', '');
+  // Strip .php and split to detect path depth
+  const sinExt = filepath.replace(/\.php$/, '');
+  const partes = sinExt.split('/');
 
-  let ciudadSlug;
-  if (dir === 'zonas') {
-    // Zone pages: filename IS the slug directly
-    ciudadSlug = filename;
+  if (partes.length < 2) { mostrarNoDisponible(accionId); return; }
+
+  let ciudadSlug, subTipo;
+
+  if (partes.length >= 3) {
+    // Silo sub-page: fontanero/elda/urgencias → ciudad=elda, tipo=urgencias
+    ciudadSlug = partes[1];
+    subTipo    = partes[2]; // 'urgencias', 'desatascos', 'fugas'
   } else {
-    const prefijo = PREFIJOS_MAP[dir];
-    if (!prefijo)                      { mostrarNoDisponible(accionId); return; }
-    if (!filename.startsWith(prefijo)) { mostrarNoDisponible(accionId); return; }
-    ciudadSlug = filename.substring(prefijo.length);
+    const dir      = partes[0];
+    const filename = partes[1];
+
+    if (dir === 'zonas') {
+      ciudadSlug = filename;
+      subTipo    = 'zona';
+    } else if (dir === 'fontanero' && CIUDADES_MAP[filename]) {
+      // New silo hub: fontanero/elda — filename IS the city slug
+      ciudadSlug = filename;
+      subTipo    = 'hub_ciudad';
+    } else {
+      // Old-style: dir/prefijo-slug (e.g. desatascos/desatascos-elda)
+      const prefijo = PREFIJOS_MAP[dir];
+      if (!prefijo)                      { mostrarNoDisponible(accionId); return; }
+      if (!filename.startsWith(prefijo)) { mostrarNoDisponible(accionId); return; }
+      ciudadSlug = filename.substring(prefijo.length);
+      subTipo    = dir;
+    }
   }
 
   const ciudadInfo = CIUDADES_MAP[ciudadSlug];
   if (!ciudadInfo) { mostrarNoDisponible(accionId); return; }
 
   const apiAccion = (accionObj.accion || '').toLowerCase() === 'crear' ? 'crear' : 'mejorar';
-  await lanzarAccion(apiAccion, dir, ciudadInfo.nombre, ciudadSlug, ciudadInfo.cp, filepath, accionId);
+  await lanzarAccion(apiAccion, subTipo, ciudadInfo.nombre, ciudadSlug, ciudadInfo.cp, filepath, accionId);
 }
 
 // ── mostrarNoDisponible ───────────────────────────────────────────────────────
@@ -1276,10 +1293,15 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
 
   const badge = document.getElementById('editor-ctx-badge');
   const accionLabel = accion === 'mejorar' ? 'Mejorando' : 'Creando';
-  const tipoLabel   = { fugas: 'Fugas', desatascos: 'Desatascos', fontanero: 'Fontanero', zonas: 'Zona' }[tipo] || tipo;
+  const tipoLabel   = TIPO_LABELS[tipo] || tipo;
   badge.textContent = accionLabel + ' · ' + tipoLabel + ' · ' + ciudad;
   badge.style.display = '';
 
+  const TIPO_LABELS = {
+    fugas: 'Fugas', desatascos: 'Desatascos', fontanero: 'Fontanero',
+    zona: 'Zona', zonas: 'Zona',
+    hub_ciudad: 'Hub Ciudad', urgencias: 'Urgencias',
+  };
   const tips = [
     'Analizando el contenido actual...',
     'Investigando keywords locales...',
@@ -1303,6 +1325,7 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
     fd.append('ciudad',      ciudad);
     fd.append('ciudad_slug', ciudadSlug);
     fd.append('ciudad_cp',   ciudadCp);
+    fd.append('filepath',    filepath || '');
 
     const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
     const data = await r.json();
