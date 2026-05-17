@@ -803,7 +803,7 @@ async function iniciarDebate() {
     } else {
       badge.innerHTML = '<span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:8px;">❌ Excel NO llegó a PHP (b64_len='+xd.b64_len+', php_uploads='+xd.php_uploads+', post_max='+xd.php_max_post+')</span>';
     }
-    var chat = document.getElementById('au-chat-messages');
+    var chat = document.getElementById('chat-messages');
     if (chat) chat.appendChild(badge);
 
     actualizarBtnGenerar();
