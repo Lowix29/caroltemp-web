@@ -320,27 +320,32 @@ if ($accion === 'debatir') {
 
   // Solo en el primer turno: procesar Excel de Semrush
   if ($es_primer_turno) {
-    // Recibir Excel como base64 (enviado por JS con FileReader, evita problemas mod_rewrite)
-    $xlsx_b64 = $_POST['xlsx_b64'] ?? '';
-    $xlsx_debug['b64_len']  = strlen($xlsx_b64);
-    $tiene_xlsx = strlen($xlsx_b64) > 100;
+    // Recibir Excel ya parseado en el navegador (JSON de filas con claves de columna A, B, C...)
+    $xlsx_rows_raw = $_POST['xlsx_rows'] ?? '';
+    $xlsx_debug['b64_len']  = strlen($xlsx_rows_raw);
+    $tiene_xlsx = strlen($xlsx_rows_raw) > 10;
     $xlsx_debug['recibido'] = $tiene_xlsx;
 
+    $filas = [];
     if ($tiene_xlsx) {
-      $bin = base64_decode($xlsx_b64, true);
-      if ($bin === false) {
-        $xlsx_debug['parse_error'] = 'base64 inválido';
+      $rows_obj = json_decode($xlsx_rows_raw, true);
+      if (!is_array($rows_obj)) {
+        $xlsx_debug['parse_error'] = 'JSON inválido recibido del navegador';
         $tiene_xlsx = false;
       } else {
-        // Guardar en archivo temporal para parsearlo
-        $tmp = tempnam(sys_get_temp_dir(), 'xlsx_');
-        file_put_contents($tmp, $bin);
-        $filas = parse_xlsx_semrush($tmp);
-        @unlink($tmp);
+        // Convertir {A:val, B:val, ...} a [idx => val] igual que parse_xlsx_semrush
+        foreach ($rows_obj as $row) {
+          $fila = [];
+          foreach ($row as $col => $val) {
+            $fila[col_letra_a_idx(strtoupper($col))] = $val;
+          }
+          $filas[] = $fila;
+        }
+        $xlsx_debug['filas'] = count($filas);
       }
     }
 
-    if ($tiene_xlsx && isset($filas)) {
+    if ($tiene_xlsx && count($filas) > 1) {
 
       if (isset($filas['error'])) {
         $xlsx_debug['parse_error'] = $filas['error'];

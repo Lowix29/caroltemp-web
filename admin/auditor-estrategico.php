@@ -702,26 +702,90 @@ async function verificarPlanGuardado() {
   } catch(e) {}
 }
 
-// ── Leer archivo como base64 (chunked para archivos grandes) ─────────────────
-function leerArchivoBase64(file) {
-  return new Promise(function(resolve, reject) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      try {
-        var bytes     = new Uint8Array(e.target.result);
-        var binary    = '';
-        var chunkSize = 8192;
-        for (var i = 0; i < bytes.length; i += chunkSize) {
-          binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+// ── Parser XLSX en el navegador (sin ZipArchive en PHP) ──────────────────────
+async function parseXlsxEnNavegador(file) {
+  var buf   = await file.arrayBuffer();
+  var view  = new DataView(buf);
+  var bytes = new Uint8Array(buf);
+  var dec   = new TextDecoder();
+  var files = {};
+  var i = 0;
+
+  // Recorrer entradas ZIP (local file headers: PK\x03\x04)
+  while (i < bytes.length - 30) {
+    if (view.getUint32(i, true) !== 0x04034b50) { i++; continue; }
+    var method   = view.getUint16(i + 8,  true);
+    var compSz   = view.getUint32(i + 18, true);
+    var nameLen  = view.getUint16(i + 26, true);
+    var extraLen = view.getUint16(i + 28, true);
+    var name     = dec.decode(bytes.subarray(i + 30, i + 30 + nameLen));
+    var dataStart = i + 30 + nameLen + extraLen;
+    var compData  = bytes.subarray(dataStart, dataStart + compSz);
+
+    if (name === 'xl/sharedStrings.xml' || name === 'xl/worksheets/sheet1.xml') {
+      var data;
+      if (method === 0) {
+        data = compData;
+      } else {
+        // Deflate → DecompressionStream (disponible en navegadores modernos)
+        var ds = new DecompressionStream('deflate-raw');
+        var w  = ds.writable.getWriter();
+        var r  = ds.readable.getReader();
+        w.write(compData.slice());
+        w.close();
+        var chunks = [], total = 0;
+        while (true) {
+          var res = await r.read();
+          if (res.done) break;
+          chunks.push(res.value);
+          total += res.value.length;
         }
-        resolve(btoa(binary));
-      } catch(err) {
-        reject('Error convirtiendo a base64: ' + err.message);
+        data = new Uint8Array(total);
+        var pos = 0;
+        for (var ci = 0; ci < chunks.length; ci++) { data.set(chunks[ci], pos); pos += chunks[ci].length; }
       }
-    };
-    reader.onerror = function() { reject('Error leyendo archivo'); };
-    reader.readAsArrayBuffer(file);
-  });
+      files[name] = dec.decode(data);
+    }
+    i = dataStart + compSz;
+  }
+
+  // Parsear shared strings
+  var ss = [];
+  if (files['xl/sharedStrings.xml']) {
+    var doc = new DOMParser().parseFromString(files['xl/sharedStrings.xml'], 'application/xml');
+    var sis = doc.querySelectorAll('si');
+    for (var s = 0; s < sis.length; s++) {
+      var ts = sis[s].querySelectorAll('t');
+      var txt = '';
+      for (var t = 0; t < ts.length; t++) txt += ts[t].textContent;
+      ss.push(txt);
+    }
+  }
+
+  // Parsear filas de sheet1
+  var rows = [];
+  if (files['xl/worksheets/sheet1.xml']) {
+    var doc2 = new DOMParser().parseFromString(files['xl/worksheets/sheet1.xml'], 'application/xml');
+    var rowEls = doc2.querySelectorAll('row');
+    for (var ri = 0; ri < rowEls.length; ri++) {
+      var obj = {};
+      var cells = rowEls[ri].querySelectorAll('c');
+      for (var ci2 = 0; ci2 < cells.length; ci2++) {
+        var c   = cells[ci2];
+        var m   = (c.getAttribute('r') || '').match(/^([A-Z]+)/);
+        if (!m) continue;
+        var vEl = c.querySelector('v');
+        var val = vEl ? vEl.textContent : '';
+        if (c.getAttribute('t') === 's') val = ss[+val] !== undefined ? ss[+val] : '';
+        else if (val !== '' && !isNaN(+val)) val = +val;
+        obj[m[1]] = val;
+      }
+      rows.push(obj);
+    }
+  }
+
+  if (rows.length < 2) throw new Error('El archivo no contiene datos (solo ' + rows.length + ' filas)');
+  return rows;
 }
 
 // ── Iniciar debate ────────────────────────────────────────────────────────────
@@ -749,24 +813,21 @@ async function iniciarDebate() {
     fd.append('mensaje',   objetivo);
     fd.append('historial', '[]');
 
-    // Enviar Excel como base64
+    // Parsear Excel en el navegador y enviar como JSON (sin depender de ZipArchive en PHP)
     if (tieneXlsx) {
       try {
-        console.log('[Excel] Leyendo archivo:', xlsxInput.files[0].name, xlsxInput.files[0].size, 'bytes');
-        var b64 = await leerArchivoBase64(xlsxInput.files[0]);
-        console.log('[Excel] Base64 generado, longitud:', b64.length, 'chars');
-        fd.append('xlsx_b64', b64);
-        console.log('[Excel] Añadido al FormData OK');
+        console.log('[Excel] Parseando en navegador:', xlsxInput.files[0].name, xlsxInput.files[0].size, 'bytes');
+        var rows = await parseXlsxEnNavegador(xlsxInput.files[0]);
+        console.log('[Excel] Parseado OK:', rows.length, 'filas');
+        fd.append('xlsx_rows', JSON.stringify(rows));
       } catch(e) {
         mostrarTyping(false);
         btn.disabled    = false;
         btn.textContent = '🧠 Iniciar debate estratégico';
         volverAForm();
-        alert('No se pudo leer el archivo Excel: ' + e + '\nPrueba con un archivo más pequeño o en formato .xlsx');
+        alert('No se pudo leer el archivo Excel: ' + e);
         return;
       }
-    } else {
-      console.log('[Excel] No hay archivo seleccionado (tieneXlsx=false)');
     }
 
     var r    = await fetch('auditor-estrategico-api.php', { method: 'POST', body: fd });
@@ -799,9 +860,9 @@ async function iniciarDebate() {
     } else if (xd.procesado) {
       badge.innerHTML = '<span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:8px;">📊 Semrush procesado — modo ' + (xd.modo||'?') + ', ' + xd.filas + ' filas</span>';
     } else if (xd.recibido && xd.parse_error) {
-      badge.innerHTML = '<span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:8px;">⚠️ Excel recibido ('+xd.b64_len+' chars) pero no se pudo parsear: ' + xd.parse_error + '</span>';
+      badge.innerHTML = '<span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:8px;">⚠️ Excel recibido (' + xd.filas + ' filas) pero error: ' + xd.parse_error + '</span>';
     } else {
-      badge.innerHTML = '<span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:8px;">❌ Excel NO llegó a PHP (b64_len='+xd.b64_len+', php_uploads='+xd.php_uploads+', post_max='+xd.php_max_post+')</span>';
+      badge.innerHTML = '<span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:8px;">❌ Excel NO llegó a PHP (rows_len=' + xd.b64_len + ')</span>';
     }
     var chat = document.getElementById('chat-messages');
     if (chat) chat.appendChild(badge);
