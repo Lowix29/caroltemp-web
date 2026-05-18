@@ -22,6 +22,51 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (
 
 $mensaje = '';
 
+// IMPORTAR página del disco — guarda en BD y redirige al editor
+if (isset($_GET['importar'])) {
+  $fn = basename($_GET['importar']);
+  if (preg_match('/^[a-z0-9\-]+\.php$/', $fn)) {
+    // Si ya está en BD, ir directo al editor
+    $chk = $pdo->prepare('SELECT id FROM paginas WHERE filepath = ? LIMIT 1');
+    $chk->execute([$fn]);
+    $existente = $chk->fetchColumn();
+    if ($existente) {
+      header('Location: nueva-pagina.php?id=' . $existente);
+      exit;
+    }
+    // Intentar extraer contenido HTML del archivo
+    $contenido = '';
+    $abs_imp   = dirname(__DIR__) . '/' . $fn;
+    if (file_exists($abs_imp)) {
+      $raw      = file_get_contents($abs_imp);
+      $php_end  = strpos($raw, '?>');
+      if ($php_end !== false) {
+        $html_part = ltrim(substr($raw, $php_end + 2));
+        // Quitar include footer al final
+        $footer_pos = strrpos($html_part, '<?php');
+        if ($footer_pos !== false) {
+          $html_part = rtrim(substr($html_part, 0, $footer_pos));
+        }
+        // Solo usar si el HTML no tiene demasiado PHP mezclado
+        if (substr_count($html_part, '<?php') <= 2) {
+          $contenido = $html_part;
+        }
+      }
+    }
+    $slug   = str_replace('.php', '', $fn);
+    $titulo = ucwords(str_replace('-', ' ', $slug));
+    try {
+      $pdo->exec("ALTER TABLE paginas ADD COLUMN IF NOT EXISTS robots VARCHAR(20) DEFAULT 'index'");
+      $ins = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, publicado) VALUES (?, ?, ?, ?, 1)');
+      $ins->execute([$titulo, $slug, $fn, $contenido]);
+      header('Location: nueva-pagina.php?id=' . $pdo->lastInsertId() . '&importado=1');
+      exit;
+    } catch (PDOException $e) {
+      $mensaje = '⚠️ Error al importar: ' . htmlspecialchars($e->getMessage());
+    }
+  }
+}
+
 // ELIMINAR
 if (isset($_GET['eliminar']) && is_numeric($_GET['eliminar'])) {
   $stmt = $pdo->prepare('DELETE FROM paginas WHERE id = ?');
@@ -167,7 +212,7 @@ foreach ($root_phps as $f) {
         <?php foreach ($paginas_disco as $fn): ?>
           <div style="display:flex;align-items:center;gap:.5rem;background:#f4f7fb;border:1px solid #dde6f0;border-radius:6px;padding:.5rem 1rem">
             <code style="font-family:monospace;font-size:12px;color:#1e3a5f"><?php echo htmlspecialchars($fn); ?></code>
-            <a href="nueva-pagina.php?importar=<?php echo urlencode($fn); ?>" style="background:#1e3a5f;color:#fff;font-size:12px;padding:3px 10px;border-radius:4px;text-decoration:none;font-weight:600">Importar</a>
+            <a href="paginas.php?importar=<?php echo urlencode($fn); ?>" style="background:#1e3a5f;color:#fff;font-size:12px;padding:3px 10px;border-radius:4px;text-decoration:none;font-weight:600">Importar</a>
           </div>
         <?php endforeach; ?>
       </div>

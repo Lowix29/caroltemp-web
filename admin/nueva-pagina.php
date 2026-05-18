@@ -47,15 +47,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   }
 }
 
-$importando = false;
-if (!$editando && isset($_GET['importar'])) {
-  $fn = basename($_GET['importar']); // security: basename only
-  if (preg_match('/^[a-z0-9\-]+\.php$/', $fn)) {
-    $pag['filepath'] = $fn;
-    $pag['titulo']   = ucwords(str_replace(['-','.php'], [' ',''], $fn));
-    $pag['slug']     = str_replace('.php', '', $fn);
-    $importando = true;
-  }
+if (isset($_GET['importado']) && $editando) {
+  $mensaje = '✅ Página importada correctamente. Edita el contenido y guarda los cambios.';
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -152,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-if (isset($_GET['ok'])) $mensaje = '✅ Página creada correctamente.';
+if (isset($_GET['ok']) && !$mensaje) $mensaje = '✅ Página creada correctamente.';
 
 function generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc, $robots = 'index') {
   $meta_title_esc = addslashes($meta_title ?: $titulo);
