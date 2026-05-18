@@ -81,9 +81,29 @@ if (isset($_GET['importar'])) {
 
 // ELIMINAR
 if (isset($_GET['eliminar']) && is_numeric($_GET['eliminar'])) {
+  // Obtener filepath antes de borrar para poder eliminar el archivo
+  $sel = $pdo->prepare('SELECT filepath FROM paginas WHERE id = ?');
+  $sel->execute([$_GET['eliminar']]);
+  $fp = $sel->fetchColumn();
+
   $stmt = $pdo->prepare('DELETE FROM paginas WHERE id = ?');
   $stmt->execute([$_GET['eliminar']]);
-  $mensaje = '✅ Página eliminada correctamente.';
+
+  // Eliminar archivo en disco si existe y está dentro del directorio del sitio
+  if ($fp) {
+    $site_root = dirname(__DIR__);
+    $abs = $site_root . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, ltrim($fp, '/'));
+    $real_root = realpath($site_root);
+    $real_abs  = realpath($abs);
+    if ($real_abs && $real_root && strpos($real_abs, $real_root . DIRECTORY_SEPARATOR) === 0) {
+      if (file_exists($abs)) {
+        copy($abs, $abs . '.bak'); // backup antes de borrar
+        unlink($abs);
+      }
+    }
+  }
+
+  $mensaje = '✅ Página eliminada del listado y del disco.';
 }
 
 // TOGGLE PUBLICADO
