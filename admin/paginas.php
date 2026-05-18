@@ -25,11 +25,14 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (
 try { $pdo->exec("ALTER TABLE paginas ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 
 $mensaje = '';
+$error   = '';
 
 // IMPORTAR página del disco — guarda en BD y redirige al editor
 if (isset($_GET['importar'])) {
   $fn = basename($_GET['importar']);
-  if (preg_match('/^[a-z0-9\-]+\.php$/', $fn)) {
+  if (!preg_match('/^[a-z0-9_\-]+\.php$/', $fn)) {
+    $error = 'Nombre de archivo no válido: ' . htmlspecialchars($fn);
+  } else {
     // Si ya está en BD, ir directo al editor
     $chk = $pdo->prepare('SELECT id FROM paginas WHERE filepath = ? LIMIT 1');
     $chk->execute([$fn]);
@@ -40,9 +43,10 @@ if (isset($_GET['importar'])) {
     }
     // Extraer contenido HTML del archivo (entre primer cierre PHP y ultimo include)
     $contenido = '';
-    $abs_imp   = dirname(__DIR__) . '/' . $fn;
+    $abs_imp   = dirname(__DIR__) . DIRECTORY_SEPARATOR . $fn;
     if (file_exists($abs_imp)) {
       $raw     = file_get_contents($abs_imp);
+      // Buscar primer cierre de bloque PHP
       $php_end = strpos($raw, '?>');
       if ($php_end !== false) {
         $html_part  = ltrim(substr($raw, $php_end + 2));
@@ -50,17 +54,26 @@ if (isset($_GET['importar'])) {
         if ($footer_pos !== false) {
           $html_part = rtrim(substr($html_part, 0, $footer_pos));
         }
-        if (substr_count($html_part, '<?php') <= 2) {
+        if (substr_count($html_part, '<?php') <= 4) {
           $contenido = $html_part;
         }
       }
     }
     $slug   = str_replace('.php', '', $fn);
-    $titulo = ucwords(str_replace('-', ' ', $slug));
-    $ins = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, publicado) VALUES (?, ?, ?, ?, 1)');
-    $ins->execute([$titulo, $slug, $fn, $contenido]);
-    header('Location: nueva-pagina.php?id=' . $pdo->lastInsertId() . '&importado=1');
-    exit;
+    $titulo = ucwords(str_replace(['-', '_'], ' ', $slug));
+    try {
+      $ins = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, publicado) VALUES (?, ?, ?, ?, 1)');
+      $ins->execute([$titulo, $slug, $fn, $contenido]);
+      $newId = (int)$pdo->lastInsertId();
+      if ($newId > 0) {
+        header('Location: nueva-pagina.php?id=' . $newId . '&importado=1');
+        exit;
+      } else {
+        $error = 'El INSERT no devolvió un ID válido.';
+      }
+    } catch (PDOException $e) {
+      $error = 'Error al importar "' . htmlspecialchars($fn) . '": ' . htmlspecialchars($e->getMessage());
+    }
   }
 }
 
@@ -100,7 +113,7 @@ $site_root_scan = dirname(__DIR__);
 $db_filepaths = array_column($paginas, 'filepath');
 // Scan root .php files
 $root_phps = glob($site_root_scan . '/*.php') ?: [];
-$system_files = ['404.php','sitemap.php']; // skip these
+$system_files = ['404.php','sitemap.php','index.php','login.php','logout.php','cambiar-password.php']; // skip these
 $paginas_disco = [];
 foreach ($root_phps as $f) {
     $fn = basename($f);
@@ -130,6 +143,9 @@ foreach ($root_phps as $f) {
 
   <?php if ($mensaje): ?>
     <div class="mensaje"><?php echo $mensaje; ?></div>
+  <?php endif; ?>
+  <?php if ($error): ?>
+    <div class="error-msg" style="background:#fef2f2;border:1px solid #fecaca;color:#dc2626;padding:.875rem 1.25rem;border-radius:8px;margin-bottom:1rem;font-size:14px"><?php echo $error; ?></div>
   <?php endif; ?>
 
   <!-- FILTROS -->
