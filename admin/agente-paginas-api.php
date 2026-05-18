@@ -1511,37 +1511,6 @@ if ($accion === 'guardar') {
     }
   }
 
-  // Si es una página raíz corporativa, sincronizar con tabla paginas del CMS
-  if ($is_root_level && preg_match('/^[a-z0-9_\-]+\.php$/', $filepath_rel)) {
-    $slug_p  = basename($filepath_rel, '.php');
-    $mt = $md = '';
-    if (preg_match('/\$meta_title\s*=\s*[\'"](.+?)[\'"]\s*;/', $contenido, $mm)) $mt = stripslashes($mm[1]);
-    if (preg_match('/\$meta_desc\s*=\s*[\'"](.+?)[\'"]\s*;/',  $contenido, $mm)) $md = stripslashes($mm[1]);
-    $titulo_p = $mt ?: ucwords(str_replace(['-','_'], ' ', $slug_p));
-    // Extraer bloque HTML entre primer cierre PHP y ultimo include
-    $html_p = '';
-    $php_end_p = strpos($contenido, '?>');
-    if ($php_end_p !== false) {
-      $html_part_p  = ltrim(substr($contenido, $php_end_p + 2));
-      $footer_pos_p = strrpos($html_part_p, '<?php');
-      if ($footer_pos_p !== false) $html_part_p = rtrim(substr($html_part_p, 0, $footer_pos_p));
-      if (substr_count($html_part_p, '<?php') <= 4) $html_p = $html_part_p;
-    }
-    try {
-      $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (id INT AUTO_INCREMENT PRIMARY KEY, titulo VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL UNIQUE, filepath VARCHAR(255) NOT NULL UNIQUE, contenido LONGTEXT, meta_title VARCHAR(255) DEFAULT '', meta_desc TEXT DEFAULT '', robots VARCHAR(20) DEFAULT 'index', publicado TINYINT(1) DEFAULT 1, fecha DATETIME DEFAULT CURRENT_TIMESTAMP, modificado DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
-      $ck = $pdo->prepare('SELECT id FROM paginas WHERE filepath = ? LIMIT 1');
-      $ck->execute([$filepath_rel]);
-      $eid = $ck->fetchColumn();
-      if ($eid) {
-        $upd = $pdo->prepare('UPDATE paginas SET titulo=?, slug=?, contenido=?, meta_title=?, meta_desc=?, modificado=NOW() WHERE id=?');
-        $upd->execute([$titulo_p, $slug_p, $html_p, $mt, $md, $eid]);
-      } else {
-        $ins = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, meta_title, meta_desc, publicado) VALUES (?, ?, ?, ?, ?, ?, 1)');
-        $ins->execute([$titulo_p, $slug_p, $filepath_rel, $html_p, $mt, $md]);
-      }
-    } catch (PDOException $e) { /* ignorar — CMS sync opcional */ }
-  }
-
   echo json_encode(['ok' => true, 'bytes' => $bytes, 'filepath' => $filepath_rel]);
   exit;
 }

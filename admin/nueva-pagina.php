@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           ]);
           // Escribir archivo al disco
           $abs_path = dirname(__DIR__) . '/' . $filepath;
-          file_put_contents($abs_path, generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc, $robots));
+          file_put_contents($abs_path, escribirArchivoPhp($abs_path, $titulo, $slug, $contenido, $meta_title, $meta_desc, $robots));
           $mensaje = '✅ Página actualizada correctamente.';
           $stmt = $pdo->prepare('SELECT * FROM paginas WHERE id = ? LIMIT 1');
           $stmt->execute([$pag['id']]);
@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $newId = $pdo->lastInsertId();
           // Escribir archivo al disco
           $abs_path = dirname(__DIR__) . '/' . $filepath;
-          file_put_contents($abs_path, generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc, $robots));
+          file_put_contents($abs_path, escribirArchivoPhp($abs_path, $titulo, $slug, $contenido, $meta_title, $meta_desc, $robots));
           header('Location: nueva-pagina.php?id=' . $newId . '&ok=1');
           exit;
         }
@@ -146,6 +146,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if (isset($_GET['ok']) && !$mensaje) $mensaje = '✅ Página creada correctamente.';
+
+// Escribe el archivo PHP en disco, preservando la estructura existente si el archivo ya existe.
+// Para páginas nuevas usa un template limpio. Para páginas importadas sólo actualiza
+// las variables de cabecera y el bloque HTML, manteniendo el código del agente intacto.
+function escribirArchivoPhp($abs_path, $titulo, $slug, $contenido, $meta_title, $meta_desc, $robots) {
+  if (!file_exists($abs_path)) {
+    return generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc, $robots);
+  }
+
+  $raw        = file_get_contents($abs_path);
+  $robots_val = ($robots === 'noindex') ? 'noindex' : 'index';
+
+  // Actualizar variables PHP del bloque de cabecera
+  $vars = [
+    'meta_title'  => $meta_title,
+    'meta_desc'   => $meta_desc,
+    'robots_meta' => $robots_val,
+  ];
+  foreach ($vars as $var => $valor) {
+    $pattern = '/(\$' . preg_quote($var, '/') . '\s*=\s*)[\'"][^\'\"]*[\'"]\s*;/';
+    if (preg_match($pattern, $raw)) {
+      $raw = preg_replace_callback($pattern, function() use ($var, $valor) {
+        return '$' . $var . ' = \'' . addslashes($valor) . '\';';
+      }, $raw, 1);
+    }
+  }
+
+  // Reemplazar bloque HTML sólo si el editor tiene contenido
+  if ($contenido !== '') {
+    $php_end = strpos($raw, '?>');
+    if ($php_end !== false) {
+      $before     = substr($raw, 0, $php_end + 2);
+      $after_php  = substr($raw, $php_end + 2);
+      $footer_pos = strrpos($after_php, '<?php');
+      if ($footer_pos !== false) {
+        $raw = $before . "\n" . $contenido . "\n" . substr($after_php, $footer_pos);
+      }
+    }
+  }
+
+  return $raw;
+}
 
 function generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc, $robots = 'index') {
   $meta_title_esc = addslashes($meta_title ?: $titulo);

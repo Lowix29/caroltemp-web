@@ -110,18 +110,54 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $paginas = $stmt->fetchAll();
 
-// Detectar páginas en disco que no están en la BD
+// Auto-importar páginas raíz creadas por el agente (tienen $meta_title definido)
 $site_root_scan = dirname(__DIR__);
+$system_files   = ['404.php','sitemap.php','index.php','login.php','logout.php','cambiar-password.php'];
+$root_phps_all  = glob($site_root_scan . DIRECTORY_SEPARATOR . '*.php') ?: [];
+$db_filepaths   = array_column($paginas, 'filepath');
+
+foreach ($root_phps_all as $f) {
+  $fn = basename($f);
+  if (in_array($fn, $system_files, true)) continue;
+  if (!preg_match('/^[a-z0-9_\-]+\.php$/', $fn)) continue;
+  if (in_array($fn, $db_filepaths, true)) continue; // ya está en BD
+  // Sólo auto-importar si tiene $meta_title (página de contenido real)
+  $raw_check = @file_get_contents($f);
+  if (!$raw_check || strpos($raw_check, '$meta_title') === false) continue;
+  // Extraer datos
+  $slug_ai  = basename($fn, '.php');
+  $title_ai = ucwords(str_replace(['-','_'], ' ', $slug_ai));
+  if (preg_match('/\$meta_title\s*=\s*[\'"](.+?)[\'"]\s*;/', $raw_check, $mm)) {
+    $title_ai = stripslashes($mm[1]) ?: $title_ai;
+  }
+  $html_ai = '';
+  $pe = strpos($raw_check, '?>');
+  if ($pe !== false) {
+    $hp = ltrim(substr($raw_check, $pe + 2));
+    $fp = strrpos($hp, '<?php');
+    if ($fp !== false) $hp = rtrim(substr($hp, 0, $fp));
+    if (substr_count($hp, '<?php') <= 4) $html_ai = $hp;
+  }
+  try {
+    $ai = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, publicado) VALUES (?, ?, ?, ?, 1)');
+    $ai->execute([$title_ai, $slug_ai, $fn, $html_ai]);
+    $db_filepaths[] = $fn; // evitar duplicados en esta misma carga
+  } catch (PDOException $e) { /* slug/filepath duplicado — ignorar */ }
+}
+
+// Re-leer la lista de páginas actualizada
+$stmt = $pdo->prepare('SELECT id, titulo, slug, filepath, publicado, modificado FROM paginas WHERE ' . implode(' AND ', $where) . ' ORDER BY modificado DESC');
+$stmt->execute($params);
+$paginas = $stmt->fetchAll();
 $db_filepaths = array_column($paginas, 'filepath');
-// Scan root .php files
-$root_phps = glob($site_root_scan . '/*.php') ?: [];
-$system_files = ['404.php','sitemap.php','index.php','login.php','logout.php','cambiar-password.php']; // skip these
+
+// Páginas en disco que aún no están en BD (no tienen $meta_title = archivos del sistema)
 $paginas_disco = [];
-foreach ($root_phps as $f) {
-    $fn = basename($f);
-    if (!in_array($fn, $db_filepaths, true) && !in_array($fn, $system_files, true)) {
-        $paginas_disco[] = $fn;
-    }
+foreach ($root_phps_all as $f) {
+  $fn = basename($f);
+  if (!in_array($fn, $db_filepaths, true) && !in_array($fn, $system_files, true)) {
+    $paginas_disco[] = $fn;
+  }
 }
 ?><!DOCTYPE html>
 <html lang="es">
