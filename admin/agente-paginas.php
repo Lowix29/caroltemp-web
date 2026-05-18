@@ -1889,6 +1889,7 @@ function abrirPreview() {
 
   // Enviar al endpoint PHP que hace el render real con los CSS del sitio
   const fd = new FormData();
+  fd.append('accion',   'preview');
   fd.append('html',     htmlEditable.trim());
   fd.append('page_css', pageCss);
 
@@ -1897,7 +1898,7 @@ function abrirPreview() {
   modal.style.display = 'flex';
   frame.src = '';
 
-  fetch('preview-pagina.php', { method: 'POST', body: fd })
+  fetch('agente-paginas-api.php', { method: 'POST', body: fd })
     .then(r => r.text())
     .then(html => {
       frame.srcdoc = html;

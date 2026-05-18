@@ -2245,6 +2245,30 @@ SYSREF;
 }
 
 // ─────────────────────────────────────────────────────────────────────
+// Acción: preview — renderiza HTML con el head/footer real del sitio
+// ─────────────────────────────────────────────────────────────────────
+if ($accion === 'preview') {
+  $html_prev = $_POST['html']     ?? '';
+  $page_css  = preg_replace('/[^a-z0-9\-]/', '', $_POST['page_css'] ?? 'zona');
+
+  // Limpiar buffer y cambiar a HTML
+  ob_end_clean();
+  header('Content-Type: text/html; charset=utf-8');
+
+  $meta_title  = 'Preview';
+  $meta_desc   = '';
+  $meta_url    = '';
+  $robots      = 'noindex';
+  $schema_type = '';
+
+  include '../includes/head.php';
+  echo '<style>nav,.site-nav,header.site-header{display:none!important}body{padding-top:0!important}</style>';
+  echo $html_prev;
+  include '../includes/footer.php';
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
 // Acción no reconocida
 // ─────────────────────────────────────────────────────────────────────
 echo json_encode(['error' => 'Acción no reconocida: ' . htmlspecialchars($accion)]);
