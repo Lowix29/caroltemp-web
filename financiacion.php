@@ -18,7 +18,7 @@ include 'includes/head.php';
     <h1>Financia tu proyecto<br><span class="hl">sin complicaciones.</span></h1>
     <p class="hz-dark-sub">Material e instalación completa financiados. Sin intereses, sin gastos ocultos y sin necesidad de adelantar nada.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="<?php echo $base_url; ?>contacto.php" class="btn-hz-g">Pedir información</a>
     </div>
   </div>
@@ -50,7 +50,7 @@ include 'includes/head.php';
       <?php
       $pasos = [
         ['01','Nos cuentas qué necesitas','Llámanos o escríbenos. Valoramos tu proyecto sin compromiso.'],
-        ['02','Precio cerrado','Te damos el precio total antes de empezar. Sin sorpresas ni extras.'],
+        ['02','precio sin sorpresas','Te damos el precio total antes de empezar. Sin sorpresas ni extras.'],
         ['03','Solicitas la financiación','Trámite sencillo y rápido. Aprobación en pocos días.'],
         ['04','Hacemos el trabajo','Sin que tengas que adelantar nada. Pagas cómodamente a plazos.'],
       ];
@@ -124,10 +124,10 @@ include 'includes/head.php';
     <h2>¿Te interesa <span>financiar tu proyecto?</span></h2>
     <p>Llámanos y te explicamos sin compromiso cómo funciona.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
-    <div class="cta-dark-tel">Teléfono directo<strong>613 429 032</strong></div>
+    <div class="cta-dark-tel">Teléfono directo<strong>611 165 129</strong></div>
   </div>
 </section>
 

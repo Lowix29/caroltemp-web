@@ -267,7 +267,7 @@ Cuántas palabras necesita el artículo (rivales + 20% mínimo).
 Las 4-5 preguntas más relevantes que debe responder el artículo.
 
 ## 8. Ángulo diferenciador de CarolTemp
-Cómo usar "presupuesto gratis sin compromiso", "urgencias 24h", "instaladores certificados", "experiencia local en la comarca" para ganar en este tema. IMPORTANTE: nunca prometer precio cerrado ni reparaciones sin obra — solo si el cliente lo confirma explícitamente en sus notas.
+Cómo usar "presupuesto gratis sin compromiso", "urgencias 24h", "instaladores certificados", "experiencia local en la comarca" para ganar en este tema. IMPORTANTE: nunca prometer precio sin sorpresas ni reparaciones sin obra — solo si el cliente lo confirma explícitamente en sus notas.
 SYS;
 
 $payload_inv = [

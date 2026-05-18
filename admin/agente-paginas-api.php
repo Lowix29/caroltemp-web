@@ -205,10 +205,10 @@ if ($accion === 'mejorar' || $accion === 'crear') {
 
     // Contexto específico según tipo de página
     $page_ctx = [
-      'financiacion'   => "Página de FINANCIACIÓN. CarolTemp ofrece financiación a plazos (sin adelanto) SOLO para sus servicios de fontanería: reparaciones de tuberías, detección y reparación de fugas, desatascos, instalación de termos eléctricos, descalcificadores y reformas de baño/cocina. NO hacen climatización ni aire acondicionado. Trabajan con entidades financieras especializadas. Proceso ágil. Teléfono: 613 429 032.",
-      'contacto'       => "Página de CONTACTO. Tel: 613 429 032. WhatsApp. Atienden toda la comarca: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe. Horario: Lun-Vie 8-20h, Sáb 9-14h. Presupuesto gratuito.",
-      'sobre-nosotros' => "Página SOBRE NOSOTROS. CarolTemp: empresa local de fontanería y climatización en la comarca interior de Alicante. Instaladores Nubeco certificados. Geófono y cámara para fugas. Precio cerrado siempre. Sin inventar 'años de experiencia'.",
-      'index'          => "Página HOME. Presentar CarolTemp: fontanería y climatización en la comarca. Diferenciadores: precio cerrado, geófono+cámara sin obras, Nubeco oficial. Zonas: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe.",
+      'financiacion'   => "Página de FINANCIACIÓN. CarolTemp ofrece financiación a plazos (sin adelanto) SOLO para sus servicios de fontanería: reparaciones de tuberías, detección y reparación de fugas, desatascos, instalación de termos eléctricos, descalcificadores y reformas de baño/cocina. NO hacen climatización ni aire acondicionado. Trabajan con entidades financieras especializadas. Proceso ágil. Teléfono: 611 165 129.",
+      'contacto'       => "Página de CONTACTO. Tel: 611 165 129. WhatsApp. Atienden toda la comarca: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe. Horario: Lun-Vie 8-20h, Sáb 9-14h. Presupuesto gratuito.",
+      'sobre-nosotros' => "Página SOBRE NOSOTROS. CarolTemp: empresa local de fontanería y climatización en la comarca interior de Alicante. Instaladores Nubeco certificados. Geófono y cámara para fugas. precio sin sorpresas siempre. Sin inventar 'años de experiencia'.",
+      'index'          => "Página HOME. Presentar CarolTemp: fontanería y climatización en la comarca. Diferenciadores: precio sin sorpresas, geófono+cámara sin obras, Nubeco oficial. Zonas: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe.",
     ];
     $ctx_extra = $page_ctx[$basename] ?? "Página: {$desc_pagina}. Empresa CarolTemp — fontanería y climatización en la comarca interior de Alicante.";
 
@@ -218,9 +218,9 @@ Eres un maquetador web SEO experto. Generas el HTML completo del <body> de pági
 DATOS DE CAROLTEMP:
 - Empresa: fontanería en la comarca interior de Alicante (NO hacen climatización, NO hacen aire acondicionado)
 - Servicios: fontanería urgente, detección de fugas (geófono+cámara), desatascos, instalación de termos eléctricos, descalcificadores, reformas de baño
-- Teléfono: 613 429 032 | WhatsApp: https://wa.me/34613429032
+- Teléfono: 611 165 129 | WhatsApp: https://wa.me/34611165129
 - Zonas: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
-- Diferenciadores REALES: precio cerrado antes de empezar, geófono+cámara para fugas sin romper, instaladores Nubeco certificados
+- Diferenciadores REALES: precio sin sorpresas antes de empezar, geófono+cámara para fugas sin romper, instaladores Nubeco certificados
 
 REGLAS:
 - NUNCA escribas "Vinalopó"
@@ -239,7 +239,7 @@ COMPONENTES DISPONIBLES — usa los que más convengan para esta página:
     <h1>TÍTULO PRINCIPAL</h1>
     <p class="hz-dark-sub">SUBTÍTULO</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="<?php echo $base_url; ?>contacto" class="btn-hz-g">CTA SECUNDARIO</a>
     </div>
   </div>
@@ -272,7 +272,7 @@ COMPONENTES DISPONIBLES — usa los que más convengan para esta página:
 <div class="zona-icard">
   <div class="zona-icard-h"><strong>CarolTemp</strong><span>SUBTÍTULO</span></div>
   <div class="zona-ir"><span class="zona-ir-l">LABEL</span><span class="zona-ir-v">VALOR</span></div>
-  <a href="tel:+34613429032" class="zona-icard-btn">📞 Llamar ahora</a>
+  <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
 </div>
 
 [CARDS EN GRID — para opciones, servicios, ventajas, pasos]
@@ -302,8 +302,8 @@ COMPONENTES DISPONIBLES — usa los que más convengan para esta página:
     <h2>PREGUNTA/CTA PRINCIPAL <span>PARTE SECUNDARIA</span></h2>
     <p>TEXTO BREVE</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
   </div>
 </section>
@@ -436,7 +436,7 @@ DEVUELVE ÚNICAMENTE JSON VÁLIDO con esta estructura:
   "intro_p2": "1-2 frases sobre qué cubre CarolTemp en esta ciudad",
   "checklist": ["ítem específico 1", "ítem específico 2", "ítem específico 3", "ítem específico 4", "ítem específico 5"],
   "faq": [
-    {"pregunta": "¿Cuánto cuesta un fontanero en [Ciudad]?", "respuesta": "Precio cerrado antes de empezar. Una reparación sencilla desde 60-80€."},
+    {"pregunta": "¿Cuánto cuesta un fontanero en [Ciudad]?", "respuesta": "precio sin sorpresas antes de empezar. Una reparación sencilla desde 60-80€."},
     {"pregunta": "¿Tenéis servicio urgente en [Ciudad]?", "respuesta": "Sí, atendemos urgencias en [Ciudad] dentro del horario de servicio."},
     {"pregunta": "¿Cómo detectáis fugas sin romper en [Ciudad]?", "respuesta": "Con geófono y cámara localizamos el punto exacto antes de abrir."},
     {"pregunta": "¿Hacéis desatascos en [Ciudad]?", "respuesta": "Sí, fregaderos, lavabos, bajantes y arquetas en [Ciudad]."},
@@ -546,9 +546,9 @@ REGLAS ABSOLUTAS:
 - Año actual: {$anyo}
 
 DATOS DE CAROLTEMP:
-- Teléfono: 613 429 032
+- Teléfono: 611 165 129
 - Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
-- Diferenciadores REALES: presupuesto cerrado antes de empezar (sin sorpresas), instaladores certificados Nubeco (descalcificadores), geófono y cámara para fugas sin obras
+- Diferenciadores REALES: presupuesto sin sorpresas antes de empezar (sin sorpresas), instaladores certificados Nubeco (descalcificadores), geófono y cámara para fugas sin obras
 - Servicios: fontanería urgente, detección de fugas, desatascos, termos, descalcificadores, reformas de baño
 
 DIFERENCIACIÓN OBLIGATORIA — MÁS IMPORTANTE:
@@ -573,7 +573,7 @@ ESTRUCTURA JSON — devuelve SOLO este JSON válido:
   ]
 }
 
-SOBRE LAS FAQ: NO uses respuestas genéricas. Cada respuesta debe ser honesta y concreta. Si no sabes el precio exacto, di "presupuesto cerrado antes de empezar, sin sorpresas" pero añade contexto específico de [ciudad].
+SOBRE LAS FAQ: NO uses respuestas genéricas. Cada respuesta debe ser honesta y concreta. Si no sabes el precio exacto, di "presupuesto sin sorpresas antes de empezar, sin sorpresas" pero añade contexto específico de [ciudad].
 
 CRÍTICO JSON: Usa comillas dobles para claves y valores. Dentro de los valores usa comillas simples si necesitas citar algo. Sin comas finales.
 SYS;
@@ -679,7 +679,7 @@ DIFERENCIADORES DE CAROLTEMP PARA FUGAS:
 - Geófono acústico profesional: detecta el sonido de la fuga sin abrir paredes
 - Cámara de inspección: visualiza el interior de tuberías y bajantes
 - Detectan Y reparan: no hace falta llamar a otra empresa
-- Precio cerrado antes de empezar
+- precio sin sorpresas antes de empezar
 
 DIFERENCIACIÓN OBLIGATORIA:
 Cada ciudad tiene causas distintas de fugas. Usa los datos de {$ciudad} para describir problemas REALES:
@@ -691,7 +691,7 @@ Cada ciudad tiene causas distintas de fugas. Usa los datos de {$ciudad} para des
 DEVUELVE SOLO ESTE JSON VÁLIDO:
 {
   "meta_title": "Detección de fugas en [Ciudad] — CarolTemp | máx 60 chars",
-  "meta_desc": "150-160 chars: geófono + cámara + sin romper + [ciudad] + precio cerrado",
+  "meta_desc": "150-160 chars: geófono + cámara + sin romper + [ciudad] + precio sin sorpresas",
   "hero_titulo": "Detección de fugas en {$ciudad}<br><span class=\"hl\">sin romper paredes.</span>",
   "hero_sub": "frase de 10-15 palabras sobre el problema de fugas concreto en {$ciudad}",
   "contenido_intro": "<p>2 frases sobre por qué hay fugas en {$ciudad} — causas reales de esa ciudad específica — y cómo CarolTemp las localiza.</p>",
@@ -796,8 +796,8 @@ REGLAS ABSOLUTAS:
 - Año actual: {$anyo}
 
 DATOS DE CAROLTEMP PARA URGENCIAS:
-- Teléfono urgencias: 613 429 032
-- Presupuesto cerrado antes de empezar — el cliente sabe el precio antes de que se empiece
+- Teléfono urgencias: 611 165 129
+- presupuesto sin sorpresas antes de empezar — el cliente sabe el precio antes de que se empiece
 - Atienden toda la comarca: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe
 - Urgencias más comunes: roturas de tubería, pérdidas de agua, grifos, cisternas, llaves de paso que no cierran, termos que pierden agua
 
@@ -812,7 +812,7 @@ DEVUELVE SOLO ESTE JSON VÁLIDO:
 {
   "meta_title": "Fontanero urgente en [Ciudad] — CarolTemp | máx 60 chars",
   "meta_desc": "150-160 chars: urgencias [ciudad] + diferenciador real + teléfono o CTA",
-  "hero_titulo": "Fontanero urgente en {$ciudad}<br><span class=\"hl\">precio cerrado.</span>",
+  "hero_titulo": "Fontanero urgente en {$ciudad}<br><span class=\"hl\">precio sin sorpresas.</span>",
   "hero_sub": "frase de 10-15 palabras sobre la urgencia más habitual en {$ciudad}",
   "contenido_intro": "<p>2 frases sobre las urgencias de fontanería más habituales en {$ciudad} — usando datos reales de esa ciudad.</p>",
   "servicios_lista": ["urgencia concreta 1 para {$ciudad}", "urgencia 2", "urgencia 3", "urgencia 4", "urgencia 5", "urgencia 6"],
@@ -950,9 +950,9 @@ REGLAS ABSOLUTAS:
 - Año actual: {$anyo}
 
 DATOS DE CAROLTEMP:
-- Teléfono: 613 429 032
+- Teléfono: 611 165 129
 - Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
-- Diferenciadores REALES: presupuesto cerrado antes de empezar, geófono+cámara para fugas, instaladores certificados Nubeco (descalcificadores)
+- Diferenciadores REALES: presupuesto sin sorpresas antes de empezar, geófono+cámara para fugas, instaladores certificados Nubeco (descalcificadores)
 - Servicios: fontanería urgente, detección de fugas, desatascos, termos, descalcificadores, reformas de baño
 
 DIFERENCIACIÓN OBLIGATORIA — LO MÁS IMPORTANTE:
@@ -990,7 +990,7 @@ SYS;
   $instrucciones = [
     'fugas'      => "Tipo de página: DETECCIÓN DE FUGAS. Keyword principal: 'detección fugas {$ciudad}' o 'buscar fugas {$ciudad}'.\nhero_titulo gancho: algo como '...sin romper paredes.' o '...sin obras innecesarias.'\nproblemas_zona: 3 causas REALES de fugas en {$ciudad} según los datos de arriba (no pongas 'Problema típico 1').\nFAQ: 4 preguntas reales sobre fugas en {$ciudad} — con respuestas honestas (precio, método de detección, si reparan, tiempo de respuesta).",
     'desatascos' => "Tipo de página: DESATASCOS. Keyword principal: 'desatascos {$ciudad}' o 'desatascar {$ciudad}'.\nhero_titulo gancho: algo como '...hoy mismo.' o '...sin esperas.'\nproblemas_zona: 3 causas REALES de atascos en {$ciudad} según los datos (tipo de edificios, uso industrial, comunidades, etc.).\nFAQ: 4 preguntas reales sobre desatascos en {$ciudad} — precio, tiempo, qué incluye, urgencias.",
-    'fontanero'  => "Tipo de página: FONTANERO GENERAL. Keyword principal: 'fontanero {$ciudad}'.\nhero_titulo gancho: algo como '...precio cerrado.' o '...sin sorpresas.'\nproblemas_zona: 3 situaciones REALES de {$ciudad} en las que la gente llama a un fontanero, usando los datos de la ciudad.\nFAQ: 4 preguntas reales sobre fontanero en {$ciudad} — precio visita, qué hacen, urgencias, garantía.",
+    'fontanero'  => "Tipo de página: FONTANERO GENERAL. Keyword principal: 'fontanero {$ciudad}'.\nhero_titulo gancho: algo como '...precio sin sorpresas.' o '...sin sorpresas.'\nproblemas_zona: 3 situaciones REALES de {$ciudad} en las que la gente llama a un fontanero, usando los datos de la ciudad.\nFAQ: 4 preguntas reales sobre fontanero en {$ciudad} — precio visita, qué hacen, urgencias, garantía.",
   ];
 
   $perfil_ciudad = $ciudad_perfiles[$ciudad] ?? 'Municipio de la comarca interior de Alicante.';
@@ -1093,8 +1093,8 @@ SYS;
 function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, $depth = 1, $lat = '38.4766', $lng = '-0.7952') {
   $servicio_nombre = $tipo_cfg['nombre'];
   $meta_title      = $data['meta_title']      ?? "{$servicio_nombre} en {$ciudad} — CarolTemp";
-  $meta_desc       = $data['meta_desc']       ?? "Servicio de {$servicio_nombre} en {$ciudad}. Presupuesto cerrado. Llama al 613 429 032.";
-  $hero_titulo     = $data['hero_titulo']     ?? "{$servicio_nombre} en {$ciudad}<br><span class=\"hl\">precio cerrado.</span>";
+  $meta_desc       = $data['meta_desc']       ?? "Servicio de {$servicio_nombre} en {$ciudad}. presupuesto sin sorpresas. Llama al 611 165 129.";
+  $hero_titulo     = $data['hero_titulo']     ?? "{$servicio_nombre} en {$ciudad}<br><span class=\"hl\">precio sin sorpresas.</span>";
   $hero_sub        = $data['hero_sub']        ?? "Atendemos en {$ciudad}. Presupuesto sin sorpresas antes de empezar.";
   $contenido_intro = $data['contenido_intro'] ?? "<p>Servicio de {$servicio_nombre} en {$ciudad}.</p>";
   $servicios_lista = $data['servicios_lista'] ?? [];
@@ -1172,7 +1172,7 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "    <h1>{$hero_titulo_raw}</h1>\n";
   $php .= "    <p class=\"hz-dark-sub\">{$hero_sub_h}</p>\n";
   $php .= "    <div class=\"hz-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
+  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; 611 165 129</a>\n";
   $php .= "      <a href=\"/contacto\" class=\"btn-hz-g\">Solicitar presupuesto</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
@@ -1181,7 +1181,7 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   // ── Strip diferenciadores ─────────────────────────────────────────
   $php .= "<div class=\"dif-strip\">\n";
   $php .= "  <div class=\"dif-strip-in\">\n";
-  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128176; Precio cerrado</span><span class=\"dif-lbl\">Antes de empezar</span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128176; precio sin sorpresas</span><span class=\"dif-lbl\">Antes de empezar</span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128269; Ge&oacute;fono + c&aacute;mara</span><span class=\"dif-lbl\">Sin obras innecesarias</span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#9989; Nubeco oficial</span><span class=\"dif-lbl\">Instalador certificado</span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128205; {$ciudad}</span><span class=\"dif-lbl\">Atenci&oacute;n local</span></div>\n";
@@ -1202,10 +1202,10 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "        <div class=\"zona-icard\">\n";
   $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; {$ciudad}</strong><span>{$servicio_nombre}</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\">{$ciudad} &middot; CP {$ciudad_cp}</span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34611165129\">611 165 129</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34611165129\">Escribir ahora &rarr;</a></span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Todos los servicios</span><span class=\"zona-ir-v\"><a href=\"/fontanero/{$ciudad_slug}\">Fontaner&iacute;a en {$ciudad} &rarr;</a></span></div>\n";
-  $php .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
+  $php .= "          <a href=\"tel:+34611165129\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
   $php .= "        </div>\n";
   $php .= "      </div>\n";
   $php .= "    </div>\n";
@@ -1318,8 +1318,8 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "    <h2>&iquest;Necesitas {$servicio_nombre} <span>en {$ciudad}?</span></h2>\n";
   $php .= "    <p>Ll&aacute;menos o escr&iacute;benos. Te atendemos hoy.</p>\n";
   $php .= "    <div class=\"cta-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
-  $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34611165129\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n";
@@ -1337,7 +1337,7 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $meta_desc  = $data['meta_desc']  ?? "Servicios de fontanería en {$ciudad}. Urgencias, fugas, desatascos e instalaciones.";
   $hero_sub   = htmlspecialchars($data['hero_sub']  ?? "Trabajamos en {$ciudad} realizando todo tipo de servicios de fontanería.", ENT_QUOTES, 'UTF-8');
   $intro_p1   = htmlspecialchars($data['intro_p1']  ?? "Trabajamos en toda la localidad de {$ciudad}, cubriendo tanto viviendas como comunidades.", ENT_QUOTES, 'UTF-8');
-  $intro_p2   = htmlspecialchars($data['intro_p2']  ?? "Presupuesto gratuito sin compromiso. Precio cerrado antes de empezar.", ENT_QUOTES, 'UTF-8');
+  $intro_p2   = htmlspecialchars($data['intro_p2']  ?? "Presupuesto gratuito sin compromiso. precio sin sorpresas antes de empezar.", ENT_QUOTES, 'UTF-8');
   $checklist  = $data['checklist']  ?? ["Urgencias de fontanería", "Detección de fugas", "Desatascos", "Termos y descalcificadores", "Reformas de baño"];
   $faq        = $data['faq']        ?? [];
 
@@ -1399,12 +1399,12 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "    <h1>Fontaner&iacute;a en <span class=\"hl\">{$ch}.</span></h1>\n";
   $php .= "    <p class=\"hz-dark-sub\">{$hero_sub}</p>\n";
   $php .= "    <div class=\"hz-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
+  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; 611 165 129</a>\n";
   $php .= "      <a href=\"/contacto\" class=\"btn-hz-g\">Solicitar visita</a>\n";
   $php .= "    </div>\n";
   $php .= "    <div class=\"hero-dark-kpis\" style=\"margin-top:2rem\">\n";
   $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">Nubeco</span><span class=\"hero-dark-kpi-lbl\">Instalador oficial en {$ch}</span></div>\n";
-  $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">100%</span><span class=\"hero-dark-kpi-lbl\">Precio cerrado siempre</span></div>\n";
+  $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">100%</span><span class=\"hero-dark-kpi-lbl\">precio sin sorpresas siempre</span></div>\n";
   $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">0&euro;</span><span class=\"hero-dark-kpi-lbl\">Sin adelantos con financiaci&oacute;n</span></div>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
@@ -1416,7 +1416,7 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "  <div class=\"dif-strip-in\">\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#9889; Urgencias</span><span class=\"dif-lbl\">Atenci&oacute;n r&aacute;pida en {$ch}</span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128269; Sin obras</span><span class=\"dif-lbl\">Ge&oacute;fono y c&aacute;mara</span></div>\n";
-  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128176; Precio cerrado</span><span class=\"dif-lbl\">Antes de empezar</span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128176; precio sin sorpresas</span><span class=\"dif-lbl\">Antes de empezar</span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128205; Comarca</span><span class=\"dif-lbl\">Somos de aqu&iacute;</span></div>\n";
   $php .= "  </div>\n";
   $php .= "</div>\n\n";
@@ -1439,10 +1439,10 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "        <div class=\"zona-icard\">\n";
   $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; {$ch}</strong><span>Fontaner&iacute;a residencial</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\">{$ch} &middot; CP {$cp_h}</span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34611165129\">611 165 129</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34611165129\">Escribir ahora &rarr;</a></span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Horario</span><span class=\"zona-ir-v\">Lun&ndash;Vie 8&ndash;20h &middot; S&aacute;b 9&ndash;14h</span></div>\n";
-  $php .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
+  $php .= "          <a href=\"tel:+34611165129\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
   $php .= "        </div>\n";
   $php .= "      </div>\n";
   $php .= "    </div>\n";
@@ -1456,12 +1456,12 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "    <p class=\"zona-lbl\">Servicios en {$ch}</p>\n";
   $php .= "    <h2>Todo lo que hacemos <span class=\"hl\">en {$ch}</span></h2>\n";
   $php .= "    <div class=\"zona-svc\">\n";
-  $php .= "      <a href=\"/fontanero/{$slug_h}/urgencias\" class=\"zona-sc\"><span class=\"zona-sc-n\">01</span><h3>Fontanero urgente en {$ch}</h3><p>Roturas de tuber&iacute;as, grifos, cisternas y p&eacute;rdidas de agua con soluci&oacute;n r&aacute;pida y precio cerrado.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"/fontanero/{$slug_h}/urgencias\" class=\"zona-sc\"><span class=\"zona-sc-n\">01</span><h3>Fontanero urgente en {$ch}</h3><p>Roturas de tuber&iacute;as, grifos, cisternas y p&eacute;rdidas de agua con soluci&oacute;n r&aacute;pida y precio sin sorpresas.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"/fontanero/{$slug_h}/busqueda_fugas\" class=\"zona-sc\"><span class=\"zona-sc-n\">02</span><h3>B&uacute;squeda de fugas en {$ch}</h3><p>Localizaci&oacute;n de fugas con ge&oacute;fono y c&aacute;mara sin romper innecesariamente.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"/fontanero/{$slug_h}/desatascos\" class=\"zona-sc\"><span class=\"zona-sc-n\">03</span><h3>Desatascos en {$ch}</h3><p>Desatascos de fregaderos, bajantes y arquetas para recuperar el funcionamiento normal.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"/servicios#termos\" class=\"zona-sc\"><span class=\"zona-sc-n\">04</span><h3>Termos el&eacute;ctricos en {$ch}</h3><p>Instalaci&oacute;n de termos el&eacute;ctricos con asesoramiento y puesta en marcha.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"/servicios#descalcificadores\" class=\"zona-sc\"><span class=\"zona-sc-n\">05</span><h3>Descalcificadores en {$ch}</h3><p>Soluci&oacute;n para el agua dura con instalaci&oacute;n y mantenimiento de descalcificadores.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
-  $php .= "      <a href=\"/servicios#reformas\" class=\"zona-sc\"><span class=\"zona-sc-n\">06</span><h3>Reformas de ba&ntilde;o en {$ch}</h3><p>Reformas completas o parciales con precio cerrado antes de empezar.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"/servicios#reformas\" class=\"zona-sc\"><span class=\"zona-sc-n\">06</span><h3>Reformas de ba&ntilde;o en {$ch}</h3><p>Reformas completas o parciales con precio sin sorpresas antes de empezar.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
@@ -1564,8 +1564,8 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "    <h2>&iquest;Necesitas fontaner&iacute;a <span>en {$ch}?</span></h2>\n";
   $php .= "    <p>Ll&aacute;menos o escr&iacute;benos y te atendemos hoy.</p>\n";
   $php .= "    <div class=\"cta-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
-  $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34611165129\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n";
@@ -1646,12 +1646,12 @@ function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciuda
   $php .= "    <h1>Fontanería en <span class=\"hl\"><?php echo \$zona_nombre; ?>.</span></h1>\n";
   $php .= "    <p class=\"hz-dark-sub\">{$hero_sub_h}</p>\n";
   $php .= "    <div class=\"hz-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
+  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; 611 165 129</a>\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>contacto\" class=\"btn-hz-g\">Solicitar visita</a>\n";
   $php .= "    </div>\n";
   $php .= "    <div class=\"hero-dark-kpis\" style=\"margin-top:2rem\">\n";
   $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">Nubeco</span><span class=\"hero-dark-kpi-lbl\">Instalador oficial en <?php echo \$zona_nombre; ?></span></div>\n";
-  $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">100%</span><span class=\"hero-dark-kpi-lbl\">Precio cerrado siempre</span></div>\n";
+  $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">100%</span><span class=\"hero-dark-kpi-lbl\">precio sin sorpresas siempre</span></div>\n";
   $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">0&euro;</span><span class=\"hero-dark-kpi-lbl\">Sin adelantos con financiaci&oacute;n</span></div>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
@@ -1662,7 +1662,7 @@ function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciuda
   $php .= "  <div class=\"dif-strip-in\">\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#9889; Urgencias</span><span class=\"dif-lbl\">Atenci&oacute;n r&aacute;pida en <?php echo \$zona_nombre; ?></span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128269; Sin obras</span><span class=\"dif-lbl\">Ge&oacute;fono y c&aacute;mara</span></div>\n";
-  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128176; Precio cerrado</span><span class=\"dif-lbl\">Antes de empezar</span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128176; precio sin sorpresas</span><span class=\"dif-lbl\">Antes de empezar</span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128205; Comarca</span><span class=\"dif-lbl\">Somos de aqu&iacute;</span></div>\n";
   $php .= "  </div>\n";
   $php .= "</div>\n\n";
@@ -1686,11 +1686,11 @@ function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciuda
   $php .= "        <div class=\"zona-icard\">\n";
   $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; <?php echo \$zona_nombre; ?></strong><span>Fontaner&iacute;a residencial</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\"><?php echo \$zona_nombre; ?> &middot; CP <?php echo \$zona_cp; ?></span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34611165129\">611 165 129</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34611165129\">Escribir ahora &rarr;</a></span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Horario</span><span class=\"zona-ir-v\">Lun&ndash;Vie 8&ndash;20h &middot; S&aacute;b 9&ndash;14h</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Financiaci&oacute;n</span><span class=\"zona-ir-v\">Disponible para proyectos grandes</span></div>\n";
-  $php .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
+  $php .= "          <a href=\"tel:+34611165129\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
   $php .= "        </div>\n";
   $php .= "      </div>\n";
   $php .= "    </div>\n";
@@ -1704,12 +1704,12 @@ function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciuda
   $php .= "    <h2>Servicios disponibles <span class=\"hl\">en <?php echo \$zona_nombre; ?></span></h2>\n";
   $php .= "    <p class=\"zona-sub\">Selecciona el servicio que necesitas para ver el detalle completo.</p>\n";
   $php .= "    <div class=\"zona-svc\">\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/fontanero-<?php echo \$zona_slug; ?>\" class=\"zona-sc\"><span class=\"zona-sc-n\">01</span><h3>Reparaciones urgentes en <?php echo \$zona_nombre; ?></h3><p>Fugas de agua, grifos, cisternas y tuber&iacute;as con soluci&oacute;n r&aacute;pida y precio cerrado.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/fontanero-<?php echo \$zona_slug; ?>\" class=\"zona-sc\"><span class=\"zona-sc-n\">01</span><h3>Reparaciones urgentes en <?php echo \$zona_nombre; ?></h3><p>Fugas de agua, grifos, cisternas y tuber&iacute;as con soluci&oacute;n r&aacute;pida y precio sin sorpresas.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>fugas/deteccion-fugas-<?php echo \$zona_slug; ?>\" class=\"zona-sc\"><span class=\"zona-sc-n\">02</span><h3>Detecci&oacute;n de fugas en <?php echo \$zona_nombre; ?></h3><p>Localizaci&oacute;n de fugas con ge&oacute;fono y c&aacute;mara sin romper innecesariamente.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>desatascos/desatascos-<?php echo \$zona_slug; ?>\" class=\"zona-sc\"><span class=\"zona-sc-n\">03</span><h3>Desatascos en <?php echo \$zona_nombre; ?></h3><p>Desatascos de fregaderos, bajantes y arquetas para recuperar el funcionamiento normal.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#termos\" class=\"zona-sc\"><span class=\"zona-sc-n\">04</span><h3>Termos el&eacute;ctricos en <?php echo \$zona_nombre; ?></h3><p>Instalaci&oacute;n de termos el&eacute;ctricos con asesoramiento y puesta en marcha.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#descalcificadores\" class=\"zona-sc\"><span class=\"zona-sc-n\">05</span><h3>Descalcificadores en <?php echo \$zona_nombre; ?></h3><p>Soluci&oacute;n para el agua dura con instalaci&oacute;n y mantenimiento de descalcificadores.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#reformas\" class=\"zona-sc\"><span class=\"zona-sc-n\">06</span><h3>Reformas de ba&ntilde;o en <?php echo \$zona_nombre; ?></h3><p>Reformas completas o parciales con precio cerrado antes de empezar.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#reformas\" class=\"zona-sc\"><span class=\"zona-sc-n\">06</span><h3>Reformas de ba&ntilde;o en <?php echo \$zona_nombre; ?></h3><p>Reformas completas o parciales con precio sin sorpresas antes de empezar.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
@@ -1813,10 +1813,10 @@ function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciuda
   $php .= "    <h2>&iquest;Necesitas fontaner&iacute;a <span>en <?php echo \$zona_nombre; ?>?</span></h2>\n";
   $php .= "    <p>Ll&aacute;menos o escr&iacute;benos y te atendemos hoy.</p>\n";
   $php .= "    <div class=\"cta-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
-  $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34611165129\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
   $php .= "    </div>\n";
-  $php .= "    <div class=\"cta-dark-tel\">Tel&eacute;fono directo<strong>613 429 032</strong></div>\n";
+  $php .= "    <div class=\"cta-dark-tel\">Tel&eacute;fono directo<strong>611 165 129</strong></div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
 
@@ -2184,7 +2184,7 @@ Eres un editor web experto. El usuario te dará el HTML actual de una página de
 DATOS DE CAROLTEMP:
 - Servicios: fontanería urgente, detección de fugas (geófono+cámara), desatascos, termos eléctricos, descalcificadores, reformas de baño
 - NO hacen climatización, NO hacen aire acondicionado
-- Teléfono: 613 429 032
+- Teléfono: 611 165 129
 
 REGLAS:
 - Aplica SOLO los cambios que pide el usuario, no cambies el resto

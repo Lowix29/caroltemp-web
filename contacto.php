@@ -141,19 +141,19 @@ include 'includes/head.php';
         <p style="color:#64748b;font-size:14px;margin-bottom:1.75rem">Si lo prefieres, llámanos o escríbenos por WhatsApp.</p>
 
         <div class="contacto-metodos">
-          <a href="tel:+34613429032" class="contacto-metodo">
+          <a href="tel:+34611165129" class="contacto-metodo">
             <div class="contacto-metodo-ico">📞</div>
             <div class="contacto-metodo-texto">
               <strong>Llamada</strong>
-              <span>613 429 032</span>
+              <span>611 165 129</span>
               <small>Lun–Vie 8:00–20:00 · Sáb 9:00–14:00</small>
             </div>
           </a>
-          <a href="https://wa.me/34613429032?text=Hola,%20me%20gustaría%20pedir%20un%20presupuesto" target="_blank" rel="noopener" class="contacto-metodo">
+          <a href="https://wa.me/34611165129?text=Hola,%20me%20gustaría%20pedir%20un%20presupuesto" target="_blank" rel="noopener" class="contacto-metodo">
             <div class="contacto-metodo-ico">💬</div>
             <div class="contacto-metodo-texto">
               <strong>WhatsApp</strong>
-              <span>613 429 032</span>
+              <span>611 165 129</span>
               <small>Te respondemos lo antes posible</small>
             </div>
           </a>
@@ -210,10 +210,10 @@ include 'includes/head.php';
     <h2>Presupuesto <span>sin compromiso</span></h2>
     <p>Cuéntanos qué necesitas. Te respondemos enseguida.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
-    <div class="cta-dark-tel">Teléfono directo<strong>613 429 032</strong></div>
+    <div class="cta-dark-tel">Teléfono directo<strong>611 165 129</strong></div>
   </div>
 </section>
 

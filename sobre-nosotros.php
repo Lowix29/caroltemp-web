@@ -1,6 +1,6 @@
 <?php
 $meta_title  = "Sobre CarolTemp — Fontanería de confianza en el Vinalopó";
-$meta_desc   = "Conoce a CarolTemp, tu fontanero de confianza en el Vinalopó. Trabajo bien hecho, precio cerrado y sin sorpresas en Elda, Petrer, Novelda y toda la comarca.";
+$meta_desc   = "Conoce a CarolTemp, tu fontanero de confianza en el Vinalopó. Trabajo bien hecho, precio sin sorpresas y sin sorpresas en Elda, Petrer, Novelda y toda la comarca.";
 $meta_url    = "https://caroltemp.com/sobre-nosotros.php";
 $schema_type = "default";
 $page_css    = "sobre";
@@ -18,7 +18,7 @@ include 'includes/head.php';
     <h1>Fontanería en el Vinalopó<br><span class="hl">con nombre y apellidos.</span></h1>
     <p class="hz-dark-sub">Somos CarolTemp. Una empresa de fontanería residencial comprometida con hacer las cosas bien, explicar lo que hacemos y cumplir con lo que prometemos.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="<?php echo $base_url; ?>contacto.php" class="btn-hz-g">Contactar</a>
     </div>
   </div>
@@ -39,11 +39,11 @@ include 'includes/head.php';
         <div class="zona-icard">
           <div class="zona-icard-h"><strong>CarolTemp</strong><span>Fontanería industrial y residencial</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Ubicación</span><span class="zona-ir-v">Vinalopó Medio, Alicante</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Instalador oficial</span><span class="zona-ir-v">Termos Nubeco</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Material + instalación incluidos</span></div>
-          <a href="tel:+34613429032" class="zona-icard-btn">📞 Llamar ahora</a>
+          <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ include 'includes/head.php';
   <div class="dif-strip-in">
     <div class="dif-item"><span class="dif-val">Instalador oficial</span><span class="dif-lbl">Termos Nubeco en el Vinalopó</span></div>
     <div class="dif-item"><span class="dif-val">Financiación completa</span><span class="dif-lbl">Material + instalación incluidos</span></div>
-    <div class="dif-item"><span class="dif-val">Precio cerrado</span><span class="dif-lbl">Sin sorpresas ni extras</span></div>
+    <div class="dif-item"><span class="dif-val">precio sin sorpresas</span><span class="dif-lbl">Sin sorpresas ni extras</span></div>
     <div class="dif-item"><span class="dif-val">Toda la comarca</span><span class="dif-lbl">Vinalopó Medio</span></div>
   </div>
 </div>
@@ -68,7 +68,7 @@ include 'includes/head.php';
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e2e8f0;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden">
       <?php
       $compromisos = [
-        ['01','Precio cerrado siempre','Antes de empezar cualquier trabajo te damos un precio cerrado. Sin sorpresas ni extras al final.'],
+        ['01','precio sin sorpresas siempre','Antes de empezar cualquier trabajo te damos un precio sin sorpresas. Sin sorpresas ni extras al final.'],
         ['02','Puntualidad','Llegamos a la hora acordada. Tu tiempo es importante y lo respetamos.'],
         ['03','Transparencia total','Antes de empezar te explicamos qué vamos a hacer y por qué. Sin tecnicismos ni letra pequeña.'],
         ['04','Limpieza y orden','Trabajamos con cuidado y recogemos todo al terminar. Tu casa queda como la encontramos.'],
@@ -112,10 +112,10 @@ include 'includes/head.php';
     <h2>¿Hablamos <span>sin compromiso?</span></h2>
     <p>Cuéntanos qué necesitas y te atendemos hoy.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
-    <div class="cta-dark-tel">Teléfono directo<strong>613 429 032</strong></div>
+    <div class="cta-dark-tel">Teléfono directo<strong>611 165 129</strong></div>
   </div>
 </section>
 
