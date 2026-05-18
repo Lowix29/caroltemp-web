@@ -133,7 +133,7 @@ if ($accion === 'inventario') {
   // Merge páginas from DB
   try {
     $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (id INT AUTO_INCREMENT PRIMARY KEY, titulo VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL UNIQUE, filepath VARCHAR(255) NOT NULL UNIQUE, contenido LONGTEXT, meta_title VARCHAR(255) DEFAULT '', meta_desc TEXT DEFAULT '', publicado TINYINT(1) DEFAULT 1, fecha DATETIME DEFAULT CURRENT_TIMESTAMP, modificado DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
-    $db_pages = $pdo->query("SELECT titulo, filepath FROM paginas WHERE publicado = 1 ORDER BY fecha ASC")->fetchAll(PDO::FETCH_ASSOC);
+    $db_pages = $pdo->query("SELECT titulo, filepath FROM paginas WHERE publicado = 1 AND filepath NOT LIKE '%/%' ORDER BY fecha ASC")->fetchAll(PDO::FETCH_ASSOC);
     $existing_fps_in_cfg = array_column($corporativas_cfg, 'filepath');
     foreach ($db_pages as $dp) {
       if (!in_array($dp['filepath'], $existing_fps_in_cfg, true)) {
@@ -1494,6 +1494,33 @@ if ($accion === 'guardar') {
     echo json_encode(['error' => 'No se pudo escribir el archivo. Verifica permisos en ' . $filepath_rel]);
     exit;
   }
+
+  // ── Registrar en tabla paginas del CMS ───────────────────────────
+  // Derivar slug y título desde el filepath (sin extraer contenido del archivo)
+  $slug_cms   = preg_replace('/-+/', '-', preg_replace('/[^a-z0-9\-]/', '-',
+                  str_replace(['.php', '/'], ['', '-'], $filepath_rel)));
+  $slug_cms   = trim($slug_cms, '-');
+  $titulo_cms = ucwords(str_replace(['-','_'], ' ', basename($filepath_rel, '.php')));
+  try {
+    $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      titulo VARCHAR(255) NOT NULL,
+      slug VARCHAR(255) NOT NULL UNIQUE,
+      filepath VARCHAR(255) NOT NULL UNIQUE,
+      contenido LONGTEXT,
+      meta_title VARCHAR(255) DEFAULT '',
+      meta_desc TEXT DEFAULT '',
+      publicado TINYINT(1) DEFAULT 1,
+      fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+      modificado DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+    $ck = $pdo->prepare('SELECT id FROM paginas WHERE filepath = ? LIMIT 1');
+    $ck->execute([$filepath_rel]);
+    if (!$ck->fetchColumn()) {
+      $ins = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, publicado) VALUES (?, ?, ?, ?, 1)');
+      $ins->execute([$titulo_cms, $slug_cms, $filepath_rel, '']);
+    }
+  } catch (\Throwable $e) { /* ignorar — sync opcional */ }
 
   // ── Si viene plan_accion_id, marcar como completado ──────────────
   if ($plan_accion_id > 0 && file_exists($plan_file)) {
