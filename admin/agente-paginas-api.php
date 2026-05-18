@@ -201,36 +201,59 @@ if ($accion === 'mejorar' || $accion === 'crear') {
     ];
     $desc_pagina = $page_types_labels[$basename] ?? $label_in ?: $basename;
 
+    // Contexto específico según tipo de página
+    $page_ctx = [
+      'financiacion'   => "Es la página de FINANCIACIÓN. CarolTemp ofrece planes a plazos para instalaciones de climatización, aerotermia, calderas, descalcificadores y reformas de baño. Sin adelanto con financiación. Trabajan con entidades especializadas. El proceso es rápido y sin complicaciones. Llama al 613 429 032 para consultar condiciones.",
+      'contacto'       => "Es la página de CONTACTO. Teléfono: 613 429 032. WhatsApp disponible. Atienden toda la comarca: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe. Horario: Lun-Vie 8-20h, Sáb 9-14h. Presupuesto gratuito sin compromiso.",
+      'sobre-nosotros' => "Es la página SOBRE NOSOTROS. CarolTemp es una empresa local de fontanería y climatización en la comarca interior de Alicante. Instaladores certificados Nubeco. Geófono y cámara para fugas. Precio cerrado antes de empezar. Sin 'años de experiencia' ni estadísticas inventadas.",
+      'index'          => "Es la HOME. Presentar brevemente CarolTemp: fontanería y climatización en la comarca. Diferenciadores: precio cerrado, geófono+cámara, Nubeco oficial. CTA a llamar o contactar.",
+    ];
+    $ctx_extra = $page_ctx[$basename] ?? "Es la página: {$desc_pagina}. Generar contenido relevante y útil para el cliente.";
+
     $system_corp = <<<SYS
-Eres redactor web para CarolTemp, empresa de fontanería y climatización en la comarca interior de Alicante (Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe).
+Eres redactor SEO para CarolTemp, empresa de fontanería y climatización en la comarca interior de Alicante (Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe). Teléfono: 613 429 032.
 
-REGLAS:
-- No inventes estadísticas ni porcentajes
-- Texto corto, directo y útil
-- Teléfono de contacto: 613 429 032
-- Sin "Vinalopó"
+REGLAS ABSOLUTAS:
+- NUNCA inventes estadísticas, años de experiencia ni porcentajes
+- NUNCA uses "Vinalopó"
+- NUNCA uses frases vacías: "somos tu empresa de confianza", "calidad garantizada"
+- Texto directo y útil para el cliente — cada párrafo debe responder a algo que el cliente necesita saber
 
-Devuelve SOLO JSON válido:
+DEVUELVE SOLO ESTE JSON VÁLIDO:
 {
-  "meta_title": "máx 60 chars",
-  "meta_desc": "150-160 chars",
-  "h1": "título principal de la página",
-  "intro": "párrafo de introducción (2-3 frases)",
-  "secciones": [
-    {"titulo": "...", "texto": "..."},
-    {"titulo": "...", "texto": "..."}
+  "meta_title": "máx 60 chars — keyword + CarolTemp",
+  "meta_desc": "150-160 chars exactos — qué + para quién + diferenciador + zona",
+  "h1": "título H1 directo y descriptivo",
+  "hero_sub": "1-2 frases de 15-20 palabras que resumen el valor para el cliente",
+  "intro": "2-3 frases de introducción: qué es, para quién y qué ventaja ofrece",
+  "checklist": ["punto concreto 1", "punto concreto 2", "punto concreto 3", "punto 4", "punto 5"],
+  "cards": [
+    {"titulo": "título de opción o ventaja 1", "texto": "descripción breve, 1-2 frases directas"},
+    {"titulo": "título 2", "texto": "descripción"},
+    {"titulo": "título 3", "texto": "descripción"}
+  ],
+  "pasos": [
+    {"num": "01", "titulo": "primer paso", "texto": "descripción breve"},
+    {"num": "02", "titulo": "segundo paso", "texto": "descripción breve"},
+    {"num": "03", "titulo": "tercer paso", "texto": "descripción breve"}
+  ],
+  "faq": [
+    {"pregunta": "pregunta real del cliente", "respuesta": "respuesta directa y honesta"},
+    {"pregunta": "segunda pregunta", "respuesta": "respuesta"},
+    {"pregunta": "tercera pregunta", "respuesta": "respuesta"},
+    {"pregunta": "cuarta pregunta", "respuesta": "respuesta"}
   ]
 }
 
-CRÍTICO: comillas dobles para todo el JSON, sin comillas dobles dentro de los valores.
+CRÍTICO: comillas dobles en claves y valores. Comillas simples si necesitas citar dentro de un valor. Sin comas finales.
 SYS;
 
     $payload_corp = [
       'model'      => ANTHROPIC_MODEL,
-      'max_tokens' => 1200,
+      'max_tokens' => 2500,
       'system'     => $system_corp,
       'messages'   => [
-        ['role' => 'user',      'content' => "Genera el contenido para la página: {$desc_pagina}\nEmpresa: CarolTemp — fontanería y climatización en Alicante interior."],
+        ['role' => 'user',      'content' => "Página: {$desc_pagina}\n\n{$ctx_extra}\n\nGenera el JSON completo con todo el contenido para esta página."],
         ['role' => 'assistant', 'content' => '{'],
       ],
     ];
@@ -261,39 +284,160 @@ SYS;
       $msg = $resp_corp['error']['message'] ?? 'Error desconocido';
       echo json_encode(['error' => "Error API Claude ({$http_corp}): {$msg}"]); exit;
     }
+    if (($resp_corp['stop_reason'] ?? '') === 'max_tokens') { echo json_encode(['error' => 'Respuesta demasiado larga. Inténtalo de nuevo.']); exit; }
     $json_corp = '{' . $resp_corp['content'][0]['text'];
     $data_corp = json_decode($json_corp, true);
-    if (!$data_corp) {
-      if (preg_match('/\{[\s\S]*\}/u', $json_corp, $m)) $data_corp = json_decode($m[0], true);
-    }
+    if (!$data_corp && preg_match('/\{[\s\S]*\}/u', $json_corp, $m)) $data_corp = json_decode($m[0], true);
     if (!$data_corp) { echo json_encode(['error' => 'Claude no devolvió JSON válido.']); exit; }
 
-    $e   = fn($v) => var_export($v, true);
+    $e          = fn($v) => var_export($v, true);
     $meta_title = $data_corp['meta_title'] ?? $desc_pagina . ' — CarolTemp';
     $meta_desc  = $data_corp['meta_desc']  ?? '';
-    $h1         = $data_corp['h1']         ?? $desc_pagina;
-    $intro      = $data_corp['intro']      ?? '';
-    $secciones  = $data_corp['secciones']  ?? [];
-    $meta_url   = 'https://caroltemp.com/' . ltrim($filepath_in, '/');
+    $h1         = htmlspecialchars($data_corp['h1']      ?? $desc_pagina,     ENT_QUOTES, 'UTF-8');
+    $hero_sub   = htmlspecialchars($data_corp['hero_sub'] ?? '',               ENT_QUOTES, 'UTF-8');
+    $intro      = htmlspecialchars($data_corp['intro']   ?? '',                ENT_QUOTES, 'UTF-8');
+    $checklist  = $data_corp['checklist'] ?? [];
+    $cards      = $data_corp['cards']     ?? [];
+    $pasos      = $data_corp['pasos']     ?? [];
+    $faq        = $data_corp['faq']       ?? [];
+    $meta_url   = 'https://caroltemp.com/' . ltrim(str_replace('.php','', $filepath_in), '/');
 
-    $secs_html = '';
-    foreach ($secciones as $sec) {
-      $secs_html .= '<section class="page-section"><div class="container"><h2>' . htmlspecialchars($sec['titulo'] ?? '') . '</h2><p>' . htmlspecialchars($sec['texto'] ?? '') . '</p></div></section>' . "\n";
+    // Checklist HTML
+    $svg_chk  = '<svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    $chk_html = '';
+    foreach ($checklist as $item) {
+      $chk_html .= '          <li><span class="chk-ico">' . $svg_chk . '</span>' . htmlspecialchars($item, ENT_QUOTES, 'UTF-8') . "</li>\n";
     }
 
+    // Cards HTML
+    $cards_html = '';
+    foreach ($cards as $card) {
+      $ct = htmlspecialchars($card['titulo'] ?? '', ENT_QUOTES, 'UTF-8');
+      $cx = htmlspecialchars($card['texto']  ?? '', ENT_QUOTES, 'UTF-8');
+      $cards_html .= "      <div class=\"zona-sc\">\n        <h3>{$ct}</h3>\n        <p>{$cx}</p>\n      </div>\n";
+    }
+
+    // Pasos HTML
+    $pasos_html = '';
+    foreach ($pasos as $paso) {
+      $pn = htmlspecialchars($paso['num']    ?? '', ENT_QUOTES, 'UTF-8');
+      $pt = htmlspecialchars($paso['titulo'] ?? '', ENT_QUOTES, 'UTF-8');
+      $px = htmlspecialchars($paso['texto']  ?? '', ENT_QUOTES, 'UTF-8');
+      $pasos_html .= "      <div class=\"zona-sc\">\n        <span class=\"zona-sc-n\">{$pn}</span>\n        <h3>{$pt}</h3>\n        <p>{$px}</p>\n      </div>\n";
+    }
+
+    // FAQ HTML
+    $svg_faq  = '<svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    $faq_html = '';
+    $first    = true;
+    foreach ($faq as $f) {
+      $fp = htmlspecialchars($f['pregunta']  ?? '', ENT_QUOTES, 'UTF-8');
+      $fr = htmlspecialchars($f['respuesta'] ?? '', ENT_QUOTES, 'UTF-8');
+      $op = $first ? ' open' : '';
+      $faq_html .= "      <div class=\"zona-fi{$op}\">\n";
+      $faq_html .= "        <div class=\"zona-fiq\" onclick=\"togFaq(this)\"><span>{$fp}</span><span class=\"zona-fiq-i\">{$svg_faq}</span></div>\n";
+      $faq_html .= "        <div class=\"zona-fia\">{$fr}</div>\n";
+      $faq_html .= "      </div>\n";
+      $first = false;
+    }
+
+    // PHP file generation
     $php_corp  = "<?php\n";
-    $php_corp .= "/**\n * {$desc_pagina}\n * Generado por Agente de Páginas\n */\n";
     $php_corp .= "\$meta_title  = {$e($meta_title)};\n";
     $php_corp .= "\$meta_desc   = {$e($meta_desc)};\n";
     $php_corp .= "\$meta_url    = {$e($meta_url)};\n";
     $php_corp .= "\$schema_type = 'local';\n";
-    $php_corp .= "\$page_css    = 'default';\n";
-    $php_corp .= "\$page_js     = '';\n";
+    $php_corp .= "\$page_css    = 'zona';\n";
+    $php_corp .= "\$page_js     = 'zona';\n";
+    $php_corp .= "\$robots_meta = 'index';\n";
     $php_corp .= "include 'includes/head.php';\n";
     $php_corp .= "?>\n\n";
-    $php_corp .= "<section class=\"page-hero\">\n  <div class=\"container\">\n    <h1>{$h1}</h1>\n    <p class=\"hero-sub\">{$intro}</p>\n  </div>\n</section>\n\n";
-    $php_corp .= $secs_html;
-    $php_corp .= "\n<?php include 'includes/footer.php'; ?>\n";
+
+    // Hero
+    $php_corp .= "<section class=\"hz-dark\">\n";
+    $php_corp .= "  <div class=\"hz-dark-bg\"></div>\n";
+    $php_corp .= "  <div class=\"hz-dark-glow\"></div>\n";
+    $php_corp .= "  <div class=\"hz-dark-con\">\n";
+    $php_corp .= "    <div class=\"hz-dark-tag\"><span class=\"hz-dark-dot\"></span>CarolTemp &middot; Fontaner&iacute;a y Climatizaci&oacute;n</div>\n";
+    $php_corp .= "    <h1>{$h1}</h1>\n";
+    $php_corp .= "    <p class=\"hz-dark-sub\">{$hero_sub}</p>\n";
+    $php_corp .= "    <div class=\"hz-dark-btns\">\n";
+    $php_corp .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
+    $php_corp .= "      <a href=\"<?php echo \$base_url; ?>contacto\" class=\"btn-hz-g\">Solicitar informaci&oacute;n</a>\n";
+    $php_corp .= "    </div>\n";
+    $php_corp .= "  </div>\n";
+    $php_corp .= "</section>\n\n";
+
+    // Intro + checklist + contact card
+    $php_corp .= "<section class=\"zona-sec\">\n";
+    $php_corp .= "  <div class=\"cta-dark-con\">\n";
+    $php_corp .= "    <div class=\"zona-tcol\">\n";
+    $php_corp .= "      <div>\n";
+    $php_corp .= "        <h2>{$h1}</h2>\n";
+    $php_corp .= "        <div class=\"zona-prose\"><p>{$intro}</p></div>\n";
+    if ($chk_html) {
+      $php_corp .= "        <ul class=\"zona-chk\">\n{$chk_html}        </ul>\n";
+    }
+    $php_corp .= "      </div>\n";
+    $php_corp .= "      <div>\n";
+    $php_corp .= "        <div class=\"zona-icard\">\n";
+    $php_corp .= "          <div class=\"zona-icard-h\"><strong>CarolTemp</strong><span>Fontaner&iacute;a y Climatizaci&oacute;n</span></div>\n";
+    $php_corp .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\">Elda, Petrer, Novelda y comarca</span></div>\n";
+    $php_corp .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
+    $php_corp .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
+    $php_corp .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Horario</span><span class=\"zona-ir-v\">Lun&ndash;Vie 8&ndash;20h &middot; S&aacute;b 9&ndash;14h</span></div>\n";
+    $php_corp .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
+    $php_corp .= "        </div>\n";
+    $php_corp .= "      </div>\n";
+    $php_corp .= "    </div>\n";
+    $php_corp .= "  </div>\n";
+    $php_corp .= "</section>\n\n";
+
+    // Cards
+    if ($cards_html) {
+      $php_corp .= "<section class=\"zona-sec zona-sec-gray\">\n";
+      $php_corp .= "  <div class=\"cta-dark-con\">\n";
+      $php_corp .= "    <h2>" . htmlspecialchars($desc_pagina, ENT_QUOTES, 'UTF-8') . " &mdash; <span class=\"hl\">c&oacute;mo funciona</span></h2>\n";
+      $php_corp .= "    <div class=\"zona-svc\" style=\"margin-top:2rem\">\n{$cards_html}    </div>\n";
+      $php_corp .= "  </div>\n";
+      $php_corp .= "</section>\n\n";
+    }
+
+    // Pasos
+    if ($pasos_html) {
+      $php_corp .= "<section class=\"zona-sec\">\n";
+      $php_corp .= "  <div class=\"cta-dark-con\">\n";
+      $php_corp .= "    <p class=\"zona-lbl\">Proceso</p>\n";
+      $php_corp .= "    <h2>Pasos para <span class=\"hl\">empezar</span></h2>\n";
+      $php_corp .= "    <div class=\"zona-svc\" style=\"margin-top:2rem\">\n{$pasos_html}    </div>\n";
+      $php_corp .= "  </div>\n";
+      $php_corp .= "</section>\n\n";
+    }
+
+    // FAQ
+    if ($faq_html) {
+      $php_corp .= "<section class=\"zona-sec zona-sec-gray\">\n";
+      $php_corp .= "  <div class=\"cta-dark-con\">\n";
+      $php_corp .= "    <p class=\"zona-lbl\">Preguntas frecuentes</p>\n";
+      $php_corp .= "    <h2>Dudas sobre <span class=\"hl\">" . htmlspecialchars($desc_pagina, ENT_QUOTES, 'UTF-8') . "</span></h2>\n";
+      $php_corp .= "    <div class=\"zona-faq\" style=\"margin-top:2rem\">\n{$faq_html}    </div>\n";
+      $php_corp .= "  </div>\n";
+      $php_corp .= "</section>\n\n";
+    }
+
+    // CTA final
+    $php_corp .= "<section class=\"cta-dark\">\n";
+    $php_corp .= "  <div class=\"cta-dark-con\">\n";
+    $php_corp .= "    <h2>&iquest;Tienes alguna consulta?</h2>\n";
+    $php_corp .= "    <p>Ll&aacute;menos o escr&iacute;benos y te atendemos hoy mismo.</p>\n";
+    $php_corp .= "    <div class=\"cta-dark-btns\">\n";
+    $php_corp .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
+    $php_corp .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+    $php_corp .= "    </div>\n";
+    $php_corp .= "  </div>\n";
+    $php_corp .= "</section>\n\n";
+
+    $php_corp .= "<?php include 'includes/footer.php'; ?>\n";
 
     echo json_encode([
       'ok'            => true,

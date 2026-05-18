@@ -44,22 +44,57 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   if ($found) {
     $pag      = $found;
     $editando = true;
-    // Si la BD tiene contenido vacío, intentar extraerlo del archivo en disco
-    if (trim($pag['contenido']) === '' && !empty($pag['filepath'])) {
+    // Si la BD tiene contenido o metas vacíos, extraerlos del archivo en disco
+    if (!empty($pag['filepath'])) {
       $abs_disco = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $pag['filepath']);
       if (file_exists($abs_disco)) {
         $raw_disco = file_get_contents($abs_disco);
-        $php_end   = strpos($raw_disco, '?>');
-        if ($php_end !== false) {
-          $html_part  = ltrim(substr($raw_disco, $php_end + 2));
-          $footer_pos = strrpos($html_part, '<?php');
-          if ($footer_pos !== false) $html_part = rtrim(substr($html_part, 0, $footer_pos));
-          if (trim($html_part) !== '') {
-            $pag['contenido'] = $html_part;
-            // Sincronizar también en BD para futuras cargas
-            $upd = $pdo->prepare('UPDATE paginas SET contenido = ? WHERE id = ?');
-            $upd->execute([$html_part, $pag['id']]);
+        $sync_fields = [];
+
+        // Extraer meta_title del archivo si está vacío en BD
+        if (empty(trim($pag['meta_title'] ?? ''))) {
+          if (preg_match('/\$meta_title\s*=\s*[\'"](.+?)[\'"]\s*;/', $raw_disco, $mm)) {
+            $pag['meta_title'] = stripslashes($mm[1]);
+            $sync_fields['meta_title'] = $pag['meta_title'];
           }
+        }
+
+        // Extraer meta_desc del archivo si está vacío en BD
+        if (empty(trim($pag['meta_desc'] ?? ''))) {
+          if (preg_match('/\$meta_desc\s*=\s*[\'"](.+?)[\'"]\s*;/', $raw_disco, $mm)) {
+            $pag['meta_desc'] = stripslashes($mm[1]);
+            $sync_fields['meta_desc'] = $pag['meta_desc'];
+          }
+        }
+
+        // Extraer robots si está vacío
+        if (empty(trim($pag['robots'] ?? ''))) {
+          if (preg_match('/\$robots_meta\s*=\s*[\'"](.+?)[\'"]\s*;/', $raw_disco, $mm)) {
+            $pag['robots'] = stripslashes($mm[1]);
+            $sync_fields['robots'] = $pag['robots'];
+          }
+        }
+
+        // Extraer HTML del archivo si contenido está vacío en BD
+        if (trim($pag['contenido'] ?? '') === '') {
+          $php_end = strpos($raw_disco, '?>');
+          if ($php_end !== false) {
+            $html_part  = ltrim(substr($raw_disco, $php_end + 2));
+            $footer_pos = strrpos($html_part, '<?php');
+            if ($footer_pos !== false) $html_part = rtrim(substr($html_part, 0, $footer_pos));
+            if (trim($html_part) !== '') {
+              $pag['contenido'] = $html_part;
+              $sync_fields['contenido'] = $html_part;
+            }
+          }
+        }
+
+        // Sincronizar todo a BD de una vez
+        if (!empty($sync_fields)) {
+          $set_clauses = implode(', ', array_map(fn($k) => "{$k} = :{$k}", array_keys($sync_fields)));
+          $sync_fields['id'] = $pag['id'];
+          $upd = $pdo->prepare("UPDATE paginas SET {$set_clauses} WHERE id = :id");
+          $upd->execute($sync_fields);
         }
       }
     }
