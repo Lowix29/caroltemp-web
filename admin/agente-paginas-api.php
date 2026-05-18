@@ -203,7 +203,7 @@ if ($accion === 'mejorar' || $accion === 'crear') {
 
     // Contexto específico según tipo de página
     $page_ctx = [
-      'financiacion'   => "Página de FINANCIACIÓN. CarolTemp ofrece planes a plazos (sin adelanto) para climatización, aerotermia, calderas, descalcificadores y reformas. Trabajan con entidades especializadas. Proceso ágil. Teléfono: 613 429 032.",
+      'financiacion'   => "Página de FINANCIACIÓN. CarolTemp ofrece financiación a plazos (sin adelanto) SOLO para sus servicios de fontanería: reparaciones de tuberías, detección y reparación de fugas, desatascos, instalación de termos eléctricos, descalcificadores y reformas de baño/cocina. NO hacen climatización ni aire acondicionado. Trabajan con entidades financieras especializadas. Proceso ágil. Teléfono: 613 429 032.",
       'contacto'       => "Página de CONTACTO. Tel: 613 429 032. WhatsApp. Atienden toda la comarca: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe. Horario: Lun-Vie 8-20h, Sáb 9-14h. Presupuesto gratuito.",
       'sobre-nosotros' => "Página SOBRE NOSOTROS. CarolTemp: empresa local de fontanería y climatización en la comarca interior de Alicante. Instaladores Nubeco certificados. Geófono y cámara para fugas. Precio cerrado siempre. Sin inventar 'años de experiencia'.",
       'index'          => "Página HOME. Presentar CarolTemp: fontanería y climatización en la comarca. Diferenciadores: precio cerrado, geófono+cámara sin obras, Nubeco oficial. Zonas: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe.",
@@ -214,7 +214,8 @@ if ($accion === 'mejorar' || $accion === 'crear') {
 Eres un maquetador web SEO experto. Generas el HTML completo del <body> de páginas web para CarolTemp usando el sistema de componentes disponible.
 
 DATOS DE CAROLTEMP:
-- Empresa: fontanería y climatización en la comarca interior de Alicante
+- Empresa: fontanería en la comarca interior de Alicante (NO hacen climatización, NO hacen aire acondicionado)
+- Servicios: fontanería urgente, detección de fugas (geófono+cámara), desatascos, instalación de termos eléctricos, descalcificadores, reformas de baño
 - Teléfono: 613 429 032 | WhatsApp: https://wa.me/34613429032
 - Zonas: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
 - Diferenciadores REALES: precio cerrado antes de empezar, geófono+cámara para fugas sin romper, instaladores Nubeco certificados
@@ -223,6 +224,7 @@ REGLAS:
 - NUNCA escribas "Vinalopó"
 - NUNCA inventes estadísticas, porcentajes ni años de experiencia
 - NUNCA frases vacías: "de confianza", "calidad garantizada", "expertos en"
+- NUNCA menciones aire acondicionado, climatización ni aerotermia — CarolTemp NO ofrece esos servicios
 - <?php ... ?> dentro del HTML: usa SOLO estas variables PHP disponibles: $base_url
 
 COMPONENTES DISPONIBLES — usa los que más convengan para esta página:
@@ -2226,6 +2228,82 @@ if ($accion === 'remove_corporativa') {
   $extras = array_values(array_filter($extras, fn($e) => $e['filepath'] !== $filepath));
   file_put_contents($extra_file, json_encode($extras, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
   echo json_encode(['ok' => true]);
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Refinar página — chat para ajustar HTML ya generado
+// ─────────────────────────────────────────────────────────────────────
+if ($accion === 'refinar') {
+  $html_actual  = trim($_POST['html_actual']  ?? '');
+  $instruccion  = trim($_POST['instruccion']  ?? '');
+  $filepath_ref = trim($_POST['filepath']     ?? '');
+
+  if (!$html_actual || !$instruccion) {
+    echo json_encode(['error' => 'Falta html_actual o instruccion']);
+    exit;
+  }
+
+  $system_ref = <<<'SYSREF'
+Eres un editor web experto. El usuario te dará el HTML actual de una página de CarolTemp (empresa de fontanería en Alicante) y una instrucción de cambio.
+
+DATOS DE CAROLTEMP:
+- Servicios: fontanería urgente, detección de fugas (geófono+cámara), desatascos, termos eléctricos, descalcificadores, reformas de baño
+- NO hacen climatización, NO hacen aire acondicionado
+- Teléfono: 613 429 032
+
+REGLAS:
+- Aplica SOLO los cambios que pide el usuario, no cambies el resto
+- Devuelve el HTML completo corregido, sin explicaciones, sin markdown, sin bloques de código
+- Mantén las clases CSS (zona-sec, hz-dark, zona-svc, etc.) y la estructura general
+- NUNCA menciones climatización ni aire acondicionado
+- PHP solo: $base_url como variable disponible
+SYSREF;
+
+  $messages_ref = [
+    [
+      'role'    => 'user',
+      'content' => "HTML ACTUAL:\n\n{$html_actual}\n\n---\nINSTRUCCIÓN: {$instruccion}"
+    ],
+    [
+      'role'    => 'assistant',
+      'content' => '<'
+    ]
+  ];
+
+  $payload_ref = json_encode([
+    'model'      => ANTHROPIC_MODEL,
+    'max_tokens' => 8000,
+    'system'     => $system_ref,
+    'messages'   => $messages_ref,
+  ], JSON_UNESCAPED_UNICODE);
+
+  $ch_ref = curl_init('https://api.anthropic.com/v1/messages');
+  curl_setopt_array($ch_ref, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST           => true,
+    CURLOPT_POSTFIELDS     => $payload_ref,
+    CURLOPT_HTTPHEADER     => [
+      'Content-Type: application/json',
+      'x-api-key: ' . ANTHROPIC_API_KEY,
+      'anthropic-version: 2023-06-01',
+    ],
+    CURLOPT_TIMEOUT        => 120,
+  ]);
+  $res_ref  = curl_exec($ch_ref);
+  $err_ref  = curl_error($ch_ref);
+  curl_close($ch_ref);
+
+  if ($err_ref) { echo json_encode(['error' => 'cURL: ' . $err_ref]); exit; }
+
+  $dec_ref = json_decode($res_ref, true);
+  if (!isset($dec_ref['content'][0]['text'])) {
+    echo json_encode(['error' => 'Sin respuesta de IA', 'raw' => $res_ref]);
+    exit;
+  }
+
+  $html_nuevo = '<' . ltrim($dec_ref['content'][0]['text']);
+  echo json_encode(['ok' => true, 'html' => $html_nuevo]);
   exit;
 }
 

@@ -435,6 +435,75 @@ $base_url = 'http://localhost/';
     .btn-guardar-disco:hover:not(:disabled) { background: #15803d; }
     .btn-guardar-disco:disabled { opacity: .55; cursor: not-allowed; }
 
+    /* ── Chat refinamiento ── */
+    .refinar-box {
+      margin-top: 1rem;
+      border: 1.5px solid #D6E2F0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .refinar-header {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .625rem 1rem;
+      background: #EEF4FF;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1976D2;
+      user-select: none;
+    }
+    .refinar-header:hover { background: #DBEAFE; }
+    .refinar-body { padding: .875rem 1rem; display: none; }
+    .refinar-box.open .refinar-body { display: block; }
+    .refinar-box.open .refinar-chevron { transform: rotate(180deg); }
+    .refinar-chevron { margin-left: auto; transition: transform .2s; }
+    .refinar-historial {
+      max-height: 220px;
+      overflow-y: auto;
+      margin-bottom: .75rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    .refinar-msg {
+      padding: .5rem .75rem;
+      border-radius: 8px;
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+    .refinar-msg.user { background: #EEF4FF; color: #0B2447; align-self: flex-end; max-width: 85%; }
+    .refinar-msg.ai   { background: #F0FDF4; color: #14532d; border: 1px solid #BBF7D0; }
+    .refinar-input-row {
+      display: flex;
+      gap: .5rem;
+    }
+    .refinar-input {
+      flex: 1;
+      padding: .5rem .75rem;
+      border: 1.5px solid #D6E2F0;
+      border-radius: 8px;
+      font-size: 13px;
+      font-family: inherit;
+      color: #0B2447;
+    }
+    .refinar-input:focus { outline: none; border-color: #1976D2; }
+    .btn-refinar-send {
+      padding: .5rem .875rem;
+      background: #1976D2;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+    .btn-refinar-send:hover:not(:disabled) { background: #1565C0; }
+    .btn-refinar-send:disabled { opacity: .5; cursor: not-allowed; }
+
     /* ── Redirect result ── */
     .redirect-code {
       background: #1e293b;
@@ -870,6 +939,25 @@ $base_url = 'http://localhost/';
           <button class="btn-guardar-disco" id="btn-guardar" onclick="guardar()">
             💾 Guardar en disco
           </button>
+
+          <!-- Chat refinamiento -->
+          <div class="refinar-box" id="refinar-box">
+            <div class="refinar-header" onclick="toggleRefinar()">
+              <span>💬</span>
+              <span>Refinar con IA</span>
+              <span style="font-size:11px;font-weight:400;color:#4B6CB7">— pide cambios al agente</span>
+              <span class="refinar-chevron">▾</span>
+            </div>
+            <div class="refinar-body">
+              <div class="refinar-historial" id="refinar-historial"></div>
+              <div class="refinar-input-row">
+                <input type="text" class="refinar-input" id="refinar-input"
+                       placeholder="Ej: quita todo lo de climatización, cambia el título del hero..."
+                       onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault();enviarRefinar();}">
+                <button class="btn-refinar-send" id="btn-refinar-send" onclick="enviarRefinar()">Enviar</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Contenido REDIRIGIR -->
@@ -1646,6 +1734,10 @@ function mostrarResultado(data, accion, tipoLabel, ciudad, filepath, planAccionI
 
   contarChars(document.getElementById('pv-meta-title'), 'mt-info', 60);
   contarChars(document.getElementById('pv-meta-desc'),  'md-info', 160);
+
+  // Resetear chat de refinamiento
+  document.getElementById('refinar-historial').innerHTML = '';
+  document.getElementById('refinar-box').classList.remove('open');
 }
 
 // ── Guardar en disco ──────────────────────────────────────────────────────────
@@ -1736,6 +1828,60 @@ function escp(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+// ── Chat de refinamiento ──────────────────────────────────────────────────────
+function toggleRefinar() {
+  document.getElementById('refinar-box').classList.toggle('open');
+}
+
+function addMsgRefinar(tipo, texto) {
+  const hist = document.getElementById('refinar-historial');
+  const div  = document.createElement('div');
+  div.className = 'refinar-msg ' + tipo;
+  div.textContent = texto;
+  hist.appendChild(div);
+  hist.scrollTop = hist.scrollHeight;
+}
+
+async function enviarRefinar() {
+  const input   = document.getElementById('refinar-input');
+  const btn     = document.getElementById('btn-refinar-send');
+  const instruc = input.value.trim();
+  if (!instruc) return;
+
+  const htmlActual = document.getElementById('pv-php-content').value.trim();
+  if (!htmlActual) {
+    addMsgRefinar('ai', '⚠️ Primero genera el contenido de la página.');
+    return;
+  }
+
+  addMsgRefinar('user', instruc);
+  input.value   = '';
+  btn.disabled  = true;
+  btn.textContent = '⏳';
+
+  const fd = new FormData();
+  fd.append('accion',       'refinar');
+  fd.append('html_actual',  htmlActual);
+  fd.append('instruccion',  instruc);
+  fd.append('filepath',     document.getElementById('pv-filepath').value || '');
+
+  try {
+    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
+    const data = await r.json();
+    if (data.ok && data.html) {
+      document.getElementById('pv-php-content').value = data.html;
+      addMsgRefinar('ai', '✓ Listo. El contenido ha sido actualizado arriba. Revísalo y guarda cuando estés conforme.');
+    } else {
+      addMsgRefinar('ai', '⚠️ Error: ' + (data.error || 'Sin respuesta'));
+    }
+  } catch (e) {
+    addMsgRefinar('ai', '⚠️ Error de conexión al refinar');
+  }
+
+  btn.disabled  = false;
+  btn.textContent = 'Enviar';
 }
 </script>
 </body>
