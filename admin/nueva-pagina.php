@@ -44,6 +44,25 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   if ($found) {
     $pag      = $found;
     $editando = true;
+    // Si la BD tiene contenido vacío, intentar extraerlo del archivo en disco
+    if (trim($pag['contenido']) === '' && !empty($pag['filepath'])) {
+      $abs_disco = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $pag['filepath']);
+      if (file_exists($abs_disco)) {
+        $raw_disco = file_get_contents($abs_disco);
+        $php_end   = strpos($raw_disco, '?>');
+        if ($php_end !== false) {
+          $html_part  = ltrim(substr($raw_disco, $php_end + 2));
+          $footer_pos = strrpos($html_part, '<?php');
+          if ($footer_pos !== false) $html_part = rtrim(substr($html_part, 0, $footer_pos));
+          if (trim($html_part) !== '') {
+            $pag['contenido'] = $html_part;
+            // Sincronizar también en BD para futuras cargas
+            $upd = $pdo->prepare('UPDATE paginas SET contenido = ? WHERE id = ?');
+            $upd->execute([$html_part, $pag['id']]);
+          }
+        }
+      }
+    }
   }
 }
 
