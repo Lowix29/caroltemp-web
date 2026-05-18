@@ -583,6 +583,129 @@ $base_url = 'http://localhost/';
     }
     .leyenda-item { display: flex; align-items: center; gap: .375rem; }
 
+    /* ── Sección corporativas ── */
+    .corp-section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 2rem 0 .875rem;
+      gap: 1rem;
+    }
+    .corp-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8FA3B8;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .btn-add-corp {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1976D2;
+      background: #EEF4FF;
+      border: none;
+      border-radius: 100px;
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .btn-add-corp:hover { background: #dbeafe; }
+    .corp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: .75rem;
+    }
+    .corp-card {
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      padding: .875rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    .corp-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .375rem;
+    }
+    .corp-card-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0B2447;
+      line-height: 1.3;
+    }
+    .corp-card-fp {
+      font-family: monospace;
+      font-size: 10px;
+      color: #94a3b8;
+    }
+    .corp-card-status-ok   { font-size: 11px; color: #16a34a; font-weight: 700; }
+    .corp-card-status-miss { font-size: 11px; color: #DC2626; font-weight: 700; }
+    .corp-card-btns {
+      display: flex;
+      gap: .375rem;
+      flex-wrap: wrap;
+      margin-top: .125rem;
+    }
+    .corp-card-btns .btn-accion { font-size: 11px; }
+    .btn-corp-del {
+      font-size: 10px;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 4px;
+      line-height: 1;
+    }
+    .btn-corp-del:hover { color: #DC2626; background: #fee2e2; }
+
+    /* ── Formulario nueva corporativa ── */
+    .corp-add-form {
+      display: none;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: .75rem;
+    }
+    .corp-add-form.open { display: block; }
+    .corp-add-form label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #576574;
+      display: block;
+      margin-bottom: .25rem;
+    }
+    .corp-add-form input {
+      width: 100%;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: .4rem .65rem;
+      font-size: 13px;
+      margin-bottom: .625rem;
+      box-sizing: border-box;
+    }
+    .corp-add-row {
+      display: flex;
+      gap: .5rem;
+    }
+    .corp-add-row button {
+      font-size: 12px;
+      font-weight: 600;
+      padding: .4rem .875rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-corp-save  { background: #1976D2; color: #fff; }
+    .btn-corp-cancel { background: #f1f5f9; color: #576574; }
+
     /* ── Error matriz ── */
     .matriz-error {
       background: #FEF2F2;
@@ -1025,7 +1148,8 @@ async function ejecutarAccion(accionObj) {
 
   // Páginas corporativas (index, contacto, sobre-nosotros…): ruta raíz o tipo explícito
   if (partes.length < 2 || tipoCard === 'corporativa') {
-    mostrarNoCorporativa(accionId, filepath);
+    const accionCorp = (accionObj.accion || '').toLowerCase() === 'crear' ? 'crear' : 'mejorar';
+    await lanzarAccion(accionCorp, 'corporativa', '', '', '', filepath, accionId);
     return;
   }
 
@@ -1327,28 +1451,90 @@ function renderMatriz(matriz, cols, corporativas) {
   html += '</tbody></table></div>';
 
   // ── Sección páginas corporativas ──────────────────────────────────
+  html += '<div class="corp-section-head">';
+  html += '<span class="corp-section-title">Páginas corporativas</span>';
+  html += '<button class="btn-add-corp" onclick="toggleCorpForm()">+ Añadir página</button>';
+  html += '</div>';
+  html += '<div class="corp-add-form" id="corp-add-form">';
+  html += '<label>Nombre de la página</label>';
+  html += '<input type="text" id="corp-new-label" placeholder="Ej: Política de privacidad">';
+  html += '<label>Archivo (.php) relativo a la raíz</label>';
+  html += '<input type="text" id="corp-new-filepath" placeholder="politica-privacidad.php">';
+  html += '<div class="corp-add-row">';
+  html += '<button class="btn-corp-save" onclick="guardarNuevaCorp()">Guardar</button>';
+  html += '<button class="btn-corp-cancel" onclick="toggleCorpForm()">Cancelar</button>';
+  html += '</div>';
+  html += '</div>';
+
   if (corporativas && corporativas.length) {
-    html += '<h3 style="margin:2rem 0 .75rem;font-size:13px;font-weight:700;color:#8FA3B8;text-transform:uppercase;letter-spacing:.07em">Páginas corporativas</h3>';
-    html += '<div style="display:flex;flex-wrap:wrap;gap:.75rem">';
+    html += '<div class="corp-grid">';
     corporativas.forEach(function(corp) {
       const lbl      = escp(corp.label);
       const fp       = escp(corp.filepath);
       const rutaWeb  = escp(corp.ruta_web);
+      const onCrear  = 'onclick="lanzarAccion(\'crear\',\'corporativa\',\'\',\'\',\'\',\'' + fp + '\',0)"';
+      const onRehacer= 'onclick="lanzarAccion(\'mejorar\',\'corporativa\',\'\',\'\',\'\',\'' + fp + '\',0)"';
+      const onDel    = corp.custom ? 'onclick="eliminarCorp(\'' + fp + '\')"' : '';
+
+      html += '<div class="corp-card">';
+      html += '<div class="corp-card-top">';
+      html += '<span class="corp-card-label">' + lbl + '</span>';
+      if (corp.custom) html += '<button class="btn-corp-del" title="Eliminar" ' + onDel + '>✕</button>';
+      html += '</div>';
+      html += '<span class="corp-card-fp">' + fp + '</span>';
       if (corp.existe) {
-        html += '<div class="cell-ok-wrap" style="padding:.5rem .75rem;border:1px solid #d1fae5;border-radius:8px;background:#f0fdf4">';
-        html += '<span class="cell-ok"><span class="cell-ok-icon">✓</span> ' + lbl + '</span>';
-        html += '<a href="' + rutaWeb + '" target="_blank" style="margin-left:.5rem;font-size:11px;color:#64748b">Ver</a>';
+        html += '<span class="corp-card-status-ok">✓ Existe</span>';
+        html += '<div class="corp-card-btns">';
+        html += '<button class="btn-accion btn-regen" ' + onRehacer + '>↻ Rehacer</button>';
+        html += '<a href="' + rutaWeb + '" target="_blank" class="btn-accion btn-regen" style="text-decoration:none">Ver →</a>';
         html += '</div>';
       } else {
-        html += '<div class="cell-falta" style="padding:.5rem .75rem;border:1px solid #fee2e2;border-radius:8px;background:#fff7f7">';
-        html += '<span class="cell-falta-lbl">✗ ' + lbl + '</span>';
+        html += '<span class="corp-card-status-miss">✗ No existe</span>';
+        html += '<div class="corp-card-btns">';
+        html += '<button class="btn-accion btn-crear" ' + onCrear + '>Crear</button>';
         html += '</div>';
       }
+      html += '</div>';
     });
     html += '</div>';
   }
 
   document.getElementById('matriz-wrap').innerHTML = html;
+}
+
+// ── Formulario nueva corporativa ─────────────────────────────────────────────
+function toggleCorpForm() {
+  const f = document.getElementById('corp-add-form');
+  if (f) f.classList.toggle('open');
+}
+
+async function guardarNuevaCorp() {
+  const label    = (document.getElementById('corp-new-label')?.value    || '').trim();
+  const filepath = (document.getElementById('corp-new-filepath')?.value || '').trim();
+  if (!label || !filepath) { alert('Rellena nombre y archivo'); return; }
+  const fd = new FormData();
+  fd.append('accion',   'add_corporativa');
+  fd.append('label',    label);
+  fd.append('filepath', filepath);
+  const r = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
+  const d = await r.json();
+  if (d.ok) {
+    toggleCorpForm();
+    cargarInventario(true);
+  } else {
+    alert(d.error || 'Error al guardar');
+  }
+}
+
+async function eliminarCorp(filepath) {
+  if (!confirm('¿Eliminar "' + filepath + '" de la lista?')) return;
+  const fd = new FormData();
+  fd.append('accion',   'remove_corporativa');
+  fd.append('filepath', filepath);
+  const r = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
+  const d = await r.json();
+  if (d.ok) cargarInventario(true);
+  else alert(d.error || 'Error');
 }
 
 // ── lanzarAccion — desde mapa o ejecutarAccion ────────────────────────────────
@@ -1357,17 +1543,20 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
   filepathActual     = filepath;
   planAccionIdActual = planAccionId || 0;
 
+  const TIPO_LABELS = {
+    desatascos:    'Desatascos',
+    fontanero:     'Fontanero',
+    hub_ciudad:    'Hub Ciudad',
+    urgencias:     'Urgencias',
+    busqueda_fugas:'Búsqueda de fugas',
+    corporativa:   'Corporativa',
+  };
   const badge = document.getElementById('editor-ctx-badge');
   const accionLabel = accion === 'mejorar' ? 'Mejorando' : 'Creando';
   const tipoLabel   = TIPO_LABELS[tipo] || tipo;
-  badge.textContent = accionLabel + ' · ' + tipoLabel + ' · ' + ciudad;
+  const ctxLabel    = ciudad ? accionLabel + ' · ' + tipoLabel + ' · ' + ciudad : accionLabel + ' · ' + tipoLabel + ' · ' + filepath;
+  badge.textContent = ctxLabel;
   badge.style.display = '';
-
-  const TIPO_LABELS = {
-    desatascos: 'Desatascos', fontanero: 'Fontanero',
-    hub_ciudad: 'Hub Ciudad', urgencias: 'Urgencias',
-    busqueda_fugas: 'Búsqueda de fugas',
-  };
   const tips = [
     'Analizando el contenido actual...',
     'Investigando keywords locales...',
@@ -1392,6 +1581,7 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
     fd.append('ciudad_slug', ciudadSlug);
     fd.append('ciudad_cp',   ciudadCp);
     fd.append('filepath',    filepath || '');
+    fd.append('label',       TIPO_LABELS[tipo] || tipo);
 
     const controller = new AbortController();
     const fetchTimer = setTimeout(function() { controller.abort(); }, 100000);

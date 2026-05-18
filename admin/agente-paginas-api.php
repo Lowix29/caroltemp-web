@@ -111,14 +111,27 @@ if ($accion === 'inventario') {
   // Devolver también los labels de columnas para que el JS los renderice dinámicamente
   $cols = array_map(fn($k, $c) => ['key' => $k, 'label' => $c['label']], array_keys($silo_cols), $silo_cols);
 
-  // Páginas corporativas
+  // Páginas corporativas (base + extras guardados)
   $corporativas_cfg = [
     ['label' => 'Home',           'filepath' => 'index.php',          'ruta_web' => '/'],
     ['label' => 'Contacto',       'filepath' => 'contacto.php',       'ruta_web' => '/contacto'],
     ['label' => 'Sobre nosotros', 'filepath' => 'sobre-nosotros.php', 'ruta_web' => '/sobre-nosotros'],
     ['label' => 'Financiación',   'filepath' => 'financiacion.php',   'ruta_web' => '/financiacion'],
   ];
+  $extra_file_inv = __DIR__ . '/corporativas-extra.json';
+  if (file_exists($extra_file_inv)) {
+    $extras_inv = json_decode(file_get_contents($extra_file_inv), true);
+    if (is_array($extras_inv)) {
+      $existing_fps = array_column($corporativas_cfg, 'filepath');
+      foreach ($extras_inv as $ex) {
+        if (!in_array($ex['filepath'], $existing_fps, true)) {
+          $corporativas_cfg[] = $ex + ['ruta_web' => '/' . ltrim(str_replace('.php','', $ex['filepath']), '/')];
+        }
+      }
+    }
+  }
   $corporativas = [];
+  $base_fps     = ['index.php','contacto.php','sobre-nosotros.php','financiacion.php'];
   foreach ($corporativas_cfg as $corp) {
     $abs    = $site_root . '/' . $corp['filepath'];
     $existe = file_exists($abs);
@@ -128,6 +141,7 @@ if ($accion === 'inventario') {
       'ruta_web' => $corp['ruta_web'],
       'existe'   => $existe,
       'tipo'     => 'corporativa',
+      'custom'   => !in_array($corp['filepath'], $base_fps, true),
     ];
   }
 
@@ -155,6 +169,127 @@ if ($accion === 'mejorar' || $accion === 'crear') {
   $ciudad      = trim($_POST['ciudad']      ?? '');
   $ciudad_slug = trim($_POST['ciudad_slug'] ?? '');
   $ciudad_cp   = trim($_POST['ciudad_cp']   ?? '');
+  $filepath_in = trim($_POST['filepath']    ?? '');
+  $label_in    = trim($_POST['label']       ?? $tipo);
+
+  // ── Generación para páginas corporativas (sin ciudad) ────────────
+  if ($tipo === 'corporativa') {
+    if (!$filepath_in) {
+      echo json_encode(['error' => 'Falta filepath para página corporativa']);
+      exit;
+    }
+    $basename  = basename($filepath_in, '.php');
+    $page_types_labels = [
+      'index'          => 'Home — página principal',
+      'contacto'       => 'Contacto',
+      'sobre-nosotros' => 'Sobre nosotros / Quiénes somos',
+      'financiacion'   => 'Financiación',
+    ];
+    $desc_pagina = $page_types_labels[$basename] ?? $label_in ?: $basename;
+
+    $system_corp = <<<SYS
+Eres redactor web para CarolTemp, empresa de fontanería y climatización en la comarca interior de Alicante (Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe).
+
+REGLAS:
+- No inventes estadísticas ni porcentajes
+- Texto corto, directo y útil
+- Teléfono de contacto: 613 429 032
+- Sin "Vinalopó"
+
+Devuelve SOLO JSON válido:
+{
+  "meta_title": "máx 60 chars",
+  "meta_desc": "150-160 chars",
+  "h1": "título principal de la página",
+  "intro": "párrafo de introducción (2-3 frases)",
+  "secciones": [
+    {"titulo": "...", "texto": "..."},
+    {"titulo": "...", "texto": "..."}
+  ]
+}
+
+CRÍTICO: comillas dobles para todo el JSON, sin comillas dobles dentro de los valores.
+SYS;
+
+    $payload_corp = [
+      'model'      => ANTHROPIC_MODEL,
+      'max_tokens' => 1200,
+      'system'     => $system_corp,
+      'messages'   => [
+        ['role' => 'user',      'content' => "Genera el contenido para la página: {$desc_pagina}\nEmpresa: CarolTemp — fontanería y climatización en Alicante interior."],
+        ['role' => 'assistant', 'content' => '{'],
+      ],
+    ];
+
+    $ch = curl_init('https://api.anthropic.com/v1/messages');
+    curl_setopt_array($ch, [
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_POST           => true,
+      CURLOPT_POSTFIELDS     => json_encode($payload_corp),
+      CURLOPT_HTTPHEADER     => [
+        'x-api-key: '         . ANTHROPIC_API_KEY,
+        'anthropic-version: 2023-06-01',
+        'content-type: application/json',
+      ],
+      CURLOPT_TIMEOUT        => 90,
+      CURLOPT_CONNECTTIMEOUT => 15,
+      CURLOPT_SSL_VERIFYPEER => false,
+      CURLOPT_SSL_VERIFYHOST => false,
+    ]);
+
+    $raw_corp  = curl_exec($ch);
+    $http_corp = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if (!$raw_corp) { echo json_encode(['error' => 'No se pudo conectar con la API de Claude.']); exit; }
+    $resp_corp = json_decode($raw_corp, true);
+    if ($http_corp !== 200 || empty($resp_corp['content'][0]['text'])) {
+      $msg = $resp_corp['error']['message'] ?? 'Error desconocido';
+      echo json_encode(['error' => "Error API Claude ({$http_corp}): {$msg}"]); exit;
+    }
+    $json_corp = '{' . $resp_corp['content'][0]['text'];
+    $data_corp = json_decode($json_corp, true);
+    if (!$data_corp) {
+      if (preg_match('/\{[\s\S]*\}/u', $json_corp, $m)) $data_corp = json_decode($m[0], true);
+    }
+    if (!$data_corp) { echo json_encode(['error' => 'Claude no devolvió JSON válido.']); exit; }
+
+    $e   = fn($v) => var_export($v, true);
+    $meta_title = $data_corp['meta_title'] ?? $desc_pagina . ' — CarolTemp';
+    $meta_desc  = $data_corp['meta_desc']  ?? '';
+    $h1         = $data_corp['h1']         ?? $desc_pagina;
+    $intro      = $data_corp['intro']      ?? '';
+    $secciones  = $data_corp['secciones']  ?? [];
+    $meta_url   = 'https://caroltemp.com/' . ltrim($filepath_in, '/');
+
+    $secs_html = '';
+    foreach ($secciones as $sec) {
+      $secs_html .= '<section class="page-section"><div class="container"><h2>' . htmlspecialchars($sec['titulo'] ?? '') . '</h2><p>' . htmlspecialchars($sec['texto'] ?? '') . '</p></div></section>' . "\n";
+    }
+
+    $php_corp  = "<?php\n";
+    $php_corp .= "/**\n * {$desc_pagina}\n * Generado por Agente de Páginas\n */\n";
+    $php_corp .= "\$meta_title  = {$e($meta_title)};\n";
+    $php_corp .= "\$meta_desc   = {$e($meta_desc)};\n";
+    $php_corp .= "\$meta_url    = {$e($meta_url)};\n";
+    $php_corp .= "\$schema_type = 'local';\n";
+    $php_corp .= "\$page_css    = 'default';\n";
+    $php_corp .= "\$page_js     = '';\n";
+    $php_corp .= "include 'includes/head.php';\n";
+    $php_corp .= "?>\n\n";
+    $php_corp .= "<section class=\"page-hero\">\n  <div class=\"container\">\n    <h1>{$h1}</h1>\n    <p class=\"hero-sub\">{$intro}</p>\n  </div>\n</section>\n\n";
+    $php_corp .= $secs_html;
+    $php_corp .= "\n<?php include 'includes/footer.php'; ?>\n";
+
+    echo json_encode([
+      'ok'            => true,
+      'php_contenido' => $php_corp,
+      'filepath'      => $filepath_in,
+      'meta_title'    => $meta_title,
+      'meta_desc'     => $meta_desc,
+    ]);
+    exit;
+  }
 
   if (!$tipo || !$ciudad || !$ciudad_slug) {
     echo json_encode(['error' => 'Faltan parámetros requeridos: tipo, ciudad, ciudad_slug']);
@@ -1297,10 +1432,11 @@ if ($accion === 'guardar') {
   $filepath_rel = ltrim($filepath_rel, '/');
 
   // Extraer el directorio raíz de la ruta
-  $parts       = explode('/', $filepath_rel);
-  $top_dir     = $parts[0] ?? '';
+  $parts         = explode('/', $filepath_rel);
+  $top_dir       = $parts[0] ?? '';
+  $is_root_level = (count($parts) === 1); // e.g. index.php, contacto.php
 
-  if (!in_array($top_dir, $allowed_dirs, true)) {
+  if (!$is_root_level && !in_array($top_dir, $allowed_dirs, true)) {
     echo json_encode(['error' => 'Directorio no permitido: ' . $top_dir]);
     exit;
   }
@@ -1525,6 +1661,53 @@ if ($accion === 'redireccion_htaccess') {
     'regla'      => $regla,
     'instruccion' => 'Añade esta línea al archivo .htaccess en la raíz del sitio, antes de las reglas de rewrite existentes.',
   ]);
+  exit;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// ACCIÓN: add_corporativa / remove_corporativa
+// ─────────────────────────────────────────────────────────────────────
+$extra_file = __DIR__ . '/corporativas-extra.json';
+
+if ($accion === 'add_corporativa') {
+  $label    = trim($_POST['label']    ?? '');
+  $filepath = trim($_POST['filepath'] ?? '');
+  $ruta_web = trim($_POST['ruta_web'] ?? '');
+
+  if (!$label || !$filepath) {
+    echo json_encode(['error' => 'Faltan label y/o filepath']); exit;
+  }
+  if (!preg_match('/^[a-z0-9\-_\/]+\.php$/', $filepath)) {
+    echo json_encode(['error' => 'filepath no válido']); exit;
+  }
+
+  $extras = file_exists($extra_file) ? json_decode(file_get_contents($extra_file), true) : [];
+  if (!is_array($extras)) $extras = [];
+
+  // Evitar duplicados
+  foreach ($extras as $e) {
+    if ($e['filepath'] === $filepath) {
+      echo json_encode(['ok' => true, 'msg' => 'Ya existe']); exit;
+    }
+  }
+
+  if (!$ruta_web) $ruta_web = '/' . ltrim(str_replace('.php', '', $filepath), '/');
+  $extras[] = ['label' => $label, 'filepath' => $filepath, 'ruta_web' => $ruta_web];
+  file_put_contents($extra_file, json_encode($extras, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+  echo json_encode(['ok' => true]);
+  exit;
+}
+
+if ($accion === 'remove_corporativa') {
+  $filepath = trim($_POST['filepath'] ?? '');
+  if (!$filepath) { echo json_encode(['error' => 'Falta filepath']); exit; }
+
+  $extras = file_exists($extra_file) ? json_decode(file_get_contents($extra_file), true) : [];
+  if (!is_array($extras)) $extras = [];
+
+  $extras = array_values(array_filter($extras, fn($e) => $e['filepath'] !== $filepath));
+  file_put_contents($extra_file, json_encode($extras, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+  echo json_encode(['ok' => true]);
   exit;
 }
 
