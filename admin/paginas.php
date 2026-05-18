@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 require_once '../includes/db.php';
 
-// Crear tabla si no existe
+// Crear tabla si no existe (con robots incluido)
 $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (
   id INT AUTO_INCREMENT PRIMARY KEY,
   titulo VARCHAR(255) NOT NULL,
@@ -15,10 +15,14 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (
   contenido LONGTEXT,
   meta_title VARCHAR(255) DEFAULT '',
   meta_desc TEXT DEFAULT '',
+  robots VARCHAR(20) DEFAULT 'index',
   publicado TINYINT(1) DEFAULT 1,
   fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
   modificado DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
+// Añadir columna robots si falta (compatible MySQL 5.7 — ignorar error si ya existe)
+try { $pdo->exec("ALTER TABLE paginas ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 
 $mensaje = '';
 
@@ -34,20 +38,18 @@ if (isset($_GET['importar'])) {
       header('Location: nueva-pagina.php?id=' . $existente);
       exit;
     }
-    // Intentar extraer contenido HTML del archivo
+    // Extraer contenido HTML del archivo (entre primer ?> y último <?php)
     $contenido = '';
     $abs_imp   = dirname(__DIR__) . '/' . $fn;
     if (file_exists($abs_imp)) {
-      $raw      = file_get_contents($abs_imp);
-      $php_end  = strpos($raw, '?>');
+      $raw     = file_get_contents($abs_imp);
+      $php_end = strpos($raw, '?>');
       if ($php_end !== false) {
-        $html_part = ltrim(substr($raw, $php_end + 2));
-        // Quitar include footer al final
+        $html_part  = ltrim(substr($raw, $php_end + 2));
         $footer_pos = strrpos($html_part, '<?php');
         if ($footer_pos !== false) {
           $html_part = rtrim(substr($html_part, 0, $footer_pos));
         }
-        // Solo usar si el HTML no tiene demasiado PHP mezclado
         if (substr_count($html_part, '<?php') <= 2) {
           $contenido = $html_part;
         }
@@ -55,15 +57,10 @@ if (isset($_GET['importar'])) {
     }
     $slug   = str_replace('.php', '', $fn);
     $titulo = ucwords(str_replace('-', ' ', $slug));
-    try {
-      $pdo->exec("ALTER TABLE paginas ADD COLUMN IF NOT EXISTS robots VARCHAR(20) DEFAULT 'index'");
-      $ins = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, publicado) VALUES (?, ?, ?, ?, 1)');
-      $ins->execute([$titulo, $slug, $fn, $contenido]);
-      header('Location: nueva-pagina.php?id=' . $pdo->lastInsertId() . '&importado=1');
-      exit;
-    } catch (PDOException $e) {
-      $mensaje = '⚠️ Error al importar: ' . htmlspecialchars($e->getMessage());
-    }
+    $ins = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, publicado) VALUES (?, ?, ?, ?, 1)');
+    $ins->execute([$titulo, $slug, $fn, $contenido]);
+    header('Location: nueva-pagina.php?id=' . $pdo->lastInsertId() . '&importado=1');
+    exit;
   }
 }
 

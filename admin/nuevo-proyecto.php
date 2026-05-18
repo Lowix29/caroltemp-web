@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 require_once '../includes/db.php';
 
-$pdo->exec("ALTER TABLE proyectos ADD COLUMN IF NOT EXISTS robots VARCHAR(20) DEFAULT 'index'");
+try { $pdo->exec("ALTER TABLE proyectos ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 
 $img_base = $is_local ? '/caroltemp' : '';
 

@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 require_once '../includes/db.php';
 
-$pdo->exec("ALTER TABLE articulos ADD COLUMN IF NOT EXISTS robots VARCHAR(20) DEFAULT 'index'");
+try { $pdo->exec("ALTER TABLE articulos ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 
 // Base path para rutas de imagen (en local el sitio está en /caroltemp/)
 $img_base = $is_local ? '/caroltemp' : '';

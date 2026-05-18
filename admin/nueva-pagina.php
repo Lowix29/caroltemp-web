@@ -20,7 +20,7 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (
   fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
   modificado DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
-$pdo->exec("ALTER TABLE paginas ADD COLUMN IF NOT EXISTS robots VARCHAR(20) DEFAULT 'index'");
+try { $pdo->exec("ALTER TABLE paginas ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 
 $mensaje = '';
 $error   = '';
