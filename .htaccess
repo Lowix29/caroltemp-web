@@ -17,11 +17,14 @@ RewriteCond %{REQUEST_URI} !agente-paginas-api\.php [NC]
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# Si entran a /zonas/ redirigir a zonas.php
-RewriteRule ^zonas/?$ zonas.php [L]
+# Redirigir /zonas a home (arquitectura antigua eliminada)
+RewriteRule ^zonas/?$ / [R=301,L]
+
+# /blog → /noticias (301 permanente para SEO)
+RewriteRule ^blog(/.*)?$ /noticias$1 [R=301,L]
 
 # Índices de sección
-RewriteRule ^blog/?$      blog/index.php [L]
+RewriteRule ^noticias/?$  noticias/index.php [L]
 RewriteRule ^proyectos/?$ proyectos/index.php [L]
 
 # Silo por ciudad — sub-páginas: /fontanero/{ciudad}/{servicio}
@@ -32,10 +35,10 @@ RewriteRule ^fontanero/([a-z0-9\-]+)/([a-z0-9\-_]+)/?$ fontanero/$1/$2.php [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^fontanero/([a-z0-9\-]+)/?$ fontanero/$1.php [L]
 
-# URLs amigables blog
-RewriteRule ^blog/categoria/([^/]+)/?$ blog/index.php?categoria=$1 [QSA,L]
+# URLs amigables noticias
+RewriteRule ^noticias/categoria/([^/]+)/?$ noticias/index.php?categoria=$1 [QSA,L]
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^blog/([^/]+)/?$ blog/articulo.php?slug=$1 [QSA,L]
+RewriteRule ^noticias/([^/]+)/?$ noticias/articulo.php?slug=$1 [QSA,L]
 
 # URLs amigables proyectos
 RewriteRule ^proyectos/servicio/([^/]+)/?$ proyectos/index.php?servicio=$1 [QSA,L]

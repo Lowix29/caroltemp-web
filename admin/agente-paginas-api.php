@@ -111,7 +111,27 @@ if ($accion === 'inventario') {
   // Devolver también los labels de columnas para que el JS los renderice dinámicamente
   $cols = array_map(fn($k, $c) => ['key' => $k, 'label' => $c['label']], array_keys($silo_cols), $silo_cols);
 
-  echo json_encode(['ok' => true, 'matriz' => $matriz, 'cols' => $cols]);
+  // Páginas corporativas
+  $corporativas_cfg = [
+    ['label' => 'Home',           'filepath' => 'index.php',          'ruta_web' => '/'],
+    ['label' => 'Contacto',       'filepath' => 'contacto.php',       'ruta_web' => '/contacto'],
+    ['label' => 'Sobre nosotros', 'filepath' => 'sobre-nosotros.php', 'ruta_web' => '/sobre-nosotros'],
+    ['label' => 'Financiación',   'filepath' => 'financiacion.php',   'ruta_web' => '/financiacion'],
+  ];
+  $corporativas = [];
+  foreach ($corporativas_cfg as $corp) {
+    $abs    = $site_root . '/' . $corp['filepath'];
+    $existe = file_exists($abs);
+    $corporativas[] = [
+      'label'    => $corp['label'],
+      'filepath' => $corp['filepath'],
+      'ruta_web' => $corp['ruta_web'],
+      'existe'   => $existe,
+      'tipo'     => 'corporativa',
+    ];
+  }
+
+  echo json_encode(['ok' => true, 'matriz' => $matriz, 'cols' => $cols, 'corporativas' => $corporativas]);
   exit;
 }
 

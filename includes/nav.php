@@ -92,8 +92,8 @@
           </div>
         </div>
 
-        <a href="<?php echo $base_url; ?>proyectos/" class="nav-link">Proyectos</a>
-        <a href="<?php echo $base_url; ?>blog/"      class="nav-link">Blog</a>
+        <a href="<?php echo $base_url; ?>proyectos/"  class="nav-link">Proyectos</a>
+        <a href="<?php echo $base_url; ?>noticias/"  class="nav-link">Noticias</a>
 
       </div>
     </nav>
@@ -200,8 +200,8 @@
       </div>
 
       <!-- Links directos -->
-      <a href="<?php echo $base_url; ?>proyectos/" class="nav-panel-link">Proyectos <span class="nav-panel-arrow">›</span></a>
-      <a href="<?php echo $base_url; ?>blog/"      class="nav-panel-link">Blog <span class="nav-panel-arrow">›</span></a>
+      <a href="<?php echo $base_url; ?>proyectos/"  class="nav-panel-link">Proyectos <span class="nav-panel-arrow">›</span></a>
+      <a href="<?php echo $base_url; ?>noticias/"  class="nav-panel-link">Noticias <span class="nav-panel-arrow">›</span></a>
       <a href="<?php echo $base_url; ?>contacto"   class="nav-panel-link">Contacto <span class="nav-panel-arrow">›</span></a>
     </div>
 

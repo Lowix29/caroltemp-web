@@ -1275,14 +1275,14 @@ async function cargarInventario() {
     }
 
     mapaYaCargado = true;
-    renderMatriz(data.matriz, data.cols || []);
+    renderMatriz(data.matriz, data.cols || [], data.corporativas || []);
   } catch (e) {
     wrap.innerHTML = '<div class="matriz-error">⚠️ Error de conexión al cargar el inventario.</div>';
   }
 }
 
 // ── Renderizar matriz ─────────────────────────────────────────────────────────
-function renderMatriz(matriz, cols) {
+function renderMatriz(matriz, cols, corporativas) {
   let html = '<div style="overflow-x:auto"><table class="matriz-table"><thead><tr>';
   html += '<th>Ciudad</th>';
   cols.forEach(function(c) { html += '<th>' + escp(c.label) + '</th>'; });
@@ -1325,6 +1325,29 @@ function renderMatriz(matriz, cols) {
   });
 
   html += '</tbody></table></div>';
+
+  // ── Sección páginas corporativas ──────────────────────────────────
+  if (corporativas && corporativas.length) {
+    html += '<h3 style="margin:2rem 0 .75rem;font-size:13px;font-weight:700;color:#8FA3B8;text-transform:uppercase;letter-spacing:.07em">Páginas corporativas</h3>';
+    html += '<div style="display:flex;flex-wrap:wrap;gap:.75rem">';
+    corporativas.forEach(function(corp) {
+      const lbl      = escp(corp.label);
+      const fp       = escp(corp.filepath);
+      const rutaWeb  = escp(corp.ruta_web);
+      if (corp.existe) {
+        html += '<div class="cell-ok-wrap" style="padding:.5rem .75rem;border:1px solid #d1fae5;border-radius:8px;background:#f0fdf4">';
+        html += '<span class="cell-ok"><span class="cell-ok-icon">✓</span> ' + lbl + '</span>';
+        html += '<a href="' + rutaWeb + '" target="_blank" style="margin-left:.5rem;font-size:11px;color:#64748b">Ver</a>';
+        html += '</div>';
+      } else {
+        html += '<div class="cell-falta" style="padding:.5rem .75rem;border:1px solid #fee2e2;border-radius:8px;background:#fff7f7">';
+        html += '<span class="cell-falta-lbl">✗ ' + lbl + '</span>';
+        html += '</div>';
+      }
+    });
+    html += '</div>';
+  }
+
   document.getElementById('matriz-wrap').innerHTML = html;
 }
 
