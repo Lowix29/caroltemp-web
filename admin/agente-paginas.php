@@ -1231,21 +1231,14 @@ async function cargarInventario() {
     }
 
     mapaYaCargado = true;
-    renderMatriz(data.matriz);
+    renderMatriz(data.matriz, data.cols || []);
   } catch (e) {
     wrap.innerHTML = '<div class="matriz-error">⚠️ Error de conexión al cargar el inventario.</div>';
   }
 }
 
 // ── Renderizar matriz ─────────────────────────────────────────────────────────
-function renderMatriz(matriz) {
-  const cols = [
-    { key: 'zona',       label: 'Zona'       },
-    { key: 'fugas',      label: 'Fugas'      },
-    { key: 'desatascos', label: 'Desatascos' },
-    { key: 'fontanero',  label: 'Fontanero'  },
-  ];
-
+function renderMatriz(matriz, cols) {
   let html = '<div style="overflow-x:auto"><table class="matriz-table"><thead><tr>';
   html += '<th>Ciudad</th>';
   cols.forEach(function(c) { html += '<th>' + escp(c.label) + '</th>'; });
@@ -1258,8 +1251,14 @@ function renderMatriz(matriz) {
       const svc = fila.servicios[col.key];
       if (!svc) { html += '<td>—</td>'; return; }
 
-      const onMejorar = 'onclick="lanzarAccion(\'mejorar\',\'' + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
-      const onCrear   = 'onclick="lanzarAccion(\'crear\',\''   + escp(col.key) + '\',\'' + escp(fila.ciudad) + '\',\'' + escp(fila.slug) + '\',\'' + escp(fila.cp) + '\',\'' + escp(svc.filepath) + '\',0)"';
+      const tipo       = escp(svc.tipo || col.key);
+      const ciudadE    = escp(fila.ciudad);
+      const slugE      = escp(fila.slug);
+      const cpE        = escp(fila.cp);
+      const filepathE  = escp(svc.filepath);
+
+      const onMejorar = 'onclick="lanzarAccion(\'mejorar\',\'' + tipo + '\',\'' + ciudadE + '\',\'' + slugE + '\',\'' + cpE + '\',\'' + filepathE + '\',0)"';
+      const onCrear   = 'onclick="lanzarAccion(\'crear\',\''   + tipo + '\',\'' + ciudadE + '\',\'' + slugE + '\',\'' + cpE + '\',\'' + filepathE + '\',0)"';
 
       if (svc.existe && !svc.provisional) {
         html += '<td><div class="cell-ok-wrap">';

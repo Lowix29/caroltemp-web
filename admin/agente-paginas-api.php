@@ -68,6 +68,14 @@ $allowed_dirs = ['fugas', 'desatascos', 'fontanero', 'zonas'];
 if ($accion === 'inventario') {
   $matriz = [];
 
+  // Silo: las páginas que debe tener cada ciudad en la arquitectura nueva
+  $silo_cols = [
+    'hub'        => ['label' => 'Hub',        'filepath' => fn($s) => "fontanero/{$s}.php",            'ruta_web' => fn($s) => "/fontanero/{$s}",            'tipo' => 'hub_ciudad'],
+    'urgencias'  => ['label' => 'Urgencias',  'filepath' => fn($s) => "fontanero/{$s}/urgencias.php",  'ruta_web' => fn($s) => "/fontanero/{$s}/urgencias",  'tipo' => 'urgencias'],
+    'fugas'      => ['label' => 'Fugas',      'filepath' => fn($s) => "fontanero/{$s}/fugas.php",      'ruta_web' => fn($s) => "/fontanero/{$s}/fugas",      'tipo' => 'fugas'],
+    'desatascos' => ['label' => 'Desatascos', 'filepath' => fn($s) => "fontanero/{$s}/desatascos.php", 'ruta_web' => fn($s) => "/fontanero/{$s}/desatascos", 'tipo' => 'desatascos'],
+  ];
+
   foreach ($ciudades as $ciudad_nombre => $info) {
     $slug = $info['slug'];
     $cp   = $info['cp'];
@@ -78,51 +86,32 @@ if ($accion === 'inventario') {
       'servicios' => [],
     ];
 
-    // Comprobar páginas de servicio (fugas, desatascos, fontanero)
-    foreach ($tipos_servicio as $tipo_key => $tipo_cfg) {
-      $filename  = $tipo_cfg['prefijo_archivo'] . $slug . '.php';
-      $filepath  = $site_root . '/' . $tipo_cfg['dir'] . '/' . $filename;
-      $ruta_web  = '/' . $tipo_cfg['dir'] . '/' . $tipo_cfg['prefijo_url'] . '-' . $slug;
-
-      $existe      = file_exists($filepath);
-      $provisional = false;
-
+    foreach ($silo_cols as $col_key => $col_cfg) {
+      $filepath_rel = ($col_cfg['filepath'])($slug);
+      $abs          = $site_root . '/' . $filepath_rel;
+      $existe       = file_exists($abs);
+      $provisional  = false;
       if ($existe) {
-        $contenido   = file_get_contents($filepath);
-        $provisional = (strpos($contenido, 'CONTENIDO PROVISIONAL') !== false);
+        $cont        = file_get_contents($abs);
+        $provisional = (strpos($cont, 'CONTENIDO PROVISIONAL') !== false);
       }
-
-      $row['servicios'][$tipo_key] = [
+      $row['servicios'][$col_key] = [
         'existe'      => $existe,
         'provisional' => $provisional,
-        'ruta_web'    => $ruta_web,
-        'filepath'    => $tipo_cfg['dir'] . '/' . $filename,
+        'ruta_web'    => ($col_cfg['ruta_web'])($slug),
+        'filepath'    => $filepath_rel,
+        'tipo'        => $col_cfg['tipo'],
+        'label'       => $col_cfg['label'],
       ];
     }
-
-    // Comprobar página de zona
-    $zona_filename = $slug . '.php';
-    $zona_filepath = $site_root . '/zonas/' . $zona_filename;
-    $zona_ruta_web = '/zonas/' . $slug;
-
-    $zona_existe      = file_exists($zona_filepath);
-    $zona_provisional = false;
-    if ($zona_existe) {
-      $zona_contenido   = file_get_contents($zona_filepath);
-      $zona_provisional = (strpos($zona_contenido, 'CONTENIDO PROVISIONAL') !== false);
-    }
-
-    $row['servicios']['zona'] = [
-      'existe'      => $zona_existe,
-      'provisional' => $zona_provisional,
-      'ruta_web'    => $zona_ruta_web,
-      'filepath'    => 'zonas/' . $zona_filename,
-    ];
 
     $matriz[] = $row;
   }
 
-  echo json_encode(['ok' => true, 'matriz' => $matriz]);
+  // Devolver también los labels de columnas para que el JS los renderice dinámicamente
+  $cols = array_map(fn($k, $c) => ['key' => $k, 'label' => $c['label']], array_keys($silo_cols), $silo_cols);
+
+  echo json_encode(['ok' => true, 'matriz' => $matriz, 'cols' => $cols]);
   exit;
 }
 
