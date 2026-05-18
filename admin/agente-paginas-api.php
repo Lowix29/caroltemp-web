@@ -1232,89 +1232,6 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
     $php .= "</section>\n\n";
   }
 
-  // ── Proyectos recientes en la ciudad ─────────────────────────────
-  $php .= "<?php\n";
-  $php .= "\$_proy = [];\n";
-  $php .= "try {\n";
-  $php .= "  \$_ps = \$pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');\n";
-  $php .= "  \$_ps->execute(['%{$ciudad}%']);\n";
-  $php .= "  \$_proy = \$_ps->fetchAll(PDO::FETCH_ASSOC);\n";
-  $php .= "} catch (\\Throwable \$_e) {}\n";
-  $php .= "?>\n";
-  $php .= "<?php if (!empty(\$_proy)): ?>\n";
-  $php .= "<section class=\"zona-sec\">\n";
-  $php .= "  <div class=\"cta-dark-con\">\n";
-  $php .= "    <p class=\"zona-lbl\">Trabajos realizados</p>\n";
-  $php .= "    <h2>Proyectos de {$servicio_nombre} <span class=\"hl\">en {$ciudad}</span></h2>\n";
-  $php .= "    <div class=\"blog-grid\" style=\"margin-top:2rem\">\n";
-  $php .= "      <?php foreach (\$_proy as \$_p): ?>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>proyectos/<?php echo urlencode(\$_p['slug']); ?>\" class=\"blog-card\">\n";
-  $php .= "        <?php if (\$_p['imagen']): ?><img src=\"<?php echo htmlspecialchars(\$_p['imagen']); ?>\" alt=\"<?php echo htmlspecialchars(\$_p['titulo']); ?>\" loading=\"lazy\"><?php endif; ?>\n";
-  $php .= "        <div class=\"blog-card-body\">\n";
-  $php .= "          <?php if (\$_p['servicio']): ?><span class=\"blog-cat\"><?php echo htmlspecialchars(\$_p['servicio']); ?></span><?php endif; ?>\n";
-  $php .= "          <h3><?php echo htmlspecialchars(\$_p['titulo']); ?></h3>\n";
-  $php .= "          <p><?php echo htmlspecialchars(mb_substr(\$_p['descripcion'] ?? '', 0, 120)); ?>...</p>\n";
-  $php .= "        </div>\n";
-  $php .= "      </a>\n";
-  $php .= "      <?php endforeach; ?>\n";
-  $php .= "    </div>\n";
-  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"<?php echo \$base_url; ?>proyectos/zona/<?php echo urlencode('{$ciudad}'); ?>\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los proyectos en {$ciudad} &rarr;</a></div>\n";
-  $php .= "  </div>\n";
-  $php .= "</section>\n";
-  $php .= "<?php endif; ?>\n\n";
-
-  // ── Artículos relacionados ────────────────────────────────────────
-  $php .= "<?php\n";
-  $php .= "\$_arts = [];\n";
-  $php .= "try {\n";
-  $php .= "  \$_as = \$pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');\n";
-  $php .= "  \$_as->execute(['%{$ciudad}%', '%fontan%']);\n";
-  $php .= "  \$_arts = \$_as->fetchAll(PDO::FETCH_ASSOC);\n";
-  $php .= "  if (empty(\$_arts)) {\n";
-  $php .= "    \$_as2 = \$pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');\n";
-  $php .= "    \$_arts = \$_as2->fetchAll(PDO::FETCH_ASSOC);\n";
-  $php .= "  }\n";
-  $php .= "} catch (\\Throwable \$_e) {}\n";
-  $php .= "?>\n";
-  $php .= "<?php if (!empty(\$_arts)): ?>\n";
-  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
-  $php .= "  <div class=\"cta-dark-con\">\n";
-  $php .= "    <p class=\"zona-lbl\">Consejos y noticias</p>\n";
-  $php .= "    <h2>Art&iacute;culos sobre <span class=\"hl\">{$servicio_nombre}</span></h2>\n";
-  $php .= "    <div class=\"blog-grid\" style=\"margin-top:2rem\">\n";
-  $php .= "      <?php foreach (\$_arts as \$_a): ?>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>noticias/<?php echo urlencode(\$_a['slug']); ?>\" class=\"blog-card\">\n";
-  $php .= "        <?php if (\$_a['imagen']): ?><img src=\"<?php echo htmlspecialchars(\$_a['imagen']); ?>\" alt=\"<?php echo htmlspecialchars(\$_a['titulo']); ?>\" loading=\"lazy\"><?php endif; ?>\n";
-  $php .= "        <div class=\"blog-card-body\">\n";
-  $php .= "          <?php if (\$_a['categoria']): ?><span class=\"blog-cat\"><?php echo htmlspecialchars(\$_a['categoria']); ?></span><?php endif; ?>\n";
-  $php .= "          <h3><?php echo htmlspecialchars(\$_a['titulo']); ?></h3>\n";
-  $php .= "          <p><?php echo htmlspecialchars(mb_substr(\$_a['extracto'] ?? '', 0, 120)); ?>...</p>\n";
-  $php .= "        </div>\n";
-  $php .= "      </a>\n";
-  $php .= "      <?php endforeach; ?>\n";
-  $php .= "    </div>\n";
-  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"<?php echo \$base_url; ?>noticias\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los art&iacute;culos &rarr;</a></div>\n";
-  $php .= "  </div>\n";
-  $php .= "</section>\n";
-  $php .= "<?php endif; ?>\n\n";
-
-  // ── Mapa de cobertura ──────────────────────────────────────────────
-  $php .= "<section class=\"zona-sec\">\n";
-  $php .= "  <div class=\"cta-dark-con\">\n";
-  $php .= "    <p class=\"zona-lbl\">Zona de cobertura</p>\n";
-  $php .= "    <h2>CarolTemp en <span class=\"hl\">{$ciudad}</span></h2>\n";
-  $php .= "    <p style=\"margin-bottom:1.5rem;color:#576574\">Atendemos toda la localidad de {$ciudad} (CP {$ciudad_cp}) y municipios limítrofes. Presupuesto gratuito sin compromiso.</p>\n";
-  $php .= "    <div style=\"border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)\">\n";
-  $php .= "      <iframe\n";
-  $php .= "        src=\"https://maps.google.com/maps?q={$lat},{$lng}&z=14&output=embed\"\n";
-  $php .= "        width=\"100%\" height=\"400\" style=\"border:0;display:block\" allowfullscreen\n";
-  $php .= "        loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"\n";
-  $php .= "        title=\"Fontaner&iacute;a en {$ciudad} — CarolTemp\">\n";
-  $php .= "      </iframe>\n";
-  $php .= "    </div>\n";
-  $php .= "  </div>\n";
-  $php .= "</section>\n\n";
-
   // ── MARCADOR: fin de la zona editable en TinyMCE ─────────────────
   $php .= "<!-- /editable -->\n";
 
@@ -1992,11 +1909,26 @@ if ($accion === 'guardar') {
       fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
       modificado DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+    // Extraer meta_title y meta_desc del contenido PHP para guardarlos en DB
+    $meta_title_db = '';
+    $meta_desc_db  = '';
+    if (preg_match('/\$meta_title\s*=\s*[\'"](.+?)[\'"]\s*;/', $contenido, $mm)) {
+      $meta_title_db = stripslashes($mm[1]);
+    }
+    if (preg_match('/\$meta_desc\s*=\s*[\'"](.+?)[\'"]\s*;/', $contenido, $mm)) {
+      $meta_desc_db = stripslashes($mm[1]);
+    }
+
     $ck = $pdo->prepare('SELECT id FROM paginas WHERE filepath = ? LIMIT 1');
     $ck->execute([$filepath_rel]);
-    if (!$ck->fetchColumn()) {
-      $ins = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, publicado) VALUES (?, ?, ?, ?, 1)');
-      $ins->execute([$titulo_cms, $slug_cms, $filepath_rel, '']);
+    $existing_id = $ck->fetchColumn();
+    if (!$existing_id) {
+      $ins = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, meta_title, meta_desc, publicado) VALUES (?, ?, ?, ?, ?, ?, 1)');
+      $ins->execute([$titulo_cms, $slug_cms, $filepath_rel, '', $meta_title_db, $meta_desc_db]);
+    } else {
+      // Actualizar metas si estaban vacías
+      $upd = $pdo->prepare('UPDATE paginas SET meta_title = ?, meta_desc = ? WHERE id = ? AND (meta_title = \'\' OR meta_title IS NULL)');
+      $upd->execute([$meta_title_db, $meta_desc_db, $existing_id]);
     }
   } catch (\Throwable $e) { /* ignorar — sync opcional */ }
 

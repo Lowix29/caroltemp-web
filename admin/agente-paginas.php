@@ -1411,6 +1411,17 @@ function confirmarEliminar(accionObj) {
   badge.style.display = '';
 }
 
+function confirmarEliminarMapa(filepath) {
+  deleteFilepathActual = filepath;
+  deleteAccionId       = 0;
+  mostrarEstadoEditor('result');
+  document.getElementById('result-crear-mejorar').style.display = 'none';
+  document.getElementById('result-redirigir').style.display     = 'none';
+  document.getElementById('result-eliminar').style.display      = 'block';
+  document.getElementById('delete-filepath-display').textContent = filepath;
+  ocultarFlash();
+}
+
 async function ejecutarEliminar() {
   if (!deleteFilepathActual) return;
 
@@ -1437,8 +1448,9 @@ async function ejecutarEliminar() {
       document.getElementById('result-crear-mejorar').style.display = 'none';
       document.getElementById('result-redirigir').style.display     = 'none';
       mostrarFlash('ok', '✓ Página eliminada. Backup: ' + escp(data.backup || ''));
-      // Refrescar
-      setTimeout(function() { if (mapaYaCargado) cargarInventario(); cargarPlan(); }, 900);
+      // Refrescar mapa y plan siempre
+      mapaYaCargado = false;
+      setTimeout(function() { cargarInventario(); cargarPlan(); }, 900);
     } else {
       mostrarFlash('err', '⚠️ ' + (data.error || 'Error al eliminar'));
     }
@@ -1517,9 +1529,11 @@ function renderMatriz(matriz, cols, corporativas) {
       const onCrear   = 'onclick="lanzarAccion(\'crear\',\''   + tipo + '\',\'' + ciudadE + '\',\'' + slugE + '\',\'' + cpE + '\',\'' + filepathE + '\',0)"';
 
       if (svc.existe && !svc.provisional) {
+        const onDel = 'onclick="confirmarEliminarMapa(\'' + filepathE + '\')"';
         html += '<td><div class="cell-ok-wrap">';
         html += '<span class="cell-ok"><span class="cell-ok-icon">✓</span> OK</span>';
         html += '<button class="btn-accion btn-regen" ' + onMejorar + '>↻ Rehacer</button>';
+        html += '<button class="btn-accion" style="background:#fee2e2;color:#b91c1c;border-color:#fca5a5" ' + onDel + '>🗑 Eliminar</button>';
         html += '</div></td>';
       } else if (svc.existe && svc.provisional) {
         html += '<td><div class="cell-prov">';
