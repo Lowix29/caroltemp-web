@@ -20,11 +20,8 @@ RewriteRule ^ /%1 [R=301,L]
 # Si entran a /zonas/ redirigir a zonas.php
 RewriteRule ^zonas/?$ zonas.php [L]
 
-# Servicios por ciudad — index
-RewriteRule ^fontanero/?$ fontanero/index.php [L]
-RewriteRule ^fugas/?$ fugas/index.php [L]
-RewriteRule ^desatascos/?$ desatascos/index.php [L]
-RewriteRule ^blog/?$ blog/index.php [L]
+# Índices de sección
+RewriteRule ^blog/?$      blog/index.php [L]
 RewriteRule ^proyectos/?$ proyectos/index.php [L]
 
 # Silo por ciudad — sub-páginas: /fontanero/{ciudad}/{servicio}
