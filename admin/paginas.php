@@ -38,7 +38,7 @@ if (isset($_GET['importar'])) {
       header('Location: nueva-pagina.php?id=' . $existente);
       exit;
     }
-    // Extraer contenido HTML del archivo (entre primer ?> y último <?php)
+    // Extraer contenido HTML del archivo (entre primer cierre PHP y ultimo include)
     $contenido = '';
     $abs_imp   = dirname(__DIR__) . '/' . $fn;
     if (file_exists($abs_imp)) {
