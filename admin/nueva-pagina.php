@@ -139,9 +139,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $filepath = $slug . '.php';
   }
 
-  // Validar filepath: solo [a-z0-9-]+.php sin slashes ni directorios
-  if ($filepath && !preg_match('/^[a-z0-9\-]+\.php$/', $filepath)) {
-    $error = 'El filepath solo puede contener letras minúsculas, números y guiones, con extensión .php (ej: politica-privacidad.php). No se permiten subdirectorios.';
+  // Validar filepath: letras minúsculas, números, guiones y guiones bajos.
+  // Permite subdirectorios separados por / (ej: fontanero/elda.php, fontanero/elda/urgencias.php)
+  if ($filepath && !preg_match('/^[a-z0-9_\-]+(\/[a-z0-9_\-]+)*\.php$/', $filepath)) {
+    $error = 'El filepath solo puede contener letras minúsculas, números y guiones, con extensión .php. Subdirectorios permitidos con / (ej: fontanero/elda.php).';
   }
 
   if (!$error) {
@@ -161,8 +162,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $meta_title, $meta_desc, $publicado, $robots,
             $pag['id']
           ]);
-          // Escribir archivo al disco
-          $abs_path = dirname(__DIR__) . '/' . $filepath;
+          // Escribir archivo al disco (crear subdirectorio si hace falta)
+          $abs_path = dirname(__DIR__) . '/' . str_replace('/', DIRECTORY_SEPARATOR, $filepath);
+          $abs_dir  = dirname($abs_path);
+          if (!is_dir($abs_dir)) mkdir($abs_dir, 0755, true);
           file_put_contents($abs_path, escribirArchivoPhp($abs_path, $titulo, $slug, $contenido, $meta_title, $meta_desc, $robots));
           $mensaje = '✅ Página actualizada correctamente.';
           $stmt = $pdo->prepare('SELECT * FROM paginas WHERE id = ? LIMIT 1');
@@ -179,8 +182,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $meta_title, $meta_desc, $publicado, $robots
           ]);
           $newId = $pdo->lastInsertId();
-          // Escribir archivo al disco
-          $abs_path = dirname(__DIR__) . '/' . $filepath;
+          // Escribir archivo al disco (crear subdirectorio si hace falta)
+          $abs_path = dirname(__DIR__) . '/' . str_replace('/', DIRECTORY_SEPARATOR, $filepath);
+          $abs_dir  = dirname($abs_path);
+          if (!is_dir($abs_dir)) mkdir($abs_dir, 0755, true);
           file_put_contents($abs_path, escribirArchivoPhp($abs_path, $titulo, $slug, $contenido, $meta_title, $meta_desc, $robots));
           header('Location: nueva-pagina.php?id=' . $newId . '&ok=1');
           exit;
