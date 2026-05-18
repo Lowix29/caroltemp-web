@@ -1881,52 +1881,36 @@ function abrirPreview() {
     htmlEditable = fullContent;
   }
 
-  // Obtener la page_css del PHP header para cargar el CSS correcto
   const pageCssMatch = fullContent.match(/\$page_css\s*=\s*['"]([^'"]+)['"]/);
   const pageCss      = pageCssMatch ? pageCssMatch[1] : 'zona';
 
   const filepath = document.getElementById('pv-filepath').value || '';
   document.getElementById('preview-label').textContent = filepath || 'nueva página';
 
-  // Base URL del sitio: subir un nivel desde /admin/
-  const siteBase = window.location.href.replace(/\/admin\/.*$/, '/');
-
-  // Construir documento completo para el iframe
-  const doc = `<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<base href="${siteBase}">
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/nav.css">
-<link rel="stylesheet" href="css/pages/${pageCss}.css">
-<style>
-  nav, header.site-header, .site-nav, footer { display: none !important; }
-  body { margin: 0; }
-</style>
-</head>
-<body>
-${htmlEditable}
-<script>
-/* FAQ toggle para el preview */
-function togFaq(el) {
-  var fi = el.closest('.zona-fi');
-  if (fi) fi.classList.toggle('open');
-}
-<\/script>
-</body>
-</html>`;
+  // Enviar al endpoint PHP que hace el render real con los CSS del sitio
+  const fd = new FormData();
+  fd.append('html',     htmlEditable.trim());
+  fd.append('page_css', pageCss);
 
   const modal = document.getElementById('preview-modal');
   const frame = document.getElementById('preview-frame');
   modal.style.display = 'flex';
-  frame.srcdoc = doc;
+  frame.src = '';
+
+  fetch('preview-pagina.php', { method: 'POST', body: fd })
+    .then(r => r.text())
+    .then(html => {
+      frame.srcdoc = html;
+    })
+    .catch(() => {
+      frame.srcdoc = '<p style="padding:2rem;color:red">Error al cargar el preview</p>';
+    });
 }
 
 function cerrarPreview() {
   document.getElementById('preview-modal').style.display = 'none';
   document.getElementById('preview-frame').srcdoc = '';
+  document.getElementById('preview-frame').src = '';
 }
 
 // Cerrar con Escape
