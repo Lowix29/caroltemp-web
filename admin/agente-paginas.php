@@ -1864,28 +1864,48 @@ async function enviarRefinar() {
   const instruc = input.value.trim();
   if (!instruc) return;
 
-  const htmlActual = document.getElementById('pv-php-content').value.trim();
-  if (!htmlActual) {
+  const fullContent = document.getElementById('pv-php-content').value;
+  if (!fullContent.trim()) {
     addMsgRefinar('ai', '⚠️ Primero genera el contenido de la página.');
     return;
   }
 
+  // Extraer solo la zona HTML editable (entre ?> y <!-- /editable -->)
+  // así Claude no ve el bloque PHP dinámico ni la cabecera PHP
+  const MARKER = '<!-- /editable -->';
+  const phpEndIdx = fullContent.indexOf('?>');
+  const markerIdx = fullContent.indexOf(MARKER);
+
+  let htmlEditable, prefijo, sufijo;
+  if (phpEndIdx !== -1 && markerIdx !== -1 && markerIdx > phpEndIdx) {
+    prefijo      = fullContent.substring(0, phpEndIdx + 2);       // cabecera PHP
+    htmlEditable = fullContent.substring(phpEndIdx + 2, markerIdx); // solo HTML
+    sufijo       = fullContent.substring(markerIdx);               // marker + PHP dinámico
+  } else {
+    // Fallback: si no hay marker, mandar todo
+    prefijo      = '';
+    htmlEditable = fullContent;
+    sufijo       = '';
+  }
+
   addMsgRefinar('user', instruc);
-  input.value   = '';
-  btn.disabled  = true;
+  input.value     = '';
+  btn.disabled    = true;
   btn.textContent = '⏳';
 
   const fd = new FormData();
-  fd.append('accion',       'refinar');
-  fd.append('html_actual',  htmlActual);
-  fd.append('instruccion',  instruc);
-  fd.append('filepath',     document.getElementById('pv-filepath').value || '');
+  fd.append('accion',      'refinar');
+  fd.append('html_actual', htmlEditable.trim());
+  fd.append('instruccion', instruc);
+  fd.append('filepath',    document.getElementById('pv-filepath').value || '');
 
   try {
     const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
     const data = await r.json();
     if (data.ok && data.html) {
-      document.getElementById('pv-php-content').value = data.html;
+      // Reconstruir el archivo completo con el HTML refinado
+      const nuevoContenido = prefijo + '\n' + data.html.trim() + '\n' + sufijo;
+      document.getElementById('pv-php-content').value = nuevoContenido;
       addMsgRefinar('ai', '✓ Listo. El contenido ha sido actualizado arriba. Revísalo y guarda cuando estés conforme.');
     } else {
       addMsgRefinar('ai', '⚠️ Error: ' + (data.error || 'Sin respuesta'));
@@ -1894,7 +1914,7 @@ async function enviarRefinar() {
     addMsgRefinar('ai', '⚠️ Error de conexión al refinar');
   }
 
-  btn.disabled  = false;
+  btn.disabled    = false;
   btn.textContent = 'Enviar';
 }
 </script>
