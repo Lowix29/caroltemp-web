@@ -1270,7 +1270,7 @@ if ($accion === 'guardar') {
   }
 
   // Solo .php y sin traversal
-  if (!preg_match('/^[a-z0-9\-\/]+\.php$/', $filepath_rel)) {
+  if (!preg_match('/^[a-z0-9\-_\/]+\.php$/', $filepath_rel)) {
     echo json_encode(['error' => 'Nombre de archivo no válido']);
     exit;
   }
@@ -1429,7 +1429,7 @@ if ($accion === 'eliminar_pagina') {
   }
 
   // Solo .php y sin traversal
-  if (!preg_match('/^[a-z0-9\-\/]+\.php$/', $filepath_rel)) {
+  if (!preg_match('/^[a-z0-9\-_\/]+\.php$/', $filepath_rel)) {
     echo json_encode(['error' => 'Nombre de archivo no válido']);
     exit;
   }

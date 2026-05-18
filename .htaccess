@@ -29,7 +29,7 @@ RewriteRule ^proyectos/?$ proyectos/index.php [L]
 
 # Silo por ciudad — sub-páginas: /fontanero/{ciudad}/{servicio}
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^fontanero/([a-z0-9\-]+)/([a-z0-9\-]+)/?$ fontanero/$1/$2.php [L]
+RewriteRule ^fontanero/([a-z0-9\-]+)/([a-z0-9\-_]+)/?$ fontanero/$1/$2.php [L]
 
 # Silo por ciudad — hub: /fontanero/{ciudad}
 RewriteCond %{REQUEST_FILENAME} !-f
