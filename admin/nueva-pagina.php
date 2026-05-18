@@ -80,8 +80,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
           $php_end = strpos($raw_disco, '?>');
           if ($php_end !== false) {
             $html_part  = ltrim(substr($raw_disco, $php_end + 2));
-            $footer_pos = strrpos($html_part, '<?php');
-            if ($footer_pos !== false) $html_part = rtrim(substr($html_part, 0, $footer_pos));
+            $marker     = '<!-- /editable -->';
+            $mpos       = strpos($html_part, $marker);
+            if ($mpos !== false) {
+              $html_part = rtrim(substr($html_part, 0, $mpos));
+            } else {
+              $footer_pos = strrpos($html_part, '<?php');
+              if ($footer_pos !== false) $html_part = rtrim(substr($html_part, 0, $footer_pos));
+            }
             if (trim($html_part) !== '') {
               $pag['contenido'] = $html_part;
               $sync_fields['contenido'] = $html_part;
@@ -231,11 +237,19 @@ function escribirArchivoPhp($abs_path, $titulo, $slug, $contenido, $meta_title, 
   if ($contenido !== '') {
     $php_end = strpos($raw, '?>');
     if ($php_end !== false) {
-      $before     = substr($raw, 0, $php_end + 2);
-      $after_php  = substr($raw, $php_end + 2);
-      $footer_pos = strrpos($after_php, '<?php');
-      if ($footer_pos !== false) {
-        $raw = $before . "\n" . $contenido . "\n" . substr($after_php, $footer_pos);
+      $before    = substr($raw, 0, $php_end + 2);
+      $after_php = substr($raw, $php_end + 2);
+      $marker    = '<!-- /editable -->';
+      $mpos      = strpos($after_php, $marker);
+      if ($mpos !== false) {
+        // Preservar todo desde el marcador en adelante (dinámico + footer)
+        $raw = $before . "\n" . $contenido . "\n" . substr($after_php, $mpos);
+      } else {
+        // Fallback legacy: usar último <?php como delimitador
+        $footer_pos = strrpos($after_php, '<?php');
+        if ($footer_pos !== false) {
+          $raw = $before . "\n" . $contenido . "\n" . substr($after_php, $footer_pos);
+        }
       }
     }
   }

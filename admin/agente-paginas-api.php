@@ -1136,12 +1136,12 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
     $first = false;
   }
 
-  // ── Tags ciudades cercanas ────────────────────────────────────────
-  $ztags = "      <a href=\"<?php echo \$base_url; ?>fontanero/{$ciudad_slug}\" class=\"zona-ztag\" style=\"background:#1e3a5f;color:#fff\">&#8592; Todos los servicios en {$ciudad}</a>\n";
+  // ── Tags ciudades cercanas — URLs absolutas hardcodeadas ──────────
+  $ztags = "      <a href=\"/fontanero/{$ciudad_slug}\" class=\"zona-ztag\" style=\"background:#1e3a5f;color:#fff\">&#8592; Todos los servicios en {$ciudad}</a>\n";
   foreach ($otras_ciudades as $otra) {
     $n = htmlspecialchars($otra['nombre'], ENT_QUOTES, 'UTF-8');
     $s = htmlspecialchars($otra['slug'],   ENT_QUOTES, 'UTF-8');
-    $ztags .= "      <a href=\"<?php echo \$base_url; ?>fontanero/{$s}/{$tipo}\" class=\"zona-ztag\">{$n}</a>\n";
+    $ztags .= "      <a href=\"/fontanero/{$s}/{$tipo}\" class=\"zona-ztag\">{$n}</a>\n";
   }
 
   $hero_titulo_raw = $hero_titulo;
@@ -1169,7 +1169,7 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "    <p class=\"hz-dark-sub\">{$hero_sub_h}</p>\n";
   $php .= "    <div class=\"hz-dark-btns\">\n";
   $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>contacto\" class=\"btn-hz-g\">Solicitar presupuesto</a>\n";
+  $php .= "      <a href=\"/contacto\" class=\"btn-hz-g\">Solicitar presupuesto</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
@@ -1200,7 +1200,7 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\">{$ciudad} &middot; CP {$ciudad_cp}</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Todos los servicios</span><span class=\"zona-ir-v\"><a href=\"<?php echo \$base_url; ?>fontanero/{$ciudad_slug}\">Fontaner&iacute;a en {$ciudad} &rarr;</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Todos los servicios</span><span class=\"zona-ir-v\"><a href=\"/fontanero/{$ciudad_slug}\">Fontaner&iacute;a en {$ciudad} &rarr;</a></span></div>\n";
   $php .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
   $php .= "        </div>\n";
   $php .= "      </div>\n";
@@ -1313,16 +1313,83 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
 
-  // ── Ciudades cercanas ─────────────────────────────────────────────
+  // ── MARCADOR: fin de la zona editable en TinyMCE ─────────────────
+  $php .= "<!-- /editable -->\n";
+
+  // ── SECCIÓN DINÁMICA: proyectos + artículos ────────────────────────
+  $ciudad_q = addslashes($ciudad);
+  $php .= "<?php\n";
+  $php .= "\$_proy = [];\n";
+  $php .= "try {\n";
+  $php .= "  \$_ps = \$pdo->prepare('SELECT titulo, slug, descripcion, servicio FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_ps->execute(['%{$ciudad_q}%']);\n";
+  $php .= "  \$_proy = \$_ps->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "} catch (\\Throwable \$_e) {}\n";
+  $php .= "\$_arts = [];\n";
+  $php .= "try {\n";
+  $php .= "  \$_as = \$pdo->prepare('SELECT titulo, slug, extracto, categoria FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_as->execute(['%{$ciudad_q}%', '%fontan%']);\n";
+  $php .= "  \$_arts = \$_as->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "  if (empty(\$_arts)) {\n";
+  $php .= "    \$_as2 = \$pdo->query('SELECT titulo, slug, extracto, categoria FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "    \$_arts = \$_as2 ? \$_as2->fetchAll(PDO::FETCH_ASSOC) : [];\n";
+  $php .= "  }\n";
+  $php .= "} catch (\\Throwable \$_e) {}\n";
+  $php .= "if (!empty(\$_proy)): ?>\n";
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Trabajos realizados</p>\n";
+  $php .= "    <h2>Proyectos de {$servicio_nombre} <span class=\"hl\">en {$ciudad}</span></h2>\n";
+  $php .= "    <div class=\"zona-svc\" style=\"margin-top:2rem\">\n";
+  $php .= "      <?php foreach (\$_proy as \$_p): ?>\n";
+  $php .= "      <a href=\"/proyectos/<?php echo urlencode(\$_p['slug']); ?>\" class=\"zona-sc\">\n";
+  $php .= "        <?php if (\$_p['servicio']): ?><span class=\"zona-lbl\" style=\"font-size:11px\"><?php echo htmlspecialchars(\$_p['servicio']); ?></span><?php endif; ?>\n";
+  $php .= "        <h3><?php echo htmlspecialchars(\$_p['titulo']); ?></h3>\n";
+  $php .= "        <p><?php echo htmlspecialchars(mb_substr(\$_p['descripcion'] ?? '', 0, 100)); ?>...</p>\n";
+  $php .= "        <span class=\"zona-sc-a\">Ver proyecto &rarr;</span>\n";
+  $php .= "      </a>\n";
+  $php .= "      <?php endforeach; ?>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+  $php .= "<?php endif; ?>\n";
+  $php .= "<?php if (!empty(\$_arts)): ?>\n";
+  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Consejos &uacute;tiles</p>\n";
+  $php .= "    <h2>Art&iacute;culos sobre <span class=\"hl\">{$servicio_nombre}</span></h2>\n";
+  $php .= "    <div class=\"zona-svc\" style=\"margin-top:2rem\">\n";
+  $php .= "      <?php foreach (\$_arts as \$_a): ?>\n";
+  $php .= "      <a href=\"/noticias/<?php echo urlencode(\$_a['slug']); ?>\" class=\"zona-sc\">\n";
+  $php .= "        <?php if (\$_a['categoria']): ?><span class=\"zona-lbl\" style=\"font-size:11px\"><?php echo htmlspecialchars(\$_a['categoria']); ?></span><?php endif; ?>\n";
+  $php .= "        <h3><?php echo htmlspecialchars(\$_a['titulo']); ?></h3>\n";
+  $php .= "        <p><?php echo htmlspecialchars(mb_substr(\$_a['extracto'] ?? '', 0, 100)); ?>...</p>\n";
+  $php .= "        <span class=\"zona-sc-a\">Leer art&iacute;culo &rarr;</span>\n";
+  $php .= "      </a>\n";
+  $php .= "      <?php endforeach; ?>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+  $php .= "<?php endif; ?>\n";
+
+  // ── Mapa + ciudades + CTA — hardcodeados, sin PHP vars ────────────
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Zona de cobertura</p>\n";
+  $php .= "    <h2>{$servicio_nombre} <span class=\"hl\">en {$ciudad}</span></h2>\n";
+  $php .= "    <p style=\"margin-bottom:1.5rem;color:#576574\">Atendemos toda la localidad de {$ciudad} (CP {$ciudad_cp}) y municipios lim&iacute;trofes.</p>\n";
+  $php .= "    <div style=\"border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)\">\n";
+  $php .= "      <iframe src=\"https://maps.google.com/maps?q={$lat},{$lng}&z=14&output=embed\" width=\"100%\" height=\"380\" style=\"border:0;display:block\" allowfullscreen loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" title=\"{$servicio_nombre} en {$ciudad}\"></iframe>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
   $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
   $php .= "    <p class=\"zona-lbl\">Mismo servicio en otras zonas</p>\n";
   $php .= "    <h2>Tambi&eacute;n hacemos {$servicio_nombre} <span class=\"hl\">en otros municipios</span></h2>\n";
   $php .= "    <div class=\"zona-ztags\">\n{$ztags}    </div>\n";
   $php .= "  </div>\n";
-  $php .= "</section>\n\n";
-
-  // ── CTA final ─────────────────────────────────────────────────────
+  $php .= "</section>\n";
   $php .= "<section class=\"cta-dark\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
   $php .= "    <h2>&iquest;Necesitas {$servicio_nombre} <span>en {$ciudad}?</span></h2>\n";
@@ -1332,8 +1399,7 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
-  $php .= "</section>\n\n";
-
+  $php .= "</section>\n";
   $php .= "<?php include '{$back}includes/footer.php'; ?>\n";
 
   return $php;
@@ -1346,20 +1412,22 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
 function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, $lat = '38.4766', $lng = '-0.7952') {
   $meta_title = $data['meta_title'] ?? "Fontanería en {$ciudad} — CarolTemp";
   $meta_desc  = $data['meta_desc']  ?? "Servicios de fontanería en {$ciudad}. Urgencias, fugas, desatascos e instalaciones.";
-  $hero_sub   = $data['hero_sub']   ?? "Trabajamos en {$ciudad} realizando todo tipo de servicios de fontanería.";
-  $intro_p1   = $data['intro_p1']   ?? "Trabajamos en toda la localidad de {$ciudad}, cubriendo tanto viviendas como comunidades.";
-  $intro_p2   = $data['intro_p2']   ?? "Presupuesto gratuito sin compromiso. Precio cerrado antes de empezar.";
+  $hero_sub   = htmlspecialchars($data['hero_sub']  ?? "Trabajamos en {$ciudad} realizando todo tipo de servicios de fontanería.", ENT_QUOTES, 'UTF-8');
+  $intro_p1   = htmlspecialchars($data['intro_p1']  ?? "Trabajamos en toda la localidad de {$ciudad}, cubriendo tanto viviendas como comunidades.", ENT_QUOTES, 'UTF-8');
+  $intro_p2   = htmlspecialchars($data['intro_p2']  ?? "Presupuesto gratuito sin compromiso. Precio cerrado antes de empezar.", ENT_QUOTES, 'UTF-8');
   $checklist  = $data['checklist']  ?? ["Urgencias de fontanería", "Detección de fugas", "Desatascos", "Termos y descalcificadores", "Reformas de baño"];
   $faq        = $data['faq']        ?? [];
 
   $meta_url = "https://caroltemp.com/fontanero/{$ciudad_slug}";
   $e        = fn($v) => var_export($v, true);
+  $ch       = htmlspecialchars($ciudad,      ENT_QUOTES, 'UTF-8');
+  $cp_h     = htmlspecialchars($ciudad_cp,   ENT_QUOTES, 'UTF-8');
+  $slug_h   = htmlspecialchars($ciudad_slug, ENT_QUOTES, 'UTF-8');
 
-  $svg_chk = '<svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  $svg_chk   = '<svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   $chk_items = '';
   foreach ($checklist as $item) {
-    $item_h = htmlspecialchars($item, ENT_QUOTES, 'UTF-8');
-    $chk_items .= "          <li><span class=\"chk-ico\">{$svg_chk}</span>{$item_h}</li>\n";
+    $chk_items .= "          <li><span class=\"chk-ico\">{$svg_chk}</span>" . htmlspecialchars($item, ENT_QUOTES, 'UTF-8') . "</li>\n";
   }
 
   $svg_faq   = '<svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg>';
@@ -1376,17 +1444,15 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
     $first = false;
   }
 
+  // Ciudades cercanas — hardcoded absolute URLs (sin PHP vars)
   $ztags = '';
   foreach ($otras_ciudades as $otra) {
     $n_h = htmlspecialchars($otra['nombre'], ENT_QUOTES, 'UTF-8');
     $s_h = htmlspecialchars($otra['slug'],   ENT_QUOTES, 'UTF-8');
-    $ztags .= "      <a href=\"<?php echo \$base_url; ?>fontanero/{$s_h}\" class=\"zona-ztag\">{$n_h}</a>\n";
+    $ztags .= "      <a href=\"/fontanero/{$s_h}\" class=\"zona-ztag\">{$n_h}</a>\n";
   }
 
-  $hero_sub_h = htmlspecialchars($hero_sub, ENT_QUOTES, 'UTF-8');
-  $intro_p1_h = htmlspecialchars($intro_p1, ENT_QUOTES, 'UTF-8');
-  $intro_p2_h = htmlspecialchars($intro_p2, ENT_QUOTES, 'UTF-8');
-
+  // ── PHP header ────────────────────────────────────────────────────
   $php  = "<?php\n";
   $php .= "\$zona_nombre = {$e($ciudad)};\n";
   $php .= "\$zona_slug   = {$e($ciudad_slug)};\n";
@@ -1400,55 +1466,56 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "include '../includes/head.php';\n";
   $php .= "?>\n\n";
 
+  // ── HERO — sin PHP vars, todo hardcodeado ─────────────────────────
   $php .= "<!-- HERO -->\n";
   $php .= "<section class=\"hz-dark\">\n";
   $php .= "  <div class=\"hz-dark-bg\"></div>\n";
   $php .= "  <div class=\"hz-dark-glow\"></div>\n";
   $php .= "  <div class=\"hz-dark-con\">\n";
-  $php .= "    <div class=\"hz-dark-tag\"><span class=\"hz-dark-dot\"></span>Fontaner&iacute;a en <?php echo \$zona_nombre; ?> &middot; CP <?php echo \$zona_cp; ?></div>\n";
-  $php .= "    <h1>Fontaner&iacute;a en <span class=\"hl\"><?php echo \$zona_nombre; ?>.</span></h1>\n";
-  $php .= "    <p class=\"hz-dark-sub\">{$hero_sub_h}</p>\n";
+  $php .= "    <div class=\"hz-dark-tag\"><span class=\"hz-dark-dot\"></span>Fontaner&iacute;a en {$ch} &middot; CP {$cp_h}</div>\n";
+  $php .= "    <h1>Fontaner&iacute;a en <span class=\"hl\">{$ch}.</span></h1>\n";
+  $php .= "    <p class=\"hz-dark-sub\">{$hero_sub}</p>\n";
   $php .= "    <div class=\"hz-dark-btns\">\n";
   $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>contacto\" class=\"btn-hz-g\">Solicitar visita</a>\n";
+  $php .= "      <a href=\"/contacto\" class=\"btn-hz-g\">Solicitar visita</a>\n";
   $php .= "    </div>\n";
   $php .= "    <div class=\"hero-dark-kpis\" style=\"margin-top:2rem\">\n";
-  $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">Nubeco</span><span class=\"hero-dark-kpi-lbl\">Instalador oficial en <?php echo \$zona_nombre; ?></span></div>\n";
+  $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">Nubeco</span><span class=\"hero-dark-kpi-lbl\">Instalador oficial en {$ch}</span></div>\n";
   $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">100%</span><span class=\"hero-dark-kpi-lbl\">Precio cerrado siempre</span></div>\n";
   $php .= "      <div class=\"hero-dark-kpi\"><span class=\"hero-dark-kpi-val\">0&euro;</span><span class=\"hero-dark-kpi-lbl\">Sin adelantos con financiaci&oacute;n</span></div>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
 
+  // ── STRIP ─────────────────────────────────────────────────────────
   $php .= "<!-- STRIP -->\n";
   $php .= "<div class=\"dif-strip\">\n";
   $php .= "  <div class=\"dif-strip-in\">\n";
-  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#9889; Urgencias</span><span class=\"dif-lbl\">Atenci&oacute;n r&aacute;pida en <?php echo \$zona_nombre; ?></span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#9889; Urgencias</span><span class=\"dif-lbl\">Atenci&oacute;n r&aacute;pida en {$ch}</span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128269; Sin obras</span><span class=\"dif-lbl\">Ge&oacute;fono y c&aacute;mara</span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128176; Precio cerrado</span><span class=\"dif-lbl\">Antes de empezar</span></div>\n";
   $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128205; Comarca</span><span class=\"dif-lbl\">Somos de aqu&iacute;</span></div>\n";
   $php .= "  </div>\n";
   $php .= "</div>\n\n";
 
+  // ── TEXTO CENTRAL ─────────────────────────────────────────────────
   $php .= "<!-- TEXTO CENTRAL -->\n";
   $php .= "<section class=\"zona-sec\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
   $php .= "    <div class=\"zona-tcol\">\n";
   $php .= "      <div>\n";
-  $php .= "        <p class=\"zona-lbl\">Fontan&eacute;r&iacute;a en <?php echo \$zona_nombre; ?></p>\n";
-  $php .= "        <h2>Servicios de fontaner&iacute;a en <span class=\"hl\"><?php echo \$zona_nombre; ?></span></h2>\n";
+  $php .= "        <p class=\"zona-lbl\">Fontaner&iacute;a en {$ch}</p>\n";
+  $php .= "        <h2>Servicios de fontaner&iacute;a en <span class=\"hl\">{$ch}</span></h2>\n";
   $php .= "        <div class=\"zona-prose\">\n";
-  $php .= "          <p>{$intro_p1_h}</p>\n";
-  $php .= "          <p>{$intro_p2_h}</p>\n";
+  $php .= "          <p>{$intro_p1}</p>\n";
+  $php .= "          <p>{$intro_p2}</p>\n";
   $php .= "        </div>\n";
-  $php .= "        <ul class=\"zona-chk\">\n";
-  $php .= $chk_items;
-  $php .= "        </ul>\n";
+  $php .= "        <ul class=\"zona-chk\">\n{$chk_items}        </ul>\n";
   $php .= "      </div>\n";
   $php .= "      <div>\n";
   $php .= "        <div class=\"zona-icard\">\n";
-  $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; <?php echo \$zona_nombre; ?></strong><span>Fontaner&iacute;a residencial</span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\"><?php echo \$zona_nombre; ?> &middot; CP <?php echo \$zona_cp; ?></span></div>\n";
+  $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; {$ch}</strong><span>Fontaner&iacute;a residencial</span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\">{$ch} &middot; CP {$cp_h}</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Horario</span><span class=\"zona-ir-v\">Lun&ndash;Vie 8&ndash;20h &middot; S&aacute;b 9&ndash;14h</span></div>\n";
@@ -1459,142 +1526,124 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
 
+  // ── SERVICIOS — URLs absolutas hardcodeadas ────────────────────────
   $php .= "<!-- SERVICIOS EN EL SILO -->\n";
   $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
-  $php .= "    <p class=\"zona-lbl\">Servicios en <?php echo \$zona_nombre; ?></p>\n";
-  $php .= "    <h2>Todo lo que hacemos <span class=\"hl\">en <?php echo \$zona_nombre; ?></span></h2>\n";
+  $php .= "    <p class=\"zona-lbl\">Servicios en {$ch}</p>\n";
+  $php .= "    <h2>Todo lo que hacemos <span class=\"hl\">en {$ch}</span></h2>\n";
   $php .= "    <div class=\"zona-svc\">\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/<?php echo \$zona_slug; ?>/urgencias\" class=\"zona-sc\"><span class=\"zona-sc-n\">01</span><h3>Fontanero urgente en <?php echo \$zona_nombre; ?></h3><p>Roturas de tuber&iacute;as, grifos, cisternas y p&eacute;rdidas de agua con soluci&oacute;n r&aacute;pida y precio cerrado.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/<?php echo \$zona_slug; ?>/busqueda_fugas\" class=\"zona-sc\"><span class=\"zona-sc-n\">02</span><h3>B&uacute;squeda de fugas en <?php echo \$zona_nombre; ?></h3><p>Localizaci&oacute;n de fugas con ge&oacute;fono y c&aacute;mara sin romper innecesariamente.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/<?php echo \$zona_slug; ?>/desatascos\" class=\"zona-sc\"><span class=\"zona-sc-n\">03</span><h3>Desatascos en <?php echo \$zona_nombre; ?></h3><p>Desatascos de fregaderos, bajantes y arquetas para recuperar el funcionamiento normal.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#termos\" class=\"zona-sc\"><span class=\"zona-sc-n\">04</span><h3>Termos el&eacute;ctricos en <?php echo \$zona_nombre; ?></h3><p>Instalaci&oacute;n de termos el&eacute;ctricos con asesoramiento y puesta en marcha.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#descalcificadores\" class=\"zona-sc\"><span class=\"zona-sc-n\">05</span><h3>Descalcificadores en <?php echo \$zona_nombre; ?></h3><p>Soluci&oacute;n para el agua dura con instalaci&oacute;n y mantenimiento de descalcificadores.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#reformas\" class=\"zona-sc\"><span class=\"zona-sc-n\">06</span><h3>Reformas de ba&ntilde;o en <?php echo \$zona_nombre; ?></h3><p>Reformas completas o parciales con precio cerrado antes de empezar.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"/fontanero/{$slug_h}/urgencias\" class=\"zona-sc\"><span class=\"zona-sc-n\">01</span><h3>Fontanero urgente en {$ch}</h3><p>Roturas de tuber&iacute;as, grifos, cisternas y p&eacute;rdidas de agua con soluci&oacute;n r&aacute;pida y precio cerrado.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"/fontanero/{$slug_h}/busqueda_fugas\" class=\"zona-sc\"><span class=\"zona-sc-n\">02</span><h3>B&uacute;squeda de fugas en {$ch}</h3><p>Localizaci&oacute;n de fugas con ge&oacute;fono y c&aacute;mara sin romper innecesariamente.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"/fontanero/{$slug_h}/desatascos\" class=\"zona-sc\"><span class=\"zona-sc-n\">03</span><h3>Desatascos en {$ch}</h3><p>Desatascos de fregaderos, bajantes y arquetas para recuperar el funcionamiento normal.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"/servicios#termos\" class=\"zona-sc\"><span class=\"zona-sc-n\">04</span><h3>Termos el&eacute;ctricos en {$ch}</h3><p>Instalaci&oacute;n de termos el&eacute;ctricos con asesoramiento y puesta en marcha.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"/servicios#descalcificadores\" class=\"zona-sc\"><span class=\"zona-sc-n\">05</span><h3>Descalcificadores en {$ch}</h3><p>Soluci&oacute;n para el agua dura con instalaci&oacute;n y mantenimiento de descalcificadores.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"/servicios#reformas\" class=\"zona-sc\"><span class=\"zona-sc-n\">06</span><h3>Reformas de ba&ntilde;o en {$ch}</h3><p>Reformas completas o parciales con precio cerrado antes de empezar.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
 
-  $php .= "<!-- FAQ -->\n";
-  $php .= "<section class=\"zona-sec\">\n";
-  $php .= "  <div class=\"cta-dark-con\">\n";
-  $php .= "    <p class=\"zona-lbl\">Preguntas frecuentes</p>\n";
-  $php .= "    <h2>Fontaner&iacute;a en <?php echo \$zona_nombre; ?> &mdash; <span class=\"hl\">dudas habituales</span></h2>\n";
-  $php .= "    <div class=\"zona-faq\" style=\"margin-top:2rem\">\n";
-  $php .= $faq_items;
-  $php .= "    </div>\n";
-  $php .= "  </div>\n";
-  $php .= "</section>\n\n";
+  // ── FAQ ───────────────────────────────────────────────────────────
+  if ($faq_items) {
+    $php .= "<!-- FAQ -->\n";
+    $php .= "<section class=\"zona-sec\">\n";
+    $php .= "  <div class=\"cta-dark-con\">\n";
+    $php .= "    <p class=\"zona-lbl\">Preguntas frecuentes</p>\n";
+    $php .= "    <h2>Fontaner&iacute;a en {$ch} &mdash; <span class=\"hl\">dudas habituales</span></h2>\n";
+    $php .= "    <div class=\"zona-faq\" style=\"margin-top:2rem\">\n{$faq_items}    </div>\n";
+    $php .= "  </div>\n";
+    $php .= "</section>\n\n";
+  }
 
-  // ── Proyectos recientes en la ciudad ──────────────────────────────
-  $php .= "<!-- PROYECTOS -->\n";
+  // ── MARCADOR: fin de la zona editable en TinyMCE ─────────────────
+  $php .= "<!-- /editable -->\n";
+
+  // ── SECCIÓN DINÁMICA: proyectos + artículos (PHP real, fuera de TinyMCE) ──
+  $ciudad_q = addslashes($ciudad);
   $php .= "<?php\n";
   $php .= "\$_proy = [];\n";
   $php .= "try {\n";
-  $php .= "  \$_ps = \$pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');\n";
-  $php .= "  \$_ps->execute(['%{$ciudad}%']);\n";
+  $php .= "  \$_ps = \$pdo->prepare('SELECT titulo, slug, descripcion, servicio FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_ps->execute(['%{$ciudad_q}%']);\n";
   $php .= "  \$_proy = \$_ps->fetchAll(PDO::FETCH_ASSOC);\n";
   $php .= "} catch (\\Throwable \$_e) {}\n";
-  $php .= "?>\n";
-  $php .= "<?php if (!empty(\$_proy)): ?>\n";
+  $php .= "\$_arts = [];\n";
+  $php .= "try {\n";
+  $php .= "  \$_as = \$pdo->prepare('SELECT titulo, slug, extracto, categoria FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_as->execute(['%{$ciudad_q}%', '%fontan%']);\n";
+  $php .= "  \$_arts = \$_as->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "  if (empty(\$_arts)) {\n";
+  $php .= "    \$_as2 = \$pdo->query('SELECT titulo, slug, extracto, categoria FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "    \$_arts = \$_as2 ? \$_as2->fetchAll(PDO::FETCH_ASSOC) : [];\n";
+  $php .= "  }\n";
+  $php .= "} catch (\\Throwable \$_e) {}\n";
+  $php .= "if (!empty(\$_proy)): ?>\n";
   $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
-  $php .= "    <p class=\"zona-lbl\">Trabajos realizados en <?php echo \$zona_nombre; ?></p>\n";
-  $php .= "    <h2>Proyectos de fontaner&iacute;a <span class=\"hl\">en <?php echo \$zona_nombre; ?></span></h2>\n";
-  $php .= "    <div class=\"blog-grid\" style=\"margin-top:2rem\">\n";
+  $php .= "    <p class=\"zona-lbl\">Trabajos realizados</p>\n";
+  $php .= "    <h2>Proyectos de fontaner&iacute;a <span class=\"hl\">en {$ch}</span></h2>\n";
+  $php .= "    <div class=\"zona-svc\" style=\"margin-top:2rem\">\n";
   $php .= "      <?php foreach (\$_proy as \$_p): ?>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>proyectos/<?php echo urlencode(\$_p['slug']); ?>\" class=\"blog-card\">\n";
-  $php .= "        <?php if (\$_p['imagen']): ?><img src=\"<?php echo htmlspecialchars(\$_p['imagen']); ?>\" alt=\"<?php echo htmlspecialchars(\$_p['titulo']); ?>\" loading=\"lazy\"><?php endif; ?>\n";
-  $php .= "        <div class=\"blog-card-body\">\n";
-  $php .= "          <?php if (\$_p['servicio']): ?><span class=\"blog-cat\"><?php echo htmlspecialchars(\$_p['servicio']); ?></span><?php endif; ?>\n";
-  $php .= "          <h3><?php echo htmlspecialchars(\$_p['titulo']); ?></h3>\n";
-  $php .= "          <p><?php echo htmlspecialchars(mb_substr(\$_p['descripcion'] ?? '', 0, 120)); ?>...</p>\n";
-  $php .= "        </div>\n";
+  $php .= "      <a href=\"/proyectos/<?php echo urlencode(\$_p['slug']); ?>\" class=\"zona-sc\">\n";
+  $php .= "        <?php if (\$_p['servicio']): ?><span class=\"zona-lbl\" style=\"font-size:11px\"><?php echo htmlspecialchars(\$_p['servicio']); ?></span><?php endif; ?>\n";
+  $php .= "        <h3><?php echo htmlspecialchars(\$_p['titulo']); ?></h3>\n";
+  $php .= "        <p><?php echo htmlspecialchars(mb_substr(\$_p['descripcion'] ?? '', 0, 100)); ?>...</p>\n";
+  $php .= "        <span class=\"zona-sc-a\">Ver proyecto &rarr;</span>\n";
   $php .= "      </a>\n";
   $php .= "      <?php endforeach; ?>\n";
   $php .= "    </div>\n";
-  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"<?php echo \$base_url; ?>proyectos/zona/<?php echo urlencode(\$zona_nombre); ?>\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los proyectos en <?php echo \$zona_nombre; ?> &rarr;</a></div>\n";
+  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"/proyectos/zona/" . urlencode($ciudad) . "\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los proyectos en {$ch} &rarr;</a></div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n";
-  $php .= "<?php endif; ?>\n\n";
-
-  // ── Artículos del blog ─────────────────────────────────────────────
-  $php .= "<!-- ARTICULOS -->\n";
-  $php .= "<?php\n";
-  $php .= "\$_arts = [];\n";
-  $php .= "try {\n";
-  $php .= "  \$_as = \$pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');\n";
-  $php .= "  \$_as->execute(['%{$ciudad}%', '%fontan%']);\n";
-  $php .= "  \$_arts = \$_as->fetchAll(PDO::FETCH_ASSOC);\n";
-  $php .= "  if (empty(\$_arts)) {\n";
-  $php .= "    \$_as2 = \$pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');\n";
-  $php .= "    \$_arts = \$_as2->fetchAll(PDO::FETCH_ASSOC);\n";
-  $php .= "  }\n";
-  $php .= "} catch (\\Throwable \$_e) {}\n";
-  $php .= "?>\n";
+  $php .= "<?php endif; ?>\n";
   $php .= "<?php if (!empty(\$_arts)): ?>\n";
   $php .= "<section class=\"zona-sec\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
-  $php .= "    <p class=\"zona-lbl\">Consejos y noticias</p>\n";
-  $php .= "    <h2>Art&iacute;culos &uacute;tiles sobre <span class=\"hl\">fontaner&iacute;a</span></h2>\n";
-  $php .= "    <div class=\"blog-grid\" style=\"margin-top:2rem\">\n";
+  $php .= "    <p class=\"zona-lbl\">Consejos &uacute;tiles</p>\n";
+  $php .= "    <h2>Art&iacute;culos sobre <span class=\"hl\">fontaner&iacute;a</span></h2>\n";
+  $php .= "    <div class=\"zona-svc\" style=\"margin-top:2rem\">\n";
   $php .= "      <?php foreach (\$_arts as \$_a): ?>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>noticias/<?php echo urlencode(\$_a['slug']); ?>\" class=\"blog-card\">\n";
-  $php .= "        <?php if (\$_a['imagen']): ?><img src=\"<?php echo htmlspecialchars(\$_a['imagen']); ?>\" alt=\"<?php echo htmlspecialchars(\$_a['titulo']); ?>\" loading=\"lazy\"><?php endif; ?>\n";
-  $php .= "        <div class=\"blog-card-body\">\n";
-  $php .= "          <?php if (\$_a['categoria']): ?><span class=\"blog-cat\"><?php echo htmlspecialchars(\$_a['categoria']); ?></span><?php endif; ?>\n";
-  $php .= "          <h3><?php echo htmlspecialchars(\$_a['titulo']); ?></h3>\n";
-  $php .= "          <p><?php echo htmlspecialchars(mb_substr(\$_a['extracto'] ?? '', 0, 120)); ?>...</p>\n";
-  $php .= "        </div>\n";
+  $php .= "      <a href=\"/noticias/<?php echo urlencode(\$_a['slug']); ?>\" class=\"zona-sc\">\n";
+  $php .= "        <?php if (\$_a['categoria']): ?><span class=\"zona-lbl\" style=\"font-size:11px\"><?php echo htmlspecialchars(\$_a['categoria']); ?></span><?php endif; ?>\n";
+  $php .= "        <h3><?php echo htmlspecialchars(\$_a['titulo']); ?></h3>\n";
+  $php .= "        <p><?php echo htmlspecialchars(mb_substr(\$_a['extracto'] ?? '', 0, 100)); ?>...</p>\n";
+  $php .= "        <span class=\"zona-sc-a\">Leer art&iacute;culo &rarr;</span>\n";
   $php .= "      </a>\n";
   $php .= "      <?php endforeach; ?>\n";
   $php .= "    </div>\n";
-  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"<?php echo \$base_url; ?>noticias\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los art&iacute;culos &rarr;</a></div>\n";
+  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"/noticias\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los art&iacute;culos &rarr;</a></div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n";
-  $php .= "<?php endif; ?>\n\n";
+  $php .= "<?php endif; ?>\n";
 
-  // ── Mapa de cobertura ──────────────────────────────────────────────
-  $php .= "<!-- MAPA -->\n";
+  // ── MAPA — todo hardcodeado, sin PHP vars ─────────────────────────
   $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
   $php .= "    <p class=\"zona-lbl\">Zona de cobertura</p>\n";
-  $php .= "    <h2>Fontaner&iacute;a a domicilio <span class=\"hl\">en <?php echo \$zona_nombre; ?></span></h2>\n";
-  $php .= "    <p style=\"margin-bottom:1.5rem;color:#576574\">Atendemos toda la localidad de <?php echo \$zona_nombre; ?> (CP <?php echo \$zona_cp; ?>) y municipios limítrofes. Desplazamiento incluido en el presupuesto.</p>\n";
+  $php .= "    <h2>Fontaner&iacute;a a domicilio <span class=\"hl\">en {$ch}</span></h2>\n";
+  $php .= "    <p style=\"margin-bottom:1.5rem;color:#576574\">Atendemos toda la localidad de {$ch} (CP {$cp_h}) y municipios lim&iacute;trofes. Desplazamiento incluido en el presupuesto.</p>\n";
   $php .= "    <div style=\"border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)\">\n";
-  $php .= "      <iframe\n";
-  $php .= "        src=\"https://maps.google.com/maps?q={$lat},{$lng}&z=14&output=embed\"\n";
-  $php .= "        width=\"100%\" height=\"420\" style=\"border:0;display:block\" allowfullscreen\n";
-  $php .= "        loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"\n";
-  $php .= "        title=\"Fontaner&iacute;a en <?php echo \$zona_nombre; ?> — CarolTemp\">\n";
-  $php .= "      </iframe>\n";
+  $php .= "      <iframe src=\"https://maps.google.com/maps?q={$lat},{$lng}&z=14&output=embed\" width=\"100%\" height=\"420\" style=\"border:0;display:block\" allowfullscreen loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" title=\"Fontaner&iacute;a en {$ch}\"></iframe>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
-  $php .= "</section>\n\n";
-
-  $php .= "<!-- CIUDADES CERCANAS -->\n";
+  $php .= "</section>\n";
   $php .= "<section class=\"zona-sec\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
   $php .= "    <p class=\"zona-lbl\">Otras zonas donde trabajamos</p>\n";
   $php .= "    <h2>Tambi&eacute;n trabajamos en <span class=\"hl\">zonas cercanas</span></h2>\n";
-  $php .= "    <div class=\"zona-ztags\">\n";
-  $php .= $ztags;
-  $php .= "    </div>\n";
+  $php .= "    <div class=\"zona-ztags\">\n{$ztags}    </div>\n";
   $php .= "  </div>\n";
-  $php .= "</section>\n\n";
-
-  $php .= "<!-- CTA FINAL -->\n";
+  $php .= "</section>\n";
   $php .= "<section class=\"cta-dark\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
-  $php .= "    <h2>&iquest;Necesitas fontaner&iacute;a <span>en <?php echo \$zona_nombre; ?>?</span></h2>\n";
+  $php .= "    <h2>&iquest;Necesitas fontaner&iacute;a <span>en {$ch}?</span></h2>\n";
   $php .= "    <p>Ll&aacute;menos o escr&iacute;benos y te atendemos hoy.</p>\n";
   $php .= "    <div class=\"cta-dark-btns\">\n";
   $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
   $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
-  $php .= "</section>\n\n";
-
+  $php .= "</section>\n";
   $php .= "<?php include '../includes/footer.php'; ?>\n";
 
   return $php;
