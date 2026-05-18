@@ -24,15 +24,15 @@ header('Content-Type: application/json; charset=utf-8');
 
 // ── Ciudades del sistema (sin Villena) ──────────────────────────────
 $ciudades = [
-  'Elda'             => ['slug' => 'elda',     'cp' => '03600'],
-  'Petrer'           => ['slug' => 'petrer',   'cp' => '03610'],
-  'Novelda'          => ['slug' => 'novelda',  'cp' => '03660'],
-  'Monóvar'          => ['slug' => 'monovar',  'cp' => '03640'],
-  'Sax'              => ['slug' => 'sax',      'cp' => '03630'],
-  'Pinoso'           => ['slug' => 'pinoso',   'cp' => '03650'],
-  'Monforte del Cid' => ['slug' => 'monforte', 'cp' => '03670'],
-  'Salinas'          => ['slug' => 'salinas',  'cp' => '03688'],
-  'Aspe'             => ['slug' => 'aspe',     'cp' => '03680'],
+  'Elda'             => ['slug' => 'elda',     'cp' => '03600', 'lat' => '38.4766', 'lng' => '-0.7952'],
+  'Petrer'           => ['slug' => 'petrer',   'cp' => '03610', 'lat' => '38.4697', 'lng' => '-0.7742'],
+  'Novelda'          => ['slug' => 'novelda',  'cp' => '03660', 'lat' => '38.3857', 'lng' => '-0.7682'],
+  'Monóvar'          => ['slug' => 'monovar',  'cp' => '03640', 'lat' => '38.4311', 'lng' => '-0.8361'],
+  'Sax'              => ['slug' => 'sax',      'cp' => '03630', 'lat' => '38.5352', 'lng' => '-0.8156'],
+  'Pinoso'           => ['slug' => 'pinoso',   'cp' => '03650', 'lat' => '38.4054', 'lng' => '-1.0397'],
+  'Monforte del Cid' => ['slug' => 'monforte', 'cp' => '03670', 'lat' => '38.3745', 'lng' => '-0.6645'],
+  'Salinas'          => ['slug' => 'salinas',  'cp' => '03688', 'lat' => '38.5053', 'lng' => '-0.9667'],
+  'Aspe'             => ['slug' => 'aspe',     'cp' => '03680', 'lat' => '38.3454', 'lng' => '-0.7698'],
 ];
 
 // ── Perfiles por ciudad — datos reales para diferenciación de contenido ─
@@ -550,7 +550,9 @@ SYS;
       exit;
     }
 
-    $php_hub = generar_php_hub_ciudad($data_hub, $ciudad, $ciudad_slug, $ciudad_cp, $otras_zonas);
+    $ciudad_lat = $ciudades[$ciudad]['lat'] ?? '38.4766';
+    $ciudad_lng = $ciudades[$ciudad]['lng'] ?? '-0.7952';
+    $php_hub = generar_php_hub_ciudad($data_hub, $ciudad, $ciudad_slug, $ciudad_cp, $otras_zonas, $ciudad_lat, $ciudad_lng);
 
     echo json_encode([
       'ok'            => true,
@@ -668,7 +670,9 @@ SYS;
     if (!$data_fugas) { echo json_encode(['error' => 'Claude no devolvió JSON válido.']); exit; }
 
     $filepath_fugas = 'fontanero/' . $ciudad_slug . '/busqueda_fugas.php';
-    $php_fugas = generar_php_servicio($data_fugas, $tipo_cfg_fugas, 'busqueda_fugas', $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, 2);
+    $ciudad_lat_f = $ciudades[$ciudad]['lat'] ?? '38.4766';
+    $ciudad_lng_f = $ciudades[$ciudad]['lng'] ?? '-0.7952';
+    $php_fugas = generar_php_servicio($data_fugas, $tipo_cfg_fugas, 'busqueda_fugas', $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, 2, $ciudad_lat_f, $ciudad_lng_f);
 
     echo json_encode([
       'ok'            => true,
@@ -801,7 +805,9 @@ SYS;
     }
 
     $filepath_urg = 'fontanero/' . $ciudad_slug . '/urgencias.php';
-    $php_urg = generar_php_servicio($data_urg, $tipo_cfg_urg, 'urgencias', $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, 2);
+    $ciudad_lat_u = $ciudades[$ciudad]['lat'] ?? '38.4766';
+    $ciudad_lng_u = $ciudades[$ciudad]['lng'] ?? '-0.7952';
+    $php_urg = generar_php_servicio($data_urg, $tipo_cfg_urg, 'urgencias', $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, 2, $ciudad_lat_u, $ciudad_lng_u);
 
     echo json_encode([
       'ok'            => true,
@@ -980,7 +986,9 @@ SYS;
     ? $filepath_requested
     : $tipo_cfg['dir'] . '/' . $filename;
 
-  $php_contenido = generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, $silo_depth);
+  $ciudad_lat_g = $ciudades[$ciudad]['lat'] ?? '38.4766';
+  $ciudad_lng_g = $ciudades[$ciudad]['lng'] ?? '-0.7952';
+  $php_contenido = generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, $silo_depth, $ciudad_lat_g, $ciudad_lng_g);
 
   echo json_encode([
     'ok'            => true,
@@ -995,7 +1003,7 @@ SYS;
 // ═════════════════════════════════════════════════════════════════════
 // Genera el archivo PHP: variables + include plantilla-servicio.php
 // ═════════════════════════════════════════════════════════════════════
-function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, $depth = 1) {
+function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, $depth = 1, $lat = '38.4766', $lng = '-0.7952') {
   $servicio_nombre = $tipo_cfg['nombre'];
   $meta_title      = $data['meta_title']      ?? "{$servicio_nombre} en {$ciudad} — CarolTemp";
   $meta_desc       = $data['meta_desc']       ?? "Servicio de {$servicio_nombre} en {$ciudad}. Presupuesto cerrado. Llama al 613 429 032.";
@@ -1139,6 +1147,89 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
     $php .= "</section>\n\n";
   }
 
+  // ── Proyectos recientes en la ciudad ─────────────────────────────
+  $php .= "<?php\n";
+  $php .= "\$_proy = [];\n";
+  $php .= "try {\n";
+  $php .= "  \$_ps = \$pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_ps->execute(['%{$ciudad}%']);\n";
+  $php .= "  \$_proy = \$_ps->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "} catch (\\Throwable \$_e) {}\n";
+  $php .= "?>\n";
+  $php .= "<?php if (!empty(\$_proy)): ?>\n";
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Trabajos realizados</p>\n";
+  $php .= "    <h2>Proyectos de {$servicio_nombre} <span class=\"hl\">en {$ciudad}</span></h2>\n";
+  $php .= "    <div class=\"blog-grid\" style=\"margin-top:2rem\">\n";
+  $php .= "      <?php foreach (\$_proy as \$_p): ?>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>proyectos/<?php echo urlencode(\$_p['slug']); ?>\" class=\"blog-card\">\n";
+  $php .= "        <?php if (\$_p['imagen']): ?><img src=\"<?php echo htmlspecialchars(\$_p['imagen']); ?>\" alt=\"<?php echo htmlspecialchars(\$_p['titulo']); ?>\" loading=\"lazy\"><?php endif; ?>\n";
+  $php .= "        <div class=\"blog-card-body\">\n";
+  $php .= "          <?php if (\$_p['servicio']): ?><span class=\"blog-cat\"><?php echo htmlspecialchars(\$_p['servicio']); ?></span><?php endif; ?>\n";
+  $php .= "          <h3><?php echo htmlspecialchars(\$_p['titulo']); ?></h3>\n";
+  $php .= "          <p><?php echo htmlspecialchars(mb_substr(\$_p['descripcion'] ?? '', 0, 120)); ?>...</p>\n";
+  $php .= "        </div>\n";
+  $php .= "      </a>\n";
+  $php .= "      <?php endforeach; ?>\n";
+  $php .= "    </div>\n";
+  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"<?php echo \$base_url; ?>proyectos/zona/<?php echo urlencode('{$ciudad}'); ?>\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los proyectos en {$ciudad} &rarr;</a></div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+  $php .= "<?php endif; ?>\n\n";
+
+  // ── Artículos relacionados ────────────────────────────────────────
+  $php .= "<?php\n";
+  $php .= "\$_arts = [];\n";
+  $php .= "try {\n";
+  $php .= "  \$_as = \$pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_as->execute(['%{$ciudad}%', '%fontan%']);\n";
+  $php .= "  \$_arts = \$_as->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "  if (empty(\$_arts)) {\n";
+  $php .= "    \$_as2 = \$pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "    \$_arts = \$_as2->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "  }\n";
+  $php .= "} catch (\\Throwable \$_e) {}\n";
+  $php .= "?>\n";
+  $php .= "<?php if (!empty(\$_arts)): ?>\n";
+  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Consejos y noticias</p>\n";
+  $php .= "    <h2>Art&iacute;culos sobre <span class=\"hl\">{$servicio_nombre}</span></h2>\n";
+  $php .= "    <div class=\"blog-grid\" style=\"margin-top:2rem\">\n";
+  $php .= "      <?php foreach (\$_arts as \$_a): ?>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>noticias/<?php echo urlencode(\$_a['slug']); ?>\" class=\"blog-card\">\n";
+  $php .= "        <?php if (\$_a['imagen']): ?><img src=\"<?php echo htmlspecialchars(\$_a['imagen']); ?>\" alt=\"<?php echo htmlspecialchars(\$_a['titulo']); ?>\" loading=\"lazy\"><?php endif; ?>\n";
+  $php .= "        <div class=\"blog-card-body\">\n";
+  $php .= "          <?php if (\$_a['categoria']): ?><span class=\"blog-cat\"><?php echo htmlspecialchars(\$_a['categoria']); ?></span><?php endif; ?>\n";
+  $php .= "          <h3><?php echo htmlspecialchars(\$_a['titulo']); ?></h3>\n";
+  $php .= "          <p><?php echo htmlspecialchars(mb_substr(\$_a['extracto'] ?? '', 0, 120)); ?>...</p>\n";
+  $php .= "        </div>\n";
+  $php .= "      </a>\n";
+  $php .= "      <?php endforeach; ?>\n";
+  $php .= "    </div>\n";
+  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"<?php echo \$base_url; ?>noticias\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los art&iacute;culos &rarr;</a></div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+  $php .= "<?php endif; ?>\n\n";
+
+  // ── Mapa de cobertura ──────────────────────────────────────────────
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Zona de cobertura</p>\n";
+  $php .= "    <h2>CarolTemp en <span class=\"hl\">{$ciudad}</span></h2>\n";
+  $php .= "    <p style=\"margin-bottom:1.5rem;color:#576574\">Atendemos toda la localidad de {$ciudad} (CP {$ciudad_cp}) y municipios limítrofes. Presupuesto gratuito sin compromiso.</p>\n";
+  $php .= "    <div style=\"border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)\">\n";
+  $php .= "      <iframe\n";
+  $php .= "        src=\"https://maps.google.com/maps?q={$lat},{$lng}&z=14&output=embed\"\n";
+  $php .= "        width=\"100%\" height=\"400\" style=\"border:0;display:block\" allowfullscreen\n";
+  $php .= "        loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"\n";
+  $php .= "        title=\"Fontaner&iacute;a en {$ciudad} — CarolTemp\">\n";
+  $php .= "      </iframe>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
   // ── Ciudades cercanas ─────────────────────────────────────────────
   $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
@@ -1169,7 +1260,7 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
 // Genera el archivo PHP hub ciudad (fontanero/{slug}.php)
 // Estructura silo: cubre todos los servicios, enlaza a sub-páginas
 // ═════════════════════════════════════════════════════════════════════
-function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades) {
+function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, $lat = '38.4766', $lng = '-0.7952') {
   $meta_title = $data['meta_title'] ?? "Fontanería en {$ciudad} — CarolTemp";
   $meta_desc  = $data['meta_desc']  ?? "Servicios de fontanería en {$ciudad}. Urgencias, fugas, desatascos e instalaciones.";
   $hero_sub   = $data['hero_sub']   ?? "Trabajamos en {$ciudad} realizando todo tipo de servicios de fontanería.";
@@ -1312,8 +1403,94 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
 
-  $php .= "<!-- CIUDADES CERCANAS -->\n";
+  // ── Proyectos recientes en la ciudad ──────────────────────────────
+  $php .= "<!-- PROYECTOS -->\n";
+  $php .= "<?php\n";
+  $php .= "\$_proy = [];\n";
+  $php .= "try {\n";
+  $php .= "  \$_ps = \$pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_ps->execute(['%{$ciudad}%']);\n";
+  $php .= "  \$_proy = \$_ps->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "} catch (\\Throwable \$_e) {}\n";
+  $php .= "?>\n";
+  $php .= "<?php if (!empty(\$_proy)): ?>\n";
   $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Trabajos realizados en <?php echo \$zona_nombre; ?></p>\n";
+  $php .= "    <h2>Proyectos de fontaner&iacute;a <span class=\"hl\">en <?php echo \$zona_nombre; ?></span></h2>\n";
+  $php .= "    <div class=\"blog-grid\" style=\"margin-top:2rem\">\n";
+  $php .= "      <?php foreach (\$_proy as \$_p): ?>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>proyectos/<?php echo urlencode(\$_p['slug']); ?>\" class=\"blog-card\">\n";
+  $php .= "        <?php if (\$_p['imagen']): ?><img src=\"<?php echo htmlspecialchars(\$_p['imagen']); ?>\" alt=\"<?php echo htmlspecialchars(\$_p['titulo']); ?>\" loading=\"lazy\"><?php endif; ?>\n";
+  $php .= "        <div class=\"blog-card-body\">\n";
+  $php .= "          <?php if (\$_p['servicio']): ?><span class=\"blog-cat\"><?php echo htmlspecialchars(\$_p['servicio']); ?></span><?php endif; ?>\n";
+  $php .= "          <h3><?php echo htmlspecialchars(\$_p['titulo']); ?></h3>\n";
+  $php .= "          <p><?php echo htmlspecialchars(mb_substr(\$_p['descripcion'] ?? '', 0, 120)); ?>...</p>\n";
+  $php .= "        </div>\n";
+  $php .= "      </a>\n";
+  $php .= "      <?php endforeach; ?>\n";
+  $php .= "    </div>\n";
+  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"<?php echo \$base_url; ?>proyectos/zona/<?php echo urlencode(\$zona_nombre); ?>\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los proyectos en <?php echo \$zona_nombre; ?> &rarr;</a></div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+  $php .= "<?php endif; ?>\n\n";
+
+  // ── Artículos del blog ─────────────────────────────────────────────
+  $php .= "<!-- ARTICULOS -->\n";
+  $php .= "<?php\n";
+  $php .= "\$_arts = [];\n";
+  $php .= "try {\n";
+  $php .= "  \$_as = \$pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_as->execute(['%{$ciudad}%', '%fontan%']);\n";
+  $php .= "  \$_arts = \$_as->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "  if (empty(\$_arts)) {\n";
+  $php .= "    \$_as2 = \$pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "    \$_arts = \$_as2->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "  }\n";
+  $php .= "} catch (\\Throwable \$_e) {}\n";
+  $php .= "?>\n";
+  $php .= "<?php if (!empty(\$_arts)): ?>\n";
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Consejos y noticias</p>\n";
+  $php .= "    <h2>Art&iacute;culos &uacute;tiles sobre <span class=\"hl\">fontaner&iacute;a</span></h2>\n";
+  $php .= "    <div class=\"blog-grid\" style=\"margin-top:2rem\">\n";
+  $php .= "      <?php foreach (\$_arts as \$_a): ?>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>noticias/<?php echo urlencode(\$_a['slug']); ?>\" class=\"blog-card\">\n";
+  $php .= "        <?php if (\$_a['imagen']): ?><img src=\"<?php echo htmlspecialchars(\$_a['imagen']); ?>\" alt=\"<?php echo htmlspecialchars(\$_a['titulo']); ?>\" loading=\"lazy\"><?php endif; ?>\n";
+  $php .= "        <div class=\"blog-card-body\">\n";
+  $php .= "          <?php if (\$_a['categoria']): ?><span class=\"blog-cat\"><?php echo htmlspecialchars(\$_a['categoria']); ?></span><?php endif; ?>\n";
+  $php .= "          <h3><?php echo htmlspecialchars(\$_a['titulo']); ?></h3>\n";
+  $php .= "          <p><?php echo htmlspecialchars(mb_substr(\$_a['extracto'] ?? '', 0, 120)); ?>...</p>\n";
+  $php .= "        </div>\n";
+  $php .= "      </a>\n";
+  $php .= "      <?php endforeach; ?>\n";
+  $php .= "    </div>\n";
+  $php .= "    <div style=\"text-align:center;margin-top:1.5rem\"><a href=\"<?php echo \$base_url; ?>noticias\" class=\"btn-hz-g\" style=\"display:inline-flex\">Ver todos los art&iacute;culos &rarr;</a></div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+  $php .= "<?php endif; ?>\n\n";
+
+  // ── Mapa de cobertura ──────────────────────────────────────────────
+  $php .= "<!-- MAPA -->\n";
+  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Zona de cobertura</p>\n";
+  $php .= "    <h2>Fontaner&iacute;a a domicilio <span class=\"hl\">en <?php echo \$zona_nombre; ?></span></h2>\n";
+  $php .= "    <p style=\"margin-bottom:1.5rem;color:#576574\">Atendemos toda la localidad de <?php echo \$zona_nombre; ?> (CP <?php echo \$zona_cp; ?>) y municipios limítrofes. Desplazamiento incluido en el presupuesto.</p>\n";
+  $php .= "    <div style=\"border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)\">\n";
+  $php .= "      <iframe\n";
+  $php .= "        src=\"https://maps.google.com/maps?q={$lat},{$lng}&z=14&output=embed\"\n";
+  $php .= "        width=\"100%\" height=\"420\" style=\"border:0;display:block\" allowfullscreen\n";
+  $php .= "        loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"\n";
+  $php .= "        title=\"Fontaner&iacute;a en <?php echo \$zona_nombre; ?> — CarolTemp\">\n";
+  $php .= "      </iframe>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<!-- CIUDADES CERCANAS -->\n";
+  $php .= "<section class=\"zona-sec\">\n";
   $php .= "  <div class=\"cta-dark-con\">\n";
   $php .= "    <p class=\"zona-lbl\">Otras zonas donde trabajamos</p>\n";
   $php .= "    <h2>Tambi&eacute;n trabajamos en <span class=\"hl\">zonas cercanas</span></h2>\n";
