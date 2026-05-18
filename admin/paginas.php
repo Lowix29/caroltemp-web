@@ -52,6 +52,20 @@ $sql .= ' ORDER BY modificado DESC';
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $paginas = $stmt->fetchAll();
+
+// Detectar páginas en disco que no están en la BD
+$site_root_scan = dirname(__DIR__);
+$db_filepaths = array_column($paginas, 'filepath');
+// Scan root .php files
+$root_phps = glob($site_root_scan . '/*.php') ?: [];
+$system_files = ['404.php','sitemap.php']; // skip these
+$paginas_disco = [];
+foreach ($root_phps as $f) {
+    $fn = basename($f);
+    if (!in_array($fn, $db_filepaths, true) && !in_array($fn, $system_files, true)) {
+        $paginas_disco[] = $fn;
+    }
+}
 ?><!DOCTYPE html>
 <html lang="es">
 <head>
@@ -140,6 +154,26 @@ $paginas = $stmt->fetchAll();
       </tbody>
     </table>
   </div>
+
+  <?php if (!empty($paginas_disco)): ?>
+  <div class="card" style="margin-top:1.5rem">
+    <div class="card-header">
+      <h2>Páginas en disco sin registrar en BD</h2>
+      <span style="color:#7a95b0;font-size:13px"><?php echo count($paginas_disco); ?> archivo<?php echo count($paginas_disco) !== 1 ? 's' : ''; ?> encontrado<?php echo count($paginas_disco) !== 1 ? 's' : ''; ?></span>
+    </div>
+    <div style="padding:1rem 1.5rem">
+      <p style="font-size:13px;color:#576574;margin-bottom:1rem">Estos archivos .php existen en la raíz del sitio pero no están en la base de datos. Puedes importarlos para gestionarlos desde el panel.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem">
+        <?php foreach ($paginas_disco as $fn): ?>
+          <div style="display:flex;align-items:center;gap:.5rem;background:#f4f7fb;border:1px solid #dde6f0;border-radius:6px;padding:.5rem 1rem">
+            <code style="font-family:monospace;font-size:12px;color:#1e3a5f"><?php echo htmlspecialchars($fn); ?></code>
+            <a href="nueva-pagina.php?importar=<?php echo urlencode($fn); ?>" style="background:#1e3a5f;color:#fff;font-size:12px;padding:3px 10px;border-radius:4px;text-decoration:none;font-weight:600">Importar</a>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
+  <?php endif; ?>
 
 </main>
 

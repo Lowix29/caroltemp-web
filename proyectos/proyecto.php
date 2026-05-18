@@ -39,6 +39,7 @@ $meta_url    = 'https://caroltemp.com/proyectos/' . $pro['slug'];
 $schema_type = 'proyecto';
 $page_css    = 'proyectos';
 $page_js     = '';
+$robots_meta = ($pro['robots'] ?? 'index') === 'noindex' ? 'noindex' : 'index';
 
 include '../includes/head.php';
 ?>

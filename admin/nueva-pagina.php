@@ -16,9 +16,11 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (
   meta_title VARCHAR(255) DEFAULT '',
   meta_desc TEXT DEFAULT '',
   publicado TINYINT(1) DEFAULT 1,
+  robots VARCHAR(20) DEFAULT 'index',
   fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
   modificado DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+$pdo->exec("ALTER TABLE paginas ADD COLUMN IF NOT EXISTS robots VARCHAR(20) DEFAULT 'index'");
 
 $mensaje = '';
 $error   = '';
@@ -31,6 +33,7 @@ $pag     = [
   'meta_title' => '',
   'meta_desc'  => '',
   'publicado'  => 1,
+  'robots'     => 'index',
 ];
 
 $editando = false;
@@ -44,6 +47,17 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   }
 }
 
+$importando = false;
+if (!$editando && isset($_GET['importar'])) {
+  $fn = basename($_GET['importar']); // security: basename only
+  if (preg_match('/^[a-z0-9\-]+\.php$/', $fn)) {
+    $pag['filepath'] = $fn;
+    $pag['titulo']   = ucwords(str_replace(['-','.php'], [' ',''], $fn));
+    $pag['slug']     = str_replace('.php', '', $fn);
+    $importando = true;
+  }
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $titulo     = trim($_POST['titulo']     ?? '');
   $slug       = trim($_POST['slug']       ?? '');
@@ -52,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $meta_title = trim($_POST['meta_title'] ?? '');
   $meta_desc  = trim($_POST['meta_desc']  ?? '');
   $publicado  = isset($_POST['publicado']) ? 1 : 0;
+  $robots     = trim($_POST['robots'] ?? 'index');
 
   // Auto-generar slug desde título si no existe
   if (!$slug && $titulo) {
@@ -85,17 +100,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $stmt = $pdo->prepare('
             UPDATE paginas SET
               titulo=?, slug=?, filepath=?, contenido=?,
-              meta_title=?, meta_desc=?, publicado=?
+              meta_title=?, meta_desc=?, publicado=?, robots=?
             WHERE id=?
           ');
           $stmt->execute([
             $titulo, $slug, $filepath, $contenido,
-            $meta_title, $meta_desc, $publicado,
+            $meta_title, $meta_desc, $publicado, $robots,
             $pag['id']
           ]);
           // Escribir archivo al disco
           $abs_path = dirname(__DIR__) . '/' . $filepath;
-          file_put_contents($abs_path, generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc));
+          file_put_contents($abs_path, generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc, $robots));
           $mensaje = '✅ Página actualizada correctamente.';
           $stmt = $pdo->prepare('SELECT * FROM paginas WHERE id = ? LIMIT 1');
           $stmt->execute([$pag['id']]);
@@ -103,17 +118,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
           $stmt = $pdo->prepare('
             INSERT INTO paginas
-              (titulo, slug, filepath, contenido, meta_title, meta_desc, publicado)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+              (titulo, slug, filepath, contenido, meta_title, meta_desc, publicado, robots)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
           ');
           $stmt->execute([
             $titulo, $slug, $filepath, $contenido,
-            $meta_title, $meta_desc, $publicado
+            $meta_title, $meta_desc, $publicado, $robots
           ]);
           $newId = $pdo->lastInsertId();
           // Escribir archivo al disco
           $abs_path = dirname(__DIR__) . '/' . $filepath;
-          file_put_contents($abs_path, generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc));
+          file_put_contents($abs_path, generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc, $robots));
           header('Location: nueva-pagina.php?id=' . $newId . '&ok=1');
           exit;
         }
@@ -132,16 +147,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'meta_title' => $meta_title,
       'meta_desc'  => $meta_desc,
       'publicado'  => $publicado,
+      'robots'     => $robots,
     ]);
   }
 }
 
 if (isset($_GET['ok'])) $mensaje = '✅ Página creada correctamente.';
 
-function generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc) {
+function generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc, $robots = 'index') {
   $meta_title_esc = addslashes($meta_title ?: $titulo);
   $meta_desc_esc  = addslashes($meta_desc);
   $titulo_esc     = htmlspecialchars($titulo, ENT_QUOTES);
+  $robots_val     = ($robots === 'noindex') ? 'noindex' : 'index';
   return <<<PHP
 <?php
 /**
@@ -154,6 +171,7 @@ function generarContenidoPHP($titulo, $slug, $contenido, $meta_title, $meta_desc
 \$schema_type = 'local';
 \$page_css    = 'default';
 \$page_js     = '';
+\$robots_meta = '{$robots_val}';
 include 'includes/head.php';
 ?>
 
@@ -181,6 +199,7 @@ PHP;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $editando ? 'Editar página' : 'Nueva página'; ?> — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../css/bloques-modal.css">
   <?php include '../includes/admin_style.php'; ?>
   <style>
     .google-preview { background: #fff; border: 1px solid #dde6f0; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1.25rem; }
@@ -193,6 +212,12 @@ PHP;
     .gp-desc.warn  { color: #e74c3c; }
     .filepath-hint { font-size: 12px; color: #7a95b0; margin-top: 4px; }
     .filepath-hint code { font-family: monospace; color: #1e3a5f; }
+    .schema-info-box { border:1px solid #e2e8f0; border-radius:8px; overflow:hidden; }
+    .schema-info-head { display:flex;justify-content:space-between;align-items:center;padding:.625rem 1rem;background:#f8fafc;cursor:pointer;font-size:12px;font-weight:600;color:#576574; }
+    .schema-info-body { display:none;padding:1rem;border-top:1px solid #e2e8f0; }
+    .schema-info-box.open .schema-info-body { display:block; }
+    .schema-info-box.open .schema-info-chevron { transform:rotate(90deg); }
+    .schema-info-chevron { transition:transform .2s; }
   </style>
   <script src="https://cdn.tiny.cloud/1/3eywuy73k0uzt30wiafptfr0tdx5iudt46gbkusw5kr5mjk2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <script>
@@ -202,7 +227,14 @@ PHP;
     height: 500,
     menubar: false,
     plugins: 'lists link image media table code wordcount',
-    toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist | link image | table | code',
+    toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist | link image | table | code | bloques',
+    setup: function(editor) {
+      editor.ui.registry.addButton('bloques', {
+        text: '🧱 Bloques',
+        tooltip: 'Insertar bloque de diseño',
+        onAction: function() { abrirModalBloques(); }
+      });
+    },
     images_upload_handler: function(blobInfo, progress) {
       return new Promise(function(resolve, reject) {
         var fd = new FormData();
@@ -313,6 +345,25 @@ PHP;
             <span class="char-count" id="count-desc"><?php echo strlen($pag['meta_desc']); ?>/160</span>
           </div>
 
+          <!-- SCHEMA.ORG INFO -->
+          <div class="form-group full">
+            <div class="schema-info-box">
+              <div class="schema-info-head" onclick="this.parentElement.classList.toggle('open')">
+                <span>📋 Schema.org automático</span>
+                <span class="schema-info-chevron">▸</span>
+              </div>
+              <div class="schema-info-body">
+                <p style="font-size:12px;color:#576574;margin:0 0 .5rem">
+                  Tipo: <code>local</code> — generado automáticamente en head.php
+                </p>
+                <p style="font-size:12px;color:#576574;margin:0">
+                  Para verificar el schema generado, visita la página en el navegador y usa
+                  <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Google Rich Results Test</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <!-- PREVIEW GOOGLE -->
           <div class="form-group full">
             <div class="google-preview">
@@ -329,6 +380,15 @@ PHP;
       <!-- PUBLICAR -->
       <div class="form-section">
         <h2>Publicación</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Indexación en buscadores</label>
+            <select name="robots">
+              <option value="index" <?php echo ($pag['robots'] ?? 'index') === 'index' ? 'selected' : ''; ?>>index, follow — Visible en Google</option>
+              <option value="noindex" <?php echo ($pag['robots'] ?? 'index') === 'noindex' ? 'selected' : ''; ?>>noindex — No indexar</option>
+            </select>
+          </div>
+        </div>
         <div class="check-wrap" style="margin-bottom:1.5rem">
           <input type="checkbox" id="publicado" name="publicado" <?php echo $pag['publicado'] ? 'checked' : ''; ?>>
           <label for="publicado">Publicar página (visible en la web)</label>
@@ -349,6 +409,8 @@ PHP;
   </form>
 
 </main>
+
+<?php include 'bloques-modal.php'; ?>
 
 <script>
 function slugify(texto) {

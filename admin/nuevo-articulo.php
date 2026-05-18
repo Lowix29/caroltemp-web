@@ -6,6 +6,8 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 require_once '../includes/db.php';
 
+$pdo->exec("ALTER TABLE articulos ADD COLUMN IF NOT EXISTS robots VARCHAR(20) DEFAULT 'index'");
+
 // Base path para rutas de imagen (en local el sitio está en /caroltemp/)
 $img_base = $is_local ? '/caroltemp' : '';
 
@@ -23,6 +25,7 @@ $art     = [
   'meta_title'=> '',
   'meta_desc' => '',
   'publicado' => 0,
+  'robots'    => 'index',
 ];
 
 $editando = false;
@@ -69,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $meta_title = trim($_POST['meta_title'] ?? '');
   $meta_desc  = trim($_POST['meta_desc']  ?? '');
   $publicado  = isset($_POST['publicado']) ? 1 : 0;
+  $robots     = trim($_POST['robots'] ?? 'index');
 
   // Subida de imagen si hay archivo
   if (!empty($_FILES['imagen_file']['name'])) {
@@ -103,13 +107,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             UPDATE articulos SET
               titulo=?, slug=?, extracto=?, contenido=?,
               imagen=?, zona=?, categoria=?,
-              meta_title=?, meta_desc=?, publicado=?
+              meta_title=?, meta_desc=?, publicado=?, robots=?
             WHERE id=?
           ');
           $stmt->execute([
             $titulo, $slug, $extracto, $contenido,
             $imagen, $zona, $categoria,
-            $meta_title, $meta_desc, $publicado,
+            $meta_title, $meta_desc, $publicado, $robots,
             $art['id']
           ]);
           $mensaje = '✅ Artículo actualizado correctamente.';
@@ -119,13 +123,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
           $stmt = $pdo->prepare('
             INSERT INTO articulos
-              (titulo, slug, extracto, contenido, imagen, zona, categoria, meta_title, meta_desc, publicado)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+              (titulo, slug, extracto, contenido, imagen, zona, categoria, meta_title, meta_desc, publicado, robots)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
           ');
           $stmt->execute([
             $titulo, $slug, $extracto, $contenido,
             $imagen, $zona, $categoria,
-            $meta_title, $meta_desc, $publicado
+            $meta_title, $meta_desc, $publicado, $robots
           ]);
           $newId = $pdo->lastInsertId();
           header('Location: nuevo-articulo.php?id=' . $newId . '&ok=1');
@@ -150,6 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'meta_title'=> $meta_title,
       'meta_desc' => $meta_desc,
       'publicado' => $publicado,
+      'robots'    => $robots,
     ]);
   }
 }
@@ -201,6 +206,12 @@ $categorias = $pdo->query('SELECT nombre FROM categorias_blog ORDER BY orden ASC
     .imagen-preview img { max-width: 100%; max-height: 200px; border-radius: 8px; border: 1px solid #dde6f0; object-fit: cover; }
     .imagen-preview-actual { margin-top: 0.5rem; }
     .imagen-preview-actual img { max-width: 100%; max-height: 160px; border-radius: 8px; border: 1px solid #dde6f0; object-fit: cover; }
+    .schema-info-box { border:1px solid #e2e8f0; border-radius:8px; overflow:hidden; }
+    .schema-info-head { display:flex;justify-content:space-between;align-items:center;padding:.625rem 1rem;background:#f8fafc;cursor:pointer;font-size:12px;font-weight:600;color:#576574; }
+    .schema-info-body { display:none;padding:1rem;border-top:1px solid #e2e8f0; }
+    .schema-info-box.open .schema-info-body { display:block; }
+    .schema-info-box.open .schema-info-chevron { transform:rotate(90deg); }
+    .schema-info-chevron { transition:transform .2s; }
   </style>
   <script src="https://cdn.tiny.cloud/1/3eywuy73k0uzt30wiafptfr0tdx5iudt46gbkusw5kr5mjk2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
@@ -385,6 +396,25 @@ tinymce.init({
             <span class="char-count" id="count-desc"><?php echo strlen($art['meta_desc']); ?>/160</span>
           </div>
 
+          <!-- SCHEMA.ORG INFO -->
+          <div class="form-group full">
+            <div class="schema-info-box">
+              <div class="schema-info-head" onclick="this.parentElement.classList.toggle('open')">
+                <span>📋 Schema.org automático</span>
+                <span class="schema-info-chevron">▸</span>
+              </div>
+              <div class="schema-info-body">
+                <p style="font-size:12px;color:#576574;margin:0 0 .5rem">
+                  Tipo: <code>articulo</code> — generado automáticamente en head.php
+                </p>
+                <p style="font-size:12px;color:#576574;margin:0">
+                  Para verificar el schema generado, visita la página en el navegador y usa
+                  <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Google Rich Results Test</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <!-- PREVIEW GOOGLE -->
           <div class="form-group full">
             <div class="google-preview">
@@ -401,6 +431,15 @@ tinymce.init({
       <!-- PUBLICAR -->
       <div class="form-section">
         <h2>Publicación</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Indexación en buscadores</label>
+            <select name="robots">
+              <option value="index" <?php echo ($art['robots'] ?? 'index') === 'index' ? 'selected' : ''; ?>>index, follow — Visible en Google</option>
+              <option value="noindex" <?php echo ($art['robots'] ?? 'index') === 'noindex' ? 'selected' : ''; ?>>noindex — No indexar</option>
+            </select>
+          </div>
+        </div>
         <div class="check-wrap" style="margin-bottom:1.5rem">
           <input type="checkbox" id="publicado" name="publicado" <?php echo $art['publicado'] ? 'checked' : ''; ?>>
           <label for="publicado">Publicar artículo (visible en la web)</label>

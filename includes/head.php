@@ -73,21 +73,13 @@ if ($is_local) {
   <meta name="ICBM"             content="38.4778, -0.7957">
 
   <!-- Robots -->
-  <meta name="robots" content="index, follow">
   <?php
-$noindex_pages = [
-  'aviso-legal',
-  'privacidad',
-  'cookies',
-  'contacto',
-  'sobre-nosotros',
-];
-
-$current_page = basename($_SERVER['SCRIPT_NAME'], '.php');
-if (in_array($current_page, $noindex_pages)):
+$noindex_pages = ['aviso-legal', 'privacidad', 'cookies', 'contacto', 'sobre-nosotros'];
+$current_page  = basename($_SERVER['SCRIPT_NAME'], '.php');
+$robots_default = in_array($current_page, $noindex_pages) ? 'noindex, follow' : 'index, follow';
+$robots_final   = isset($robots_meta) && $robots_meta ? $robots_meta . ', follow' : $robots_default;
 ?>
-<meta name="robots" content="noindex, follow">
-<?php endif; ?>
+  <meta name="robots" content="<?php echo htmlspecialchars($robots_final); ?>">
 
   <!-- CSS Global siempre -->
   <link rel="stylesheet" href="<?php echo $base_url; ?>css/global.css">

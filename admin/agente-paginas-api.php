@@ -1466,10 +1466,10 @@ if ($accion === 'guardar') {
   // Verificar que la ruta resultante está dentro del site_root.
   // Usamos realpath solo en el site_root (siempre existe). Para el
   // directorio del archivo puede no existir aún (subdirs nuevos del silo).
-  $real_site_root = realpath($site_root);
+  $real_site_root = rtrim(str_replace('\\', '/', realpath($site_root)), '/');
   // Reconstruir la ruta normalizada sin depender de realpath en dirs nuevos
   $norm_path = str_replace(['\\', '/./'], ['/', '/'], $abs_path);
-  if (strpos($norm_path, $real_site_root) !== 0) {
+  if (strpos($norm_path, $real_site_root . '/') !== 0 && $norm_path !== $real_site_root) {
     echo json_encode(['error' => 'Ruta fuera del directorio permitido']);
     exit;
   }
@@ -1623,9 +1623,10 @@ if ($accion === 'eliminar_pagina') {
   $abs_path = $site_root . '/' . $filepath_rel;
 
   // Verificar que la ruta resultante está dentro del site_root
-  $real_site_root = realpath($site_root);
-  $real_dir       = realpath(dirname($abs_path));
-  if ($real_dir === false || strpos($real_dir, $real_site_root) !== 0) {
+  $real_site_root = rtrim(str_replace('\\', '/', realpath($site_root)), '/');
+  $real_dir_raw   = realpath(dirname($abs_path));
+  $real_dir       = $real_dir_raw !== false ? rtrim(str_replace('\\', '/', $real_dir_raw), '/') : false;
+  if ($real_dir === false || (strpos($real_dir . '/', $real_site_root . '/') !== 0)) {
     echo json_encode(['error' => 'Ruta fuera del directorio permitido']);
     exit;
   }

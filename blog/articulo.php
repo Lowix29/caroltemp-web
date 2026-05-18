@@ -35,6 +35,7 @@ $meta_url    = 'https://caroltemp.com/blog/' . $art['slug'];
 $schema_type = 'articulo';
 $page_css    = 'blog';
 $page_js     = '';
+$robots_meta = ($art['robots'] ?? 'index') === 'noindex' ? 'noindex' : 'index';
 
 include '../includes/head.php';
 ?>
