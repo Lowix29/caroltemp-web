@@ -1393,7 +1393,10 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
     fd.append('ciudad_cp',   ciudadCp);
     fd.append('filepath',    filepath || '');
 
-    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
+    const controller = new AbortController();
+    const fetchTimer = setTimeout(function() { controller.abort(); }, 100000);
+    const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd, signal: controller.signal });
+    clearTimeout(fetchTimer);
     const data = await r.json();
     clearInterval(tipInterval);
 
@@ -1411,9 +1414,15 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
 
   } catch (e) {
     clearInterval(tipInterval);
-    mostrarEstadoEditor('empty');
+    mostrarEstadoEditor('result');
     badge.style.display = 'none';
-    alert('Error de conexión. Comprueba que el servidor responde correctamente.');
+    document.getElementById('result-crear-mejorar').style.display = 'none';
+    document.getElementById('result-redirigir').style.display     = 'none';
+    document.getElementById('result-eliminar').style.display      = 'none';
+    const msg = e.name === 'AbortError'
+      ? '⏱ Tiempo de espera agotado (>100s). La API de Claude no respondió. Revisa tu conexión a internet y que la API key sea válida.'
+      : '⚠️ Error de conexión: ' + e.message;
+    mostrarFlash('err', msg);
   }
 }
 

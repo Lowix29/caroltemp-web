@@ -139,6 +139,7 @@ if ($accion === 'inventario') {
 // ACCIÓN: mejorar / crear (llamada a Claude)
 // ─────────────────────────────────────────────────────────────────────
 if ($accion === 'mejorar' || $accion === 'crear') {
+  set_time_limit(120);
   // Verificar curl
   if (!function_exists('curl_init')) {
     echo json_encode(['error' => 'curl no está habilitado en PHP.']);
@@ -234,7 +235,10 @@ SYS;
         'anthropic-version: 2023-06-01',
         'content-type: application/json',
       ],
-      CURLOPT_TIMEOUT => 60,
+      CURLOPT_TIMEOUT         => 90,
+      CURLOPT_CONNECTTIMEOUT  => 15,
+      CURLOPT_SSL_VERIFYPEER  => false,
+      CURLOPT_SSL_VERIFYHOST  => false,
     ]);
 
     $raw_zona  = curl_exec($ch);
@@ -357,7 +361,10 @@ SYS;
         'anthropic-version: 2023-06-01',
         'content-type: application/json',
       ],
-      CURLOPT_TIMEOUT => 60,
+      CURLOPT_TIMEOUT         => 90,
+      CURLOPT_CONNECTTIMEOUT  => 15,
+      CURLOPT_SSL_VERIFYPEER  => false,
+      CURLOPT_SSL_VERIFYHOST  => false,
     ]);
 
     $raw_hub  = curl_exec($ch);
@@ -471,7 +478,10 @@ SYS;
       CURLOPT_POST           => true,
       CURLOPT_POSTFIELDS     => json_encode($payload_fugas),
       CURLOPT_HTTPHEADER     => ['x-api-key: ' . ANTHROPIC_API_KEY, 'anthropic-version: 2023-06-01', 'content-type: application/json'],
-      CURLOPT_TIMEOUT => 60,
+      CURLOPT_TIMEOUT         => 90,
+      CURLOPT_CONNECTTIMEOUT  => 15,
+      CURLOPT_SSL_VERIFYPEER  => false,
+      CURLOPT_SSL_VERIFYHOST  => false,
     ]);
     $raw_fugas  = curl_exec($ch);
     $http_fugas = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -580,7 +590,10 @@ SYS;
         'anthropic-version: 2023-06-01',
         'content-type: application/json',
       ],
-      CURLOPT_TIMEOUT => 60,
+      CURLOPT_TIMEOUT         => 90,
+      CURLOPT_CONNECTTIMEOUT  => 15,
+      CURLOPT_SSL_VERIFYPEER  => false,
+      CURLOPT_SSL_VERIFYHOST  => false,
     ]);
 
     $raw_urg  = curl_exec($ch);
@@ -733,7 +746,10 @@ SYS;
       'anthropic-version: 2023-06-01',
       'content-type: application/json',
     ],
-    CURLOPT_TIMEOUT => 60,
+    CURLOPT_TIMEOUT        => 90,
+    CURLOPT_CONNECTTIMEOUT => 15,
+    CURLOPT_SSL_VERIFYPEER => false,
+    CURLOPT_SSL_VERIFYHOST => false,
   ]);
 
   $raw      = curl_exec($ch);
