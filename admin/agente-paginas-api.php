@@ -997,39 +997,170 @@ SYS;
 // ═════════════════════════════════════════════════════════════════════
 function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, $depth = 1) {
   $servicio_nombre = $tipo_cfg['nombre'];
-  $meta_title      = $data['meta_title']      ?? '';
-  $meta_desc       = $data['meta_desc']       ?? '';
-  $hero_titulo     = $data['hero_titulo']     ?? $servicio_nombre . ' en ' . $ciudad . '<br><span class=\'hl\'>rápido.</span>';
-  $hero_sub        = $data['hero_sub']        ?? 'Servicio en ' . $ciudad . '. Presupuesto gratis sin compromiso.';
-  $contenido_intro = $data['contenido_intro'] ?? '<p>Servicios de ' . strtolower($servicio_nombre) . ' en ' . $ciudad . '.</p>';
+  $meta_title      = $data['meta_title']      ?? "{$servicio_nombre} en {$ciudad} — CarolTemp";
+  $meta_desc       = $data['meta_desc']       ?? "Servicio de {$servicio_nombre} en {$ciudad}. Presupuesto cerrado. Llama al 613 429 032.";
+  $hero_titulo     = $data['hero_titulo']     ?? "{$servicio_nombre} en {$ciudad}<br><span class=\"hl\">precio cerrado.</span>";
+  $hero_sub        = $data['hero_sub']        ?? "Atendemos en {$ciudad}. Presupuesto sin sorpresas antes de empezar.";
+  $contenido_intro = $data['contenido_intro'] ?? "<p>Servicio de {$servicio_nombre} en {$ciudad}.</p>";
   $servicios_lista = $data['servicios_lista'] ?? [];
   $problemas_zona  = $data['problemas_zona']  ?? [];
   $faq             = $data['faq']             ?? [];
 
-  $meta_url = 'https://caroltemp.com/' . $tipo_cfg['dir'] . '/' . $tipo_cfg['prefijo_url'] . '-' . $ciudad_slug;
+  // URL correcta: /fontanero/{ciudad_slug}/{tipo}
+  $meta_url = "https://caroltemp.com/fontanero/{$ciudad_slug}/{$tipo}";
+  $back     = str_repeat('../', $depth);
+  $e        = fn($v) => var_export($v, true);
 
-  // Usar var_export para blindar los valores contra problemas de comillas
-  $e = fn($v) => var_export($v, true);
+  // ── Checklist de servicios ────────────────────────────────────────
+  $svg_chk  = '<svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  $svc_html = '';
+  foreach ($servicios_lista as $svc) {
+    $s = htmlspecialchars($svc, ENT_QUOTES, 'UTF-8');
+    $svc_html .= "          <li><span class=\"chk-ico\">{$svg_chk}</span>{$s}</li>\n";
+  }
 
+  // ── Tarjetas de problemas ─────────────────────────────────────────
+  $prob_html = '';
+  foreach ($problemas_zona as $prob) {
+    $t  = htmlspecialchars($prob['titulo'] ?? '', ENT_QUOTES, 'UTF-8');
+    $tx = htmlspecialchars($prob['texto']  ?? '', ENT_QUOTES, 'UTF-8');
+    $prob_html .= "      <div class=\"zona-sc\">\n";
+    $prob_html .= "        <h3>{$t}</h3>\n";
+    $prob_html .= "        <p>{$tx}</p>\n";
+    $prob_html .= "      </div>\n";
+  }
+
+  // ── FAQ ───────────────────────────────────────────────────────────
+  $svg_faq  = '<svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg>';
+  $faq_html = '';
+  $first    = true;
+  foreach ($faq as $f) {
+    $p    = htmlspecialchars($f['pregunta']  ?? '', ENT_QUOTES, 'UTF-8');
+    $r    = htmlspecialchars($f['respuesta'] ?? '', ENT_QUOTES, 'UTF-8');
+    $open = $first ? ' open' : '';
+    $faq_html .= "      <div class=\"zona-fi{$open}\">\n";
+    $faq_html .= "        <div class=\"zona-fiq\" onclick=\"togFaq(this)\"><span>{$p}</span><span class=\"zona-fiq-i\">{$svg_faq}</span></div>\n";
+    $faq_html .= "        <div class=\"zona-fia\">{$r}</div>\n";
+    $faq_html .= "      </div>\n";
+    $first = false;
+  }
+
+  // ── Tags ciudades cercanas ────────────────────────────────────────
+  $ztags = "      <a href=\"<?php echo \$base_url; ?>fontanero/{$ciudad_slug}\" class=\"zona-ztag\" style=\"background:#1e3a5f;color:#fff\">&#8592; Todos los servicios en {$ciudad}</a>\n";
+  foreach ($otras_ciudades as $otra) {
+    $n = htmlspecialchars($otra['nombre'], ENT_QUOTES, 'UTF-8');
+    $s = htmlspecialchars($otra['slug'],   ENT_QUOTES, 'UTF-8');
+    $ztags .= "      <a href=\"<?php echo \$base_url; ?>fontanero/{$s}/{$tipo}\" class=\"zona-ztag\">{$n}</a>\n";
+  }
+
+  $hero_titulo_raw = $hero_titulo;
+  $hero_sub_h      = htmlspecialchars($hero_sub, ENT_QUOTES, 'UTF-8');
+
+  // ── PHP header ────────────────────────────────────────────────────
   $php  = "<?php\n";
-  $php .= "/**\n * {$servicio_nombre} en {$ciudad}\n * {$meta_url}\n * Generado por Agente de Páginas\n */\n\n";
-  $php .= "\$servicio_nombre = {$e($servicio_nombre)};\n";
-  $php .= "\$servicio_slug   = {$e($tipo)};\n";
-  $php .= "\$ciudad          = {$e($ciudad)};\n";
-  $php .= "\$ciudad_slug     = {$e($ciudad_slug)};\n";
-  $php .= "\$ciudad_cp       = {$e($ciudad_cp)};\n\n";
-  $php .= "\$meta_title = {$e($meta_title)};\n";
-  $php .= "\$meta_desc  = {$e($meta_desc)};\n\n";
-  $php .= "\$hero_titulo = {$e($hero_titulo)};\n";
-  $php .= "\$hero_sub    = {$e($hero_sub)};\n\n";
-  $php .= "\$contenido_intro = {$e($contenido_intro)};\n\n";
-  $php .= "\$servicios_lista = {$e($servicios_lista)};\n\n";
-  $php .= "\$problemas_zona  = {$e($problemas_zona)};\n\n";
-  $php .= "\$faq             = {$e($faq)};\n\n";
-  $php .= "\$contenido_extra  = '';\n\n";
-  $php .= "\$ciudades_cercanas = {$e($otras_ciudades)};\n\n";
-  $back = str_repeat('../', $depth);
-  $php .= "include __DIR__ . '/{$back}includes/plantilla-servicio.php';\n";
+  $php .= "/**\n * {$servicio_nombre} en {$ciudad}\n * Generado por Agente de P&aacute;ginas — CarolTemp\n */\n";
+  $php .= "\$meta_title  = {$e($meta_title)};\n";
+  $php .= "\$meta_desc   = {$e($meta_desc)};\n";
+  $php .= "\$meta_url    = {$e($meta_url)};\n";
+  $php .= "\$schema_type = 'local';\n";
+  $php .= "\$page_css    = 'zona';\n";
+  $php .= "\$page_js     = 'zona';\n";
+  $php .= "include '{$back}includes/head.php';\n";
+  $php .= "?>\n\n";
+
+  // ── Hero ──────────────────────────────────────────────────────────
+  $php .= "<section class=\"hz-dark\">\n";
+  $php .= "  <div class=\"hz-dark-bg\"></div>\n";
+  $php .= "  <div class=\"hz-dark-glow\"></div>\n";
+  $php .= "  <div class=\"hz-dark-con\">\n";
+  $php .= "    <div class=\"hz-dark-tag\"><span class=\"hz-dark-dot\"></span>{$servicio_nombre} &middot; {$ciudad} &middot; CP {$ciudad_cp}</div>\n";
+  $php .= "    <h1>{$hero_titulo_raw}</h1>\n";
+  $php .= "    <p class=\"hz-dark-sub\">{$hero_sub_h}</p>\n";
+  $php .= "    <div class=\"hz-dark-btns\">\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>contacto\" class=\"btn-hz-g\">Solicitar presupuesto</a>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  // ── Strip diferenciadores ─────────────────────────────────────────
+  $php .= "<div class=\"dif-strip\">\n";
+  $php .= "  <div class=\"dif-strip-in\">\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128176; Precio cerrado</span><span class=\"dif-lbl\">Antes de empezar</span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128269; Ge&oacute;fono + c&aacute;mara</span><span class=\"dif-lbl\">Sin obras innecesarias</span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#9989; Nubeco oficial</span><span class=\"dif-lbl\">Instalador certificado</span></div>\n";
+  $php .= "    <div class=\"dif-item\"><span class=\"dif-val\">&#128205; {$ciudad}</span><span class=\"dif-lbl\">Atenci&oacute;n local</span></div>\n";
+  $php .= "  </div>\n";
+  $php .= "</div>\n\n";
+
+  // ── Intro + checklist + tarjeta contacto ─────────────────────────
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <div class=\"zona-tcol\">\n";
+  $php .= "      <div>\n";
+  $php .= "        <p class=\"zona-lbl\">{$servicio_nombre} en {$ciudad}</p>\n";
+  $php .= "        <h2>{$servicio_nombre} en <span class=\"hl\">{$ciudad}</span></h2>\n";
+  $php .= "        <div class=\"zona-prose\">{$contenido_intro}</div>\n";
+  $php .= "        <ul class=\"zona-chk\">\n{$svc_html}        </ul>\n";
+  $php .= "      </div>\n";
+  $php .= "      <div>\n";
+  $php .= "        <div class=\"zona-icard\">\n";
+  $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; {$ciudad}</strong><span>{$servicio_nombre}</span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\">{$ciudad} &middot; CP {$ciudad_cp}</span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Todos los servicios</span><span class=\"zona-ir-v\"><a href=\"<?php echo \$base_url; ?>fontanero/{$ciudad_slug}\">Fontaner&iacute;a en {$ciudad} &rarr;</a></span></div>\n";
+  $php .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
+  $php .= "        </div>\n";
+  $php .= "      </div>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  // ── Problemas en la zona ──────────────────────────────────────────
+  if ($prob_html) {
+    $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+    $php .= "  <div class=\"cta-dark-con\">\n";
+    $php .= "    <p class=\"zona-lbl\">Casos habituales en {$ciudad}</p>\n";
+    $php .= "    <h2>Por qu&eacute; nos llaman por {$servicio_nombre} <span class=\"hl\">en {$ciudad}</span></h2>\n";
+    $php .= "    <div class=\"zona-svc\">\n{$prob_html}    </div>\n";
+    $php .= "  </div>\n";
+    $php .= "</section>\n\n";
+  }
+
+  // ── FAQ ───────────────────────────────────────────────────────────
+  if ($faq_html) {
+    $php .= "<section class=\"zona-sec\">\n";
+    $php .= "  <div class=\"cta-dark-con\">\n";
+    $php .= "    <p class=\"zona-lbl\">Preguntas frecuentes</p>\n";
+    $php .= "    <h2>{$servicio_nombre} en {$ciudad} &mdash; <span class=\"hl\">dudas habituales</span></h2>\n";
+    $php .= "    <div class=\"zona-faq\" style=\"margin-top:2rem\">\n{$faq_html}    </div>\n";
+    $php .= "  </div>\n";
+    $php .= "</section>\n\n";
+  }
+
+  // ── Ciudades cercanas ─────────────────────────────────────────────
+  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Mismo servicio en otras zonas</p>\n";
+  $php .= "    <h2>Tambi&eacute;n hacemos {$servicio_nombre} <span class=\"hl\">en otros municipios</span></h2>\n";
+  $php .= "    <div class=\"zona-ztags\">\n{$ztags}    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  // ── CTA final ─────────────────────────────────────────────────────
+  $php .= "<section class=\"cta-dark\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <h2>&iquest;Necesitas {$servicio_nombre} <span>en {$ciudad}?</span></h2>\n";
+  $php .= "    <p>Ll&aacute;menos o escr&iacute;benos. Te atendemos hoy.</p>\n";
+  $php .= "    <div class=\"cta-dark-btns\">\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n\n";
+
+  $php .= "<?php include '{$back}includes/footer.php'; ?>\n";
 
   return $php;
 }
