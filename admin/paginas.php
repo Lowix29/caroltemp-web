@@ -29,7 +29,9 @@ $error   = '';
 
 // IMPORTAR página del disco — guarda en BD y redirige al editor
 if (isset($_GET['importar'])) {
+  // El .htaccess quita .php de la query string, así que aceptamos con y sin extensión
   $fn = basename($_GET['importar']);
+  if (substr($fn, -4) !== '.php') $fn .= '.php';
   if (!preg_match('/^[a-z0-9_\-]+\.php$/', $fn)) {
     $error = 'Nombre de archivo no válido: ' . htmlspecialchars($fn);
   } else {
@@ -225,7 +227,7 @@ foreach ($root_phps as $f) {
         <?php foreach ($paginas_disco as $fn): ?>
           <div style="display:flex;align-items:center;gap:.5rem;background:#f4f7fb;border:1px solid #dde6f0;border-radius:6px;padding:.5rem 1rem">
             <code style="font-family:monospace;font-size:12px;color:#1e3a5f"><?php echo htmlspecialchars($fn); ?></code>
-            <a href="paginas.php?importar=<?php echo urlencode($fn); ?>" style="background:#1e3a5f;color:#fff;font-size:12px;padding:3px 10px;border-radius:4px;text-decoration:none;font-weight:600">Importar</a>
+            <a href="paginas.php?importar=<?php echo urlencode(basename($fn, '.php')); ?>" style="background:#1e3a5f;color:#fff;font-size:12px;padding:3px 10px;border-radius:4px;text-decoration:none;font-weight:600">Importar</a>
           </div>
         <?php endforeach; ?>
       </div>
