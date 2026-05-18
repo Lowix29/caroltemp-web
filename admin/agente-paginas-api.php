@@ -35,17 +35,17 @@ $ciudades = [
   'Aspe'             => ['slug' => 'aspe',     'cp' => '03680'],
 ];
 
-// ── Perfiles por ciudad para diferenciación de contenido ───────────
+// ── Perfiles por ciudad — datos reales para diferenciación de contenido ─
 $ciudad_perfiles = [
-  'Elda'             => 'Ciudad industrial del calzado, con muchos edificios de los años 60-80 y instalaciones antiguas. Agua con dureza media-alta.',
-  'Petrer'           => 'Zona residencial y urbanizaciones bien consolidadas. Agua muy dura y calcárea — problemas frecuentes de cal en conducciones y electrodomésticos.',
-  'Novelda'          => 'Capital del mármol, alta actividad industrial. Agua durísima, la más calcárea de la comarca. Fincas y naves industriales mezcladas con residencial.',
-  'Monóvar'          => 'Municipio rural y vinícola. Casas antiguas en el pueblo y chalets en campo. Muchas fincas con pozos y depósitos privados.',
-  'Sax'              => 'Pueblo tranquilo con predominio de viviendas unifamiliares y chalets. Centro histórico con instalaciones antiguas, extrarradio más moderno.',
-  'Pinoso'           => 'Municipio rural extenso con muchas casas de campo dispersas. Muchas propiedades con depósitos y pozos. Urgencias en zonas rurales con acceso difícil.',
-  'Monforte del Cid' => 'Cerca del aeropuerto de Alicante. Urbanizaciones nuevas y segunda residencia. Mezcla de viviendas modernas y fincas rurales en las afueras.',
-  'Salinas'          => 'Pueblo pequeño y tranquilo. Casco urbano con casas antiguas y alguna urbanización exterior. Acceso rápido por carretera.',
-  'Aspe'             => 'Ciudad de tamaño medio con barrios variados. Edificios de los 70-80 en el centro y zonas residenciales nuevas. Agua con cal moderada.',
+  'Elda' => 'Ciudad industrial del calzado (~55.000 hab). Barrios densos como El Chapi, El Toscar y La Empredrada con bloques de pisos de los años 60-80 que tienen tuberías de hierro oxidadas o plomo. Agua con dureza media-alta (20-25 °fH): la cal deteriora juntas, grifos y termos gradualmente. Problemas más frecuentes: roturas en tuberías empotradas de hierro, desatascos en bajantes comunitarias de edificios antiguos, termos eléctricos desgastados que pierden agua, llaves de paso comunitarias que ya no cierran. El tejido industrial (talleres, naves calzado) genera atascos de grasa en arquetas.',
+  'Petrer' => 'Ciudad residencial colindante con Elda (~35.000 hab). Urbanizaciones de los 80-90 con adosados y bloques de pisos. Agua DURÍSIMA (30-35 °fH), la más calcárea de la zona: la cal destruye termos, calentadores y grifos en pocos años. Alta demanda de descalcificadores (Nubeco). Problemas más frecuentes: termos calcificados que dejan de calentar, grifos bloqueados por sarro, fugas en juntas deterioradas por la dureza, manchas de cal imposibles de eliminar en sanitarios. Los calentadores de gas también sufren obstrucciones por cal en el intercambiador.',
+  'Novelda' => 'Capital del mármol (~28.000 hab). Mezcla de industria pesada (naves de mármol, canteras, almacenes) y residencial. Agua EXTREMADAMENTE DURA (35+ °fH), la más calcárea de toda la comarca. El centro histórico tiene tuberías de hierro de décadas. Fincas agrícolas con pozos y depósitos propios. Problemas más frecuentes: obstrucciones por sarro en calentadores y duchas, fugas en instalaciones industriales de naves, grupos de presión en pozos privados averiados, tuberías de hierro del centro que revientan.',
+  'Monóvar' => 'Municipio vinícola y rural (~12.000 hab). Pueblo con casco histórico de casas antiguas de los años 50-70 y chalets dispersos en campo. Muchas propiedades rurales con pozos, depósitos y grupos de presión propios. Agua de dureza moderada. Problemas más frecuentes: grupos de presión averiados en fincas rurales, pozos que pierden caudal en verano, tuberías de campo dañadas por raíces o heladas invernales, instalaciones muy antiguas del casco viejo sin actualizar.',
+  'Sax' => 'Pueblo tranquilo (~10.000 hab) con casco histórico compacto y extrarradio más moderno. Centro con casas antiguas de piedra y tuberías de hierro de los años 60-70. Extrarradio con chalets y adosados de los 90-2000 con instalaciones más modernas. Agua de dureza media. Problemas más frecuentes: tuberías de hierro del casco viejo que se rompen o dan agua herrumbrosa, problemas de presión en viviendas altas del pueblo, instalaciones de riego en jardines de chalets, bajantes antiguas obstruidas.',
+  'Pinoso' => 'Municipio rural extenso (~7.500 hab) con núcleo pequeño y muchas casas de campo muy dispersas por el territorio. Alta proporción de propiedades con depósitos, pozos y grupos de presión. Agua de dureza variable según zona. Problemas más frecuentes: grupos de presión averiados en casas rurales, depósitos sin mantenimiento con sedimentos, tuberías exteriores al aire libre que revientan con las heladas, urgencias en zonas de difícil acceso por caminos de tierra, pozos secos en verano.',
+  'Monforte del Cid' => 'Municipio cercano al aeropuerto de Alicante (~6.500 hab). Urbanizaciones relativamente nuevas con segundas residencias, muchas de propietarios extranjeros que pasan meses fuera. Fincas rurales en las afueras. Agua de dureza media-alta. Problemas más frecuentes: instalaciones que llevan meses paradas y fallan al reactivarse (termos, llaves de paso), tuberías que revientan por presión acumulada en viviendas cerradas, demanda en temporada verano por parte de propietarios de segunda residencia, fugas en comunidades de urbanización.',
+  'Salinas' => 'Pueblo muy pequeño (~3.000 hab). Casco urbano compacto con casas antiguas de los años 50-70, baja presión en la red municipal. Alguna pequeña urbanización exterior. Escasa oferta local de fontaneros, lo que hace urgente contar con servicio de la comarca. Problemas más frecuentes: baja presión de agua en viviendas altas, tuberías domésticas muy antiguas sin actualizar, instalaciones de los años 60-70 con juntas y conexiones desgastadas, escaso mantenimiento preventivo.',
+  'Aspe' => 'Ciudad de tamaño medio (~20.000 hab). Barrios variados: edificios de los años 70-80 en el centro con tuberías envejecidas y zonas residenciales nuevas en el extrarradio. Industria ligera y comercio. Agua con cal moderada (18-22 °fH). Problemas más frecuentes: desatascos en edificios antiguos del centro, instalaciones de riego y jardín en chalets del extrarradio, termos y calentadores de los 80 que fallan, fugas en tuberías comunitarias de hierro de bloques antiguos.',
 ];
 
 // ── Tipos de servicio y sus patrones de archivo ─────────────────────
@@ -366,7 +366,7 @@ SYS;
 
     $payload_zona = [
       'model'      => ANTHROPIC_MODEL,
-      'max_tokens' => 2048,
+      'max_tokens' => 3000,
       'system'     => $system_zona,
       'messages'   => [
         ['role' => 'user',      'content' => $user_zona],
@@ -450,49 +450,56 @@ SYS;
     $hub_filename = $ciudad_slug . '.php';
 
     $system_hub = <<<SYS
-Eres un experto en SEO local para CarolTemp, empresa de fontanería en la comarca interior de Alicante.
+Eres un redactor SEO local especializado en fontanería para CarolTemp (Alicante interior).
 
 REGLAS ABSOLUTAS:
-- NUNCA escribas "Vinalopó" en ningún sitio
+- NUNCA escribas "Vinalopó" — usa "comarca interior de Alicante" si necesitas referirte a la zona
 - NUNCA inventes estadísticas, años de experiencia, número de clientes ni porcentajes
-- Texto CORTO y directo — cada frase debe aportar algo útil al cliente
+- NUNCA uses frases genéricas como "somos tu fontanero de confianza", "expertos en fontanería", "calidad y profesionalidad"
 - Año actual: {$anyo}
 
-SOBRE CAROLTEMP:
+DATOS DE CAROLTEMP:
+- Teléfono: 613 429 032
 - Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
-- Diferenciadores: presupuesto gratuito sin compromiso, urgencias, instaladores certificados Nubeco
-- Servicios: fontanería urgente, fugas (geófono+cámara), desatascos, termos, descalcificadores, reformas
+- Diferenciadores REALES: presupuesto cerrado antes de empezar (sin sorpresas), instaladores certificados Nubeco (descalcificadores), geófono y cámara para fugas sin obras
+- Servicios: fontanería urgente, detección de fugas, desatascos, termos, descalcificadores, reformas de baño
 
-Esta es la página PRINCIPAL de fontanería de la ciudad. Habla de todos los servicios disponibles.
-Las sub-páginas más importantes son: urgencias, fugas, desatascos.
+DIFERENCIACIÓN OBLIGATORIA — MÁS IMPORTANTE:
+El texto para {$ciudad} debe ser COMPLETAMENTE DISTINTO al de cualquier otra ciudad del listado.
+Usa los datos concretos de {$ciudad} que te doy en el mensaje del usuario.
+Menciona problemas REALES de esa ciudad (tipo de edificios, dureza del agua, zona rural/urbana).
+Si es Petrer o Novelda → habla del problema grave de cal. Si es Pinoso o Monóvar → habla de pozos y campo. Si es Elda → tuberías antiguas de hierro en bloques. Etc.
 
-DEVUELVE ÚNICAMENTE JSON VÁLIDO con esta estructura:
+ESTRUCTURA JSON — devuelve SOLO este JSON válido:
 {
-  "meta_title": "máx 60 chars — 'Fontanería en [Ciudad] — CarolTemp'",
-  "meta_desc": "150-160 chars — qué + dónde + por qué CarolTemp",
-  "hero_sub": "1 frase de 10-15 palabras describiendo el servicio en la ciudad",
-  "intro_p1": "2-3 frases sobre las características concretas de la ciudad y cómo afectan a la fontanería",
-  "intro_p2": "1-2 frases sobre qué cubre CarolTemp en esta ciudad",
-  "checklist": ["ítem específico 1", "ítem específico 2", "ítem específico 3", "ítem específico 4", "ítem específico 5"],
+  "meta_title": "Fontanero en [Ciudad] — CarolTemp | máx 60 chars",
+  "meta_desc": "Entre 150-160 chars exactos: qué servicio + en [ciudad] + diferenciador concreto + llamada a acción",
+  "hero_sub": "Una frase de 10-15 palabras con el problema o característica más específica de [ciudad]",
+  "intro_p1": "2-3 frases sobre los problemas de fontanería más habituales en [ciudad], usando los datos concretos de esa ciudad",
+  "intro_p2": "1-2 frases sobre cómo CarolTemp los resuelve con sus diferenciadores reales",
+  "checklist": ["servicio concreto para [ciudad] 1", "servicio concreto 2", "servicio concreto 3", "servicio concreto 4", "servicio concreto 5"],
   "faq": [
-    {"pregunta": "¿Cuánto cuesta un fontanero en [Ciudad]?", "respuesta": "Precio cerrado antes de empezar. Una reparación sencilla desde 60-80€."},
-    {"pregunta": "¿Tenéis servicio urgente en [Ciudad]?", "respuesta": "Sí, atendemos urgencias en [Ciudad] dentro del horario de servicio."},
-    {"pregunta": "¿Cómo detectáis fugas sin romper en [Ciudad]?", "respuesta": "Con geófono y cámara localizamos el punto exacto antes de abrir."},
-    {"pregunta": "¿Hacéis desatascos en [Ciudad]?", "respuesta": "Sí, fregaderos, lavabos, bajantes y arquetas en [Ciudad]."},
-    {"pregunta": "¿Ofrecéis financiación en [Ciudad]?", "respuesta": "Sí, para reformas, descalcificadores y proyectos grandes."}
+    {"pregunta": "pregunta real que busca alguien en [ciudad]", "respuesta": "respuesta directa y honesta, 1-2 frases"},
+    {"pregunta": "segunda pregunta específica de [ciudad]", "respuesta": "respuesta directa"},
+    {"pregunta": "tercera pregunta", "respuesta": "respuesta"},
+    {"pregunta": "cuarta pregunta", "respuesta": "respuesta"}
   ]
 }
 
-CRÍTICO: Usa comillas dobles para todo el JSON. No uses comillas dobles DENTRO de los valores.
+SOBRE LAS FAQ: NO uses respuestas genéricas. Cada respuesta debe ser honesta y concreta. Si no sabes el precio exacto, di "presupuesto cerrado antes de empezar, sin sorpresas" pero añade contexto específico de [ciudad].
+
+CRÍTICO JSON: Usa comillas dobles para claves y valores. Dentro de los valores usa comillas simples si necesitas citar algo. Sin comas finales.
 SYS;
 
-    $user_hub  = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n";
-    $user_hub .= "Características de {$ciudad}: {$perfil_ciudad}\n\n";
-    $user_hub .= "Genera la página principal de fontanería de {$ciudad}. intro_p1 y checklist deben reflejar las características específicas de {$ciudad}.";
+    $user_hub  = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n\n";
+    $user_hub .= "DATOS ESPECÍFICOS DE {$ciudad}:\n{$perfil_ciudad}\n\n";
+    $user_hub .= "Genera la página PRINCIPAL de fontanería de {$ciudad}. ";
+    $user_hub .= "intro_p1 y checklist deben reflejar los problemas CONCRETOS de {$ciudad} descritos arriba. ";
+    $user_hub .= "Las FAQ deben hacer referencia a situaciones reales de {$ciudad} — NO uses respuestas copiadas de otras ciudades.";
 
     $payload_hub = [
       'model'      => ANTHROPIC_MODEL,
-      'max_tokens' => 2048,
+      'max_tokens' => 3000,
       'system'     => $system_hub,
       'messages'   => [
         ['role' => 'user',      'content' => $user_hub],
@@ -571,49 +578,60 @@ SYS;
     }
 
     $system_fugas = <<<SYS
-Eres un experto en SEO local para CarolTemp, empresa de fontanería en la comarca interior de Alicante.
+Eres un redactor SEO local especializado en fontanería para CarolTemp (Alicante interior).
 
 REGLAS ABSOLUTAS:
-- NUNCA escribas "Vinalopó" en ningún sitio
+- NUNCA escribas "Vinalopó"
 - NUNCA inventes estadísticas ni porcentajes
-- Texto CORTO y directo
+- NUNCA uses frases genéricas vacías
 - Año actual: {$anyo}
 
-SOBRE CAROLTEMP:
-- Diferenciadores: geófono profesional, cámara de inspección, sin romper paredes innecesariamente
-- Tipos de fugas que detectan: empotradas, suelo radiante, piscinas, bajantes, comunidades, exterior
+DIFERENCIADORES DE CAROLTEMP PARA FUGAS:
+- Geófono acústico profesional: detecta el sonido de la fuga sin abrir paredes
+- Cámara de inspección: visualiza el interior de tuberías y bajantes
+- Detectan Y reparan: no hace falta llamar a otra empresa
+- Precio cerrado antes de empezar
 
-DEVUELVE ÚNICAMENTE JSON VÁLIDO:
+DIFERENCIACIÓN OBLIGATORIA:
+Cada ciudad tiene causas distintas de fugas. Usa los datos de {$ciudad} para describir problemas REALES:
+- Si hay tuberías antiguas de hierro → fugas por corrosión
+- Si el agua es muy dura (Petrer, Novelda) → juntas deterioradas por cal, fugas en calefacción
+- Si hay fincas con pozos (Pinoso, Monóvar) → fugas en instalaciones exteriores/enterradas
+- Si hay edificios de comunidad → fugas en bajantes o instalaciones comunes
+
+DEVUELVE SOLO ESTE JSON VÁLIDO:
 {
-  "meta_title": "máx 60 chars — 'Búsqueda de fugas en [Ciudad] — CarolTemp'",
-  "meta_desc": "150-160 chars — geófono + cámara + ciudad + sin obras",
-  "hero_titulo": "Búsqueda de fugas en {$ciudad}<br><span class=\"hl\">sin romper paredes.</span>",
-  "hero_sub": "1 frase de 10-15 palabras sobre detección de fugas en la ciudad",
-  "contenido_intro": "<p>2 frases sobre por qué las fugas son un problema en {$ciudad} y cómo CarolTemp las localiza.</p>",
-  "servicios_lista": ["Fugas en tuberías empotradas", "Fugas en suelo radiante", "Fugas en piscinas", "Fugas en comunidades de vecinos", "Fugas en bajantes y arquetas", "Fugas en instalaciones exteriores"],
+  "meta_title": "Detección de fugas en [Ciudad] — CarolTemp | máx 60 chars",
+  "meta_desc": "150-160 chars: geófono + cámara + sin romper + [ciudad] + precio cerrado",
+  "hero_titulo": "Detección de fugas en {$ciudad}<br><span class=\"hl\">sin romper paredes.</span>",
+  "hero_sub": "frase de 10-15 palabras sobre el problema de fugas concreto en {$ciudad}",
+  "contenido_intro": "<p>2 frases sobre por qué hay fugas en {$ciudad} — causas reales de esa ciudad específica — y cómo CarolTemp las localiza.</p>",
+  "servicios_lista": ["tipo de fuga 1 relevante para {$ciudad}", "tipo 2", "tipo 3", "tipo 4", "tipo 5", "tipo 6"],
   "problemas_zona": [
-    {"titulo": "Problema de fugas típico 1 en {$ciudad}", "texto": "Explicación en 1-2 frases específica para esta ciudad."},
-    {"titulo": "Problema típico 2", "texto": "Explicación."},
-    {"titulo": "Problema típico 3", "texto": "Explicación."}
+    {"titulo": "causa real de fuga en {$ciudad}", "texto": "explicación concreta de por qué ocurre en esta ciudad, 1-2 frases"},
+    {"titulo": "segunda causa real", "texto": "explicación"},
+    {"titulo": "tercera causa real", "texto": "explicación"}
   ],
   "faq": [
-    {"pregunta": "¿Cómo detectáis fugas sin romper en {$ciudad}?", "respuesta": "Usamos geófono acústico y cámara. Localizamos el punto exacto antes de actuar."},
-    {"pregunta": "¿Cuánto cuesta la búsqueda de fugas en {$ciudad}?", "respuesta": "Precio cerrado antes de empezar. Sin sorpresas."},
-    {"pregunta": "¿También reparáis la fuga una vez localizada?", "respuesta": "Sí, detectamos y reparamos. No necesitas llamar a otra empresa."},
-    {"pregunta": "¿Cuánto tardáis en llegar a {$ciudad}?", "respuesta": "Atendemos {$ciudad} y trabajamos por cita o urgencia según disponibilidad."}
+    {"pregunta": "pregunta real que busca alguien con fuga en {$ciudad}", "respuesta": "respuesta directa y honesta"},
+    {"pregunta": "segunda pregunta", "respuesta": "respuesta"},
+    {"pregunta": "tercera pregunta", "respuesta": "respuesta"},
+    {"pregunta": "cuarta pregunta", "respuesta": "respuesta"}
   ]
 }
 
-CRÍTICO: Usa comillas dobles para todo el JSON. No uses comillas dobles DENTRO de los valores.
+CRÍTICO JSON: comillas dobles en claves y valores. Comillas simples dentro de valores si hace falta.
 SYS;
 
-    $user_fugas = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n";
-    if ($perfil_ciudad) $user_fugas .= "Características de {$ciudad}: {$perfil_ciudad}\n";
-    $user_fugas .= "Genera la página de búsqueda de fugas para {$ciudad}.";
+    $user_fugas  = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n\n";
+    $user_fugas .= "DATOS ESPECÍFICOS DE {$ciudad}:\n{$perfil_ciudad}\n\n";
+    $user_fugas .= "Genera la página de detección de fugas para {$ciudad}. ";
+    $user_fugas .= "Los problemas_zona deben describir causas REALES de fugas en {$ciudad} usando los datos de arriba. ";
+    $user_fugas .= "Las FAQ deben ser preguntas que haría alguien con una fuga en {$ciudad} — NO copies preguntas de otras ciudades.";
 
     $payload_fugas = [
       'model'      => ANTHROPIC_MODEL,
-      'max_tokens' => 2048,
+      'max_tokens' => 3000,
       'system'     => $system_fugas,
       'messages'   => [
         ['role' => 'user',      'content' => $user_fugas],
@@ -678,50 +696,60 @@ SYS;
     }
 
     $system_urg = <<<SYS
-Eres un experto en SEO local para CarolTemp, empresa de fontanería en la comarca interior de Alicante.
+Eres un redactor SEO local especializado en fontanería para CarolTemp (Alicante interior).
 
 REGLAS ABSOLUTAS:
-- NUNCA escribas "Vinalopó" en ningún sitio
+- NUNCA escribas "Vinalopó"
 - NUNCA inventes estadísticas ni porcentajes
-- Texto CORTO y directo
+- NUNCA uses frases vacías como "somos tu fontanero de confianza" o "calidad garantizada"
 - Año actual: {$anyo}
 
-SOBRE CAROLTEMP:
-- Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
-- Diferenciadores: presupuesto gratuito, urgencias, instaladores certificados Nubeco
-- Servicios urgentes: roturas de tuberías, grifos, cisternas, pérdidas de agua
+DATOS DE CAROLTEMP PARA URGENCIAS:
+- Teléfono urgencias: 613 429 032
+- Presupuesto cerrado antes de empezar — el cliente sabe el precio antes de que se empiece
+- Atienden toda la comarca: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe
+- Urgencias más comunes: roturas de tubería, pérdidas de agua, grifos, cisternas, llaves de paso que no cierran, termos que pierden agua
 
-DEVUELVE ÚNICAMENTE JSON VÁLIDO:
+DIFERENCIACIÓN OBLIGATORIA:
+Las urgencias de fontanería no son iguales en todas las ciudades. Usa los datos de {$ciudad}:
+- Si tiene edificios antiguos (Elda, Aspe, centro Sax) → roturas de tuberías de hierro envejecidas
+- Si el agua es muy dura (Petrer, Novelda) → termos que explotan o pierden por cal
+- Si es rural (Pinoso, Monóvar) → grupos de presión averiados, pozos, tuberías de campo
+- Si hay segunda residencia (Monforte) → instalaciones que llevan meses paradas y fallan
+
+DEVUELVE SOLO ESTE JSON VÁLIDO:
 {
-  "meta_title": "máx 60 chars — 'Fontanero urgente en [Ciudad] — CarolTemp'",
-  "meta_desc": "150-160 chars — urgencias + ciudad + CarolTemp",
+  "meta_title": "Fontanero urgente en [Ciudad] — CarolTemp | máx 60 chars",
+  "meta_desc": "150-160 chars: urgencias [ciudad] + diferenciador real + teléfono o CTA",
   "hero_titulo": "Fontanero urgente en {$ciudad}<br><span class=\"hl\">precio cerrado.</span>",
-  "hero_sub": "1 frase de 10-15 palabras sobre urgencias en la ciudad",
-  "contenido_intro": "<p>2 frases sobre urgencias de fontanería en {$ciudad}.</p>",
-  "servicios_lista": ["Roturas de tuberías", "Grifos y cisternas", "Pérdidas de agua", "Válvulas y llaves de paso", "Termos averiados", "Bajantes urgentes"],
+  "hero_sub": "frase de 10-15 palabras sobre la urgencia más habitual en {$ciudad}",
+  "contenido_intro": "<p>2 frases sobre las urgencias de fontanería más habituales en {$ciudad} — usando datos reales de esa ciudad.</p>",
+  "servicios_lista": ["urgencia concreta 1 para {$ciudad}", "urgencia 2", "urgencia 3", "urgencia 4", "urgencia 5", "urgencia 6"],
   "problemas_zona": [
-    {"titulo": "Problema urgente típico 1", "texto": "Explicación en 1-2 frases para {$ciudad}."},
-    {"titulo": "Problema urgente típico 2", "texto": "Explicación en 1-2 frases."},
-    {"titulo": "Problema urgente típico 3", "texto": "Explicación en 1-2 frases."}
+    {"titulo": "avería urgente típica en {$ciudad}", "texto": "por qué ocurre en {$ciudad} concretamente, 1-2 frases"},
+    {"titulo": "segunda avería urgente", "texto": "explicación"},
+    {"titulo": "tercera avería urgente", "texto": "explicación"}
   ],
   "faq": [
-    {"pregunta": "¿Cuánto cuesta una urgencia de fontanería en {$ciudad}?", "respuesta": "Presupuesto cerrado antes de empezar. Sin sorpresas."},
-    {"pregunta": "¿Atendéis urgencias en {$ciudad}?", "respuesta": "Sí, atendemos urgencias en {$ciudad} y toda la comarca."},
-    {"pregunta": "¿Cuánto tardan en llegar a {$ciudad}?", "respuesta": "Dependiendo de la carga de trabajo, intentamos atender el mismo día."},
-    {"pregunta": "¿Qué pasa si la avería es muy grave?", "respuesta": "Cierra la llave de paso y llámanos. Atendemos la urgencia cuanto antes."}
+    {"pregunta": "pregunta real sobre urgencias en {$ciudad}", "respuesta": "respuesta directa y honesta"},
+    {"pregunta": "segunda pregunta", "respuesta": "respuesta"},
+    {"pregunta": "tercera pregunta", "respuesta": "respuesta"},
+    {"pregunta": "cuarta pregunta", "respuesta": "respuesta"}
   ]
 }
 
-CRÍTICO: Usa comillas dobles para todo el JSON. No uses comillas dobles DENTRO de los valores.
+CRÍTICO JSON: comillas dobles en claves y valores. Comillas simples dentro de valores si hace falta.
 SYS;
 
-    $user_urg = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n";
-    if ($perfil_ciudad) $user_urg .= "Características de {$ciudad}: {$perfil_ciudad}\n";
-    $user_urg .= "Genera la página de fontanero urgente para {$ciudad}.";
+    $user_urg  = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n\n";
+    $user_urg .= "DATOS ESPECÍFICOS DE {$ciudad}:\n{$perfil_ciudad}\n\n";
+    $user_urg .= "Genera la página de fontanero urgente para {$ciudad}. ";
+    $user_urg .= "Los problemas_zona deben ser averías urgentes REALES en {$ciudad} usando los datos de arriba. ";
+    $user_urg .= "Las FAQ deben ser preguntas de alguien con una urgencia en {$ciudad} ahora mismo — respuestas honestas, sin frases vacías.";
 
     $payload_urg = [
       'model'      => ANTHROPIC_MODEL,
-      'max_tokens' => 2048,
+      'max_tokens' => 3000,
       'system'     => $system_urg,
       'messages'   => [
         ['role' => 'user',      'content' => $user_urg],
@@ -820,64 +848,68 @@ SYS;
   $servicio_nombre = $tipo_cfg['nombre'];
 
   $system = <<<SYS
-Eres un experto en SEO local para CarolTemp, empresa de fontanería en la comarca interior de Alicante.
+Eres un redactor SEO local especializado en fontanería para CarolTemp (Alicante interior).
 
 REGLAS ABSOLUTAS:
-- NUNCA escribas "Vinalopó" en ningún sitio
+- NUNCA escribas "Vinalopó"
 - NUNCA inventes estadísticas, años de experiencia, número de clientes ni porcentajes
-- Texto CORTO y directo — cada frase debe aportar algo útil al cliente
+- NUNCA uses frases genéricas vacías: "expertos en", "somos tu fontanero de confianza", "calidad y profesionalidad"
 - Año actual: {$anyo}
 
-SOBRE CAROLTEMP:
+DATOS DE CAROLTEMP:
+- Teléfono: 613 429 032
 - Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
-- Diferenciadores: presupuesto gratuito sin compromiso, urgencias 24h, instaladores certificados
-- Servicios: fontanería urgente, fugas (geófono+cámara), desatascos, termos, aire acondicionado, reformas
+- Diferenciadores REALES: presupuesto cerrado antes de empezar, geófono+cámara para fugas, instaladores certificados Nubeco (descalcificadores)
+- Servicios: fontanería urgente, detección de fugas, desatascos, termos, descalcificadores, reformas de baño
 
-DIFERENCIACIÓN POR CIUDAD: El contenido DEBE ser específico para esa ciudad. En problemas_zona describe 3 problemas REALES y distintos de esa ciudad concreta (agua dura en Petrer/Novelda, tuberías antiguas en Elda, instalaciones rurales en Pinoso/Monóvar, etc.). Las FAQs deben mencionar la ciudad por nombre y reflejar sus características. PROHIBIDO copiar el mismo texto cambiando solo el nombre de ciudad.
+DIFERENCIACIÓN OBLIGATORIA — LO MÁS IMPORTANTE:
+El contenido de {$ciudad} debe ser DISTINTO al de cualquier otra ciudad. Para lograrlo:
+1. Lee los datos específicos de {$ciudad} que te doy en el mensaje
+2. Los problemas_zona deben describir causas REALES de esa ciudad (tipo de edificios, dureza del agua, rural/urbano)
+3. Las FAQ deben ser preguntas que haría alguien EN {$ciudad}, con respuestas honestas y concretas
+4. PROHIBIDO: copiar la misma estructura cambiando solo el nombre de ciudad
 
-DEVUELVE ÚNICAMENTE JSON VÁLIDO con esta estructura exacta:
+DEVUELVE SOLO ESTE JSON VÁLIDO:
 {
-  "meta_title": "máx 60 chars con keyword + ciudad + | CarolTemp",
-  "meta_desc": "150-160 chars exactos — qué + dónde + por qué CarolTemp + CTA",
-  "hero_titulo": "Servicio en Ciudad<br><span class=\"hl\">gancho corto.</span>",
-  "hero_sub": "Una frase de 10-15 palabras con dato diferenciador",
-  "contenido_intro": "<p>Máximo 2 frases. Responder la intención de búsqueda.</p>",
-  "servicios_lista": ["item 1", "item 2", "item 3", "item 4", "item 5", "item 6"],
+  "meta_title": "Keyword + [Ciudad] — CarolTemp | máx 60 chars",
+  "meta_desc": "150-160 chars exactos: servicio + [ciudad] + diferenciador + CTA",
+  "hero_titulo": "[Servicio] en {$ciudad}<br><span class=\"hl\">gancho específico de {$ciudad}.</span>",
+  "hero_sub": "frase de 10-15 palabras con problema o característica real de {$ciudad}",
+  "contenido_intro": "<p>2 frases sobre el problema concreto de este servicio en {$ciudad} y cómo CarolTemp lo resuelve.</p>",
+  "servicios_lista": ["servicio concreto 1", "servicio 2", "servicio 3", "servicio 4", "servicio 5", "servicio 6"],
   "problemas_zona": [
-    {"titulo": "Problema concreto", "texto": "Explicación en 1-2 frases sobre por qué pasa en esta ciudad específicamente."},
-    {"titulo": "...", "texto": "..."},
-    {"titulo": "...", "texto": "..."}
+    {"titulo": "problema real en {$ciudad}", "texto": "por qué ocurre en {$ciudad} concretamente, 1-2 frases"},
+    {"titulo": "segundo problema real", "texto": "explicación"},
+    {"titulo": "tercer problema real", "texto": "explicación"}
   ],
   "faq": [
-    {"pregunta": "¿Pregunta real de búsqueda en {$ciudad}?", "respuesta": "Respuesta directa en 1-2 frases."},
-    {"pregunta": "...", "respuesta": "..."},
-    {"pregunta": "...", "respuesta": "..."},
-    {"pregunta": "...", "respuesta": "..."}
+    {"pregunta": "pregunta real que busca alguien en {$ciudad}", "respuesta": "respuesta directa y honesta, 1-2 frases"},
+    {"pregunta": "segunda pregunta real", "respuesta": "respuesta directa"},
+    {"pregunta": "tercera pregunta", "respuesta": "respuesta"},
+    {"pregunta": "cuarta pregunta", "respuesta": "respuesta"}
   ]
 }
 
-CRÍTICO: Usa comillas dobles para todo el JSON. No uses comillas dobles DENTRO de los valores — usa comillas simples en HTML y apóstrofes escapados.
+CRÍTICO JSON: comillas dobles en claves y valores. Comillas simples dentro de valores si hace falta. Sin comas finales.
 SYS;
 
   // ── Instrucciones por tipo de servicio ────────────────────────────
   $instrucciones = [
-    'fugas' => "Página de DETECCIÓN DE FUGAS en {$ciudad}.\n- meta_title: incluye 'detección fugas' + ciudad\n- hero_titulo gancho: '...sin obras.' o '...sin abrir paredes.'\n- servicios_lista: 6 tipos de fugas que detectan (empotradas, suelo radiante, piscinas, comunidades, calefacción, exterior)\n- problemas_zona: 3 problemas típicos de fugas en {$ciudad} específicamente\n- faq: 4 preguntas sobre detección de fugas en {$ciudad} (precio, cómo detectan, si reparan también, tiempo respuesta)",
-    'desatascos' => "Página de DESATASCOS en {$ciudad}.\n- meta_title: incluye 'desatascos' + ciudad\n- hero_titulo gancho: '...urgentes.' o '...hoy mismo.'\n- servicios_lista: 6 tipos de atascos (fregadero, lavabo, bañera, bajante, arqueta, comunidades)\n- problemas_zona: 3 causas típicas de atascos en {$ciudad}\n- faq: 4 preguntas sobre desatascos en {$ciudad} (precio, urgencias, qué incluye, tiempo)",
-    'fontanero' => "Página de FONTANERO en {$ciudad}.\n- meta_title: incluye 'fontanero' + ciudad\n- hero_titulo gancho: '...urgencias 24h.' o '...precio cerrado.'\n- servicios_lista: 6 trabajos (reparaciones urgentes, fugas, desatascos, termos, descalcificadores, reformas de baño)\n- problemas_zona: 3 situaciones típicas de fontanería en {$ciudad} donde llaman a CarolTemp\n- faq: 4 preguntas sobre fontanero en {$ciudad} (precio visita, urgencias, garantía, qué hacen)",
+    'fugas'      => "Tipo de página: DETECCIÓN DE FUGAS. Keyword principal: 'detección fugas {$ciudad}' o 'buscar fugas {$ciudad}'.\nhero_titulo gancho: algo como '...sin romper paredes.' o '...sin obras innecesarias.'\nproblemas_zona: 3 causas REALES de fugas en {$ciudad} según los datos de arriba (no pongas 'Problema típico 1').\nFAQ: 4 preguntas reales sobre fugas en {$ciudad} — con respuestas honestas (precio, método de detección, si reparan, tiempo de respuesta).",
+    'desatascos' => "Tipo de página: DESATASCOS. Keyword principal: 'desatascos {$ciudad}' o 'desatascar {$ciudad}'.\nhero_titulo gancho: algo como '...hoy mismo.' o '...sin esperas.'\nproblemas_zona: 3 causas REALES de atascos en {$ciudad} según los datos (tipo de edificios, uso industrial, comunidades, etc.).\nFAQ: 4 preguntas reales sobre desatascos en {$ciudad} — precio, tiempo, qué incluye, urgencias.",
+    'fontanero'  => "Tipo de página: FONTANERO GENERAL. Keyword principal: 'fontanero {$ciudad}'.\nhero_titulo gancho: algo como '...precio cerrado.' o '...sin sorpresas.'\nproblemas_zona: 3 situaciones REALES de {$ciudad} en las que la gente llama a un fontanero, usando los datos de la ciudad.\nFAQ: 4 preguntas reales sobre fontanero en {$ciudad} — precio visita, qué hacen, urgencias, garantía.",
   ];
 
-  $perfil_ciudad = $ciudad_perfiles[$ciudad] ?? '';
-  $user_msg  = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n";
-  if ($perfil_ciudad) {
-    $user_msg .= "Características de {$ciudad}: {$perfil_ciudad}\n";
-  }
-  $user_msg .= "Servicio: {$servicio_nombre}\n\n";
-  $user_msg .= $instrucciones[$tipo] ?? '';
+  $perfil_ciudad = $ciudad_perfiles[$ciudad] ?? 'Municipio de la comarca interior de Alicante.';
+  $user_msg  = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n\n";
+  $user_msg .= "DATOS ESPECÍFICOS DE {$ciudad}:\n{$perfil_ciudad}\n\n";
+  $user_msg .= $instrucciones[$tipo] ?? "Servicio: {$servicio_nombre} en {$ciudad}.";
+  $user_msg .= "\n\nIMPORTANTE: usa los datos de {$ciudad} de arriba para diferenciar el contenido. No copies texto de otras ciudades.";
 
   // ── Llamada a Claude (prefill { para garantizar JSON puro) ────────
   $payload = [
     'model'      => ANTHROPIC_MODEL,
-    'max_tokens' => 2048,
+    'max_tokens' => 3000,
     'system'     => $system,
     'messages'   => [
       ['role' => 'user',      'content' => $user_msg],
