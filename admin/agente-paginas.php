@@ -1871,24 +1871,23 @@ async function enviarRefinar() {
   }
 
   // Extraer solo la zona HTML editable (entre ?> y <!-- /editable -->)
-  // así Claude no ve el bloque PHP dinámico ni la cabecera PHP
   const MARKER = '<!-- /editable -->';
   const phpEndIdx = fullContent.indexOf('?>');
   const markerIdx = fullContent.indexOf(MARKER);
 
   let htmlEditable, prefijo, sufijo;
   if (phpEndIdx !== -1 && markerIdx !== -1 && markerIdx > phpEndIdx) {
-    prefijo      = fullContent.substring(0, phpEndIdx + 2);       // cabecera PHP
-    htmlEditable = fullContent.substring(phpEndIdx + 2, markerIdx); // solo HTML
-    sufijo       = fullContent.substring(markerIdx);               // marker + PHP dinámico
+    prefijo      = fullContent.substring(0, phpEndIdx + 2);
+    htmlEditable = fullContent.substring(phpEndIdx + 2, markerIdx);
+    sufijo       = fullContent.substring(markerIdx);
   } else {
-    // Fallback: si no hay marker, mandar todo
     prefijo      = '';
     htmlEditable = fullContent;
     sufijo       = '';
   }
 
   addMsgRefinar('user', instruc);
+  addMsgRefinar('ai', '⏳ Procesando...');
   input.value     = '';
   btn.disabled    = true;
   btn.textContent = '⏳';
@@ -1901,17 +1900,34 @@ async function enviarRefinar() {
 
   try {
     const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd });
-    const data = await r.json();
-    if (data.ok && data.html) {
-      // Reconstruir el archivo completo con el HTML refinado
+    const text = await r.text();
+    let data;
+    try { data = JSON.parse(text); }
+    catch(e) {
+      // Quitar el último mensaje "Procesando..."
+      const hist = document.getElementById('refinar-historial');
+      hist.lastChild && hist.removeChild(hist.lastChild);
+      addMsgRefinar('ai', '⚠️ Respuesta inválida del servidor: ' + text.substring(0, 200));
+      btn.disabled = false; btn.textContent = 'Enviar'; return;
+    }
+
+    // Quitar el mensaje "Procesando..."
+    const hist = document.getElementById('refinar-historial');
+    hist.lastChild && hist.removeChild(hist.lastChild);
+
+    if (data.ok && data.html != null && data.html !== '') {
       const nuevoContenido = prefijo + '\n' + data.html.trim() + '\n' + sufijo;
       document.getElementById('pv-php-content').value = nuevoContenido;
-      addMsgRefinar('ai', '✓ Listo. El contenido ha sido actualizado arriba. Revísalo y guarda cuando estés conforme.');
+      addMsgRefinar('ai', '✓ Listo. Revisa el contenido arriba y guarda cuando estés conforme.');
+    } else if (data.error) {
+      addMsgRefinar('ai', '⚠️ Error: ' + data.error + (data.raw ? '\n\nDetalle: ' + data.raw.substring(0, 300) : ''));
     } else {
-      addMsgRefinar('ai', '⚠️ Error: ' + (data.error || 'Sin respuesta'));
+      addMsgRefinar('ai', '⚠️ Sin respuesta útil. Respuesta recibida: ' + JSON.stringify(data).substring(0, 200));
     }
   } catch (e) {
-    addMsgRefinar('ai', '⚠️ Error de conexión al refinar');
+    const hist = document.getElementById('refinar-historial');
+    hist.lastChild && hist.removeChild(hist.lastChild);
+    addMsgRefinar('ai', '⚠️ Error de conexión: ' + e.message);
   }
 
   btn.disabled    = false;
