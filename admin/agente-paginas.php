@@ -2005,7 +2005,8 @@ async function enviarRefinar() {
     if (data.ok && data.html != null && data.html !== '') {
       const nuevoContenido = prefijo + '\n' + data.html.trim() + '\n' + sufijo;
       document.getElementById('pv-php-content').value = nuevoContenido;
-      addMsgRefinar('ai', '✓ Listo. Revisa el contenido arriba y guarda cuando estés conforme.');
+      addMsgRefinar('ai', '✓ Listo. Abriendo preview para que veas el resultado...');
+      setTimeout(abrirPreview, 300);
     } else if (data.error) {
       addMsgRefinar('ai', '⚠️ Error: ' + data.error + (data.raw ? '\n\nDetalle: ' + data.raw.substring(0, 300) : ''));
     } else {
