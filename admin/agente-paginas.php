@@ -1888,18 +1888,21 @@ function abrirPreview() {
   const filepath = document.getElementById('pv-filepath').value || '';
   document.getElementById('preview-label').textContent = filepath || 'nueva página';
 
+  // Base URL del sitio: subir un nivel desde /admin/
+  const siteBase = window.location.href.replace(/\/admin\/.*$/, '/');
+
   // Construir documento completo para el iframe
   const doc = `<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="/css/global.css">
-<link rel="stylesheet" href="/css/nav.css">
-<link rel="stylesheet" href="/css/pages/${pageCss}.css">
+<base href="${siteBase}">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/pages/${pageCss}.css">
 <style>
-  /* ocultar nav/footer del sitio real si se cargaran */
-  nav, header.site-header, footer { display: none !important; }
+  nav, header.site-header, .site-nav, footer { display: none !important; }
   body { margin: 0; }
 </style>
 </head>
