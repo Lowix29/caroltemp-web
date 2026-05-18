@@ -929,7 +929,10 @@ $base_url = 'http://localhost/';
           </div>
 
           <div class="pv-field">
-            <label>Contenido PHP generado <span style="font-weight:400;color:#B0C4D8;text-transform:none;letter-spacing:0">(editable antes de guardar)</span></label>
+            <label>
+              Contenido PHP generado <span style="font-weight:400;color:#B0C4D8;text-transform:none;letter-spacing:0">(editable antes de guardar)</span>
+              <button type="button" onclick="abrirPreview()" style="margin-left:auto;background:#EEF4FF;color:#1976D2;border:1.5px solid #BFDBFE;border-radius:6px;padding:.2rem .65rem;font-size:11px;font-weight:700;cursor:pointer;text-transform:none;letter-spacing:0">👁 Preview visual</button>
+            </label>
             <textarea id="pv-php-content" rows="24"></textarea>
           </div>
 
@@ -995,6 +998,18 @@ $base_url = 'http://localhost/';
   </div>
 
 </main>
+
+<!-- ── Modal Preview ───────────────────────────────────────────────── -->
+<div id="preview-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.7);flex-direction:column">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.25rem;background:#0B2447;color:#fff;flex-shrink:0">
+    <span style="font-weight:700;font-size:14px">👁 Preview visual — <span id="preview-label" style="font-weight:400;color:#B0C4D8"></span></span>
+    <div style="display:flex;gap:.5rem;align-items:center">
+      <span style="font-size:11px;color:#8FA3B8">Solo se muestra la zona editable (sin proyectos/artículos dinámicos)</span>
+      <button onclick="cerrarPreview()" style="background:#DC2626;color:#fff;border:none;border-radius:6px;padding:.35rem .875rem;font-size:13px;font-weight:700;cursor:pointer">✕ Cerrar</button>
+    </div>
+  </div>
+  <iframe id="preview-frame" style="flex:1;border:none;background:#fff" sandbox="allow-same-origin allow-scripts"></iframe>
+</div>
 
 <script>
 // ── Estado global ────────────────────────────────────────────────────────────
@@ -1843,6 +1858,78 @@ function escp(str) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 }
+
+// ── Preview visual ────────────────────────────────────────────────────────────
+function abrirPreview() {
+  const fullContent = document.getElementById('pv-php-content').value;
+  if (!fullContent.trim()) {
+    mostrarFlash('err', '⚠️ No hay contenido generado todavía.');
+    return;
+  }
+
+  // Extraer solo la zona HTML editable
+  const MARKER    = '<!-- /editable -->';
+  const phpEndIdx = fullContent.indexOf('?>');
+  const markerIdx = fullContent.indexOf(MARKER);
+
+  let htmlEditable;
+  if (phpEndIdx !== -1 && markerIdx !== -1 && markerIdx > phpEndIdx) {
+    htmlEditable = fullContent.substring(phpEndIdx + 2, markerIdx);
+  } else if (phpEndIdx !== -1) {
+    htmlEditable = fullContent.substring(phpEndIdx + 2);
+  } else {
+    htmlEditable = fullContent;
+  }
+
+  // Obtener la page_css del PHP header para cargar el CSS correcto
+  const pageCssMatch = fullContent.match(/\$page_css\s*=\s*['"]([^'"]+)['"]/);
+  const pageCss      = pageCssMatch ? pageCssMatch[1] : 'zona';
+
+  const filepath = document.getElementById('pv-filepath').value || '';
+  document.getElementById('preview-label').textContent = filepath || 'nueva página';
+
+  // Construir documento completo para el iframe
+  const doc = `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/pages/${pageCss}.css">
+<style>
+  /* ocultar nav/footer del sitio real si se cargaran */
+  nav, header.site-header, footer { display: none !important; }
+  body { margin: 0; }
+</style>
+</head>
+<body>
+${htmlEditable}
+<script>
+/* FAQ toggle para el preview */
+function togFaq(el) {
+  var fi = el.closest('.zona-fi');
+  if (fi) fi.classList.toggle('open');
+}
+<\/script>
+</body>
+</html>`;
+
+  const modal = document.getElementById('preview-modal');
+  const frame = document.getElementById('preview-frame');
+  modal.style.display = 'flex';
+  frame.srcdoc = doc;
+}
+
+function cerrarPreview() {
+  document.getElementById('preview-modal').style.display = 'none';
+  document.getElementById('preview-frame').srcdoc = '';
+}
+
+// Cerrar con Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') cerrarPreview();
+});
 
 // ── Chat de refinamiento ──────────────────────────────────────────────────────
 function toggleRefinar() {
