@@ -808,6 +808,25 @@ const CIUDADES_MAP = {
   'salinas':  { nombre: 'Salinas',          cp: '03688' },
   'aspe':     { nombre: 'Aspe',             cp: '03680' },
 };
+
+// Búsqueda tolerante: admite mayúsculas, acentos y guiones distintos
+// p.ej. "Monforte-del-Cid" → { slug:'monforte', nombre:'Monforte del Cid', cp:'...' }
+function encontrarCiudad(str) {
+  if (!str) return null;
+  if (CIUDADES_MAP[str]) return { slug: str, ...CIUDADES_MAP[str] };
+  const norm = function(s) {
+    return s.toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '') // quitar acentos
+      .replace(/[\s\-_]+/g, '');                         // quitar separadores
+  };
+  const key = norm(str);
+  for (const [slug, info] of Object.entries(CIUDADES_MAP)) {
+    if (norm(slug) === key || norm(info.nombre) === key) {
+      return { slug, ...info };
+    }
+  }
+  return null;
+}
 const PREFIJOS_MAP = {
   'fugas':      'deteccion-fugas-',
   'desatascos': 'desatascos-',
@@ -999,45 +1018,72 @@ function renderAccionCard(accion) {
 async function ejecutarAccion(accionObj) {
   const filepath = accionObj.pagina || '';
   const accionId = accionObj.id     || 0;
+  const tipoCard = (accionObj.tipo  || '').toLowerCase();
 
-  // Strip .php and split to detect path depth
   const sinExt = filepath.replace(/\.php$/, '');
   const partes = sinExt.split('/');
 
-  if (partes.length < 2) { mostrarNoDisponible(accionId); return; }
+  // Páginas corporativas (index, contacto, sobre-nosotros…): ruta raíz o tipo explícito
+  if (partes.length < 2 || tipoCard === 'corporativa') {
+    mostrarNoCorporativa(accionId, filepath);
+    return;
+  }
 
-  let ciudadSlug, subTipo;
+  let ciudadInfo, subTipo;
 
   if (partes.length >= 3) {
-    // Silo sub-page: fontanero/elda/urgencias → ciudad=elda, tipo=urgencias
-    ciudadSlug = partes[1];
-    subTipo    = partes[2]; // 'urgencias', 'desatascos', 'fugas'
+    // Silo sub-page: fontanero/{ciudad}/{servicio}
+    ciudadInfo = encontrarCiudad(partes[1]);
+    subTipo    = partes[2];
   } else {
     const dir      = partes[0];
     const filename = partes[1];
 
     if (dir === 'zonas') {
-      ciudadSlug = filename;
+      ciudadInfo = encontrarCiudad(filename);
       subTipo    = 'zona';
-    } else if (dir === 'fontanero' && CIUDADES_MAP[filename]) {
-      // New silo hub: fontanero/elda — filename IS the city slug
-      ciudadSlug = filename;
+    } else if (dir === 'fontanero') {
+      ciudadInfo = encontrarCiudad(filename);
       subTipo    = 'hub_ciudad';
     } else {
-      // Old-style: dir/prefijo-slug (e.g. desatascos/desatascos-elda)
       const prefijo = PREFIJOS_MAP[dir];
-      if (!prefijo)                      { mostrarNoDisponible(accionId); return; }
-      if (!filename.startsWith(prefijo)) { mostrarNoDisponible(accionId); return; }
-      ciudadSlug = filename.substring(prefijo.length);
+      const slug    = (prefijo && filename.startsWith(prefijo))
+        ? filename.substring(prefijo.length)
+        : filename;
+      ciudadInfo = encontrarCiudad(slug);
       subTipo    = dir;
     }
   }
 
-  const ciudadInfo = CIUDADES_MAP[ciudadSlug];
   if (!ciudadInfo) { mostrarNoDisponible(accionId); return; }
 
   const apiAccion = (accionObj.accion || '').toLowerCase() === 'crear' ? 'crear' : 'mejorar';
-  await lanzarAccion(apiAccion, subTipo, ciudadInfo.nombre, ciudadSlug, ciudadInfo.cp, filepath, accionId);
+  await lanzarAccion(apiAccion, subTipo, ciudadInfo.nombre, ciudadInfo.slug, ciudadInfo.cp, filepath, accionId);
+}
+
+// ── mostrarNoCorporativa ──────────────────────────────────────────────────────
+function mostrarNoCorporativa(accionId, filepath) {
+  mostrarEstadoEditor('result');
+  document.getElementById('result-crear-mejorar').style.display = 'none';
+  document.getElementById('result-redirigir').style.display     = 'none';
+  document.getElementById('result-eliminar').style.display      = 'none';
+  ocultarFlash();
+
+  const prev = document.getElementById('no-disponible-msg');
+  if (prev) prev.remove();
+
+  const div = document.createElement('div');
+  div.id = 'no-disponible-msg';
+  div.className = 'tipo-no-disponible';
+  div.innerHTML =
+    '<strong>Página corporativa</strong><br>' +
+    '<span style="font-family:monospace;font-size:11px">' + escp(filepath) + '</span><br><br>' +
+    'Las páginas corporativas (home, contacto, quiénes somos) se editan directamente ' +
+    'en su archivo PHP. El agente no las genera automáticamente porque su estructura ' +
+    'es única.<br><br>' +
+    '<span style="color:#16a34a;font-weight:600">✓ Márcala como completada</span> ' +
+    'una vez la hayas revisado manualmente.';
+  document.getElementById('ap-result').prepend(div);
 }
 
 // ── mostrarNoDisponible ───────────────────────────────────────────────────────
@@ -1048,17 +1094,15 @@ function mostrarNoDisponible(accionId) {
   document.getElementById('result-eliminar').style.display      = 'none';
   ocultarFlash();
 
-  const wrap = document.getElementById('ap-result');
-  // Eliminar si ya existe
   const prev = document.getElementById('no-disponible-msg');
   if (prev) prev.remove();
 
   const div = document.createElement('div');
   div.id = 'no-disponible-msg';
   div.className = 'tipo-no-disponible';
-  div.innerHTML = '⚠️ La generación automática no está disponible aún para este tipo de página. ' +
-    'Puedes marcarla manualmente como completada o ignorada desde la tarjeta del plan.';
-  wrap.prepend(div);
+  div.innerHTML = '⚠️ No se pudo identificar la ciudad en la ruta <strong>' + escp(accionId) + '</strong>. ' +
+    'Revisa que el plan use slugs de ciudad correctos (elda, petrer, novelda, monovar, sax, pinoso, monforte, salinas, aspe).';
+  document.getElementById('ap-result').prepend(div);
 }
 
 // ── verReglaRedireccion ───────────────────────────────────────────────────────
