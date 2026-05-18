@@ -130,6 +130,20 @@ if ($accion === 'inventario') {
       }
     }
   }
+  // Merge páginas from DB
+  try {
+    $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (id INT AUTO_INCREMENT PRIMARY KEY, titulo VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL UNIQUE, filepath VARCHAR(255) NOT NULL UNIQUE, contenido LONGTEXT, meta_title VARCHAR(255) DEFAULT '', meta_desc TEXT DEFAULT '', publicado TINYINT(1) DEFAULT 1, fecha DATETIME DEFAULT CURRENT_TIMESTAMP, modificado DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+    $db_pages = $pdo->query("SELECT titulo, filepath FROM paginas WHERE publicado = 1 ORDER BY fecha ASC")->fetchAll(PDO::FETCH_ASSOC);
+    $existing_fps_in_cfg = array_column($corporativas_cfg, 'filepath');
+    foreach ($db_pages as $dp) {
+      if (!in_array($dp['filepath'], $existing_fps_in_cfg, true)) {
+        $slug_p = str_replace('.php', '', $dp['filepath']);
+        $corporativas_cfg[] = ['label' => $dp['titulo'], 'filepath' => $dp['filepath'], 'ruta_web' => '/' . $slug_p, 'custom' => true];
+        $existing_fps_in_cfg[] = $dp['filepath'];
+      }
+    }
+  } catch (Exception $e) { /* tabla no existe aún */ }
+
   $corporativas = [];
   $base_fps     = ['index.php','contacto.php','sobre-nosotros.php','financiacion.php'];
   foreach ($corporativas_cfg as $corp) {

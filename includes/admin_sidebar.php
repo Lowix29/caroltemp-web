@@ -22,6 +22,13 @@ $total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHE
     <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;padding:1px 7px;border-radius:20px;margin-left:auto"><?php echo $total_nuevos_msg; ?></span>
   <?php endif; ?>
 </a>
+    <span class="sidebar-label">Páginas</span>
+    <a href="nueva-pagina.php" class="<?php echo $pagina_actual === 'nueva-pagina.php' ? 'active' : ''; ?>">
+      <span>📄</span> Nueva página
+    </a>
+    <a href="paginas.php" class="<?php echo $pagina_actual === 'paginas.php' ? 'active' : ''; ?>">
+      <span>📋</span> Todas las páginas
+    </a>
     <span class="sidebar-label">Artículos</span>
     <a href="nuevo-articulo.php" class="<?php echo $pagina_actual === 'nuevo-articulo.php' ? 'active' : ''; ?>">
       <span>✏️</span> Nuevo artículo
