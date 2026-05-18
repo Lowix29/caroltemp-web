@@ -240,7 +240,7 @@ foreach ($root_phps_all as $f) {
               <td>
                 <div class="td-acciones">
                   <a href="nueva-pagina.php?id=<?php echo $pag['id']; ?>" class="btn-editar">Editar</a>
-                  <a href="../<?php echo urlencode($pag['filepath']); ?>" target="_blank" class="btn-ver">Ver</a>
+                  <a href="../<?php echo htmlspecialchars($pag['filepath']); ?>" target="_blank" class="btn-ver">Ver</a>
                   <a href="#" class="btn-eliminar" onclick="confirmarEliminar(<?php echo $pag['id']; ?>, '<?php echo htmlspecialchars(addslashes($pag['titulo'])); ?>')">Eliminar</a>
                 </div>
               </td>
