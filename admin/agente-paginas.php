@@ -1341,9 +1341,9 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
   badge.style.display = '';
 
   const TIPO_LABELS = {
-    fugas: 'Fugas', desatascos: 'Desatascos', fontanero: 'Fontanero',
-    zona: 'Zona', zonas: 'Zona',
+    desatascos: 'Desatascos', fontanero: 'Fontanero',
     hub_ciudad: 'Hub Ciudad', urgencias: 'Urgencias',
+    busqueda_fugas: 'Búsqueda de fugas',
   };
   const tips = [
     'Analizando el contenido actual...',

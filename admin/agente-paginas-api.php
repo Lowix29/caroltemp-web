@@ -70,10 +70,10 @@ if ($accion === 'inventario') {
 
   // Silo: las páginas que debe tener cada ciudad en la arquitectura nueva
   $silo_cols = [
-    'hub'        => ['label' => 'Hub',        'filepath' => fn($s) => "fontanero/{$s}.php",            'ruta_web' => fn($s) => "/fontanero/{$s}",            'tipo' => 'hub_ciudad'],
-    'urgencias'  => ['label' => 'Urgencias',  'filepath' => fn($s) => "fontanero/{$s}/urgencias.php",  'ruta_web' => fn($s) => "/fontanero/{$s}/urgencias",  'tipo' => 'urgencias'],
-    'fugas'      => ['label' => 'Fugas',      'filepath' => fn($s) => "fontanero/{$s}/fugas.php",      'ruta_web' => fn($s) => "/fontanero/{$s}/fugas",      'tipo' => 'fugas'],
-    'desatascos' => ['label' => 'Desatascos', 'filepath' => fn($s) => "fontanero/{$s}/desatascos.php", 'ruta_web' => fn($s) => "/fontanero/{$s}/desatascos", 'tipo' => 'desatascos'],
+    'hub'            => ['label' => 'Hub Ciudad',       'filepath' => fn($s) => "fontanero/{$s}.php",                   'ruta_web' => fn($s) => "/fontanero/{$s}",                   'tipo' => 'hub_ciudad'],
+    'urgencias'      => ['label' => 'Urgencias',        'filepath' => fn($s) => "fontanero/{$s}/urgencias.php",         'ruta_web' => fn($s) => "/fontanero/{$s}/urgencias",         'tipo' => 'urgencias'],
+    'desatascos'     => ['label' => 'Desatascos',       'filepath' => fn($s) => "fontanero/{$s}/desatascos.php",        'ruta_web' => fn($s) => "/fontanero/{$s}/desatascos",        'tipo' => 'desatascos'],
+    'busqueda_fugas' => ['label' => 'Búsqueda de fugas','filepath' => fn($s) => "fontanero/{$s}/busqueda_fugas.php",    'ruta_web' => fn($s) => "/fontanero/{$s}/busqueda_fugas",    'tipo' => 'busqueda_fugas'],
   ];
 
   foreach ($ciudades as $ciudad_nombre => $info) {
@@ -375,6 +375,110 @@ SYS;
       'filepath'      => 'fontanero/' . $hub_filename,
       'meta_title'    => $data_hub['meta_title'] ?? '',
       'meta_desc'     => $data_hub['meta_desc']  ?? '',
+    ]);
+    exit;
+  }
+
+  // ── Búsqueda de fugas silo (fontanero/{slug}/busqueda_fugas.php) ────────────
+  if ($tipo === 'busqueda_fugas') {
+    $perfil_ciudad = $ciudad_perfiles[$ciudad] ?? '';
+    $tipo_cfg_fugas = [
+      'dir'             => 'fontanero/' . $ciudad_slug,
+      'prefijo_archivo' => '',
+      'prefijo_url'     => 'fontanero/' . $ciudad_slug,
+      'nombre'          => 'Búsqueda de fugas',
+    ];
+    $otras_ciudades = [];
+    foreach ($ciudades as $c_nombre => $c_info) {
+      if ($c_info['slug'] === $ciudad_slug) continue;
+      $otras_ciudades[] = ['nombre' => $c_nombre, 'slug' => $c_info['slug'], 'prefijo' => 'fontanero'];
+    }
+
+    $system_fugas = <<<SYS
+Eres un experto en SEO local para CarolTemp, empresa de fontanería en la comarca interior de Alicante.
+
+REGLAS ABSOLUTAS:
+- NUNCA escribas "Vinalopó" en ningún sitio
+- NUNCA inventes estadísticas ni porcentajes
+- Texto CORTO y directo
+- Año actual: {$anyo}
+
+SOBRE CAROLTEMP:
+- Diferenciadores: geófono profesional, cámara de inspección, sin romper paredes innecesariamente
+- Tipos de fugas que detectan: empotradas, suelo radiante, piscinas, bajantes, comunidades, exterior
+
+DEVUELVE ÚNICAMENTE JSON VÁLIDO:
+{
+  "meta_title": "máx 60 chars — 'Búsqueda de fugas en [Ciudad] — CarolTemp'",
+  "meta_desc": "150-160 chars — geófono + cámara + ciudad + sin obras",
+  "hero_titulo": "Búsqueda de fugas en {$ciudad}<br><span class=\"hl\">sin romper paredes.</span>",
+  "hero_sub": "1 frase de 10-15 palabras sobre detección de fugas en la ciudad",
+  "contenido_intro": "<p>2 frases sobre por qué las fugas son un problema en {$ciudad} y cómo CarolTemp las localiza.</p>",
+  "servicios_lista": ["Fugas en tuberías empotradas", "Fugas en suelo radiante", "Fugas en piscinas", "Fugas en comunidades de vecinos", "Fugas en bajantes y arquetas", "Fugas en instalaciones exteriores"],
+  "problemas_zona": [
+    {"titulo": "Problema de fugas típico 1 en {$ciudad}", "texto": "Explicación en 1-2 frases específica para esta ciudad."},
+    {"titulo": "Problema típico 2", "texto": "Explicación."},
+    {"titulo": "Problema típico 3", "texto": "Explicación."}
+  ],
+  "faq": [
+    {"pregunta": "¿Cómo detectáis fugas sin romper en {$ciudad}?", "respuesta": "Usamos geófono acústico y cámara. Localizamos el punto exacto antes de actuar."},
+    {"pregunta": "¿Cuánto cuesta la búsqueda de fugas en {$ciudad}?", "respuesta": "Precio cerrado antes de empezar. Sin sorpresas."},
+    {"pregunta": "¿También reparáis la fuga una vez localizada?", "respuesta": "Sí, detectamos y reparamos. No necesitas llamar a otra empresa."},
+    {"pregunta": "¿Cuánto tardáis en llegar a {$ciudad}?", "respuesta": "Atendemos {$ciudad} y trabajamos por cita o urgencia según disponibilidad."}
+  ]
+}
+
+CRÍTICO: Usa comillas dobles para todo el JSON. No uses comillas dobles DENTRO de los valores.
+SYS;
+
+    $user_fugas = "Ciudad: {$ciudad} (CP: {$ciudad_cp}, slug: {$ciudad_slug})\n";
+    if ($perfil_ciudad) $user_fugas .= "Características de {$ciudad}: {$perfil_ciudad}\n";
+    $user_fugas .= "Genera la página de búsqueda de fugas para {$ciudad}.";
+
+    $payload_fugas = [
+      'model'      => ANTHROPIC_MODEL,
+      'max_tokens' => 2048,
+      'system'     => $system_fugas,
+      'messages'   => [
+        ['role' => 'user',      'content' => $user_fugas],
+        ['role' => 'assistant', 'content' => '{'],
+      ],
+    ];
+
+    $ch = curl_init('https://api.anthropic.com/v1/messages');
+    curl_setopt_array($ch, [
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_POST           => true,
+      CURLOPT_POSTFIELDS     => json_encode($payload_fugas),
+      CURLOPT_HTTPHEADER     => ['x-api-key: ' . ANTHROPIC_API_KEY, 'anthropic-version: 2023-06-01', 'content-type: application/json'],
+      CURLOPT_TIMEOUT => 60,
+    ]);
+    $raw_fugas  = curl_exec($ch);
+    $http_fugas = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if (!$raw_fugas) { echo json_encode(['error' => 'No se pudo conectar con la API de Claude.']); exit; }
+    $resp_fugas = json_decode($raw_fugas, true);
+    if ($http_fugas !== 200 || empty($resp_fugas['content'][0]['text'])) {
+      echo json_encode(['error' => 'Error API Claude (' . $http_fugas . '): ' . ($resp_fugas['error']['message'] ?? 'Error')]); exit;
+    }
+    $text_fugas = $resp_fugas['content'][0]['text'];
+    if (($resp_fugas['stop_reason'] ?? '') === 'max_tokens') { echo json_encode(['error' => 'Respuesta demasiado larga.']); exit; }
+
+    $json_fugas = '{' . $text_fugas;
+    $data_fugas = json_decode($json_fugas, true);
+    if (!$data_fugas && preg_match('/\{[\s\S]*\}/u', $json_fugas, $m)) $data_fugas = json_decode($m[0], true);
+    if (!$data_fugas) { echo json_encode(['error' => 'Claude no devolvió JSON válido.']); exit; }
+
+    $filepath_fugas = 'fontanero/' . $ciudad_slug . '/busqueda_fugas.php';
+    $php_fugas = generar_php_servicio($data_fugas, $tipo_cfg_fugas, 'busqueda_fugas', $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, 2);
+
+    echo json_encode([
+      'ok'            => true,
+      'php_contenido' => $php_fugas,
+      'filepath'      => $filepath_fugas,
+      'meta_title'    => $data_fugas['meta_title'] ?? '',
+      'meta_desc'     => $data_fugas['meta_desc']  ?? '',
     ]);
     exit;
   }
@@ -840,7 +944,7 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "    <h2>Todo lo que hacemos <span class=\"hl\">en <?php echo \$zona_nombre; ?></span></h2>\n";
   $php .= "    <div class=\"zona-svc\">\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/<?php echo \$zona_slug; ?>/urgencias\" class=\"zona-sc\"><span class=\"zona-sc-n\">01</span><h3>Fontanero urgente en <?php echo \$zona_nombre; ?></h3><p>Roturas de tuber&iacute;as, grifos, cisternas y p&eacute;rdidas de agua con soluci&oacute;n r&aacute;pida y precio cerrado.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
-  $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/<?php echo \$zona_slug; ?>/fugas\" class=\"zona-sc\"><span class=\"zona-sc-n\">02</span><h3>Detecci&oacute;n de fugas en <?php echo \$zona_nombre; ?></h3><p>Localizaci&oacute;n de fugas con ge&oacute;fono y c&aacute;mara sin romper innecesariamente.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
+  $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/<?php echo \$zona_slug; ?>/busqueda_fugas\" class=\"zona-sc\"><span class=\"zona-sc-n\">02</span><h3>B&uacute;squeda de fugas en <?php echo \$zona_nombre; ?></h3><p>Localizaci&oacute;n de fugas con ge&oacute;fono y c&aacute;mara sin romper innecesariamente.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>fontanero/<?php echo \$zona_slug; ?>/desatascos\" class=\"zona-sc\"><span class=\"zona-sc-n\">03</span><h3>Desatascos en <?php echo \$zona_nombre; ?></h3><p>Desatascos de fregaderos, bajantes y arquetas para recuperar el funcionamiento normal.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#termos\" class=\"zona-sc\"><span class=\"zona-sc-n\">04</span><h3>Termos el&eacute;ctricos en <?php echo \$zona_nombre; ?></h3><p>Instalaci&oacute;n de termos el&eacute;ctricos con asesoramiento y puesta en marcha.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>servicios#descalcificadores\" class=\"zona-sc\"><span class=\"zona-sc-n\">05</span><h3>Descalcificadores en <?php echo \$zona_nombre; ?></h3><p>Soluci&oacute;n para el agua dura con instalaci&oacute;n y mantenimiento de descalcificadores.</p><span class=\"zona-sc-a\">Ver servicio &rarr;</span></a>\n";
