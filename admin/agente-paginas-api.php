@@ -423,7 +423,8 @@ REGLAS ABSOLUTAS:
 SOBRE CAROLTEMP:
 - Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
 - Diferenciadores: presupuesto gratuito sin compromiso, urgencias, instaladores certificados Nubeco
-- Servicios: fontanería urgente, fugas (geófono+cámara), desatascos, termos, descalcificadores, reformas
+- Servicios: fontanería urgente, fugas (geófono+cámara), desatascos, termos, descalcificadores, reformas de baño
+- PROHIBIDO mencionar: camión cuba, camiones cuba, fosas sépticas, pocería — CarolTemp NO hace esos servicios
 
 DIFERENCIACIÓN: El contenido DEBE reflejar las características concretas de la ciudad. NO copies texto genérico.
 
@@ -550,6 +551,7 @@ DATOS DE CAROLTEMP:
 - Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
 - Diferenciadores REALES: presupuesto sin sorpresas antes de empezar (sin sorpresas), instaladores certificados Nubeco (descalcificadores), geófono y cámara para fugas sin obras
 - Servicios: fontanería urgente, detección de fugas, desatascos, termos, descalcificadores, reformas de baño
+- PROHIBIDO mencionar: camión cuba, camiones cuba, vaciado de fosas sépticas, fosas sépticas, pocería — CarolTemp NO tiene camión cuba ni hace esos servicios
 
 DIFERENCIACIÓN OBLIGATORIA — MÁS IMPORTANTE:
 El texto para {$ciudad} debe ser COMPLETAMENTE DISTINTO al de cualquier otra ciudad del listado.
@@ -954,6 +956,7 @@ DATOS DE CAROLTEMP:
 - Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
 - Diferenciadores REALES: presupuesto sin sorpresas antes de empezar, geófono+cámara para fugas, instaladores certificados Nubeco (descalcificadores)
 - Servicios: fontanería urgente, detección de fugas, desatascos, termos, descalcificadores, reformas de baño
+- PROHIBIDO mencionar: camión cuba, camiones cuba, vaciado de fosas sépticas, fosas sépticas, pocería — CarolTemp NO tiene camión cuba ni hace esos servicios
 
 DIFERENCIACIÓN OBLIGATORIA — LO MÁS IMPORTANTE:
 El contenido de {$ciudad} debe ser DISTINTO al de cualquier otra ciudad. Para lograrlo:
