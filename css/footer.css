@@ -23,10 +23,11 @@
 .footer-cta-btn:hover{opacity:.9;box-shadow:0 4px 18px rgba(25,118,210,.42)}
 
 /* COLUMNAS GENÉRICAS */
-.footer-col h3{color:rgba(255,255,255,.4);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.1rem}
-.footer-col ul{display:flex;flex-direction:column;gap:.55rem;list-style:none;padding:0;margin:0}
-.footer-col ul li a{color:rgba(255,255,255,.45);font-size:13.5px;text-decoration:none;transition:color .15s;line-height:1.5}
-.footer-col ul li a:hover{color:rgba(255,255,255,.85)}
+.footer-col h3{color:rgba(255,255,255,.85);font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:8px}
+.footer-col h3::before{content:'';width:14px;height:2px;background:#1976D2;border-radius:2px;display:block;flex-shrink:0}
+.footer-col ul{display:flex;flex-direction:column;gap:.6rem;list-style:none;padding:0;margin:0}
+.footer-col ul li a{color:rgba(255,255,255,.75);font-size:13.5px;text-decoration:none;transition:color .15s;line-height:1.5}
+.footer-col ul li a:hover{color:#fff}
 
 /* ZONA INFERIOR */
 .footer-bottom{padding:1.25rem 0}
