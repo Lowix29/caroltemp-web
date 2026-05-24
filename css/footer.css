@@ -7,7 +7,7 @@
 .footer-inner{max-width:1160px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr;gap:2.5rem}
 
 /* COL 1 — MARCA */
-.footer-brand img{height:50px;width:auto;filter:brightness(0) invert(1);opacity:.7;display:block;margin-bottom:1.2rem}
+.footer-brand img{height:64px;width:auto;filter:brightness(0) invert(1);opacity:.7;display:block;margin-bottom:1.2rem}
 .footer-brand p{color:rgba(255,255,255,.75);font-size:13px;line-height:1.8;margin-bottom:1.5rem;max-width:270px}
 
 /* Contacto col 1 */
