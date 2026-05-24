@@ -8,7 +8,7 @@
         <a href="<?php echo $base_url; ?>" aria-label="CarolTemp — Inicio">
           <img src="<?php echo $base_url; ?>img/logo/logo-footer.png" alt="CarolTemp" loading="lazy">
         </a>
-        <p>Fontanería profesional en la comarca del Vinalopó, Alicante.<br>Trabajo bien hecho, sin atajos, precio sin sorpresas.</p>
+        <p>Fontanería profesional en Alicante. Urgencias 24h, detección de fugas y desatascos. Trabajo bien hecho, sin atajos, precio sin sorpresas.</p>
 
         <div class="footer-contact-items">
           <a href="tel:+34611165129" class="footer-contact-row">
@@ -79,12 +79,7 @@
   <!-- ZONA INFERIOR -->
   <div class="footer-bottom">
     <div class="footer-bottom-inner">
-      <p>&copy; <?php echo date('Y'); ?> CarolTemp &mdash; Fontanería en el Vinalopó, Alicante.</p>
-      <nav class="footer-legal" aria-label="Páginas legales">
-        <a href="<?php echo $base_url; ?>aviso-legal">Aviso legal</a>
-        <a href="<?php echo $base_url; ?>privacidad">Privacidad</a>
-        <a href="<?php echo $base_url; ?>cookies">Cookies</a>
-      </nav>
+      <p>&copy; <?php echo date('Y'); ?> CarolTemp &mdash; fontanería industrial y residencial en Alicante.</p>
     </div>
   </div>
 
