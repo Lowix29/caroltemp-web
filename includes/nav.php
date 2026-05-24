@@ -1,6 +1,6 @@
 <!-- TOPBAR -->
 <div class="topbar">
-  <p class="topbar-text">Urgencias &mdash; <strong>Fontanería en la comarca interior de Alicante</strong></p>
+  <p class="topbar-text"><strong>Urgencias</strong> &mdash; Fontanería en la comarca interior de Alicante</p>
   <a href="tel:+34611165129" class="topbar-btn">📞 611 165 129</a>
 </div>
 
