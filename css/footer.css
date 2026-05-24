@@ -11,7 +11,7 @@
 .footer-brand p{color:rgba(255,255,255,.75);font-size:13px;line-height:1.8;margin-bottom:1.5rem;max-width:270px}
 
 /* Contacto col 1 */
-.footer-contact-items{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.6rem;padding:.9rem 1rem;background:rgba(255,255,255,.04);border-radius:12px;border:1px solid rgba(255,255,255,.07)}
+.footer-contact-items{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.6rem;padding:.9rem 1rem;background:rgba(255,255,255,.04);border-radius:12px;border:1px solid rgba(255,255,255,.07); max-width: 260px;}
 .footer-contact-row{display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,.6);font-size:13.5px;text-decoration:none;transition:color .15s}
 .footer-contact-row svg{opacity:.45;flex-shrink:0}
 .footer-contact-row:hover{color:rgba(255,255,255,.92)}
@@ -41,7 +41,7 @@
 @media(min-width:640px){
   .footer-inner{grid-template-columns:repeat(2,1fr)}
   .footer-brand{grid-column:1 / -1}
-  .footer-bottom-inner{flex-direction:row;justify-content:space-between;text-align:left}
+  .footer-bottom-inner{display:block;text-align:center;}
 }
 
 /* DESKTOP 1100px+ */
