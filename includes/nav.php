@@ -100,7 +100,6 @@
 
     <!-- CTAs DESKTOP -->
     <div class="nav-end">
-      <a href="tel:+34611165129" class="btn-nav-ghost">Urgencias</a>
       <a href="<?php echo $base_url; ?>contacto" class="btn-nav-primary">Pedir presupuesto</a>
     </div>
 
