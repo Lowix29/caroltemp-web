@@ -10,7 +10,7 @@
 .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #E8EFF8;box-shadow:0 1px 4px rgba(11,36,71,.06);z-index:1000}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:68px;display:flex;align-items:center;gap:16px}
 .nav-logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
-.nav-logo img{height:36px;width:auto;display:block}
+.nav-logo img{height:100px;width:auto;display:block}
 
 /* DESKTOP LINKS — hidden en mobile */
 .nav-links{display:none;align-items:center;flex:1;justify-content:center}

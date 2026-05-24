@@ -1,0 +1,28 @@
+<?php
+/**
+ * Financiación
+ * Generado por Agente de Páginas
+ */
+$meta_title  = 'Financiación sin intereses | CarolTemp Alicante';
+$meta_desc   = 'Financia tu caldera, aerotermia o aire acondicionado sin intereses en Elda, Petrer, Novelda y comarca. Consulta condiciones sin compromiso al 613 429 032.';
+$meta_url    = 'https://caroltemp.com/financiacion.php';
+$schema_type = 'local';
+$page_css    = 'default';
+$page_js     = '';
+include 'includes/head.php';
+?>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Financiación para tu instalación de climatización</h1>
+    <p class="hero-sub">En CarolTemp facilitamos el acceso a sistemas de climatización y fontanería eficientes mediante opciones de financiación adaptadas a tu presupuesto. Renueva tu caldera, instala aerotermia o aire acondicionado pagando cómodamente a plazos.</p>
+  </div>
+</section>
+
+<section class="page-section"><div class="container"><h2>Financiación sin intereses disponible</h2><p>Ofrecemos planes de financiación sin intereses para la mayoría de nuestras instalaciones. Puedes renovar tu sistema de climatización, instalar una nueva caldera de condensación o equipar tu vivienda con aerotermia sin necesidad de realizar un gran desembolso inicial. Fracciona el pago en cuotas mensuales cómodas y accesibles. Consulta las condiciones específicas según el importe de tu instalación llamando al 613 429 032.</p></div></section>
+<section class="page-section"><div class="container"><h2>Qué instalaciones puedes financiar</h2><p>Nuestros planes de financiación cubren calderas de gas y gasóleo, sistemas de aerotermia para calefacción y agua caliente, equipos de aire acondicionado, suelo radiante, radiadores de bajo consumo y reformas completas de fontanería. Tanto para viviendas particulares como para negocios en Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas y Aspe.</p></div></section>
+<section class="page-section"><div class="container"><h2>Proceso sencillo y rápido</h2><p>El trámite de financiación es ágil y sin complicaciones. Tras realizar el presupuesto de tu instalación, te informamos de las opciones de pago a plazos disponibles. La gestión es directa y la aprobación suele ser inmediata en la mayoría de casos. No necesitas cambiar de banco ni abrir nuevas cuentas. Trabajamos con entidades financieras de confianza que facilitan todo el proceso.</p></div></section>
+<section class="page-section"><div class="container"><h2>Ventajas de financiar tu instalación</h2><p>Financiar tu sistema de climatización te permite acceder a equipos más eficientes sin esperar a reunir todo el importe. Los nuevos sistemas consumen menos energía, por lo que el ahorro en tus facturas puede compensar parte de las cuotas mensuales. Además, evitas quedarte sin calefacción o agua caliente mientras ahorras para la instalación. Es una inversión en confort y eficiencia que puedes realizar de forma inmediata.</p></div></section>
+<section class="page-section"><div class="container"><h2>Solicita información sin compromiso</h2><p>Contacta con CarolTemp para conocer las condiciones actuales de financiación y cómo aplicarlas a tu proyecto. Nuestro equipo te asesorará sobre la mejor opción según tus necesidades y presupuesto. Llama al 613 429 032 o visítanos en nuestra oficina. Te prepararemos un presupuesto detallado con el plan de pagos más conveniente para ti.</p></div></section>
+
+<?php include 'includes/footer.php'; ?>

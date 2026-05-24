@@ -8,10 +8,10 @@
       <div class="footer-brand">
         <a href="/" aria-label="CarolTemp — Inicio">
           <img
-            src="<?php echo $base_url; ?>img/logo/logo.svg"
+            src="<?php echo $base_url; ?>img/logo/logo-footer.png"
             alt="CarolTemp — Fontanería y climatización en el Vinalopó"
-            width="140"
-            height="50"
+            width="auto"
+            height="60"
             loading="lazy"
           >
         </a>

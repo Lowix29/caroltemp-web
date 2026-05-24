@@ -9,7 +9,7 @@
   <div class="nav-inner">
 
     <a href="<?php echo $base_url; ?>" class="nav-logo" aria-label="CarolTemp — Inicio">
-      <img src="<?php echo $base_url; ?>img/logo/logo.png" alt="CarolTemp" height="36">
+      <img src="<?php echo $base_url; ?>img/logo/logo2.png" alt="CarolTemp" height="60">
     </a>
 
     <!-- LINKS DESKTOP -->

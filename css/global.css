@@ -218,6 +218,7 @@ p {
   gap: 8px;
   box-shadow: 0 4px 16px rgba(37,211,102,.4);
   transition: opacity .15s;
+  
 }
 .btn-hz-g:hover { opacity: .9; }
 
@@ -236,8 +237,10 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+ margin-bottom: 20px;
   background: linear-gradient(135deg, #071A36 0%, #0D2B55 60%, #1A4480 100%);
 }
+
 .hz-dark-bg {
   position: absolute;
   inset: 0;
@@ -307,7 +310,7 @@ p {
 }
 /* Responsive desktop */
 @media(min-width:900px){
-  .hz-dark { margin: 20px 24px 0; border-radius: 32px; min-height: 480px; }
+  .hz-dark { margin: 20px 24px 0; border-radius: 32px; min-height: 480px; margin-bottom: 20px;}
   .hz-dark-con { padding: 5rem 2rem; }
 }
 
@@ -730,6 +733,7 @@ p {
   padding: 0 var(--space-md);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  text-align: center;
 }
 .dif-item {
   padding: 0 2rem 0 0;
@@ -744,6 +748,7 @@ p {
   display: block;
   margin-bottom: 4px;
   letter-spacing: -0.01em;
+  
 }
 .dif-lbl { color: rgba(255,255,255,.38); font-size: 12px; }
 
@@ -1203,7 +1208,7 @@ p {
   .servicios-grid  { grid-template-columns: 1fr; }
   .porque-grid     { grid-template-columns: 1fr; }
   .resenas-grid    { grid-template-columns: 1fr; }
-  .dif-strip-in    { grid-template-columns: 1fr; }
+  .dif-strip-in    { grid-template-columns: 1fr; text-align: center; }
   .hero-dark-kpis  { grid-template-columns: 1fr 1fr; width: 100%; }
   .hero-dark-kpi:nth-child(2) { border-right: none; }
   .hero-dark-kpi:nth-child(3) { border-top: 1px solid rgba(255,255,255,.08); grid-column: span 2; }
