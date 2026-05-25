@@ -629,8 +629,7 @@ DEVUELVE SOLO JSON VÁLIDO:
   "secciones": [
     "Sección 1: nombre + qué contenido aporta exactamente",
     "Sección 2: ...",
-    "Sección 3: ...",
-    "Sección 4: ..."
+    "Sección 3: ..."
   ],
   "preguntas_reales": [
     "pregunta 1 que haría alguien con este problema en {$ciudad}",
@@ -719,6 +718,7 @@ Eres un maquetador SEO experto. Generas el HTML completo del body de una página
 - NO añadas mapa, zona-ztags ni CTA final (se añaden automáticamente)
 - NO uses variables PHP ($base_url, etc.) — todo hardcodeado con URLs absolutas
 - URLs absolutas: /fontanero/{$ciudad_slug} (hub), /fontanero/{$ciudad_slug}/{$tipo} (esta página), /contacto
+- LÍMITE ESTRICTO: máximo 4 secciones después del hero. Texto breve y directo — máximo 2 párrafos por sección. FAQs: máximo 4 preguntas. Checklists: máximo 5 ítems. El objetivo es densidad, no longitud.
 
 ════ COMPONENTES CSS DISPONIBLES ════
 
