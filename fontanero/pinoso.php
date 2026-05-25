@@ -167,7 +167,7 @@ if (!empty($_proy)): ?>
       </a>
       <?php endforeach; ?>
     </div>
-    <div style="text-align:center;margin-top:1.5rem"><a href="/proyectos/zona/Pinoso" class="btn-hz-g" style="display:inline-flex">Ver todos los proyectos en Pinoso &rarr;</a></div>
+    <div style="text-align:center;margin-top:1.5rem"><a href="/proyectos/zona/Pinoso" class="zona-icard-btn" style="display:inline-flex">Ver todos los proyectos en Pinoso &rarr;</a></div>
   </div>
 </section>
 <?php endif; ?>
