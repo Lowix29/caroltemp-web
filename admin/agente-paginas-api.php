@@ -166,10 +166,54 @@ if ($accion === 'inventario') {
 }
 
 // ─────────────────────────────────────────────────────────────────────
+// HELPER: llamada unificada a la API de Claude
+// ─────────────────────────────────────────────────────────────────────
+function carol_curl_json(array $payload, int $timeout = 90): array {
+  $ch = curl_init('https://api.anthropic.com/v1/messages');
+  curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST           => true,
+    CURLOPT_POSTFIELDS     => json_encode($payload),
+    CURLOPT_HTTPHEADER     => [
+      'x-api-key: '         . ANTHROPIC_API_KEY,
+      'anthropic-version: 2023-06-01',
+      'content-type: application/json',
+    ],
+    CURLOPT_TIMEOUT        => $timeout,
+    CURLOPT_CONNECTTIMEOUT => 15,
+    CURLOPT_SSL_VERIFYPEER => false,
+    CURLOPT_SSL_VERIFYHOST => false,
+  ]);
+  $raw  = curl_exec($ch);
+  $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+
+  if (!$raw) return ['error' => 'No se pudo conectar con la API de Claude.'];
+  $resp = json_decode($raw, true);
+  if ($code !== 200 || empty($resp['content'][0]['text'])) {
+    return ['error' => 'Error API Claude (' . $code . '): ' . ($resp['error']['message'] ?? 'Error desconocido')];
+  }
+  if (($resp['stop_reason'] ?? '') === 'max_tokens') {
+    return ['error' => 'Respuesta demasiado larga. Inténtalo de nuevo.'];
+  }
+
+  $text = $resp['content'][0]['text'];
+  $json_str = '{' . $text;
+  $data = json_decode($json_str, true);
+  if (!$data && preg_match('/\{[\s\S]*\}/u', $json_str, $m)) {
+    $data = json_decode($m[0], true);
+  }
+  if (!$data) {
+    return ['error' => 'Claude no devolvió JSON válido.', 'raw' => substr($json_str, 0, 400)];
+  }
+  return ['data' => $data];
+}
+
+// ─────────────────────────────────────────────────────────────────────
 // ACCIÓN: mejorar / crear (llamada a Claude)
 // ─────────────────────────────────────────────────────────────────────
 if ($accion === 'mejorar' || $accion === 'crear') {
-  set_time_limit(120);
+  set_time_limit(180);
   // Verificar curl
   if (!function_exists('curl_init')) {
     echo json_encode(['error' => 'curl no está habilitado en PHP.']);
@@ -526,6 +570,298 @@ SYS;
     ]);
     exit;
   }
+
+  // ── DOS PASOS: estrategia + contenido libre para todas las páginas de ciudad ───
+  // Tipos: hub_ciudad, busqueda_fugas, urgencias, desatascos, fontanero
+  $tipos_dos_pasos = ['hub_ciudad', 'busqueda_fugas', 'urgencias', 'desatascos', 'fontanero'];
+  if (in_array($tipo, $tipos_dos_pasos, true)) {
+
+    if (!$ciudad || !$ciudad_slug) {
+      echo json_encode(['error' => 'Faltan parámetros: ciudad, ciudad_slug']);
+      exit;
+    }
+    if (!isset($ciudades[$ciudad])) {
+      echo json_encode(['error' => 'Ciudad no válida: ' . $ciudad]);
+      exit;
+    }
+
+    $perfil_ciudad = $ciudad_perfiles[$ciudad] ?? 'Municipio de la comarca interior de Alicante.';
+    $otras_ciudades_v2 = [];
+    foreach ($ciudades as $c_nombre => $c_info) {
+      if ($c_info['slug'] === $ciudad_slug) continue;
+      $otras_ciudades_v2[] = ['nombre' => $c_nombre, 'slug' => $c_info['slug']];
+    }
+
+    $tipo_labels_v2 = [
+      'hub_ciudad'     => 'fontanería general — hub ciudad (todos los servicios)',
+      'busqueda_fugas' => 'detección y búsqueda de fugas de agua',
+      'urgencias'      => 'fontanero urgente — emergencias y averías',
+      'desatascos'     => 'desatascos de tuberías, bajantes y arquetas',
+      'fontanero'      => 'fontanero — reparaciones, instalaciones y mantenimiento general',
+    ];
+    $servicio_etiqueta = $tipo_labels_v2[$tipo] ?? $tipo;
+
+    $extra_hub = ($tipo === 'hub_ciudad') ? "
+NOTA ESPECIAL (hub): Esta es la PÁGINA PRINCIPAL de {$ciudad}. Debe incluir obligatoriamente una sección de tarjetas con los servicios del silo: urgencias, detección de fugas y desatascos (con links /fontanero/{$ciudad_slug}/urgencias, /fontanero/{$ciudad_slug}/busqueda_fugas, /fontanero/{$ciudad_slug}/desatascos)." : '';
+
+    // ════ PASO 1 — ESTRATEGIA ════════════════════════════════════════
+    $system_p1 = <<<SYS
+Eres un estratega SEO local especializado en fontanería. Tu tarea es definir la estrategia editorial ganadora para una página web.
+
+CAROLTEMP — datos clave:
+- Zona: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe (interior Alicante)
+- Diferenciadores REALES: geófono+cámara detectan fugas sin romper paredes, presupuesto cerrado antes de empezar, instaladores Nubeco oficiales
+- PROHIBIDO mencionar: camión cuba, fosas sépticas, pocería, climatización, aires acondicionados
+- NUNCA "Vinalopó", NUNCA estadísticas ni años inventados
+
+Tu misión: analiza el SERVICIO y la CIUDAD. Piensa como el usuario que hace esa búsqueda en Google ahora mismo. Define:
+1. Qué quiere saber/hacer exactamente (intención real, no genérica)
+2. Qué tiene la competencia que no diferencia — qué es lo típico y aburrido
+3. Qué ángulo usa ESTA ciudad concreta (basado en sus características)
+4. Qué preguntas reales haría alguien en esta situación
+5. Qué estructura debería tener la página (propón secciones creativas: proceso paso a paso, señales de alarma, coste orientativo, comparativa, casos concretos, etc. — NO siempre lo mismo)
+{$extra_hub}
+
+DEVUELVE SOLO JSON VÁLIDO:
+{
+  "intencion": "qué quiere hacer/saber el usuario (1-2 frases muy concretas)",
+  "angulo": "qué hace única esta página para {$ciudad} — diferenciador real (1 frase)",
+  "secciones": [
+    "Sección 1: nombre + qué contenido aporta exactamente",
+    "Sección 2: ...",
+    "Sección 3: ...",
+    "Sección 4: ..."
+  ],
+  "preguntas_reales": [
+    "pregunta 1 que haría alguien con este problema en {$ciudad}",
+    "pregunta 2",
+    "pregunta 3",
+    "pregunta 4"
+  ],
+  "info_clave": [
+    "dato o contexto imprescindible para {$ciudad} + este servicio",
+    "dato 2"
+  ]
+}
+
+CRÍTICO: comillas dobles en todo el JSON. Sin comas finales.
+SYS;
+
+    $res_p1 = carol_curl_json([
+      'model'      => ANTHROPIC_MODEL,
+      'max_tokens' => 700,
+      'system'     => $system_p1,
+      'messages'   => [
+        ['role' => 'user', 'content' => "Servicio: {$servicio_etiqueta}\nCiudad: {$ciudad} (CP: {$ciudad_cp})\nDatos específicos de {$ciudad}: {$perfil_ciudad}"],
+        ['role' => 'assistant', 'content' => '{'],
+      ],
+    ], 60);
+
+    if (isset($res_p1['error'])) {
+      echo json_encode(['error' => 'Paso 1 (estrategia): ' . $res_p1['error']]);
+      exit;
+    }
+    $estrategia = $res_p1['data'];
+
+    // ════ PASO 2 — CONTENIDO HTML LIBRE ══════════════════════════════
+    $estrategia_txt = "Intención: " . ($estrategia['intencion'] ?? '') . "\n";
+    $estrategia_txt .= "Ángulo: " . ($estrategia['angulo'] ?? '') . "\n";
+    $estrategia_txt .= "Secciones propuestas:\n";
+    foreach ($estrategia['secciones'] ?? [] as $s) $estrategia_txt .= "  • {$s}\n";
+    $estrategia_txt .= "Preguntas reales de usuarios:\n";
+    foreach ($estrategia['preguntas_reales'] ?? [] as $q) $estrategia_txt .= "  • {$q}\n";
+    $estrategia_txt .= "Info clave:\n";
+    foreach ($estrategia['info_clave'] ?? [] as $i) $estrategia_txt .= "  • {$i}\n";
+
+    $hub_components_extra = ($tipo === 'hub_ciudad') ? '
+[GRID DE SERVICIOS DEL SILO — obligatorio para hub ciudad]
+<section class="zona-sec zona-sec-gray">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Servicios en [CIUDAD]</p>
+    <h2>Todo lo que hacemos <span class="hl">en [CIUDAD]</span></h2>
+    <div class="zona-svc">
+      <a href="/fontanero/[SLUG]/urgencias" class="zona-sc"><span class="zona-sc-n">01</span><h3>Fontanero urgente en [CIUDAD]</h3><p>...</p><span class="zona-sc-a">Ver servicio →</span></a>
+      <a href="/fontanero/[SLUG]/busqueda_fugas" class="zona-sc"><span class="zona-sc-n">02</span><h3>Detección de fugas en [CIUDAD]</h3><p>...</p><span class="zona-sc-a">Ver servicio →</span></a>
+      <a href="/fontanero/[SLUG]/desatascos" class="zona-sc"><span class="zona-sc-n">03</span><h3>Desatascos en [CIUDAD]</h3><p>...</p><span class="zona-sc-a">Ver servicio →</span></a>
+    </div>
+  </div>
+</section>' : '';
+
+    $system_p2 = <<<SYS
+Eres un maquetador SEO experto. Generas el HTML completo del body de una página para CarolTemp (fontanería interior Alicante).
+
+════ ESTRATEGIA PARA ESTA PÁGINA ════
+{$estrategia_txt}
+
+════ DATOS CAROLTEMP ════
+- Teléfono: 611 165 129 | WhatsApp: https://wa.me/34611165129
+- Diferenciadores REALES: geófono+cámara sin romper paredes, presupuesto cerrado antes de empezar, Nubeco oficial
+- Servicios: fontanería urgente, detección de fugas, desatascos, termos eléctricos, descalcificadores, reformas de baño
+- PROHIBIDO: camión cuba, fosas sépticas, climatización, Vinalopó, estadísticas inventadas, frases vacías
+
+════ REGLAS META_TITLE ════
+- Keyword primero, ciudad después, marca al final — nunca al revés
+- NUNCA el teléfono, NUNCA superes 58 chars (cuenta antes de escribir)
+- BUENO: "Desatascos urgentes Novelda — CarolTemp" (39 chars)
+- MALO: "CarolTemp desatascos Novelda | 611 165 129"
+
+════ REGLAS META_DESC ════
+- EXACTAMENTE 140-155 chars (cuenta y ajusta)
+- Incluye: servicio + ciudad + diferenciador real de esa ciudad + CTA
+- NUNCA el teléfono, NUNCA texto genérico
+- BUENO (147 chars): "Desatascos en Novelda para fregaderos, bajantes y comunidades. La cal del agua obstruye las tuberías más rápido. Servicio el mismo día. Pide cita."
+
+════ REGLAS DEL HTML ════
+- Empieza SIEMPRE con el hero hz-dark
+- Sigue la estrategia propuesta — NO uses siempre la misma estructura
+- Puedes decidir qué secciones incluir, en qué orden, con qué profundidad
+- El strip dif-strip es opcional (úsalo si aporta)
+- NO añadas mapa, zona-ztags ni CTA final (se añaden automáticamente)
+- NO uses variables PHP ($base_url, etc.) — todo hardcodeado con URLs absolutas
+- URLs absolutas: /fontanero/{$ciudad_slug} (hub), /fontanero/{$ciudad_slug}/{$tipo} (esta página), /contacto
+
+════ COMPONENTES CSS DISPONIBLES ════
+
+[HERO OSCURO — siempre primero]
+<section class="hz-dark">
+  <div class="hz-dark-bg"></div><div class="hz-dark-glow"></div>
+  <div class="hz-dark-con">
+    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>ETIQUETA PEQUEÑA</div>
+    <h1>TÍTULO <span class="hl">GANCHO ESPECÍFICO.</span></h1>
+    <p class="hz-dark-sub">SUBTÍTULO 10-15 palabras concretas, no genéricas</p>
+    <div class="hz-dark-btns">
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
+      <a href="/contacto" class="btn-hz-g">CTA SECUNDARIO</a>
+    </div>
+  </div>
+</section>
+
+[STRIP DIFERENCIADORES — opcional]
+<div class="dif-strip">
+  <div class="dif-strip-in">
+    <div class="dif-item"><span class="dif-val">VALOR</span><span class="dif-lbl">LABEL</span></div>
+  </div>
+</div>
+
+[SECCIÓN BLANCA]
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">ETIQUETA PEQUEÑA</p>
+    <h2>TÍTULO <span class="hl">PARTE DESTACADA</span></h2>
+    CONTENIDO
+  </div>
+</section>
+
+[SECCIÓN GRIS]
+<section class="zona-sec zona-sec-gray">...</section>
+
+[DOS COLUMNAS]
+<div class="zona-tcol">
+  <div>COLUMNA IZQ (texto, checklist...)</div>
+  <div>COLUMNA DER (tarjeta de contacto, info...)</div>
+</div>
+
+[CHECKLIST]
+<ul class="zona-chk">
+  <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>TEXTO</li>
+</ul>
+
+[TARJETA CONTACTO]
+<div class="zona-icard">
+  <div class="zona-icard-h"><strong>CarolTemp · CIUDAD</strong><span>SERVICIO</span></div>
+  <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">CIUDAD · CP XXXXX</span></div>
+  <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
+  <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div>
+  <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
+</div>
+
+[GRID DE TARJETAS — para servicios, ventajas, pasos, problemas]
+<div class="zona-svc">
+  <div class="zona-sc">
+    <span class="zona-sc-n">01</span>
+    <h3>TÍTULO</h3>
+    <p>TEXTO BREVE Y CONCRETO</p>
+  </div>
+</div>
+
+[ENLACE TARJETA — para servicios con CTA]
+<a href="/fontanero/{$ciudad_slug}/TIPO" class="zona-sc">
+  <span class="zona-sc-n">01</span>
+  <h3>TÍTULO</h3>
+  <p>TEXTO</p>
+  <span class="zona-sc-a">Ver servicio →</span>
+</a>
+
+[FAQ ACORDEÓN]
+<div class="zona-faq">
+  <div class="zona-fi open">
+    <div class="zona-fiq" onclick="togFaq(this)"><span>PREGUNTA</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+    <div class="zona-fia">RESPUESTA</div>
+  </div>
+</div>
+
+[PROSA — texto largo]
+<div class="zona-prose"><p>PÁRRAFO</p></div>
+{$hub_components_extra}
+
+DEVUELVE SOLO JSON VÁLIDO:
+{
+  "meta_title": "ver reglas — keyword primero, máx 58 chars, sin teléfono",
+  "meta_desc": "ver reglas — 140-155 chars exactos, sin teléfono, ángulo real de {$ciudad}",
+  "html": "HTML completo del body (desde hz-dark hasta antes del mapa/CTA)"
+}
+
+CRÍTICO JSON: comillas dobles en claves. Escapa las comillas dobles dentro de "html" con \\\". Sin comas finales.
+SYS;
+
+    $res_p2 = carol_curl_json([
+      'model'      => ANTHROPIC_MODEL,
+      'max_tokens' => 5000,
+      'system'     => $system_p2,
+      'messages'   => [
+        ['role' => 'user', 'content' => "Genera la página de '{$servicio_etiqueta}' para {$ciudad} (CP {$ciudad_cp}).\n\nDatos específicos de {$ciudad}:\n{$perfil_ciudad}\n\nSigue la estrategia al pie de la letra pero con libertad de estructura y profundidad."],
+        ['role' => 'assistant', 'content' => '{'],
+      ],
+    ], 120);
+
+    if (isset($res_p2['error'])) {
+      echo json_encode(['error' => 'Paso 2 (contenido): ' . $res_p2['error']]);
+      exit;
+    }
+    $data_v2 = $res_p2['data'];
+
+    $meta_title_v2 = $data_v2['meta_title'] ?? "{$servicio_etiqueta} en {$ciudad} — CarolTemp";
+    $meta_desc_v2  = $data_v2['meta_desc']  ?? '';
+    $html_body_v2  = $data_v2['html']       ?? '';
+
+    $lat_v2 = $ciudades[$ciudad]['lat'] ?? '38.4766';
+    $lng_v2 = $ciudades[$ciudad]['lng'] ?? '-0.7952';
+
+    // Determinar depth y filepath de salida
+    if ($tipo === 'hub_ciudad') {
+      $depth_v2    = 1;
+      $filepath_v2 = 'fontanero/' . $ciudad_slug . '.php';
+    } else {
+      $depth_v2    = 2;
+      $filepath_v2 = 'fontanero/' . $ciudad_slug . '/' . $tipo . '.php';
+    }
+
+    $php_v2 = generar_php_libre(
+      $html_body_v2, $meta_title_v2, $meta_desc_v2,
+      $ciudad, $ciudad_slug, $ciudad_cp, $tipo,
+      $otras_ciudades_v2, $depth_v2, $lat_v2, $lng_v2
+    );
+
+    echo json_encode([
+      'ok'            => true,
+      'php_contenido' => $php_v2,
+      'filepath'      => $filepath_v2,
+      'meta_title'    => $meta_title_v2,
+      'meta_desc'     => $meta_desc_v2,
+    ]);
+    exit;
+  }
+  // ── FIN DOS PASOS ─────────────────────────────────────────────────
 
   // ── Hub ciudad (fontanero/{slug}.php) ────────────────────────────────────
   if ($tipo === 'hub_ciudad') {
@@ -1870,6 +2206,159 @@ function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciuda
   $php .= "</section>\n\n";
 
   $php .= "<?php include '../includes/footer.php'; ?>\n";
+
+  return $php;
+}
+
+// ═════════════════════════════════════════════════════════════════════
+// generar_php_libre — envuelve HTML libre de Claude con cabecera PHP y cola fija
+// (mapa, zona-tags, CTA oscuro, proyectos/artículos dinámicos)
+// ═════════════════════════════════════════════════════════════════════
+function generar_php_libre($html_body, $meta_title, $meta_desc, $ciudad, $ciudad_slug, $ciudad_cp, $tipo, $otras_ciudades, $depth = 2, $lat = '38.4766', $lng = '-0.7952') {
+  $e       = fn($v) => var_export($v, true);
+  $back    = str_repeat('../', $depth);
+  $ciudad_q = addslashes($ciudad);
+
+  $servicio_nombres = [
+    'hub_ciudad'     => 'Fontaner&iacute;a',
+    'busqueda_fugas' => 'Detecci&oacute;n de fugas',
+    'urgencias'      => 'Fontanero urgente',
+    'desatascos'     => 'Desatascos',
+    'fontanero'      => 'Fontaner&iacute;a',
+  ];
+  $svc_nombre = $servicio_nombres[$tipo] ?? 'Fontaner&iacute;a';
+
+  if ($tipo === 'hub_ciudad') {
+    $meta_url = "https://caroltemp.com/fontanero/{$ciudad_slug}";
+  } else {
+    $meta_url = "https://caroltemp.com/fontanero/{$ciudad_slug}/{$tipo}";
+  }
+
+  // Zone tags: para hub el back link no existe (ya estamos en el hub)
+  if ($tipo === 'hub_ciudad') {
+    $ztags = '';
+    foreach ($otras_ciudades as $otra) {
+      $n = htmlspecialchars($otra['nombre'], ENT_QUOTES, 'UTF-8');
+      $s = htmlspecialchars($otra['slug'],   ENT_QUOTES, 'UTF-8');
+      $ztags .= "      <a href=\"/fontanero/{$s}\" class=\"zona-ztag\">{$n}</a>\n";
+    }
+    $zonas_titulo = 'Tambi&eacute;n trabajamos en <span class="hl">zonas cercanas</span>';
+  } else {
+    $ztags = "      <a href=\"/fontanero/{$ciudad_slug}\" class=\"zona-ztag\" style=\"background:#1e3a5f;color:#fff\">&#8592; Todos los servicios en {$ciudad}</a>\n";
+    foreach ($otras_ciudades as $otra) {
+      $n = htmlspecialchars($otra['nombre'], ENT_QUOTES, 'UTF-8');
+      $s = htmlspecialchars($otra['slug'],   ENT_QUOTES, 'UTF-8');
+      $ztags .= "      <a href=\"/fontanero/{$s}/{$tipo}\" class=\"zona-ztag\">{$n}</a>\n";
+    }
+    $zonas_titulo = 'Mismo servicio en <span class="hl">otros municipios</span>';
+  }
+
+  // PHP header
+  $php  = "<?php\n";
+  $php .= "/**\n * {$svc_nombre} en {$ciudad}\n * Generado con arquitectura dos pasos — CarolTemp\n */\n";
+  $php .= "\$meta_title  = {$e($meta_title)};\n";
+  $php .= "\$meta_desc   = {$e($meta_desc)};\n";
+  $php .= "\$meta_url    = {$e($meta_url)};\n";
+  $php .= "\$schema_type = 'local';\n";
+  $php .= "\$page_css    = 'zona';\n";
+  $php .= "\$page_js     = 'zona';\n";
+  $php .= "include '{$back}includes/head.php';\n";
+  $php .= "?>\n\n";
+
+  // Editorial HTML from Claude
+  $php .= $html_body . "\n\n";
+
+  // End-of-editable marker
+  $php .= "<!-- /editable -->\n\n";
+
+  // Dynamic: proyectos + artículos
+  $php .= "<?php\n";
+  $php .= "\$_proy = [];\n";
+  $php .= "try {\n";
+  $php .= "  \$_ps = \$pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_ps->execute(['%{$ciudad_q}%']);\n";
+  $php .= "  \$_proy = \$_ps->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "} catch (\\Throwable \$_e) {}\n";
+  $php .= "\$_arts = [];\n";
+  $php .= "try {\n";
+  $php .= "  \$_as = \$pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "  \$_as->execute(['%{$ciudad_q}%', '%fontan%']);\n";
+  $php .= "  \$_arts = \$_as->fetchAll(PDO::FETCH_ASSOC);\n";
+  $php .= "  if (empty(\$_arts)) {\n";
+  $php .= "    \$_as2 = \$pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');\n";
+  $php .= "    \$_arts = \$_as2 ? \$_as2->fetchAll(PDO::FETCH_ASSOC) : [];\n";
+  $php .= "  }\n";
+  $php .= "} catch (\\Throwable \$_e) {}\n";
+  $php .= "if (!empty(\$_proy)): ?>\n";
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Trabajos realizados</p>\n";
+  $php .= "    <h2>Proyectos en <span class=\"hl\">{$ciudad}</span></h2>\n";
+  $php .= "    <div class=\"zona-svc\" style=\"margin-top:2rem\">\n";
+  $php .= "      <?php foreach (\$_proy as \$_p): ?>\n";
+  $php .= "      <a href=\"/proyectos/<?php echo urlencode(\$_p['slug']); ?>\" class=\"zona-sc\">\n";
+  $php .= "        <?php if (!empty(\$_p['imagen'])): ?><img src=\"<?php echo htmlspecialchars(\$_p['imagen']); ?>\" alt=\"<?php echo htmlspecialchars(\$_p['titulo']); ?>\" loading=\"lazy\" style=\"width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem\"><?php endif; ?>\n";
+  $php .= "        <h3><?php echo htmlspecialchars(\$_p['titulo']); ?></h3>\n";
+  $php .= "        <p><?php echo htmlspecialchars(mb_substr(\$_p['descripcion'] ?? '', 0, 100)); ?>...</p>\n";
+  $php .= "        <span class=\"zona-sc-a\">Ver proyecto &rarr;</span>\n";
+  $php .= "      </a>\n";
+  $php .= "      <?php endforeach; ?>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+  $php .= "<?php endif; ?>\n";
+  $php .= "<?php if (!empty(\$_arts)): ?>\n";
+  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Consejos &uacute;tiles</p>\n";
+  $php .= "    <h2>Art&iacute;culos <span class=\"hl\">relacionados</span></h2>\n";
+  $php .= "    <div class=\"zona-svc\" style=\"margin-top:2rem\">\n";
+  $php .= "      <?php foreach (\$_arts as \$_a): ?>\n";
+  $php .= "      <a href=\"/noticias/<?php echo urlencode(\$_a['slug']); ?>\" class=\"zona-sc\">\n";
+  $php .= "        <h3><?php echo htmlspecialchars(\$_a['titulo']); ?></h3>\n";
+  $php .= "        <p><?php echo htmlspecialchars(mb_substr(\$_a['extracto'] ?? '', 0, 100)); ?>...</p>\n";
+  $php .= "        <span class=\"zona-sc-a\">Leer art&iacute;culo &rarr;</span>\n";
+  $php .= "      </a>\n";
+  $php .= "      <?php endforeach; ?>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+  $php .= "<?php endif; ?>\n\n";
+
+  // Mapa fijo
+  $php .= "<section class=\"zona-sec\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Zona de cobertura</p>\n";
+  $php .= "    <h2>{$svc_nombre} <span class=\"hl\">en {$ciudad}</span></h2>\n";
+  $php .= "    <p style=\"margin-bottom:1.5rem;color:#576574\">Atendemos toda la localidad de {$ciudad} (CP {$ciudad_cp}) y municipios lim&iacute;trofes.</p>\n";
+  $php .= "    <div style=\"border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)\">\n";
+  $php .= "      <iframe src=\"https://maps.google.com/maps?q={$lat},{$lng}&z=14&output=embed\" width=\"100%\" height=\"380\" style=\"border:0;display:block\" allowfullscreen loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" title=\"{$svc_nombre} en {$ciudad}\"></iframe>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+
+  // Zona tags
+  $php .= "<section class=\"zona-sec zona-sec-gray\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <p class=\"zona-lbl\">Servicio en otros municipios</p>\n";
+  $php .= "    <h2>{$zonas_titulo}</h2>\n";
+  $php .= "    <div class=\"zona-ztags\">\n{$ztags}    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+
+  // CTA final oscuro
+  $php .= "<section class=\"cta-dark\">\n";
+  $php .= "  <div class=\"cta-dark-con\">\n";
+  $php .= "    <h2>&iquest;Necesitas {$svc_nombre} <span>en {$ciudad}?</span></h2>\n";
+  $php .= "    <p>Ll&aacute;menos o escr&iacute;benos. Te atendemos hoy.</p>\n";
+  $php .= "    <div class=\"cta-dark-btns\">\n";
+  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34611165129\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "    </div>\n";
+  $php .= "  </div>\n";
+  $php .= "</section>\n";
+
+  $php .= "<?php include '{$back}includes/footer.php'; ?>\n";
 
   return $php;
 }
