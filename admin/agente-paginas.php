@@ -1674,11 +1674,18 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
   const ctxLabel    = ciudad ? accionLabel + ' · ' + tipoLabel + ' · ' + ciudad : accionLabel + ' · ' + tipoLabel + ' · ' + filepath;
   badge.textContent = ctxLabel;
   badge.style.display = '';
-  const tips = [
+  const isCityType = ['hub_ciudad','busqueda_fugas','urgencias','desatascos','fontanero'].includes(tipo);
+  const tips = isCityType ? [
+    '🔍 Paso 1: analizando estrategia SEO para esta ciudad...',
+    '🎯 Definiendo ángulo diferenciador y estructura ganadora...',
+    '✍️ Paso 2: generando HTML con estructura libre...',
+    '🏙️ Adaptando contenido a las características de ' + ciudad + '...',
+    '📐 Aplicando meta title y description con reglas estrictas...',
+    '⏳ Casi listo...',
+  ] : [
     'Analizando el contenido actual...',
     'Investigando keywords locales...',
     'Redactando contenido optimizado para SEO...',
-    'Generando FAQs específicas para la zona...',
     'Revisando meta title y description...',
     'Casi listo...',
   ];
@@ -1701,7 +1708,7 @@ async function lanzarAccion(accion, tipo, ciudad, ciudadSlug, ciudadCp, filepath
     fd.append('label',       TIPO_LABELS[tipo] || tipo);
 
     const controller = new AbortController();
-    const fetchTimer = setTimeout(function() { controller.abort(); }, 100000);
+    const fetchTimer = setTimeout(function() { controller.abort(); }, isCityType ? 150000 : 100000);
     const r    = await fetch('agente-paginas-api.php', { method: 'POST', body: fd, signal: controller.signal });
     clearTimeout(fetchTimer);
     const data = await r.json();
