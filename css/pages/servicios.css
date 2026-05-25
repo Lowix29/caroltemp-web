@@ -88,6 +88,11 @@
   margin-top: 1px;
 }
 
+/* Tarifa urgencias */
+.servicio-tarifa{display:inline-flex;align-items:baseline;gap:10px;background:rgba(25,118,210,.1);border:1px solid rgba(25,118,210,.25);border-radius:10px;padding:10px 16px;margin:1.2rem 0 1.4rem}
+.servicio-tarifa-precio{font-size:1.5rem;font-weight:800;color:#1976D2;letter-spacing:-.03em}
+.servicio-tarifa-nota{font-size:12.5px;color:#576574}
+
 .btn-servicio {
   display: inline-flex;
   align-items: center;

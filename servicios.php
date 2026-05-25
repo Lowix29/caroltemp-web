@@ -25,6 +25,37 @@ include 'includes/head.php';
 </section>
 
 <!-- SERVICIO 1 — REPARACIONES -->
+<!-- SERVICIO — URGENCIAS 24H -->
+<section class="servicio-detalle servicio-alt" id="urgencias">
+  <div class="servicio-con">
+    <div class="servicio-detalle-inner servicio-detalle-reverse">
+      <div class="servicio-detalle-texto">
+        <p class="servicio-lbl">Urgencias 24h</p>
+        <h2>Fontanero urgente, cualquier día</h2>
+        <p>Roturas de tubería, inundaciones, fugas activas o averías que no pueden esperar. Atendemos urgencias todos los días del año, incluidos festivos y fines de semana. Llegamos rápido y resolvemos desde la primera visita.</p>
+        <ul class="servicio-chk">
+          <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura y reventón de tuberías</li>
+          <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inundaciones y corte de agua</li>
+          <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas activas con daños en marcha</li>
+          <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Averías en calentadores y termos</li>
+          <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atoros graves en bajantes y desagües</li>
+        </ul>
+        <div class="servicio-tarifa">
+          <span class="servicio-tarifa-precio">100 €/h</span>
+          <span class="servicio-tarifa-nota">mínimo 1 hora · más coste de reparación</span>
+        </div>
+        <a href="tel:+34611165129" class="btn-servicio">📞 Llamar ahora — Urgencias</a>
+      </div>
+      <div class="servicio-visual">
+        <span class="servicio-visual-badge">Disponible 24h · 365 días</span>
+        <div class="servicio-ico-grande">🚨</div>
+        <p class="servicio-visual-txt">Llamada atendida en minutos. Desplazamiento rápido a toda la comarca de Alicante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIO 1 — REPARACIONES -->
 <section class="servicio-detalle" id="reparaciones">
   <div class="servicio-con">
     <div class="servicio-detalle-inner">
