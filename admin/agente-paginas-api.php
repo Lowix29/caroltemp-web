@@ -752,41 +752,106 @@ SYS;
       $user_p2 = "Ciudad: {$ciudad} (CP {$ciudad_cp}, slug: {$ciudad_slug})\nPerfil: {$perfil_ciudad}\n\nContexto estratégico del Paso 1:\n{$estrategia_txt}\n\nGenera los 6 bloques. H1 debe contener 'fontanero en {$ciudad}'. El hub desarrolla termos, descalcificadores y reformas — no entra en detalle de urgencias, fugas ni desatascos (esas tienen sub-páginas).";
 
     } else {
-      // Otras páginas de ciudad: libre pero con límite estricto
+      // ── Plantilla fija por tipo de servicio ──────────────────────────
+
+      // Diferenciadores del strip — distintos por servicio (NUNCA mezclar)
+      $strip_por_tipo = [
+        'desatascos'     => "Diagnóstico con cámara endoscópica|Precio cerrado antes de empezar|Sin suciedad ni daños|Bajantes, arquetas e inodoros",
+        'busqueda_fugas' => "Geófono + cámara termográfica|Localización sin romper paredes|Presupuesto antes de actuar|Instaladores certificados Nubeco",
+        'urgencias'      => "Avería vista, precio dado|Reparación en la misma visita|Sin letra pequeña|Fontanero local — conoce tu zona",
+        'fontanero'      => "Presupuesto gratuito sin compromiso|Instaladores certificados Nubeco|Precio cerrado antes de empezar|Conocemos cada barrio de {$ciudad}",
+      ];
+      $strip_items_raw = $strip_por_tipo[$tipo] ?? "Presupuesto gratuito|Precio cerrado|Instaladores Nubeco|Zona interior Alicante";
+      $strip_items = explode('|', str_replace('{$ciudad}', $ciudad, $strip_items_raw));
+
+      // H1 base por tipo
+      $h1_base_por_tipo = [
+        'desatascos'     => "Desatascos en {$ciudad}",
+        'busqueda_fugas' => "Detección de fugas en {$ciudad}",
+        'urgencias'      => "Fontanero urgente en {$ciudad}",
+        'fontanero'      => "Fontanero en {$ciudad}",
+      ];
+      $h1_base = $h1_base_por_tipo[$tipo] ?? "Fontanería en {$ciudad}";
+
+      // Checklist label por tipo
+      $chk_label_por_tipo = [
+        'desatascos'     => "¿Cuándo llamar?",
+        'busqueda_fugas' => "Señales de fuga",
+        'urgencias'      => "Situaciones urgentes",
+        'fontanero'      => "Lo que hacemos",
+      ];
+      $chk_label = $chk_label_por_tipo[$tipo] ?? "Servicios";
+
+      // Grid de tarjetas por tipo
+      $cards_por_tipo = [
+        'desatascos'     => "Bajantes y tuberías|Arquetas y registros|Inodoros y lavabos",
+        'busqueda_fugas' => "Fugas en tuberías empotradas|Fugas bajo solería|Fugas en contadores",
+        'urgencias'      => "Rotura de tubería|Inundación y agua detenida|Calentador sin agua caliente",
+        'fontanero'      => "Termos y calentadores|Instalaciones nuevas|Reparaciones y mantenimiento",
+      ];
+      $cards_raw = $cards_por_tipo[$tipo] ?? "Servicio 1|Servicio 2|Servicio 3";
+      $cards = explode('|', $cards_raw);
+
+      // Sección de proceso — título e instrucción por tipo
+      $proceso_por_tipo = [
+        'desatascos'     => ["Cómo hacemos el desatasco", "Explica en 3 pasos: 1) diagnóstico con cámara para ver qué y dónde está el tapón, 2) desatasco con el método adecuado según lo que muestre la cámara, 3) verificación final. Concreto, sin adornos."],
+        'busqueda_fugas' => ["Cómo localizamos la fuga", "Explica en 3 pasos: 1) escucha con geófono para acotar zona, 2) confirmación con cámara termográfica, 3) marcado exacto del punto antes de abrir nada. Sin inventar tecnología adicional."],
+        'urgencias'      => ["Qué pasa cuando llamas", "Explica en 3 pasos: 1) llamada — nos cuentas la avería y damos precio orientativo, 2) llegamos a {$ciudad} y confirmamos precio exacto antes de tocar nada, 3) reparamos en la misma visita siempre que sea posible."],
+        'fontanero'      => ["Cómo trabajamos en {$ciudad}", "Explica en 3 pasos: 1) presupuesto gratuito con precio cerrado, 2) trabajo con materiales de calidad y sin sorpresas en la factura, 3) garantía en mano de obra. Concreto."],
+      ];
+      [$proceso_titulo, $proceso_instruccion] = $proceso_por_tipo[$tipo] ?? ["Cómo trabajamos", "Describe el proceso en 3 pasos."];
+
       $system_p2 = <<<SYS
-Eres un maquetador SEO experto. Generas HTML para una página de servicio local de CarolTemp (fontanería, interior de Alicante).
+Eres un maquetador SEO experto en fontanería local. Generas HTML para CarolTemp (interior de Alicante).
 
 {$reglas_comunes}
 
-════ ESTRATEGIA ════
+════ CONTEXTO DE CIUDAD (úsalo para personalizar) ════
 {$estrategia_txt}
 
-════ ESTRUCTURA ════
-- BLOQUE 1: Hero hz-dark (obligatorio). h1 y subtítulo CONCRETOS de esa ciudad, no genéricos.
-- BLOQUES 2-4: Máximo 3 secciones libres (blancas o grises). Sigue la estrategia propuesta.
-- BLOQUE final: FAQ con exactamente 3 preguntas reales de esa ciudad.
-- TOTAL: hero + 3 secciones + FAQ = 5 bloques máximo. Ni uno más.
-- Texto: máximo 2 frases por párrafo. Checklist: máximo 5 ítems. Directo.
-- dif-strip: inclúyelo después del hero si añade valor.
+════ ESTRUCTURA — 5 BLOQUES EXACTOS, NI UNO MÁS ════
+
+BLOQUE 1 — Hero hz-dark
+- H1: "{$h1_base}" + complemento concreto de esa ciudad en <span class="hl"> (máx 5 palabras, que aporte algo real)
+  BUENO: "Desatascos en Sax <span class=\"hl\">sin esperas ni suciedad</span>"
+  MALO:  "Desatascos en Sax <span class=\"hl\">con cámara sin romper</span>" (en desatascos no se rompe nada)
+- Subtítulo: 1 frase directa sobre el servicio en esa ciudad. Sin inventar disponibilidad 24h ni tiempos exactos.
+- Botones: tel:+34611165129 y /contacto
+
+BLOQUE 2 — dif-strip
+Usa EXACTAMENTE estos 4 diferenciadores (ya están elegidos para este servicio):
+{$strip_items[0]} | {$strip_items[1]} | {$strip_items[2]} | {$strip_items[3]}
+
+BLOQUE 3 — Sección blanca, 2 columnas (zona-tcol)
+- Izquierda: H2 "{$chk_label}" + checklist de exactamente 5 ítems MUY CONCRETOS para {$ciudad} y este servicio.
+  Usa el perfil de la ciudad del contexto. Sin ítems genéricos ni inventados.
+- Derecha: zona-icard (tel, wa, horario Lun-Vie 8-20h Sáb 9-14h, financiación disponible)
+
+BLOQUE 4 — Sección gris — proceso en 3 tarjetas
+H2: "{$proceso_titulo}"
+{$proceso_instruccion}
+Usa grid zona-svc con 3 zona-sc (01, 02, 03). Texto de cada tarjeta: máx 2 frases, directo.
+
+BLOQUE 5 — Sección blanca — FAQ exactamente 3 preguntas
+Preguntas reales de alguien en {$ciudad} buscando este servicio. Respuestas directas, sin rodeos, sin inventar precios exactos.
 
 ════ COMPONENTES ════
 Hero: <section class="hz-dark"><div class="hz-dark-bg"></div><div class="hz-dark-glow"></div><div class="hz-dark-con"><div class="hz-dark-tag"><span class="hz-dark-dot"></span>TAG</div><h1>TÍT <span class="hl">HL</span></h1><p class="hz-dark-sub">SUB</p><div class="hz-dark-btns"><a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a><a href="/contacto" class="btn-hz-g">Pedir presupuesto</a></div></div></section>
 Strip: <div class="dif-strip"><div class="dif-strip-in"><div class="dif-item"><span class="dif-val">VAL</span><span class="dif-lbl">LBL</span></div></div></div>
-Sección: <section class="zona-sec"><div class="cta-dark-con"><p class="zona-lbl">LBL</p><h2>TÍT <span class="hl">HL</span></h2>CONT</div></section>
+Sección blanca: <section class="zona-sec"><div class="cta-dark-con"><p class="zona-lbl">LBL</p><h2>TÍT <span class="hl">HL</span></h2>CONT</div></section>
 Sección gris: <section class="zona-sec zona-sec-gray">...</section>
 2col: <div class="zona-tcol"><div>IZQ</div><div>DER</div></div>
 Checklist: <ul class="zona-chk"><li><span class="chk-ico">{$svg_chk}</span>ÍTEM</li></ul>
-iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · CIU</strong><span>LBL</span></div><div class="zona-ir"><span class="zona-ir-l">L</span><span class="zona-ir-v">V</span></div><a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a></div>
-Cards: <div class="zona-svc"><div class="zona-sc"><span class="zona-sc-n">01</span><h3>TÍT</h3><p>TXT</p></div></div>
-FAQ: <div class="zona-faq"><div class="zona-fi open"><div class="zona-fiq" onclick="togFaq(this)"><span>P</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">R</div></div></div>
-Prosa: <div class="zona-prose"><p>TXT</p></div>
+iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · {$ciudad}</strong><span>Fontanería</span></div><div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div><div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div><div class="zona-ir"><span class="zona-ir-l">Horario</span><span class="zona-ir-v">Lun-Vie 8-20h · Sáb 9-14h</span></div><div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Disponible para reformas</span></div><a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a></div>
+Cards: <div class="zona-svc"><a href="#" class="zona-sc"><span class="zona-sc-n">01</span><h3>TÍT</h3><p>TXT</p></a></div>
+FAQ: <div class="zona-faq"><div class="zona-fi open"><div class="zona-fiq" onclick="togFaq(this)"><span>P</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">R</div></div><div class="zona-fi"><div class="zona-fiq" onclick="togFaq(this)"><span>P</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">R</div></div></div>
 
 DEVUELVE SOLO JSON:
 {"meta_title":"...","meta_desc":"...","html":"..."}
 Escapa las comillas dobles dentro de html con \".
 SYS;
 
-      $user_p2 = "Ciudad: {$ciudad} (CP {$ciudad_cp})\nServicio: {$servicio_etiqueta}\nDatos ciudad: {$perfil_ciudad}\n\nGenera la página siguiendo la estrategia. Máximo 5 bloques en total.";
+      $user_p2 = "Ciudad: {$ciudad} (CP {$ciudad_cp})\nPerfil ciudad: {$perfil_ciudad}\n\nGenera los 5 bloques exactos. H1 contiene \"{$h1_base}\" con complemento específico de {$ciudad}. Sin inventar diferenciadores que no correspondan al servicio.";
     }
 
     $res_p2 = carol_curl_json([
