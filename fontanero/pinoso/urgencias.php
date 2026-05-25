@@ -119,18 +119,61 @@ include '../../includes/head.php';
   </div>
 </section>
 
-<!-- BLOQUE 5: FAQ -->
+<!-- BLOQUE 5: Tarifas -->
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Sin letra pequeña</p>
+    <h2>Tarifas de <span class="hl">fontanería urgente</span></h2>
+    <p style="color:#576574;margin-bottom:1.75rem">Te damos el precio exacto antes de empezar. Estas son las tarifas base orientativas:</p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <thead>
+          <tr style="background:#0D2B55;color:#fff">
+            <th style="padding:.875rem 1.25rem;text-align:left;border-radius:8px 0 0 0;font-weight:600">Concepto</th>
+            <th style="padding:.875rem 1.25rem;text-align:center;font-weight:600">Precio</th>
+            <th style="padding:.875rem 1.25rem;text-align:left;border-radius:0 8px 0 0;font-weight:600">Nota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #e2e8f0;background:#fff">
+            <td style="padding:.875rem 1.25rem;font-weight:600;color:#0B2447">Mano de obra</td>
+            <td style="padding:.875rem 1.25rem;text-align:center;font-size:18px;font-weight:700;color:#0D2B55">100 €/h</td>
+            <td style="padding:.875rem 1.25rem;color:#576574">Mínimo 1 hora</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;background:#f8fafc">
+            <td style="padding:.875rem 1.25rem;font-weight:600;color:#0B2447">Desplazamiento</td>
+            <td style="padding:.875rem 1.25rem;text-align:center;font-size:18px;font-weight:700;color:#0D2B55">40 €</td>
+            <td style="padding:.875rem 1.25rem;color:#576574">Por servicio, incluido en el presupuesto</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;background:#fff">
+            <td style="padding:.875rem 1.25rem;font-weight:600;color:#0B2447">Horas extra</td>
+            <td style="padding:.875rem 1.25rem;text-align:center;color:#576574;font-size:13px">Recargo aplicable</td>
+            <td style="padding:.875rem 1.25rem;color:#576574">A partir de las 22:00h</td>
+          </tr>
+          <tr style="background:#f8fafc">
+            <td style="padding:.875rem 1.25rem;font-weight:600;color:#0B2447;border-radius:0 0 0 8px">Fines de semana y festivos</td>
+            <td style="padding:.875rem 1.25rem;text-align:center;color:#576574;font-size:13px">Recargo aplicable</td>
+            <td style="padding:.875rem 1.25rem;color:#576574;border-radius:0 0 8px 0">Consultar al contactar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:#94a3b8;margin-top:1rem">* Precios orientativos. El presupuesto definitivo se da siempre antes de empezar el trabajo.</p>
+  </div>
+</section>
+
+<!-- BLOQUE 6: FAQ -->
 <section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Dudas sobre <span class="hl">urgencias en Pinoso</span></h2>
+    <h2>Dudas sobre <span class="hl">precios y urgencias en Pinoso</span></h2>
     <div class="zona-faq">
       <div class="zona-fi open">
         <div class="zona-fiq" onclick="togFaq(this)">
           <span>¿Dáis el precio antes de empezar a reparar?</span>
           <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
-        <div class="zona-fia">Siempre. Vemos la avería, calculamos el coste y te lo decimos antes de tocar nada. Tú decides si seguimos. El precio que acordamos es el precio final, sin cargos extra al terminar.</div>
+        <div class="zona-fia">Siempre. La tarifa base es 100 €/hora (mínimo 1 hora) más 40 € de desplazamiento. Vemos la avería, calculamos el tiempo estimado y te damos el precio total antes de empezar. Si decides no seguir, no se cobra la reparación.</div>
       </div>
       <div class="zona-fi">
         <div class="zona-fiq" onclick="togFaq(this)">
