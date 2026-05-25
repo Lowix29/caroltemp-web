@@ -42,8 +42,8 @@ include '../../includes/head.php';
         <p class="zona-lbl">Localización de fugas en Pinoso</p>
         <h2>Detección de fugas de agua <span class="hl">en Pinoso</span></h2>
         <div class="zona-prose">
-          <p>La mayoría de las fugas de agua en tuberías de Pinoso ocurren en tramos empotrados o bajo solería. El agua puede filtrarse lateralmente varios metros antes de aparecer en superficie — la mancha visible no coincide con el punto de rotura, y abrir sin localizar la fuga cuesta dinero y tiempo.</p>
-          <p>La <strong>detección de fugas de agua en Pinoso</strong> con geófono y <strong>cámara termográfica</strong> cambia el resultado. El geófono amplifica el sonido del agua bajo presión y nos guía metro a metro; la termografía detecta diferencias de temperatura en suelo y paredes, revelando el camino de la humedad. Cuando ambos coinciden en un punto, la localización de fugas de agua en Pinoso es fiable antes de romper nada.</p>
+          <p>La mayoría de las fugas de agua en tuberías de Pinoso ocurren en tramos empotrados o bajo solería. El agua puede filtrarse lateralmente varios metros antes de aparecer en superficie — la mancha visible no coincide con el punto de rotura. Abrir sin localizar la fuga cuesta dinero y tiempo.</p>
+          <p>La <strong>detección de fugas de agua en Pinoso</strong> con geófono y <strong>cámara termográfica</strong> cambia el resultado. Cuando ambos coinciden en un punto, la localización de fugas de agua en Pinoso es fiable antes de romper nada.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en tuberías empotradas en paredes</li>
@@ -55,12 +55,16 @@ include '../../includes/head.php';
         </ul>
       </div>
       <div>
-        <div class="zona-icard">
-          <div class="zona-icard-h"><strong>CarolTemp &middot; Pinoso</strong><span>Búsqueda de fugas</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Pinoso &middot; CP 03650</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Todos los servicios</span><span class="zona-ir-v"><a href="/fontanero/pinoso">Fontanería en Pinoso &rarr;</a></span></div>
+        <div class="icard">
+          <div class="icard-head">Señales de fuga de agua en tu vivienda</div>
+          <div class="icard-body">
+            <div class="icard-row"><span class="icard-icon">💧</span><span>Contador gira cuando no hay ningún grifo abierto</span></div>
+            <div class="icard-row"><span class="icard-icon">📈</span><span>Factura del agua sube sin explicación en Pinoso</span></div>
+            <div class="icard-row"><span class="icard-icon">💦</span><span>Mancha de humedad en pared, techo o solería</span></div>
+            <div class="icard-row"><span class="icard-icon">🔊</span><span>Ruido de agua corriendo con todo cerrado</span></div>
+            <div class="icard-row"><span class="icard-icon">🌡️</span><span>Suelo caliente en zona sin suelo radiante</span></div>
+            <div class="icard-row"><span class="icard-icon">🏘️</span><span>Vecinos reportan humedad en su vivienda</span></div>
+          </div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
@@ -68,40 +72,40 @@ include '../../includes/head.php';
   </div>
 </section>
 
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
     <p class="zona-lbl">Qué detectamos</p>
     <h2>Fugas de agua en Pinoso <span class="hl">por tipo de instalación</span></h2>
-    <div class="zona-svc">
-      <div class="zona-sc">
-        <span class="zona-sc-n">01</span>
+    <div class="zona-grid-6">
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏠</div>
         <h3>Fugas en viviendas</h3>
         <p>Localización de fugas de agua en viviendas de Pinoso: tuberías de suministro, desagüe y calefacción empotradas en paredes o bajo el suelo.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">02</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏢</div>
         <h3>Fugas en comunidades</h3>
         <p>Detección de fugas de agua en comunidades de vecinos en Pinoso: montantes, bajantes y tuberías generales que afectan a varios propietarios.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">03</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🌡️</div>
         <h3>Suelo radiante y calefacción</h3>
         <p>Fugas de agua con cámara termográfica en circuitos de calefacción y suelo radiante. Localización sin levantar el suelo completo.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">04</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🌿</div>
         <h3>Fincas rurales y jardín</h3>
         <p>Fugas de agua en tuberías de riego o acometidas exteriores en fincas rurales de Pinoso. El geófono detecta fugas incluso bajo tierra compacta.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">05</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏪</div>
         <h3>Locales y naves</h3>
-        <p>Fugas de agua en locales comerciales y naves en Pinoso: redes de fontanería industrial y sistemas contra incendios revisados con equipos profesionales.</p>
+        <p>Fugas de agua en locales comerciales y naves en Pinoso: redes de fontanería industrial revisadas con equipos profesionales.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">06</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🔧</div>
         <h3>Tuberías antiguas</h3>
-        <p>Tuberías de hierro o plomo en viviendas antiguas de Pinoso con microfugas ocultas. Detectamos y sustituimos la sección afectada con presupuesto previo.</p>
+        <p>Tuberías de hierro o plomo con microfugas ocultas. Detectamos y sustituimos la sección afectada con presupuesto previo.</p>
       </div>
     </div>
   </div>
@@ -109,65 +113,28 @@ include '../../includes/head.php';
 
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <div class="zona-tcol">
-      <div>
-        <p class="zona-lbl">Cómo lo hacemos</p>
-        <h2>Proceso de localización <span class="hl">de fugas en Pinoso</span></h2>
-        <div class="fin-visual" style="margin-top:1.5rem">
-          <div class="fin-paso">
-            <div class="fin-num">1</div>
-            <div class="fin-paso-txt">
-              <strong>Diagnóstico con geófono</strong>
-              <span>Mapeamos la intensidad del sonido del agua bajo presión e identificamos la dirección de la fuga de agua en la tubería.</span>
-            </div>
-          </div>
-          <div class="fin-paso">
-            <div class="fin-num">2</div>
-            <div class="fin-paso-txt">
-              <strong>Confirmación con cámara termográfica</strong>
-              <span>Fugas de agua en tuberías de calefacción o suelo radiante quedan visibles en la imagen térmica. Con las dos lecturas coincidiendo, la localización es precisa al centímetro.</span>
-            </div>
-          </div>
-          <div class="fin-paso">
-            <div class="fin-num">3</div>
-            <div class="fin-paso-txt">
-              <strong>Marcamos el punto y presupuestamos</strong>
-              <span>Marcamos físicamente el lugar exacto. Damos presupuesto de reparación antes de abrir. El precio lo sabes antes de que empecemos.</span>
-            </div>
-          </div>
+    <p class="zona-lbl">Cómo lo hacemos</p>
+    <h2>Proceso de localización <span class="hl">de fugas en Pinoso</span></h2>
+    <div class="zona-steps">
+      <div class="zona-step">
+        <div class="zona-step-n">1</div>
+        <div class="zona-step-txt">
+          <strong>Diagnóstico con geófono</strong>
+          <p>Mapeamos la intensidad del sonido del agua bajo presión e identificamos la dirección de la fuga en la tubería antes de usar ninguna otra herramienta.</p>
         </div>
       </div>
-      <div>
-        <div class="zona-prose">
-          <p>En Pinoso trabajamos tanto en el casco urbano como en urbanizaciones y fincas rurales del término municipal. Atendemos <strong>fugas de agua en comunidades de vecinos</strong> con coordinación directa con el administrador de la finca para minimizar las molestias.</p>
-          <p>Cuando la fuga está localizada con geófono y cámara termográfica, solo se abre donde es estrictamente necesario. Esto reduce el área dañada y el coste total de reparación respecto a abrir a ciegas buscando el origen.</p>
+      <div class="zona-step">
+        <div class="zona-step-n">2</div>
+        <div class="zona-step-txt">
+          <strong>Confirmación con cámara termográfica</strong>
+          <p>Fugas en tuberías de calefacción o suelo radiante quedan visibles en la imagen térmica. Con las dos lecturas coincidiendo, la localización de fugas de agua en Pinoso es precisa al centímetro.</p>
         </div>
-        <p class="zona-lbl" style="margin-top:1.5rem">Tarifas orientativas</p>
-        <div style="overflow-x:auto;margin-top:.75rem">
-          <table style="width:100%;border-collapse:collapse;font-size:13.5px">
-            <tbody>
-              <tr style="border-bottom:1px solid #e2e8f0;background:#fff">
-                <td style="padding:.75rem 1rem;font-weight:600;color:#0B2447">Mano de obra</td>
-                <td style="padding:.75rem 1rem;font-weight:700;color:#0D2B55">100 €/h</td>
-                <td style="padding:.75rem 1rem;color:#576574">Mínimo 1 hora</td>
-              </tr>
-              <tr style="border-bottom:1px solid #e2e8f0;background:#f8fafc">
-                <td style="padding:.75rem 1rem;font-weight:600;color:#0B2447">Desplazamiento</td>
-                <td style="padding:.75rem 1rem;font-weight:700;color:#0D2B55">40 €</td>
-                <td style="padding:.75rem 1rem;color:#576574">Por servicio</td>
-              </tr>
-              <tr style="border-bottom:1px solid #e2e8f0;background:#fff">
-                <td style="padding:.75rem 1rem;font-weight:600;color:#0B2447">Horario nocturno</td>
-                <td style="padding:.75rem 1rem;color:#576574">Recargo</td>
-                <td style="padding:.75rem 1rem;color:#576574">A partir de las 22:00h</td>
-              </tr>
-              <tr style="background:#f8fafc">
-                <td style="padding:.75rem 1rem;font-weight:600;color:#0B2447">Fines de semana y festivos</td>
-                <td style="padding:.75rem 1rem;color:#576574">Recargo</td>
-                <td style="padding:.75rem 1rem;color:#576574">Consultar al contactar</td>
-              </tr>
-            </tbody>
-          </table>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">3</div>
+        <div class="zona-step-txt">
+          <strong>Marcamos el punto y presupuestamos</strong>
+          <p>Marcamos físicamente el lugar exacto. Damos presupuesto de reparación antes de abrir. Sabes el precio antes de que empecemos. En Pinoso atendemos casco urbano, urbanizaciones y fincas rurales.</p>
         </div>
       </div>
     </div>
@@ -176,29 +143,62 @@ include '../../includes/head.php';
 
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
+    <p class="zona-lbl">Precios claros</p>
+    <h2>Precio detección de fugas <span class="hl">en Pinoso</span></h2>
+    <p style="color:#576574;margin-bottom:.5rem">Tarifas orientativas. El presupuesto exacto se da con la fuga localizada, antes de abrir nada.</p>
+    <div class="zona-precios">
+      <div class="zona-precio-head">
+        <span>Concepto</span><span>Precio</span><span>Condiciones</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Mano de obra</span>
+        <span class="zona-precio-val">100 €/h</span>
+        <span class="zona-precio-nota">Mínimo 1 hora. Geófono y termografía incluidos.</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Desplazamiento a Pinoso</span>
+        <span class="zona-precio-val">40 €</span>
+        <span class="zona-precio-nota">Por visita, incluido en el presupuesto.</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Horario nocturno (desde las 22:00 h)</span>
+        <span class="zona-precio-val" style="font-size:14px;color:#576574">Recargo</span>
+        <span class="zona-precio-nota">Se informa al contactar.</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Fines de semana y festivos</span>
+        <span class="zona-precio-val" style="font-size:14px;color:#576574">Recargo</span>
+        <span class="zona-precio-nota">Se informa al contactar.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zona-sec">
+  <div class="cta-dark-con">
     <p class="zona-lbl">Preguntas frecuentes</p>
     <h2>Dudas sobre detección de fugas <span class="hl">en Pinoso</span></h2>
-    <div class="zona-faq" style="margin-top:2rem">
-      <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué diferencia hay entre geófono y cámara termográfica para localizar fugas?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">El geófono detecta el sonido del agua escapando bajo presión. La cámara termográfica detecta diferencias de temperatura que genera la humedad acumulada. Usamos ambos juntos: el geófono orienta y la termografía confirma. Con los dos coincidiendo, la localización de fugas de agua en Pinoso es fiable sin necesidad de abrir a ciegas.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis localizar fugas de agua con cámara termográfica en suelo radiante?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. El agua caliente que escapa del circuito crea un gradiente de temperatura visible en la imagen térmica. Marcamos la zona afectada antes de levantar el suelo, lo que reduce mucho el área que hay que abrir para reparar.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta la detección de fugas de agua en Pinoso?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">La mano de obra es de 100 €/hora con un mínimo de una hora, más 40 € de desplazamiento a Pinoso. La localización con geófono y cámara termográfica se incluye en el tiempo de trabajo. Una vez localizada la fuga damos presupuesto de reparación antes de abrir. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Detectáis fugas de agua en comunidades de vecinos en Pinoso?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Atendemos fugas en comunidades de vecinos en Pinoso coordinándonos con el administrador de la finca. Revisamos montantes, bajantes y tuberías generales. Si la fuga afecta a varios propietarios hacemos un informe con el punto localizado para facilitar la gestión con el seguro de la comunidad.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Atendéis fincas rurales fuera del casco urbano de Pinoso?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Trabajamos en todo el término municipal de Pinoso, incluidas fincas rurales y urbanizaciones. El desplazamiento se cobra por visita independientemente de la distancia dentro de la zona de cobertura.</div>
-      </div>
+    <div class="zona-faqs">
+      <details class="zona-faq-item" open>
+        <summary>¿Qué diferencia hay entre geófono y cámara termográfica para localizar fugas?</summary>
+        <div class="faq-ans">El geófono detecta el sonido del agua escapando bajo presión. La cámara termográfica detecta diferencias de temperatura que genera la humedad acumulada. Usamos ambos juntos: el geófono orienta y la termografía confirma. Con los dos coincidiendo, la localización de fugas de agua en Pinoso es fiable sin necesidad de abrir a ciegas.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Podéis localizar fugas de agua con cámara termográfica en suelo radiante?</summary>
+        <div class="faq-ans">Sí. El agua caliente que escapa del circuito crea un gradiente de temperatura visible en la imagen térmica. Marcamos la zona afectada antes de levantar el suelo, lo que reduce mucho el área que hay que abrir para reparar.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Cuánto cuesta la detección de fugas de agua en Pinoso?</summary>
+        <div class="faq-ans">La mano de obra es de 100 €/hora con un mínimo de una hora, más 40 € de desplazamiento a Pinoso. La localización con geófono y cámara termográfica se incluye en el tiempo de trabajo. Una vez localizada la fuga damos presupuesto de reparación antes de abrir. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Detectáis fugas de agua en comunidades de vecinos en Pinoso?</summary>
+        <div class="faq-ans">Sí. Atendemos fugas en comunidades de vecinos en Pinoso coordinándonos con el administrador de la finca. Revisamos montantes, bajantes y tuberías generales. Si la fuga afecta a varios propietarios hacemos un informe con el punto localizado para facilitar la gestión con el seguro de la comunidad.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Atendéis fincas rurales fuera del casco urbano de Pinoso?</summary>
+        <div class="faq-ans">Sí. Trabajamos en todo el término municipal de Pinoso, incluidas fincas rurales y urbanizaciones. El desplazamiento se cobra por visita independientemente de la distancia dentro de la zona de cobertura.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -221,7 +221,7 @@ try {
   $_arts = $_as ? $_as->fetchAll(PDO::FETCH_ASSOC) : [];
 } catch (\Throwable $_e) {}
 if (!empty($_proy)): ?>
-<section class="zona-sec">
+<section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
     <p class="zona-lbl">Trabajos realizados</p>
     <h2>Proyectos de b&uacute;squeda de fugas <span class="hl">en Pinoso</span></h2>
