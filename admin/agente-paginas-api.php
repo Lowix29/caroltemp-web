@@ -601,9 +601,6 @@ SYS;
     ];
     $servicio_etiqueta = $tipo_labels_v2[$tipo] ?? $tipo;
 
-    $extra_hub = ($tipo === 'hub_ciudad') ? "
-NOTA ESPECIAL (hub): Esta es la PÁGINA PRINCIPAL de {$ciudad}. Debe incluir obligatoriamente una sección de tarjetas con los servicios del silo: urgencias, detección de fugas y desatascos (con links /fontanero/{$ciudad_slug}/urgencias, /fontanero/{$ciudad_slug}/busqueda_fugas, /fontanero/{$ciudad_slug}/desatascos)." : '';
-
     // ════ PASO 1 — ESTRATEGIA ════════════════════════════════════════
     $system_p1 = <<<SYS
 Eres un estratega SEO local especializado en fontanería. Tu tarea es definir la estrategia editorial ganadora para una página web.
@@ -619,8 +616,7 @@ Tu misión: analiza el SERVICIO y la CIUDAD. Piensa como el usuario que hace esa
 2. Qué tiene la competencia que no diferencia — qué es lo típico y aburrido
 3. Qué ángulo usa ESTA ciudad concreta (basado en sus características)
 4. Qué preguntas reales haría alguien en esta situación
-5. Qué estructura debería tener la página (propón secciones creativas: proceso paso a paso, señales de alarma, coste orientativo, comparativa, casos concretos, etc. — NO siempre lo mismo)
-{$extra_hub}
+5. Qué 3 secciones concretas (además del hero) necesita esta página — propón ángulos creativos: proceso paso a paso, señales de alarma, coste orientativo, comparativa, casos concretos. Máximo 3 secciones.
 
 DEVUELVE SOLO JSON VÁLIDO:
 {
@@ -672,154 +668,117 @@ SYS;
     $estrategia_txt .= "Info clave:\n";
     foreach ($estrategia['info_clave'] ?? [] as $i) $estrategia_txt .= "  • {$i}\n";
 
-    $hub_components_extra = ($tipo === 'hub_ciudad') ? '
-[GRID DE SERVICIOS DEL SILO — obligatorio para hub ciudad]
-<section class="zona-sec zona-sec-gray">
-  <div class="cta-dark-con">
-    <p class="zona-lbl">Servicios en [CIUDAD]</p>
-    <h2>Todo lo que hacemos <span class="hl">en [CIUDAD]</span></h2>
-    <div class="zona-svc">
-      <a href="/fontanero/[SLUG]/urgencias" class="zona-sc"><span class="zona-sc-n">01</span><h3>Fontanero urgente en [CIUDAD]</h3><p>...</p><span class="zona-sc-a">Ver servicio →</span></a>
-      <a href="/fontanero/[SLUG]/busqueda_fugas" class="zona-sc"><span class="zona-sc-n">02</span><h3>Detección de fugas en [CIUDAD]</h3><p>...</p><span class="zona-sc-a">Ver servicio →</span></a>
-      <a href="/fontanero/[SLUG]/desatascos" class="zona-sc"><span class="zona-sc-n">03</span><h3>Desatascos en [CIUDAD]</h3><p>...</p><span class="zona-sc-a">Ver servicio →</span></a>
-    </div>
-  </div>
-</section>' : '';
+    $svg_chk = '<svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    $svg_faq = '<svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg>';
 
-    $system_p2 = <<<SYS
-Eres un maquetador SEO experto. Generas el HTML completo del body de una página para CarolTemp (fontanería interior Alicante).
+    $reglas_comunes = <<<SYSRULES
+NORMAS INAMOVIBLES:
+- NUNCA pongas el teléfono en meta_title (ni como "| 611 165 129" ni de ninguna forma)
+- meta_title: keyword primero, máx 58 chars. BUENO: "Fontanero en Sax — CarolTemp". MALO: "CarolTemp · 611 165 129"
+- meta_desc: 140-155 chars exactos, sin teléfono, con diferenciador real de la ciudad
+- PROHIBIDO inventar tiempos de respuesta, horarios de guardia o disponibilidad 24h
+- PROHIBIDO: climatización, camión cuba, fosas sépticas, Vinalopó, estadísticas inventadas
+- NUNCA frases vacías: "expertos en", "de confianza", "calidad garantizada"
+- NO uses variables PHP — todo hardcodeado
+- NO añadas mapa, zona-ztags ni CTA final (se añaden automáticamente)
+SYSRULES;
 
-════ ESTRATEGIA PARA ESTA PÁGINA ════
+    // Hub ciudad: estructura fija de 4 bloques — no libre
+    if ($tipo === 'hub_ciudad') {
+      $system_p2 = <<<SYS
+Eres un redactor web SEO. Generas la página principal de ciudad para CarolTemp (fontanería, interior de Alicante).
+
+{$reglas_comunes}
+
+════ ESTRUCTURA OBLIGATORIA — 4 bloques exactos, sin añadir ni quitar ════
+
+BLOQUE 1 — Hero oscuro (hz-dark)
+- h1: menciona el problema REAL de esa ciudad + la solución diferenciadora. 1 frase corta + gancho en <span class="hl">
+- Subtítulo: 1 frase directa, qué hace CarolTemp en esa ciudad. Nada genérico.
+- Botones: tel:+34611165129 y /contacto
+
+BLOQUE 2 — Strip dif-strip con exactamente 4 ítems:
+- Solo diferenciadores REALES: geófono+cámara, presupuesto cerrado, Nubeco oficial, un dato de la ciudad
+- NO pongas "urgencias 24h" ni "disponible en 1 hora" — no es un servicio de guardia permanente
+
+BLOQUE 3 — Sección blanca (zona-sec) con zona-tcol:
+- Columna izquierda: 2 frases sobre el problema concreto de {$ciudad} (agua dura, tuberías antiguas, zona rural...) + checklist 4 ítems concretos para esa ciudad
+- Columna derecha: zona-icard con datos de contacto reales (tel, wa, horario Lun-Vie 8-20h, Sáb 9-14h)
+
+BLOQUE 4 — Sección gris (zona-sec-gray): servicios del silo
+- Título: "Servicios de fontanería en {$ciudad}"
+- 3 tarjetas enlace obligatorias (zona-sc con href y zona-sc-a):
+  01 → /fontanero/{$ciudad_slug}/urgencias — "Fontanero urgente en {$ciudad}" + descripción concreta del tipo de avería más habitual ahí
+  02 → /fontanero/{$ciudad_slug}/busqueda_fugas — "Detección de fugas en {$ciudad}" + 1 frase del problema de fugas en esa ciudad
+  03 → /fontanero/{$ciudad_slug}/desatascos — "Desatascos en {$ciudad}" + 1 frase
+
+BLOQUE 5 — Sección blanca (zona-sec): FAQ 3 preguntas
+- Preguntas REALES de alguien en {$ciudad}, no genéricas
+- Respuestas directas, sin frases vacías, sin inventar precios ni tiempos
+- Primera con class "zona-fi open", las demás sin "open"
+
+════ COMPONENTES (solo los que usarás) ════
+Hero: <section class="hz-dark"><div class="hz-dark-bg"></div><div class="hz-dark-glow"></div><div class="hz-dark-con"><div class="hz-dark-tag"><span class="hz-dark-dot"></span>TAG</div><h1>TÍT <span class="hl">HL</span></h1><p class="hz-dark-sub">SUB</p><div class="hz-dark-btns"><a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a><a href="/contacto" class="btn-hz-g">Pedir presupuesto</a></div></div></section>
+Strip: <div class="dif-strip"><div class="dif-strip-in"><div class="dif-item"><span class="dif-val">VAL</span><span class="dif-lbl">LBL</span></div></div></div>
+Sección: <section class="zona-sec"><div class="cta-dark-con"><p class="zona-lbl">LBL</p><h2>TÍT <span class="hl">HL</span></h2>CONT</div></section>
+Sección gris: <section class="zona-sec zona-sec-gray">...</section>
+2col: <div class="zona-tcol"><div>IZQ</div><div>DER</div></div>
+Checklist: <ul class="zona-chk"><li><span class="chk-ico">{$svg_chk}</span>ÍTEM</li></ul>
+iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · CIU</strong><span>LBL</span></div><div class="zona-ir"><span class="zona-ir-l">L</span><span class="zona-ir-v">V</span></div><a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a></div>
+Tarjeta enlace: <a href="URL" class="zona-sc"><span class="zona-sc-n">01</span><h3>TÍT</h3><p>TXT</p><span class="zona-sc-a">Ver servicio →</span></a>
+FAQ: <div class="zona-faq"><div class="zona-fi open"><div class="zona-fiq" onclick="togFaq(this)"><span>P</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">R</div></div></div>
+
+DEVUELVE SOLO JSON:
+{"meta_title":"...","meta_desc":"...","html":"..."}
+Escapa las comillas dobles dentro de html con \".
+SYS;
+
+      $user_p2 = "Ciudad: {$ciudad} (CP {$ciudad_cp}, slug: {$ciudad_slug})\nDatos: {$perfil_ciudad}\n\nContexto estratégico:\n{$estrategia_txt}\n\nGenera los 5 bloques exactos.";
+
+    } else {
+      // Otras páginas de ciudad: libre pero con límite estricto
+      $system_p2 = <<<SYS
+Eres un maquetador SEO experto. Generas HTML para una página de servicio local de CarolTemp (fontanería, interior de Alicante).
+
+{$reglas_comunes}
+
+════ ESTRATEGIA ════
 {$estrategia_txt}
 
-════ DATOS CAROLTEMP ════
-- Teléfono: 611 165 129 | WhatsApp: https://wa.me/34611165129
-- Diferenciadores REALES: geófono+cámara sin romper paredes, presupuesto cerrado antes de empezar, Nubeco oficial
-- Servicios: fontanería urgente, detección de fugas, desatascos, termos eléctricos, descalcificadores, reformas de baño
-- PROHIBIDO: camión cuba, fosas sépticas, climatización, Vinalopó, estadísticas inventadas, frases vacías
+════ ESTRUCTURA ════
+- BLOQUE 1: Hero hz-dark (obligatorio). h1 y subtítulo CONCRETOS de esa ciudad, no genéricos.
+- BLOQUES 2-4: Máximo 3 secciones libres (blancas o grises). Sigue la estrategia propuesta.
+- BLOQUE final: FAQ con exactamente 3 preguntas reales de esa ciudad.
+- TOTAL: hero + 3 secciones + FAQ = 5 bloques máximo. Ni uno más.
+- Texto: máximo 2 frases por párrafo. Checklist: máximo 5 ítems. Directo.
+- dif-strip: inclúyelo después del hero si añade valor.
 
-════ REGLAS META_TITLE ════
-- Keyword primero, ciudad después, marca al final — nunca al revés
-- NUNCA el teléfono, NUNCA superes 58 chars (cuenta antes de escribir)
-- BUENO: "Desatascos urgentes Novelda — CarolTemp" (39 chars)
-- MALO: "CarolTemp desatascos Novelda | 611 165 129"
+════ COMPONENTES ════
+Hero: <section class="hz-dark"><div class="hz-dark-bg"></div><div class="hz-dark-glow"></div><div class="hz-dark-con"><div class="hz-dark-tag"><span class="hz-dark-dot"></span>TAG</div><h1>TÍT <span class="hl">HL</span></h1><p class="hz-dark-sub">SUB</p><div class="hz-dark-btns"><a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a><a href="/contacto" class="btn-hz-g">Pedir presupuesto</a></div></div></section>
+Strip: <div class="dif-strip"><div class="dif-strip-in"><div class="dif-item"><span class="dif-val">VAL</span><span class="dif-lbl">LBL</span></div></div></div>
+Sección: <section class="zona-sec"><div class="cta-dark-con"><p class="zona-lbl">LBL</p><h2>TÍT <span class="hl">HL</span></h2>CONT</div></section>
+Sección gris: <section class="zona-sec zona-sec-gray">...</section>
+2col: <div class="zona-tcol"><div>IZQ</div><div>DER</div></div>
+Checklist: <ul class="zona-chk"><li><span class="chk-ico">{$svg_chk}</span>ÍTEM</li></ul>
+iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · CIU</strong><span>LBL</span></div><div class="zona-ir"><span class="zona-ir-l">L</span><span class="zona-ir-v">V</span></div><a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a></div>
+Cards: <div class="zona-svc"><div class="zona-sc"><span class="zona-sc-n">01</span><h3>TÍT</h3><p>TXT</p></div></div>
+FAQ: <div class="zona-faq"><div class="zona-fi open"><div class="zona-fiq" onclick="togFaq(this)"><span>P</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">R</div></div></div>
+Prosa: <div class="zona-prose"><p>TXT</p></div>
 
-════ REGLAS META_DESC ════
-- EXACTAMENTE 140-155 chars (cuenta y ajusta)
-- Incluye: servicio + ciudad + diferenciador real de esa ciudad + CTA
-- NUNCA el teléfono, NUNCA texto genérico
-- BUENO (147 chars): "Desatascos en Novelda para fregaderos, bajantes y comunidades. La cal del agua obstruye las tuberías más rápido. Servicio el mismo día. Pide cita."
-
-════ REGLAS DEL HTML ════
-- Empieza SIEMPRE con el hero hz-dark
-- Sigue la estrategia propuesta — NO uses siempre la misma estructura
-- Puedes decidir qué secciones incluir, en qué orden, con qué profundidad
-- El strip dif-strip es opcional (úsalo si aporta)
-- NO añadas mapa, zona-ztags ni CTA final (se añaden automáticamente)
-- NO uses variables PHP ($base_url, etc.) — todo hardcodeado con URLs absolutas
-- URLs absolutas: /fontanero/{$ciudad_slug} (hub), /fontanero/{$ciudad_slug}/{$tipo} (esta página), /contacto
-- LÍMITE ESTRICTO: máximo 4 secciones después del hero. Texto breve y directo — máximo 2 párrafos por sección. FAQs: máximo 4 preguntas. Checklists: máximo 5 ítems. El objetivo es densidad, no longitud.
-
-════ COMPONENTES CSS DISPONIBLES ════
-
-[HERO OSCURO — siempre primero]
-<section class="hz-dark">
-  <div class="hz-dark-bg"></div><div class="hz-dark-glow"></div>
-  <div class="hz-dark-con">
-    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>ETIQUETA PEQUEÑA</div>
-    <h1>TÍTULO <span class="hl">GANCHO ESPECÍFICO.</span></h1>
-    <p class="hz-dark-sub">SUBTÍTULO 10-15 palabras concretas, no genéricas</p>
-    <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
-      <a href="/contacto" class="btn-hz-g">CTA SECUNDARIO</a>
-    </div>
-  </div>
-</section>
-
-[STRIP DIFERENCIADORES — opcional]
-<div class="dif-strip">
-  <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">VALOR</span><span class="dif-lbl">LABEL</span></div>
-  </div>
-</div>
-
-[SECCIÓN BLANCA]
-<section class="zona-sec">
-  <div class="cta-dark-con">
-    <p class="zona-lbl">ETIQUETA PEQUEÑA</p>
-    <h2>TÍTULO <span class="hl">PARTE DESTACADA</span></h2>
-    CONTENIDO
-  </div>
-</section>
-
-[SECCIÓN GRIS]
-<section class="zona-sec zona-sec-gray">...</section>
-
-[DOS COLUMNAS]
-<div class="zona-tcol">
-  <div>COLUMNA IZQ (texto, checklist...)</div>
-  <div>COLUMNA DER (tarjeta de contacto, info...)</div>
-</div>
-
-[CHECKLIST]
-<ul class="zona-chk">
-  <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>TEXTO</li>
-</ul>
-
-[TARJETA CONTACTO]
-<div class="zona-icard">
-  <div class="zona-icard-h"><strong>CarolTemp · CIUDAD</strong><span>SERVICIO</span></div>
-  <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">CIUDAD · CP XXXXX</span></div>
-  <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
-  <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div>
-  <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
-</div>
-
-[GRID DE TARJETAS — para servicios, ventajas, pasos, problemas]
-<div class="zona-svc">
-  <div class="zona-sc">
-    <span class="zona-sc-n">01</span>
-    <h3>TÍTULO</h3>
-    <p>TEXTO BREVE Y CONCRETO</p>
-  </div>
-</div>
-
-[ENLACE TARJETA — para servicios con CTA]
-<a href="/fontanero/{$ciudad_slug}/TIPO" class="zona-sc">
-  <span class="zona-sc-n">01</span>
-  <h3>TÍTULO</h3>
-  <p>TEXTO</p>
-  <span class="zona-sc-a">Ver servicio →</span>
-</a>
-
-[FAQ ACORDEÓN]
-<div class="zona-faq">
-  <div class="zona-fi open">
-    <div class="zona-fiq" onclick="togFaq(this)"><span>PREGUNTA</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-    <div class="zona-fia">RESPUESTA</div>
-  </div>
-</div>
-
-[PROSA — texto largo]
-<div class="zona-prose"><p>PÁRRAFO</p></div>
-{$hub_components_extra}
-
-DEVUELVE SOLO JSON VÁLIDO:
-{
-  "meta_title": "ver reglas — keyword primero, máx 58 chars, sin teléfono",
-  "meta_desc": "ver reglas — 140-155 chars exactos, sin teléfono, ángulo real de {$ciudad}",
-  "html": "HTML completo del body (desde hz-dark hasta antes del mapa/CTA)"
-}
-
-CRÍTICO JSON: comillas dobles en claves. Escapa las comillas dobles dentro de "html" con \\\". Sin comas finales.
+DEVUELVE SOLO JSON:
+{"meta_title":"...","meta_desc":"...","html":"..."}
+Escapa las comillas dobles dentro de html con \".
 SYS;
+
+      $user_p2 = "Ciudad: {$ciudad} (CP {$ciudad_cp})\nServicio: {$servicio_etiqueta}\nDatos ciudad: {$perfil_ciudad}\n\nGenera la página siguiendo la estrategia. Máximo 5 bloques en total.";
+    }
 
     $res_p2 = carol_curl_json([
       'model'      => ANTHROPIC_MODEL,
-      'max_tokens' => 8000,
+      'max_tokens' => 6000,
       'system'     => $system_p2,
       'messages'   => [
-        ['role' => 'user', 'content' => "Genera la página de '{$servicio_etiqueta}' para {$ciudad} (CP {$ciudad_cp}).\n\nDatos específicos de {$ciudad}:\n{$perfil_ciudad}\n\nSigue la estrategia al pie de la letra pero con libertad de estructura y profundidad."],
+        ['role' => 'user',      'content' => $user_p2],
         ['role' => 'assistant', 'content' => '{'],
       ],
     ], 120);
@@ -833,6 +792,10 @@ SYS;
     $meta_title_v2 = $data_v2['meta_title'] ?? "{$servicio_etiqueta} en {$ciudad} — CarolTemp";
     $meta_desc_v2  = $data_v2['meta_desc']  ?? '';
     $html_body_v2  = $data_v2['html']       ?? '';
+
+    // Sanitizar: quitar teléfono del meta_title si Claude lo añadió
+    $meta_title_v2 = preg_replace('/\s*[·|\-]\s*6\d[\d\s]{7,}.*$/u', '', $meta_title_v2);
+    $meta_title_v2 = trim($meta_title_v2);
 
     $lat_v2 = $ciudades[$ciudad]['lat'] ?? '38.4766';
     $lng_v2 = $ciudades[$ciudad]['lng'] ?? '-0.7952';
