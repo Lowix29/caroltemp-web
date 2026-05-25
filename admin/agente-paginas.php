@@ -415,6 +415,38 @@ $base_url = 'http://localhost/';
     .char-info.warn { color: #DC2626; }
     .char-info.neu  { color: #8FA3B8; }
 
+    /* ── Campo imagen destacada ── */
+    .pv-img-row {
+      display: flex;
+      gap: .5rem;
+      align-items: stretch;
+    }
+    .pv-img-row input { flex: 1; }
+    .btn-img-clear {
+      padding: .4rem .75rem;
+      background: #f1f5f9;
+      border: 1.5px solid #D6E2F0;
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #64748b;
+      white-space: nowrap;
+    }
+    .btn-img-clear:hover { background: #e2e8f0; }
+    .pv-img-preview {
+      margin-top: .5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      max-height: 90px;
+      display: none;
+    }
+    .pv-img-preview img {
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+      display: block;
+    }
+
     /* ── Botón guardar ── */
     .btn-guardar-disco {
       width: 100%;
@@ -930,6 +962,18 @@ $base_url = 'http://localhost/';
             </label>
             <input type="text" id="pv-meta-desc" maxlength="200"
                    oninput="contarChars(this,'md-info',160)">
+          </div>
+
+          <div class="pv-field">
+            <label>Imagen destacada <span style="font-weight:400;color:#B0C4D8;text-transform:none;letter-spacing:0">— se pone de fondo en el hero (opcional)</span></label>
+            <div class="pv-img-row">
+              <input type="text" id="pv-img-destacada"
+                     placeholder="/uploads/foto-pinoso.jpg  o  https://…"
+                     oninput="inyectarImagenHero(this.value)">
+              <button type="button" class="btn-img-clear"
+                      onclick="document.getElementById('pv-img-destacada').value='';inyectarImagenHero('')">✕ Quitar</button>
+            </div>
+            <div class="pv-img-preview" id="pv-img-preview"></div>
           </div>
 
           <div class="pv-field">
@@ -1764,9 +1808,12 @@ function mostrarResultado(data, accion, tipoLabel, ciudad, filepath, planAccionI
   const metaTitle = data.data ? (data.data.meta_title || '') : (data.meta_title || '');
   const metaDesc  = data.data ? (data.data.meta_desc  || '') : (data.meta_desc  || '');
 
-  document.getElementById('pv-meta-title').value  = metaTitle;
-  document.getElementById('pv-meta-desc').value   = metaDesc;
-  document.getElementById('pv-php-content').value = data.php_contenido || '';
+  document.getElementById('pv-meta-title').value    = metaTitle;
+  document.getElementById('pv-meta-desc').value     = metaDesc;
+  document.getElementById('pv-php-content').value   = data.php_contenido || '';
+  document.getElementById('pv-img-destacada').value = '';
+  const _prev = document.getElementById('pv-img-preview');
+  if (_prev) { _prev.style.display = 'none'; _prev.innerHTML = ''; }
   document.getElementById('pv-filepath').value    = filepath;
   document.getElementById('pv-plan-accion-id').value = planAccionId || '';
   filepathActual     = filepath;
@@ -1775,9 +1822,63 @@ function mostrarResultado(data, accion, tipoLabel, ciudad, filepath, planAccionI
   contarChars(document.getElementById('pv-meta-title'), 'mt-info', 60);
   contarChars(document.getElementById('pv-meta-desc'),  'md-info', 160);
 
+  // Sincronizar campo imagen con lo que ya tenga el contenido generado
+  sincronizarCampoImagen();
+
   // Resetear chat de refinamiento
   document.getElementById('refinar-historial').innerHTML = '';
   document.getElementById('refinar-box').classList.remove('open');
+}
+
+// ── Imagen destacada en hero ──────────────────────────────────────────────────
+
+// Inyecta (o elimina) la imagen de fondo en <section class="hz-dark"...>
+function inyectarImagenHero(url) {
+  const ta = document.getElementById('pv-php-content');
+  if (!ta) return;
+
+  // Reemplaza o añade style con background-image en la sección del hero
+  const estiloImg = url
+    ? ' style="background-image:url(\'' + url.replace(/'/g, "\\'") + '\');background-size:cover;background-position:center top"'
+    : '';
+
+  // Quita cualquier style de background-image existente, luego añade el nuevo
+  ta.value = ta.value.replace(
+    /(<section\s+class="hz-dark")(\s+style="[^"]*")?(\s*>)/,
+    '$1' + estiloImg + '$3'
+  );
+
+  // Preview
+  const prev = document.getElementById('pv-img-preview');
+  if (!prev) return;
+  if (url) {
+    prev.style.display = 'block';
+    prev.innerHTML = '<img src="' + url + '" alt="preview" onerror="this.parentElement.style.display=\'none\'">';
+  } else {
+    prev.style.display = 'none';
+    prev.innerHTML = '';
+  }
+}
+
+// Lee la imagen que ya tiene el contenido y la muestra en el campo
+function sincronizarCampoImagen() {
+  const ta       = document.getElementById('pv-php-content');
+  const imgInput = document.getElementById('pv-img-destacada');
+  if (!ta || !imgInput) return;
+
+  const m = ta.value.match(/<section\s+class="hz-dark"[^>]+background-image:url\('([^']+)'\)/);
+  const url = m ? m[1] : '';
+  imgInput.value = url;
+
+  const prev = document.getElementById('pv-img-preview');
+  if (!prev) return;
+  if (url) {
+    prev.style.display = 'block';
+    prev.innerHTML = '<img src="' + url + '" alt="preview" onerror="this.parentElement.style.display=\'none\'">';
+  } else {
+    prev.style.display = 'none';
+    prev.innerHTML = '';
+  }
 }
 
 // ── Guardar en disco ──────────────────────────────────────────────────────────
