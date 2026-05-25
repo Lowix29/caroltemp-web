@@ -42,8 +42,8 @@ include '../../includes/head.php';
         <p class="zona-lbl">Desatascos en Pinoso</p>
         <h2>Atascos habituales <span class="hl">en viviendas de Pinoso</span></h2>
         <div class="zona-prose">
-          <p>En Pinoso la cal del agua provoca acumulación de sarro en tuberías de desagüe con más rapidez que en otras zonas. Los atascos de bajantes y arquetas en viviendas y fincas rurales son los más frecuentes: grasas, raíces de vegetación y sarro se combinan hasta bloquear el paso del agua por completo.</p>
-          <p>Antes de presionar con maquinaria, usamos una <strong>cámara endoscópica para desatascos</strong> que nos muestra el interior del conducto: qué tipo de obstrucción es, dónde está exactamente y si hay grietas asociadas. Así el presupuesto de desatasco en Pinoso es preciso y no hay sorpresas al terminar.</p>
+          <p>En Pinoso la cal del agua provoca acumulación de sarro en tuberías de desagüe con más rapidez que en otras zonas. Los atascos de bajantes y arquetas en viviendas y fincas rurales son los más frecuentes: grasas, raíces de vegetación y sarro se combinan hasta bloquear el paso del agua.</p>
+          <p>Antes de presionar con maquinaria, usamos una <strong>cámara endoscópica para desatascos</strong> que muestra el interior del conducto: qué tipo de obstrucción es, dónde está exactamente y si hay grietas. Así el presupuesto de desatasco en Pinoso es preciso sin sorpresas al terminar.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro que no desagua en Pinoso</li>
@@ -55,12 +55,16 @@ include '../../includes/head.php';
         </ul>
       </div>
       <div>
-        <div class="zona-icard">
-          <div class="zona-icard-h"><strong>CarolTemp &middot; Pinoso</strong><span>Desatascos</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Pinoso &middot; CP 03650</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Todos los servicios</span><span class="zona-ir-v"><a href="/fontanero/pinoso">Fontanería en Pinoso &rarr;</a></span></div>
+        <div class="icard">
+          <div class="icard-head">Señales de atasco en tu vivienda de Pinoso</div>
+          <div class="icard-body">
+            <div class="icard-row"><span class="icard-icon">🚽</span><span>El inodoro sube al tirar de la cadena</span></div>
+            <div class="icard-row"><span class="icard-icon">🍳</span><span>El fregadero tarda minutos en vaciarse</span></div>
+            <div class="icard-row"><span class="icard-icon">🚿</span><span>El agua se acumula en la ducha al ducharte</span></div>
+            <div class="icard-row"><span class="icard-icon">💧</span><span>Olor a alcantarilla en el baño o la cocina</span></div>
+            <div class="icard-row"><span class="icard-icon">📢</span><span>Gorgoteo en tuberías al usar otros desagües</span></div>
+            <div class="icard-row"><span class="icard-icon">🏡</span><span>Arqueta exterior desbordando hacia el jardín</span></div>
+          </div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
@@ -68,40 +72,40 @@ include '../../includes/head.php';
   </div>
 </section>
 
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Tipos de desatasco</p>
-    <h2>Qué desbloqueamos <span class="hl">en Pinoso y alrededores</span></h2>
-    <div class="zona-svc">
-      <div class="zona-sc">
-        <span class="zona-sc-n">01</span>
+    <p class="zona-lbl">Qué desbloqueamos</p>
+    <h2>Servicios de desatasco <span class="hl">en Pinoso y alrededores</span></h2>
+    <div class="zona-grid-6">
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🚽</div>
         <h3>Desatasco de inodoro</h3>
-        <p>Atasco de inodoro en Pinoso: sólidos, toallitas húmedas o acumulación de sarro que bloquean el sifón. Resolvemos sin desmontar la taza si no es necesario.</p>
+        <p>Atasco de inodoro en Pinoso: sólidos, toallitas húmedas o sarro que bloquean el sifón. Resolvemos sin desmontar la taza si no es necesario.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">02</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏗️</div>
         <h3>Desatasco de bajantes</h3>
-        <p>Bajante vertical bloqueada por grasa, raíces o sólidos. Usamos hidrojetting para limpiar el conducto completo desde la cámara endoscópica hasta la arqueta.</p>
+        <p>Bajante bloqueada por grasa, raíces o sólidos. Hidrojetting a presión para limpiar el conducto completo desde la cámara hasta la arqueta.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">03</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🔲</div>
         <h3>Limpieza de arquetas</h3>
-        <p>Arquetas exteriores colapsadas por grasa endurecida, lodos o raíces. Las limpiamos con bomba de presión y revisamos el estado de las paredes para detectar grietas.</p>
+        <p>Arquetas exteriores colapsadas por grasa endurecida, lodos o raíces. Las limpiamos con bomba de presión y revisamos las paredes para detectar grietas.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">04</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🍳</div>
         <h3>Desatasco de cocina</h3>
-        <p>Desagüe de cocina o fregadero atascado por grasa acumulada o sarro. La cámara nos muestra hasta dónde llega el tapón de grasa antes de actuar.</p>
+        <p>Desagüe de cocina o fregadero atascado por grasa o sarro. La cámara nos muestra hasta dónde llega el tapón antes de actuar.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">05</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏢</div>
         <h3>Atascos en comunidades</h3>
-        <p>Desatascos para comunidades de vecinos en Pinoso: bajante general, colectores y arquetas comunitarias. Coordinamos con el administrador y trabajamos fuera de horas pico si se necesita.</p>
+        <p>Desatascos para comunidades de vecinos en Pinoso: bajante general, colectores y arquetas comunitarias. Coordinamos con el administrador de la finca.</p>
       </div>
-      <div class="zona-sc">
-        <span class="zona-sc-n">06</span>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏪</div>
         <h3>Locales y hostelería</h3>
-        <p>Desatascos en bares, restaurantes y locales en Pinoso. Las trampas de grasas y bajantes de hostelería necesitan mantenimiento más frecuente — también lo gestionamos.</p>
+        <p>Desatascos en bares, restaurantes y locales en Pinoso. Las trampas de grasas y bajantes de hostelería necesitan mantenimiento frecuente — lo gestionamos.</p>
       </div>
     </div>
   </div>
@@ -109,65 +113,28 @@ include '../../includes/head.php';
 
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <div class="zona-tcol">
-      <div>
-        <p class="zona-lbl">Cómo trabajamos</p>
-        <h2>Proceso de desatasco <span class="hl">con cámara endoscópica</span></h2>
-        <div class="fin-visual" style="margin-top:1.5rem">
-          <div class="fin-paso">
-            <div class="fin-num">1</div>
-            <div class="fin-paso-txt">
-              <strong>Diagnóstico con cámara endoscópica</strong>
-              <span>Introducimos la cámara por el desagüe o la arqueta para ver qué tipo de atasco hay y dónde está. El presupuesto de desatasco en Pinoso es concreto antes de empezar.</span>
-            </div>
-          </div>
-          <div class="fin-paso">
-            <div class="fin-num">2</div>
-            <div class="fin-paso-txt">
-              <strong>Desbloqueo con la técnica adecuada</strong>
-              <span>Hidrojetting a presión para tapones de grasa duros, sonda mecánica para atascos puntuales, aspiración para arquetas con lodos. La técnica la elige la cámara, no el protocolo.</span>
-            </div>
-          </div>
-          <div class="fin-paso">
-            <div class="fin-num">3</div>
-            <div class="fin-paso-txt">
-              <strong>Verificación y trabajo limpio</strong>
-              <span>Al terminar verificamos el desagüe con agua a caudal real. Recogemos restos y dejamos la zona como estaba. El precio acordado es el precio final.</span>
-            </div>
-          </div>
+    <p class="zona-lbl">Cómo trabajamos</p>
+    <h2>Proceso de desatasco <span class="hl">con cámara endoscópica en Pinoso</span></h2>
+    <div class="zona-steps">
+      <div class="zona-step">
+        <div class="zona-step-n">1</div>
+        <div class="zona-step-txt">
+          <strong>Diagnóstico con cámara endoscópica</strong>
+          <p>Introducimos la cámara por el desagüe o la arqueta para ver en directo qué tipo de atasco hay y en qué punto del conducto está. Así el presupuesto de desatasco en Pinoso es concreto: sabes qué se va a hacer y cuánto cuesta antes de empezar.</p>
         </div>
       </div>
-      <div>
-        <div class="zona-prose">
-          <p>Trabajamos en todo Pinoso: casco urbano, urbanizaciones y fincas rurales del término municipal. Para atascos recurrentes en una misma vivienda o comunidad ofrecemos revisión de la instalación completa para detectar si hay un problema estructural.</p>
-          <p>En Pinoso el sarro del agua dura es el principal enemigo de los desagües. No solo atascamos — si la cámara muestra acumulación de cal en el interior del conducto, te lo decimos y te recomendamos el tratamiento preventivo.</p>
+      <div class="zona-step">
+        <div class="zona-step-n">2</div>
+        <div class="zona-step-txt">
+          <strong>Desbloqueo con la técnica adecuada</strong>
+          <p>Según lo que muestra la cámara usamos la técnica correcta: hidrojetting a presión para tapones de grasa duros, sonda mecánica para atascos puntuales, o aspiración para arquetas con lodos. No hay solución única para todos los atascos de bajantes y arquetas en Pinoso.</p>
         </div>
-        <p class="zona-lbl" style="margin-top:1.5rem">Tarifas orientativas</p>
-        <div style="overflow-x:auto;margin-top:.75rem">
-          <table style="width:100%;border-collapse:collapse;font-size:13.5px">
-            <tbody>
-              <tr style="border-bottom:1px solid #e2e8f0;background:#fff">
-                <td style="padding:.75rem 1rem;font-weight:600;color:#0B2447">Mano de obra</td>
-                <td style="padding:.75rem 1rem;font-weight:700;color:#0D2B55">100 €/h</td>
-                <td style="padding:.75rem 1rem;color:#576574">Mínimo 1 hora</td>
-              </tr>
-              <tr style="border-bottom:1px solid #e2e8f0;background:#f8fafc">
-                <td style="padding:.75rem 1rem;font-weight:600;color:#0B2447">Desplazamiento</td>
-                <td style="padding:.75rem 1rem;font-weight:700;color:#0D2B55">40 €</td>
-                <td style="padding:.75rem 1rem;color:#576574">Por servicio</td>
-              </tr>
-              <tr style="border-bottom:1px solid #e2e8f0;background:#fff">
-                <td style="padding:.75rem 1rem;font-weight:600;color:#0B2447">Horario nocturno</td>
-                <td style="padding:.75rem 1rem;color:#576574">Recargo</td>
-                <td style="padding:.75rem 1rem;color:#576574">A partir de las 22:00h</td>
-              </tr>
-              <tr style="background:#f8fafc">
-                <td style="padding:.75rem 1rem;font-weight:600;color:#0B2447">Fines de semana y festivos</td>
-                <td style="padding:.75rem 1rem;color:#576574">Recargo</td>
-                <td style="padding:.75rem 1rem;color:#576574">Consultar al contactar</td>
-              </tr>
-            </tbody>
-          </table>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">3</div>
+        <div class="zona-step-txt">
+          <strong>Verificación y trabajo limpio</strong>
+          <p>Al terminar verificamos el desagüe con agua a caudal real. Recogemos restos y dejamos la zona como estaba. El precio acordado es el precio final — sin añadidos.</p>
         </div>
       </div>
     </div>
@@ -176,29 +143,62 @@ include '../../includes/head.php';
 
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
+    <p class="zona-lbl">Precios claros</p>
+    <h2>Precio desatasco <span class="hl">en Pinoso</span></h2>
+    <p style="color:#576574;margin-bottom:.5rem">Tarifas orientativas. El presupuesto exacto se da tras el diagnóstico con cámara, antes de empezar el desbloqueo.</p>
+    <div class="zona-precios">
+      <div class="zona-precio-head">
+        <span>Concepto</span><span>Precio</span><span>Condiciones</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Mano de obra</span>
+        <span class="zona-precio-val">100 €/h</span>
+        <span class="zona-precio-nota">Mínimo 1 hora. Cámara endoscópica incluida.</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Desplazamiento a Pinoso</span>
+        <span class="zona-precio-val">40 €</span>
+        <span class="zona-precio-nota">Por visita, incluido en el presupuesto.</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Horario nocturno (desde las 22:00 h)</span>
+        <span class="zona-precio-val" style="font-size:14px;color:#576574">Recargo</span>
+        <span class="zona-precio-nota">Se informa al contactar.</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Fines de semana y festivos</span>
+        <span class="zona-precio-val" style="font-size:14px;color:#576574">Recargo</span>
+        <span class="zona-precio-nota">Se informa al contactar.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zona-sec">
+  <div class="cta-dark-con">
     <p class="zona-lbl">Preguntas frecuentes</p>
     <h2>Dudas sobre <span class="hl">desatascos en Pinoso</span></h2>
-    <div class="zona-faq" style="margin-top:2rem">
-      <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta un desatasco en Pinoso?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento. El diagnóstico con cámara endoscópica va incluido en el tiempo de trabajo. El presupuesto exacto se da tras ver el atasco con la cámara, antes de empezar el desbloqueo. Hay recargos para servicios nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Usáis cámara endoscópica en todos los desatascos?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí, siempre que el acceso lo permite. La cámara nos dice qué tipo de obstrucción hay y en qué punto del conducto está. Así elegimos la técnica correcta y el presupuesto es preciso. Para atascos muy simples la cámara sirve también de verificación al terminar.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El desatasco puede dañar las tuberías?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">No si se usa la técnica adecuada. El hidrojetting limpia sin dañar tuberías de PVC o polipropileno en buen estado. La cámara previa nos permite detectar si hay grietas o tuberías deterioradas antes de usar presión, y ajustar el método para no agravar el daño.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Atendéis atascos en arquetas exteriores y fincas rurales de Pinoso?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Trabajamos en todo el término municipal de Pinoso, incluidas fincas rurales y urbanizaciones. Arquetas exteriores, fosas sépticas con colapsado de desagüe de entrada y bajantes en edificios rurales son servicios habituales en la zona.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Hacéis mantenimiento preventivo de desagües para comunidades en Pinoso?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Para comunidades con atascos recurrentes ofrecemos revisión y limpieza preventiva de bajantes y arquetas. Es más económico que resolver atascos urgentes repetidos, y evita desbordamientos que puedan afectar a locales o garajes.</div>
-      </div>
+    <div class="zona-faqs">
+      <details class="zona-faq-item" open>
+        <summary>¿Cuánto cuesta un desatasco en Pinoso?</summary>
+        <div class="faq-ans">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento. El diagnóstico con cámara endoscópica va incluido en el tiempo de trabajo. El presupuesto exacto se da tras ver el atasco con la cámara, antes de empezar el desbloqueo. Hay recargos para servicios nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Usáis cámara endoscópica en todos los desatascos?</summary>
+        <div class="faq-ans">Sí, siempre que el acceso lo permite. La cámara nos dice qué tipo de obstrucción hay y en qué punto del conducto está. Así elegimos la técnica correcta y el presupuesto es preciso. Para atascos muy simples la cámara sirve también de verificación al terminar.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿El desatasco puede dañar las tuberías?</summary>
+        <div class="faq-ans">No si se usa la técnica adecuada. El hidrojetting limpia sin dañar tuberías de PVC o polipropileno en buen estado. La cámara previa nos permite detectar si hay grietas antes de usar presión, y ajustar el método para no agravar el daño.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Atendéis atascos en arquetas exteriores y fincas rurales de Pinoso?</summary>
+        <div class="faq-ans">Sí. Trabajamos en todo el término municipal de Pinoso, incluidas fincas rurales y urbanizaciones. Arquetas exteriores, fosas sépticas con colapsado de desagüe de entrada y bajantes en edificios rurales son servicios habituales en la zona.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Hacéis mantenimiento preventivo de desagües para comunidades en Pinoso?</summary>
+        <div class="faq-ans">Sí. Para comunidades con atascos recurrentes ofrecemos revisión y limpieza preventiva de bajantes y arquetas. Es más económico que resolver atascos urgentes repetidos, y evita desbordamientos que puedan afectar a locales o garajes.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -221,7 +221,7 @@ try {
   $_arts = $_as ? $_as->fetchAll(PDO::FETCH_ASSOC) : [];
 } catch (\Throwable $_e) {}
 if (!empty($_proy)): ?>
-<section class="zona-sec">
+<section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
     <p class="zona-lbl">Trabajos realizados</p>
     <h2>Proyectos de desatascos <span class="hl">en Pinoso</span></h2>
