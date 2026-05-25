@@ -764,14 +764,15 @@ SYS;
       $strip_items_raw = $strip_por_tipo[$tipo] ?? "Presupuesto gratuito|Precio cerrado|Instaladores Nubeco|Zona interior Alicante";
       $strip_items = explode('|', str_replace('{$ciudad}', $ciudad, $strip_items_raw));
 
-      // H1 base por tipo
-      $h1_base_por_tipo = [
-        'desatascos'     => "Desatascos en {$ciudad}",
-        'busqueda_fugas' => "Detección de fugas en {$ciudad}",
-        'urgencias'      => "Fontanero urgente en {$ciudad}",
-        'fontanero'      => "Fontanero en {$ciudad}",
+      // H1 completo hardcodeado por tipo — el complemento NO lo decide Claude
+      // (Claude tendía a meter características de la ciudad que quedan raras)
+      $h1_completo_por_tipo = [
+        'desatascos'     => "Desatascos en {$ciudad} <span class=\"hl\">bajantes, arquetas e inodoros</span>",
+        'busqueda_fugas' => "Detección de fugas en {$ciudad} <span class=\"hl\">sin romper paredes</span>",
+        'urgencias'      => "Fontanero urgente en {$ciudad} <span class=\"hl\">precio antes de empezar</span>",
+        'fontanero'      => "Fontanero en {$ciudad} <span class=\"hl\">presupuesto gratuito</span>",
       ];
-      $h1_base = $h1_base_por_tipo[$tipo] ?? "Fontanería en {$ciudad}";
+      $h1_base = $h1_completo_por_tipo[$tipo] ?? "Fontanería en {$ciudad}";
 
       // Checklist label por tipo
       $chk_label_por_tipo = [
@@ -812,10 +813,8 @@ Eres un maquetador SEO experto en fontanería local. Generas HTML para CarolTemp
 ════ ESTRUCTURA — 5 BLOQUES EXACTOS, NI UNO MÁS ════
 
 BLOQUE 1 — Hero hz-dark
-- H1: "{$h1_base}" + complemento concreto de esa ciudad en <span class="hl"> (máx 5 palabras, que aporte algo real)
-  BUENO: "Desatascos en Sax <span class=\"hl\">sin esperas ni suciedad</span>"
-  MALO:  "Desatascos en Sax <span class=\"hl\">con cámara sin romper</span>" (en desatascos no se rompe nada)
-- Subtítulo: 1 frase directa sobre el servicio en esa ciudad. Sin inventar disponibilidad 24h ni tiempos exactos.
+- H1 FIJO — cópialo exactamente sin cambiar nada: {$h1_base}
+- Subtítulo: 1 frase directa (máx 15 palabras) sobre el problema o síntoma más habitual en {$ciudad}. Sin inventar disponibilidad 24h ni tiempos exactos. Usa el perfil de ciudad del contexto.
 - Botones: tel:+34611165129 y /contacto
 
 BLOQUE 2 — dif-strip
@@ -851,7 +850,7 @@ DEVUELVE SOLO JSON:
 Escapa las comillas dobles dentro de html con \".
 SYS;
 
-      $user_p2 = "Ciudad: {$ciudad} (CP {$ciudad_cp})\nPerfil ciudad: {$perfil_ciudad}\n\nGenera los 5 bloques exactos. H1 contiene \"{$h1_base}\" con complemento específico de {$ciudad}. Sin inventar diferenciadores que no correspondan al servicio.";
+      $user_p2 = "Ciudad: {$ciudad} (CP {$ciudad_cp})\nPerfil ciudad: {$perfil_ciudad}\n\nGenera los 5 bloques. El H1 ya está dado — cópialo exactamente. La personalización de ciudad va en el subtítulo del hero y en el checklist del bloque 3.";
     }
 
     $res_p2 = carol_curl_json([
