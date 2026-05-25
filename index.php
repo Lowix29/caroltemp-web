@@ -18,7 +18,7 @@ include 'includes/head.php';
     <div class="hero-overlay"></div>
     <div class="hero-content">
 
-      <h1>El fontanero de confianza en<br><span class="hl">Elda, Petrer y el Vinalopó</span></h1>
+      <h1>Fontanería industrial y residencial en Alicante<br></h1>
 
       <p class="hero-sub">Reparaciones urgentes, detección de fugas, desatascos, climatización y reformas. precio sin sorpresas antes de empezar — sin sorpresas.</p>
 
