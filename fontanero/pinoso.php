@@ -140,6 +140,38 @@ include '../includes/head.php';
   </div>
 </section>
 
+<?php
+$_proy = [];
+try {
+  $_ps = $pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');
+  $_ps->execute(['%Pinoso%']);
+  $_proy = $_ps->fetchAll(PDO::FETCH_ASSOC);
+  if (empty($_proy)) {
+    $_ps2 = $pdo->query('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
+    $_proy = $_ps2 ? $_ps2->fetchAll(PDO::FETCH_ASSOC) : [];
+  }
+} catch (\Throwable $_e) {}
+if (!empty($_proy)): ?>
+<section class="zona-sec zona-sec-gray">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Trabajos realizados</p>
+    <h2>Proyectos de fontaner&iacute;a <span class="hl">en Pinoso</span></h2>
+    <div class="zona-svc" style="margin-top:2rem">
+      <?php foreach ($_proy as $_p): ?>
+      <a href="/proyectos/<?php echo urlencode($_p['slug']); ?>" class="zona-sc">
+        <?php if (!empty($_p['imagen'])): ?><img src="<?php echo htmlspecialchars($_p['imagen']); ?>" alt="<?php echo htmlspecialchars($_p['titulo']); ?>" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem"><?php endif; ?>
+        <?php if (!empty($_p['servicio'])): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_p['servicio']); ?></span><?php endif; ?>
+        <h3><?php echo htmlspecialchars($_p['titulo']); ?></h3>
+        <p><?php echo htmlspecialchars(mb_substr($_p['descripcion'] ?? '', 0, 100)); ?>...</p>
+        <span class="zona-sc-a">Ver proyecto &rarr;</span>
+      </a>
+      <?php endforeach; ?>
+    </div>
+    <div style="text-align:center;margin-top:1.5rem"><a href="/proyectos/zona/Pinoso" class="btn-hz-g" style="display:inline-flex">Ver todos los proyectos en Pinoso &rarr;</a></div>
+  </div>
+</section>
+<?php endif; ?>
+
 <!-- BLOQUE 5: Termos + descalcificadores (contenido exclusivo del hub) -->
 <section class="zona-sec">
   <div class="cta-dark-con">
@@ -203,54 +235,29 @@ include '../includes/head.php';
 <!-- /editable -->
 
 <?php
-$_proy = [];
-try {
-  $_ps = $pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');
-  $_ps->execute(['%Pinoso%']);
-  $_proy = $_ps->fetchAll(PDO::FETCH_ASSOC);
-} catch (\Throwable $_e) {}
 $_arts = [];
 try {
-  $_as = $pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');
-  $_as->execute(['%Pinoso%', '%fontan%']);
+  $_as = $pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
+  $_as->execute();
   $_arts = $_as->fetchAll(PDO::FETCH_ASSOC);
-  if (empty($_arts)) {
-    $_as2 = $pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
-    $_arts = $_as2 ? $_as2->fetchAll(PDO::FETCH_ASSOC) : [];
-  }
 } catch (\Throwable $_e) {}
-if (!empty($_proy)): ?>
+if (!empty($_arts)): ?>
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Trabajos realizados</p>
-    <h2>Proyectos en <span class="hl">Pinoso</span></h2>
-    <div class="zona-svc" style="margin-top:2rem">
-      <?php foreach ($_proy as $_p): ?>
-      <a href="/proyectos/<?php echo urlencode($_p['slug']); ?>" class="zona-sc">
-        <?php if (!empty($_p['imagen'])): ?><img src="<?php echo htmlspecialchars($_p['imagen']); ?>" alt="<?php echo htmlspecialchars($_p['titulo']); ?>" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem"><?php endif; ?>
-        <h3><?php echo htmlspecialchars($_p['titulo']); ?></h3>
-        <p><?php echo htmlspecialchars(mb_substr($_p['descripcion'] ?? '', 0, 100)); ?>...</p>
-        <span class="zona-sc-a">Ver proyecto &rarr;</span>
-      </a>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
-<?php if (!empty($_arts)): ?>
-<section class="zona-sec zona-sec-gray">
-  <div class="cta-dark-con">
     <p class="zona-lbl">Consejos &uacute;tiles</p>
-    <h2>Art&iacute;culos <span class="hl">relacionados</span></h2>
+    <h2>Art&iacute;culos sobre <span class="hl">fontaner&iacute;a</span></h2>
     <div class="zona-svc" style="margin-top:2rem">
       <?php foreach ($_arts as $_a): ?>
       <a href="/noticias/<?php echo urlencode($_a['slug']); ?>" class="zona-sc">
+        <?php if (!empty($_a['imagen'])): ?><img src="<?php echo htmlspecialchars($_a['imagen']); ?>" alt="<?php echo htmlspecialchars($_a['titulo']); ?>" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem"><?php endif; ?>
+        <?php if (!empty($_a['categoria'])): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_a['categoria']); ?></span><?php endif; ?>
         <h3><?php echo htmlspecialchars($_a['titulo']); ?></h3>
         <p><?php echo htmlspecialchars(mb_substr($_a['extracto'] ?? '', 0, 100)); ?>...</p>
         <span class="zona-sc-a">Leer art&iacute;culo &rarr;</span>
       </a>
       <?php endforeach; ?>
     </div>
+    <div style="text-align:center;margin-top:1.5rem"><a href="/noticias" class="btn-hz-g" style="display:inline-flex">Ver todos los art&iacute;culos &rarr;</a></div>
   </div>
 </section>
 <?php endif; ?>
