@@ -80,7 +80,7 @@ include 'includes/head.php';
   <div class="home-con">
     <p class="home-lbl">Nuestros servicios</p>
     <h2 id="svc-title">Todo lo que necesitas <span class="hl">para tu hogar</span></h2>
-    <p class="home-sub">Fontanería, climatización y reformas en el Vinalopó. Un solo equipo, precio sin sorpresas, trabajo garantizado.</p>
+    <p class="home-sub">Fontanería y reformas en Alicante. Un solo equipo, precio sin sorpresas, trabajo garantizado.</p>
 
     <div class="svc-grid">
 
@@ -97,7 +97,7 @@ include 'includes/head.php';
       </a>
 
       <!-- Fugas -->
-      <a href="<?php echo $base_url; ?>fugas/" class="svc-card">
+      <a href="<?php echo $base_url; ?>servicios#fugas" class="svc-card">
         <div class="svc-icon-wrap">
           <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
@@ -112,12 +112,11 @@ include 'includes/head.php';
       </a>
 
       <!-- Desatascos -->
-      <a href="<?php echo $base_url; ?>desatascos/" class="svc-card">
+      <a href="<?php echo $base_url; ?>servicios#desatascos" class="svc-card">
         <div class="svc-icon-wrap">
           <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2"/>
             <path d="M9 9h6M9 12h6M9 15h4"/>
-            <circle cx="17" cy="17" r="0"/>
             <path d="M12 3v4M12 17v4"/>
           </svg>
         </div>
@@ -136,21 +135,21 @@ include 'includes/head.php';
           </svg>
         </div>
         <h3>Termos y calentadores</h3>
-        <p>Instalación de termos eléctricos Nubeco. Instalador oficial con garantía de fabricante en el Vinalopó.</p>
+        <p>Instalación de termos eléctricos Nubeco. Instalador oficial con garantía de fabricante en Alicante.</p>
         <span class="svc-more">Ver más &rarr;</span>
       </a>
 
-      <!-- Climatización -->
-      <a href="<?php echo $base_url; ?>servicios" class="svc-card">
+      <!-- Urgencias -->
+      <a href="<?php echo $base_url; ?>servicios#urgencias" class="svc-card">
         <div class="svc-icon-wrap">
           <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="2" x2="12" y2="22"/>
-            <path d="M2 12h20"/>
-            <path d="M12 2L8 6M12 2l4 4M12 22l-4-4M12 22l4-4M2 12l4-4M2 12l4 4M22 12l-4-4M22 12l-4 4"/>
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
           </svg>
         </div>
-        <h3>Climatización</h3>
-        <p>Instalación y mantenimiento de aires acondicionados y sistemas de climatización para tu vivienda o negocio.</p>
+        <h3>Urgencias 24h</h3>
+        <p>Rotura de tubería, inundación o fuga activa. Atendemos urgencias cualquier día, incluidos festivos y fines de semana.</p>
         <span class="svc-more">Ver más &rarr;</span>
       </a>
 
@@ -163,7 +162,7 @@ include 'includes/head.php';
           </svg>
         </div>
         <h3>Reformas de baño</h3>
-        <p>Reformas completas o parciales. precio sin sorpresas antes de empezar, acabados de calidad, plazo cumplido.</p>
+        <p>Reformas completas o parciales. Precio sin sorpresas antes de empezar, acabados de calidad, plazo cumplido.</p>
         <span class="svc-more">Ver más &rarr;</span>
       </a>
 
@@ -403,12 +402,6 @@ include 'includes/head.php';
     </div>
     <h2 id="cta-title">Llama y te atendemos <span class="hl">hoy mismo</span></h2>
     <p>Sin colas, sin formularios. Habla directamente con nosotros y te damos solución.</p>
-
-    <div class="cta-final-tel-wrap">
-      <a href="tel:+34611165129" class="cta-final-tel">611 165 129</a>
-      <span class="cta-final-tel-sep">&middot;</span>
-      <a href="tel:+34611165129" class="cta-final-tel cta-final-tel-2">611 165 129</a>
-    </div>
 
     <div class="cta-final-btns">
       <a href="tel:+34611165129" class="hero-btn-primary">
