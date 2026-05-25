@@ -130,6 +130,7 @@ $base_url = 'http://localhost/';
       color: #16a34a;
       font-size: 12px;
       font-weight: 600;
+
     }
     .cell-ok-icon { font-size: 14px; }
 
@@ -659,6 +660,8 @@ $base_url = 'http://localhost/';
       justify-content: space-between;
       margin: 2rem 0 .875rem;
       gap: 1rem;
+      padding-left:10px;
+      padding-right:10px;
     }
     .corp-section-title {
       font-size: 11px;
@@ -686,6 +689,7 @@ $base_url = 'http://localhost/';
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
       gap: .75rem;
+      padding: 10px;
     }
     .corp-card {
       border-radius: 10px;
