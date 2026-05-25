@@ -683,57 +683,73 @@ NORMAS INAMOVIBLES:
 - NO añadas mapa, zona-ztags ni CTA final (se añaden automáticamente)
 SYSRULES;
 
-    // Hub ciudad: estructura fija de 4 bloques — no libre
+    // Hub ciudad: estructura definida pero con contenido rico — sin canibalizar sub-páginas
     if ($tipo === 'hub_ciudad') {
       $system_p2 = <<<SYS
-Eres un redactor web SEO. Generas la página principal de ciudad para CarolTemp (fontanería, interior de Alicante).
+Eres un redactor web SEO especializado en fontanería local. Generas la página HUB de ciudad para CarolTemp (interior de Alicante).
 
 {$reglas_comunes}
 
-════ ESTRUCTURA OBLIGATORIA — 4 bloques exactos, sin añadir ni quitar ════
+════ PROPÓSITO DEL HUB — MUY IMPORTANTE ════
+Esta página es el paraguas de todos los servicios en {$ciudad}.
+Las sub-páginas /fontanero/{$ciudad_slug}/urgencias, /busqueda_fugas y /desatascos ya tienen su propio contenido profundo.
+El hub NO debe entrar en detalle de esos 3 servicios — solo los menciona brevemente y enlaza.
+El hub SÍ debe desarrollar los servicios que NO tienen sub-página: termos eléctricos, descalcificadores, reformas de baño, instalaciones nuevas, grupos de presión, mantenimiento.
+Así el hub aporta contenido único, no duplica las sub-páginas.
 
-BLOQUE 1 — Hero oscuro (hz-dark)
-- h1: menciona el problema REAL de esa ciudad + la solución diferenciadora. 1 frase corta + gancho en <span class="hl">
-- Subtítulo: 1 frase directa, qué hace CarolTemp en esa ciudad. Nada genérico.
+════ H1 — REGLA CRÍTICA ════
+El H1 DEBE contener las palabras "fontanero en {$ciudad}" o "fontanería en {$ciudad}" como base.
+Ejemplo correcto: "Fontanero en {$ciudad} — <span class=\"hl\">termos, reformas y descalcificadores</span>"
+Ejemplo INCORRECTO: "Tuberías antiguas del casco sin romper paredes" (sin keyword principal)
+
+════ ESTRUCTURA — 6 BLOQUES ════
+
+BLOQUE 1: Hero hz-dark
+- H1: "Fontanero en {$ciudad}" + ángulo diferenciador en <span class="hl">
+- Subtítulo: 1 frase concreta sobre los servicios más demandados en {$ciudad}, sin inventar horarios
 - Botones: tel:+34611165129 y /contacto
 
-BLOQUE 2 — Strip dif-strip con exactamente 4 ítems:
-- Solo diferenciadores REALES: geófono+cámara, presupuesto cerrado, Nubeco oficial, un dato de la ciudad
-- NO pongas "urgencias 24h" ni "disponible en 1 hora" — no es un servicio de guardia permanente
+BLOQUE 2: dif-strip — 4 diferenciadores REALES (geófono+cámara, presupuesto cerrado, Nubeco oficial + 1 dato específico de {$ciudad})
 
-BLOQUE 3 — Sección blanca (zona-sec) con zona-tcol:
-- Columna izquierda: 2 frases sobre el problema concreto de {$ciudad} (agua dura, tuberías antiguas, zona rural...) + checklist 4 ítems concretos para esa ciudad
-- Columna derecha: zona-icard con datos de contacto reales (tel, wa, horario Lun-Vie 8-20h, Sáb 9-14h)
+BLOQUE 3: Sección blanca — zona-tcol
+- Izquierda: intro 2 frases sobre el tipo de vivienda/agua/infraestructura de {$ciudad} + checklist 5 ítems de servicios que hace CarolTemp ahí (mezcla: termos, descalcificadores, reformas, fugas, instalaciones)
+- Derecha: zona-icard (tel, wa, horario Lun-Vie 8-20h Sáb 9-14h, financiación disponible)
 
-BLOQUE 4 — Sección gris (zona-sec-gray): servicios del silo
-- Título: "Servicios de fontanería en {$ciudad}"
-- 3 tarjetas enlace obligatorias (zona-sc con href y zona-sc-a):
-  01 → /fontanero/{$ciudad_slug}/urgencias — "Fontanero urgente en {$ciudad}" + descripción concreta del tipo de avería más habitual ahí
-  02 → /fontanero/{$ciudad_slug}/busqueda_fugas — "Detección de fugas en {$ciudad}" + 1 frase del problema de fugas en esa ciudad
-  03 → /fontanero/{$ciudad_slug}/desatascos — "Desatascos en {$ciudad}" + 1 frase
+BLOQUE 4: Sección gris — grid 6 servicios (3 con link sub-página + 3 del hub)
+- 01 → /fontanero/{$ciudad_slug}/urgencias — "Fontanero urgente en {$ciudad}" — 1 frase del tipo de avería, sin detalle
+- 02 → /fontanero/{$ciudad_slug}/busqueda_fugas — "Detección de fugas en {$ciudad}" — 1 frase, sin detalle
+- 03 → /fontanero/{$ciudad_slug}/desatascos — "Desatascos en {$ciudad}" — 1 frase, sin detalle
+- 04 → /servicios#termos — "Termos eléctricos en {$ciudad}" — específico: por qué el agua dura de {$ciudad} destruye termos
+- 05 → /servicios#descalcificadores — "Descalcificadores en {$ciudad}" — específico: qué tipo de agua tiene {$ciudad} y solución
+- 06 → /servicios#reformas — "Reformas de baño en {$ciudad}" — presupuesto cerrado sin sorpresas
 
-BLOQUE 5 — Sección blanca (zona-sec): FAQ 3 preguntas
-- Preguntas REALES de alguien en {$ciudad}, no genéricas
-- Respuestas directas, sin frases vacías, sin inventar precios ni tiempos
-- Primera con class "zona-fi open", las demás sin "open"
+BLOQUE 5: Sección blanca — desarrollo de termos + descalcificadores (contenido exclusivo del hub, no en sub-páginas)
+- Por qué el agua de {$ciudad} afecta específicamente a termos y calentadores
+- Qué descalcificador encaja con el tipo de vivienda más común en {$ciudad}
+- 1 párrafo, concreto, sin frases vacías
 
-════ COMPONENTES (solo los que usarás) ════
+BLOQUE 6: Sección gris — FAQ 4 preguntas que mezclan servicios del hub (NO urgencias/fugas/desatascos en profundidad)
+- Preguntas sobre: presupuestos, termos, reformas, descalcificadores, instalaciones nuevas en {$ciudad}
+- Respuestas directas y honestas — sin inventar precios exactos ni tiempos de respuesta
+
+════ COMPONENTES ════
 Hero: <section class="hz-dark"><div class="hz-dark-bg"></div><div class="hz-dark-glow"></div><div class="hz-dark-con"><div class="hz-dark-tag"><span class="hz-dark-dot"></span>TAG</div><h1>TÍT <span class="hl">HL</span></h1><p class="hz-dark-sub">SUB</p><div class="hz-dark-btns"><a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a><a href="/contacto" class="btn-hz-g">Pedir presupuesto</a></div></div></section>
 Strip: <div class="dif-strip"><div class="dif-strip-in"><div class="dif-item"><span class="dif-val">VAL</span><span class="dif-lbl">LBL</span></div></div></div>
-Sección: <section class="zona-sec"><div class="cta-dark-con"><p class="zona-lbl">LBL</p><h2>TÍT <span class="hl">HL</span></h2>CONT</div></section>
+Sección blanca: <section class="zona-sec"><div class="cta-dark-con"><p class="zona-lbl">LBL</p><h2>TÍT <span class="hl">HL</span></h2>CONT</div></section>
 Sección gris: <section class="zona-sec zona-sec-gray">...</section>
-2col: <div class="zona-tcol"><div>IZQ</div><div>DER</div></div>
-Checklist: <ul class="zona-chk"><li><span class="chk-ico">{$svg_chk}</span>ÍTEM</li></ul>
-iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · CIU</strong><span>LBL</span></div><div class="zona-ir"><span class="zona-ir-l">L</span><span class="zona-ir-v">V</span></div><a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a></div>
-Tarjeta enlace: <a href="URL" class="zona-sc"><span class="zona-sc-n">01</span><h3>TÍT</h3><p>TXT</p><span class="zona-sc-a">Ver servicio →</span></a>
-FAQ: <div class="zona-faq"><div class="zona-fi open"><div class="zona-fiq" onclick="togFaq(this)"><span>P</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">R</div></div></div>
+2 columnas: <div class="zona-tcol"><div>IZQ</div><div>DER</div></div>
+Checklist: <ul class="zona-chk"><li><span class="chk-ico">{$svg_chk}</span>TEXTO</li></ul>
+iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · {$ciudad}</strong><span>Fontanería</span></div><div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div><div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div><div class="zona-ir"><span class="zona-ir-l">Horario</span><span class="zona-ir-v">Lun-Vie 8-20h · Sáb 9-14h</span></div><div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Disponible para reformas</span></div><a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a></div>
+Grid servicios: <div class="zona-svc"><a href="URL" class="zona-sc"><span class="zona-sc-n">01</span><h3>TÍTULO</h3><p>TEXTO</p><span class="zona-sc-a">Ver servicio →</span></a></div>
+FAQ: <div class="zona-faq"><div class="zona-fi open"><div class="zona-fiq" onclick="togFaq(this)"><span>PREGUNTA</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">RESPUESTA</div></div><div class="zona-fi"><div class="zona-fiq" onclick="togFaq(this)"><span>PREGUNTA</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">RESPUESTA</div></div></div>
+Prosa: <div class="zona-prose"><p>TEXTO</p></div>
 
 DEVUELVE SOLO JSON:
 {"meta_title":"...","meta_desc":"...","html":"..."}
 Escapa las comillas dobles dentro de html con \".
 SYS;
 
-      $user_p2 = "Ciudad: {$ciudad} (CP {$ciudad_cp}, slug: {$ciudad_slug})\nDatos: {$perfil_ciudad}\n\nContexto estratégico:\n{$estrategia_txt}\n\nGenera los 5 bloques exactos.";
+      $user_p2 = "Ciudad: {$ciudad} (CP {$ciudad_cp}, slug: {$ciudad_slug})\nPerfil: {$perfil_ciudad}\n\nContexto estratégico del Paso 1:\n{$estrategia_txt}\n\nGenera los 6 bloques. H1 debe contener 'fontanero en {$ciudad}'. El hub desarrolla termos, descalcificadores y reformas — no entra en detalle de urgencias, fugas ni desatascos (esas tienen sub-páginas).";
 
     } else {
       // Otras páginas de ciudad: libre pero con límite estricto
