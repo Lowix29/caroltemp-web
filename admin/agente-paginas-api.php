@@ -213,7 +213,7 @@ function carol_curl_json(array $payload, int $timeout = 90): array {
 // ACCIÓN: mejorar / crear (llamada a Claude)
 // ─────────────────────────────────────────────────────────────────────
 if ($accion === 'mejorar' || $accion === 'crear') {
-  set_time_limit(180);
+  set_time_limit(240);
   // Verificar curl
   if (!function_exists('curl_init')) {
     echo json_encode(['error' => 'curl no está habilitado en PHP.']);
@@ -816,7 +816,7 @@ SYS;
 
     $res_p2 = carol_curl_json([
       'model'      => ANTHROPIC_MODEL,
-      'max_tokens' => 5000,
+      'max_tokens' => 8000,
       'system'     => $system_p2,
       'messages'   => [
         ['role' => 'user', 'content' => "Genera la página de '{$servicio_etiqueta}' para {$ciudad} (CP {$ciudad_cp}).\n\nDatos específicos de {$ciudad}:\n{$perfil_ciudad}\n\nSigue la estrategia al pie de la letra pero con libertad de estructura y profundidad."],
