@@ -649,7 +649,7 @@ SYS;
 
     $res_p1 = carol_curl_json([
       'model'      => ANTHROPIC_MODEL,
-      'max_tokens' => 700,
+      'max_tokens' => 1500,
       'system'     => $system_p1,
       'messages'   => [
         ['role' => 'user', 'content' => "Servicio: {$servicio_etiqueta}\nCiudad: {$ciudad} (CP: {$ciudad_cp})\nDatos específicos de {$ciudad}: {$perfil_ciudad}"],
