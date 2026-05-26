@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Novelda &middot; CP 03660</div>
-    <h1>Detección de fugas en Novelda<br><span class="hl">mármol, hoteles y Cava bajo tierra</span></h1>
+    <h1>Detección de fugas en Novelda<br><span class="hl">el martillo llega cuando ya sabemos dónde</span></h1>
     <p class="hz-dark-sub">Antes de abrir una pared o levantar una solería, localizamos la fuga con precisión. Geófono, cámara termográfica y correlador para saber exactamente dónde está el problema. Solo abrimos donde hace falta.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

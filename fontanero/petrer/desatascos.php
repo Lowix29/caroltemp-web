@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Petrer &middot; CP 03610</div>
-    <h1>Desatascos en Petrer<br><span class="hl">raíces en ladera y colectores antiguos</span></h1>
+    <h1>Desatascos en Petrer<br><span class="hl">ver antes de actuar con cámara endoscópica</span></h1>
     <p class="hz-dark-sub">Ver antes de actuar: la cámara endoscópica identifica si el tapón es grasa, raíces o acumulación de cal antes de elegir el método. Así no se aplica hidrojetting donde hace falta cuchilla, ni se excava donde basta limpiar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

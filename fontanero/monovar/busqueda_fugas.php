@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Monóvar &middot; CP 03640</div>
-    <h1>Detección de fugas en Monóvar<br><span class="hl">un litro al día bajo el viñedo son miles al año</span></h1>
+    <h1>Detección de fugas en Monóvar<br><span class="hl">geófono antes de abrir ninguna pared</span></h1>
     <p class="hz-dark-sub">Localizamos fugas en instalaciones con baja presión, depósito propio o grupo de presión. Geófono y correlador para tuberías enterradas en jardín o parcela. Sin excavar hasta saber el punto exacto.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

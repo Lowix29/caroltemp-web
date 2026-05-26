@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Monóvar &middot; CP 03640</div>
-    <h1>Desatascos en Monóvar<br><span class="hl">fosas sépticas, bodegas y casas rurales</span></h1>
+    <h1>Desatascos en Monóvar<br><span class="hl">desde el inodoro hasta la fosa sin improvisar</span></h1>
     <p class="hz-dark-sub">Limpiamos desde el inodoro hasta la fosa sin improvisar. Cámara para ver el estado real de la tubería antes de actuar y presupuesto cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

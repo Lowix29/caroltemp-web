@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Elda &middot; CP 03600</div>
-    <h1>Fontanero urgente en Elda<br><span class="hl">la fábrica no puede esperar</span></h1>
+    <h1>Fontanero urgente en Elda<br><span class="hl">precio dado antes de tocar nada</span></h1>
     <p class="hz-dark-sub">Cuando el agua no para hay que actuar sin demora. Llegamos, vemos la avería y damos precio antes de tocar nada. Si el material está en la furgoneta, lo resolvemos en la misma visita.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

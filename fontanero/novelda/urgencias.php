@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Novelda &middot; CP 03660</div>
-    <h1>Fontanero urgente en Novelda<br><span class="hl">la sierra de mármol no puede esperar</span></h1>
+    <h1>Fontanero urgente en Novelda<br><span class="hl">resolvemos en la visita si hay material</span></h1>
     <p class="hz-dark-sub">Llegamos el mismo día, con material en la furgoneta para resolver en la primera visita. Sin esperas de varios días ni visitas de diagnóstico que no arreglan nada. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
