@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Sax &middot; CP 03630</div>
-    <h1>Fontanero urgente en Sax<br><span class="hl">sin esperar al turno de guardia municipal</span></h1>
+    <h1>Fontanero urgente en Sax<br><span class="hl">atención el mismo día, sin esperas</span></h1>
     <p class="hz-dark-sub">Una avería de fontanería no avisa. Llamamos el mismo día, te decimos el precio antes de tocar nada y, si hay material, lo resolvemos sin segunda visita.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

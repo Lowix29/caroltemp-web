@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Petrer &middot; CP 03610</div>
-    <h1>Fontanero urgente en Petrer<br><span class="hl">cuesta arriba el agua no perdona</span></h1>
+    <h1>Fontanero urgente en Petrer<br><span class="hl">corte mínimo, reparación en la misma visita</span></h1>
     <p class="hz-dark-sub">Cuando hay una avería el objetivo es uno: resolver sin dejar la casa sin suministro más tiempo del necesario. Presupuesto antes de tocar, reparación provisional si no hay pieza, corte mínimo e imprescindible.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

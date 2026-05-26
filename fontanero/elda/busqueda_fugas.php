@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Elda &middot; CP 03600</div>
-    <h1>Detección de fugas en Elda<br><span class="hl">piscinas, naves y bloques de los 70</span></h1>
+    <h1>Detección de fugas en Elda<br><span class="hl">localizar antes de romper</span></h1>
     <p class="hz-dark-sub">Localizamos la fuga con geófono y cámara termográfica antes de abrir ninguna pared ni levantar ningún suelo. El martillo llega solo cuando ya sabemos exactamente dónde.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
