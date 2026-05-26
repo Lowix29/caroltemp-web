@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Monóvar &middot; CP 03640</div>
     <h1>Detección de fugas en Monóvar<br><span class="hl">un litro al día bajo el viñedo son miles al año</span></h1>
-    <p class="hz-dark-sub">Fugas en acometidas de finca, circuitos de riego bajo viñedo y bodegas. Geófono para tuberías enterradas. Sin excavar hasta saber el punto exacto.</p>
+    <p class="hz-dark-sub">Localizamos fugas en instalaciones con baja presión, depósito propio o grupo de presión. Geófono y correlador para tuberías enterradas en jardín o parcela. Sin excavar hasta saber el punto exacto.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -28,9 +28,9 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Geófono en campo abierto</span><span class="dif-lbl">Tuberías bajo viñedo y almendro</span></div>
-    <div class="dif-item"><span class="dif-val">Localización de fugas Monóvar</span><span class="dif-lbl">Sin excavar hasta saber dónde</span></div>
-    <div class="dif-item"><span class="dif-val">Fincas y bodegas</span><span class="dif-lbl">Instalaciones rurales y agroindustriales</span></div>
+    <div class="dif-item"><span class="dif-val">Geófono y correlador</span><span class="dif-lbl">Fugas en tuberías exteriores enterradas</span></div>
+    <div class="dif-item"><span class="dif-val">Depósitos y grupos de presión</span><span class="dif-lbl">Revisamos toda la instalación propia</span></div>
+    <div class="dif-item"><span class="dif-val">Sin obras hasta confirmar</span><span class="dif-lbl">Marcamos el punto antes de excavar</span></div>
     <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados</span></div>
   </div>
 </div>
@@ -40,13 +40,13 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Búsqueda de fugas en Monóvar</p>
-        <h2>Fugas de agua en Monóvar <span class="hl">el campo paga las fugas más caras</span></h2>
-        <div class="zona-prose"><p>En Monóvar una fuga de agua en tubería de riego bajo viñedo es difícil de detectar a simple vista: el terreno absorbe el agua, la vid sigue verde y la factura del agua del pozo sube semana a semana sin explicación aparente. La localización de fugas de agua en Monóvar con geófono detecta el sonido de la fuga incluso bajo tierra compacta o cobertura vegetal. Para tuberías largas en finca — acometidas de 100 o 200 metros — el equipo correlador establece el punto matemáticamente antes de hacer una sola cata.</p></div>
+        <h2>Fugas de agua en Monóvar <span class="hl">sin presión en la red y sin saber dónde está el escape</span></h2>
+        <div class="zona-prose"><p>En viviendas con depósito propio y grupo de presión, una fuga en la tubería de impulsión o en la red exterior se traduce en caída constante de presión y en que el grupo arranca y se para sin parar. El problema es que esa tubería está enterrada en el jardín o en la parcela y no da señales visibles. Con geófono acústico localizamos el ruido de la fuga incluso bajo tierra compacta. Para instalaciones con tramos largos — acometidas de 50 a 200 metros — el correlador establece el punto matemáticamente antes de hacer ninguna cata. También revisamos el depósito y las conexiones del grupo si hay pérdida de caudal sin causa aparente.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en instalaciones rurales con pozo y grupo de presión</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en tuberías enterradas de fincas y chalets</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en viviendas del casco histórico con tuberías de hierro</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en depósitos y circuitos de riego agrícola</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en depósitos y tuberías exteriores de jardín</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en baños y cocinas de viviendas unifamiliares</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas ocultas en tabiques y falsos techos</li>
         </ul>
@@ -71,34 +71,34 @@ include '../../includes/head.php';
     <h2>Instalaciones que cubrimos <span class="hl">en Monóvar</span></h2>
     <div class="zona-grid-6">
       <div class="zona-tipo">
-        <div class="zona-tipo-ico">🍷</div>
-        <h3>Bodegas</h3>
-        <p>Las bodegas de Monóvar tienen circuitos de refrigeración, limpieza CIP y agua de proceso. Una fuga en estas instalaciones durante la vendimia tiene coste directo. Localizamos el punto exacto sin paralizar la producción.</p>
-      </div>
-      <div class="zona-tipo">
         <div class="zona-tipo-ico">💧</div>
-        <h3>Pozos y depósitos</h3>
-        <p>Fugas en la tubería de impulsión del pozo, en el depósito elevado o en el aljibe. El agua perdida no aparece en ninguna factura de red — sólo en el caudal que falta. Geófono para localizarla sin excavar a ciegas.</p>
-      </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">🌿</div>
-        <h3>Tuberías de riego bajo cultivo</h3>
-        <p>Acometidas de PE enterradas bajo viñedo o almendro. El terreno absorbe el agua y la fuga pasa semanas sin detectarse. El correlador establece el punto matemáticamente antes de hacer ninguna cata.</p>
-      </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">🔥</div>
-        <h3>Circuitos de calefacción de cortijo</h3>
-        <p>Fugas en suelo radiante, circuito de caldera o radiadores en casas de campo. El agua dura de Monóvar deteriora juntas y válvulas en pocos años. Termografía para detectar la fuga sin levantar pavimento.</p>
-      </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">🏚️</div>
-        <h3>Viviendas del casco histórico</h3>
-        <p>Casas de los años 50-70 con tuberías de hierro galvanizado. La corrosión interna perfora las paredes del tubo y genera fugas lentas que aparecen como manchas en muros y techos. Cámara endoscópica antes de abrir.</p>
+        <h3>Depósitos y aljibes</h3>
+        <p>Fugas en la tubería de impulsión desde el depósito elevado o en el aljibe enterrado. El agua perdida no aparece en ninguna factura de red, solo en el caudal que falta o en el grupo que arranca sin parar. Geófono para localizarla sin excavar a ciegas.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">⚙️</div>
         <h3>Grupos de presión y acometidas</h3>
-        <p>Fugas en racores de impulsión, válvulas antirretorno y conexiones del grupo. Las juntas se resecan por el calor del verano y el sarro de Monóvar las deteriora antes de lo esperado. Reparación en la misma visita si hay material.</p>
+        <p>Fugas en racores de impulsión, válvulas antirretorno y conexiones del grupo de presión. Las juntas se resecan por el calor del verano y la cal del agua las deteriora antes de lo esperado. Reparación en la misma visita si hay material.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🌿</div>
+        <h3>Tuberías exteriores enterradas</h3>
+        <p>Acometidas de PE enterradas en jardín o parcela. El terreno absorbe el agua y la fuga puede pasar semanas sin detectarse. El correlador establece el punto matemáticamente antes de hacer ninguna cata.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🔥</div>
+        <h3>Circuitos de calefacción</h3>
+        <p>Fugas en suelo radiante, circuito de caldera o radiadores en viviendas unifamiliares y chalets. El agua dura deteriora juntas y válvulas en pocos años. Termografía para detectar la fuga sin levantar pavimento.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏚️</div>
+        <h3>Viviendas con tuberías antiguas</h3>
+        <p>Casas con tuberías de hierro galvanizado o cobre antiguo. La corrosión interna perfora las paredes del tubo y genera fugas lentas que aparecen como manchas en muros y techos. Cámara endoscópica antes de abrir.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏢</div>
+        <h3>Comunidades de vecinos y locales</h3>
+        <p>Fugas en bajantes, tuberías de suministro o colectores en comunidades y locales comerciales. La localización precisa evita obras innecesarias en zonas comunes. Presupuesto cerrado antes de empezar.</p>
       </div>
     </div>
   </div>
@@ -110,16 +110,16 @@ include '../../includes/head.php';
     <h2>Búsqueda de fugas en Monóvar &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis detectar fugas en tuberías enterradas bajo viñedo sin arrancar las vides?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. El geófono acústico y el equipo correlador permiten localizar el punto exacto de la fuga a través del suelo sin excavar ni dañar la vegetación. Solo se abre el terreno una vez que el punto está marcado con precisión. En tuberías largas de 100-200 metros el correlador reduce el margen de error a menos de un metro.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis detectar fugas en viviendas que tienen depósito y grupo de presión propios?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí, y es precisamente el tipo de instalación donde más difícil resulta localizar la fuga sin equipo especializado. Cuando el grupo de presión arranca con demasiada frecuencia o la presión cae sin razón aparente, suele haber una pérdida en la tubería de impulsión o en la red exterior. Usamos geófono para detectar el sonido de la fuga y correlador para afinar el punto exacto antes de abrir el terreno.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Atendéis bodegas en Monóvar durante y fuera de la vendimia?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Atendemos bodegas todo el año. Durante la vendimia priorizamos las urgencias porque una fuga en el circuito de refrigeración o en la línea de agua de proceso puede comprometer la elaboración. Fuera de temporada es el mejor momento para hacer una revisión completa de la instalación.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué pasa si la fuga hace que el grupo de presión baje mucho la presión?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Si la pérdida es grande, el grupo trabaja en continuo y no logra mantener la presión de consigna. En ese caso detectamos la fuga con geófono, la reparamos y comprobamos el estado del presostato y la membrana del grupo, que pueden haber sufrido por el esfuerzo continuado. Todo en la misma visita si hay material disponible.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta la localización de fugas en una finca grande de Monóvar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">El precio depende de la extensión de la red y el número de zonas a revisar. Siempre damos presupuesto cerrado antes de empezar — normalmente incluye desplazamiento, tiempo de localización con geófono y marcado del punto. La reparación posterior se presupuesta por separado una vez confirmada la localización.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿También revisáis el depósito cuando buscáis una fuga?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Si hay pérdida de caudal sin causa aparente en las tuberías visibles, inspeccionamos también el depósito: fisuras en las paredes, válvula de llenado que no cierra bien y conexiones de entrada y salida. Una fuga pequeña en el depósito puede vaciar cientos de litros sin que se note desde dentro de la vivienda.</div>
       </div>
     </div>
   </div>

@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Sax &middot; CP 03630</div>
     <h1>Desatascos en Sax<br><span class="hl">alcantarillado antiguo bajo el castillo</span></h1>
-    <p class="hz-dark-sub">Las bajantes antiguas del casco histórico de Sax acumulan sarro durante décadas. Cámara endoscópica antes de actuar, precio cerrado antes de empezar.</p>
+    <p class="hz-dark-sub">Limpiamos a fondo con hidrojetting, no solo desbloqueamos con sonda. Cámara endoscópica para ver el estado real del conducto antes de actuar y después para confirmar que queda completamente libre.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128247; Cámara endoscópica</span><span class="dif-lbl">Vemos el atasco antes de actuar</span></div>
+    <div class="dif-item"><span class="dif-val">Hidrojetting a presión</span><span class="dif-lbl">Limpieza completa, no solo desbloqueo</span></div>
+    <div class="dif-item"><span class="dif-val">&#128247; Cámara endoscópica</span><span class="dif-lbl">Diagnóstico visual antes y después</span></div>
+    <div class="dif-item"><span class="dif-val">Mantenimiento preventivo</span><span class="dif-lbl">Bajantes limpias antes de que atasquen</span></div>
     <div class="dif-item"><span class="dif-val">Precio cerrado antes de empezar</span><span class="dif-lbl">Sin sorpresas al terminar</span></div>
-    <div class="dif-item"><span class="dif-val">Sin suciedad ni daños</span><span class="dif-lbl">Trabajo limpio garantizado</span></div>
-    <div class="dif-item"><span class="dif-val">Bajantes, arquetas e inodoros</span><span class="dif-lbl">Todo tipo de atascos</span></div>
   </div>
 </div>
 
@@ -40,13 +40,13 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Sax</p>
-        <h2>Atascos en Sax <span class="hl">el casco histórico los concentra</span></h2>
+        <h2>Desatascos en Sax <span class="hl">limpiar a fondo, no solo desbloquear</span></h2>
         <div class="zona-prose">
-          <p>En Sax los atascos más persistentes están en el casco histórico: bajantes de cerámica o hierro de décadas que han reducido su diámetro interior a la mitad por sarro y grasa acumulada. En estas condiciones cualquier residuo sólido provoca un tapón. La cámara endoscópica en un desatasco de Sax permite ver exactamente qué tipo de obstrucción hay y hasta dónde llega, antes de elegir entre hidrojetting, sonda o una combinación de ambos. En las viviendas unifamiliares de la periferia, las arquetas de jardín y los colectores exteriores son el punto débil — raíces y barro los colmatan sin que se note hasta que desbordan.</p>
+          <p>Desbloquear un atasco con sonda soluciona el problema ese día, pero deja el conducto lleno de grasa, sarro y residuos pegados a las paredes — y el atasco vuelve en pocas semanas. La diferencia está en limpiar de verdad. El hidrojetting lanza agua a alta presión por todo el conducto, arrastrando la acumulación de grasa compacta, cal y residuos orgánicos que la sonda simplemente perfora. La cámara endoscópica permite ver el estado real de la bajante antes de actuar — y confirmar que queda completamente libre al terminar. En casas antiguas con bajantes muy deterioradas, la cámara también sirve para detectar grietas o secciones que necesitan sustitución: mejor saberlo desde el principio que repetir el servicio al mes.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro en Sax que no desagua</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bajante bloqueada en edificio del centro o casco histórico</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bajante bloqueada en piso, chalet o comunidad de vecinos</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Arqueta exterior desbordada en vivienda unifamiliar</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desagüe de cocina atascado por grasa y sarro</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Ducha o bañera que no vacía por acumulación de cal</li>
@@ -126,7 +126,7 @@ include '../../includes/head.php';
         <div class="zona-step-n">2</div>
         <div class="zona-step-txt">
           <strong>Técnica adecuada según el atasco</strong>
-          <p>Hidrojetting a alta presión para tapones de grasa compacta, sonda mecánica para atascos puntuales, aspiración para arquetas con lodos. En Sax el sarro suele mezclarse con grasa — en ese caso combinamos técnicas para un resultado duradero.</p>
+          <p>Hidrojetting a alta presión para tapones de grasa compacta, sonda mecánica para atascos puntuales, aspiración para arquetas con lodos. Cuando el sarro se mezcla con grasa combinamos técnicas para un resultado duradero.</p>
         </div>
       </div>
       <div class="zona-step">
@@ -179,16 +179,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Sax <span class="hl">— dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Trabajáis en bajantes antiguas de cerámica del casco histórico de Sax sin dañarlas?</summary>
-        <div class="faq-ans">Sí. Las bajantes de cerámica son frágiles y no admiten presiones excesivas. Antes de actuar la cámara endoscópica nos indica el estado del conducto y qué técnica usar. Para bajantes muy antiguas en el casco de Sax combinamos sonda mecánica suave e hidrojetting a presión regulada — suficiente para limpiar sin comprometer la cerámica.</div>
+        <summary>¿Cuál es la diferencia entre desbloquear con sonda y limpiar con hidrojetting?</summary>
+        <div class="faq-ans">La sonda mecánica perfora el tapón y deja paso al agua, pero no elimina la capa de grasa, cal y sarro pegada a las paredes del conducto. El atasco vuelve en semanas porque las paredes siguen sucias. El hidrojetting lanza agua a alta presión en todas las direcciones y arrastra todo ese depósito, dejando el conducto limpio en toda su sección. Para atascos puntuales la sonda puede ser suficiente; para bajantes con acumulación crónica, el hidrojetting es la única solución duradera.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis desatascar arquetas exteriores en viviendas unifamiliares de Sax?</summary>
-        <div class="faq-ans">Sí. Es uno de los trabajos más frecuentes en las casas unifamiliares de Sax: arquetas de jardín y colectores exteriores colmatados por raíces, barro y hojas. Los limpiamos con bomba de presión, revisamos las paredes de la arqueta por si hay grietas y verificamos que el desagüe corre libre hasta el colector municipal.</div>
+        <summary>¿Conviene hacer un mantenimiento anual de bajantes aunque no haya atasco?</summary>
+        <div class="faq-ans">Sí, especialmente en comunidades de vecinos y en casas con bajantes que concentran el desagüe de varios pisos. La grasa y el sarro se acumulan lentamente y el conducto va reduciendo su sección sin que se note hasta que aparece el atasco. Una limpieza preventiva anual con hidrojetting evita urgencias, protege el estado del conducto y es mucho más barata que gestionar un atasco que ya ha causado daños por desbordamiento.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Cuánto dura el efecto del desatasco en una bajante muy antigua?</summary>
-        <div class="faq-ans">Depende del estado del conducto. Si la bajante de cerámica o hierro tiene el diámetro muy reducido por sarro, el efecto puede durar menos de lo esperado. En ese caso lo decimos claramente antes de empezar: si la bajante necesita sustitución, es mejor saberlo desde el principio. El diagnóstico con cámara en Sax sirve exactamente para eso.</div>
+        <summary>¿Qué pasa si el atasco vuelve poco tiempo después del desatasco?</summary>
+        <div class="faq-ans">Si el atasco reaparece en pocos días, generalmente hay una de estas dos causas: el conducto quedó parcialmente limpio porque la obstrucción era más profunda de lo detectado, o hay un problema estructural en la bajante — una grieta, una deformación o un diámetro muy reducido por sarro que ninguna limpieza puede resolver de forma permanente. En ese caso la cámara endoscópica permite ver exactamente cuál es la causa y qué solución corresponde: nueva limpieza o sustitución parcial del tramo afectado.</div>
       </details>
     </div>
   </div>

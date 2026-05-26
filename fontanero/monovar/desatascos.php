@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Monóvar &middot; CP 03640</div>
     <h1>Desatascos en Monóvar<br><span class="hl">fosas sépticas, bodegas y casas rurales</span></h1>
-    <p class="hz-dark-sub">En Monóvar muchas fincas tienen fosa séptica, no red de alcantarillado. Cuando se colapsa, no hay alternativa. Cámara y precio antes de actuar.</p>
+    <p class="hz-dark-sub">Limpiamos desde el inodoro hasta la fosa sin improvisar. Cámara para ver el estado real de la tubería antes de actuar y presupuesto cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128176; precio sin sorpresas</span><span class="dif-lbl">Antes de empezar</span></div>
-    <div class="dif-item"><span class="dif-val">&#128269; Ge&oacute;fono + c&aacute;mara</span><span class="dif-lbl">Sin obras innecesarias</span></div>
+    <div class="dif-item"><span class="dif-val">&#128176; Precio sin sorpresas</span><span class="dif-lbl">Presupuesto cerrado antes de empezar</span></div>
+    <div class="dif-item"><span class="dif-val">&#128269; C&aacute;mara + hidrojeteado</span><span class="dif-lbl">Diagnóstico real, no a ciegas</span></div>
+    <div class="dif-item"><span class="dif-val">Fosas sépticas</span><span class="dif-lbl">Vaciado, limpieza e inspección</span></div>
     <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instalador certificado</span></div>
-    <div class="dif-item"><span class="dif-val">&#128205; Monóvar</span><span class="dif-lbl">Atenci&oacute;n local</span></div>
   </div>
 </div>
 
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Monóvar</p>
-        <h2>Atascos en Monóvar <span class="hl">el campo tiene sus propias reglas</span></h2>
-        <div class="zona-prose"><p>En Monóvar el problema de saneamiento más habitual en finca no es el atasco de bajante urbano — es la fosa séptica que lleva años sin vaciado y acaba colapsando en el peor momento (vendimia, verano, visita familiar). Las casas del casco histórico tienen bajantes de hierro o cerámica que acumulan sarro y grasa desde hace décadas. En las bodegas, los residuos de la elaboración del vino — bitartrato, lías, restos de uva — crean tapones específicos que los productos químicos no disuelven.</p></div>
+        <h2>Atascos en Monóvar <span class="hl">desde el inodoro hasta la fosa sin improvisar</span></h2>
+        <div class="zona-prose"><p>En Monóvar hay viviendas conectadas a la red municipal de alcantarillado y otras que dependen de fosa séptica. En estas últimas, cuando la fosa lleva años sin vaciado o el campo de absorción se satura, los desagües dejan de funcionar y no hay solución parcial — hay que intervenir. En casas antiguas, las bajantes de hierro galvanizado o cerámica acumulan sarro y grasa desde hace décadas y terminan colapsando por el estrechamiento progresivo del diámetro. También atendemos atascos en inodoros, botes sifónicos, bajantes generales y raíces que penetran en tuberías exteriores. Antes de actuar, usamos cámara para ver el estado real de la tubería y evitar reparaciones innecesarias.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascos en fincas rurales con pozos</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascar bajantes en casco urbano antiguo</li>
@@ -92,16 +92,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Monóvar &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Hacéis vaciado y desatasco de fosas sépticas en fincas de Monóvar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. En las fincas de Monóvar que no tienen acceso a red de alcantarillado, la fosa séptica es la única solución de saneamiento. Cuando se colapsa — normalmente por falta de vaciado periódico o por el colapso del campo de absorción — no hay alternativa: hay que intervenir. Inspeccionamos con cámara antes de actuar y te damos el presupuesto completo antes de empezar.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cada cuánto tiempo hay que vaciar una fosa séptica?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Depende del tamaño de la fosa y del número de personas que la usan. Como referencia general, una fosa para una vivienda de 4 personas necesita vaciado cada 2-3 años. Si no se vacía a tiempo, los sólidos acumulados desbordan hacia el campo de absorción y acaban colapsándolo, lo que convierte una limpieza rutinaria en una intervención mucho más costosa. Si notas que los desagües van lentos o hay malos olores, no esperes al vaciado programado.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Atendéis bodegas con problemas de desagüe durante la vendimia?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Durante la vendimia los desagües de bodega trabajan al límite: restos de uva, lías y mosto se acumulan en sumideros y colectores y pueden generar tapones en cuestión de horas. Atendemos urgencias en bodegas con la misma prioridad que en vivienda. Avisad indicando el tipo de instalación para llevar el equipo adecuado.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede desatascar una fosa séptica sin vaciarla primero?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">En algunos casos sí, si el problema está en la tubería de entrada y no dentro de la fosa. Lo evaluamos con cámara antes de actuar. Si la fosa está llena o el tapón está dentro, el vaciado previo es imprescindible para poder trabajar con seguridad y sin riesgo de desbordamiento. Te informamos del estado exacto antes de presupuestar nada.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El vino y los residuos de elaboración pueden causar atascos en Monóvar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí, y son atascos difíciles de resolver con productos químicos convencionales. El bitartrato (tartrato potásico) se cristaliza en las paredes de la tubería y forma depósitos duros que reducen progresivamente el diámetro útil. Las lías y los restos de hollejo se compactan en codos y arquetas. Para estos casos usamos hidrojeteado a presión y, si hace falta, cámara para confirmar el estado interior de la tubería.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué causa los malos olores en casas con fosa séptica?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Las causas más habituales son la fosa llena o desbordada, un sifón seco en algún desagüe de la vivienda que permite que los gases suban, o una ventilación obstruida en la columna de bajante. También puede haber una fisura en la tubería de salida que deja escapar gases al terreno y estos entran por huecos en el pavimento. Inspeccionamos con cámara para identificar el origen sin abrir nada innecesariamente.</div>
       </div>
     </div>
   </div>

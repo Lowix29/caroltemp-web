@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Petrer &middot; CP 03610</div>
     <h1>Desatascos en Petrer<br><span class="hl">raíces en ladera y colectores antiguos</span></h1>
-    <p class="hz-dark-sub">Las raíces de los árboles en ladera encuentran las tuberías de saneamiento antes en Petrer que en cualquier ciudad llana. Cámara endoscópica antes de actuar.</p>
+    <p class="hz-dark-sub">Ver antes de actuar: la cámara endoscópica identifica si el tapón es grasa, raíces o acumulación de cal antes de elegir el método. Así no se aplica hidrojetting donde hace falta cuchilla, ni se excava donde basta limpiar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128176; precio sin sorpresas</span><span class="dif-lbl">Antes de empezar</span></div>
-    <div class="dif-item"><span class="dif-val">&#128269; Ge&oacute;fono + c&aacute;mara</span><span class="dif-lbl">Sin obras innecesarias</span></div>
-    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instalador certificado</span></div>
-    <div class="dif-item"><span class="dif-val">&#128205; Petrer</span><span class="dif-lbl">Atenci&oacute;n local</span></div>
+    <div class="dif-item"><span class="dif-val">&#128247; Cámara endoscópica</span><span class="dif-lbl">Diagnóstico antes de actuar</span></div>
+    <div class="dif-item"><span class="dif-val">Hidrojetting de alta presión</span><span class="dif-lbl">Para grasa y cal acumulada</span></div>
+    <div class="dif-item"><span class="dif-val">Bajantes y arquetas de comunidad</span><span class="dif-lbl">Colectores comunes incluidos</span></div>
+    <div class="dif-item"><span class="dif-val">&#128176; Precio cerrado antes de empezar</span><span class="dif-lbl">Sin sorpresas al acabar</span></div>
   </div>
 </div>
 
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Petrer</p>
-        <h2>Atascos en Petrer <span class="hl">las raíces y la pendiente</span></h2>
-        <div class="zona-prose"><p>En Petrer los atascos de raíces son especialmente frecuentes. Los árboles plantados en las urbanizaciones de ladera hace 30-40 años han extendido sus raíces buscando humedad — y la han encontrado en los colectores de saneamiento. Las raíces que entran por una junta mal sellada crecen dentro de la tubería hasta bloquearla completamente. La cámara endoscópica en un desatasco de Petrer no es opcional: es la única forma de saber si el tapón es grasa (hidrojetting), raíces (cuchilla rotativa) o barro (aspiración).</p></div>
+        <h2>Desatascos en Petrer <span class="hl">cámara endoscópica antes de actuar</span></h2>
+        <div class="zona-prose"><p>Cada tipo de atasco requiere una solución diferente. La grasa acumulada en el desagüe de cocina se elimina con hidrojetting. Las raíces que han penetrado por una junta defectuosa en el bajante exterior del jardín necesitan cuchilla rotativa. La cal depositada en tuberías de hierro galvanizado antiguo puede requerir sustitución del tramo afectado. La cámara endoscópica identifica el problema real antes de elegir el método — de ese modo no se aplica presión donde la tubería no lo soporta, ni se excava donde basta una limpieza a alta presión.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascos urgentes en comunidades</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de bajantes y arquetas</li>
@@ -71,16 +71,16 @@ include '../../includes/head.php';
     <h2>Por qu&eacute; nos llaman por Desatascos <span class="hl">en Petrer</span></h2>
     <div class="zona-svc">
       <div class="zona-sc">
-        <h3>Comunidades de bloques de los 80-90</h3>
-        <p>Las tuberías de PVC y fibrocemento de estas décadas acumulan restos y se estrechan con el tiempo, provocando atascos frecuentes en bajantes comunes.</p>
+        <h3>Desagüe de cocina por acumulación de grasa</h3>
+        <p>El fregadero que tarda cada vez más en desaguar es la señal más habitual. La grasa de los aceites de cocina se solidifica en las paredes del desagüe y reduce el paso hasta bloquearlo. El hidrojetting a alta presión limpia el tramo completo, no solo el punto de obstrucción visible.</p>
       </div>
       <div class="zona-sc">
-        <h3>Acumulación de cal por agua dura</h3>
-        <p>El agua del grifo en Petrer tiene alta concentración de cal. Con los años, las tuberías se estrechan y pequeños restos provocan obstrucciones totales.</p>
+        <h3>Bajantes exteriores con raíces en chalets y adosados</h3>
+        <p>En viviendas unifamiliares con jardín, las raíces de árboles y arbustos buscan la humedad de los colectores de saneamiento y penetran por las juntas. La cámara confirma si es raíz incipiente (cuchilla) o bloqueo avanzado que requiere rehabilitación del tramo.</p>
       </div>
       <div class="zona-sc">
-        <h3>Viviendas reconvertidas de uso industrial</h3>
-        <p>Antiguas naves de marroquinería hoy convertidas en viviendas tienen desagües no diseñados para uso doméstico, con atascos por grasas y jabones.</p>
+        <h3>Arquetas de comunidad obstruidas</h3>
+        <p>Cuando el atasco está en la arqueta general del edificio, todos los pisos se ven afectados a la vez. En comunidades de vecinos inspeccionamos el colector común y las arquetas de paso para localizar el tapón y limpiarlo sin cortar el suministro del edificio.</p>
       </div>
     </div>
   </div>
@@ -92,16 +92,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Petrer &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo eliminais raíces de los colectores en las urbanizaciones de Petrer?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Primero pasamos la cámara endoscópica para confirmar que es raíces y ver la extensión. Después usamos cuchilla rotativa para cortar y extraer la masa de raíces. En casos graves, el hidrojetting a alta presión limpia el interior de la tubería. Todo con presupuesto previo y sin abrir zanjas innecesarias.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El hidrojetting daña las tuberías antiguas de hierro galvanizado?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Puede, si se aplica a la presión incorrecta. Por eso primero se pasa la cámara para ver el estado interior de la tubería. Si la pared está muy deteriorada por la oxidación o la cal, el hidrojetting se regula a una presión más baja o directamente se descarta en favor de otros métodos. En tuberías de hierro galvanizado muy afectadas, a veces la solución más segura es sustituir el tramo — algo que la cámara permite valorar antes de actuar.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Las raíces vuelven a entrar después del desatasco?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Si la junta de entrada sigue sin sellarse correctamente, sí. Después de eliminar las raíces, valoramos si la junta o el tramo dañado necesitan reparación definitiva. En colectores de ladera con acceso difícil usamos manga de rehabilitación sin obra para sellar el punto de entrada sin excavar.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede hacer un mantenimiento preventivo para evitar atascos recurrentes?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Para comunidades de vecinos o viviendas con historial de atascos frecuentes, una revisión periódica con cámara y limpieza preventiva con hidrojetting reduce significativamente las urgencias. En cocinas con uso intensivo, una limpieza anual del desagüe principal evita la mayoría de los bloqueos por grasa. Se puede acordar una visita de revisión sin necesidad de que haya atasco previo.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿La pendiente de los colectores en ladera ayuda o dificulta el desatasco?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Depende. La pendiente natural de los colectores en ladera ayuda a que los residuos fluyan más rápido, lo que en principio dificulta la acumulación de grasa. Pero cuando las raíces crean un tapón, la pendiente hace que el agua se acumule con más presión justo detrás del bloqueo — lo que puede forzar juntas y aumentar el daño. Por eso la cámara va siempre primero.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué pasa si el atasco está en la red general y no en mi tramo?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Si el tapón está en el colector municipal fuera de tu propiedad, la responsabilidad de la reparación es del ayuntamiento. Con la cámara endoscópica determinamos con precisión si el bloqueo está dentro o fuera de tu instalación antes de presupuestar nada. Si es un problema de red general, te indicamos cómo tramitar la incidencia con el servicio de aguas correspondiente.</div>
       </div>
     </div>
   </div>

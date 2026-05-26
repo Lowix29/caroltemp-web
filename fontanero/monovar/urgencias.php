@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Monóvar &middot; CP 03640</div>
     <h1>Fontanero urgente en Monóvar<br><span class="hl">el grupo de presión no entiende de horarios</span></h1>
-    <p class="hz-dark-sub">Finca sin agua, grupo de presión parado, rotura en cortijo. En Monóvar la urgencia llega cuando estás a kilómetros del siguiente fontanero.</p>
+    <p class="hz-dark-sub">Atendemos urgencias tanto en el casco urbano como en viviendas rurales sin conexión a red municipal. Si el grupo de presión se para o la llave de corte no cierra, llegamos ese mismo día.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Grupos de presión</span><span class="dif-lbl">El problema más frecuente en finca</span></div>
-    <div class="dif-item"><span class="dif-val">Fincas y cortijos</span><span class="dif-lbl">Llegamos donde el pueblo no llega</span></div>
-    <div class="dif-item"><span class="dif-val">Precio antes de empezar</span><span class="dif-lbl">Sin sorpresas en zona rural</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero Monóvar</span><span class="dif-lbl">Conocemos las fincas de la zona</span></div>
+    <div class="dif-item"><span class="dif-val">Grupos de presión</span><span class="dif-lbl">Diagnóstico y reparación en la misma visita</span></div>
+    <div class="dif-item"><span class="dif-val">Fosas sépticas urgentes</span><span class="dif-lbl">Vaciado e intervención sin demora</span></div>
+    <div class="dif-item"><span class="dif-val">Precio antes de empezar</span><span class="dif-lbl">Presupuesto cerrado, sin añadidos</span></div>
+    <div class="dif-item"><span class="dif-val">Casco urbano y zona rural</span><span class="dif-lbl">Cobertura completa en Monóvar</span></div>
   </div>
 </div>
 
@@ -42,14 +42,14 @@ include '../../includes/head.php';
         <p class="zona-lbl">Cuándo llamar</p>
         <h2>Urgencias fontanero <span class="hl">en Monóvar</span></h2>
         <div class="zona-prose">
-          <p>En Monóvar las urgencias de fontanería más habituales no son las de ciudad. Son las del grupo de presión de la finca que se para en pleno agosto — la familia lleva horas sin agua y el siguiente servicio técnico está en Elda o Novelda. Son la rotura en tubería de PE enterrada bajo viñedo que lleva días perdiendo agua antes de que alguien lo note. Son el termo de la casa de campo que deja de dar agua caliente en diciembre y no hay ferretería con piezas a menos de 20 km. Fontanero urgente en Monóvar significa llegar hasta allí.</p>
+          <p>En Monóvar hay viviendas con red municipal y otras que funcionan con depósito propio y grupo de presión. Cuando el grupo falla, la casa se queda sin agua de golpe y no hay un fontanero a la vuelta de la esquina. También hay casas con fosa séptica que colapsa sin avisar, llaves de paso que llevan años sin moverse y no cierran cuando más falta hacen, y termos que dejan de calentar en pleno invierno. Atendemos todos esos casos: viviendas unifamiliares, pisos, chalets y casas rurales sin conexión a red. El proceso es siempre el mismo — llegamos, vemos la avería, te damos el precio y empezamos solo si lo apruebas.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión de finca parado en verano</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de PE bajo viñedo o almendro</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pozo que no da caudal por válvula averiada</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Termo de cortijo sin agua caliente</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso agarrotada en casa de campo</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería exterior enterrada de vivienda o chalet</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fosa séptica colapsada que impide usar los desagües</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Termo sin agua caliente en vivienda rural o unifamiliar</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso agarrotada que no corta el suministro</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fuga en aljibe o depósito elevado</li>
         </ul>
       </div>
@@ -57,11 +57,11 @@ include '../../includes/head.php';
         <div class="icard">
           <div class="icard-head">Urgencia rural en Monóvar: casos reales</div>
           <div class="icard-body">
-            <div class="icard-row"><span class="icard-icon">☀️</span><span>Grupo parado con 40 grados y la familia en la finca</span></div>
-            <div class="icard-row"><span class="icard-icon">💦</span><span>Cortijo inundado por rotura en tubería enterrada</span></div>
-            <div class="icard-row"><span class="icard-icon">⚙️</span><span>Pozo con válvula de retención atascada</span></div>
-            <div class="icard-row"><span class="icard-icon">🔥</span><span>Termo que deja de calentar en diciembre a 6 km del pueblo</span></div>
-            <div class="icard-row"><span class="icard-icon">🚰</span><span>Presión cero en toda la casa sin saber por qué</span></div>
+            <div class="icard-row"><span class="icard-icon">☀️</span><span>Grupo de presión parado en verano, vivienda sin agua</span></div>
+            <div class="icard-row"><span class="icard-icon">💦</span><span>Rotura en tubería enterrada con agua saliendo al exterior</span></div>
+            <div class="icard-row"><span class="icard-icon">🚿</span><span>Fosa séptica colapsada, desagües sin salida</span></div>
+            <div class="icard-row"><span class="icard-icon">🔥</span><span>Termo que deja de calentar y gotea por la válvula de seguridad</span></div>
+            <div class="icard-row"><span class="icard-icon">🚰</span><span>Llave de paso bloqueada que no corta el agua</span></div>
           </div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
@@ -83,7 +83,7 @@ include '../../includes/head.php';
       <div class="zona-tipo">
         <div class="zona-tipo-ico">⚙️</div>
         <h3>Grupos de presión</h3>
-        <p>El grupo de presión es la avería urgente más frecuente en fincas y viñedos de Monóvar. Revisamos presostato, membrana y circuito eléctrico en la misma visita.</p>
+        <p>El grupo de presión es la avería urgente más frecuente en viviendas sin red municipal. Revisamos presostato, membrana y circuito eléctrico en la misma visita.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🔥</div>
@@ -102,8 +102,8 @@ include '../../includes/head.php';
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🏢</div>
-        <h3>Comunidades y bodegas</h3>
-        <p>Urgencias en zonas comunes, bodegas y locales comerciales en Monóvar. Mismo proceso: presupuesto antes de empezar, sin tarifas distintas por tipo de inmueble.</p>
+        <h3>Comunidades y locales</h3>
+        <p>Urgencias en zonas comunes de comunidades de vecinos y locales comerciales en Monóvar. Mismo proceso: presupuesto antes de empezar, sin tarifas distintas por tipo de inmueble.</p>
       </div>
     </div>
   </div>
@@ -178,16 +178,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Monóvar — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Llegáis hasta las fincas y cortijos más alejados de Monóvar?</summary>
-        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Monóvar, incluyendo fincas de viñedo, cortijos y casas de campo alejadas del casco urbano. El desplazamiento se cobra por visita, sin recargo adicional por distancia dentro de la zona de cobertura. Cuando llames, indícanos la ubicación aproximada para planificar bien la ruta.</div>
+        <summary>¿Atendéis viviendas sin conexión a red municipal de agua?</summary>
+        <div class="faq-ans">Sí. Cubrimos tanto el casco urbano de Monóvar como viviendas rurales que funcionan con depósito propio, aljibe y grupo de presión. El desplazamiento se cobra por visita, sin recargo adicional por distancia dentro de la zona de cobertura. Cuando llames, indícanos la ubicación aproximada para planificar bien la ruta.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Los grupos de presión se pueden reparar o hay que sustituir?</summary>
-        <div class="faq-ans">Depende del daño. En la mayoría de casos el grupo de presión se puede reparar: cambiamos presostato, membrana, condensador del motor o la bomba según lo que haya fallado. Si el equipo tiene más de 15 años o el coste de reparación supera el 60% del nuevo, te recomendamos sustitución y te presupuestamos ambas opciones para que decidas.</div>
+        <summary>¿Qué hago si la llave de paso no cierra y hay agua saliendo?</summary>
+        <div class="faq-ans">Llámanos de inmediato. Si la llave general no cierra, busca el contador o la llave de acometida exterior para cortar el suministro desde ahí. Si tampoco funciona, avisa a la compañía de agua para que corten en la calle. Mientras tanto, nosotros nos desplazamos y sustituimos la llave de paso en la misma visita si tenemos el material en la furgoneta.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis urgencias en bodegas durante la vendimia?</summary>
-        <div class="faq-ans">Sí. Durante la vendimia las bodegas de Monóvar necesitan agua continua para limpieza, refrigeración y procesos de elaboración. Una avería en ese momento tiene coste directo en la producción. Atendemos urgencias en bodegas con la misma prioridad que en vivienda: precio cerrado antes de empezar y reparación en la visita si hay material.</div>
+        <summary>¿Cómo actuar si el termo da señales de presión excesiva o gotea por la válvula de seguridad?</summary>
+        <div class="faq-ans">Apaga el termo y corta el agua fría de entrada. La válvula de seguridad que gotea de forma continua indica que la presión interior es demasiado alta o que la válvula está deteriorada — en ambos casos hay que revisarlo antes de seguir usando el equipo. El agua dura de la zona acumula cal en el interior del termo y acelera ese deterioro. Te diagnosticamos en la misma visita si hace falta reparar o sustituir.</div>
       </details>
     </div>
   </div>
