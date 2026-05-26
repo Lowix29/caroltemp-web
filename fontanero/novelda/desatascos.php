@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Novelda &middot; CP 03660</div>
-    <h1>Desatascos en Novelda<br><span class="hl">diagnóstico visual antes de elegir el método</span></h1>
+    <h1>Desatascos en Novelda<br><span class="hl">rápido, sin olor y precio fijo</span></h1>
     <p class="hz-dark-sub">Primero la cámara endoscópica para ver qué hay dentro, después la solución adecuada. Sonda mecánica para atascos puntuales, hidrojetting a alta presión para sarro acumulado y grasa endurecida. Sin presupuestar a ciegas.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

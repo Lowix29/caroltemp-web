@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Elda &middot; CP 03600</div>
-    <h1>Desatascos en Elda<br><span class="hl">cámara primero, precio cerrado tras el diagnóstico</span></h1>
+    <h1>Desatascos en Elda<br><span class="hl">hoy mismo y precio cerrado</span></h1>
     <p class="hz-dark-sub">Antes de actuar, metemos la cámara. Vemos qué hay y dónde está — si es grasa, raíces o sarro — y elegimos la técnica adecuada. Sin improvisar y sin cobrar por lo que no hace falta.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Petrer &middot; CP 03610</div>
-    <h1>Detección de fugas en Petrer<br><span class="hl">sin abrir hasta confirmar el punto exacto</span></h1>
+    <h1>Detección de fugas en Petrer<br><span class="hl">tecnología de precisión, sin obras innecesarias</span></h1>
     <p class="hz-dark-sub">Localizar la fuga antes de abrir paredes. Con geófono acústico y cámara de inspección encontramos el punto exacto — solo se abre donde hace falta.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
