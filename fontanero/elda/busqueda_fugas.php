@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Elda &middot; CP 03600</div>
-    <h1>Detección de fugas en Elda<br><span class="hl">sin romper paredes.</span></h1>
-    <p class="hz-dark-sub">Localizamos fugas de agua con geófono y cámara termográfica. Marcamos el punto exacto antes de abrir nada. Solo rompemos donde es necesario.</p>
+    <h1>Detección de fugas en Elda<br><span class="hl">piscinas, naves y bloques de los 70</span></h1>
+    <p class="hz-dark-sub">Fugas en circuitos industriales, piscinas comunitarias y tuberías de hierro empotradas. Geófono y termografía. Sin obras hasta saber dónde.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,9 +28,9 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128269; Geófono + cámara termográfica</span><span class="dif-lbl">Localización profesional</span></div>
-    <div class="dif-item"><span class="dif-val">Sin romper paredes</span><span class="dif-lbl">Marcamos el punto antes de actuar</span></div>
-    <div class="dif-item"><span class="dif-val">Presupuesto antes de actuar</span><span class="dif-lbl">Sabes el coste antes de empezar</span></div>
+    <div class="dif-item"><span class="dif-val">Geófono industrial</span><span class="dif-lbl">Para naves y tuberías enterradas</span></div>
+    <div class="dif-item"><span class="dif-val">Cámara termográfica</span><span class="dif-lbl">En paredes sin romper</span></div>
+    <div class="dif-item"><span class="dif-val">Detección en piscinas</span><span class="dif-lbl">Sin vaciar el vaso</span></div>
     <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados</span></div>
   </div>
 </div>
@@ -40,10 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Localización de fugas en Elda</p>
-        <h2>Fugas de agua en Elda <span class="hl">por qué son frecuentes</span></h2>
+        <h2>Fugas de agua en Elda <span class="hl">qué las provoca</span></h2>
         <div class="zona-prose">
-          <p>La <strong>detección de fugas de agua en Elda</strong> es un servicio habitual por varios motivos: las viviendas de los años 70 y 80 en los barrios industriales tienen tuberías de hierro galvanizado que ya muestran microfugas, el agua calcárea del Vinalopó deteriora juntas y conexiones, y muchas naves y talleres del sector del calzado tienen instalaciones antiguas con circuitos enterrados. Las <strong>fugas de agua en tuberías de Elda</strong> pueden estar activas semanas sin salir a la superficie.</p>
-          <p>Con geófono y <strong>cámara termográfica</strong> localizamos el punto exacto antes de abrir nada. El geófono amplifica el sonido del agua escapando bajo presión; la termografía identifica el camino de la humedad por diferencia de temperatura. El <strong>localizador de fugas de agua en Elda</strong> trabaja primero — el martillo llega solo cuando ya sabemos dónde exactamente.</p>
+          <p>Las piscinas de las urbanizaciones obreras de los años 80 en Elda pierden agua por juntas de skimmer y tuberías de recirculación que tienen 40 años. Las naves industriales del calzado tienen circuitos enterrados bajo solería de hormigón de 15-20 cm que solo el geófono puede localizar sin levantar todo. Las viviendas del casco tienen tubería de hierro que hace microfugas por corrosión — no por rotura, sino por porosidad puntual.</p>
+          <p>En los tres casos la <strong>detección de fugas de agua en Elda</strong> requiere equipos distintos y experiencia en tipos de instalación muy diferentes entre sí. Con geófono y <strong>cámara termográfica</strong> localizamos el punto exacto antes de abrir nada — el martillo llega solo cuando ya sabemos dónde exactamente.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en viviendas de Elda: tuberías empotradas</li>
@@ -184,12 +184,16 @@ include '../../includes/head.php';
         <div class="faq-ans">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Elda. La localización con geófono y cámara termográfica se incluye en el tiempo de trabajo. Una vez localizada la fuga damos presupuesto de reparación antes de abrir. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Detectáis fugas de agua en piscinas de urbanizaciones en Elda?</summary>
-        <div class="faq-ans">Sí. Las fugas de agua en piscinas de Elda son frecuentes en verano: pérdidas en la junta perimetral del vaso, en las tuberías del circuito de filtración o en la canaleta. Usamos geófono y presión para localizar el punto sin vaciar el vaso completo cuando no es necesario.</div>
+        <summary>¿Detectáis fugas en piscinas de urbanizaciones de Elda sin vaciarlas?</summary>
+        <div class="faq-ans">Sí. Las piscinas comunitarias de las urbanizaciones de Elda tienen circuitos de recirculación y juntas de skimmer con 30-40 años de antigüedad. Usamos geófono y prueba de presión para localizar la pérdida sin necesidad de vaciar el vaso completo — lo que ahorra tiempo y coste de llenado.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis detectar fugas en naves y talleres de calzado de Elda?</summary>
-        <div class="faq-ans">Sí. Trabajamos en naves industriales, talleres de fabricación de calzado y locales comerciales de Elda. Las tuberías enterradas bajo solería de hormigón se localizan con el geófono sin necesidad de levantar el suelo para encontrar el punto exacto.</div>
+        <summary>¿Trabajáis en naves industriales de calzado con producción en marcha?</summary>
+        <div class="faq-ans">Sí. Trabajamos en los polígonos de Elda con la actividad en curso siempre que la avería lo permite. Los circuitos enterrados bajo solería de hormigón de nave se localizan con el geófono sin necesidad de levantar el suelo, lo que minimiza la interrupción de la producción.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Las tuberías de hierro de los años 70 se pueden reparar parcialmente o hay que cambiar todo el tramo?</summary>
+        <div class="faq-ans">Depende del estado del tramo. El hierro galvanizado que hace microfugas por corrosión puntual puede repararse en el punto localizado — el geófono nos lleva hasta el centímetro exacto. Si la corrosión es generalizada en el tramo (habitual en viviendas de El Plá o La Canal), lo más rentable es sustituir la sección completa. Te lo decimos antes de empezar, con presupuesto cerrado para cada opción.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis fugas de agua en comunidades de vecinos en Elda?</summary>

@@ -18,8 +18,8 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Petrer &middot; CP 03610</div>
-    <h1>Fontanero en Petrer<br><span class="hl">presupuesto gratuito sin compromiso.</span></h1>
-    <p class="hz-dark-sub">Fontaneria en Petrer para urgencias, fugas, desatascos, termos y reformas. Instaladores certificados Nubeco. Precio cerrado antes de empezar.</p>
+    <h1>Fontanero en Petrer<br><span class="hl">presupuesto gratuito sin compromiso</span></h1>
+    <p class="hz-dark-sub">Fontanería en Petrer para urbanizaciones de ladera, zona industrial y casco histórico bajo el castillo. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -92,10 +92,10 @@ include '../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Por qué Petrer es exigente con la fontanería</p>
-        <h2>Ciudad industrial del calzado <span class="hl">y lo que pide a las tuberías</span></h2>
+        <h2>La ladera de Petrer <span class="hl">y lo que hace a las tuberías</span></h2>
         <div class="zona-prose">
-          <p>Petrer es una ciudad industrial conocida por su sector del calzado, contigua a Elda con la que comparte prácticamente el mismo casco urbano. Las urbanizaciones en ladera como El Monastil tienen instalaciones de fontanería sometidas a presiones irregulares por el desnivel del terreno. A esto se suma el agua dura del Vinalopó: el sarro destruye juntas, resistencias de termos y válvulas de seguridad mucho antes de lo esperado.</p>
-          <p>La <strong>fontanería en Petrer</strong> tiene su propia casuística: viviendas del parque edificado de los años 80-90 con tuberías envejecidas, piscinas comunitarias en urbanizaciones que requieren revisiones periódicas de la red hidráulica, y naves del Polígono Industrial con instalaciones de agua a presión para maquinaria de fabricación de calzado. Un fontanero que conoce Petrer sabe dónde buscar primero.</p>
+          <p>En Petrer la topografía importa. Las urbanizaciones de la ladera — El Monastil y la zona alta del castillo — tienen tuberías que suben 50, 80 o 100 metros de desnivel desde la red principal. Esa presión diferencial hace que las juntas trabajen más, que los grupos de presión se activen más veces y que una rotura en la parte alta llegue al punto más bajo antes de que nadie la vea.</p>
+          <p>El agua dura del Vinalopó afecta igual aquí que en el resto de la comarca, pero en Petrer las raíces de los árboles ornamentales plantados en las laderas hace décadas han encontrado las tuberías de saneamiento — los atascos de raíz son más frecuentes que en ciudades llanas. La <strong>fontanería en Petrer</strong> necesita entender el desnivel y las raíces.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Presiones irregulares en urbanizaciones de ladera</li>

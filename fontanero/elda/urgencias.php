@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Elda &middot; CP 03600</div>
-    <h1>Fontanero urgente en Elda<br><span class="hl">precio antes de empezar.</span></h1>
-    <p class="hz-dark-sub">Ves la avería, escuchas el precio, decides. Nada se toca sin que sepas cuánto cuesta. Atendemos casco histórico, polígonos industriales y urbanizaciones.</p>
+    <h1>Fontanero urgente en Elda<br><span class="hl">la fábrica no puede esperar</span></h1>
+    <p class="hz-dark-sub">Roturas en nave industrial, fallo de presión en taller o avería en bloque de pisos. Vemos la avería, damos precio, empezamos.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
+    <div class="dif-item"><span class="dif-val">Naves y talleres</span><span class="dif-lbl">Sin esperar al día siguiente</span></div>
     <div class="dif-item"><span class="dif-val">Avería vista, precio dado</span><span class="dif-lbl">Antes de tocar nada</span></div>
-    <div class="dif-item"><span class="dif-val">Reparación en la visita</span><span class="dif-lbl">Sin segunda cita si hay piezas</span></div>
     <div class="dif-item"><span class="dif-val">Sin letra pequeña</span><span class="dif-lbl">El precio dicho es el precio final</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero local</span><span class="dif-lbl">Conocemos Elda</span></div>
+    <div class="dif-item"><span class="dif-val">Fontanero local Elda</span><span class="dif-lbl">Conocemos cada barrio</span></div>
   </div>
 </div>
 
@@ -42,27 +42,27 @@ include '../../includes/head.php';
         <p class="zona-lbl">Cuándo llamar</p>
         <h2>Urgencias fontanero <span class="hl">en Elda</span></h2>
         <div class="zona-prose">
-          <p>En Elda las averías urgentes de fontanería más habituales son las roturas de tubería en viviendas antiguas del casco histórico —muchas aún con hierro galvanizado—, los termos que fallan por la cal acumulada del agua dura del Vinalopó, y los atascos urgentes en bajantes de edificios plurifamiliares. Si buscas un <strong>fontanero urgente en Elda</strong>, estos son los casos en los que actuamos con mayor frecuencia:</p>
+          <p>En Elda las urgencias de fontanería tienen dos caras muy distintas. En las naves industriales de calzado un fallo de presión para la línea de producción — cada hora cuenta. En los bloques de los años 70 del centro o El Plá una rotura en tubería de hierro oxida el suministro completo del edificio en horas. Buscas un <strong>fontanero urgente en Elda</strong> porque no puedes esperar — y nosotros tampoco hacemos esperar.</p>
         </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura de tubería con agua saliendo sin control</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua urgentes en tuberías empotradas de hierro galvanizado</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Avería de fontanería en taller o nave del sector del calzado</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador o termo que deja de funcionar de repente</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso atascada que no cierra el agua</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inodoro, ducha o fregadero inutilizados por atasco urgente</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tubería de hierro reventada en bloque de los años 70</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pérdida de presión en circuito de nave industrial</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión del edificio sin arrancar</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador colectivo averiado en bloque de pisos</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso que no corta el suministro</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fuga en vestuario de fábrica o taller</li>
         </ul>
       </div>
       <div>
         <div class="icard">
-          <div class="icard-head">¿Es una urgencia? Señales claras</div>
+          <div class="icard-head">¿Es urgencia en Elda? Lo es si...</div>
           <div class="icard-body">
-            <div class="icard-row"><span class="icard-icon">💧</span><span>Agua saliendo y no puedes cerrar la llave de paso</span></div>
-            <div class="icard-row"><span class="icard-icon">🔥</span><span>Sin agua caliente y hay personas dependientes en casa</span></div>
-            <div class="icard-row"><span class="icard-icon">💦</span><span>Fuga visible que está mojando paredes o techo</span></div>
-            <div class="icard-row"><span class="icard-icon">🚽</span><span>El baño está completamente inutilizado</span></div>
-            <div class="icard-row"><span class="icard-icon">🏭</span><span>Avería de fontanería que paraliza un taller o nave industrial</span></div>
-            <div class="icard-row"><span class="icard-icon">🏚️</span><span>Humedad apareciendo rápidamente en una pared</span></div>
+            <div class="icard-row"><span class="icard-icon">🏭</span><span>La fábrica o el taller está parado por un fallo de agua</span></div>
+            <div class="icard-row"><span class="icard-icon">💧</span><span>Presión cero en todo el bloque de pisos</span></div>
+            <div class="icard-row"><span class="icard-icon">💦</span><span>Agua saliendo por el techo del local de abajo</span></div>
+            <div class="icard-row"><span class="icard-icon">🔥</span><span>La caldera comunitaria se ha quedado sin agua</span></div>
+            <div class="icard-row"><span class="icard-icon">🚰</span><span>La llave de paso no corta y hay fuga activa</span></div>
+            <div class="icard-row"><span class="icard-icon">🏗️</span><span>Tubería de hierro reventada con agua corriendo libre</span></div>
           </div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
@@ -74,37 +74,37 @@ include '../../includes/head.php';
 <section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
     <p class="zona-lbl">Qué reparamos</p>
-    <h2>Averías urgentes <span class="hl">en Elda</span></h2>
+    <h2>Averías urgentes <span class="hl">en Elda por tipo</span></h2>
     <div class="zona-grid-6">
       <div class="zona-tipo">
-        <div class="zona-tipo-ico">💧</div>
-        <h3>Fugas de agua urgentes</h3>
-        <p>Fugas de agua urgentes en tuberías de viviendas y locales en Elda. Las tuberías de hierro galvanizado del casco histórico son especialmente propensas. Localizamos y cerramos el escape antes de que cause daños en estructura o acabados.</p>
+        <div class="zona-tipo-ico">🏭</div>
+        <h3>Naves de calzado sin presión</h3>
+        <p>Un fallo de presión en el circuito de una nave industrial para la producción. En los polígonos de Elda cada hora perdida tiene coste real. Acudimos, localizamos el origen del fallo y damos precio antes de tocar nada.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🔩</div>
-        <h3>Roturas de tubería</h3>
-        <p>Rotura de tubería empotrada o vista con agua a presión. En Elda es habitual en instalaciones antiguas del casco histórico. Cortamos el paso, evaluamos el daño y presupuestamos la reparación antes de abrir ninguna pared.</p>
+        <h3>Tuberías de hierro reventadas</h3>
+        <p>Los bloques de los años 70 en barrios como El Plá o La Canal tienen hierro galvanizado que rompe sin avisar. Una sola rotura puede dejar sin agua a todo el edificio y oxidar el suministro completo en horas.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🔥</div>
-        <h3>Calentadores y termos</h3>
-        <p>Termo sin agua caliente, calentador que no enciende o caldera que falla. El agua dura del Vinalopó acelera el deterioro de resistencias y válvulas de seguridad — en Elda es una de las urgencias más frecuentes.</p>
-      </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">🏭</div>
-        <h3>Averías en naves del calzado</h3>
-        <p>Fontanero urgente en Elda para talleres y naves industriales del sector del calzado: roturas en redes de agua, grupos de presión parados y atascos en arquetas con residuos industriales. Misma norma: precio antes de empezar.</p>
+        <h3>Caldera y calentador colectivo</h3>
+        <p>Caldera comunitaria sin agua o calentador colectivo averiado en bloque de pisos. El agua dura del Vinalopó deteriora resistencias y válvulas antes de lo esperado — en Elda es una de las urgencias más frecuentes.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🚰</div>
-        <h3>Llaves de paso y válvulas</h3>
-        <p>Llave de paso que no cierra, válvula de corte atascada o rotura de contador. Situaciones que impiden cortar el suministro en caso de emergencia. Especialmente frecuente en viviendas antiguas de Elda con llaves de paso originales.</p>
+        <h3>Grupo de presión del edificio</h3>
+        <p>Grupo de presión parado o que no arranca: presión cero en todo el bloque. Habitual en edificios de los años 70-80 de Elda con equipos originales. Diagnosticamos y presupuestamos en la misma visita.</p>
       </div>
       <div class="zona-tipo">
-        <div class="zona-tipo-ico">🏢</div>
-        <h3>Comunidades y locales</h3>
-        <p>Urgencias en zonas comunes, locales comerciales y comunidades de vecinos en Elda. Mismo proceso: presupuesto antes de empezar, sin tarifas distintas por tipo de inmueble. La <strong>avería de fontanería en Elda</strong> se resuelve en una visita.</p>
+        <div class="zona-tipo-ico">💧</div>
+        <h3>Fugas en vestuarios de fábrica</h3>
+        <p>Los vestuarios de producción de talleres y naves de calzado de Elda tienen instalaciones que acumulan cal y años sin mantenimiento. Una fuga activa en vestuario puede afectar a la planta de producción adyacente.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏊</div>
+        <h3>Piscinas de urbanizaciones</h3>
+        <p>Urgencias en piscinas comunitarias de urbanizaciones obreras de Elda: rotura de circuito de recirculación, fallo de bomba o pérdida brusca de nivel. Actuamos con precio cerrado antes de empezar.</p>
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@ include '../../includes/head.php';
 <section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Sin sorpresas</p>
-    <h2>Qué pasa <span class="hl">cuando llamas</span></h2>
+    <h2>Qué pasa <span class="hl">cuando llamas en Elda</span></h2>
     <div class="zona-steps">
       <div class="zona-step">
         <div class="zona-step-n">1</div>
@@ -193,6 +193,10 @@ include '../../includes/head.php';
       <details class="zona-faq-item">
         <summary>¿Reparáis termos averiados como urgencia en Elda?</summary>
         <div class="faq-ans">Sí. El termo averiado es una de las urgencias más frecuentes en Elda por la dureza del agua del Vinalopó. Revisamos resistencia, válvula de seguridad y depósito. Si la pieza está en la furgoneta, lo resolvemos en la misma visita. Si hay que sustituir el equipo, te informamos del precio antes de tocar nada.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Cuánto tarda en llegar un fontanero urgente a la zona industrial de Elda?</summary>
+        <div class="faq-ans">El tiempo de llegada a los polígonos industriales de Elda depende de la carga de trabajo del momento. Al llamar te damos una estimación real antes de comprometerte. Si la fábrica está parada por un fallo de agua, indícalo explícitamente — es una urgencia con impacto económico directo y la priorizamos por encima de otras llamadas en cola.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Hay recargo por trabajar de noche, fin de semana o festivos en Elda?</summary>

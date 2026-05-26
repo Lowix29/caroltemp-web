@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Sax &middot; CP 03630</div>
-    <h1>Desatascos en Sax<br><span class="hl">bajantes, arquetas e inodoros.</span></h1>
-    <p class="hz-dark-sub">Diagnóstico con cámara endoscópica. Sabemos qué está atascado y dónde antes de presupuestar. Precio cerrado antes de empezar.</p>
+    <h1>Desatascos en Sax<br><span class="hl">alcantarillado antiguo bajo el castillo</span></h1>
+    <p class="hz-dark-sub">Las bajantes antiguas del casco histórico de Sax acumulan sarro durante décadas. Cámara endoscópica antes de actuar, precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,10 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Sax</p>
-        <h2>Atascos habituales <span class="hl">en Sax</span></h2>
+        <h2>Atascos en Sax <span class="hl">el casco histórico los concentra</span></h2>
         <div class="zona-prose">
-          <p>En Sax el agua dura del Vinalopó favorece la acumulación de sarro en el interior de los desagüe, lo que reduce su diámetro y facilita que la grasa y los residuos queden atrapados. En el casco histórico, las tuberías de saneamiento antiguas tienen irregularidades que retienen residuos con más facilidad. Un desatasco en Sax hecho con productos químicos suele ser temporal si no se resuelve la causa.</p>
-          <p>Antes de actuar introducimos una <strong>cámara endoscópica</strong> que muestra en directo el tipo de obstrucción y su posición exacta. El presupuesto es concreto: sabes qué se va a hacer y cuánto cuesta antes de empezar.</p>
+          <p>En Sax los atascos más persistentes están en el casco histórico: bajantes de cerámica o hierro de décadas que han reducido su diámetro interior a la mitad por sarro y grasa acumulada. En estas condiciones cualquier residuo sólido provoca un tapón. La cámara endoscópica en un desatasco de Sax permite ver exactamente qué tipo de obstrucción hay y hasta dónde llega, antes de elegir entre hidrojetting, sonda o una combinación de ambos. En las viviendas unifamiliares de la periferia, las arquetas de jardín y los colectores exteriores son el punto débil — raíces y barro los colmatan sin que se note hasta que desbordan.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro en Sax que no desagua</li>
@@ -180,24 +179,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Sax <span class="hl">— dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta un desatasco en Sax?</summary>
-        <div class="faq-ans">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Sax. El diagnóstico con cámara endoscópica va incluido en el tiempo de trabajo. El presupuesto exacto se da tras ver el atasco con la cámara, antes de empezar. Hay recargos para servicios nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+        <summary>¿Trabajáis en bajantes antiguas de cerámica del casco histórico de Sax sin dañarlas?</summary>
+        <div class="faq-ans">Sí. Las bajantes de cerámica son frágiles y no admiten presiones excesivas. Antes de actuar la cámara endoscópica nos indica el estado del conducto y qué técnica usar. Para bajantes muy antiguas en el casco de Sax combinamos sonda mecánica suave e hidrojetting a presión regulada — suficiente para limpiar sin comprometer la cerámica.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿El sarro del agua de Sax provoca atascos?</summary>
-        <div class="faq-ans">Sí, de forma indirecta. El sarro reduce el diámetro interior de los desagüe, haciendo que la grasa y los residuos queden atrapados con más facilidad. En Sax es habitual encontrar atascos mixtos de grasa y sarro que solo ceden con hidrojetting a presión, no con productos químicos.</div>
+        <summary>¿Podéis desatascar arquetas exteriores en viviendas unifamiliares de Sax?</summary>
+        <div class="faq-ans">Sí. Es uno de los trabajos más frecuentes en las casas unifamiliares de Sax: arquetas de jardín y colectores exteriores colmatados por raíces, barro y hojas. Los limpiamos con bomba de presión, revisamos las paredes de la arqueta por si hay grietas y verificamos que el desagüe corre libre hasta el colector municipal.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis casas unifamiliares con jardín en Sax?</summary>
-        <div class="faq-ans">Sí. Atendemos desatascos en viviendas unifamiliares de Sax, incluyendo colectores exteriores, arquetas de parcela y sifones de jardín. Trabajamos sin dañar el pavimento ni la vegetación.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Atendéis comunidades de vecinos en Sax?</summary>
-        <div class="faq-ans">Sí. Para comunidades ofrecemos revisión y limpieza de bajante general, colectores y arquetas comunitarias. Coordinamos con el administrador y trabajamos con el menor impacto posible para los vecinos.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Usáis cámara endoscópica en todos los desatascos de Sax?</summary>
-        <div class="faq-ans">Sí, siempre que el acceso lo permite. La cámara nos dice exactamente qué hay y dónde — así la técnica y el presupuesto son precisos. Para atascos muy simples la cámara sirve también para verificar que el conducto queda completamente libre al terminar.</div>
+        <summary>¿Cuánto dura el efecto del desatasco en una bajante muy antigua?</summary>
+        <div class="faq-ans">Depende del estado del conducto. Si la bajante de cerámica o hierro tiene el diámetro muy reducido por sarro, el efecto puede durar menos de lo esperado. En ese caso lo decimos claramente antes de empezar: si la bajante necesita sustitución, es mejor saberlo desde el principio. El diagnóstico con cámara en Sax sirve exactamente para eso.</div>
       </details>
     </div>
   </div>

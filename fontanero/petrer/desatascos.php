@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Petrer &middot; CP 03610</div>
-    <h1>Desatascos en Petrer<br><span class="hl">hoy mismo.</span></h1>
-    <p class="hz-dark-sub">Atendemos tu avería ahora, sin esperas ni sorpresas en el presupuesto</p>
+    <h1>Desatascos en Petrer<br><span class="hl">raíces en ladera y colectores antiguos</span></h1>
+    <p class="hz-dark-sub">Las raíces de los árboles en ladera encuentran las tuberías de saneamiento antes en Petrer que en cualquier ciudad llana. Cámara endoscópica antes de actuar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Petrer</p>
-        <h2>Desatascos en <span class="hl">Petrer</span></h2>
-        <div class="zona-prose"><p>Los atascos en Petrer son frecuentes en comunidades de vecinos de los 80-90 y en viviendas con instalaciones antiguas de marroquinerías reconvertidas. En CarolTemp resolvemos el problema el mismo día con presupuesto cerrado antes de empezar.</p></div>
+        <h2>Atascos en Petrer <span class="hl">las raíces y la pendiente</span></h2>
+        <div class="zona-prose"><p>En Petrer los atascos de raíces son especialmente frecuentes. Los árboles plantados en las urbanizaciones de ladera hace 30-40 años han extendido sus raíces buscando humedad — y la han encontrado en los colectores de saneamiento. Las raíces que entran por una junta mal sellada crecen dentro de la tubería hasta bloquearla completamente. La cámara endoscópica en un desatasco de Petrer no es opcional: es la única forma de saber si el tapón es grasa (hidrojetting), raíces (cuchilla rotativa) o barro (aspiración).</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascos urgentes en comunidades</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de bajantes y arquetas</li>
@@ -92,20 +92,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Petrer &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta un desatasco en Petrer?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Depende del tipo de atasco y accesibilidad. Te damos presupuesto claro por teléfono o en la visita, antes de empezar cualquier trabajo.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo eliminais raíces de los colectores en las urbanizaciones de Petrer?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Primero pasamos la cámara endoscópica para confirmar que es raíces y ver la extensión. Después usamos cuchilla rotativa para cortar y extraer la masa de raíces. En casos graves, el hidrojetting a alta presión limpia el interior de la tubería. Todo con presupuesto previo y sin abrir zanjas innecesarias.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Venís el mismo día si el desagüe está totalmente atascado?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Atendemos urgencias el mismo día en Petrer. Llama al 611 165 129 y coordinamos la visita lo antes posible.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Las raíces vuelven a entrar después del desatasco?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Si la junta de entrada sigue sin sellarse correctamente, sí. Después de eliminar las raíces, valoramos si la junta o el tramo dañado necesitan reparación definitiva. En colectores de ladera con acceso difícil usamos manga de rehabilitación sin obra para sellar el punto de entrada sin excavar.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué incluye el servicio de desatasco?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Desplazamiento, diagnóstico, desatasco con máquina o cable según convenga, y limpieza de la zona. Si hace falta cámara, te avisamos antes.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis desatascar bajantes en comunidades de Petrer?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí, trabajamos en comunidades de vecinos. Coordinamos con el administrador o presidente para intervenir en arquetas y bajantes comunes sin problema.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿La pendiente de los colectores en ladera ayuda o dificulta el desatasco?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Depende. La pendiente natural de los colectores en ladera ayuda a que los residuos fluyan más rápido, lo que en principio dificulta la acumulación de grasa. Pero cuando las raíces crean un tapón, la pendiente hace que el agua se acumule con más presión justo detrás del bloqueo — lo que puede forzar juntas y aumentar el daño. Por eso la cámara va siempre primero.</div>
       </div>
     </div>
   </div>

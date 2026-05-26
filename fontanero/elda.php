@@ -18,8 +18,8 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Elda &middot; CP 03600</div>
-    <h1>Fontanero en Elda<br><span class="hl">presupuesto gratuito sin compromiso.</span></h1>
-    <p class="hz-dark-sub">Fontanería en Elda para urgencias, fugas, desatascos, termos y reformas. Atendemos viviendas del casco histórico, talleres del calzado y naves industriales. Instaladores certificados Nubeco. Precio cerrado antes de empezar.</p>
+    <h1>Fontanero en Elda<br><span class="hl">presupuesto gratuito sin compromiso</span></h1>
+    <p class="hz-dark-sub">Fontanería industrial y residencial en Elda. Naves, talleres, bloques de pisos y urbanizaciones. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,7 +40,7 @@ include '../includes/head.php';
 <section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Servicios de fontanería en Elda</p>
-    <h2>¿Qué necesitas? <span class="hl">Te cubrimos.</span></h2>
+    <h2>¿Qué necesitas en Elda? <span class="hl">Te cubrimos.</span></h2>
     <div class="zona-svc" style="margin-top:2rem">
 
       <a href="/fontanero/elda/urgencias" class="zona-sc">
@@ -92,10 +92,10 @@ include '../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Por qué Elda es exigente con la fontanería</p>
-        <h2>Industria del calzado, casco antiguo <span class="hl">y agua dura del Vinalopó</span></h2>
+        <h2>El agua del Vinalopó <span class="hl">y las tuberías de hierro de los 70</span></h2>
         <div class="zona-prose">
-          <p>Elda concentra varios factores que hacen que la <strong>fontanería en Elda</strong> sea especialmente compleja. El casco histórico tiene un parque de viviendas con tuberías de hierro galvanizado de décadas de antigüedad: corrosión interna, presión irregular y microfugas que se filtran durante semanas antes de aparecer en superficie. La alta densidad de edificación hace que una fuga en bajante afecte con rapidez a varios pisos vecinos.</p>
-          <p>Por otro lado, Elda es la capital del calzado en España: cientos de talleres y naves industriales tienen instalaciones de fontanería complejas —vestuarios, redes de agua caliente industrial, arquetas con residuos específicos— que requieren atención especializada. Las urbanizaciones de los años 70 y 80 añaden piscinas con circuitos de recirculación envejecidos. Los <strong>fontaneros en Elda</strong> que conocemos la ciudad sabemos dónde mirar primero y qué tipo de avería es más probable en cada zona.</p>
+          <p>El agua dura del Vinalopó combinada con tuberías de hierro galvanizado de décadas provoca microfugas antes de lo esperado. En Elda el stock de edificios de los años 70-80 en barrios como El Plá o La Canal tiene instalaciones que empiezan a dar problemas simultáneamente: corrosión interna, presión irregular y filtraciones que pueden llevar semanas activas antes de aparecer en superficie. La alta densidad de edificación hace que una sola fuga en bajante afecte con rapidez a varios pisos vecinos.</p>
+          <p>Las naves industriales del sector del calzado tienen instalaciones de agua independientes — circuitos de refrigeración, compresores y vestuarios de producción — que no están pensadas para mucho mantenimiento y acumulan años de cal. Un fontanero en Elda que solo atiende viviendas deja fuera la mitad del parque inmobiliario. Nosotros cubrimos los dos mundos: el bloque de los años 70 y la nave del polígono.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tuberías de hierro galvanizado en viviendas antiguas del casco histórico</li>

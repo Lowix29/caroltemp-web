@@ -18,8 +18,8 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Sax &middot; CP 03630</div>
-    <h1>Fontanero en Sax<br><span class="hl">presupuesto gratuito sin compromiso.</span></h1>
-    <p class="hz-dark-sub">Fontanería en Sax para urgencias, fugas, desatascos, termos y reformas. Atendemos el casco histórico junto al castillo árabe y las viviendas unifamiliares a orillas del Vinalopó. Instaladores certificados Nubeco. Precio cerrado antes de empezar.</p>
+    <h1>Fontanero en Sax<br><span class="hl">presupuesto gratuito sin compromiso</span></h1>
+    <p class="hz-dark-sub">Fontanería en Sax para el casco histórico bajo el castillo, viviendas unifamiliares y fincas de la periferia. Servicio que no depende del turno de guardia municipal.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -92,10 +92,10 @@ include '../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Por qué Sax es exigente con la fontanería</p>
-        <h2>El agua dura del Vinalopó <span class="hl">y lo que hace a tus tuberías en Sax</span></h2>
+        <h2>El agua en Sax <span class="hl">el Vinalopó al lado pero el sarro igual de duro</span></h2>
         <div class="zona-prose">
-          <p>Sax, a orillas del río Vinalopó y bajo la mirada del castillo árabe que domina la localidad, comparte con el resto de municipios de la comarca una dureza del agua especialmente elevada. El sarro se acumula en el interior de termos y calentadores, reduce el caudal en tuberías de pequeño diámetro y deteriora las juntas de latón mucho antes de lo esperado. En las viviendas del casco histórico compacto, con edificaciones antiguas, las tuberías de hierro galvanizado son habituales y el problema se agrava.</p>
-          <p>La <strong>fontanería en Sax</strong> tiene demandas específicas: las urgencias por termo averiado son proporcionalmente más frecuentes que en zonas con agua blanda, y las fugas de agua en calefacción y tuberías empotradas aparecen antes porque las juntas se resecan con la cal. Las fincas agrícolas de la periferia también presentan averías habituales en grupos de presión y acometidas exteriores. Un descalcificador bien dimensionado es la mejor inversión para cualquier vivienda en Sax.</p>
+          <p>Sax está junto al río Vinalopó pero el agua de red es igual de calcárea que en el resto de la comarca. El sarro destruye termos y calentadores, reduce el caudal en tuberías de pequeño diámetro y provoca que las juntas fallen antes de lo que debería. En el casco histórico de Sax, donde muchas viviendas tienen tuberías que no han sido sustituidas desde la construcción, es habitual encontrar instalaciones de hierro o incluso plomo que llevan décadas en servicio.</p>
+          <p>En un municipio de tamaño medio como Sax el servicio de guardia municipal de fontanería no siempre responde con la rapidez que se necesita en una urgencia real. Por eso muchos vecinos de Sax buscan fontanero privado: precio cerrado, llegada rápida, sin depender del turno de guardia ni de la lista de espera del ayuntamiento.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Termos que duran menos por la cal del agua del Vinalopó</li>

@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Monóvar &middot; CP 03640</div>
-    <h1>Desatascos en Monóvar<br><span class="hl">hoy mismo, sin esperas.</span></h1>
-    <p class="hz-dark-sub">Resolvemos atascos en fincas rurales, casas del casco antiguo y chalets con instalaciones propias.</p>
+    <h1>Desatascos en Monóvar<br><span class="hl">fosas sépticas, bodegas y casas rurales</span></h1>
+    <p class="hz-dark-sub">En Monóvar muchas fincas tienen fosa séptica, no red de alcantarillado. Cuando se colapsa, no hay alternativa. Cámara y precio antes de actuar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Monóvar</p>
-        <h2>Desatascos en <span class="hl">Monóvar</span></h2>
-        <div class="zona-prose"><p>En Monóvar los atascos combinan dos problemas: el agua dura del interior obstruye tuberías con cal, y las viviendas rurales con pozos propios acumulan sedimentos que taponan desagües. En el casco antiguo, las bajantes de hierro antiguas se corroen por dentro y retienen residuos.</p></div>
+        <h2>Atascos en Monóvar <span class="hl">el campo tiene sus propias reglas</span></h2>
+        <div class="zona-prose"><p>En Monóvar el problema de saneamiento más habitual en finca no es el atasco de bajante urbano — es la fosa séptica que lleva años sin vaciado y acaba colapsando en el peor momento (vendimia, verano, visita familiar). Las casas del casco histórico tienen bajantes de hierro o cerámica que acumulan sarro y grasa desde hace décadas. En las bodegas, los residuos de la elaboración del vino — bitartrato, lías, restos de uva — crean tapones específicos que los productos químicos no disuelven.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascos en fincas rurales con pozos</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascar bajantes en casco urbano antiguo</li>
@@ -92,20 +92,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Monóvar &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta un desatasco en Monóvar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Depende del tipo de atasco y accesibilidad. Un desatasco sencillo en vivienda desde 80-100 €. En fincas rurales con arquetas enterradas o instalaciones complejas puede costar más. Damos presupuesto gratuito sin compromiso antes de empezar.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Hacéis vaciado y desatasco de fosas sépticas en fincas de Monóvar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. En las fincas de Monóvar que no tienen acceso a red de alcantarillado, la fosa séptica es la única solución de saneamiento. Cuando se colapsa — normalmente por falta de vaciado periódico o por el colapso del campo de absorción — no hay alternativa: hay que intervenir. Inspeccionamos con cámara antes de actuar y te damos el presupuesto completo antes de empezar.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué incluye el servicio de desatasco?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Incluye desplazamiento, diagnóstico, desatasco con máquina profesional y limpieza básica de la zona. Si hace falta cámara de inspección o localización con geófono, se presupuesta aparte. Te explicamos qué hay que hacer antes de tocar nada.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Atendéis bodegas con problemas de desagüe durante la vendimia?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Durante la vendimia los desagües de bodega trabajan al límite: restos de uva, lías y mosto se acumulan en sumideros y colectores y pueden generar tapones en cuestión de horas. Atendemos urgencias en bodegas con la misma prioridad que en vivienda. Avisad indicando el tipo de instalación para llevar el equipo adecuado.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Atendéis urgencias el mismo día en Monóvar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Si llamas por la mañana, normalmente llegamos el mismo día. En fincas alejadas del casco urbano puede retrasarse una o dos horas más por el desplazamiento. Priorizamos urgencias con desbordamiento o viviendas sin uso de agua.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo evito atascos futuros si tengo pozo propio?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Instala filtros de sedimentos en la salida del pozo y revisa las arquetas cada 6-8 meses. Si el agua arrastra mucha tierra, conviene poner decantador antes de entrar a la vivienda. Evita tirar grasas por el fregadero: con cal y sedimentos se solidifican rápido.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El vino y los residuos de elaboración pueden causar atascos en Monóvar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí, y son atascos difíciles de resolver con productos químicos convencionales. El bitartrato (tartrato potásico) se cristaliza en las paredes de la tubería y forma depósitos duros que reducen progresivamente el diámetro útil. Las lías y los restos de hollejo se compactan en codos y arquetas. Para estos casos usamos hidrojeteado a presión y, si hace falta, cámara para confirmar el estado interior de la tubería.</div>
       </div>
     </div>
   </div>

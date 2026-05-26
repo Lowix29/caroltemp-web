@@ -18,7 +18,7 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Monforte del Cid &middot; CP 03670</div>
-    <h1>Fontanero en Monforte del Cid<br><span class="hl">presupuesto gratuito sin compromiso.</span></h1>
+    <h1>Fontanero en Monforte del Cid<br><span class="hl">presupuesto gratuito sin compromiso</span></h1>
     <p class="hz-dark-sub">Fontanería en Monforte del Cid para urgencias, fugas, desatascos, termos y reformas. Instaladores certificados Nubeco. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

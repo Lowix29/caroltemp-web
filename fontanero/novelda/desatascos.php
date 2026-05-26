@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Novelda &middot; CP 03660</div>
-    <h1>Desatascos en Novelda<br><span class="hl">hoy mismo.</span></h1>
-    <p class="hz-dark-sub">Arquetas, bajantes y tuberías. Centro histórico, naves de mármol y fincas agrícolas</p>
+    <h1>Desatascos en Novelda<br><span class="hl">polvo de mármol, grasa de hotel y sarro</span></h1>
+    <p class="hz-dark-sub">El polvo de piedra y el sarro del agua forman tapones que los productos químicos no disuelven. Cámara endoscópica e hidrojetting antes de presupuestar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Novelda</p>
-        <h2>Desatascos en <span class="hl">Novelda</span></h2>
-        <div class="zona-prose"><p>En Novelda atendemos atascos en viviendas del centro antiguo con tuberías de diámetro reducido, naves industriales del sector mármol con instalaciones de gran calibre, y fincas agrícolas con pozos y depósitos propios. Te damos presupuesto sin sorpresas antes de empezar cualquier trabajo.</p></div>
+        <h2>Atascos en Novelda <span class="hl">tres causas, tres soluciones</span></h2>
+        <div class="zona-prose"><p>En las naves de mármol el polvo de piedra en suspensión entra por los desagüe de suelo y se mezcla con el sarro del agua dura formando concreciones casi tan duras como la piedra misma — solo el hidrojetting a alta presión las disuelve. En los hoteles del centro la cocina industrial genera grasas cocinadas a temperaturas que las endurecen en la bajante. En las viviendas del centro histórico el sarro de décadas ha reducido el diámetro de las bajantes de hierro a la mitad — cualquier residuo provoca atasco.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de bajantes en edificios antiguos</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de arquetas en naves industriales</li>
@@ -92,20 +92,20 @@ include '../../includes/head.php';
     <h2>Desatascos en Novelda &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Trabajáis en naves industriales con polvo de mármol en los desagüe?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Las naves de corte de mármol generan polvo de piedra que entra en los desagüe de suelo y forma concreciones muy duras. Los productos químicos no las disuelven — hace falta hidrojetting a alta presión. Llevamos el equipo adecuado y trabajamos en horario de producción si es necesario.</div>
+      </div>
+      <div class="zona-fi">
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Hacéis mantenimiento preventivo para hoteles en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Los hoteles con cocina industrial acumulan grasa endurecida en las bajantes — la limpieza periódica con hidrojetting evita la obstrucción total en el peor momento. Podemos programar visitas de mantenimiento con el mínimo impacto para la actividad del hotel.</div>
+      </div>
+      <div class="zona-fi">
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Puede el polvo de corte de piedra causar atascos permanentes en la bajante?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. El polvo de mármol en suspensión se combina con el sarro del agua dura del Vinalopó y forma depósitos que se calcifican progresivamente. Si la bajante lleva años sin limpieza, puede llegar a quedar inutilizada. La cámara endoscópica nos dice el estado real antes de presupuestar.</div>
+      </div>
+      <div class="zona-fi">
         <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta un desatasco en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
         <div class="zona-fia">Depende del tipo de atasco y la instalación. Te damos presupuesto claro por teléfono o después de inspeccionar, antes de empezar el trabajo. Sin cobros ocultos.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto tardáis en venir a un desatasco urgente?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Salimos el mismo día si es urgente. Cubrimos Novelda desde Elda en menos de 15 minutos. Llámanos al 611 165 129 y coordinamos la visita.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué incluye el servicio de desatasco?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Desplazamiento, inspección, desatasco con equipos profesionales y limpieza de la zona de trabajo. Si hace falta cámara para localizar el punto exacto, te lo indicamos antes en el presupuesto.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Atendéis desatascos en naves industriales o solo en casas?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Atendemos viviendas, naves industriales del sector mármol y fincas agrícolas. Tenemos equipos de presión y cámara para instalaciones de cualquier calibre.</div>
       </div>
     </div>
   </div>

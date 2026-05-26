@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Elda &middot; CP 03600</div>
-    <h1>Desatascos en Elda<br><span class="hl">bajantes, arquetas e inodoros.</span></h1>
-    <p class="hz-dark-sub">Diagnóstico con cámara endoscópica. Sabemos qué está atascado y dónde antes de presupuestar. Precio cerrado antes de empezar.</p>
+    <h1>Desatascos en Elda<br><span class="hl">talleres, bloques y comunidades</span></h1>
+    <p class="hz-dark-sub">El taller tira disolventes. El bloque de pisos, grasa. La arqueta comunitaria, de todo. Cada atasco pide una técnica distinta.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128247; Cámara endoscópica</span><span class="dif-lbl">Vemos el atasco antes de actuar</span></div>
-    <div class="dif-item"><span class="dif-val">Precio cerrado antes de empezar</span><span class="dif-lbl">Sin sorpresas al terminar</span></div>
+    <div class="dif-item"><span class="dif-val">Cámara endoscópica</span><span class="dif-lbl">Vemos el atasco antes de actuar</span></div>
+    <div class="dif-item"><span class="dif-val">Hidrojetting profesional</span><span class="dif-lbl">Para grasa industrial y sarro</span></div>
     <div class="dif-item"><span class="dif-val">Sin suciedad ni daños</span><span class="dif-lbl">Trabajo limpio garantizado</span></div>
-    <div class="dif-item"><span class="dif-val">Bajantes, arquetas e inodoros</span><span class="dif-lbl">Todo tipo de atascos</span></div>
+    <div class="dif-item"><span class="dif-val">Talleres, bloques y comunidades</span><span class="dif-lbl">Todo tipo de atascos en Elda</span></div>
   </div>
 </div>
 
@@ -40,10 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Elda</p>
-        <h2>Atascos habituales <span class="hl">en Elda</span></h2>
+        <h2>Atascos en Elda <span class="hl">cada tipo tiene su causa</span></h2>
         <div class="zona-prose">
-          <p>En Elda la combinación de agua calcárea y edificios con tuberías de los años 70-80 genera atascos frecuentes y difíciles. El sarro reduce el diámetro interior de los desagüe, la grasa de cocina se pega con facilidad y en talleres de calzado los residuos industriales pueden solidificar en los sifones. Un desatasco en Elda hecho con productos químicos suele ser temporal.</p>
-          <p>Antes de actuar introducimos una <strong>cámara endoscópica</strong> que muestra el tipo de obstrucción y su posición exacta en el conducto. El presupuesto es concreto: sabes qué se va a hacer y cuánto cuesta antes de empezar. Ni más ni menos.</p>
+          <p>En los talleres de calzado de Elda los sifones acumulan disolventes, pigmentos y colas que se solidifican a temperatura ambiente. En los bloques de los años 70 la grasa de 50 años de cocinas acumula capas en bajantes de hierro que ya tienen el diámetro reducido por sarro. Las comunidades con muchos vecinos tienen atascos recurrentes en la arqueta general — señal de que la bajante necesita limpieza preventiva, no solo desatasco puntual.</p>
+          <p>Antes de actuar introducimos una <strong>cámara endoscópica</strong> que muestra el tipo de obstrucción y su posición exacta. El presupuesto es concreto: sabes qué técnica vamos a usar y cuánto cuesta antes de empezar. Ni más ni menos.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro en Elda que no desagua</li>
@@ -184,16 +184,16 @@ include '../../includes/head.php';
         <div class="faq-ans">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Elda. El diagnóstico con cámara endoscópica va incluido en el tiempo de trabajo. El presupuesto exacto se da tras ver el atasco con la cámara, antes de empezar. Hay recargos para servicios nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis desatascar talleres y locales industriales en Elda?</summary>
-        <div class="faq-ans">Sí. Trabajamos en talleres de fabricación de calzado, naves industriales y locales comerciales de Elda. Los residuos de producción pueden solidificarse en los sifones. La cámara endoscópica nos indica qué tipo de tapón hay para llevar el equipo correcto.</div>
+        <summary>¿Podéis desatascar talleres con residuos industriales del calzado en Elda?</summary>
+        <div class="faq-ans">Sí. Trabajamos en talleres de fabricación de calzado, naves industriales y locales comerciales de Elda. Los disolventes, pigmentos y colas del sector se solidifican en los sifones formando tapones compactos que los productos químicos habituales no disuelven. Con cámara endoscópica identificamos el tipo exacto de obstrucción y usamos hidrojetting a la presión adecuada para no dañar la tubería.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿El sarro del agua de Elda provoca atascos?</summary>
-        <div class="faq-ans">Sí, de forma indirecta. El sarro reduce el diámetro interior de los desagüe, haciendo que la grasa y los residuos queden atrapados con más facilidad. En Elda es habitual encontrar atascos mixtos de grasa y sarro que solo ceden con hidrojetting a presión.</div>
+        <summary>¿Las bajantes de hierro de los años 70 en Elda se pueden limpiar sin sustituirlas?</summary>
+        <div class="faq-ans">En muchos casos sí. El hidrojetting a presión controlada desprende el sarro y la grasa acumulados sin dañar el hierro si la tubería no tiene corrosión severa. La cámara endoscópica nos indica el estado real del conducto antes de actuar: si hay corrosión avanzada que comprometa la bajante, te lo decimos con presupuesto de sustitución parcial. Nunca presuponemos que hay que cambiar todo antes de mirarlo.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis comunidades de vecinos en Elda?</summary>
-        <div class="faq-ans">Sí. Para comunidades ofrecemos revisión y limpieza de bajante general, colectores y arquetas comunitarias. Coordinamos con el administrador de la finca y trabajamos con el menor impacto posible para los vecinos. También hacemos mantenimiento preventivo para evitar atascos recurrentes.</div>
+        <summary>¿Hacéis mantenimiento preventivo de bajantes para comunidades en Elda?</summary>
+        <div class="faq-ans">Sí. Para comunidades de vecinos en Elda ofrecemos revisión periódica y limpieza preventiva de bajante general, colectores y arquetas comunitarias. Los atascos recurrentes en arquetas son la señal de que el sistema necesita limpieza preventiva, no solo desatascado de urgencia. Coordinamos con el administrador y trabajamos con el menor impacto posible para los vecinos.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Usáis cámara endoscópica en todos los desatascos de Elda?</summary>

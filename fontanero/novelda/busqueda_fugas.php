@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Novelda &middot; CP 03660</div>
-    <h1>Detección de fugas en Novelda<br><span class="hl">sin romper paredes.</span></h1>
-    <p class="hz-dark-sub">Localizamos fugas con geófono y cámara en naves industriales, fincas con pozo y viviendas del centro histórico.</p>
+    <h1>Detección de fugas en Novelda<br><span class="hl">mármol, hoteles y Cava bajo tierra</span></h1>
+    <p class="hz-dark-sub">Fugas en circuitos de refrigeración industrial, piscinas de hotel, viñedos con riego y viviendas históricas. Geófono y termografía. Sin obras hasta saber dónde.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128176; precio sin sorpresas</span><span class="dif-lbl">Antes de empezar</span></div>
-    <div class="dif-item"><span class="dif-val">&#128269; Ge&oacute;fono + c&aacute;mara</span><span class="dif-lbl">Sin obras innecesarias</span></div>
-    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instalador certificado</span></div>
-    <div class="dif-item"><span class="dif-val">&#128205; Novelda</span><span class="dif-lbl">Atenci&oacute;n local</span></div>
+    <div class="dif-item"><span class="dif-val">Geófono profesional</span><span class="dif-lbl">Detecta fugas en circuitos industriales</span></div>
+    <div class="dif-item"><span class="dif-val">Cámara termográfica</span><span class="dif-lbl">En naves, hoteles y viviendas</span></div>
+    <div class="dif-item"><span class="dif-val">Equipo correlador</span><span class="dif-lbl">Para tuberías enterradas de gran longitud</span></div>
+    <div class="dif-item"><span class="dif-val">Empresa de fugas en Novelda</span><span class="dif-lbl">Instaladores certificados Nubeco</span></div>
   </div>
 </div>
 
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Búsqueda de fugas en Novelda</p>
-        <h2>Búsqueda de fugas en <span class="hl">Novelda</span></h2>
-        <div class="zona-prose"><p>Las fugas en Novelda tienen causas específicas: la dureza del agua calcárea provoca obstrucciones y fugas en calentadores y calderas, las tuberías antiguas del centro histórico sufren corrosión, y las instalaciones en naves de mármol o fincas con pozo presentan fugas en circuitos enterrados o depósitos. CarolTemp localiza el punto exacto con geófono acústico profesional y cámara de inspección, repara en el acto y cierra precio antes de abrir una sola pared.</p></div>
+        <h2>Fugas de agua en Novelda <span class="hl">la industria del mármol las complica</span></h2>
+        <div class="zona-prose"><p>La detección de fugas de agua en Novelda tiene una casuística industrial que otras ciudades no tienen. El polvo de mármol en los desagüe de nave crea obstrucciones que derivan fugas hacia la solería. Los circuitos de refrigeración de corte tienen presiones y longitudes que solo el equipo correlador puede analizar con precisión. En los viñedos de Cava DOC del término municipal, las tuberías de riego enterradas bajo viña plantada son un reto para el geófono — pero lo resuelve.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en instalaciones de naves industriales y talleres de mármol</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en pozos, depósitos y circuitos de riego en fincas</li>
@@ -71,16 +71,20 @@ include '../../includes/head.php';
     <h2>Por qu&eacute; nos llaman por Búsqueda de fugas <span class="hl">en Novelda</span></h2>
     <div class="zona-svc">
       <div class="zona-sc">
-        <h3>Agua muy dura provoca fugas en circuitos de calefacción y ACS</h3>
-        <p>La alta concentración de cal del agua en Novelda obstruye intercambiadores, perfora juntas de calentadores y genera fugas en termos y calderas de gas. El geófono detecta estas fugas internas antes de que el aparato falle por completo.</p>
+        <h3>Naves de corte de mármol: fugas en circuitos de refrigeración</h3>
+        <p>Las sierras de corte necesitan agua continua para refrigerar la hoja. Una fuga en el circuito de refrigeración de una nave de Novelda para la producción. El equipo correlador localiza la pérdida en tuberías industriales de gran longitud y alta presión sin necesidad de excavar a ciegas.</p>
+      </div>
+      <div class="zona-sc">
+        <h3>Hoteles y piscinas: fugas ocultas en circuitos de ACS y climatización</h3>
+        <p>Los hoteles del centro de Novelda tienen circuitos de agua caliente sanitaria, piscinas y climatización que discurren por falsos techos y bajo solería. Una fuga en estos circuitos sube la factura del agua sin aviso. La cámara termográfica la localiza sin obras.</p>
       </div>
       <div class="zona-sc">
         <h3>Tuberías de hierro del centro histórico corroídas por dentro</h3>
         <p>Muchas viviendas del casco antiguo conservan tuberías de hierro de hace décadas. La corrosión interna provoca fugas ocultas bajo suelos y dentro de paredes. Con cámara de inspección localizamos el tramo exacto sin obras innecesarias.</p>
       </div>
       <div class="zona-sc">
-        <h3>Instalaciones en fincas y naves: fugas en pozos y circuitos enterrados</h3>
-        <p>Las fincas agrícolas y naves industriales de mármol en Novelda tienen instalaciones complejas con pozos propios, depósitos elevados y tuberías enterradas. Las fugas en estos circuitos son difíciles de detectar visualmente. Nuestro geófono acústico localiza pérdidas bajo tierra sin excavar a ciegas.</p>
+        <h3>Viñedos de Cava DOC: fugas en riego enterrado bajo viña</h3>
+        <p>Las fincas de viñedo del término municipal de Novelda tienen tuberías de riego enterradas bajo plantación. Una fuga en estos circuitos es invisible en superficie. El correlador localiza el punto exacto sin excavar toda la parcela.</p>
       </div>
     </div>
   </div>
@@ -92,16 +96,16 @@ include '../../includes/head.php';
     <h2>Búsqueda de fugas en Novelda &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis localizar una fuga en una nave industrial sin parar la actividad?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Usamos geófono acústico que detecta el sonido de la fuga sin necesidad de abrir paredes ni interrumpir el trabajo. Localizamos primero, luego planificamos la reparación en el momento que menos moleste.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis localizar fugas en circuitos de refrigeración de naves de mármol?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Los circuitos de refrigeración de sierra tienen presiones y longitudes distintas a una instalación doméstica. Usamos equipo correlador y geófono acústico para localizar el punto exacto sin necesidad de vaciar el circuito ni interrumpir la producción más de lo necesario.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>Tengo una finca con pozo y el contador no para de girar. ¿Cómo sabéis dónde está la fuga?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Con el geófono acústico seguimos el recorrido de la tubería enterrada y detectamos el punto exacto donde sale agua. Evitamos excavar toda la finca a ciegas. Reparamos solo donde hace falta.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Tenéis equipo correlador para tuberías largas en finca de viñedo?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. El correlador trabaja en tuberías enterradas de gran longitud — exactamente lo que hay bajo una finca de viña en Novelda. Colocamos sensores en los extremos accesibles y el equipo calcula el punto exacto de la fuga. Solo excavamos donde hace falta.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>Mi calentador pierde agua por abajo. ¿Es por la cal del agua de Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Probablemente sí. El agua dura de Novelda genera incrustaciones que perforan juntas y válvulas. Localizamos la fuga exacta con cámara, reparamos o sustituimos la pieza dañada y te explicamos cómo alargar la vida del aparato.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Sois la empresa de fugas de agua de referencia en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Cubrimos Novelda con instaladores certificados Nubeco y equipo técnico completo: geófono, cámara termográfica y correlador. Atendemos tanto instalaciones industriales del sector del mármol como viviendas del centro histórico y fincas de viñedo. Precio cerrado antes de empezar.</div>
       </div>
       <div class="zona-fi">
         <div class="zona-fiq" onclick="togFaq(this)"><span>Vivo en el centro histórico y tengo humedad en una pared. ¿Cómo localizáis la fuga sin destrozar la casa?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>

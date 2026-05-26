@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Petrer &middot; CP 03610</div>
-    <h1>Detección de fugas en Petrer<br><span class="hl">sin romper paredes.</span></h1>
-    <p class="hz-dark-sub">Localizamos la fuga con geófono y cámara, y la reparamos en la misma visita.</p>
+    <h1>Detección de fugas en Petrer<br><span class="hl">la pendiente mueve la fuga lejos del origen</span></h1>
+    <p class="hz-dark-sub">En Petrer una fuga en ladera aparece muy lejos de donde está. Geófono para encontrar el origen real, no el síntoma visible.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128176; precio sin sorpresas</span><span class="dif-lbl">Antes de empezar</span></div>
-    <div class="dif-item"><span class="dif-val">&#128269; Ge&oacute;fono + c&aacute;mara</span><span class="dif-lbl">Sin obras innecesarias</span></div>
-    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instalador certificado</span></div>
-    <div class="dif-item"><span class="dif-val">&#128205; Petrer</span><span class="dif-lbl">Atenci&oacute;n local</span></div>
+    <div class="dif-item"><span class="dif-val">Geófono en ladera</span><span class="dif-lbl">Seguimos la fuga cuesta arriba</span></div>
+    <div class="dif-item"><span class="dif-val">Cámara termográfica</span><span class="dif-lbl">Confirma el punto exacto</span></div>
+    <div class="dif-item"><span class="dif-val">Sin obras hasta saber dónde</span><span class="dif-lbl">El geófono va primero</span></div>
+    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados Petrer</span></div>
   </div>
 </div>
 
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Búsqueda de fugas en Petrer</p>
-        <h2>Búsqueda de fugas en <span class="hl">Petrer</span></h2>
-        <div class="zona-prose"><p>En Petrer, la dureza del agua deteriora juntas de grifos, válvulas de termos y calentadores, provocando fugas lentas que pasan desapercibidas hasta que sube el consumo. Las urbanizaciones de los 80-90 tienen tuberías con décadas de uso donde la cal estrecha el paso y debilita conexiones. CarolTemp localiza la fuga exacta con geófono acústico profesional y cámara de inspección, evita obras innecesarias y repara todo en una misma intervención.</p></div>
+        <h2>Fugas de agua en Petrer <span class="hl">la ladera engaña sobre el origen</span></h2>
+        <div class="zona-prose"><p>La detección de fugas de agua en Petrer tiene un factor que no existe en ciudades llanas: la pendiente. Una fuga en la zona alta del Monastil puede aparecer como humedad en una pared a 150 metros más abajo — el agua sigue la pendiente del terreno bajo la solería y sale donde encuentra menos resistencia. Localizar fugas de agua en Petrer con geófono significa trabajar sistemáticamente de abajo hacia arriba, mapeando la intensidad acústica para encontrar el origen real, no el síntoma visible.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en termos y calentadores por acumulación de cal</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en grifos y juntas deterioradas por agua dura</li>
@@ -79,8 +79,8 @@ include '../../includes/head.php';
         <p>Muchos bloques y adosados tienen instalaciones de hace más de 30 años. Las tuberías de acero o galvanizadas se oxidan por dentro, y la cal reduce el diámetro útil. Esto genera pérdidas de presión y fugas en codos o uniones deterioradas.</p>
       </div>
       <div class="zona-sc">
-        <h3>Fugas en comunidades por falta de mantenimiento</h3>
-        <p>En comunidades de vecinos de Petrer es común la falta de revisión periódica de bajantes y arquetas. Las fugas aparecen en sótanos, garajes o zonas comunes, y solo se detectan cuando ya hay humedad visible. Localizar el origen sin romper paredes ahorra tiempo y coste.</p>
+        <h3>Fugas en ladera: codos y conexiones bajo presión diferencial</h3>
+        <p>Las tuberías largas con desnivel en las urbanizaciones de ladera de Petrer tienen puntos de fallo específicos en codos y conexiones sometidas a presión diferencial. El agua a mayor presión en la parte baja y menor en la alta genera fatiga en las uniones — detectamos estos puntos con geófono antes de abrir nada.</p>
       </div>
     </div>
   </div>
@@ -92,20 +92,16 @@ include '../../includes/head.php';
     <h2>Búsqueda de fugas en Petrer &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El agua de Petrer puede provocar fugas en mi calentador?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. El agua de Petrer es muy dura y acumula cal en resistencias, válvulas y juntas del calentador. Con el tiempo, esos depósitos corroen las conexiones y provocan goteos. Recomendamos revisión anual y uso de descalcificador para alargar la vida útil.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo sabéis si la fuga viene de más arriba en la ladera de Petrer?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Con el geófono tomamos mediciones en varios puntos de la ladera, empezando desde el síntoma visible y avanzando cuesta arriba. La intensidad acústica aumenta conforme nos acercamos al origen real. En Petrer es habitual que el punto de máxima señal esté 100-200 metros por encima de donde aparece la humedad visible.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo detectáis una fuga sin romper paredes?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Usamos un geófono acústico que capta el sonido del agua al salir de la tubería, incluso bajo pavimento o azulejo. Complementamos con cámara de inspección para ver el interior de la tubería. Localizamos el punto exacto y solo abrimos donde hace falta.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Las raíces de árboles en ladera pueden romper tuberías de suministro?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí, aunque es más frecuente en colectores de saneamiento que en tuberías de suministro a presión. Las raíces buscan humedad y encuentran primero las juntas de los colectores. En tuberías de suministro, el daño suele ser por presión de la raíz sobre la tubería más que por penetración directa. La cámara endoscópica distingue el tipo de daño antes de actuar.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Reparáis la fuga después de localizarla?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. CarolTemp detecta Y repara en la misma visita. No hace falta que llames a otra empresa. Te damos presupuesto antes de empezar cualquier trabajo, sin sorpresas.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto tardáis en venir a Petrer si tengo una fuga urgente?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">En emergencias respondemos en menos de 2 horas dentro de Petrer. Para revisiones programadas concertamos cita en 24-48 horas. Llama al teléfono de urgencias y te atendemos de inmediato.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Detectáis fugas en piscinas de comunidades en las urbanizaciones de Petrer?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Las urbanizaciones de ladera de Petrer tienen piscinas comunitarias con circuitos de impulsión y retorno que pueden presentar fugas ocultas. Detectamos pérdidas en el vaso, en la red enterrada y en el cuarto de bombas. Presupuesto previo en todos los casos.</div>
       </div>
     </div>
   </div>
