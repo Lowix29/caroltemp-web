@@ -29,7 +29,7 @@
             <a href="<?php echo $base_url; ?>fontanero/monovar"  class="nav-drop-item">Monóvar<small>Fontanería en Monóvar</small></a>
             <a href="<?php echo $base_url; ?>fontanero/sax"      class="nav-drop-item">Sax<small>Fontanería en Sax</small></a>
             <a href="<?php echo $base_url; ?>fontanero/pinoso"   class="nav-drop-item">Pinoso<small>Fontanería en Pinoso</small></a>
-            <a href="<?php echo $base_url; ?>fontanero/monforte" class="nav-drop-item">Monforte del Cid<small>Fontanería en Monforte</small></a>
+            <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid" class="nav-drop-item">Monforte del Cid<small>Fontanería en Monforte</small></a>
             <a href="<?php echo $base_url; ?>fontanero/salinas"  class="nav-drop-item">Salinas<small>Fontanería en Salinas</small></a>
             <a href="<?php echo $base_url; ?>fontanero/aspe"     class="nav-drop-item">Aspe<small>Fontanería en Aspe</small></a>
           </div>
@@ -48,7 +48,7 @@
             <a href="<?php echo $base_url; ?>fontanero/monovar/urgencias"  class="nav-drop-item">Urgencias Monóvar</a>
             <a href="<?php echo $base_url; ?>fontanero/sax/urgencias"      class="nav-drop-item">Urgencias Sax</a>
             <a href="<?php echo $base_url; ?>fontanero/pinoso/urgencias"   class="nav-drop-item">Urgencias Pinoso</a>
-            <a href="<?php echo $base_url; ?>fontanero/monforte/urgencias" class="nav-drop-item">Urgencias Monforte</a>
+            <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid/urgencias" class="nav-drop-item">Urgencias Monforte</a>
             <a href="<?php echo $base_url; ?>fontanero/salinas/urgencias"  class="nav-drop-item">Urgencias Salinas</a>
             <a href="<?php echo $base_url; ?>fontanero/aspe/urgencias"     class="nav-drop-item">Urgencias Aspe</a>
           </div>
@@ -67,7 +67,7 @@
             <a href="<?php echo $base_url; ?>fontanero/monovar/desatascos"  class="nav-drop-item">Desatascos Monóvar</a>
             <a href="<?php echo $base_url; ?>fontanero/sax/desatascos"      class="nav-drop-item">Desatascos Sax</a>
             <a href="<?php echo $base_url; ?>fontanero/pinoso/desatascos"   class="nav-drop-item">Desatascos Pinoso</a>
-            <a href="<?php echo $base_url; ?>fontanero/monforte/desatascos" class="nav-drop-item">Desatascos Monforte</a>
+            <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid/desatascos" class="nav-drop-item">Desatascos Monforte</a>
             <a href="<?php echo $base_url; ?>fontanero/salinas/desatascos"  class="nav-drop-item">Desatascos Salinas</a>
             <a href="<?php echo $base_url; ?>fontanero/aspe/desatascos"     class="nav-drop-item">Desatascos Aspe</a>
           </div>
@@ -86,7 +86,7 @@
             <a href="<?php echo $base_url; ?>fontanero/monovar/busqueda_fugas"  class="nav-drop-item">Fugas Monóvar</a>
             <a href="<?php echo $base_url; ?>fontanero/sax/busqueda_fugas"      class="nav-drop-item">Fugas Sax</a>
             <a href="<?php echo $base_url; ?>fontanero/pinoso/busqueda_fugas"   class="nav-drop-item">Fugas Pinoso</a>
-            <a href="<?php echo $base_url; ?>fontanero/monforte/busqueda_fugas" class="nav-drop-item">Fugas Monforte</a>
+            <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid/busqueda_fugas" class="nav-drop-item">Fugas Monforte</a>
             <a href="<?php echo $base_url; ?>fontanero/salinas/busqueda_fugas"  class="nav-drop-item">Fugas Salinas</a>
             <a href="<?php echo $base_url; ?>fontanero/aspe/busqueda_fugas"     class="nav-drop-item">Fugas Aspe</a>
           </div>
