@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Novelda &middot; CP 03660</div>
     <h1>Desatascos en Novelda<br><span class="hl">polvo de mármol, grasa de hotel y sarro</span></h1>
-    <p class="hz-dark-sub">El polvo de piedra y el sarro del agua forman tapones que los productos químicos no disuelven. Cámara endoscópica e hidrojetting antes de presupuestar.</p>
+    <p class="hz-dark-sub">Primero la cámara endoscópica para ver qué hay dentro, después la solución adecuada. Sonda mecánica para atascos puntuales, hidrojetting a alta presión para sarro acumulado y grasa endurecida. Sin presupuestar a ciegas.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128176; precio sin sorpresas</span><span class="dif-lbl">Antes de empezar</span></div>
-    <div class="dif-item"><span class="dif-val">&#128269; Ge&oacute;fono + c&aacute;mara</span><span class="dif-lbl">Sin obras innecesarias</span></div>
-    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instalador certificado</span></div>
-    <div class="dif-item"><span class="dif-val">&#128205; Novelda</span><span class="dif-lbl">Atenci&oacute;n local</span></div>
+    <div class="dif-item"><span class="dif-val">Cámara endoscópica</span><span class="dif-lbl">Diagnóstico antes de presupuestar</span></div>
+    <div class="dif-item"><span class="dif-val">Hidrojetting a presión</span><span class="dif-lbl">Para sarro, grasa y acumulaciones duras</span></div>
+    <div class="dif-item"><span class="dif-val">Aspiración en arquetas</span><span class="dif-lbl">Limpieza de colectores y sumideros exteriores</span></div>
+    <div class="dif-item"><span class="dif-val">Precio antes de empezar</span><span class="dif-lbl">Lo presupuestado es lo que pagas</span></div>
   </div>
 </div>
 
@@ -40,15 +40,15 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Novelda</p>
-        <h2>Atascos en Novelda <span class="hl">tres causas, tres soluciones</span></h2>
-        <div class="zona-prose"><p>En las naves de mármol el polvo de piedra en suspensión entra por los desagüe de suelo y se mezcla con el sarro del agua dura formando concreciones casi tan duras como la piedra misma — solo el hidrojetting a alta presión las disuelve. En los hoteles del centro la cocina industrial genera grasas cocinadas a temperaturas que las endurecen en la bajante. En las viviendas del centro histórico el sarro de décadas ha reducido el diámetro de las bajantes de hierro a la mitad — cualquier residuo provoca atasco.</p></div>
+        <h2>Atascos en Novelda <span class="hl">cámara primero, sonda o hidrojetting después</span></h2>
+        <div class="zona-prose"><p>No todos los atascos se resuelven igual. Antes de meter la sonda o conectar el hidrojetting, pasamos la cámara endoscópica para ver qué hay dentro: si es un tapón localizado, la sonda mecánica lo resuelve rápido. Si hay sarro acumulado durante años que ha reducido el diámetro de la tubería, solo el hidrojetting a alta presión lo elimina. En arquetas exteriores y colectores de comunidad, la aspiración con equipo de vacío retira el material depositado sin romper nada. Diagnóstico real antes de presupuestar.</p></div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de bajantes en edificios antiguos</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de arquetas en naves industriales</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de tuberías en fincas agrícolas</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Limpieza de desagües y sifones</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de inodoros y bañeras</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inspección con cámara en tuberías obstruidas</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de bajantes en pisos y comunidades</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Limpieza de colectores y arquetas exteriores</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Hidrojetting para sarro y grasa acumulados</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Limpieza de desagües y sifones de cocina y baño</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de inodoros, bañeras y duchas</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inspección con cámara endoscópica antes de actuar</li>
         </ul>
       </div>
       <div>
@@ -71,16 +71,16 @@ include '../../includes/head.php';
     <h2>Por qu&eacute; nos llaman por Desatascos <span class="hl">en Novelda</span></h2>
     <div class="zona-svc">
       <div class="zona-sc">
-        <h3>Tuberías antiguas en el centro histórico</h3>
-        <p>Las viviendas del casco antiguo de Novelda conservan tuberías de diámetro pequeño y trazado irregular que acumulan restos y provocan atascos frecuentes. El agua dura de la zona deposita cal que reduce aún más el paso.</p>
+        <h3>Bajantes de pisos con sarro acumulado durante años</h3>
+        <p>El agua dura de la comarca de Alicante deposita cal en el interior de las bajantes. Con el tiempo el diámetro se reduce hasta que cualquier residuo provoca atasco. La sonda mecánica abre el paso, pero solo el hidrojetting elimina la incrustación de las paredes interiores y deja la tubería limpia de verdad.</p>
       </div>
       <div class="zona-sc">
-        <h3>Residuos industriales en naves de mármol</h3>
-        <p>Las naves de extracción y elaboración de piedra natural generan lodos y partículas finas que se depositan en arquetas y desagües de taller. Requieren limpieza periódica con equipos de presión.</p>
+        <h3>Colectores comunitarios obstruidos en comunidades de vecinos</h3>
+        <p>Cuando el atasco está en el colector compartido de la comunidad, afecta a varios pisos a la vez. El equipo de aspiración en arquetas exteriores retira el material acumulado sin necesidad de romper solería ni levantar el pavimento del portal.</p>
       </div>
       <div class="zona-sc">
-        <h3>Instalaciones propias en fincas agrícolas</h3>
-        <p>Las fincas del término municipal tienen pozos, depósitos y tuberías de riego propias. Los atascos por tierra, raíces o acumulación de sedimentos afectan el suministro de agua para cultivo.</p>
+        <h3>Desagües de cocina obstruidos por grasa endurecida</h3>
+        <p>La grasa de cocina enfriada dentro de la tubería se endurece progresivamente hasta cerrar el paso. Los productos químicos de supermercado la ablandan parcialmente pero no la eliminan. El hidrojetting disuelve la grasa con agua a alta presión y deja el interior de la tubería limpio.</p>
       </div>
     </div>
   </div>
@@ -92,20 +92,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Novelda &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Trabajáis en naves industriales con polvo de mármol en los desagüe?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Las naves de corte de mármol generan polvo de piedra que entra en los desagüe de suelo y forma concreciones muy duras. Los productos químicos no las disuelven — hace falta hidrojetting a alta presión. Llevamos el equipo adecuado y trabajamos en horario de producción si es necesario.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuál es la diferencia entre usar la sonda mecánica y el hidrojetting?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">La sonda mecánica perfora o empuja el tapón — soluciona atascos puntuales por acumulación de papel, restos sólidos o cuerpos extraños. Pero si el interior de la tubería tiene sarro o grasa adheridos a las paredes, la sonda abre el paso momentáneamente y el atasco vuelve al poco tiempo. El hidrojetting proyecta agua a alta presión que elimina las incrustaciones de la pared interior de la tubería — el resultado dura mucho más. La cámara endoscópica nos dice cuál de los dos hace falta antes de empezar.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Hacéis mantenimiento preventivo para hoteles en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Los hoteles con cocina industrial acumulan grasa endurecida en las bajantes — la limpieza periódica con hidrojetting evita la obstrucción total en el peor momento. Podemos programar visitas de mantenimiento con el mínimo impacto para la actividad del hotel.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis desatascar un colector comunitario que afecta a varios pisos?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Los colectores comunitarios se limpian desde las arquetas de registro exteriores con equipo de aspiración y presión. No es necesario entrar en las viviendas ni levantar el pavimento del portal. Si el administrador de la finca necesita un presupuesto por escrito para aprobarlo en junta, lo emitimos sin coste.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Puede el polvo de corte de piedra causar atascos permanentes en la bajante?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. El polvo de mármol en suspensión se combina con el sarro del agua dura del Vinalopó y forma depósitos que se calcifican progresivamente. Si la bajante lleva años sin limpieza, puede llegar a quedar inutilizada. La cámara endoscópica nos dice el estado real antes de presupuestar.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta un desatasco en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Depende del tipo de atasco y la instalación. Te damos presupuesto claro por teléfono o después de inspeccionar, antes de empezar el trabajo. Sin cobros ocultos.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta un desatasco de urgencia en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">El precio depende del tipo de atasco, la accesibilidad y si se necesita cámara o hidrojetting. Antes de empezar te damos el precio total — desplazamiento, mano de obra y material incluidos. No hay cobros extra al terminar. Si la urgencia es fuera de horario habitual indicánoslo al llamar y te informamos del coste antes de que salgamos.</div>
       </div>
     </div>
   </div>

@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Sax &middot; CP 03630</div>
     <h1>Fontanero urgente en Sax<br><span class="hl">sin esperar al turno de guardia municipal</span></h1>
-    <p class="hz-dark-sub">Rotura en vivienda unifamiliar, fallo de calentador en piso del casco o avería en finca. En Sax el servicio privado llega cuando el municipal no puede.</p>
+    <p class="hz-dark-sub">Una avería de fontanería no avisa. Llamamos el mismo día, te decimos el precio antes de tocar nada y, si hay material, lo resolvemos sin segunda visita.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Sin lista de espera</span><span class="dif-lbl">No dependes del turno de guardia</span></div>
-    <div class="dif-item"><span class="dif-val">Avería vista, precio dado</span><span class="dif-lbl">Antes de tocar nada</span></div>
-    <div class="dif-item"><span class="dif-val">Casco y fincas</span><span class="dif-lbl">Cubrimos todo el municipio de Sax</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero local Sax</span><span class="dif-lbl">Conocemos el pueblo</span></div>
+    <div class="dif-item"><span class="dif-val">Atención el mismo día</span><span class="dif-lbl">Sin listas ni esperas innecesarias</span></div>
+    <div class="dif-item"><span class="dif-val">Precio antes de empezar</span><span class="dif-lbl">Lo apruebas tú, sin sorpresas</span></div>
+    <div class="dif-item"><span class="dif-val">Resolvemos en la misma visita</span><span class="dif-lbl">Si hay material, sin segunda vuelta</span></div>
+    <div class="dif-item"><span class="dif-val">Factura con detalle</span><span class="dif-lbl">Documento de lo realizado siempre</span></div>
   </div>
 </div>
 
@@ -42,12 +42,12 @@ include '../../includes/head.php';
         <p class="zona-lbl">Cuándo llamar</p>
         <h2>Urgencias fontanero <span class="hl">en Sax</span></h2>
         <div class="zona-prose">
-          <p>En Sax la urgencia de fontanería tiene una particularidad: al ser un municipio de tamaño medio, el servicio de guardia municipal no siempre está disponible o no llega a tiempo. Cuando el calentador deja de dar agua caliente un domingo por la tarde, cuando la tubería revienta en el piso de debajo de tu madre en el casco histórico, o cuando la finca de la periferia se queda sin presión en verano — necesitas un fontanero urgente en Sax que no te ponga en una lista. Por eso muchos vecinos de Sax llaman directamente a un servicio privado con precio cerrado.</p>
+          <p>Una urgencia de fontanería no espera a que sea buen momento. Si el calentador deja de dar agua caliente un domingo, si la tubería revienta en el piso de arriba o si la comunidad se queda sin presión — necesitas un fontanero en Sax que coja el teléfono, te diga el precio antes de desplazarse y venga ese mismo día. Sin poner en una lista. Sin cobrar de más por ser urgente sin decírtelo. Así trabajamos: transparencia desde el primer minuto y una sola visita para resolver si el material está en la furgoneta.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de vivienda unifamiliar en Sax</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador sin agua caliente en piso del casco histórico</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fuga activa en edificio antiguo bajo el castillo</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador sin agua caliente en piso o vivienda unifamiliar</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fuga activa en tubería empotrada o vista</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pozo o depósito de finca sin presión</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso agarrotada que no cierra el suministro</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inundación en local o garaje por rotura en planta superior</li>
@@ -78,12 +78,12 @@ include '../../includes/head.php';
       <div class="zona-tipo">
         <div class="zona-tipo-ico">💧</div>
         <h3>Fugas de agua urgentes</h3>
-        <p>Fugas de agua urgentes en tuberías de viviendas unifamiliares y casas antiguas del casco histórico de Sax. Localizamos y cerramos el escape antes de que cause daños en estructura o acabados.</p>
+        <p>Fugas de agua urgentes en tuberías de viviendas unifamiliares, pisos y comunidades. Localizamos y cerramos el escape antes de que cause daños en estructura o acabados.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">⚙️</div>
         <h3>Grupos de presión</h3>
-        <p>El grupo de presión es la avería urgente más frecuente en las fincas y terrenos agrícolas de la periferia de Sax. Revisamos presostato, membrana y circuito eléctrico en la misma visita.</p>
+        <p>Fallo de grupo de presión en chalets, viviendas unifamiliares y comunidades sin presión suficiente. Revisamos presostato, membrana y circuito eléctrico en la misma visita.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🔥</div>
@@ -93,7 +93,7 @@ include '../../includes/head.php';
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🔩</div>
         <h3>Roturas de tubería</h3>
-        <p>Rotura de tubería empotrada o vista con agua a presión. Cortamos el paso, evaluamos el daño y presupuestamos la reparación antes de abrir ninguna pared en el casco histórico de Sax.</p>
+        <p>Rotura de tubería empotrada o vista con agua a presión. Cortamos el paso, evaluamos el daño y presupuestamos la reparación antes de abrir ninguna pared en la vivienda.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🚰</div>
@@ -178,16 +178,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Sax — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Llegáis antes que el servicio de guardia municipal de Sax?</summary>
-        <div class="faq-ans">En la mayoría de casos sí. Al ser Sax un municipio de tamaño medio, el servicio de guardia municipal no siempre está operativo o tiene lista de espera. Un servicio privado no depende de turnos: acordamos la visita directamente y nos desplazamos sin intermediarios. Llegamos cuando lo necesitas, no cuando toca el turno.</div>
+        <summary>¿Se cobra el desplazamiento aunque no se pueda reparar en esa misma visita?</summary>
+        <div class="faq-ans">El desplazamiento se cobra siempre que se produzca la visita, independientemente del resultado. Lo que garantizamos es que ese coste se incluye en el presupuesto que te damos antes de salir hacia tu domicilio: sabes exactamente cuánto pagarás antes de que lleguemos. Si tras el diagnóstico decides no continuar, solo se cobra la visita — sin añadidos.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis urgencias en el casco histórico bajo el castillo de Sax?</summary>
-        <div class="faq-ans">Sí. Cubrimos todo el municipio de Sax: el casco histórico con sus viviendas antiguas bajo el castillo, la zona residencial unifamiliar y las fincas de la periferia. Para el casco histórico llevamos material adecuado para instalaciones de hierro o plomo, que son las más habituales en esas edificaciones.</div>
+        <summary>¿La primera hora de trabajo incluye el diagnóstico o se cobra aparte?</summary>
+        <div class="faq-ans">El diagnóstico forma parte del trabajo. La primera hora cubre tanto la inspección de la avería como el inicio de la reparación. No existe un cargo separado por "diagnóstico" o "presupuesto in situ": el tiempo empleado en ver la avería y darte el precio ya está dentro de la tarifa horaria acordada.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Hay recargo por urgencia en fin de semana en Sax?</summary>
-        <div class="faq-ans">A partir de las 22:00 h y en fines de semana y festivos se aplica un recargo sobre la tarifa base. Te informamos del precio exacto al llamar, antes de desplazarnos a Sax. Sin sorpresas en ningún caso.</div>
+        <summary>¿Qué documentación se entrega después de la reparación?</summary>
+        <div class="faq-ans">Emitimos factura con detalle del trabajo realizado: descripción de la avería, materiales empleados y mano de obra. Este documento sirve para la declaración a la aseguradora si la reparación está cubierta por la póliza del hogar, o como justificante ante la comunidad de vecinos si la avería es en zona común.</div>
       </details>
     </div>
   </div>

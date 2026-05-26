@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Petrer &middot; CP 03610</div>
     <h1>Fontanero urgente en Petrer<br><span class="hl">cuesta arriba el agua no perdona</span></h1>
-    <p class="hz-dark-sub">Rotura en urbanización de ladera, fallo de presión en zona alta, avería en nave industrial. En Petrer la altura complica todo.</p>
+    <p class="hz-dark-sub">Cuando hay una avería el objetivo es uno: resolver sin dejar la casa sin suministro más tiempo del necesario. Presupuesto antes de tocar, reparación provisional si no hay pieza, corte mínimo e imprescindible.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Urbanizaciones de ladera</span><span class="dif-lbl">Presión y desnivel bajo control</span></div>
-    <div class="dif-item"><span class="dif-val">Avería vista, precio dado</span><span class="dif-lbl">Antes de tocar nada</span></div>
-    <div class="dif-item"><span class="dif-val">Zona alta y zona industrial</span><span class="dif-lbl">Cubrimos todo Petrer</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero local Petrer</span><span class="dif-lbl">Conocemos la ladera</span></div>
+    <div class="dif-item"><span class="dif-val">Corte de suministro mínimo</span><span class="dif-lbl">Solo lo imprescindible</span></div>
+    <div class="dif-item"><span class="dif-val">Precio cerrado antes de empezar</span><span class="dif-lbl">Sin sorpresas al acabar</span></div>
+    <div class="dif-item"><span class="dif-val">Reparación provisional</span><span class="dif-lbl">Si no hay pieza, agua esa noche</span></div>
+    <div class="dif-item"><span class="dif-val">Todo Petrer · CP 03610</span><span class="dif-lbl">Viviendas y comunidades</span></div>
   </div>
 </div>
 
@@ -42,7 +42,7 @@ include '../../includes/head.php';
         <p class="zona-lbl">Cuándo llamar</p>
         <h2>Urgencias fontanero <span class="hl">en Petrer</span></h2>
         <div class="zona-prose">
-          <p>En Petrer la urgencia de fontanería más característica está en la ladera. Una rotura en una tubería de la zona alta del Monastil llega al nivel de calle en minutos — el agua baja siguiendo la pendiente y puede aparecer a 200 metros del origen real. Un fallo de presión en la parte alta del casco afecta a varios pisos antes de que se localice la válvula responsable. Las urbanizaciones de ladera también tienen grupos de presión propios que cuando fallan dejan sin agua a bloques enteros. Fontanero urgente en Petrer sabe que hay que subir hasta donde está el problema.</p>
+          <p>En una urgencia de fontanería el tiempo sin agua es el problema real. Por eso el primer objetivo es siempre el mismo: identificar la avería, dar el precio y actuar cuanto antes. Si la pieza no está en la furgoneta, se coloca una solución provisional que restaure el suministro mientras se gestiona el repuesto. No se empieza a trabajar sin que el precio esté acordado, y el corte de agua afecta solo a lo estrictamente necesario — sin dejar sin suministro a toda la finca cuando el problema está en un tramo concreto.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de urbanización en ladera</li>
@@ -177,16 +177,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Petrer — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Atendéis urgencias en las urbanizaciones de la ladera de Petrer?</summary>
-        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Petrer, incluidas las urbanizaciones en ladera como El Monastil y la zona alta del castillo. Para estas zonas conviene indicar el tipo de vivienda al llamar, ya que las particularidades de presión por el desnivel pueden requerir material específico — grupos de presión, reductoras y válvulas de retención adaptadas al desnivel.</div>
+        <summary>¿Se puede reparar una rotura de tubería sin cortar el agua a toda la finca?</summary>
+        <div class="faq-ans">En la mayoría de los casos, sí. Si hay llave de corte en el piso o en el ramal afectado, el resto de la finca mantiene el suministro durante la reparación. Solo cuando la avería está en la tubería general de alimentación o en la llave de paso principal es necesario cortar el suministro a todo el edificio, y en ese caso se minimiza el tiempo de corte al máximo. Siempre se avisa a los vecinos antes de actuar.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Por qué las roturas en zona alta aparecen tan lejos del origen?</summary>
-        <div class="faq-ans">En Petrer las tuberías de ladera tienen pendiente pronunciada. Cuando hay una rotura, el agua sigue el camino más fácil bajo el pavimento o entre capas del terreno y emerge donde encuentra menos resistencia — a veces a 100 o 200 metros del punto de rotura real. Por eso en urgencias en ladera usamos geófono para localizar el origen antes de abrir.</div>
+        <summary>¿Cuánto se tarda en resolver una rotura de tubería empotrada?</summary>
+        <div class="faq-ans">Depende de si hay que abrir pared o no. Si la rotura es en tubería vista o accesible, la reparación suele resolverse en la misma visita en 1-2 horas. Si la tubería está empotrada, primero se localiza el punto exacto con geófono para abrir solo donde hace falta — la localización puede llevar 30-60 minutos adicionales, pero evita picar en varios sitios a ciegas. El precio se da después de ver la avería y antes de empezar.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Los grupos de presión de las urbanizaciones de Petrer tienen piezas de repuesto disponibles?</summary>
-        <div class="faq-ans">Sí. Los modelos más habituales en las urbanizaciones de ladera de Petrer son compatibles con piezas en stock — presostatos, membranas y calderines de los rangos más comunes. Cuando nos avisáis del modelo del grupo, confirmamos disponibilidad antes de desplazarnos para resolver en una sola visita.</div>
+        <summary>¿Hay recargo por urgencia nocturna o en fin de semana?</summary>
+        <div class="faq-ans">Sí, existe un recargo para horario nocturno (a partir de las 22:00 h) y para fines de semana y festivos. El importe se comunica siempre al contactar, antes de confirmar la visita, para que puedas decidir con toda la información. No hay sorpresas en la factura final.</div>
       </details>
     </div>
   </div>

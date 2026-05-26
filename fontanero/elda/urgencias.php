@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Elda &middot; CP 03600</div>
     <h1>Fontanero urgente en Elda<br><span class="hl">la fábrica no puede esperar</span></h1>
-    <p class="hz-dark-sub">Roturas en nave industrial, fallo de presión en taller o avería en bloque de pisos. Vemos la avería, damos precio, empezamos.</p>
+    <p class="hz-dark-sub">Cuando el agua no para hay que actuar sin demora. Llegamos, vemos la avería y damos precio antes de tocar nada. Si el material está en la furgoneta, lo resolvemos en la misma visita.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Naves y talleres</span><span class="dif-lbl">Sin esperar al día siguiente</span></div>
-    <div class="dif-item"><span class="dif-val">Avería vista, precio dado</span><span class="dif-lbl">Antes de tocar nada</span></div>
-    <div class="dif-item"><span class="dif-val">Sin letra pequeña</span><span class="dif-lbl">El precio dicho es el precio final</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero local Elda</span><span class="dif-lbl">Conocemos cada barrio</span></div>
+    <div class="dif-item"><span class="dif-val">Precio cerrado</span><span class="dif-lbl">Se da antes de empezar, siempre</span></div>
+    <div class="dif-item"><span class="dif-val">Reparación en la visita</span><span class="dif-lbl">Si hay material, lo dejamos resuelto</span></div>
+    <div class="dif-item"><span class="dif-val">Sin recargos ocultos</span><span class="dif-lbl">El precio acordado es el final</span></div>
+    <div class="dif-item"><span class="dif-val">Respuesta rápida</span><span class="dif-lbl">Priorizamos urgencias activas</span></div>
   </div>
 </div>
 
@@ -42,7 +42,7 @@ include '../../includes/head.php';
         <p class="zona-lbl">Cuándo llamar</p>
         <h2>Urgencias fontanero <span class="hl">en Elda</span></h2>
         <div class="zona-prose">
-          <p>En Elda las urgencias de fontanería tienen dos caras muy distintas. En las naves industriales de calzado un fallo de presión para la línea de producción — cada hora cuenta. En los bloques de los años 70 del centro o El Plá una rotura en tubería de hierro oxida el suministro completo del edificio en horas. Buscas un <strong>fontanero urgente en Elda</strong> porque no puedes esperar — y nosotros tampoco hacemos esperar.</p>
+          <p>Una tubería de hierro galvanizado que revienta, una llave de paso que no corta con agua saliendo libre, un grupo de presión parado que deja sin suministro a todo el edificio. Son situaciones que no admiten espera. Cuando llamas a un <strong>fontanero urgente en Elda</strong> necesitas saber que alguien llega, ve la avería y te dice el precio antes de empezar — no después.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tubería de hierro reventada en bloque de los años 70</li>
@@ -179,28 +179,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Elda — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta un fontanero urgente en Elda?</summary>
-        <div class="faq-ans">La tarifa base es 100 €/hora (mínimo 1 hora) más 40 € de desplazamiento a Elda. Vemos la avería, calculamos el tiempo estimado y te damos el precio total antes de empezar. Tú decides si seguimos. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+        <summary>¿Qué hago mientras espero al fontanero en una urgencia?</summary>
+        <div class="faq-ans">Lo primero es cerrar la llave de paso más próxima a la avería — o la general del piso si no encuentras otra. Si el agua sale de una tubería visible, protege aparatos eléctricos cercanos y retira muebles. No uses toallas como barrera si el agua puede tener presión suficiente para mojarlas rápido. Al llamarnos te indicamos exactamente qué hacer según lo que nos describas, mientras gestionamos el desplazamiento.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis urgencias en naves y talleres del sector del calzado en Elda?</summary>
-        <div class="faq-ans">Sí. Cubrimos tanto viviendas como instalaciones industriales en Elda. Los polígonos del calzado tienen fontanería específica — vestuarios, redes de agua caliente y arquetas con residuos particulares — y estamos acostumbrados a trabajar en ese entorno. El desplazamiento se cobra por visita, sin recargo extra por tipo de inmueble.</div>
+        <summary>¿Se cobra más en fin de semana o festivos?</summary>
+        <div class="faq-ans">Sí. Los trabajos fuera de horario habitual (desde las 22:00 h) y en fines de semana y festivos llevan un recargo sobre la tarifa base. El importe exacto te lo comunicamos al llamar, antes de desplazarnos — así decides con el precio real encima de la mesa, sin sorpresas al recibir la factura.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis detectar fugas de agua urgentes en tuberías de hierro galvanizado sin romper las paredes?</summary>
-        <div class="faq-ans">Sí. Para <strong>fugas de agua urgentes en Elda</strong> en tuberías empotradas o en viviendas antiguas del casco histórico usamos geófono y cámara termográfica. Localizamos el punto exacto antes de abrir ninguna pared o pavimento, siempre con presupuesto cerrado antes de actuar.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Reparáis termos averiados como urgencia en Elda?</summary>
-        <div class="faq-ans">Sí. El termo averiado es una de las urgencias más frecuentes en Elda por la dureza del agua del Vinalopó. Revisamos resistencia, válvula de seguridad y depósito. Si la pieza está en la furgoneta, lo resolvemos en la misma visita. Si hay que sustituir el equipo, te informamos del precio antes de tocar nada.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Cuánto tarda en llegar un fontanero urgente a la zona industrial de Elda?</summary>
-        <div class="faq-ans">El tiempo de llegada a los polígonos industriales de Elda depende de la carga de trabajo del momento. Al llamar te damos una estimación real antes de comprometerte. Si la fábrica está parada por un fallo de agua, indícalo explícitamente — es una urgencia con impacto económico directo y la priorizamos por encima de otras llamadas en cola.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Hay recargo por trabajar de noche, fin de semana o festivos en Elda?</summary>
-        <div class="faq-ans">A partir de las 22:00 h y en fines de semana y festivos se aplica un recargo sobre la tarifa base. Te informamos del precio exacto al llamar, antes de desplazarnos. Sin sorpresas en ningún caso.</div>
+        <summary>¿Se puede reparar una fuga sin cortar el agua a toda la comunidad?</summary>
+        <div class="faq-ans">Depende de dónde esté la avería. Si hay llave de paso por piso o por columna en buen estado, cortamos solo el suministro afectado y el resto del edificio sigue con agua. Si la llave de paso general está deteriorada o no corta bien — algo habitual en instalaciones antiguas — puede ser necesario un corte general breve. Te lo explicamos antes de actuar y coordinamos el aviso a los vecinos si hace falta.</div>
       </details>
     </div>
   </div>

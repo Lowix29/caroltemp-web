@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Novelda &middot; CP 03660</div>
     <h1>Detección de fugas en Novelda<br><span class="hl">mármol, hoteles y Cava bajo tierra</span></h1>
-    <p class="hz-dark-sub">Fugas en circuitos de refrigeración industrial, piscinas de hotel, viñedos con riego y viviendas históricas. Geófono y termografía. Sin obras hasta saber dónde.</p>
+    <p class="hz-dark-sub">Antes de abrir una pared o levantar una solería, localizamos la fuga con precisión. Geófono, cámara termográfica y correlador para saber exactamente dónde está el problema. Solo abrimos donde hace falta.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Geófono profesional</span><span class="dif-lbl">Detecta fugas en circuitos industriales</span></div>
-    <div class="dif-item"><span class="dif-val">Cámara termográfica</span><span class="dif-lbl">En naves, hoteles y viviendas</span></div>
-    <div class="dif-item"><span class="dif-val">Equipo correlador</span><span class="dif-lbl">Para tuberías enterradas de gran longitud</span></div>
-    <div class="dif-item"><span class="dif-val">Empresa de fugas en Novelda</span><span class="dif-lbl">Instaladores certificados Nubeco</span></div>
+    <div class="dif-item"><span class="dif-val">Geófono profesional</span><span class="dif-lbl">Para fugas en tuberías empotradas y enterradas</span></div>
+    <div class="dif-item"><span class="dif-val">Cámara termográfica</span><span class="dif-lbl">Suelo radiante, bajantes y falsos techos</span></div>
+    <div class="dif-item"><span class="dif-val">Equipo correlador</span><span class="dif-lbl">Tuberías de jardín y circuitos enterrados largos</span></div>
+    <div class="dif-item"><span class="dif-val">Informe de localización</span><span class="dif-lbl">Válido para tramitar con el seguro del hogar</span></div>
   </div>
 </div>
 
@@ -40,15 +40,15 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Búsqueda de fugas en Novelda</p>
-        <h2>Fugas de agua en Novelda <span class="hl">la industria del mármol las complica</span></h2>
-        <div class="zona-prose"><p>La detección de fugas de agua en Novelda tiene una casuística industrial que otras ciudades no tienen. El polvo de mármol en los desagüe de nave crea obstrucciones que derivan fugas hacia la solería. Los circuitos de refrigeración de corte tienen presiones y longitudes que solo el equipo correlador puede analizar con precisión. En los viñedos de Cava DOC del término municipal, las tuberías de riego enterradas bajo viña plantada son un reto para el geófono — pero lo resuelve.</p></div>
+        <h2>Fugas de agua en Novelda <span class="hl">precisión antes de romper nada</span></h2>
+        <div class="zona-prose"><p>Una fuga oculta puede llevar semanas sin detectarse: la factura del agua sube, aparece humedad en una pared o el suelo de la terraza está siempre mojado. Antes de abrir paredes o levantar suelos, localizamos el punto exacto con geófono acústico y cámara termográfica. En instalaciones de suelo radiante, tuberías de jardín enterradas y bajantes interiores el equipo correlador permite trabajar sin excavar a ciegas. Solo abrimos donde está el problema.</p></div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en instalaciones de naves industriales y talleres de mármol</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en pozos, depósitos y circuitos de riego en fincas</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas ocultas en tuberías antiguas del centro histórico</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en circuitos de suelo radiante empotrado</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en tuberías de jardín enterradas en unifamiliares</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas ocultas en bajantes interiores y columnas de piso</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en calentadores y calderas por incrustaciones de cal</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en bajantes y tuberías comunes de edificios antiguos</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en circuitos enterrados y arquetas exteriores</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en tuberías comunes de comunidades de vecinos</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en circuitos enterrados y arquetas exteriores de chalet</li>
         </ul>
       </div>
       <div>
@@ -71,20 +71,20 @@ include '../../includes/head.php';
     <h2>Por qu&eacute; nos llaman por Búsqueda de fugas <span class="hl">en Novelda</span></h2>
     <div class="zona-svc">
       <div class="zona-sc">
-        <h3>Naves de corte de mármol: fugas en circuitos de refrigeración</h3>
-        <p>Las sierras de corte necesitan agua continua para refrigerar la hoja. Una fuga en el circuito de refrigeración de una nave de Novelda para la producción. El equipo correlador localiza la pérdida en tuberías industriales de gran longitud y alta presión sin necesidad de excavar a ciegas.</p>
+        <h3>Suelo radiante: la fuga invisible más difícil de localizar</h3>
+        <p>El circuito de suelo radiante recorre toda la planta bajo el pavimento. Cuando hay una microfisura, el suelo pierde temperatura en una zona y la factura del agua sube semana a semana. La cámara termográfica detecta la diferencia de temperatura en el suelo y señala el punto exacto sin levantar el pavimento de toda la habitación.</p>
       </div>
       <div class="zona-sc">
-        <h3>Hoteles y piscinas: fugas ocultas en circuitos de ACS y climatización</h3>
-        <p>Los hoteles del centro de Novelda tienen circuitos de agua caliente sanitaria, piscinas y climatización que discurren por falsos techos y bajo solería. Una fuga en estos circuitos sube la factura del agua sin aviso. La cámara termográfica la localiza sin obras.</p>
+        <h3>Tuberías de jardín enterradas en viviendas unifamiliares</h3>
+        <p>En chalets y unifamiliares con jardín, las tuberías de riego y acometida discurren enterradas bajo tierra y césped. Cuando hay una fuga, el terreno se encharca pero el punto exacto es imposible de ver. El geófono acústico localiza el ruido de la pérdida a través del suelo — solo excavamos donde está la rotura.</p>
       </div>
       <div class="zona-sc">
-        <h3>Tuberías de hierro del centro histórico corroídas por dentro</h3>
-        <p>Muchas viviendas del casco antiguo conservan tuberías de hierro de hace décadas. La corrosión interna provoca fugas ocultas bajo suelos y dentro de paredes. Con cámara de inspección localizamos el tramo exacto sin obras innecesarias.</p>
+        <h3>Bajantes interiores en edificios con columnas compartidas</h3>
+        <p>En pisos de comunidad, las bajantes recorren el interior de la pared compartida entre vecinos. Una fuga en una bajante empotrada genera humedad que aparece en el cuarto de baño del piso de abajo. Con geófono y cámara de inspección localizamos el tramo exacto sin abrir paredes de varios pisos.</p>
       </div>
       <div class="zona-sc">
-        <h3>Viñedos de Cava DOC: fugas en riego enterrado bajo viña</h3>
-        <p>Las fincas de viñedo del término municipal de Novelda tienen tuberías de riego enterradas bajo plantación. Una fuga en estos circuitos es invisible en superficie. El correlador localiza el punto exacto sin excavar toda la parcela.</p>
+        <h3>Cal en termos y calderas: fugas por juntas deterioradas</h3>
+        <p>El agua dura de la comarca de Alicante deposita cal en las juntas y conexiones de termos y calderas. Con el tiempo las juntas se endurecen y pierden elasticidad, y aparece una pérdida lenta que acaba siendo constante. Revisamos el equipo, sustituimos las juntas afectadas o el conjunto si es necesario.</p>
       </div>
     </div>
   </div>
@@ -96,20 +96,16 @@ include '../../includes/head.php';
     <h2>Búsqueda de fugas en Novelda &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis localizar fugas en circuitos de refrigeración de naves de mármol?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Los circuitos de refrigeración de sierra tienen presiones y longitudes distintas a una instalación doméstica. Usamos equipo correlador y geófono acústico para localizar el punto exacto sin necesidad de vaciar el circuito ni interrumpir la producción más de lo necesario.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿La detección incluye un informe para presentar al seguro del hogar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Emitimos informe técnico de localización con descripción del método utilizado, punto de la fuga y fotografías del proceso. Este documento es el que piden las compañías de seguros para tramitar el siniestro. Si el seguro te lo ha pedido expresamente, indícanoslo al llamar para que lo preparemos desde el inicio de la visita.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Tenéis equipo correlador para tuberías largas en finca de viñedo?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. El correlador trabaja en tuberías enterradas de gran longitud — exactamente lo que hay bajo una finca de viña en Novelda. Colocamos sensores en los extremos accesibles y el equipo calcula el punto exacto de la fuga. Solo excavamos donde hace falta.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta la detección si la fuga está en una zona comunitaria del edificio?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">El precio de la detección no varía según si la tubería es privada o comunitaria — depende del tipo de instalación y el acceso. Lo que sí cambia es quién paga: si la fuga está en un ramal comunitario, el coste corresponde a la comunidad de propietarios. Te ayudamos a identificar de quién es la tubería afectada para que puedas gestionarlo con la administración de la finca si es necesario.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Sois la empresa de fugas de agua de referencia en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Cubrimos Novelda con instaladores certificados Nubeco y equipo técnico completo: geófono, cámara termográfica y correlador. Atendemos tanto instalaciones industriales del sector del mármol como viviendas del centro histórico y fincas de viñedo. Precio cerrado antes de empezar.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>Vivo en el centro histórico y tengo humedad en una pared. ¿Cómo localizáis la fuga sin destrozar la casa?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Combinamos geófono acústico y cámara termográfica para localizar el punto exacto de la fuga dentro de la pared. Solo abrimos donde está el problema. Reparamos y cerramos. Precio cerrado antes de tocar nada.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede detectar una fuga en la piscina sin vaciarla?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">En la mayoría de los casos sí. Usamos geófono acústico en el vaso y en las tuberías exteriores de impulsión y retorno sin necesidad de vaciar la piscina. Si la fuga está en el revestimiento o en una junta del vaso, lo localizamos con el equipo desde el exterior. Solo en casos muy específicos de fisura en el fondo puede ser necesario bajar el nivel del agua parcialmente.</div>
       </div>
     </div>
   </div>

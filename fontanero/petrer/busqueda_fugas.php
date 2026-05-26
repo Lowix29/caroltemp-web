@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Petrer &middot; CP 03610</div>
     <h1>Detección de fugas en Petrer<br><span class="hl">la pendiente mueve la fuga lejos del origen</span></h1>
-    <p class="hz-dark-sub">En Petrer una fuga en ladera aparece muy lejos de donde está. Geófono para encontrar el origen real, no el síntoma visible.</p>
+    <p class="hz-dark-sub">Localizar la fuga antes de abrir paredes. Con geófono acústico y cámara de inspección encontramos el punto exacto — solo se abre donde hace falta.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -28,9 +28,9 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Geófono en ladera</span><span class="dif-lbl">Seguimos la fuga cuesta arriba</span></div>
-    <div class="dif-item"><span class="dif-val">Cámara termográfica</span><span class="dif-lbl">Confirma el punto exacto</span></div>
-    <div class="dif-item"><span class="dif-val">Sin obras hasta saber dónde</span><span class="dif-lbl">El geófono va primero</span></div>
+    <div class="dif-item"><span class="dif-val">Geófono acústico</span><span class="dif-lbl">Localización sin obra previa</span></div>
+    <div class="dif-item"><span class="dif-val">Suelo radiante y riego enterrado</span><span class="dif-lbl">Detección en circuitos ocultos</span></div>
+    <div class="dif-item"><span class="dif-val">Sin abrir hasta confirmar</span><span class="dif-lbl">Punto exacto antes de picar</span></div>
     <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados Petrer</span></div>
   </div>
 </div>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Búsqueda de fugas en Petrer</p>
-        <h2>Fugas de agua en Petrer <span class="hl">la ladera engaña sobre el origen</span></h2>
-        <div class="zona-prose"><p>La detección de fugas de agua en Petrer tiene un factor que no existe en ciudades llanas: la pendiente. Una fuga en la zona alta del Monastil puede aparecer como humedad en una pared a 150 metros más abajo — el agua sigue la pendiente del terreno bajo la solería y sale donde encuentra menos resistencia. Localizar fugas de agua en Petrer con geófono significa trabajar sistemáticamente de abajo hacia arriba, mapeando la intensidad acústica para encontrar el origen real, no el síntoma visible.</p></div>
+        <h2>Fugas de agua en Petrer <span class="hl">localizar sin abrir paredes innecesariamente</span></h2>
+        <div class="zona-prose"><p>Detectar una fuga no es solo encontrar la humedad visible — la humedad es el síntoma, no el origen. Con geófono acústico medimos la intensidad del sonido del agua en varios puntos hasta identificar el foco real. En suelos radiantes de viviendas nuevas, en tuberías de riego enterradas en jardín o en bajantes de comunidades, la cámara de inspección confirma el diagnóstico antes de abrir nada. Solo se pica donde está el problema, no donde aparece el daño.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en termos y calentadores por acumulación de cal</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en grifos y juntas deterioradas por agua dura</li>
@@ -92,16 +92,16 @@ include '../../includes/head.php';
     <h2>Búsqueda de fugas en Petrer &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo sabéis si la fuga viene de más arriba en la ladera de Petrer?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Con el geófono tomamos mediciones en varios puntos de la ladera, empezando desde el síntoma visible y avanzando cuesta arriba. La intensidad acústica aumenta conforme nos acercamos al origen real. En Petrer es habitual que el punto de máxima señal esté 100-200 metros por encima de donde aparece la humedad visible.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El seguro del hogar cubre la detección de fugas?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Depende de la póliza. Muchos seguros de hogar cubren los daños materiales causados por la fuga pero no el coste de localización. Otros incluyen también la detección y la reparación si se contrata con empresa autorizada. Conviene consultar las condiciones particulares antes de llamar. En cualquier caso emitimos informe del trabajo realizado con descripción del origen y método de localización, que puede servir para la reclamación al seguro.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Las raíces de árboles en ladera pueden romper tuberías de suministro?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí, aunque es más frecuente en colectores de saneamiento que en tuberías de suministro a presión. Las raíces buscan humedad y encuentran primero las juntas de los colectores. En tuberías de suministro, el daño suele ser por presión de la raíz sobre la tubería más que por penetración directa. La cámara endoscópica distingue el tipo de daño antes de actuar.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo se confirma que la fuga está localizada antes de abrir la pared?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Con el geófono identificamos el punto de máxima intensidad acústica, que corresponde al origen de la fuga. En caso de duda, la cámara de inspección introducida por el desagüe o una arqueta cercana confirma visualmente la zona afectada. Solo cuando ambas herramientas apuntan al mismo punto se propone abrir. El objetivo es abrir una sola vez y en el sitio correcto.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Detectáis fugas en piscinas de comunidades en las urbanizaciones de Petrer?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Las urbanizaciones de ladera de Petrer tienen piscinas comunitarias con circuitos de impulsión y retorno que pueden presentar fugas ocultas. Detectamos pérdidas en el vaso, en la red enterrada y en el cuarto de bombas. Presupuesto previo en todos los casos.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede detectar una fuga con la casa habitada?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. La detección con geófono no requiere vaciar la vivienda ni cortar el suministro salvo en el momento puntual de la medición. Es recomendable que no haya consumo de agua (grifos, lavadora, cisterna) durante la toma de medidas para que la señal acústica sea limpia, pero eso basta con pausar el uso unos minutos. La familia puede estar en casa durante todo el proceso.</div>
       </div>
     </div>
   </div>
