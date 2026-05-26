@@ -21,7 +21,7 @@ include '../../includes/head.php';
     <p class="hz-dark-sub">Arquetas, bajantes y tuberías. Centro histórico, naves de mármol y fincas agrícolas</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
-      <a href="/contacto" class="btn-hz-g">Solicitar presupuesto</a>
+      <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
     </div>
   </div>
 </section>

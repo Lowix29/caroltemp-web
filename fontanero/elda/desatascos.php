@@ -1,10 +1,10 @@
 <?php
 /**
  * Desatascos en Elda
- * Generado por Agente de P&aacute;ginas — CarolTemp
+ * CarolTemp
  */
-$meta_title  = 'Desatascos Elda — CarolTemp | Hoy mismo 611 165 129';
-$meta_desc   = 'Desatascos urgentes en Elda: tuberías, arquetas, bajantes. Cámara de inspección incluida, presupuesto sin sorpresas antes de empezar. Llamar: 611 165 129';
+$meta_title  = 'Desatascos Elda — bajantes, arquetas e inodoros — CarolTemp';
+$meta_desc   = 'Desatascos en Elda con cámara endoscópica. Bajantes, arquetas, inodoros y desagüe de talleres. Diagnóstico antes de actuar. Precio cerrado. 611 165 129';
 $meta_url    = 'https://caroltemp.com/fontanero/elda/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';
@@ -17,21 +17,21 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Elda &middot; CP 03600</div>
-    <h1>Desatascos en Elda<br><span class="hl">hoy mismo</span></h1>
-    <p class="hz-dark-sub">Desbloqueamos tuberías, arquetas y bajantes en bloques y naves industriales</p>
+    <h1>Desatascos en Elda<br><span class="hl">bajantes, arquetas e inodoros.</span></h1>
+    <p class="hz-dark-sub">Diagnóstico con cámara endoscópica. Sabemos qué está atascado y dónde antes de presupuestar. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
-      <a href="/contacto" class="btn-hz-g">Solicitar presupuesto</a>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128176; precio sin sorpresas</span><span class="dif-lbl">Antes de empezar</span></div>
-    <div class="dif-item"><span class="dif-val">&#128269; Ge&oacute;fono + c&aacute;mara</span><span class="dif-lbl">Sin obras innecesarias</span></div>
-    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instalador certificado</span></div>
-    <div class="dif-item"><span class="dif-val">&#128205; Elda</span><span class="dif-lbl">Atenci&oacute;n local</span></div>
+    <div class="dif-item"><span class="dif-val">&#128247; Cámara endoscópica</span><span class="dif-lbl">Vemos el atasco antes de actuar</span></div>
+    <div class="dif-item"><span class="dif-val">Precio cerrado antes de empezar</span><span class="dif-lbl">Sin sorpresas al terminar</span></div>
+    <div class="dif-item"><span class="dif-val">Sin suciedad ni daños</span><span class="dif-lbl">Trabajo limpio garantizado</span></div>
+    <div class="dif-item"><span class="dif-val">Bajantes, arquetas e inodoros</span><span class="dif-lbl">Todo tipo de atascos</span></div>
   </div>
 </div>
 
@@ -40,25 +40,101 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Elda</p>
-        <h2>Desatascos en <span class="hl">Elda</span></h2>
-        <div class="zona-prose"><p>En Elda los atascos más frecuentes ocurren en bajantes de edificios de los 70-80 y en arquetas de talleres del calzado por restos de grasa y pegamento. Usamos cámara de inspección para localizar el punto exacto y presupuestamos antes de intervenir.</p></div>
+        <h2>Atascos habituales <span class="hl">en Elda</span></h2>
+        <div class="zona-prose">
+          <p>En Elda la combinación de agua calcárea y edificios con tuberías de los años 70-80 genera atascos frecuentes y difíciles. El sarro reduce el diámetro interior de los desagüe, la grasa de cocina se pega con facilidad y en talleres de calzado los residuos industriales pueden solidificar en los sifones. Un desatasco en Elda hecho con productos químicos suele ser temporal.</p>
+          <p>Antes de actuar introducimos una <strong>cámara endoscópica</strong> que muestra el tipo de obstrucción y su posición exacta en el conducto. El presupuesto es concreto: sabes qué se va a hacer y cuánto cuesta antes de empezar. Ni más ni menos.</p>
+        </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de bajantes en bloques de pisos</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Arquetas industriales (talleres, naves)</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tuberías obstruidas por cal y residuos</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cámara de inspección incluida</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco urgente 24h</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Limpieza de sifones y desagües</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro en Elda que no desagua</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bajante bloqueada en bloque de pisos del centro</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Arqueta exterior desbordada en nave industrial o local</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desagüe de cocina atascado por grasa y sarro</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Ducha o bañera que no vacía por acumulación de cal</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sifón de taller atascado por residuos de producción</li>
         </ul>
       </div>
       <div>
-        <div class="zona-icard">
-          <div class="zona-icard-h"><strong>CarolTemp &middot; Elda</strong><span>Desatascos</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Elda &middot; CP 03600</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Tel&eacute;fono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Todos los servicios</span><span class="zona-ir-v"><a href="/fontanero/elda">Fontaner&iacute;a en Elda &rarr;</a></span></div>
+        <div class="icard">
+          <div class="icard-head">¿Tienes un atasco? Señales típicas</div>
+          <div class="icard-body">
+            <div class="icard-row"><span class="icard-icon">🚽</span><span>El inodoro sube al tirar de la cadena</span></div>
+            <div class="icard-row"><span class="icard-icon">🍳</span><span>El fregadero tarda minutos en vaciarse</span></div>
+            <div class="icard-row"><span class="icard-icon">🚿</span><span>Agua acumulada en la ducha al ducharte</span></div>
+            <div class="icard-row"><span class="icard-icon">💧</span><span>Olor a alcantarilla en baño o cocina</span></div>
+            <div class="icard-row"><span class="icard-icon">📢</span><span>Gorgoteo en tuberías al usar otros desagüe</span></div>
+            <div class="icard-row"><span class="icard-icon">🏡</span><span>Arqueta exterior desbordando hacia la calle</span></div>
+          </div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zona-sec zona-sec-alt">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Qué desbloqueamos</p>
+    <h2>Servicios de desatasco <span class="hl">en Elda</span></h2>
+    <div class="zona-grid-6">
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🚽</div>
+        <h3>Desatasco de inodoro</h3>
+        <p>Atasco de inodoro en Elda: sólidos, toallitas o sarro que bloquean el sifón o la salida. Resolvemos sin desmontar la taza cuando no es necesario.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏗️</div>
+        <h3>Desatasco de bajantes</h3>
+        <p>Bajante vertical bloqueada por grasa, raíces o residuos sólidos. Hidrojetting a presión para limpiar el conducto completo desde la cámara hasta la arqueta general.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🔲</div>
+        <h3>Limpieza de arquetas</h3>
+        <p>Arquetas colapsadas por grasa endurecida, lodos o raíces. Limpieza con bomba de presión y revisión de paredes para detectar grietas que causen futuros problemas.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🍳</div>
+        <h3>Desatasco de cocina</h3>
+        <p>Fregadero atascado por grasa, restos orgánicos o sarro. La cámara endoscópica muestra hasta dónde llega el tapón antes de actuar con el equipo adecuado.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏭</div>
+        <h3>Talleres y locales</h3>
+        <p>Desatascos en talleres de calzado, locales comerciales y naves industriales de Elda. Residuos de producción, colas y materiales solidificados con hidrojetting especializado.</p>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏢</div>
+        <h3>Comunidades de vecinos</h3>
+        <p>Desatascos para comunidades en Elda: bajante general, colectores y arquetas comunitarias. Coordinación con el administrador y trabajo con mínimas molestias para los vecinos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Cómo trabajamos</p>
+    <h2>Proceso de desatasco <span class="hl">en Elda</span></h2>
+    <div class="zona-steps">
+      <div class="zona-step">
+        <div class="zona-step-n">1</div>
+        <div class="zona-step-txt">
+          <strong>Diagnóstico con cámara endoscópica</strong>
+          <p>Introducimos la cámara por el desagüe o la arqueta para ver en directo el tipo de obstrucción y su posición exacta. El presupuesto de desatasco en Elda es concreto: sabes qué se va a hacer y cuánto cuesta antes de empezar.</p>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">2</div>
+        <div class="zona-step-txt">
+          <strong>Técnica adecuada según el atasco</strong>
+          <p>Hidrojetting a alta presión para tapones de grasa compacta, sonda mecánica para atascos puntuales, aspiración para arquetas con lodos. En Elda el sarro suele mezclarse con grasa — en ese caso combinamos técnicas para un resultado duradero.</p>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">3</div>
+        <div class="zona-step-txt">
+          <strong>Verificación y trabajo limpio</strong>
+          <p>Al terminar verificamos con agua a caudal real. Si el caso lo requiere, una segunda pasada de cámara confirma que el conducto queda completamente libre. Recogemos restos y dejamos la zona como estaba. El precio acordado es el final.</p>
         </div>
       </div>
     </div>
@@ -67,20 +143,32 @@ include '../../includes/head.php';
 
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Casos habituales en Elda</p>
-    <h2>Por qu&eacute; nos llaman por Desatascos <span class="hl">en Elda</span></h2>
-    <div class="zona-svc">
-      <div class="zona-sc">
-        <h3>Bajantes de edificios de los 70-80 colapsadas</h3>
-        <p>Los bloques de pisos de esa época tienen bajantes verticales estrechas que acumulan años de residuos, papel y cal. Cualquier toallita o resto sólido puede taponar toda la columna.</p>
+    <p class="zona-lbl">Precios claros</p>
+    <h2>Precio desatasco <span class="hl">Elda</span></h2>
+    <p style="color:#576574;margin-bottom:.5rem">Tarifas orientativas. El presupuesto exacto se da tras el diagnóstico con cámara, antes de empezar.</p>
+    <div class="zona-precios">
+      <div class="zona-precio-head">
+        <span>Concepto</span><span>Precio</span><span>Condiciones</span>
       </div>
-      <div class="zona-sc">
-        <h3>Arquetas de naves con grasa y pegamento</h3>
-        <p>Los talleres del calzado vierten agua con restos de pegamento, tintes y grasa que solidifican en arquetas exteriores, creando tapones duros que el agua no disuelve.</p>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Mano de obra</span>
+        <span class="zona-precio-val">100 €/h</span>
+        <span class="zona-precio-nota">Mínimo 1 hora. Cámara endoscópica incluida.</span>
       </div>
-      <div class="zona-sc">
-        <h3>Tuberías de comunidades con cal incrustada</h3>
-        <p>El agua dura de Elda deja capas de cal en las paredes de las tuberías de plomo y hierro antiguo, estrechando el paso y favoreciendo que cualquier resto orgánico quede atrapado.</p>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Desplazamiento a Elda</span>
+        <span class="zona-precio-val">40 €</span>
+        <span class="zona-precio-nota">Por visita, incluido en el presupuesto.</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Horario nocturno (desde las 22:00 h)</span>
+        <span class="zona-precio-val" style="font-size:14px;color:#576574">Recargo</span>
+        <span class="zona-precio-nota">Se informa al contactar.</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Fines de semana y festivos</span>
+        <span class="zona-precio-val" style="font-size:14px;color:#576574">Recargo</span>
+        <span class="zona-precio-nota">Se informa al contactar.</span>
       </div>
     </div>
   </div>
@@ -89,56 +177,58 @@ include '../../includes/head.php';
 <section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Desatascos en Elda &mdash; <span class="hl">dudas habituales</span></h2>
-    <div class="zona-faq" style="margin-top:2rem">
-      <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta un desatasco en Elda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Depende de la causa y la profundidad. Hacemos inspección con cámara y damos precio exacto antes de empezar. Llama al 611 165 129 para un diagnóstico sin compromiso.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto tardáis en venir si tengo una urgencia?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">En desatascos urgentes en Elda solemos llegar en 1-2 horas. Llamar: 611 165 129.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué incluye el servicio de desatasco?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Inspección con cámara, desatasco mecánico o con presión, retirada de residuos y prueba final para verificar que el agua corre correctamente.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Trabajáis en comunidades de vecinos de Elda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí, hacemos desatascos en bajantes y arquetas generales de comunidades. Coordinamos con el presidente o administrador y damos presupuesto por escrito antes de actuar.</div>
-      </div>
+    <h2>Desatascos en Elda <span class="hl">— dudas habituales</span></h2>
+    <div class="zona-faqs">
+      <details class="zona-faq-item" open>
+        <summary>¿Cuánto cuesta un desatasco en Elda?</summary>
+        <div class="faq-ans">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Elda. El diagnóstico con cámara endoscópica va incluido en el tiempo de trabajo. El presupuesto exacto se da tras ver el atasco con la cámara, antes de empezar. Hay recargos para servicios nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Podéis desatascar talleres y locales industriales en Elda?</summary>
+        <div class="faq-ans">Sí. Trabajamos en talleres de fabricación de calzado, naves industriales y locales comerciales de Elda. Los residuos de producción pueden solidificarse en los sifones. La cámara endoscópica nos indica qué tipo de tapón hay para llevar el equipo correcto.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿El sarro del agua de Elda provoca atascos?</summary>
+        <div class="faq-ans">Sí, de forma indirecta. El sarro reduce el diámetro interior de los desagüe, haciendo que la grasa y los residuos queden atrapados con más facilidad. En Elda es habitual encontrar atascos mixtos de grasa y sarro que solo ceden con hidrojetting a presión.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Atendéis comunidades de vecinos en Elda?</summary>
+        <div class="faq-ans">Sí. Para comunidades ofrecemos revisión y limpieza de bajante general, colectores y arquetas comunitarias. Coordinamos con el administrador de la finca y trabajamos con el menor impacto posible para los vecinos. También hacemos mantenimiento preventivo para evitar atascos recurrentes.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Usáis cámara endoscópica en todos los desatascos de Elda?</summary>
+        <div class="faq-ans">Sí, siempre que el acceso lo permite. La cámara nos dice exactamente qué hay y dónde — así la técnica y el presupuesto son precisos. Sirve también para verificar que el conducto queda completamente libre al terminar.</div>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- /editable -->
 <?php
 $_proy = [];
 try {
   $_ps = $pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');
   $_ps->execute(['%Elda%']);
   $_proy = $_ps->fetchAll(PDO::FETCH_ASSOC);
+  if (empty($_proy)) {
+    $_ps2 = $pdo->query('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
+    $_proy = $_ps2 ? $_ps2->fetchAll(PDO::FETCH_ASSOC) : [];
+  }
 } catch (\Throwable $_e) {}
 $_arts = [];
 try {
-  $_as = $pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');
-  $_as->execute(['%Elda%', '%fontan%']);
-  $_arts = $_as->fetchAll(PDO::FETCH_ASSOC);
-  if (empty($_arts)) {
-    $_as2 = $pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
-    $_arts = $_as2 ? $_as2->fetchAll(PDO::FETCH_ASSOC) : [];
-  }
+  $_as = $pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
+  $_arts = $_as ? $_as->fetchAll(PDO::FETCH_ASSOC) : [];
 } catch (\Throwable $_e) {}
 if (!empty($_proy)): ?>
-<section class="zona-sec">
+<section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Trabajos realizados</p>
-    <h2>Proyectos de Desatascos <span class="hl">en Elda</span></h2>
+    <h2>Proyectos de desatascos <span class="hl">en Elda</span></h2>
     <div class="zona-svc" style="margin-top:2rem">
       <?php foreach ($_proy as $_p): ?>
       <a href="/proyectos/<?php echo urlencode($_p['slug']); ?>" class="zona-sc">
         <?php if (!empty($_p['imagen'])): ?><img src="<?php echo htmlspecialchars($_p['imagen']); ?>" alt="<?php echo htmlspecialchars($_p['titulo']); ?>" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem"><?php endif; ?>
-        <?php if ($_p['servicio']): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_p['servicio']); ?></span><?php endif; ?>
+        <?php if (!empty($_p['servicio'])): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_p['servicio']); ?></span><?php endif; ?>
         <h3><?php echo htmlspecialchars($_p['titulo']); ?></h3>
         <p><?php echo htmlspecialchars(mb_substr($_p['descripcion'] ?? '', 0, 100)); ?>...</p>
         <span class="zona-sc-a">Ver proyecto &rarr;</span>
@@ -149,15 +239,15 @@ if (!empty($_proy)): ?>
 </section>
 <?php endif; ?>
 <?php if (!empty($_arts)): ?>
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Consejos &uacute;tiles</p>
-    <h2>Art&iacute;culos sobre <span class="hl">Desatascos</span></h2>
+    <h2>Art&iacute;culos sobre <span class="hl">desatascos y saneamiento</span></h2>
     <div class="zona-svc" style="margin-top:2rem">
       <?php foreach ($_arts as $_a): ?>
       <a href="/noticias/<?php echo urlencode($_a['slug']); ?>" class="zona-sc">
         <?php if (!empty($_a['imagen'])): ?><img src="<?php echo htmlspecialchars($_a['imagen']); ?>" alt="<?php echo htmlspecialchars($_a['titulo']); ?>" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem"><?php endif; ?>
-        <?php if ($_a['categoria']): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_a['categoria']); ?></span><?php endif; ?>
+        <?php if (!empty($_a['categoria'])): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_a['categoria']); ?></span><?php endif; ?>
         <h3><?php echo htmlspecialchars($_a['titulo']); ?></h3>
         <p><?php echo htmlspecialchars(mb_substr($_a['extracto'] ?? '', 0, 100)); ?>...</p>
         <span class="zona-sc-a">Leer art&iacute;culo &rarr;</span>
@@ -167,37 +257,35 @@ if (!empty($_proy)): ?>
   </div>
 </section>
 <?php endif; ?>
-<section class="zona-sec">
+<section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
     <h2>Desatascos <span class="hl">en Elda</span></h2>
     <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Elda (CP 03600) y municipios lim&iacute;trofes.</p>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
-      <iframe src="https://maps.google.com/maps?q=38.4766,-0.7952&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Desatascos en Elda"></iframe>
+      <iframe src="https://maps.google.com/maps?q=38.4774,-0.7882&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Desatascos en Elda"></iframe>
     </div>
   </div>
 </section>
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Mismo servicio en otras zonas</p>
-    <h2>Tambi&eacute;n hacemos Desatascos <span class="hl">en otros municipios</span></h2>
+    <h2>También hacemos desatascos <span class="hl">en otros municipios</span></h2>
     <div class="zona-ztags">
       <a href="/fontanero/elda" class="zona-ztag" style="background:#1e3a5f;color:#fff">&#8592; Todos los servicios en Elda</a>
-      <a href="/fontanero/petrer/desatascos" class="zona-ztag">Petrer</a>
       <a href="/fontanero/novelda/desatascos" class="zona-ztag">Novelda</a>
-      <a href="/fontanero/monovar/desatascos" class="zona-ztag">Monóvar</a>
+      <a href="/fontanero/petrer/desatascos" class="zona-ztag">Petrer</a>
+      <a href="/fontanero/monovar/desatascos" class="zona-ztag">Mon&oacute;var</a>
       <a href="/fontanero/sax/desatascos" class="zona-ztag">Sax</a>
       <a href="/fontanero/pinoso/desatascos" class="zona-ztag">Pinoso</a>
-      <a href="/fontanero/monforte/desatascos" class="zona-ztag">Monforte del Cid</a>
-      <a href="/fontanero/salinas/desatascos" class="zona-ztag">Salinas</a>
-      <a href="/fontanero/aspe/desatascos" class="zona-ztag">Aspe</a>
+      <a href="/fontanero/monforte-del-cid/desatascos" class="zona-ztag">Monforte del Cid</a>
     </div>
   </div>
 </section>
 <section class="cta-dark">
   <div class="cta-dark-con">
-    <h2>&iquest;Necesitas Desatascos <span>en Elda?</span></h2>
-    <p>Ll&aacute;menos o escr&iacute;benos. Te atendemos hoy.</p>
+    <h2>&iquest;Tienes un atasco <span>en Elda?</span></h2>
+    <p>Vemos el atasco con la c&aacute;mara, damos precio y lo resolvemos en la misma visita.</p>
     <div class="cta-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>

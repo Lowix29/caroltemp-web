@@ -80,8 +80,8 @@
             <svg class="nav-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="nav-drop-panel">
-            <a href="<?php echo $base_url; ?>fontanero/elda/busqueda_fugas"     class="nav-drop-item">Fugas Elda</a>
-            <a href="<?php echo $base_url; ?>fontanero/petrer/busqueda_fugas"   class="nav-drop-item">Fugas Petrer</a>
+            <a href="<?php echo $base_url; ?>fontanero/elda/busqueda_fugas"     class="nav-drop-item">Fugas Elda<small>Geófono y cámara</small></a>
+            <a href="<?php echo $base_url; ?>fontanero/petrer/busqueda_fugas"   class="nav-drop-item">Fugas Petrer<small>Sin obra</small></a>
             <a href="<?php echo $base_url; ?>fontanero/novelda/busqueda_fugas"  class="nav-drop-item">Fugas Novelda</a>
             <a href="<?php echo $base_url; ?>fontanero/monovar/busqueda_fugas"  class="nav-drop-item">Fugas Monóvar</a>
             <a href="<?php echo $base_url; ?>fontanero/sax/busqueda_fugas"      class="nav-drop-item">Fugas Sax</a>

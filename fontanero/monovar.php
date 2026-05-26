@@ -1,74 +1,118 @@
 <?php
-$zona_nombre = 'Monóvar';
-$zona_slug   = 'monovar';
-$zona_cp     = '03640';
-
-$meta_title  = 'Fontanero en Monóvar pozos y cal — CarolTemp';
-$meta_desc   = 'Fontanería en Monóvar. Especialistas en instalaciones rurales: pozos, grupos de presión y depósitos en fincas. Agua dura tratada. Presupuesto gratis.';
+/**
+ * Fontanero en Monóvar — Hub
+ * CarolTemp
+ */
+$meta_title  = 'Fontanero Monóvar — fontanería y reformas — CarolTemp';
+$meta_desc   = 'Fontanería en Monóvar: urgencias, detección de fugas, desatascos, termos y reformas. Presupuesto gratuito. Instaladores certificados Nubeco.';
 $meta_url    = 'https://caroltemp.com/fontanero/monovar';
-$schema_type = 'zona';
+$schema_type = 'local';
 $page_css    = 'zona';
 $page_js     = 'zona';
-
+$depth       = 1;
 include '../includes/head.php';
 ?>
 
-<!-- HERO -->
 <section class="hz-dark">
   <div class="hz-dark-bg"></div>
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
-    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontaner&iacute;a en Monóvar &middot; CP 03640</div>
-    <h1>Fontaner&iacute;a en <span class="hl">Monóvar.</span></h1>
-    <p class="hz-dark-sub">Especialistas en instalaciones rurales con pozo propio y problemas de cal en el agua</p>
+    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Monóvar &middot; CP 03640</div>
+    <h1>Fontanero en Monóvar<br><span class="hl">presupuesto gratuito sin compromiso.</span></h1>
+    <p class="hz-dark-sub">Fontanería en Monóvar para urgencias, fugas, desatascos, termos y reformas. Instaladores certificados Nubeco. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
-      <a href="/contacto" class="btn-hz-g">Solicitar visita</a>
-    </div>
-    <div class="hero-dark-kpis" style="margin-top:2rem">
-      <div class="hero-dark-kpi"><span class="hero-dark-kpi-val">Nubeco</span><span class="hero-dark-kpi-lbl">Instalador oficial en Monóvar</span></div>
-      <div class="hero-dark-kpi"><span class="hero-dark-kpi-val">100%</span><span class="hero-dark-kpi-lbl">precio sin sorpresas siempre</span></div>
-      <div class="hero-dark-kpi"><span class="hero-dark-kpi-val">0&euro;</span><span class="hero-dark-kpi-lbl">Sin adelantos con financiaci&oacute;n</span></div>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
 
-<!-- STRIP -->
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#9889; Urgencias</span><span class="dif-lbl">Atenci&oacute;n r&aacute;pida en Monóvar</span></div>
-    <div class="dif-item"><span class="dif-val">&#128269; Sin obras</span><span class="dif-lbl">Ge&oacute;fono y c&aacute;mara</span></div>
-    <div class="dif-item"><span class="dif-val">&#128176; precio sin sorpresas</span><span class="dif-lbl">Antes de empezar</span></div>
-    <div class="dif-item"><span class="dif-val">&#128205; Comarca</span><span class="dif-lbl">Somos de aqu&iacute;</span></div>
+    <div class="dif-item"><span class="dif-val">Presupuesto gratuito</span><span class="dif-lbl">Sin compromiso</span></div>
+    <div class="dif-item"><span class="dif-val">Precio cerrado antes de empezar</span><span class="dif-lbl">Sin sorpresas en la factura</span></div>
+    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados</span></div>
+    <div class="dif-item"><span class="dif-val">Fontanero local</span><span class="dif-lbl">Conocemos Monóvar</span></div>
   </div>
 </div>
 
-<!-- TEXTO CENTRAL -->
+<!-- Servicios principales -->
 <section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Servicios de fontanería en Monóvar</p>
+    <h2>¿Qué necesitas? <span class="hl">Te cubrimos.</span></h2>
+    <div class="zona-svc" style="margin-top:2rem">
+
+      <a href="/fontanero/monovar/urgencias" class="zona-sc">
+        <span class="zona-sc-n">URGENCIAS</span>
+        <h3>Fontanero urgente Monóvar</h3>
+        <p>Avería vista, precio dado. Atendemos roturas, escapes, grupos de presión y calentadores. Nada se toca sin que sepas cuánto cuesta.</p>
+        <span class="zona-sc-a">Ver urgencias &rarr;</span>
+      </a>
+
+      <a href="/fontanero/monovar/busqueda_fugas" class="zona-sc">
+        <span class="zona-sc-n">FUGAS</span>
+        <h3>Detección de fugas en Monóvar</h3>
+        <p>Localización de fugas de agua en Monóvar sin romper paredes: geófono y cámara termográfica. Marcamos el punto exacto antes de abrir.</p>
+        <span class="zona-sc-a">Ver fugas &rarr;</span>
+      </a>
+
+      <a href="/fontanero/monovar/desatascos" class="zona-sc">
+        <span class="zona-sc-n">DESATASCOS</span>
+        <h3>Desatascos en Monóvar</h3>
+        <p>Desatascos de bajantes, arquetas e inodoros con cámara endoscópica. Diagnóstico antes de actuar. Precio cerrado.</p>
+        <span class="zona-sc-a">Ver desatascos &rarr;</span>
+      </a>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">TERMOS</span>
+        <h3>Termos y calentadores</h3>
+        <p>El agua dura de Monóvar destruye la resistencia del termo en pocos años. Reparación o sustitución con presupuesto previo y sin visita extra.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">REFORMAS</span>
+        <h3>Reformas de baño y cocina</h3>
+        <p>Reforma completa o parcial de la instalación de fontanería en Monóvar. Sustitución de tuberías, traslado de puntos de agua y adecuación a normativa.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">DESCALCIFICADORES</span>
+        <h3>Descalcificadores</h3>
+        <p>El agua del Vinalopó tiene dureza elevada. Un descalcificador bien dimensionado protege termos, calentadores y electrodomésticos de toda la vivienda o bodega.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- El agua en Monóvar -->
+<section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
     <div class="zona-tcol">
       <div>
-        <p class="zona-lbl">Fontaner&iacute;a en Monóvar</p>
-        <h2>Servicios de fontaner&iacute;a en <span class="hl">Monóvar</span></h2>
+        <p class="zona-lbl">Por qué Monóvar es exigente con la fontanería</p>
+        <h2>Viñedos, pozos y agua dura <span class="hl">lo que hace a tus tuberías</span></h2>
         <div class="zona-prose">
-          <p>Monóvar combina un casco urbano con tuberías antiguas y numerosas viviendas rurales con instalaciones propias: pozos, depósitos elevados y grupos de presión que requieren mantenimiento específico. El agua dura de la zona provoca incrustaciones de cal que afectan especialmente a termos, grifería y válvulas de los sistemas de bombeo.</p>
-          <p>En CarolTemp resolvemos los problemas típicos de las fincas y viviendas de Monóvar: desde averías en grupos de presión hasta detección de fugas en tuberías enterradas con geófono profesional, sin obras innecesarias. Presupuesto gratuito sin compromiso.</p>
+          <p>Monóvar es un municipio con gran extensión de terreno agrícola y viñedos —famoso por el vino Fondillón— donde muchas propiedades cuentan con pozos propios y grupos de presión que abastecen la finca. Esta realidad rural añade una capa de exigencia a la <strong>fontanería en Monóvar</strong>: además de las viviendas del casco urbano, hay casas de campo, bodegas tradicionales y fincas agrícolas con instalaciones que requieren un fontanero con experiencia en entornos mixtos.</p>
+          <p>A esto se suma el agua dura del Vinalopó, que genera sarro en el interior de termos y calentadores, reduce el caudal en tuberías de pequeño diámetro y deteriora las juntas mucho antes de lo esperado. En Monóvar lo que en zonas de agua blanda dura 15 años puede requerir atención a los 8-10. Un descalcificador bien dimensionado es la mejor inversión para cualquier vivienda o bodega de la zona.</p>
         </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reparación y mantenimiento de grupos de presión en fincas</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Detección de fugas en tuberías enterradas con geófono y cámara</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instalación de descalcificadores para agua dura</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reparación de termos con incrustaciones de cal</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fontanería de urgencia 24h en casco urbano y extrarradio</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupos de presión en fincas y casas de campo</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Termos que duran menos por el sarro del agua dura</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en calefacción por juntas resecas</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instalaciones de bodegas y naves agrícolas</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desagüe de ducha y fregadero que se atasca antes por la cal</li>
         </ul>
       </div>
       <div>
         <div class="zona-icard">
-          <div class="zona-icard-h"><strong>CarolTemp &middot; Monóvar</strong><span>Fontaner&iacute;a residencial</span></div>
+          <div class="zona-icard-h"><strong>CarolTemp &middot; Monóvar</strong><span>Fontanería local</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Monóvar &middot; CP 03640</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Tel&eacute;fono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Horario</span><span class="zona-ir-v">Lun&ndash;Vie 8&ndash;20h &middot; S&aacute;b 9&ndash;14h</span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Certificación</span><span class="zona-ir-v">Instaladores Nubeco oficiales</span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Cobertura</span><span class="zona-ir-v">Casco urbano, viñedos y fincas</span></div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
@@ -76,140 +120,131 @@ include '../includes/head.php';
   </div>
 </section>
 
-<!-- SERVICIOS EN EL SILO -->
-<section class="zona-sec zona-sec-gray">
-  <div class="cta-dark-con">
-    <p class="zona-lbl">Servicios en Monóvar</p>
-    <h2>Todo lo que hacemos <span class="hl">en Monóvar</span></h2>
-    <div class="zona-svc">
-      <a href="/fontanero/monovar/urgencias" class="zona-sc"><span class="zona-sc-n">01</span><h3>Fontanero urgente en Monóvar</h3><p>Roturas de tuber&iacute;as, grifos, cisternas y p&eacute;rdidas de agua con soluci&oacute;n r&aacute;pida y precio sin sorpresas.</p><span class="zona-sc-a">Ver servicio &rarr;</span></a>
-      <a href="/fontanero/monovar/busqueda_fugas" class="zona-sc"><span class="zona-sc-n">02</span><h3>B&uacute;squeda de fugas en Monóvar</h3><p>Localizaci&oacute;n de fugas con ge&oacute;fono y c&aacute;mara sin romper innecesariamente.</p><span class="zona-sc-a">Ver servicio &rarr;</span></a>
-      <a href="/fontanero/monovar/desatascos" class="zona-sc"><span class="zona-sc-n">03</span><h3>Desatascos en Monóvar</h3><p>Desatascos de fregaderos, bajantes y arquetas para recuperar el funcionamiento normal.</p><span class="zona-sc-a">Ver servicio &rarr;</span></a>
-      <a href="/servicios#termos" class="zona-sc"><span class="zona-sc-n">04</span><h3>Termos el&eacute;ctricos en Monóvar</h3><p>Instalaci&oacute;n de termos el&eacute;ctricos con asesoramiento y puesta en marcha.</p><span class="zona-sc-a">Ver servicio &rarr;</span></a>
-      <a href="/servicios#descalcificadores" class="zona-sc"><span class="zona-sc-n">05</span><h3>Descalcificadores en Monóvar</h3><p>Soluci&oacute;n para el agua dura con instalaci&oacute;n y mantenimiento de descalcificadores.</p><span class="zona-sc-a">Ver servicio &rarr;</span></a>
-      <a href="/servicios#reformas" class="zona-sc"><span class="zona-sc-n">06</span><h3>Reformas de ba&ntilde;o en Monóvar</h3><p>Reformas completas o parciales con precio sin sorpresas antes de empezar.</p><span class="zona-sc-a">Ver servicio &rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="zona-sec">
-  <div class="cta-dark-con">
-    <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Fontaner&iacute;a en Monóvar &mdash; <span class="hl">dudas habituales</span></h2>
-    <div class="zona-faq" style="margin-top:2rem">
-      <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Arregláis grupos de presión en viviendas con pozo propio?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí, reparamos e instalamos grupos de presión completos. Revisamos bomba, presostato, válvulas y depósito. Si el fallo es por cal en las válvulas, lo limpiamos o sustituimos según el estado.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo localizáis una fuga en una tubería enterrada de una finca sin destrozar todo?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Usamos geófono profesional para escuchar el agua bajo tierra y cámara termográfica si hace falta. Marcamos el punto exacto antes de abrir, así solo picamos donde está la avería.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Merece la pena poner un descalcificador con el agua tan dura de Monóvar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Con agua de más de 600 mg/L de cal, un descalcificador alarga la vida del termo, grifería y electrodomésticos. La inversión se amortiza evitando averías repetidas y sustituciones prematuras.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Venís a viviendas rurales fuera del pueblo?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí, trabajamos tanto en el casco urbano como en fincas y chalets del extrarradio de Monóvar. El desplazamiento está incluido en el presupuesto sin coste adicional.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- /editable -->
+<!-- Proyectos -->
 <?php
 $_proy = [];
 try {
-  $_ps = $pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND zona LIKE ? ORDER BY fecha DESC LIMIT 3');
-  $_ps->execute(['%Monóvar%']);
+  $_ps = $pdo->prepare('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 AND (zona LIKE ? OR zona LIKE ?) ORDER BY fecha DESC LIMIT 3');
+  $_ps->execute(['%Mon_var%', '%Monovar%']);
   $_proy = $_ps->fetchAll(PDO::FETCH_ASSOC);
-} catch (\Throwable $_e) {}
-$_arts = [];
-try {
-  $_as = $pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 AND (zona LIKE ? OR categoria LIKE ?) ORDER BY fecha DESC LIMIT 3');
-  $_as->execute(['%Monóvar%', '%fontan%']);
-  $_arts = $_as->fetchAll(PDO::FETCH_ASSOC);
-  if (empty($_arts)) {
-    $_as2 = $pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
-    $_arts = $_as2 ? $_as2->fetchAll(PDO::FETCH_ASSOC) : [];
+  if (empty($_proy)) {
+    $_ps2 = $pdo->query('SELECT titulo, slug, descripcion, servicio, imagen FROM proyectos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
+    $_proy = $_ps2 ? $_ps2->fetchAll(PDO::FETCH_ASSOC) : [];
   }
 } catch (\Throwable $_e) {}
 if (!empty($_proy)): ?>
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Trabajos realizados</p>
-    <h2>Proyectos de fontaner&iacute;a <span class="hl">en Monóvar</span></h2>
+    <h2>Proyectos de fontaner&iacute;a <span class="hl">en Mon&oacute;var</span></h2>
     <div class="zona-svc" style="margin-top:2rem">
       <?php foreach ($_proy as $_p): ?>
       <a href="/proyectos/<?php echo urlencode($_p['slug']); ?>" class="zona-sc">
         <?php if (!empty($_p['imagen'])): ?><img src="<?php echo htmlspecialchars($_p['imagen']); ?>" alt="<?php echo htmlspecialchars($_p['titulo']); ?>" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem"><?php endif; ?>
-        <?php if ($_p['servicio']): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_p['servicio']); ?></span><?php endif; ?>
+        <?php if (!empty($_p['servicio'])): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_p['servicio']); ?></span><?php endif; ?>
         <h3><?php echo htmlspecialchars($_p['titulo']); ?></h3>
         <p><?php echo htmlspecialchars(mb_substr($_p['descripcion'] ?? '', 0, 100)); ?>...</p>
         <span class="zona-sc-a">Ver proyecto &rarr;</span>
       </a>
       <?php endforeach; ?>
     </div>
-    <div style="text-align:center;margin-top:1.5rem"><a href="/proyectos/zona/Mon%C3%B3var" class="btn-hz-g" style="display:inline-flex">Ver todos los proyectos en Monóvar &rarr;</a></div>
   </div>
 </section>
 <?php endif; ?>
-<?php if (!empty($_arts)): ?>
+
+<!-- FAQ -->
+<section class="zona-sec zona-sec-gray">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Preguntas frecuentes</p>
+    <h2>Fontanería en Monóvar <span class="hl">— dudas habituales</span></h2>
+    <div class="zona-faqs">
+      <details class="zona-faq-item" open>
+        <summary>¿Cuánto cuesta un fontanero en Monóvar?</summary>
+        <div class="faq-ans">La mano de obra es de 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Monóvar. El presupuesto definitivo se da siempre antes de empezar el trabajo, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos, que se informan al contactar.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Atendéis toda la zona de Monóvar, incluidas fincas de viñedo y casas de campo?</summary>
+        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Monóvar: casco urbano, urbanizaciones, casas de campo y explotaciones agrícolas. Las instalaciones de riego, pozos y fontanería en bodegas también las atendemos — avisad indicando el tipo de instalación para llevar el material adecuado.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Vale la pena instalar un descalcificador en Monóvar?</summary>
+        <div class="faq-ans">Sí, especialmente si tienes termo eléctrico, caldera o suelo radiante. El agua del Vinalopó tiene dureza alta y el sarro reduce la vida útil de estos equipos significativamente. Un descalcificador bien dimensionado amortiza su coste en 2-3 años en ahorro de averías y consumo eléctrico. Os asesoramos sin compromiso.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Reparáis grupos de presión en fincas rurales de Monóvar?</summary>
+        <div class="faq-ans">Sí. El grupo de presión es una avería frecuente en las fincas de Monóvar, especialmente en verano. Revisamos presostato, membrana y circuito eléctrico en la misma visita. Si la pieza está en la furgoneta, lo resolvemos en el día.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Artículos -->
+<?php
+$_arts = [];
+try {
+  $_as = $pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
+  $_arts = $_as ? $_as->fetchAll(PDO::FETCH_ASSOC) : [];
+} catch (\Throwable $_e) {}
+if (!empty($_arts)): ?>
 <section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Consejos &uacute;tiles</p>
-    <h2>Art&iacute;culos sobre <span class="hl">fontaner&iacute;a</span></h2>
+    <h2>Art&iacute;culos de fontaner&iacute;a</h2>
     <div class="zona-svc" style="margin-top:2rem">
       <?php foreach ($_arts as $_a): ?>
       <a href="/noticias/<?php echo urlencode($_a['slug']); ?>" class="zona-sc">
         <?php if (!empty($_a['imagen'])): ?><img src="<?php echo htmlspecialchars($_a['imagen']); ?>" alt="<?php echo htmlspecialchars($_a['titulo']); ?>" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem"><?php endif; ?>
-        <?php if ($_a['categoria']): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_a['categoria']); ?></span><?php endif; ?>
+        <?php if (!empty($_a['categoria'])): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_a['categoria']); ?></span><?php endif; ?>
         <h3><?php echo htmlspecialchars($_a['titulo']); ?></h3>
         <p><?php echo htmlspecialchars(mb_substr($_a['extracto'] ?? '', 0, 100)); ?>...</p>
         <span class="zona-sc-a">Leer art&iacute;culo &rarr;</span>
       </a>
       <?php endforeach; ?>
     </div>
-    <div style="text-align:center;margin-top:1.5rem"><a href="/noticias" class="btn-hz-g" style="display:inline-flex">Ver todos los art&iacute;culos &rarr;</a></div>
   </div>
 </section>
 <?php endif; ?>
+
+<!-- Mapa -->
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
-    <h2>Fontaner&iacute;a a domicilio <span class="hl">en Monóvar</span></h2>
-    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Monóvar (CP 03640) y municipios lim&iacute;trofes. Desplazamiento incluido en el presupuesto.</p>
+    <h2>Fontaner&iacute;a <span class="hl">en Mon&oacute;var</span></h2>
+    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Mon&oacute;var (CP 03640) y municipios lim&iacute;trofes.</p>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
-      <iframe src="https://maps.google.com/maps?q=38.4311,-0.8361&z=14&output=embed" width="100%" height="420" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontaner&iacute;a en Monóvar"></iframe>
+      <iframe src="https://maps.google.com/maps?q=38.3756,-0.8314&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontanero en Monóvar"></iframe>
     </div>
   </div>
 </section>
+
+<!-- Zona tags -->
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Otras zonas donde trabajamos</p>
-    <h2>Tambi&eacute;n trabajamos en <span class="hl">zonas cercanas</span></h2>
+    <p class="zona-lbl">Fontaner&iacute;a en otras zonas</p>
+    <h2>Tambi&eacute;n trabajamos <span class="hl">en municipios cercanos</span></h2>
     <div class="zona-ztags">
       <a href="/fontanero/elda" class="zona-ztag">Elda</a>
-      <a href="/fontanero/petrer" class="zona-ztag">Petrer</a>
       <a href="/fontanero/novelda" class="zona-ztag">Novelda</a>
-      <a href="/fontanero/sax" class="zona-ztag">Sax</a>
-      <a href="/fontanero/pinoso" class="zona-ztag">Pinoso</a>
-      <a href="/fontanero/monforte" class="zona-ztag">Monforte del Cid</a>
-      <a href="/fontanero/salinas" class="zona-ztag">Salinas</a>
       <a href="/fontanero/aspe" class="zona-ztag">Aspe</a>
+      <a href="/fontanero/pinoso" class="zona-ztag">Pinoso</a>
+      <a href="/fontanero/monovar" class="zona-ztag">Mon&oacute;var</a>
+      <a href="/fontanero/petrer" class="zona-ztag">Petrer</a>
+      <a href="/fontanero/sax" class="zona-ztag">Sax</a>
+      <a href="/fontanero/salinas" class="zona-ztag">Salinas</a>
+      <a href="/fontanero/monforte-del-cid" class="zona-ztag">Monforte del Cid</a>
     </div>
   </div>
 </section>
+
 <section class="cta-dark">
   <div class="cta-dark-con">
-    <h2>&iquest;Necesitas fontaner&iacute;a <span>en Monóvar?</span></h2>
-    <p>Ll&aacute;menos o escr&iacute;benos y te atendemos hoy.</p>
+    <h2>&iquest;Necesitas fontaner&iacute;a <span>en Mon&oacute;var?</span></h2>
+    <p>Presupuesto gratuito y precio cerrado antes de empezar. Ll&aacute;menos.</p>
     <div class="cta-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>
+
 <?php include '../includes/footer.php'; ?>
