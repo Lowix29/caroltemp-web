@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Novelda &middot; CP 03660</div>
-    <h1>Fontanero urgente en Novelda<br><span class="hl">precio sin sorpresas.</span></h1>
-    <p class="hz-dark-sub">Tuberías rotas, termos que pierden agua por cal, instalaciones de naves industriales</p>
+    <h1>Fontanero urgente en Novelda<br><span class="hl">la sierra de mármol no puede esperar</span></h1>
+    <p class="hz-dark-sub">Avería en nave de corte, fallo en hotel, rotura en vivienda histórica. En Novelda las urgencias paran producción. Precio antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128176; precio sin sorpresas</span><span class="dif-lbl">Antes de empezar</span></div>
-    <div class="dif-item"><span class="dif-val">&#128269; Ge&oacute;fono + c&aacute;mara</span><span class="dif-lbl">Sin obras innecesarias</span></div>
-    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instalador certificado</span></div>
-    <div class="dif-item"><span class="dif-val">&#128205; Novelda</span><span class="dif-lbl">Atenci&oacute;n local</span></div>
+    <div class="dif-item"><span class="dif-val">Naves de mármol</span><span class="dif-lbl">Sin parar producción más de lo necesario</span></div>
+    <div class="dif-item"><span class="dif-val">Hoteles en servicio</span><span class="dif-lbl">Mínimas molestias a los huéspedes</span></div>
+    <div class="dif-item"><span class="dif-val">Precio antes de empezar</span><span class="dif-lbl">El dicho es el final</span></div>
+    <div class="dif-item"><span class="dif-val">Fontanero local Novelda</span><span class="dif-lbl">Conocemos la industria local</span></div>
   </div>
 </div>
 
@@ -41,19 +41,26 @@ include '../../includes/head.php';
       <div>
         <p class="zona-lbl">Fontanero urgente en Novelda</p>
         <h2>Fontanero urgente en <span class="hl">Novelda</span></h2>
-        <div class="zona-prose"><p>Las urgencias de fontanería en Novelda no son como en otras ciudades: tenemos naves industriales de mármol con instalaciones complejas, termos que explotan por el agua dura y tuberías de hierro del centro histórico que llevan décadas funcionando. Cuando algo falla, falla de verdad.</p><p>En CarolTemp sabemos que una avería urgente no puede esperar. Por eso damos presupuesto claro antes de empezar —nada de sorpresas cuando terminamos— y trabajamos en toda la comarca.</p></div>
+        <div class="zona-prose"><p>En Novelda una urgencia de fontanería puede tener tres formas muy distintas. En las naves de mármol: una rotura en el circuito de refrigeración para la sierra — cada hora de parada tiene un coste. En los hoteles del centro: una avería en el grupo de presión deja a los huéspedes sin agua caliente — urgencia que no admite "mañana". En las viviendas del casco histórico: rotura en tubería de hierro con décadas de corrosión — el agua sale hasta que encuentras quién la cierre. Buscas un fontanero urgente en Novelda porque el problema no puede esperar.</p></div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Roturas de tubería en naves industriales</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Termos que pierden agua por acumulación de cal</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tuberías antiguas del centro que revientan</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llaves de paso que no cierran en fincas agrícolas</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupos de presión averiados en instalaciones rurales</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cisternas rotas y grifos que no cortan</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Circuito de refrigeración de sierra de mármol roto</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión de hotel sin arrancar</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tubería reventada en vivienda histórica del centro</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador averiado en habitaciones de hotel</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fuga activa en nave industrial de Novelda</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso bloqueada en edificio sin posibilidad de corte</li>
         </ul>
       </div>
       <div>
         <div class="zona-icard">
-          <div class="zona-icard-h"><strong>CarolTemp &middot; Novelda</strong><span>Fontanero urgente</span></div>
+          <div class="zona-icard-h"><strong>¿Es urgencia en Novelda? Sí si...</strong><span>Llama ya</span></div>
+          <ul class="zona-chk" style="margin:.75rem 0 1rem">
+            <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sierra parada por falta de agua de refrigeración</li>
+            <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Huéspedes del hotel sin agua caliente</li>
+            <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Agua saliendo por falso techo de local</li>
+            <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Presión cero en todo el edificio</li>
+            <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nave inundándose por rotura en circuito</li>
+          </ul>
           <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Novelda &middot; CP 03660</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Tel&eacute;fono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
@@ -92,20 +99,20 @@ include '../../includes/head.php';
     <h2>Fontanero urgente en Novelda &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Atendéis naves de mármol en horario de producción?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Sabemos que una sierra parada cuesta dinero por hora. Atendemos naves de corte y pulido de mármol en Novelda durante el horario de producción. Llevamos el material adecuado para circuitos de refrigeración industrial y minimizamos el tiempo de parada.</div>
+      </div>
+      <div class="zona-fi">
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Tenéis experiencia con instalaciones de hoteles en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Los hoteles tienen instalaciones con grupos de presión, circuitos de ACS y distribución por plantas que no son como una vivienda normal. Trabajamos con el mínimo impacto posible para los huéspedes — presupuesto claro antes de tocar nada y reparación en el menor tiempo posible.</div>
+      </div>
+      <div class="zona-fi">
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo funciona la urgencia si la avería es en un edificio del casco histórico con acceso difícil?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Los edificios del centro histórico de Novelda tienen patios interiores, escaleras estrechas y registros poco accesibles. Conocemos este tipo de construcción. Llámanos indicando si el acceso es complicado — venimos preparados para trabajar en estas condiciones y cerramos precio antes de empezar.</div>
+      </div>
+      <div class="zona-fi">
         <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta una urgencia de fontanería en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
         <div class="zona-fia">Depende de la avería. Antes de empezar te damos presupuesto claro: cuánto cuesta el desplazamiento, la mano de obra y el material. Si no aceptas, no hay compromiso. Pero sabes el precio antes de que toquemos nada.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Atendéis urgencias en naves industriales de mármol?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Hemos trabajado en instalaciones industriales de Novelda: grupos de presión, tuberías de refrigeración, vestuarios. Sabemos que parar producción cuesta dinero, por eso vamos rápido y con el material adecuado.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>Mi termo pierde agua por abajo, ¿tiene arreglo?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Si pierde por la junta inferior, a veces se puede cambiar. Si pierde por el depósito (por corrosión o cal acumulada), hay que cambiar el termo completo. Te lo revisamos y te decimos qué toca hacer antes de cobrarte nada.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Venís a fincas agrícolas fuera del casco urbano?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí, trabajamos en todo el término municipal de Novelda. Pozos, depósitos, grupos de presión, tuberías de riego. Llama al 611 165 129 y vemos qué necesitas.</div>
       </div>
     </div>
   </div>

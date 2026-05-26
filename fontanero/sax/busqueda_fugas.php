@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Sax &middot; CP 03630</div>
-    <h1>Detección de fugas en Sax<br><span class="hl">sin romper paredes.</span></h1>
-    <p class="hz-dark-sub">Localizamos fugas de agua con geófono y cámara termográfica. Marcamos el punto exacto antes de abrir nada. Solo rompemos donde es necesario.</p>
+    <h1>Detección de fugas en Sax<br><span class="hl">el río cerca no es suficiente para evitarlas</span></h1>
+    <p class="hz-dark-sub">Fugas en el casco histórico bajo el castillo, viviendas unifamiliares y fincas de la periferia. Geófono antes de abrir ninguna pared.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">&#128269; Geófono + cámara termográfica</span><span class="dif-lbl">Localización profesional</span></div>
-    <div class="dif-item"><span class="dif-val">Sin romper paredes</span><span class="dif-lbl">Marcamos el punto antes de actuar</span></div>
-    <div class="dif-item"><span class="dif-val">Presupuesto antes de actuar</span><span class="dif-lbl">Sabes el coste antes de empezar</span></div>
-    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados</span></div>
+    <div class="dif-item"><span class="dif-val">Geófono en casco antiguo</span><span class="dif-lbl">Sin romper paredes de piedra</span></div>
+    <div class="dif-item"><span class="dif-val">Cámara termográfica</span><span class="dif-lbl">Confirma el punto exacto</span></div>
+    <div class="dif-item"><span class="dif-val">Viviendas y fincas</span><span class="dif-lbl">Cubrimos todo el municipio</span></div>
+    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados Sax</span></div>
   </div>
 </div>
 
@@ -40,10 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Localización de fugas en Sax</p>
-        <h2>Fugas de agua en Sax <span class="hl">por qué aparecen</span></h2>
+        <h2>Fugas de agua en Sax <span class="hl">el casco histórico es el más afectado</span></h2>
         <div class="zona-prose">
-          <p>La <strong>detección de fugas de agua en Sax</strong> es un servicio frecuente en viviendas del casco histórico y en casas unifamiliares de la zona residencial. El agua dura del Vinalopó afecta directamente a las instalaciones de Sax: deteriora las juntas de cobre y latón antes de lo esperado y deposita sarro en el interior de tuberías de pequeño diámetro, reduciendo la presión y favoreciendo las microfugas. Las <strong>fugas de agua en tuberías de Sax</strong> pueden llevar semanas activas sin salir a la superficie.</p>
-          <p>Con geófono y <strong>cámara termográfica</strong>, la localización de fugas de agua en Sax es precisa antes de abrir nada. Marcamos el punto exacto en suelo o pared, damos presupuesto de reparación y solo entonces se decide si se actúa. El <strong>localizador de fugas de agua en Sax</strong> elimina las obras innecesarias.</p>
+          <p>La localización de fugas de agua en Sax tiene un foco claro: el casco histórico bajo el castillo. Las casas antiguas de piedra tienen tuberías de hierro o plomo que no se han tocado en décadas. Una microfuga en una tubería empotrada en pared de piedra puede llevar meses activa antes de aparecer como mancha de humedad — la piedra absorbe el agua durante mucho tiempo antes de saturarse. El geófono amplifica el sonido exacto de la fuga y la cámara termográfica confirma el punto sin tocar la piedra hasta saber exactamente dónde está.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en viviendas unifamiliares de Sax</li>
@@ -78,14 +77,14 @@ include '../../includes/head.php';
     <h2>Fugas de agua en Sax <span class="hl">por tipo de instalación</span></h2>
     <div class="zona-grid-6">
       <div class="zona-tipo">
-        <div class="zona-tipo-ico">🏠</div>
-        <h3>Fugas en viviendas</h3>
-        <p>Fugas de agua en viviendas unifamiliares de Sax: tuberías antiguas del casco histórico bajo el castillo y casas de construcción reciente en la zona residencial.</p>
+        <div class="zona-tipo-ico">🏰</div>
+        <h3>Casco histórico — paredes de piedra</h3>
+        <p>Las casas antiguas bajo el castillo de Sax tienen tuberías de plomo o hierro que llevan décadas sin sustituir. El geófono localiza la fuga sin dañar la piedra. Solo abrimos en el punto exacto, no en la pared entera.</p>
       </div>
       <div class="zona-tipo">
-        <div class="zona-tipo-ico">🏢</div>
-        <h3>Fugas en comunidades</h3>
-        <p>Fugas de agua en comunidades de vecinos en Sax: montantes, bajantes y tuberías generales de edificios del centro. Informe con punto localizado para gestión con el seguro.</p>
+        <div class="zona-tipo-ico">🌿</div>
+        <h3>Viviendas unifamiliares con jardín y riego</h3>
+        <p>En las casas unifamiliares de Sax las fugas más frecuentes están en la acometida exterior o en la red de riego enterrada. El geófono detecta el punto sin excavar y la reparación es mínima.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🌡️</div>
@@ -180,24 +179,16 @@ include '../../includes/head.php';
     <h2>Detección de fugas <span class="hl">Sax — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta la detección de fugas de agua en Sax?</summary>
-        <div class="faq-ans">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Sax. La localización con geófono y cámara termográfica se incluye en el tiempo de trabajo. Una vez localizada la fuga damos presupuesto de reparación antes de abrir. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+        <summary>¿Podéis detectar fugas en paredes de piedra del casco histórico de Sax sin dañar la piedra?</summary>
+        <div class="faq-ans">Sí. El geófono amplifica el sonido de la fuga a través de la piedra y la cámara termográfica confirma la zona afectada por humedad sin necesidad de picar. Solo marcamos el punto exacto y abrimos lo mínimo imprescindible. La piedra del casco histórico de Sax queda intacta hasta que sabemos exactamente dónde intervenir.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis localizar fugas en el casco histórico de Sax, con paredes antiguas?</summary>
-        <div class="faq-ans">Sí. El geófono y la cámara termográfica son especialmente útiles en viviendas antiguas del casco de Sax, donde las tuberías son de hierro o plomo. Localizamos el punto sin abrir paredes de piedra o cerámica hasta saber exactamente dónde está la fuga.</div>
+        <summary>¿Las tuberías de plomo o hierro que hay en casas antiguas de Sax causan más fugas?</summary>
+        <div class="faq-ans">Sí. Las tuberías de plomo o hierro de las viviendas más antiguas del casco histórico de Sax se corroen desde dentro por el agua calcárea del Vinalopó y desarrollan microfugas que tardan mucho en aparecer en superficie. Son más difíciles de detectar con métodos tradicionales — por eso el geófono es imprescindible en estas instalaciones.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis fugas de agua en comunidades de vecinos en Sax?</summary>
-        <div class="faq-ans">Sí. Nos coordinamos con el administrador y emitimos un informe con el punto localizado, útil para la gestión con el seguro comunitario. Revisamos montantes, bajantes y tuberías generales con mínimas molestias para los vecinos.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Detectáis fugas en acometidas exteriores y jardines en Sax?</summary>
-        <div class="faq-ans">Sí. El geófono localiza fugas en tuberías enterradas en jardines y acometidas exteriores sin necesidad de excavar. Una vez marcado el punto, la apertura es mínima y precisa.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Reparáis la fuga después de localizarla en Sax?</summary>
-        <div class="faq-ans">Sí. Localizamos y reparamos en el mismo servicio cuando es posible. Damos precio de reparación antes de abrir y, si el material está en la furgoneta, lo dejamos resuelto en la misma visita.</div>
+        <summary>¿Atendéis fugas en fincas periféricas del municipio de Sax?</summary>
+        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Sax, incluidas las fincas de la periferia. El geófono localiza fugas en conducciones enterradas y redes de riego sin necesidad de excavar a ciegas. Una vez marcado el punto la apertura es mínima y precisa.</div>
       </details>
     </div>
   </div>

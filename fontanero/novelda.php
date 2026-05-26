@@ -18,8 +18,8 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Novelda &middot; CP 03660</div>
-    <h1>Fontanero en Novelda<br><span class="hl">presupuesto gratuito sin compromiso.</span></h1>
-    <p class="hz-dark-sub">Fontanería en Novelda para urgencias, fugas, desatascos, termos y reformas. Instaladores certificados Nubeco. Precio cerrado antes de empezar.</p>
+    <h1>Fontanero en Novelda<br><span class="hl">presupuesto gratuito sin compromiso</span></h1>
+    <p class="hz-dark-sub">Fontanería en Novelda para naves de mármol, hoteles, viñedos y viviendas del centro histórico. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -92,10 +92,10 @@ include '../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Por qué Novelda es exigente con la fontanería</p>
-        <h2>La capital del mármol <span class="hl">y sus instalaciones de agua</span></h2>
+        <h2>El agua y el mármol <span class="hl">dos industrias que se desgastan juntas</span></h2>
         <div class="zona-prose">
-          <p>Novelda no es un municipio cualquiera del Vinalopó. Como capital del mármol, alberga naves industriales de corte y pulido de piedra natural que consumen volúmenes de agua muy superiores a una vivienda convencional. Las instalaciones de refrigeración de maquinaria, los circuitos de limpieza y los sistemas de recuperación de agua de las canteras exigen una <strong>fontanería en Novelda</strong> especializada y con capacidad de respuesta inmediata ante cualquier avería.</p>
-          <p>A esto se suma el agua dura del Vinalopó Medio: el sarro destruye juntas, reseca sellos y reduce el caudal en tuberías de pequeño diámetro. En el casco histórico de Novelda, donde muchas viviendas conservan tuberías de hierro galvanizado, las <strong>fugas de agua en viviendas</strong> son especialmente frecuentes. Los hoteles en zona centro, las piscinas de urbanizaciones y los viñedos de Cava DOC del término municipal completan un mapa de necesidades muy diverso para los <strong>fontaneros en Novelda</strong>.</p>
+          <p>Las sierras de corte de mármol necesitan agua constantemente para refrigerar la hoja y eliminar polvo. Una fuga en el circuito de refrigeración de una nave de Novelda no es una molestia — es una parada de producción. El polvo de mármol en suspensión también entra en los desagüe de la nave y acelera la formación de tapones combinados de piedra y grasa.</p>
+          <p>En las viviendas del centro histórico de Novelda el problema es diferente: tuberías antiguas, agua dura y edificios sin mantenimiento desde hace décadas. La fontanería en Novelda tiene que entender ambos mundos — el industrial y el residencial — porque la ciudad los tiene mezclados.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Naves industriales del mármol con alta demanda de agua</li>

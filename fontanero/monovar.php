@@ -18,8 +18,8 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Monóvar &middot; CP 03640</div>
-    <h1>Fontanero en Monóvar<br><span class="hl">presupuesto gratuito sin compromiso.</span></h1>
-    <p class="hz-dark-sub">Fontanería en Monóvar para urgencias, fugas, desatascos, termos y reformas. Instaladores certificados Nubeco. Precio cerrado antes de empezar.</p>
+    <h1>Fontanero en Monóvar<br><span class="hl">presupuesto gratuito sin compromiso</span></h1>
+    <p class="hz-dark-sub">Fontanería en Monóvar para fincas con pozo, bodegas, casas de campo y el casco urbano. Grupos de presión, tuberías de riego y viviendas rurales.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -92,10 +92,10 @@ include '../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Por qué Monóvar es exigente con la fontanería</p>
-        <h2>Viñedos, pozos y agua dura <span class="hl">lo que hace a tus tuberías</span></h2>
+        <h2>El agua en Monóvar <span class="hl">escasa, dura y fundamental para el viñedo</span></h2>
         <div class="zona-prose">
-          <p>Monóvar es un municipio con gran extensión de terreno agrícola y viñedos —famoso por el vino Fondillón— donde muchas propiedades cuentan con pozos propios y grupos de presión que abastecen la finca. Esta realidad rural añade una capa de exigencia a la <strong>fontanería en Monóvar</strong>: además de las viviendas del casco urbano, hay casas de campo, bodegas tradicionales y fincas agrícolas con instalaciones que requieren un fontanero con experiencia en entornos mixtos.</p>
-          <p>A esto se suma el agua dura del Vinalopó, que genera sarro en el interior de termos y calentadores, reduce el caudal en tuberías de pequeño diámetro y deteriora las juntas mucho antes de lo esperado. En Monóvar lo que en zonas de agua blanda dura 15 años puede requerir atención a los 8-10. Un descalcificador bien dimensionado es la mejor inversión para cualquier vivienda o bodega de la zona.</p>
+          <p>En Monóvar el agua es un recurso gestionado con cuidado: la mayoría de fincas tienen pozo propio con grupo de presión, porque la red municipal no llega a todas las parcelas de viñedo y almendro. Cuando ese grupo falla en agosto, la familia no tiene agua. No hay alternativa a dos km a la redonda. La fontanería en Monóvar rural es urgente de forma diferente a la urbana — no por intensidad, sino por aislamiento.</p>
+          <p>El agua de Monóvar es de las más duras de la comarca. El sarro destruye las resistencias de termos y calentadores en la mitad de tiempo que en zonas de agua blanda. Las juntas de latón en conexiones de cobre duran entre 8 y 10 años antes de empezar a gotear. Cualquier vivienda de Monóvar con más de 10 años sin revisión de fontanería tiene algún punto débil ya formado.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupos de presión en fincas y casas de campo</li>

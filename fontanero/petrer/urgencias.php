@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Petrer &middot; CP 03610</div>
-    <h1>Fontanero urgente en Petrer<br><span class="hl">precio antes de empezar.</span></h1>
-    <p class="hz-dark-sub">Ves la avería, escuchas el precio, decides. Nada se toca sin que sepas cuánto cuesta. Atendemos casco urbano, urbanizaciones de ladera y polígono industrial.</p>
+    <h1>Fontanero urgente en Petrer<br><span class="hl">cuesta arriba el agua no perdona</span></h1>
+    <p class="hz-dark-sub">Rotura en urbanización de ladera, fallo de presión en zona alta, avería en nave industrial. En Petrer la altura complica todo.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
+    <div class="dif-item"><span class="dif-val">Urbanizaciones de ladera</span><span class="dif-lbl">Presión y desnivel bajo control</span></div>
     <div class="dif-item"><span class="dif-val">Avería vista, precio dado</span><span class="dif-lbl">Antes de tocar nada</span></div>
-    <div class="dif-item"><span class="dif-val">Reparación en la visita</span><span class="dif-lbl">Sin segunda cita si hay piezas</span></div>
-    <div class="dif-item"><span class="dif-val">Sin letra pequeña</span><span class="dif-lbl">El precio dicho es el precio final</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero local</span><span class="dif-lbl">Conocemos Petrer</span></div>
+    <div class="dif-item"><span class="dif-val">Zona alta y zona industrial</span><span class="dif-lbl">Cubrimos todo Petrer</span></div>
+    <div class="dif-item"><span class="dif-val">Fontanero local Petrer</span><span class="dif-lbl">Conocemos la ladera</span></div>
   </div>
 </div>
 
@@ -42,27 +42,25 @@ include '../../includes/head.php';
         <p class="zona-lbl">Cuándo llamar</p>
         <h2>Urgencias fontanero <span class="hl">en Petrer</span></h2>
         <div class="zona-prose">
-          <p>En Petrer las averías urgentes de fontanería más habituales son los grupos de presión que fallan en urbanizaciones de ladera como El Monastil, las roturas de tubería en viviendas de los años 80-90 del casco urbano, y los termos que pierden agua por el sarro acumulado del Vinalopó. Si buscas un fontanero urgente en Petrer, estos son los casos en los que actuamos con mayor frecuencia:</p>
+          <p>En Petrer la urgencia de fontanería más característica está en la ladera. Una rotura en una tubería de la zona alta del Monastil llega al nivel de calle en minutos — el agua baja siguiendo la pendiente y puede aparecer a 200 metros del origen real. Un fallo de presión en la parte alta del casco afecta a varios pisos antes de que se localice la válvula responsable. Las urbanizaciones de ladera también tienen grupos de presión propios que cuando fallan dejan sin agua a bloques enteros. Fontanero urgente en Petrer sabe que hay que subir hasta donde está el problema.</p>
         </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura de tubería con agua saliendo sin control</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Avería fontanería Petrer en tuberías empotradas o enterradas</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión que no arranca en urbanización de ladera</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador o termo que deja de funcionar de repente</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso atascada que no cierra el agua</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inodoro, ducha o fregadero inutilizados por atasco urgente</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de urbanización en ladera</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fallo de grupo de presión en bloque de zona alta</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fuga que aparece en calle pero viene de 200 metros más arriba</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Válvula reductora de presión averiada en bajada de ladera</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador sin agua caliente en zona alta del castillo</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso bloqueada en edificio con acceso difícil</li>
         </ul>
       </div>
       <div>
         <div class="icard">
-          <div class="icard-head">¿Es una urgencia? Señales claras</div>
+          <div class="icard-head">¿Urgencia en Petrer? Señales específicas</div>
           <div class="icard-body">
-            <div class="icard-row"><span class="icard-icon">💧</span><span>Agua saliendo y no puedes cerrar la llave de paso</span></div>
-            <div class="icard-row"><span class="icard-icon">🔥</span><span>Sin agua caliente y hay personas dependientes en casa</span></div>
-            <div class="icard-row"><span class="icard-icon">💦</span><span>Fuga visible que está mojando paredes o techo</span></div>
-            <div class="icard-row"><span class="icard-icon">🚽</span><span>El baño está completamente inutilizado</span></div>
-            <div class="icard-row"><span class="icard-icon">⚡</span><span>Grupo de presión parado en urbanización de ladera</span></div>
-            <div class="icard-row"><span class="icard-icon">🏚️</span><span>Humedad apareciendo rápidamente en una pared</span></div>
+            <div class="icard-row"><span class="icard-icon">💧</span><span>Presión cero en la zona alta pero no en la baja</span></div>
+            <div class="icard-row"><span class="icard-icon">💦</span><span>Agua saliendo cuesta abajo desde origen desconocido</span></div>
+            <div class="icard-row"><span class="icard-icon">🏢</span><span>Bloque en ladera sin agua en todos los pisos</span></div>
+            <div class="icard-row"><span class="icard-icon">⚡</span><span>Grupo de presión que no para de arrancar sin dar caudal</span></div>
           </div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
@@ -179,24 +177,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Petrer — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta un fontanero urgente en Petrer?</summary>
-        <div class="faq-ans">La tarifa base es 100 €/hora (mínimo 1 hora) más 40 € de desplazamiento a Petrer. Vemos la avería, calculamos el tiempo estimado y te damos el precio total antes de empezar. Tú decides si seguimos. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+        <summary>¿Atendéis urgencias en las urbanizaciones de la ladera de Petrer?</summary>
+        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Petrer, incluidas las urbanizaciones en ladera como El Monastil y la zona alta del castillo. Para estas zonas conviene indicar el tipo de vivienda al llamar, ya que las particularidades de presión por el desnivel pueden requerir material específico — grupos de presión, reductoras y válvulas de retención adaptadas al desnivel.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis urgencias en urbanizaciones de ladera de Petrer?</summary>
-        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Petrer, incluidas urbanizaciones en ladera como El Monastil. Para estas zonas conviene indicar el tipo de vivienda al llamar, ya que las particularidades de presión por el desnivel pueden requerir material específico para el grupo de presión o los reguladores.</div>
+        <summary>¿Por qué las roturas en zona alta aparecen tan lejos del origen?</summary>
+        <div class="faq-ans">En Petrer las tuberías de ladera tienen pendiente pronunciada. Cuando hay una rotura, el agua sigue el camino más fácil bajo el pavimento o entre capas del terreno y emerge donde encuentra menos resistencia — a veces a 100 o 200 metros del punto de rotura real. Por eso en urgencias en ladera usamos geófono para localizar el origen antes de abrir.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis detectar fugas de agua urgentes en tuberías sin romper las paredes?</summary>
-        <div class="faq-ans">Sí. Para fugas de agua urgentes en tuberías empotradas o enterradas usamos geófono y cámara termográfica. Localizamos el punto exacto antes de abrir ninguna pared o pavimento, siempre con presupuesto cerrado antes de actuar.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Reparáis grupos de presión averiados como urgencia en Petrer?</summary>
-        <div class="faq-ans">Sí. El grupo de presión es la avería urgente más frecuente en las urbanizaciones de ladera de Petrer. Revisamos presostato, membrana y conexiones. Si la pieza está en la furgoneta, lo resolvemos en la misma visita sin necesidad de segunda cita.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Hay recargo por trabajar de noche, fin de semana o festivos en Petrer?</summary>
-        <div class="faq-ans">A partir de las 22:00 h y en fines de semana y festivos se aplica un recargo sobre la tarifa base. Te informamos del precio exacto al llamar, antes de desplazarnos. Sin sorpresas en ningún caso.</div>
+        <summary>¿Los grupos de presión de las urbanizaciones de Petrer tienen piezas de repuesto disponibles?</summary>
+        <div class="faq-ans">Sí. Los modelos más habituales en las urbanizaciones de ladera de Petrer son compatibles con piezas en stock — presostatos, membranas y calderines de los rangos más comunes. Cuando nos avisáis del modelo del grupo, confirmamos disponibilidad antes de desplazarnos para resolver en una sola visita.</div>
       </details>
     </div>
   </div>

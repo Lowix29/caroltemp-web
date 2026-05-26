@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Monóvar &middot; CP 03640</div>
-    <h1>Fontanero urgente en Monóvar<br><span class="hl">precio antes de empezar.</span></h1>
-    <p class="hz-dark-sub">Ves la avería, escuchas el precio, decides. Nada se toca sin que sepas cuánto cuesta. Atendemos casco urbano, fincas y zonas rurales.</p>
+    <h1>Fontanero urgente en Monóvar<br><span class="hl">el grupo de presión no entiende de horarios</span></h1>
+    <p class="hz-dark-sub">Finca sin agua, grupo de presión parado, rotura en cortijo. En Monóvar la urgencia llega cuando estás a kilómetros del siguiente fontanero.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -28,10 +28,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Avería vista, precio dado</span><span class="dif-lbl">Antes de tocar nada</span></div>
-    <div class="dif-item"><span class="dif-val">Reparación en la visita</span><span class="dif-lbl">Sin segunda cita si hay piezas</span></div>
-    <div class="dif-item"><span class="dif-val">Sin letra pequeña</span><span class="dif-lbl">El precio dicho es el precio final</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero local</span><span class="dif-lbl">Conocemos Monóvar</span></div>
+    <div class="dif-item"><span class="dif-val">Grupos de presión</span><span class="dif-lbl">El problema más frecuente en finca</span></div>
+    <div class="dif-item"><span class="dif-val">Fincas y cortijos</span><span class="dif-lbl">Llegamos donde el pueblo no llega</span></div>
+    <div class="dif-item"><span class="dif-val">Precio antes de empezar</span><span class="dif-lbl">Sin sorpresas en zona rural</span></div>
+    <div class="dif-item"><span class="dif-val">Fontanero Monóvar</span><span class="dif-lbl">Conocemos las fincas de la zona</span></div>
   </div>
 </div>
 
@@ -42,27 +42,26 @@ include '../../includes/head.php';
         <p class="zona-lbl">Cuándo llamar</p>
         <h2>Urgencias fontanero <span class="hl">en Monóvar</span></h2>
         <div class="zona-prose">
-          <p>En Monóvar las averías urgentes de fontanería más habituales son las roturas de tubería en viviendas antiguas del casco histórico, los grupos de presión de fincas y viñedos que fallan en verano, y los termos que pierden agua por la cal acumulada. Si buscas un fontanero urgente en Monóvar, estos son los casos en los que actuamos con mayor frecuencia:</p>
+          <p>En Monóvar las urgencias de fontanería más habituales no son las de ciudad. Son las del grupo de presión de la finca que se para en pleno agosto — la familia lleva horas sin agua y el siguiente servicio técnico está en Elda o Novelda. Son la rotura en tubería de PE enterrada bajo viñedo que lleva días perdiendo agua antes de que alguien lo note. Son el termo de la casa de campo que deja de dar agua caliente en diciembre y no hay ferretería con piezas a menos de 20 km. Fontanero urgente en Monóvar significa llegar hasta allí.</p>
         </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura de tubería con agua saliendo sin control</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua urgentes en tuberías empotradas</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión que no arranca o pierde presión en finca</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador o termo que deja de funcionar de repente</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso atascada que no cierra el agua</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inodoro, ducha o fregadero inutilizados por atasco urgente</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión de finca parado en verano</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de PE bajo viñedo o almendro</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pozo que no da caudal por válvula averiada</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Termo de cortijo sin agua caliente</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso agarrotada en casa de campo</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fuga en aljibe o depósito elevado</li>
         </ul>
       </div>
       <div>
         <div class="icard">
-          <div class="icard-head">¿Es una urgencia? Señales claras</div>
+          <div class="icard-head">Urgencia rural en Monóvar: casos reales</div>
           <div class="icard-body">
-            <div class="icard-row"><span class="icard-icon">💧</span><span>Agua saliendo y no puedes cerrar la llave de paso</span></div>
-            <div class="icard-row"><span class="icard-icon">🔥</span><span>Sin agua caliente y hay personas dependientes en casa</span></div>
-            <div class="icard-row"><span class="icard-icon">💦</span><span>Fuga visible que está mojando paredes o techo</span></div>
-            <div class="icard-row"><span class="icard-icon">🚽</span><span>El baño está completamente inutilizado</span></div>
-            <div class="icard-row"><span class="icard-icon">⚡</span><span>Grupo de presión parado en finca o chalet</span></div>
-            <div class="icard-row"><span class="icard-icon">🏚️</span><span>Humedad apareciendo rápidamente en una pared</span></div>
+            <div class="icard-row"><span class="icard-icon">☀️</span><span>Grupo parado con 40 grados y la familia en la finca</span></div>
+            <div class="icard-row"><span class="icard-icon">💦</span><span>Cortijo inundado por rotura en tubería enterrada</span></div>
+            <div class="icard-row"><span class="icard-icon">⚙️</span><span>Pozo con válvula de retención atascada</span></div>
+            <div class="icard-row"><span class="icard-icon">🔥</span><span>Termo que deja de calentar en diciembre a 6 km del pueblo</span></div>
+            <div class="icard-row"><span class="icard-icon">🚰</span><span>Presión cero en toda la casa sin saber por qué</span></div>
           </div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
@@ -179,24 +178,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Monóvar — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta un fontanero urgente en Monóvar?</summary>
-        <div class="faq-ans">La tarifa base es 100 €/hora (mínimo 1 hora) más 40 € de desplazamiento a Monóvar. Vemos la avería, calculamos el tiempo estimado y te damos el precio total antes de empezar. Tú decides si seguimos. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+        <summary>¿Llegáis hasta las fincas y cortijos más alejados de Monóvar?</summary>
+        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Monóvar, incluyendo fincas de viñedo, cortijos y casas de campo alejadas del casco urbano. El desplazamiento se cobra por visita, sin recargo adicional por distancia dentro de la zona de cobertura. Cuando llames, indícanos la ubicación aproximada para planificar bien la ruta.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis urgencias en fincas y zonas rurales de Monóvar?</summary>
-        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Monóvar, incluidas fincas de viñedo, casas de campo y urbanizaciones. El desplazamiento se cobra por visita, sin recargo extra por distancia dentro de la zona de cobertura.</div>
+        <summary>¿Los grupos de presión se pueden reparar o hay que sustituir?</summary>
+        <div class="faq-ans">Depende del daño. En la mayoría de casos el grupo de presión se puede reparar: cambiamos presostato, membrana, condensador del motor o la bomba según lo que haya fallado. Si el equipo tiene más de 15 años o el coste de reparación supera el 60% del nuevo, te recomendamos sustitución y te presupuestamos ambas opciones para que decidas.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Reparáis grupos de presión averiados como urgencia en Monóvar?</summary>
-        <div class="faq-ans">Sí. El grupo de presión es la avería urgente más frecuente en las fincas de Monóvar, sobre todo en verano. Revisamos presostato, membrana y conexiones. Si la pieza está en la furgoneta, lo resolvemos en la misma visita.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Podéis detectar fugas de agua urgentes en tuberías sin romper las paredes?</summary>
-        <div class="faq-ans">Sí. Para fugas de agua urgentes en tuberías empotradas o enterradas usamos geófono y cámara termográfica. Localizamos el punto exacto antes de abrir ninguna pared o pavimento, siempre con presupuesto cerrado antes de actuar.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Hay recargo por trabajar de noche, fin de semana o festivos en Monóvar?</summary>
-        <div class="faq-ans">A partir de las 22:00 h y en fines de semana y festivos se aplica un recargo sobre la tarifa base. Te informamos del precio exacto al llamar, antes de desplazarnos. Sin sorpresas en ningún caso.</div>
+        <summary>¿Atendéis urgencias en bodegas durante la vendimia?</summary>
+        <div class="faq-ans">Sí. Durante la vendimia las bodegas de Monóvar necesitan agua continua para limpieza, refrigeración y procesos de elaboración. Una avería en ese momento tiene coste directo en la producción. Atendemos urgencias en bodegas con la misma prioridad que en vivienda: precio cerrado antes de empezar y reparación en la visita si hay material.</div>
       </details>
     </div>
   </div>
