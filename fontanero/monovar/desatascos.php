@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Monóvar &middot; CP 03640</div>
-    <h1>Desatascos en Monóvar<br><span class="hl">desde el inodoro hasta la fosa sin improvisar</span></h1>
+    <h1>Desatascos en Monóvar<br><span class="hl">desatasco garantizado o repetimos gratis</span></h1>
     <p class="hz-dark-sub">Limpiamos desde el inodoro hasta la fosa sin improvisar. Cámara para ver el estado real de la tubería antes de actuar y presupuesto cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
@@ -40,7 +40,7 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Monóvar</p>
-        <h2>Atascos en Monóvar <span class="hl">desde el inodoro hasta la fosa sin improvisar</span></h2>
+        <h2>Atascos en Monóvar <span class="hl">desatasco garantizado o repetimos gratis</span></h2>
         <div class="zona-prose"><p>En Monóvar hay viviendas conectadas a la red municipal de alcantarillado y otras que dependen de fosa séptica. En estas últimas, cuando la fosa lleva años sin vaciado o el campo de absorción se satura, los desagües dejan de funcionar y no hay solución parcial — hay que intervenir. En casas antiguas, las bajantes de hierro galvanizado o cerámica acumulan sarro y grasa desde hace décadas y terminan colapsando por el estrechamiento progresivo del diámetro. También atendemos atascos en inodoros, botes sifónicos, bajantes generales y raíces que penetran en tuberías exteriores. Antes de actuar, usamos cámara para ver el estado real de la tubería y evitar reparaciones innecesarias.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascos en fincas rurales con pozos</li>

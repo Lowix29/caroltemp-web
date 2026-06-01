@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Sax &middot; CP 03630</div>
-    <h1>Desatascos en Sax<br><span class="hl">limpiar a fondo, no solo desbloquear</span></h1>
+    <h1>Desatascos en Sax<br><span class="hl">limpieza completa, no solo desbloqueo</span></h1>
     <p class="hz-dark-sub">Limpiamos a fondo con hidrojetting, no solo desbloqueamos con sonda. Cámara endoscópica para ver el estado real del conducto antes de actuar y después para confirmar que queda completamente libre.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
@@ -40,7 +40,7 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Sax</p>
-        <h2>Desatascos en Sax <span class="hl">limpiar a fondo, no solo desbloquear</span></h2>
+        <h2>Desatascos en Sax <span class="hl">limpieza completa, no solo desbloqueo</span></h2>
         <div class="zona-prose">
           <p>Desbloquear un atasco con sonda soluciona el problema ese día, pero deja el conducto lleno de grasa, sarro y residuos pegados a las paredes — y el atasco vuelve en pocas semanas. La diferencia está en limpiar de verdad. El hidrojetting lanza agua a alta presión por todo el conducto, arrastrando la acumulación de grasa compacta, cal y residuos orgánicos que la sonda simplemente perfora. La cámara endoscópica permite ver el estado real de la bajante antes de actuar — y confirmar que queda completamente libre al terminar. En casas antiguas con bajantes muy deterioradas, la cámara también sirve para detectar grietas o secciones que necesitan sustitución: mejor saberlo desde el principio que repetir el servicio al mes.</p>
         </div>

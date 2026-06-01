@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Monóvar &middot; CP 03640</div>
-    <h1>Fontanero urgente en Monóvar<br><span class="hl">el grupo de presión no entiende de horarios</span></h1>
+    <h1>Fontanero urgente en Monóvar<br><span class="hl">urgencias 24h sin sorpresas</span></h1>
     <p class="hz-dark-sub">Atendemos urgencias tanto en el casco urbano como en viviendas rurales sin conexión a red municipal. Si el grupo de presión se para o la llave de corte no cierra, llegamos ese mismo día.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
