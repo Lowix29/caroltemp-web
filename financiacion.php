@@ -61,108 +61,107 @@ include 'includes/head.php';
 </section>
 
 <!-- CÓMO FUNCIONA -->
-<section class="zona-sec-alt">
-  <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-md)">
+<section class="fin-pasos-section">
+  <div class="fin-pasos-wrap">
     <p class="zona-lbl" style="text-align:center">Proceso</p>
-    <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;line-height:1.15;margin-bottom:2.5rem;text-align:center">Cuatro pasos, <span style="color:#3b82f6">todo desde el móvil</span></h2>
-    <div class="zona-steps">
-      <div class="zona-step">
-        <div class="zona-step-n">01</div>
-        <div class="zona-step-txt">
-          <strong>Aceptas el presupuesto</strong>
-          <span>Te presentamos el presupuesto con la opción de financiarlo a plazos. Tú decides.</span>
-        </div>
+    <h2 class="fin-sec-h2" style="text-align:center">Cuatro pasos, <span style="color:#3b82f6">todo desde el móvil</span></h2>
+    <div class="fin-pasos-grid">
+      <div class="fin-paso">
+        <div class="fin-paso-ico">📋</div>
+        <div class="fin-paso-num">01</div>
+        <h3>Aceptas el presupuesto</h3>
+        <p>Te presentamos el presupuesto con la opción de pagarlo a plazos. Sin compromiso hasta que tú decidas.</p>
       </div>
-      <div class="zona-step">
-        <div class="zona-step-n">02</div>
-        <div class="zona-step-txt">
-          <strong>Tramitamos la financiación</strong>
-          <span>Nosotros iniciamos el proceso. Te contactan directamente para pedirte la documentación necesaria, que es mínima.</span>
-        </div>
+      <div class="fin-paso-sep">→</div>
+      <div class="fin-paso">
+        <div class="fin-paso-ico">📞</div>
+        <div class="fin-paso-num">02</div>
+        <h3>Tramitamos contigo</h3>
+        <p>Se pone en contacto contigo para pedirte la documentación necesaria. El trámite es sencillo y rápido.</p>
       </div>
-      <div class="zona-step">
-        <div class="zona-step-n">03</div>
-        <div class="zona-step-txt">
-          <strong>Firmas digitalmente</strong>
-          <span>Recibes las condiciones por email y un código por SMS para firmar el contrato. Sin ir a ningún sitio, sin papeleos.</span>
-        </div>
+      <div class="fin-paso-sep">→</div>
+      <div class="fin-paso">
+        <div class="fin-paso-ico">📱</div>
+        <div class="fin-paso-num">03</div>
+        <h3>Firmas con un SMS</h3>
+        <p>Recibes las condiciones por email y un código por SMS. Firmas digitalmente desde el móvil. Sin ir a ningún sitio.</p>
       </div>
-      <div class="zona-step">
-        <div class="zona-step-n">04</div>
-        <div class="zona-step-txt">
-          <strong>Empezamos el trabajo</strong>
-          <span>Una vez aprobada la financiación, empezamos. Tú pagas cómodamente a plazos, nosotros trabajamos.</span>
-        </div>
+      <div class="fin-paso-sep">→</div>
+      <div class="fin-paso fin-paso-last">
+        <div class="fin-paso-ico">🔧</div>
+        <div class="fin-paso-num">04</div>
+        <h3>Empezamos el trabajo</h3>
+        <p>Aprobada la financiación, comenzamos. Tú pagas cómodamente a plazos mientras el trabajo avanza.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- VENTAJAS -->
-<section class="zona-sec">
-  <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-md)">
+<section class="fin-ventajas-section">
+  <div class="fin-pasos-wrap">
     <p class="zona-lbl">Ventajas</p>
-    <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;line-height:1.15;margin-bottom:2.5rem">Sin adelantos, <span style="color:#3b82f6">sin complicaciones</span></h2>
-    <div class="zona-grid-6">
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">💶</div>
-        <strong>Sin pago inicial</strong>
-        <span>El trabajo empieza sin que tengas que poner dinero por adelantado.</span>
+    <h2 class="fin-sec-h2">Sin adelantos, <span style="color:#3b82f6">sin complicaciones</span></h2>
+    <div class="fin-ventajas-grid">
+      <div class="fin-ventaja">
+        <div class="fin-ventaja-ico">💶</div>
+        <h3>Sin pago inicial</h3>
+        <p>El trabajo empieza sin que tengas que poner dinero por adelantado.</p>
       </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">📱</div>
-        <strong>Firma desde el móvil</strong>
-        <span>El contrato se firma digitalmente con un SMS. Sin desplazarte a ningún sitio.</span>
+      <div class="fin-ventaja">
+        <div class="fin-ventaja-ico">📱</div>
+        <h3>Firma desde el móvil</h3>
+        <p>El contrato se firma digitalmente con un código SMS. Sin desplazarte.</p>
       </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">⚡</div>
-        <strong>Aprobación ágil</strong>
-        <span>El proceso es rápido. Sin largas esperas ni burocracia innecesaria.</span>
+      <div class="fin-ventaja">
+        <div class="fin-ventaja-ico">⚡</div>
+        <h3>Aprobación ágil</h3>
+        <p>Proceso rápido. Sin largas esperas ni burocracia innecesaria.</p>
       </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">📋</div>
-        <strong>Documentación mínima</strong>
-        <span>Solo lo esencial. Sin montones de papeles ni trámites complicados.</span>
+      <div class="fin-ventaja">
+        <div class="fin-ventaja-ico">📋</div>
+        <h3>Documentación mínima</h3>
+        <p>Solo lo esencial. Sin montones de papeles ni trámites complicados.</p>
       </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">🗓️</div>
-        <strong>Plazo flexible</strong>
-        <span>Elige las cuotas y el plazo que mejor se adapta a tu situación.</span>
+      <div class="fin-ventaja">
+        <div class="fin-ventaja-ico">🗓️</div>
+        <h3>Plazo flexible</h3>
+        <p>Elige las cuotas y el plazo que mejor se adapta a tu situación.</p>
       </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">🏠</div>
-        <strong>Viviendas y locales</strong>
-        <span>Disponible para particulares, autónomos y empresas con local o negocio.</span>
+      <div class="fin-ventaja">
+        <div class="fin-ventaja-ico">🏠</div>
+        <h3>Viviendas y locales</h3>
+        <p>Disponible para particulares, autónomos y empresas.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FAQs -->
-<section class="zona-sec-alt">
-  <div style="max-width:780px;margin:0 auto;padding:0 var(--space-md)">
+<section class="fin-faqs-section">
+  <div class="fin-faqs-wrap">
     <p class="zona-lbl" style="text-align:center">Preguntas frecuentes</p>
-    <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;margin-bottom:2rem;text-align:center">Lo que suelen <span style="color:#3b82f6">preguntarnos</span></h2>
-    <div class="zona-faqs">
-      <details class="zona-faq-item">
+    <h2 class="fin-sec-h2" style="text-align:center">Lo que suelen <span style="color:#3b82f6">preguntarnos</span></h2>
+    <div class="fin-faqs">
+      <details class="fin-faq">
         <summary>¿Puedo financiar cualquier trabajo de fontanería?</summary>
-        <div class="faq-ans">La financiación está disponible para la mayoría de instalaciones y reformas: ósmosis, descalcificadores, termos, reformas de baño, aerotermia y otros proyectos. Consulta tu caso concreto y te decimos si aplica.</div>
+        <div class="fin-faq-ans">La financiación está disponible para la mayoría de instalaciones y reformas: ósmosis, descalcificadores, termos, reformas de baño, aerotermia y otros proyectos. Consulta tu caso concreto y te decimos si aplica.</div>
       </details>
-      <details class="zona-faq-item">
+      <details class="fin-faq">
         <summary>¿Cuánto tarda en aprobarse la financiación?</summary>
-        <div class="faq-ans">El proceso es rápido. Una vez que aceptas el presupuesto con la opción de financiarlo, el trámite se inicia inmediatamente. La firma del contrato es digital, con un código que recibes por SMS.</div>
+        <div class="fin-faq-ans">El proceso es rápido. Una vez que aceptas el presupuesto con la opción de financiarlo, el trámite se inicia de inmediato. La firma es digital con un código SMS.</div>
       </details>
-      <details class="zona-faq-item">
+      <details class="fin-faq">
         <summary>¿Qué documentación necesito?</summary>
-        <div class="faq-ans">La documentación es mínima. Te la solicitan directamente una vez iniciado el proceso. No necesitas preparar nada por adelantado para consultar o pedir el presupuesto.</div>
+        <div class="fin-faq-ans">La documentación es mínima. Te la solicitan directamente una vez iniciado el proceso. No necesitas preparar nada por adelantado para consultar o pedir presupuesto.</div>
       </details>
-      <details class="zona-faq-item">
+      <details class="fin-faq">
         <summary>¿Funciona también para autónomos o locales comerciales?</summary>
-        <div class="faq-ans">Sí. La financiación está disponible para particulares, autónomos y empresas que quieran mejorar sus instalaciones en vivienda o local sin hacer un desembolso inicial grande.</div>
+        <div class="fin-faq-ans">Sí. La financiación está disponible para particulares, autónomos y empresas que quieran mejorar sus instalaciones en vivienda o local sin un desembolso inicial grande.</div>
       </details>
-      <details class="zona-faq-item">
-        <summary>¿Puedo pedir primero el presupuesto sin compromiso?</summary>
-        <div class="faq-ans">Por supuesto. Llámanos o escríbenos y te valoramos el proyecto sin ningún compromiso. Si decides financiarlo, lo tramitamos todo en ese momento.</div>
+      <details class="fin-faq">
+        <summary>¿Puedo pedir el presupuesto sin compromiso?</summary>
+        <div class="fin-faq-ans">Por supuesto. Llámanos o escríbenos y te valoramos el proyecto sin ningún compromiso. Si decides financiarlo, lo tramitamos todo en ese momento.</div>
       </details>
     </div>
   </div>
