@@ -264,6 +264,91 @@ include 'includes/head.php';
 </section>
 
 <!-- ============================
+     ZONAS CON ENLACE A HUBS
+============================= -->
+<section class="home-sec home-sec-gray" aria-labelledby="cobertura-title">
+  <div class="home-con">
+    <p class="home-lbl">Cobertura</p>
+    <h2 id="cobertura-title">Fontanero en tu municipio, <span class="hl">hoy mismo</span></h2>
+    <p class="home-sub">Cubrimos toda la comarca del Vinalopó. Tiempo de respuesta en urgencias: menos de 60 minutos.</p>
+    <div class="hub-grid">
+      <a href="<?php echo $base_url; ?>fontanero/elda" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Elda</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/petrer" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Petrer</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/novelda" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Novelda</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/monovar" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Monóvar</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/sax" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Sax</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/pinoso" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Pinoso</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Monforte del Cid</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/aspe" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Aspe</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/salinas" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Salinas</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
      TESTIMONIOS — 3 cards
 ============================= -->
 <section class="home-sec" aria-labelledby="testimonios-title">

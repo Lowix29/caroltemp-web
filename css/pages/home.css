@@ -758,6 +758,7 @@
   .pasos-cta { flex-direction: row; }
   .cta-final-btns { flex-direction: row; width: auto; }
   .svc-grid { grid-template-columns: repeat(2, 1fr); }
+  .hub-grid { grid-template-columns: repeat(2, 1fr); }
   .porque-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonios-grid { grid-template-columns: repeat(2, 1fr); }
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
@@ -777,6 +778,7 @@
 
   .svc-grid { grid-template-columns: repeat(3, 1fr); }
   .svc-card { padding: 2rem 1.75rem; }
+  .hub-grid { grid-template-columns: repeat(3, 1fr); }
 
   .pasos-grid {
     flex-direction: row;
@@ -811,6 +813,61 @@
   .hero { padding: 24px 32px 0; }
   .hero-card { min-height: 85vh; }
 }
+
+/* ================================
+   HUB GRID (cobertura por municipio)
+================================ */
+.hub-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .65rem;
+  margin-top: 2.5rem;
+}
+.hub-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border-soft);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.hub-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 6px 20px rgba(25,118,210,.10);
+  transform: translateX(3px);
+}
+.hub-pin {
+  font-size: 18px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.hub-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hub-card-body strong {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -.01em;
+}
+.hub-card-body span {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+}
+.hub-arrow {
+  color: var(--color-accent);
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+.hub-card:hover .hub-arrow { transform: translateX(3px); }
 
 /* ================================
    RESPONSIVE — MOBILE (max 600px)
