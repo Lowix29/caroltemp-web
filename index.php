@@ -53,27 +53,6 @@ include 'includes/head.php';
 </section>
 
 <!-- ============================
-     STRIP DE ZONAS
-============================= -->
-<div class="zonas-bar" aria-label="Municipios donde trabajamos">
-  <div class="zonas-bar-scroll">
-  <div class="zonas-bar-inner">
-    <span class="zonas-label">Trabajamos en:</span>
-    <div class="zonas-tags">
-      <a href="<?php echo $base_url; ?>zonas/elda"     class="zona-tag">Elda</a>
-      <a href="<?php echo $base_url; ?>zonas/petrer"   class="zona-tag">Petrer</a>
-      <a href="<?php echo $base_url; ?>zonas/novelda"  class="zona-tag">Novelda</a>
-      <a href="<?php echo $base_url; ?>zonas/monovar"  class="zona-tag">Monóvar</a>
-      <a href="<?php echo $base_url; ?>zonas/sax"      class="zona-tag">Sax</a>
-      <a href="<?php echo $base_url; ?>zonas/pinoso"   class="zona-tag">Pinoso</a>
-      <a href="<?php echo $base_url; ?>zonas/monforte" class="zona-tag">Monforte del Cid</a>
-      <a href="<?php echo $base_url; ?>zonas/salinas"  class="zona-tag">Salinas</a>
-    </div>
-  </div>
-  </div>
-</div>
-
-<!-- ============================
      SERVICIOS — 6 cards con icono
 ============================= -->
 <section class="home-sec" id="servicios" aria-labelledby="svc-title">
@@ -229,56 +208,6 @@ include 'includes/head.php';
         Llamar ahora
       </a>
       <a href="<?php echo $base_url; ?>contacto" class="btn-dark-ghost">Solicitar presupuesto</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================
-     ZONAS — chips clicables
-============================= -->
-<section class="home-sec" aria-labelledby="zonas-title">
-  <div class="home-con">
-    <p class="home-lbl">Cobertura geográfica</p>
-    <h2 id="zonas-title">Fontanero en tu municipio, <span class="hl">hoy mismo</span></h2>
-    <p class="home-sub">Cubrimos toda la comarca del Vinalopó Medio y alrededores. Tiempo de respuesta en urgencias: menos de 60 minutos.</p>
-
-    <div class="zonas-chips">
-      <a href="<?php echo $base_url; ?>zonas/elda" class="zona-chip">
-        <svg class="zona-chip-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Elda
-      </a>
-      <a href="<?php echo $base_url; ?>zonas/petrer" class="zona-chip">
-        <svg class="zona-chip-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Petrer
-      </a>
-      <a href="<?php echo $base_url; ?>zonas/novelda" class="zona-chip">
-        <svg class="zona-chip-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Novelda
-      </a>
-      <a href="<?php echo $base_url; ?>zonas/monovar" class="zona-chip">
-        <svg class="zona-chip-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Monóvar
-      </a>
-      <a href="<?php echo $base_url; ?>zonas/sax" class="zona-chip">
-        <svg class="zona-chip-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Sax
-      </a>
-      <a href="<?php echo $base_url; ?>zonas/pinoso" class="zona-chip">
-        <svg class="zona-chip-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Pinoso
-      </a>
-      <a href="<?php echo $base_url; ?>zonas/monforte" class="zona-chip">
-        <svg class="zona-chip-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Monforte del Cid
-      </a>
-      <a href="<?php echo $base_url; ?>zonas/salinas" class="zona-chip">
-        <svg class="zona-chip-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Salinas
-      </a>
-    </div>
-
-    <div style="margin-top:2rem;text-align:center">
-      <a href="<?php echo $base_url; ?>zonas" style="color:var(--color-accent);font-size:14px;font-weight:600;text-decoration:none">Ver todas las zonas y servicios por municipio &rarr;</a>
     </div>
   </div>
 </section>
