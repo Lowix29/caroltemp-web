@@ -862,3 +862,49 @@ details.zona-faq-item .faq-ans {
   .btn-hz-main, .btn-hz-ghost { width: 100%; justify-content: center; }
   .zona-sec { padding: 4rem 0; }
 }
+
+/* Sección 3 servicios principales (urgencias, fugas, desatascos) */
+.zona-srv3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.zona-srv3-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid #e8edf2;
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow .2s, transform .2s;
+}
+.zona-srv3-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,.10);
+  transform: translateY(-3px);
+}
+.zona-srv3-ico {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.zona-srv3-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0d1f33;
+  margin: 0;
+}
+.zona-srv3-card p {
+  font-size: 0.92rem;
+  color: #576574;
+  line-height: 1.6;
+  flex: 1;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .zona-srv3 { grid-template-columns: 1fr; }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .zona-srv3 { grid-template-columns: repeat(2, 1fr); }
+}
