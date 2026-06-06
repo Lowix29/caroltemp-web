@@ -3,8 +3,8 @@
  * Desatascos en Salinas
  * CarolTemp
  */
-$meta_title  = 'Desatascos Salinas — precio fijo — CarolTemp';
-$meta_desc   = 'Desatascos en Salinas con hidrojetting y cámara endoscópica. Bajantes, arquetas e inodoros. Diagnóstico antes de actuar. Precio cerrado. 611 165 129';
+$meta_title  = 'Desatascos en Salinas | Soluciones duraderas — CarolTemp';
+$meta_desc   = 'Desatascos en Salinas con inspección previa y limpieza completa. Servicio profesional y resultados garantizados.';
 $meta_url    = 'https://caroltemp.com/fontanero/salinas/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';

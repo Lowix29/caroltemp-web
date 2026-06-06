@@ -3,8 +3,8 @@
  * Fontanero urgente en Monforte del Cid
  * CarolTemp
  */
-$meta_title  = 'Fontanero urgente Monforte del Cid — precio cerrado — CarolTemp';
-$meta_desc   = 'Urgencias fontanería Monforte del Cid: roturas, fugas urgentes, grupos de presión y calentadores. Precio antes de empezar. Sin sorpresas. 611 165 129';
+$meta_title  = 'Fontanero urgente en Monforte del Cid | Atención 24h — CarolTemp';
+$meta_desc   = 'Urgencias de fontanería en Monforte del Cid para averías, fugas y roturas. Servicio rápido y profesional.';
 $meta_url    = 'https://caroltemp.com/fontanero/monforte-del-cid/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';

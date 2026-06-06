@@ -3,8 +3,8 @@
  * Detección de fugas de agua en Sax
  * CarolTemp
  */
-$meta_title  = 'Detección fugas de agua Sax — sin romper paredes — CarolTemp';
-$meta_desc   = 'Localización de fugas de agua en Sax con geófono y cámara termográfica. Fugas en tuberías, calefacción y comunidades. Presupuesto gratuito. 611 165 129';
+$meta_title  = 'Detección de fugas en Sax | Localización profesional — CarolTemp';
+$meta_desc   = 'Encontramos fugas ocultas en Sax con equipos de precisión. Diagnóstico rápido y mínima intervención.';
 $meta_url    = 'https://caroltemp.com/fontanero/sax/busqueda_fugas';
 $schema_type = 'local';
 $page_css    = 'zona';

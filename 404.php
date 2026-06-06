@@ -1,7 +1,7 @@
 <?php
 http_response_code(404);
-$meta_title  = "Página no encontrada — CarolTemp";
-$meta_desc   = "La página que buscas no existe. Vuelve al inicio o contacta con CarolTemp, tu fontanero en el Vinalopó.";
+$meta_title  = "Página no encontrada | CarolTemp";
+$meta_desc   = "La página que buscas no existe o ha sido movida. Accede al inicio o contacta con CarolTemp para encontrar lo que necesitas.";
 $meta_url    = "https://caroltemp.com/404.php";
 $schema_type = "default";
 $page_css    = "";

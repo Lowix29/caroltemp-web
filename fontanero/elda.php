@@ -1,6 +1,6 @@
 <?php
-$meta_title  = 'Fontanero en Elda — CarolTemp | Urgencias y reformas';
-$meta_desc   = 'Fontanero en Elda: urgencias 24h, detección de fugas, desatascos, termos y reformas de baño. Precio cerrado antes de empezar. CarolTemp.';
+$meta_title  = 'Fontanero en Elda | Urgencias, fugas y desatascos — CarolTemp';
+$meta_desc   = 'Fontanero en Elda para urgencias, detección de fugas, desatascos, termos y reformas. Atención rápida, presupuesto previo y reparaciones profesionales.';
 $meta_url    = 'https://caroltemp.com/fontanero/elda';
 $schema_type = 'local';
 $page_css    = 'zona';

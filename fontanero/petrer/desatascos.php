@@ -3,8 +3,8 @@
  * Desatascos en Petrer
  * Generado por Agente de P&aacute;ginas — CarolTemp
  */
-$meta_title  = 'Desatascos en Petrer — CarolTemp | 611 165 129';
-$meta_desc   = 'Desatascos urgentes en Petrer hoy mismo. Presupuesto claro antes de empezar. Atendemos comunidades y viviendas en el 03610. Llama al 611 165 129.';
+$meta_title  = 'Desatascos en Petrer | Servicio profesional y urgente — CarolTemp';
+$meta_desc   = 'Desatascos en Petrer con cámara de inspección y equipos profesionales. Eliminamos el atasco desde el origen.';
 $meta_url    = 'https://caroltemp.com/fontanero/petrer/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';

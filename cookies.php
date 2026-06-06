@@ -3,8 +3,8 @@
  * Cookies
  * Generado por Panel Admin — CarolTemp
  */
-$meta_title  = 'Cookies';
-$meta_desc   = '';
+$meta_title  = 'Política de cookies | CarolTemp';
+$meta_desc   = 'Información sobre el uso de cookies, preferencias y gestión del consentimiento en el sitio web.';
 $meta_url    = 'https://caroltemp.com/cookies';
 $schema_type = 'local';
 $page_css    = 'default';

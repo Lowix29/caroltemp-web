@@ -3,8 +3,8 @@
  * Fontanero en Monóvar — Hub
  * CarolTemp
  */
-$meta_title  = 'Fontanero Monóvar — fontanería y reformas — CarolTemp';
-$meta_desc   = 'Fontanería en Monóvar: urgencias, detección de fugas, desatascos, termos y reformas. Presupuesto gratuito. Instaladores certificados Nubeco.';
+$meta_title  = 'Fontanero en Monóvar | Soluciones rápidas y duraderas — CarolTemp';
+$meta_desc   = 'Fontanero en Monóvar para fugas, desatascos, termos y reformas. Servicio profesional, atención rápida y resultados garantizados.';
 $meta_url    = 'https://caroltemp.com/fontanero/monovar';
 $schema_type = 'local';
 $page_css    = 'zona';

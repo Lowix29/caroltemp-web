@@ -3,8 +3,8 @@
  * Fontanero en Sax — Hub
  * CarolTemp
  */
-$meta_title  = 'Fontanero Sax — fontanería y reformas — CarolTemp';
-$meta_desc   = 'Fontanería en Sax: urgencias, detección de fugas, desatascos, termos y reformas. Presupuesto gratuito. Instaladores certificados Nubeco.';
+$meta_title  = 'Fontanero en Sax | Averías, fugas y reformas — CarolTemp';
+$meta_desc   = 'Fontanero en Sax para urgencias, reparaciones, desatascos y reformas. Atención profesional y presupuesto claro desde el primer momento.';
 $meta_url    = 'https://caroltemp.com/fontanero/sax';
 $schema_type = 'local';
 $page_css    = 'zona';

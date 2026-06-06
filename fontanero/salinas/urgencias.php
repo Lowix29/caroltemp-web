@@ -3,8 +3,8 @@
  * Fontanero urgente en Salinas
  * CarolTemp
  */
-$meta_title  = 'Fontanero urgente Salinas — precio cerrado — CarolTemp';
-$meta_desc   = 'Urgencias fontanería Salinas: roturas, fugas urgentes, grupos de presión y calentadores. Precio antes de empezar. Sin sorpresas. 611 165 129';
+$meta_title  = 'Fontanero urgente en Salinas | Disponible cuando lo necesitas — CarolTemp';
+$meta_desc   = 'Urgencias de fontanería en Salinas atendidas con rapidez, experiencia y soluciones eficaces.';
 $meta_url    = 'https://caroltemp.com/fontanero/salinas/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';

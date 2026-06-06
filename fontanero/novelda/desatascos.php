@@ -3,8 +3,8 @@
  * Desatascos en Novelda
  * Generado por Agente de P&aacute;ginas — CarolTemp
  */
-$meta_title  = 'Desatascos Novelda — CarolTemp | 611 165 129';
-$meta_desc   = 'Desatascamos tuberías, bajantes y arquetas en Novelda hoy mismo. Presupuesto claro antes de empezar. Centros antiguos, naves y fincas. Llama 611 165 129';
+$meta_title  = 'Desatascos en Novelda | Limpieza completa de tuberías — CarolTemp';
+$meta_desc   = 'Desatascos en Novelda para viviendas, comunidades y negocios. Soluciones eficaces y presupuesto claro antes de intervenir.';
 $meta_url    = 'https://caroltemp.com/fontanero/novelda/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';

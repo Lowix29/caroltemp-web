@@ -3,8 +3,8 @@
  * Fontanero en Petrer — Hub
  * CarolTemp
  */
-$meta_title  = 'Fontanero Petrer — fontanería y reformas — CarolTemp';
-$meta_desc   = 'Fontanería en Petrer: urgencias, detección de fugas, desatascos, termos y reformas. Presupuesto gratuito. Instaladores certificados Nubeco.';
+$meta_title  = 'Fontanero en Petrer | Reparaciones y urgencias 24h — CarolTemp';
+$meta_desc   = 'Fontanero en Petrer especializado en fugas, desatascos, termos y reformas. Soluciones rápidas, trabajos garantizados y presupuesto transparente.';
 $meta_url    = 'https://caroltemp.com/fontanero/petrer';
 $schema_type = 'local';
 $page_css    = 'zona';

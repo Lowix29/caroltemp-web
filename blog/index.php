@@ -1,6 +1,6 @@
 <?php
-$meta_title  = "Blog de fontanería — CarolTemp | Consejos y preguntas frecuentes";
-$meta_desc   = "Consejos de fontanería, preguntas frecuentes y guías prácticas para el hogar. Todo sobre instalaciones, mantenimiento y agua en el Vinalopó.";
+$meta_title  = "Blog de fontanería | Consejos, averías y mantenimiento — CarolTemp";
+$meta_desc   = "Guías prácticas, consejos profesionales y soluciones para fugas, desatascos, termos, instalaciones y mantenimiento del hogar.";
 $meta_url    = "https://caroltemp.com/blog/";
 $schema_type = "default";
 $page_css    = "blog";

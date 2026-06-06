@@ -3,8 +3,8 @@
  * Fontanero en Novelda — Hub
  * CarolTemp
  */
-$meta_title  = 'Fontanero Novelda — fontanería y reformas — CarolTemp';
-$meta_desc   = 'Fontanería en Novelda: urgencias, detección de fugas, desatascos, termos y reformas. Presupuesto gratuito. Instaladores certificados Nubeco.';
+$meta_title  = 'Fontanero en Novelda | Servicio profesional y urgente — CarolTemp';
+$meta_desc   = 'Fontanero en Novelda para averías, fugas, desatascos y reformas. Atención rápida, diagnóstico preciso y presupuesto antes de empezar.';
 $meta_url    = 'https://caroltemp.com/fontanero/novelda';
 $schema_type = 'local';
 $page_css    = 'zona';

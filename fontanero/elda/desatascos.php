@@ -3,8 +3,8 @@
  * Desatascos en Elda
  * CarolTemp
  */
-$meta_title  = 'Desatascos Elda — bajantes, arquetas e inodoros — CarolTemp';
-$meta_desc   = 'Desatascos en Elda con cámara endoscópica. Bajantes, arquetas, inodoros y desagüe de talleres. Diagnóstico antes de actuar. Precio cerrado. 611 165 129';
+$meta_title  = 'Desatascos en Elda | Solución rápida y definitiva — CarolTemp';
+$meta_desc   = 'Desatascos en Elda para bajantes, arquetas, fregaderos e inodoros. Diagnóstico profesional, limpieza completa y resultados duraderos.';
 $meta_url    = 'https://caroltemp.com/fontanero/elda/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';

@@ -3,8 +3,8 @@
  * Detección de fugas de agua en Pinoso
  * CarolTemp
  */
-$meta_title  = 'Detección fugas de agua Pinoso — cámara termográfica — CarolTemp';
-$meta_desc   = 'Localización de fugas de agua en Pinoso sin romper paredes: geófono y cámara termográfica. Marcamos el punto exacto antes de abrir. Presupuesto gratuito.';
+$meta_title  = 'Detección de fugas en Pinoso | Geófono y cámara térmica — CarolTemp';
+$meta_desc   = 'Detección de fugas en Pinoso sin romper paredes innecesariamente. Localización exacta y reparación posterior.';
 $meta_url    = 'https://caroltemp.com/fontanero/pinoso/busqueda-fugas';
 $schema_type = 'local';
 $page_css    = 'zona';

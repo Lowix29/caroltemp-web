@@ -3,8 +3,8 @@
  * Fontanería en Pinoso — hub ciudad
  * CarolTemp
  */
-$meta_title  = 'Fontanero en Pinoso — termos y reformas — CarolTemp';
-$meta_desc   = 'Fontanería en Pinoso: termos incrustados, grupos de presión en fincas y descalcificadores para agua dura. Presupuesto gratuito sin compromiso.';
+$meta_title  = 'Fontanero en Pinoso | Termos, fugas y mantenimiento — CarolTemp';
+$meta_desc   = 'Fontanero en Pinoso especializado en termos, grupos de presión, fugas, desatascos y reformas. Soluciones eficaces y presupuesto gratuito.';
 $meta_url    = 'https://caroltemp.com/fontanero/pinoso';
 $schema_type = 'local';
 $page_css    = 'zona';

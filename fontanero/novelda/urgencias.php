@@ -3,8 +3,8 @@
  * Fontanero urgente en Novelda
  * Generado por Agente de P&aacute;ginas — CarolTemp
  */
-$meta_title  = 'Fontanero urgente Novelda 611165129 — CarolTemp 24h';
-$meta_desc   = 'Urgencias fontanería en Novelda: roturas en naves de mármol, termos con cal, tuberías antiguas del centro. Presupuesto claro antes de empezar. Llamar 611165129';
+$meta_title  = 'Fontanero urgente en Novelda | Urgencias de fontanería — CarolTemp';
+$meta_desc   = 'Servicio urgente de fontanería en Novelda para averías, fugas y roturas. Presupuesto previo y reparación eficaz.';
 $meta_url    = 'https://caroltemp.com/fontanero/novelda/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';

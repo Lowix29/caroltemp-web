@@ -3,8 +3,8 @@
  * Desatascos en Sax
  * CarolTemp
  */
-$meta_title  = 'Desatascos Sax — bajantes, arquetas e inodoros — CarolTemp';
-$meta_desc   = 'Desatascos en Sax con cámara endoscópica. Bajantes, arquetas e inodoros. Diagnóstico antes de actuar. Precio cerrado antes de empezar. 611 165 129';
+$meta_title  = 'Desatascos en Sax | Bajantes, arquetas e inodoros — CarolTemp';
+$meta_desc   = 'Desatascos en Sax con diagnóstico profesional y limpieza profunda. Soluciones rápidas y duraderas para cualquier obstrucción.';
 $meta_url    = 'https://caroltemp.com/fontanero/sax/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';

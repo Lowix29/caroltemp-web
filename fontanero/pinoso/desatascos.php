@@ -3,8 +3,8 @@
  * Desatascos en Pinoso
  * CarolTemp
  */
-$meta_title  = 'Desatascos Pinoso — bajantes y arquetas con cámara — CarolTemp';
-$meta_desc   = 'Desatascos en Pinoso para bajantes, arquetas e inodoros. Diagnóstico con cámara endoscópica, precio cerrado antes de empezar. Sin suciedad ni daños.';
+$meta_title  = 'Desatascos en Pinoso | Servicio rápido y eficaz — CarolTemp';
+$meta_desc   = 'Desatascos en Pinoso para viviendas, fincas y negocios. Limpieza profesional de tuberías, arquetas y bajantes.';
 $meta_url    = 'https://caroltemp.com/fontanero/pinoso/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';

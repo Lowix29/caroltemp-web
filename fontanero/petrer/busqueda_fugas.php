@@ -3,8 +3,8 @@
  * Búsqueda de fugas en Petrer
  * Generado por Agente de P&aacute;ginas — CarolTemp
  */
-$meta_title  = 'Detección de fugas en Petrer — CarolTemp | Geófono + Cámara';
-$meta_desc   = 'Localizamos fugas en Petrer sin romper paredes: geófono acústico + cámara de inspección. Reparación incluida. Presupuesto sin sorpresas. Llama ahora.';
+$meta_title  = 'Detección de fugas en Petrer | Sin obras innecesarias — CarolTemp';
+$meta_desc   = 'Localizamos fugas en Petrer mediante equipos profesionales. Detectamos el punto exacto antes de abrir.';
 $meta_url    = 'https://caroltemp.com/fontanero/petrer/busqueda_fugas';
 $schema_type = 'local';
 $page_css    = 'zona';
