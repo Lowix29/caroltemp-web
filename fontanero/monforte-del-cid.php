@@ -160,7 +160,7 @@ if (!empty($_proy)): ?>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero en Monforte del Cid?</summary>
-        <div class="faq-ans">La mano de obra es de 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Monforte del Cid. El presupuesto definitivo se da siempre antes de empezar el trabajo, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos, que se informan al contactar.</div>
+        <div class="faq-ans">El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis toda la zona de Monforte del Cid, incluidas las bodegas y viñedos?</summary>

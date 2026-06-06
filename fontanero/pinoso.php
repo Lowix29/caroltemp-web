@@ -12,7 +12,7 @@ $page_js     = 'zona';
 $depth       = 1;
 $faq_items   = [
   ['q' => '¿Cuánto cuesta un fontanero en Pinoso?',
-   'a' => 'La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Pinoso. El presupuesto se da siempre antes de empezar, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.'],
+   'a' => 'El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.'],
   ['q' => '¿Atendéis urgencias en festivos y fines de semana en Pinoso?',
    'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 611 165 129 o escribe por WhatsApp.'],
   ['q' => '¿Atendéis fincas y casas de campo en el diseminado rural de Pinoso?',
@@ -363,7 +363,7 @@ if (!empty($_arts)): ?>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero en Pinoso?</summary>
-        <div class="faq-ans">La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Pinoso. El presupuesto se da siempre antes de empezar, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.</div>
+        <div class="faq-ans">El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en festivos y fines de semana en Pinoso?</summary>

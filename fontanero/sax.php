@@ -12,7 +12,7 @@ $page_js     = 'zona';
 $depth       = 1;
 $faq_items   = [
   ['q' => '¿Cuánto cuesta un fontanero en Sax?',
-   'a' => 'La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Sax. El presupuesto se da siempre antes de empezar. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.'],
+   'a' => 'El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.'],
   ['q' => '¿Atendéis urgencias en festivos y fines de semana en Sax?',
    'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
   ['q' => '¿Vale la pena instalar un descalcificador en Sax?',
@@ -362,7 +362,7 @@ if (!empty($_arts)): ?>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero en Sax?</summary>
-        <div class="faq-ans">La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Sax. El presupuesto definitivo se da siempre antes de empezar el trabajo, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos, que se informan al contactar.</div>
+        <div class="faq-ans">El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en festivos y fines de semana en Sax?</summary>
