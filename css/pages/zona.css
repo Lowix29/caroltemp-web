@@ -863,6 +863,14 @@ details.zona-faq-item .faq-ans {
   .zona-sec { padding: 4rem 0; }
 }
 
+/* Fondo oscuro para sección srv3 */
+.zona-sec-dark {
+  background: #0d1f33;
+  color: #fff;
+}
+.zona-sec-dark .zona-lbl { color: rgba(255,255,255,.5); }
+.zona-sec-dark h2 { color: #fff; }
+
 /* Sección 3 servicios principales (urgencias, fugas, desatascos) */
 .zona-srv3 {
   display: grid;
@@ -873,31 +881,31 @@ details.zona-faq-item .faq-ans {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background: #fff;
-  border: 1px solid #e8edf2;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
   border-radius: 16px;
   padding: 2rem 1.75rem;
   text-decoration: none;
   color: inherit;
-  transition: box-shadow .2s, transform .2s;
+  transition: background .2s, transform .2s;
 }
 .zona-srv3-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,.10);
+  background: rgba(255,255,255,.08);
   transform: translateY(-3px);
 }
 .zona-srv3-ico {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 .zona-srv3-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #0d1f33;
+  color: #fff;
   margin: 0;
 }
 .zona-srv3-card p {
-  font-size: 0.92rem;
-  color: #576574;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,.65);
   line-height: 1.6;
   flex: 1;
   margin: 0;
