@@ -2,6 +2,124 @@
    CAROLTEMP — Financiación CSS
 ================================ */
 
+/* ── STRIP ── */
+.fin-strip {
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1.25rem 0;
+}
+
+.fin-strip-in {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.fin-strip-item {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  flex: 1;
+  justify-content: center;
+  padding: .5rem 1.5rem;
+}
+
+.fin-strip-ico {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.fin-strip-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fin-strip-item strong {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0d1f33;
+  white-space: nowrap;
+}
+
+.fin-strip-item span {
+  font-size: 12px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.fin-strip-sep {
+  width: 1px;
+  height: 36px;
+  background: #e2e8f0;
+  flex-shrink: 0;
+}
+
+/* ── QUÉ PUEDES FINANCIAR ── */
+.fin-cubre-section {
+  padding: 5rem 0;
+}
+
+.fin-cubre-head {
+  margin-bottom: 2.5rem;
+  max-width: 640px;
+}
+
+.fin-cubre-sub {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+  margin-top: .5rem;
+}
+
+.fin-cubre-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+.fin-cubre-card {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  transition: all .18s;
+}
+
+.fin-cubre-card:hover {
+  background: #fff;
+  border-color: #1e3a5f;
+  box-shadow: 0 6px 20px rgba(30,58,95,.08);
+  transform: translateY(-2px);
+}
+
+.fin-cubre-ico {
+  font-size: 24px;
+  line-height: 1;
+  margin-bottom: .25rem;
+}
+
+.fin-cubre-card h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0d1f33;
+  margin: 0;
+}
+
+.fin-cubre-card p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* TÍTULO REUTILIZABLE */
 .fin-sec-h2 {
   font-size: clamp(1.6rem, 3.5vw, 2.3rem);
@@ -231,6 +349,25 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  .fin-strip-in {
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
+  .fin-strip-sep {
+    display: none;
+  }
+
+  .fin-strip-item {
+    flex: 1 1 45%;
+    justify-content: flex-start;
+    padding: .5rem .75rem;
+  }
+
+  .fin-cubre-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .fin-pasos-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -246,6 +383,14 @@
 }
 
 @media (max-width: 560px) {
+  .fin-strip-item {
+    flex: 1 1 100%;
+  }
+
+  .fin-cubre-grid {
+    grid-template-columns: 1fr;
+  }
+
   .fin-pasos-grid {
     grid-template-columns: 1fr;
   }

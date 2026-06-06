@@ -25,36 +25,82 @@ include 'includes/head.php';
 </section>
 
 <!-- STRIP -->
-<div class="dif-strip">
-  <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Sin adelanto</span><span class="dif-lbl">Empezamos sin que pagues nada</span></div>
-    <div class="dif-item"><span class="dif-val">Aprobación rápida</span><span class="dif-lbl">Proceso ágil, sin esperas</span></div>
-    <div class="dif-item"><span class="dif-val">Firma digital</span><span class="dif-lbl">Solo necesitas tu móvil</span></div>
-    <div class="dif-item"><span class="dif-val">Material + mano de obra</span><span class="dif-lbl">Todo el proyecto financiado</span></div>
+<div class="fin-strip">
+  <div class="fin-strip-in">
+    <div class="fin-strip-item">
+      <span class="fin-strip-ico">💶</span>
+      <div>
+        <strong>Sin adelanto</strong>
+        <span>Empezamos sin que pagues nada</span>
+      </div>
+    </div>
+    <div class="fin-strip-sep"></div>
+    <div class="fin-strip-item">
+      <span class="fin-strip-ico">⚡</span>
+      <div>
+        <strong>Aprobación rápida</strong>
+        <span>Proceso ágil, sin esperas</span>
+      </div>
+    </div>
+    <div class="fin-strip-sep"></div>
+    <div class="fin-strip-item">
+      <span class="fin-strip-ico">📱</span>
+      <div>
+        <strong>Firma digital</strong>
+        <span>Solo necesitas tu móvil</span>
+      </div>
+    </div>
+    <div class="fin-strip-sep"></div>
+    <div class="fin-strip-item">
+      <span class="fin-strip-ico">🔧</span>
+      <div>
+        <strong>Material + mano de obra</strong>
+        <span>Todo el proyecto financiado</span>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- QUÉ PUEDES FINANCIAR -->
-<section class="zona-sec">
-  <div class="cta-dark-con" style="max-width:1100px">
-    <div class="zona-tcol">
+<section class="fin-cubre-section">
+  <div class="fin-pasos-wrap">
+    <div class="fin-cubre-head">
       <div>
         <p class="zona-lbl">¿Qué puedes financiar?</p>
-        <h2>Cualquier trabajo de fontanería <span class="hl">material e instalación incluidos</span></h2>
-        <div class="zona-prose">
-          <p>La financiación cubre el proyecto completo: materiales, instalación y mano de obra. No tienes que buscar financiación por tu cuenta ni gestionar nada. Nosotros lo tramitamos con el presupuesto.</p>
-        </div>
+        <h2 class="fin-sec-h2">Material e instalación <span style="color:#3b82f6">incluidos en el mismo presupuesto</span></h2>
+        <p class="fin-cubre-sub">La financiación cubre el proyecto completo. No tienes que buscarla por tu cuenta ni gestionar nada. Nosotros lo tramitamos contigo.</p>
       </div>
-      <div class="icard">
-        <div class="icard-head">Trabajos financiables</div>
-        <div class="icard-body">
-          <div class="icard-row"><span class="icard-icon">💧</span><span>Ósmosis inversa — equipo e instalación completos</span></div>
-          <div class="icard-row"><span class="icard-icon">🔩</span><span>Descalcificadores — protege tu instalación a plazos</span></div>
-          <div class="icard-row"><span class="icard-icon">🚿</span><span>Reformas de baño — proyecto íntegro financiado</span></div>
-          <div class="icard-row"><span class="icard-icon">♨️</span><span>Termos Nubeco — equipo nuevo sin desembolso inicial</span></div>
-          <div class="icard-row"><span class="icard-icon">🌡️</span><span>Aerotermia — instalación eficiente a cuotas cómodas</span></div>
-          <div class="icard-row"><span class="icard-icon">🔧</span><span>Cualquier instalación — consulta tu proyecto</span></div>
-        </div>
+    </div>
+    <div class="fin-cubre-grid">
+      <div class="fin-cubre-card">
+        <span class="fin-cubre-ico">💧</span>
+        <h3>Ósmosis inversa</h3>
+        <p>Equipo e instalación completos. Agua de calidad sin desembolso inicial.</p>
+      </div>
+      <div class="fin-cubre-card">
+        <span class="fin-cubre-ico">🔩</span>
+        <h3>Descalcificadores</h3>
+        <p>Equipo y puesta en marcha incluidos. Protege tu instalación a plazos.</p>
+      </div>
+      <div class="fin-cubre-card">
+        <span class="fin-cubre-ico">🚿</span>
+        <h3>Reformas de baño</h3>
+        <p>Proyecto completo financiado: materiales, instalación y mano de obra.</p>
+      </div>
+      <div class="fin-cubre-card">
+        <span class="fin-cubre-ico">♨️</span>
+        <h3>Termos Nubeco</h3>
+        <p>Termo nuevo con instalación financiado. Sin adelantar nada.</p>
+      </div>
+      <div class="fin-cubre-card">
+        <span class="fin-cubre-ico">🌡️</span>
+        <h3>Aerotermia</h3>
+        <p>Sistema completo financiado. La alternativa eficiente a la caldera tradicional.</p>
+      </div>
+      <div class="fin-cubre-card">
+        <span class="fin-cubre-ico">🔧</span>
+        <h3>Cualquier instalación</h3>
+        <p>Consulta tu proyecto. Si aplica la financiación, te lo gestionamos todo.</p>
       </div>
     </div>
   </div>
