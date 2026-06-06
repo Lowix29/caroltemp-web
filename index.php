@@ -150,6 +150,33 @@ include 'includes/head.php';
 </section>
 
 <!-- ============================
+     NÚMEROS / ESTADÍSTICAS
+============================= -->
+<div class="home-stats">
+  <div class="home-con home-stats-grid">
+    <div class="home-stat">
+      <span class="home-stat-num">5</span>
+      <span class="home-stat-label">años de experiencia<br>en el Vinalopó</span>
+    </div>
+    <div class="home-stat-sep"></div>
+    <div class="home-stat">
+      <span class="home-stat-num">+500</span>
+      <span class="home-stat-label">averías y proyectos<br>resueltos</span>
+    </div>
+    <div class="home-stat-sep"></div>
+    <div class="home-stat">
+      <span class="home-stat-num">9</span>
+      <span class="home-stat-label">municipios<br>cubiertos</span>
+    </div>
+    <div class="home-stat-sep"></div>
+    <div class="home-stat">
+      <span class="home-stat-num">24h</span>
+      <span class="home-stat-label">disponibles para<br>urgencias</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
      BANNER FINANCIACIÓN
 ============================= -->
 <div class="home-fin-banner">
@@ -213,6 +240,36 @@ include 'includes/head.php';
 </section>
 
 <!-- ============================
+     URGENCIAS DESTACADA
+============================= -->
+<section class="home-urg">
+  <div class="home-con home-urg-inner">
+    <div class="home-urg-left">
+      <div class="home-urg-badge">🚨 Urgencias 24h · 7 días</div>
+      <h2>Avería ahora mismo.<br><span>Te atendemos al momento.</span></h2>
+      <p>Rotura de tubería, inundación, fuga activa. Sin esperas, sin contestador. Llama y recibe respuesta inmediata.</p>
+      <ul class="home-urg-list">
+        <li>✔ Llegamos en menos de 60 minutos</li>
+        <li>✔ Festivos, noches y fines de semana</li>
+        <li>✔ Precio cerrado antes de empezar</li>
+      </ul>
+    </div>
+    <div class="home-urg-right">
+      <a href="tel:+34611165129" class="home-urg-tel">
+        <span class="home-urg-tel-ico">📞</span>
+        <div>
+          <span class="home-urg-tel-label">Llama ahora</span>
+          <strong>611 165 129</strong>
+        </div>
+      </a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="home-urg-wa">
+        💬 WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
      POR QUÉ ELEGIRNOS — 4 items
 ============================= -->
 <section class="home-sec home-sec-gray" aria-labelledby="porque-title">
@@ -259,6 +316,91 @@ include 'includes/head.php';
         <p>Conocemos las instalaciones del Vinalopó y sus peculiaridades. No somos una central que manda a quien sea.</p>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     ZONAS CON ENLACE A HUBS
+============================= -->
+<section class="home-sec home-sec-gray" aria-labelledby="cobertura-title">
+  <div class="home-con">
+    <p class="home-lbl">Cobertura</p>
+    <h2 id="cobertura-title">Fontanero en tu municipio, <span class="hl">hoy mismo</span></h2>
+    <p class="home-sub">Cubrimos toda la comarca del Vinalopó. Tiempo de respuesta en urgencias: menos de 60 minutos.</p>
+    <div class="hub-grid">
+      <a href="<?php echo $base_url; ?>fontanero/elda" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Elda</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/petrer" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Petrer</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/novelda" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Novelda</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/monovar" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Monóvar</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/sax" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Sax</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/pinoso" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Pinoso</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Monforte del Cid</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/aspe" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Aspe</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
+      <a href="<?php echo $base_url; ?>fontanero/salinas" class="hub-card">
+        <span class="hub-pin">📍</span>
+        <div class="hub-card-body">
+          <strong>Fontanero en Salinas</strong>
+          <span>Urgencias, fugas, desatascos y reformas</span>
+        </div>
+        <span class="hub-arrow">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -327,6 +469,54 @@ include 'includes/head.php';
           </div>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FAQ — rich snippets SEO
+============================= -->
+<section class="home-sec home-sec-gray" aria-labelledby="faq-home-title" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="home-con">
+    <p class="home-lbl">Preguntas frecuentes</p>
+    <h2 id="faq-home-title">Lo que más nos <span class="hl">preguntan</span></h2>
+    <div class="home-faqs">
+
+      <details class="home-faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">¿Cuánto cuesta llamar a un fontanero urgente?</summary>
+        <div class="home-faq-ans" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">El coste depende del trabajo a realizar. Antes de empezar cualquier intervención te damos un precio cerrado y definitivo — lo que acordamos es lo que pagas. No cobramos por el desplazamiento en nuestra zona de cobertura.</div>
+        </div>
+      </details>
+
+      <details class="home-faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">¿En cuánto tiempo llegáis en una urgencia?</summary>
+        <div class="home-faq-ans" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">En menos de 60 minutos en la mayoría de los municipios del Vinalopó. Atendemos urgencias los 365 días del año, incluidos festivos, noches y fines de semana.</div>
+        </div>
+      </details>
+
+      <details class="home-faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">¿Podéis detectar fugas sin hacer obras?</summary>
+        <div class="home-faq-ans" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">Sí. Usamos geófono y cámara endoscópica para localizar la fuga exacta sin romper suelos ni paredes. Solo se abre donde es estrictamente necesario.</div>
+        </div>
+      </details>
+
+      <details class="home-faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">¿Puedo financiar una reforma o instalación?</summary>
+        <div class="home-faq-ans" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">Sí. Ofrecemos financiación para reformas de baño, ósmosis, descalcificadores, aire acondicionado y más. Sin adelanto, aprobación rápida y firma digital desde el móvil. <a href="/financiacion">Ver cómo funciona →</a></div>
+        </div>
+      </details>
+
+      <details class="home-faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">¿Trabajáis en fines de semana y festivos?</summary>
+        <div class="home-faq-ans" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">Para urgencias sí, los 365 días. Para trabajos programados (reformas, instalaciones) trabajamos de lunes a viernes. Llámanos y buscamos el momento que mejor te venga.</div>
+        </div>
+      </details>
 
     </div>
   </div>
