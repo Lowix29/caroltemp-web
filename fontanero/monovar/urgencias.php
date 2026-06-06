@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Monóvar &middot; CP 03640</div>
-    <h1>Fontanero urgente en Monóvar<br><span class="hl">especialistas en urgencias de fontanería con atención rápida y eficaz</span></h1>
+    <h1>Fontanero urgente en Monóvar<br><span class="hl">Servicio de urgencias 24 horas para resolver cualquier avería rápidamente</span></h1>
     <p class="hz-dark-sub">Cubrimos el casco urbano y las viviendas rurales que no tienen red municipal: casas con depósito propio, aljibe o grupo de presión. Cuando falla algo así, no vale cualquier fontanero — hay que conocer esas instalaciones para resolverlo el mismo día.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

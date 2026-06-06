@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Elda &middot; CP 03600</div>
-    <h1>Fontanero urgente en Elda<br><span class="hl">la solución profesional que necesitas cuando cada minuto cuenta</span></h1>
+    <h1>Fontanero urgente en Elda<br><span class="hl">Urgencias 24h con soluciones profesionales desde la primera visita</span></h1>
     <p class="hz-dark-sub">Cuando hay agua corriendo, cada minuto importa. Llegamos, identificamos el origen de la avería y la resolvemos en la misma visita — con el material en la furgoneta y sin dejar nada pendiente para otro día.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
