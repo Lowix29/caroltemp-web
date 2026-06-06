@@ -780,6 +780,24 @@
   .svc-card { padding: 2rem 1.75rem; }
   .hub-grid { grid-template-columns: repeat(3, 1fr); }
 
+  .home-stats-grid {
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 0;
+  }
+  .home-stat-sep {
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,.15);
+    align-self: center;
+  }
+
+  .home-urg-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
   .pasos-grid {
     flex-direction: row;
     align-items: stretch;
@@ -813,6 +831,217 @@
   .hero { padding: 24px 32px 0; }
   .hero-card { min-height: 85vh; }
 }
+
+/* ================================
+   ESTADÍSTICAS / NÚMEROS
+================================ */
+.home-stats {
+  background: var(--color-primary);
+  padding: 2.25rem 0;
+}
+.home-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.home-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: .3rem;
+}
+.home-stat-num {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
+.home-stat-label {
+  font-size: 12.5px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.4;
+}
+.home-stat-sep {
+  display: none;
+}
+
+/* ================================
+   URGENCIAS DESTACADA
+================================ */
+.home-urg {
+  background: #0d1f33;
+  padding: 4rem 0;
+}
+.home-urg-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+.home-urg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(239,68,68,.15);
+  border: 1px solid rgba(239,68,68,.3);
+  color: #fca5a5;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: .5rem;
+  width: fit-content;
+}
+.home-urg-left h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+  margin-bottom: .85rem;
+}
+.home-urg-left h2 span { color: #60a5fa; }
+.home-urg-left p {
+  color: rgba(255,255,255,.6);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.home-urg-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.home-urg-list li {
+  font-size: 14px;
+  color: rgba(255,255,255,.8);
+  font-weight: 500;
+}
+.home-urg-right {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+}
+.home-urg-tel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
+}
+.home-urg-tel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.25);
+}
+.home-urg-tel-ico { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+.home-urg-tel-label {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.home-urg-tel strong {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #0d1f33;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+}
+.home-urg-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25d366;
+  color: #fff;
+  border-radius: 14px;
+  padding: 1rem;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity .15s;
+}
+.home-urg-wa:hover { opacity: .9; }
+
+/* ================================
+   FAQ HOME
+================================ */
+.home-faqs {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  max-width: 760px;
+}
+.home-faq {
+  background: #fff;
+  border: 1.5px solid var(--color-border-soft);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color .15s;
+}
+.home-faq[open] { border-color: var(--color-accent); }
+.home-faq summary {
+  padding: 1.1rem 1.4rem;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+}
+.home-faq summary::-webkit-details-marker { display: none; }
+.home-faq summary::after {
+  content: '+';
+  width: 24px;
+  height: 24px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #64748b;
+  flex-shrink: 0;
+  transition: all .15s;
+}
+.home-faq[open] summary::after {
+  content: '×';
+  background: var(--color-accent);
+  color: #fff;
+}
+.home-faq-ans {
+  padding: 0 1.4rem 1.2rem;
+  padding-top: 1rem;
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.75;
+  border-top: 1px solid #f1f5f9;
+}
+.home-faq-ans a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.home-faq-ans a:hover { text-decoration: underline; }
 
 /* ================================
    HUB GRID (cobertura por municipio)
