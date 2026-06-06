@@ -171,6 +171,20 @@ include 'includes/head.php';
 </section>
 
 <!-- ============================
+     BANNER FINANCIACIÓN
+============================= -->
+<div class="home-fin-banner">
+  <div class="home-con home-fin-inner">
+    <div class="home-fin-text">
+      <span class="home-fin-tag">💶 Financiación disponible</span>
+      <strong>¿El presupuesto te preocupa? Págalo a plazos.</strong>
+      <span>Sin adelantar nada, aprobación rápida y firma digital desde el móvil. Cubrimos todo: materiales y mano de obra.</span>
+    </div>
+    <a href="<?php echo $base_url; ?>financiacion" class="home-fin-cta">Ver cómo funciona →</a>
+  </div>
+</div>
+
+<!-- ============================
      CÓMO TRABAJAMOS — 3 pasos
 ============================= -->
 <section class="home-sec home-sec-dark" aria-labelledby="como-title">
