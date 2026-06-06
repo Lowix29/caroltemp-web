@@ -15,7 +15,7 @@ include '../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería · Elda · CP 03600</div>
     <h1>Fontanero en Elda<br><span class="hl">Rápido, serio y sin sorpresas</span></h1>
-    <p class="hz-dark-sub"><a href="/fontanero/elda/urgencias">Urgencias</a>, <a href="/fontanero/elda/busqueda_fugas">fugas</a>, <a href="/fontanero/elda/desatascos">desatascos</a> y reformas en Elda. Precio cerrado antes de empezar.</p>
+    <p class="hz-dark-sub">Fontanero en Elda con precio cerrado antes de empezar. Atendemos particulares, comunidades y locales.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -32,9 +32,40 @@ include '../includes/head.php';
   </div>
 </div>
 
+<section class="zona-sec zona-srv-main">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Servicios principales en Elda</p>
+    <h2>Lo que más nos piden <span class="hl">en Elda</span></h2>
+    <div class="zona-srv3" style="margin-top:2rem">
+
+      <a href="/fontanero/elda/urgencias" class="zona-srv3-card">
+        <div class="zona-srv3-ico">🔧</div>
+        <h3>Urgencias en Elda</h3>
+        <p>Fontanero urgente el mismo día. Roturas, escapes y averías con precio dado antes de empezar.</p>
+        <span class="zona-sc-a">Ver urgencias →</span>
+      </a>
+
+      <a href="/fontanero/elda/busqueda_fugas" class="zona-srv3-card">
+        <div class="zona-srv3-ico">💧</div>
+        <h3>Detección de fugas en Elda</h3>
+        <p>Localización sin obras con geófono y cámara endoscópica. Solo abrimos donde es necesario.</p>
+        <span class="zona-sc-a">Ver fugas →</span>
+      </a>
+
+      <a href="/fontanero/elda/desatascos" class="zona-srv3-card">
+        <div class="zona-srv3-ico">🚿</div>
+        <h3>Desatascos en Elda</h3>
+        <p>Bajantes, arquetas e inodoros desbloqueados con diagnóstico por cámara y precio cerrado.</p>
+        <span class="zona-sc-a">Ver desatascos →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Servicios en Elda</p>
+    <p class="zona-lbl">Todos los servicios en Elda</p>
     <h2>¿Qué necesitas? <span class="hl">Te cubrimos.</span></h2>
     <div class="zona-svc" style="margin-top:2rem">
 
