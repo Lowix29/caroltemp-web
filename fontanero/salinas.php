@@ -18,7 +18,7 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Salinas &middot; CP 03668</div>
-    <h1>Fontanero en Salinas<br><span class="hl">precio cerrado antes de empezar</span></h1>
+    <h1>Fontanero en Salinas<br><span class="hl">con respuesta rápida y máxima profesionalidad</span></h1>
     <p class="hz-dark-sub">Fontanería en Salinas para viviendas unifamiliares, pisos, chalets y comunidades de vecinos. Precio antes de tocar nada. Sin sorpresas en la factura.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

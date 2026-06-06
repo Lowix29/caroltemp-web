@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Monóvar &middot; CP 03640</div>
-    <h1>Desatascos en Monóvar<br><span class="hl">desatasco garantizado o repetimos gratis</span></h1>
-    <p class="hz-dark-sub">Limpiamos desde el inodoro hasta la fosa sin improvisar. Cámara para ver el estado real de la tubería antes de actuar y presupuesto cerrado antes de empezar.</p>
+    <h1>Desatascos en Monóvar<br><span class="hl">bajantes limpias de verdad, no un parche</span></h1>
+    <p class="hz-dark-sub">Fosas sépticas saturadas, bajantes de casas con años de sarro acumulado, tuberías exteriores con raíces dentro. Cada caso tiene su causa y su método — no hay un desatasco único que sirva para todo.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Monóvar</p>
-        <h2>Atascos en Monóvar <span class="hl">desatasco garantizado o repetimos gratis</span></h2>
-        <div class="zona-prose"><p>En Monóvar hay viviendas conectadas a la red municipal de alcantarillado y otras que dependen de fosa séptica. En estas últimas, cuando la fosa lleva años sin vaciado o el campo de absorción se satura, los desagües dejan de funcionar y no hay solución parcial — hay que intervenir. En casas antiguas, las bajantes de hierro galvanizado o cerámica acumulan sarro y grasa desde hace décadas y terminan colapsando por el estrechamiento progresivo del diámetro. También atendemos atascos en inodoros, botes sifónicos, bajantes generales y raíces que penetran en tuberías exteriores. Antes de actuar, usamos cámara para ver el estado real de la tubería y evitar reparaciones innecesarias.</p></div>
+        <h2>Tres tipos de atasco, tres formas de resolverlo <span class="hl">en Monóvar</span></h2>
+        <div class="zona-prose"><p>En viviendas con instalación propia hay tres atascos que se repiten: la fosa séptica saturada que impide usar cualquier desagüe de la casa, la bajante interior que lleva años acumulando sarro en las paredes hasta que se cierra del todo, y la tubería exterior de jardín o parcela que ha sido invadida por raíces de árbol. Cada uno exige un método distinto. La fosa séptica necesita vaciado y, si el campo de absorción está colmatado, una valoración del estado general. La bajante interior se limpia con hidrojeteado de alta presión que elimina el sarro pegado a las paredes, no solo el tapón. La tubería con raíces requiere fresado mecánico para cortar dentro sin abrir terreno — o un diagnóstico con cámara que determine si hay que reparar la tubería además de limpiarla. Antes de actuar siempre inspeccionamos con cámara para saber qué hay dentro.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascos en fincas rurales con pozos</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascar bajantes en casco urbano antiguo</li>
@@ -92,16 +92,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Monóvar &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cada cuánto tiempo hay que vaciar una fosa séptica?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Depende del tamaño de la fosa y del número de personas que la usan. Como referencia general, una fosa para una vivienda de 4 personas necesita vaciado cada 2-3 años. Si no se vacía a tiempo, los sólidos acumulados desbordan hacia el campo de absorción y acaban colapsándolo, lo que convierte una limpieza rutinaria en una intervención mucho más costosa. Si notas que los desagües van lentos o hay malos olores, no esperes al vaciado programado.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cada cuánto hay que vaciar una fosa séptica?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">La referencia habitual es cada 2 a 4 años para una vivienda de uso regular con 3-4 personas, aunque depende del volumen de la fosa y del uso real. Lo más importante es no esperar a que los desagües empiecen a dar señales: cuando los desagües van lentos o aparecen malos olores, la fosa ya está llegando al límite. Un vaciado a tiempo es una operación sencilla. Un vaciado cuando ya ha desbordado al campo de absorción puede suponer sustituir el campo entero.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede desatascar una fosa séptica sin vaciarla primero?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">En algunos casos sí, si el problema está en la tubería de entrada y no dentro de la fosa. Lo evaluamos con cámara antes de actuar. Si la fosa está llena o el tapón está dentro, el vaciado previo es imprescindible para poder trabajar con seguridad y sin riesgo de desbordamiento. Te informamos del estado exacto antes de presupuestar nada.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Los malos olores sin atasco visible pueden indicar un problema en la fosa?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí, y es uno de los síntomas más habituales. Cuando la fosa está cerca de llenarse, los gases de fermentación no tienen salida limpia y buscan el camino por los sifones de los desagües o por fisuras en la tubería de salida. Si los olores aparecen en varios puntos de la vivienda o en el exterior cerca de la fosa, es señal de que algo no está bien aunque el agua todavía circule. Inspeccionamos con cámara para ver si el problema es la fosa, una tubería fisurada o simplemente un sifón seco.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué causa los malos olores en casas con fosa séptica?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Las causas más habituales son la fosa llena o desbordada, un sifón seco en algún desagüe de la vivienda que permite que los gases suban, o una ventilación obstruida en la columna de bajante. También puede haber una fisura en la tubería de salida que deja escapar gases al terreno y estos entran por huecos en el pavimento. Inspeccionamos con cámara para identificar el origen sin abrir nada innecesariamente.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué pasa si se deja una fosa séptica sin vaciar demasiado tiempo?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Cuando la fosa supera su capacidad, los sólidos pasan al campo de absorción o a la zanja drenante que debería filtrar solo líquidos. Esa zona se obstruye con fango y deja de funcionar — en ese caso no basta con vaciar la fosa, hay que sanear o sustituir el campo de absorción, que es una obra bastante más costosa. Algunos municipios también pueden sancionar si hay vertido al terreno. Si llevas más de 4 años sin vaciado, llámanos para hacer una revisión antes de que se convierta en urgencia.</div>
       </div>
     </div>
   </div>

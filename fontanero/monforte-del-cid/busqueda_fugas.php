@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Monforte del Cid &middot; CP 03670</div>
-    <h1>Detección de fugas en Monforte del Cid<br><span class="hl">sin romper paredes</span></h1>
-    <p class="hz-dark-sub">Localizamos fugas de agua con geófono y cámara termográfica. Marcamos el punto exacto antes de abrir nada. Solo rompemos donde es necesario.</p>
+    <h1>Detección de fugas en Monforte del Cid<br><span class="hl">sabemos dónde está antes de tocar nada</span></h1>
+    <p class="hz-dark-sub">Localizar con certeza antes de actuar no es solo más limpio — es más barato. Un punto de apertura preciso frente a romper a tanteo puede significar la diferencia entre un parcheo de medio día y una semana de obra. La detección correcta reduce el coste total de la reparación.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,10 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Localización de fugas en Monforte del Cid</p>
-        <h2>Fugas de agua en Monforte del Cid <span class="hl">por qué son frecuentes</span></h2>
+        <h2>Los síntomas de fuga oculta <span class="hl">que no deberías ignorar</span></h2>
         <div class="zona-prose">
-          <p>La <strong>localización de fugas de agua en Monforte del Cid</strong> es un servicio habitual en la zona por dos motivos principales: el agua dura del Vinalopó deteriora juntas y conexiones antes de lo esperado, y muchas viviendas del casco antiguo tienen tuberías de hierro galvanizado con décadas de uso. El resultado son microfugas que se filtran durante semanas antes de aparecer en superficie.</p>
-          <p>Con geófono y <strong>cámara termográfica</strong>, la <strong>detección de fugas de agua en Monforte del Cid</strong> es precisa antes de abrir nada. El geófono localiza el sonido del agua escapando bajo presión; la termografía confirma el camino de la humedad por diferencia de temperatura. Cuando ambos coinciden, rompemos solo en ese punto.</p>
+          <p>Una mancha de humedad en la pared, un olor a moho que aparece sin razón aparente, una factura del agua que sube mes a mes o un contador que no se detiene aunque cierres todos los grifos: son señales de que hay agua escapando donde no puedes verla. El problema con las fugas ocultas es que el daño visible es solo la punta — la humedad lleva tiempo actuando por dentro antes de salir a la superficie.</p>
+          <p>Con <strong>geófono y cámara termográfica</strong> confirmamos el origen antes de abrir nada. El geófono detecta el sonido del agua bajo presión en la tubería; la termografía muestra el recorrido de la humedad por diferencia de temperatura en pared y suelo. Cuando ambas señales coinciden en el mismo punto, abrimos solo ahí — con la reparación ya planificada.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en tuberías empotradas en paredes</li>
@@ -180,24 +180,16 @@ include '../../includes/head.php';
     <h2>Detección de fugas <span class="hl">Monforte del Cid — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta la detección de fugas de agua en Monforte del Cid?</summary>
-        <div class="faq-ans">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento. La localización con geófono y cámara termográfica se incluye en el tiempo de trabajo, no se cobra aparte. Una vez localizada la fuga damos presupuesto de reparación antes de abrir. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+        <summary>¿Una mancha de humedad en la pared siempre indica una fuga?</summary>
+        <div class="faq-ans">No siempre, pero hay que descartarlo. Una mancha de humedad puede venir de condensación, de filtración por fachada o cubierta, o de una fuga en tubería empotrada. La diferencia clave: si la mancha aparece en una zona interior sin contacto con el exterior, si el contador gira con todos los grifos cerrados, o si la factura del agua ha subido sin explicación, la probabilidad de fuga en tubería es alta. Con el geófono y la termografía confirmamos o descartamos el origen antes de abrir nada.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis detectar fugas de agua en calefacción en Monforte del Cid?</summary>
-        <div class="faq-ans">Sí. Es uno de los casos donde la cámara termográfica es más eficaz: el agua caliente que escapa del circuito crea un gradiente de temperatura claramente visible en la imagen térmica. Marcamos la zona antes de intervenir, lo que reduce el área que hay que abrir para reparar.</div>
+        <summary>¿Se puede localizar una fuga sin cortar el suministro de agua?</summary>
+        <div class="faq-ans">Sí. El geófono trabaja con el agua corriendo a presión — de hecho, la necesita para detectar el sonido de la fuga. La cámara termográfica tampoco requiere cortar el suministro. Solo se corta el agua en el momento de hacer la reparación, no durante la fase de localización. Esto permite trabajar sin interrumpir el servicio a toda la finca o comunidad mientras se busca el punto exacto.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Detectáis fugas de agua en comunidades de vecinos en Monforte del Cid?</summary>
-        <div class="faq-ans">Sí. Nos coordinamos con el administrador de la finca y hacemos un informe con el punto localizado, útil para la gestión con el seguro de la comunidad. Revisamos montantes, bajantes y tuberías generales.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Atendéis fugas en fincas agrícolas y bodegas de Monforte del Cid?</summary>
-        <div class="faq-ans">Sí. Atendemos instalaciones de fontanería en bodegas, naves agrícolas y fincas de viñedo del término municipal de Monforte del Cid. El desplazamiento se cobra por visita, sin recargo extra por distancia dentro de la zona de cobertura.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Reparáis la fuga después de localizarla?</summary>
-        <div class="faq-ans">Sí. Localizamos y reparamos en el mismo servicio siempre que sea posible. No hace falta contratar a otro profesional. Damos precio de reparación antes de abrir y, si hay material en la furgoneta, lo dejamos resuelto en la misma visita.</div>
+        <summary>¿Cuánto cuesta de media reparar una fuga en tubería empotrada?</summary>
+        <div class="faq-ans">El coste depende de tres factores: el acceso (suelo, pared o techo), el material de la tubería (cobre, PEX, hierro galvanizado) y si hace falta reponer acabados (azulejo, tarima, pintura). Una reparación puntual en tubería empotrada accesible —apertura de pared, sustitución del tramo dañado y cierre— suele resolverse en una visita. La localización precisa con equipos profesionales es lo que permite hacer una apertura mínima y reducir el coste de acabados. Te damos el desglose completo antes de empezar.</div>
       </details>
     </div>
   </div>

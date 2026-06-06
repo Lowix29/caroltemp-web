@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Elda &middot; CP 03600</div>
-    <h1>Fontanero urgente en Elda<br><span class="hl">rapidez y precio cerrado</span></h1>
-    <p class="hz-dark-sub">Cuando el agua no para hay que actuar sin demora. Llegamos, vemos la avería y damos precio antes de tocar nada. Si el material está en la furgoneta, lo resolvemos en la misma visita.</p>
+    <h1>Fontanero urgente en Elda<br><span class="hl">rápidos, limpios y sin volver al día siguiente</span></h1>
+    <p class="hz-dark-sub">Cuando hay agua corriendo, cada minuto importa. Llegamos, identificamos el origen de la avería y la resolvemos en la misma visita — con el material en la furgoneta y sin dejar nada pendiente para otro día.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Cuándo llamar</p>
-        <h2>Urgencias fontanero <span class="hl">en Elda</span></h2>
+        <h2>Urgencias fontanero <span class="hl">en Elda: lo que no puede esperar</span></h2>
         <div class="zona-prose">
-          <p>Una tubería de hierro galvanizado que revienta, una llave de paso que no corta con agua saliendo libre, un grupo de presión parado que deja sin suministro a todo el edificio. Son situaciones que no admiten espera. Cuando llamas a un <strong>fontanero urgente en Elda</strong> necesitas saber que alguien llega, ve la avería y te dice el precio antes de empezar — no después.</p>
+          <p>Una rotura de tubería con agua corriendo libre, una inundación en el baño, una vivienda entera sin agua caliente. Son situaciones que no admiten esperar turno ni programar una visita para mañana. Cuando llamas a un <strong>fontanero urgente en Elda</strong> necesitas que alguien llegue, localice el problema y lo resuelva del todo — no que lo tape y vuelva otro día con las piezas.</p>
+          <p>Trabajamos con la furgoneta equipada para las averías más frecuentes: llaves de corte, tuberías de cobre y multicapa, calentadores, grupos de presión. La mayoría de las urgencias quedan resueltas en la primera visita, sin segunda vuelta y sin dejar la instalación a medias.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tubería de hierro reventada en bloque de los años 70</li>
@@ -179,16 +180,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Elda — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Qué hago mientras espero al fontanero en una urgencia?</summary>
-        <div class="faq-ans">Lo primero es cerrar la llave de paso más próxima a la avería — o la general del piso si no encuentras otra. Si el agua sale de una tubería visible, protege aparatos eléctricos cercanos y retira muebles. No uses toallas como barrera si el agua puede tener presión suficiente para mojarlas rápido. Al llamarnos te indicamos exactamente qué hacer según lo que nos describas, mientras gestionamos el desplazamiento.</div>
+        <summary>¿Qué pasa si el fontanero no trae la pieza que necesita?</summary>
+        <div class="faq-ans">Llevamos la furgoneta equipada con el material más habitual: llaves de corte, racores, tubería de cobre y multicapa, válvulas y elementos de calentador. En la mayoría de urgencias se resuelve en la visita. Si la pieza es específica o no está disponible, cortamos el suministro de forma segura, dejamos la instalación estabilizada y volvemos en el menor plazo posible con el material — sin cobrar un segundo desplazamiento por algo que no se pudo prever.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Se cobra más en fin de semana o festivos?</summary>
-        <div class="faq-ans">Sí. Los trabajos fuera de horario habitual (desde las 22:00 h) y en fines de semana y festivos llevan un recargo sobre la tarifa base. El importe exacto te lo comunicamos al llamar, antes de desplazarnos — así decides con el precio real encima de la mesa, sin sorpresas al recibir la factura.</div>
+        <summary>¿Se puede trabajar con la llave de paso del edificio cerrada?</summary>
+        <div class="faq-ans">Sí. Cuando hay que cerrar la llave de paso general del edificio para intervenir, el trabajo se hace con el suministro cortado. Coordinamos el corte con los vecinos o el administrador si hay tiempo, o actuamos de inmediato si la urgencia no admite espera. En cuanto terminamos, la instalación vuelve al servicio. No es necesario que el edificio quede sin agua durante horas — el tiempo de corte se reduce al mínimo imprescindible.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Se puede reparar una fuga sin cortar el agua a toda la comunidad?</summary>
-        <div class="faq-ans">Depende de dónde esté la avería. Si hay llave de paso por piso o por columna en buen estado, cortamos solo el suministro afectado y el resto del edificio sigue con agua. Si la llave de paso general está deteriorada o no corta bien — algo habitual en instalaciones antiguas — puede ser necesario un corte general breve. Te lo explicamos antes de actuar y coordinamos el aviso a los vecinos si hace falta.</div>
+        <summary>¿Cuánto daño puede hacer una fuga activa en pocas horas?</summary>
+        <div class="faq-ans">Una fuga activa bajo presión puede filtrar cientos de litros en pocas horas. En viviendas: paredes y suelo saturados, daños en el forjado, humedad que llega al piso de abajo. En locales o naves: mercancía, maquinaria o suelo de producción afectados. El daño crece de forma exponencial cuanto más tiempo pasa el agua corriendo. Por eso priorizamos las urgencias activas — llegar rápido no solo resuelve el problema, reduce el daño colateral que viene después.</div>
       </details>
     </div>
   </div>

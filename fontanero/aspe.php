@@ -18,7 +18,7 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Aspe &middot; CP 03680</div>
-    <h1>Fontanero en Aspe<br><span class="hl">precio cerrado antes de empezar</span></h1>
+    <h1>Fontanero en Aspe<br><span class="hl">experto en fontanería doméstica y comercial</span></h1>
     <p class="hz-dark-sub">Fontanería en Aspe para viviendas unifamiliares, pisos, comunidades de vecinos y chalets. Precio antes de tocar nada. Sin sorpresas en la factura.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

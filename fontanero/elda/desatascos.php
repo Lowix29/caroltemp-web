@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Elda &middot; CP 03600</div>
-    <h1>Desatascos en Elda<br><span class="hl">hoy mismo y precio cerrado</span></h1>
-    <p class="hz-dark-sub">Antes de actuar, metemos la cámara. Vemos qué hay y dónde está — si es grasa, raíces o sarro — y elegimos la técnica adecuada. Sin improvisar y sin cobrar por lo que no hace falta.</p>
+    <h1>Desatascos en Elda<br><span class="hl">hoy mismo, bien hecho y sin olor</span></h1>
+    <p class="hz-dark-sub">Limpiar a fondo no es lo mismo que abrir un paso. Antes de actuar entra la cámara endoscópica: vemos el estado real del conducto, no solo el tapón. Después viene el hidrojetting — de pared a pared — para que el resultado dure.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,10 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Elda</p>
-        <h2>Atascos en Elda <span class="hl">cada tipo tiene su causa</span></h2>
+        <h2>Atascos en Elda <span class="hl">la causa real detrás de cada obstrucción</span></h2>
         <div class="zona-prose">
-          <p>La grasa acumulada en el desagüe de la cocina, las raíces que han entrado por una junta rota en la bajante exterior del chalet, el sarro que deja el agua dura en el interior de los tubos con el paso de los años. Cada tipo de atasco tiene una causa diferente y necesita una técnica diferente. Lo que nunca funciona es usar la misma solución para todo.</p>
-          <p>Antes de actuar introducimos una <strong>cámara endoscópica</strong> que muestra exactamente qué hay y dónde está la obstrucción. Con ese dato elegimos la técnica adecuada — sonda mecánica, hidrojetting o aspiración — y el presupuesto es concreto. Sabes qué se va a hacer y cuánto cuesta antes de empezar.</p>
+          <p>La grasa no desaparece por el desagüe — se adhiere a las paredes del tubo, se enfría y va reduciendo el diámetro útil del conducto hasta cerrarlo. Las raíces entran por la primera junta con micro-fisura que encuentran y colonizan la bajante por dentro hasta bloquearla por completo. El sarro que deja el agua dura forma una capa mineral que ni la sonda ni el producto del supermercado pueden eliminar. Son causas distintas que necesitan soluciones distintas — y el producto de limpieza del supermercado no resuelve ninguna de las tres de forma permanente: abre un canal momentáneo por el centro del tapón, el tubo sigue parcialmente obstruido y en pocas semanas el problema vuelve.</p>
+          <p>La <strong>cámara endoscópica</strong> muestra antes de actuar qué hay en el conducto y hasta dónde llega la obstrucción. Con ese dato elegimos la técnica adecuada — hidrojetting para grasa y sarro, sonda con cabeza de corte para raíces, aspiración para arquetas con lodos — y el trabajo se hace una vez y bien hecho.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro en Elda que no desagua</li>
@@ -180,16 +180,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Elda <span class="hl">— dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿El producto químico del supermercado daña las tuberías?</summary>
-        <div class="faq-ans">Los desobstructores químicos de venta libre son álcalis o ácidos fuertes que generan calor al reaccionar. Usados de forma repetida en tuberías de PVC ablandan y fragillizan el plástico, y en hierro aceleran la corrosión. Pueden funcionar para un atasco superficial puntual, pero si el tapón no cede en la primera aplicación, seguir añadiendo producto daña la tubería sin resolver el problema. Con la cámara endoscópica vemos exactamente qué hay — grasa, sarro o raíces — y actuamos con la técnica adecuada sin riesgo para el conducto.</div>
+        <summary>¿El olor a alcantarilla sin atasco visible tiene solución?</summary>
+        <div class="faq-ans">Sí. El olor a alcantarilla sin que haya ningún desagüe bloqueado suele tener tres causas: el sifón de un desagüe poco usado que se ha vaciado por evaporación y ya no hace de barrera contra los gases, una junta deteriorada en la bajante que deja escapar vapores al interior del muro, o una arqueta con la tapa en mal estado. Ninguna de las tres requiere un desatasco — sí requiere diagnóstico. Al llegar revisamos todos los puntos posibles y te explicamos qué está pasando antes de hacer nada.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Cuánto dura el efecto del desatasco?</summary>
-        <div class="faq-ans">Un desatasco bien hecho con hidrojetting limpia el conducto de pared a pared, no solo abre un canal por el centro del tapón. En bajantes de vivienda sin patología estructural el efecto es duradero. Si hay raíces que han entrado por una junta rota o sarro severo por agua dura, el problema puede reaparecer: en ese caso te lo decimos al terminar, con la recomendación de reparar la junta o instalar un filtro descalcificador, según el caso.</div>
+        <summary>¿Qué diferencia hay entre un desatasco y una limpieza de bajante?</summary>
+        <div class="faq-ans">Un desatasco resuelve una obstrucción puntual: el conducto estaba bloqueado y vuelve a funcionar. Una limpieza de bajante es un trabajo preventivo o de mantenimiento: el conducto todavía pasa agua pero las paredes acumulan grasa, sarro o depósitos que, sin actuar, terminarán formando un tapón. El hidrojetting en limpieza de bajante trabaja de arriba a abajo por toda la longitud del tubo, a caudal y presión sostenidos, para devolver el diámetro interior a su estado original. El resultado es un conducto limpio de pared a pared, no solo desbloqueado.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Se puede hacer el desatasco sin cortar el agua?</summary>
-        <div class="faq-ans">En la mayoría de los casos sí. Los trabajos en desagüe y saneamiento — inodoro, fregadero, ducha, bajante, arqueta — no requieren cortar el suministro de agua. Solo necesitamos cortar el agua cuando la intervención afecta a la tubería de entrada o a la instalación de fontanería, no a la red de evacuación. Al describir la avería por teléfono te confirmamos si es necesario o no antes de desplazarnos.</div>
+        <summary>¿La garantía cubre si el atasco vuelve a aparecer pronto?</summary>
+        <div class="faq-ans">Si el atasco reaparece en poco tiempo después de un desatasco bien hecho, hay una razón estructural detrás: una junta rota por la que entran raíces de nuevo, una pendiente insuficiente del tubo que acumula sólidos, o un objeto sólido que no se pudo extraer en la primera intervención. En ese caso volvemos, revisamos con la cámara y te explicamos qué está ocurriendo. Si el problema es consecuencia directa del mismo trabajo, no cobramos la segunda visita. Si hay una causa nueva o estructural, lo ponemos sobre la mesa con la imagen antes de hablar de nada más.</div>
       </details>
     </div>
   </div>

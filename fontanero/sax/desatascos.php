@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Sax &middot; CP 03630</div>
     <h1>Desatascos en Sax<br><span class="hl">limpieza completa, no solo desbloqueo</span></h1>
-    <p class="hz-dark-sub">Limpiamos a fondo con hidrojetting, no solo desbloqueamos con sonda. Cámara endoscópica para ver el estado real del conducto antes de actuar y después para confirmar que queda completamente libre.</p>
+    <p class="hz-dark-sub">Meter la sonda deja pasar el agua pero no limpia nada. El hidrojetting lanza agua a presión por toda la sección del conducto y arrastra la grasa, el sarro y los residuos que se han pegado a las paredes. La bajante queda como nueva, no solo desbloqueada.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Sax</p>
-        <h2>Desatascos en Sax <span class="hl">limpieza completa, no solo desbloqueo</span></h2>
+        <h2>El atasco vuelve cuando <span class="hl">solo se perfora, no se limpia</span></h2>
         <div class="zona-prose">
-          <p>Desbloquear un atasco con sonda soluciona el problema ese día, pero deja el conducto lleno de grasa, sarro y residuos pegados a las paredes — y el atasco vuelve en pocas semanas. La diferencia está en limpiar de verdad. El hidrojetting lanza agua a alta presión por todo el conducto, arrastrando la acumulación de grasa compacta, cal y residuos orgánicos que la sonda simplemente perfora. La cámara endoscópica permite ver el estado real de la bajante antes de actuar — y confirmar que queda completamente libre al terminar. En casas antiguas con bajantes muy deterioradas, la cámara también sirve para detectar grietas o secciones que necesitan sustitución: mejor saberlo desde el principio que repetir el servicio al mes.</p>
+          <p>La sonda mecánica abre un canal en el tapón y el agua vuelve a pasar — pero las paredes del conducto siguen cubiertas de grasa compactada, sarro y residuos orgánicos que se han ido acumulando durante meses. En dos o tres semanas ese depósito retiene nuevos residuos y el atasco regresa. La causa no era solo el tapón: era la capa que lo alimentaba. El hidrojetting trabaja de otra manera: lanza agua a alta presión en todas las direcciones y arrastra todo ese depósito, dejando la sección interior del conducto limpia en toda su longitud. No es un desbloqueo — es una limpieza real. Las raíces que han entrado por una junta, la grasa de años en la bajante de cocina, el sarro de cal acumulado en el sifón: el hidrojetting los elimina, no los perfora. La cámara endoscópica antes y después de la intervención confirma el estado real del conducto y detecta si hay secciones deterioradas que conviene sustituir antes de que fallen.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro en Sax que no desagua</li>
@@ -179,16 +179,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Sax <span class="hl">— dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuál es la diferencia entre desbloquear con sonda y limpiar con hidrojetting?</summary>
-        <div class="faq-ans">La sonda mecánica perfora el tapón y deja paso al agua, pero no elimina la capa de grasa, cal y sarro pegada a las paredes del conducto. El atasco vuelve en semanas porque las paredes siguen sucias. El hidrojetting lanza agua a alta presión en todas las direcciones y arrastra todo ese depósito, dejando el conducto limpio en toda su sección. Para atascos puntuales la sonda puede ser suficiente; para bajantes con acumulación crónica, el hidrojetting es la única solución duradera.</div>
+        <summary>¿Cada cuánto tiempo conviene hacer una limpieza preventiva de bajantes?</summary>
+        <div class="faq-ans">En viviendas unifamiliares con uso habitual, una limpieza cada dos años suele ser suficiente para evitar acumulaciones problemáticas. En comunidades de vecinos o en edificios donde la bajante concentra el desagüe de varios pisos, lo recomendable es hacerlo cada año, especialmente si hay cocinas en distintas plantas — la grasa es el principal agente de obstrucción crónica. En locales con cocina profesional o fregaderos de uso intensivo, el mantenimiento semestral es lo habitual. El hidrojetting preventivo cuesta bastante menos que resolver un atasco que ya ha causado un desbordamiento o daños en elementos comunes.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Conviene hacer un mantenimiento anual de bajantes aunque no haya atasco?</summary>
-        <div class="faq-ans">Sí, especialmente en comunidades de vecinos y en casas con bajantes que concentran el desagüe de varios pisos. La grasa y el sarro se acumulan lentamente y el conducto va reduciendo su sección sin que se note hasta que aparece el atasco. Una limpieza preventiva anual con hidrojetting evita urgencias, protege el estado del conducto y es mucho más barata que gestionar un atasco que ya ha causado daños por desbordamiento.</div>
+        <summary>¿El hidrojetting es ruidoso o molesto para los vecinos?</summary>
+        <div class="faq-ans">El equipo de hidrojetting genera ruido similar al de una manguera a presión — perceptible en la zona de trabajo pero no comparable al ruido de una obra. No requiere cortar el suministro de agua al edificio ni acceder a las viviendas de otros propietarios en la mayoría de los casos. El trabajo se realiza desde los puntos de acceso habituales — arquetas, desagües y bajantes — y la duración de la intervención es corta, habitualmente menos de dos horas para una bajante estándar. En comunidades, coordinamos con el administrador para avisar a los vecinos con antelación cuando es necesario.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Qué pasa si el atasco vuelve poco tiempo después del desatasco?</summary>
-        <div class="faq-ans">Si el atasco reaparece en pocos días, generalmente hay una de estas dos causas: el conducto quedó parcialmente limpio porque la obstrucción era más profunda de lo detectado, o hay un problema estructural en la bajante — una grieta, una deformación o un diámetro muy reducido por sarro que ninguna limpieza puede resolver de forma permanente. En ese caso la cámara endoscópica permite ver exactamente cuál es la causa y qué solución corresponde: nueva limpieza o sustitución parcial del tramo afectado.</div>
+        <summary>¿Qué garantía tiene el servicio si el atasco vuelve?</summary>
+        <div class="faq-ans">Si el atasco regresa en un plazo corto tras una limpieza con hidrojetting, volvemos a revisar el conducto sin coste de desplazamiento adicional. En la mayoría de los casos la reaparición rápida indica que hay una causa estructural — una junta abierta por donde entran raíces, una deformación del tubo que genera retención — que la cámara endoscópica identifica. Si el problema es de conducto y no de limpieza, lo informamos con claridad: lo que necesita ese tramo es sustitución, no una segunda limpieza. No facturamos trabajo que no resuelve el problema.</div>
       </details>
     </div>
   </div>

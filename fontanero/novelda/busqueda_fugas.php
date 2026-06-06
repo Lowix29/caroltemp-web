@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Novelda &middot; CP 03660</div>
     <h1>Detección de fugas en Novelda<br><span class="hl">localización exacta al primer intento</span></h1>
-    <p class="hz-dark-sub">Antes de abrir una pared o levantar una solería, localizamos la fuga con precisión. Geófono, cámara termográfica y correlador para saber exactamente dónde está el problema. Solo abrimos donde hace falta.</p>
+    <p class="hz-dark-sub">No abrimos paredes a ciegas. El geófono escucha la tubería y marca el punto exacto de la pérdida — el cincel va justo ahí y no un centímetro más. Menos obra, menos polvo, menos tiempo sin agua.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Búsqueda de fugas en Novelda</p>
-        <h2>Fugas de agua en Novelda <span class="hl">precisión antes de romper nada</span></h2>
-        <div class="zona-prose"><p>Una fuga oculta puede llevar semanas sin detectarse: la factura del agua sube, aparece humedad en una pared o el suelo de la terraza está siempre mojado. Antes de abrir paredes o levantar suelos, localizamos el punto exacto con geófono acústico y cámara termográfica. En instalaciones de suelo radiante, tuberías de jardín enterradas y bajantes interiores el equipo correlador permite trabajar sin excavar a ciegas. Solo abrimos donde está el problema.</p></div>
+        <h2>Fugas ocultas en Novelda <span class="hl">el equipo habla antes de que el cincel toque</span></h2>
+        <div class="zona-prose"><p>Las fugas más difíciles de localizar son las que no se ven: el circuito de suelo radiante que pierde presión poco a poco bajo el pavimento, la tubería de riego enterrada en el jardín que encharca la tierra semanas antes de que nadie se dé cuenta, o la bajante interior que filtra a la pared medianera. El agua dura de la comarca acelera el deterioro de las juntas de PVC y cobre — lo que en otra zona tardaría diez años en fallar, aquí lo hace en cinco. Con geófono acústico y cámara termográfica localizamos el tramo exacto antes de abrir nada: solo se rompe lo justo para acceder al punto de la fuga.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en circuitos de suelo radiante empotrado</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en tuberías de jardín enterradas en unifamiliares</li>
@@ -96,16 +96,16 @@ include '../../includes/head.php';
     <h2>Búsqueda de fugas en Novelda &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿La detección incluye un informe para presentar al seguro del hogar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Emitimos informe técnico de localización con descripción del método utilizado, punto de la fuga y fotografías del proceso. Este documento es el que piden las compañías de seguros para tramitar el siniestro. Si el seguro te lo ha pedido expresamente, indícanoslo al llamar para que lo preparemos desde el inicio de la visita.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El seguro del hogar cubre el servicio de detección de fugas?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Muchas pólizas de hogar cubren la detección cuando la fuga ha causado daños materiales (humedades, manchas en techo del vecino). Lo habitual es que el seguro pida un informe técnico del fontanero con el método de localización, el punto exacto y fotografías del proceso. Emitimos ese documento desde el inicio de la visita si nos lo indicas al llamar. Consulta las condiciones de tu póliza antes, porque algunas excluyen fugas en instalaciones que superen cierta antigüedad.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta la detección si la fuga está en una zona comunitaria del edificio?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">El precio de la detección no varía según si la tubería es privada o comunitaria — depende del tipo de instalación y el acceso. Lo que sí cambia es quién paga: si la fuga está en un ramal comunitario, el coste corresponde a la comunidad de propietarios. Te ayudamos a identificar de quién es la tubería afectada para que puedas gestionarlo con la administración de la finca si es necesario.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Una fuga en el suelo radiante obliga a levantar todo el pavimento?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">No. La cámara termográfica detecta la diferencia de temperatura entre la zona que pierde agua y el resto del suelo, y señala el metro cuadrado exacto donde está la microfisura. Solo se levanta el pavimento en ese punto — no en toda la habitación ni en todo el circuito. Una vez reparado el tubo, se repone la solería de la zona abierta. El circuito de suelo radiante sigue funcionando sin necesidad de sustituir la instalación completa.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede detectar una fuga en la piscina sin vaciarla?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">En la mayoría de los casos sí. Usamos geófono acústico en el vaso y en las tuberías exteriores de impulsión y retorno sin necesidad de vaciar la piscina. Si la fuga está en el revestimiento o en una junta del vaso, lo localizamos con el equipo desde el exterior. Solo en casos muy específicos de fisura en el fondo puede ser necesario bajar el nivel del agua parcialmente.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto tiempo lleva localizar una fuga en una tubería enterrada en el jardín?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">En tuberías de jardín de longitud habitual (hasta 30-40 metros), el geófono acústico localiza el punto de la fuga en una sola visita de una a dos horas. En circuitos más largos o con varios ramales, el correlador de fugas compara la señal en dos puntos del circuito y calcula el metro exacto de la pérdida sin excavar. Solo excavamos una vez tenemos la localización confirmada.</div>
       </div>
     </div>
   </div>

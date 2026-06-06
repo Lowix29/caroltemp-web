@@ -18,7 +18,7 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Novelda &middot; CP 03660</div>
-    <h1>Fontanero en Novelda<br><span class="hl">presupuesto gratuito sin compromiso</span></h1>
+    <h1>Fontanero en Novelda<br><span class="hl">de confianza para averías, reformas e instalaciones</span></h1>
     <p class="hz-dark-sub">Fontanería en Novelda para naves de mármol, hoteles, viñedos y viviendas del centro histórico. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Pinoso &middot; CP 03650</div>
-    <h1>Desatascos en Pinoso<br><span class="hl">bajantes, arquetas e inodoros</span></h1>
-    <p class="hz-dark-sub">Diagnóstico con cámara endoscópica. Sabemos qué está atascado y dónde antes de presupuestar. Precio cerrado antes de empezar.</p>
+    <h1>Desatascos en Pinoso<br><span class="hl">sin productos agresivos, con resultado duradero</span></h1>
+    <p class="hz-dark-sub">Sin lejía, sin sosa, sin gel desatascador. Trabajamos con hidrojetting a presión regulada, aspiración mecánica y cámara de comprobación: métodos que limpian el conducto de verdad sin atacar el material de la tubería.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,10 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Pinoso</p>
-        <h2>Atascos habituales <span class="hl">en viviendas de Pinoso</span></h2>
+        <h2>Por qué los químicos dañan las tuberías <span class="hl">y el hidrojetting no</span></h2>
         <div class="zona-prose">
-          <p>En Pinoso la cal del agua provoca acumulación de sarro en tuberías de desagüe con más rapidez que en otras zonas. Los atascos de bajantes y arquetas en viviendas y fincas rurales son los más frecuentes: grasas, raíces de vegetación y sarro se combinan hasta bloquear el paso del agua.</p>
-          <p>Antes de presionar con maquinaria, usamos una <strong>cámara endoscópica para desatascos</strong> que muestra el interior del conducto: qué tipo de obstrucción es, dónde está exactamente y si hay grietas. Así el presupuesto de desatasco en Pinoso es preciso sin sorpresas al terminar.</p>
+          <p>Los desatascadores químicos de venta libre — y algunos profesionales mal aplicados — trabajan por reacción: la sosa cáustica o el ácido disuelven la obstrucción, pero también atacan la pared de la tubería. En PVC, la agresión repetida fragiliza el material hasta provocar microfisuras. En cobre, acelera la corrosión interior. En hierro galvanizado, elimina la capa protectora y favorece la oxidación acelerada.</p>
+          <p>El <strong>hidrojetting a presión regulada</strong> no reacciona con nada: proyecta agua limpia a la velocidad y presión justa para arrastrar la obstrucción sin rozar las paredes del conducto. Limpia toda la sección — no solo el tapón — y el resultado dura más porque no deja residuo que vuelva a acumularse en horas. La cámara de comprobación al terminar confirma que el conducto queda limpio y sin daños.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro que no desagua en Pinoso</li>
@@ -180,24 +180,16 @@ include '../../includes/head.php';
     <h2>Dudas sobre <span class="hl">desatascos en Pinoso</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta un desatasco en Pinoso?</summary>
-        <div class="faq-ans">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento. El diagnóstico con cámara endoscópica va incluido en el tiempo de trabajo. El presupuesto exacto se da tras ver el atasco con la cámara, antes de empezar el desbloqueo. Hay recargos para servicios nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+        <summary>¿El agua caliente y el jabón realmente previenen los atascos de grasa?</summary>
+        <div class="faq-ans">Parcialmente y durante poco tiempo. El agua caliente licúa la grasa y el jabón la emulsiona, pero al enfriarse en el tramo horizontal la grasa vuelve a solidificarse y se adhiere a la pared de la tubería. Con el tiempo esa capa crece hasta reducir la sección al mínimo. Es un mantenimiento que puede retrasar el atasco, no evitarlo. La única limpieza que elimina la capa de grasa acumulada de forma completa es el hidrojetting, que arrastra el depósito sólido ya formado.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Usáis cámara endoscópica en todos los desatascos?</summary>
-        <div class="faq-ans">Sí, siempre que el acceso lo permite. La cámara nos dice qué tipo de obstrucción hay y en qué punto del conducto está. Así elegimos la técnica correcta y el presupuesto es preciso. Para atascos muy simples la cámara sirve también de verificación al terminar.</div>
+        <summary>¿El hidrojetting funciona en tuberías de pequeño diámetro?</summary>
+        <div class="faq-ans">Sí. Disponemos de boquillas de distintos calibres adaptadas a tuberías desde 40 mm (desagüe de lavabo o ducha) hasta bajantes de 110 mm o colectores más grandes. La presión se regula según el diámetro y el estado del tubo — no se aplica la misma presión a una tubería de PVC de 50 mm que a un colector de hormigón de 200 mm. La cámara previa nos permite elegir el equipo correcto antes de introducirlo.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿El desatasco puede dañar las tuberías?</summary>
-        <div class="faq-ans">No si se usa la técnica adecuada. El hidrojetting limpia sin dañar tuberías de PVC o polipropileno en buen estado. La cámara previa nos permite detectar si hay grietas antes de usar presión, y ajustar el método para no agravar el daño.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Atendéis atascos en arquetas exteriores y fincas rurales de Pinoso?</summary>
-        <div class="faq-ans">Sí. Trabajamos en todo el término municipal de Pinoso, incluidas fincas rurales y urbanizaciones. Arquetas exteriores, fosas sépticas con colapsado de desagüe de entrada y bajantes en edificios rurales son servicios habituales en la zona.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Hacéis mantenimiento preventivo de desagües para comunidades en Pinoso?</summary>
-        <div class="faq-ans">Sí. Para comunidades con atascos recurrentes ofrecemos revisión y limpieza preventiva de bajantes y arquetas. Es más económico que resolver atascos urgentes repetidos, y evita desbordamientos que puedan afectar a locales o garajes.</div>
+        <summary>¿Cuánto tarda un desatasco estándar?</summary>
+        <div class="faq-ans">Un atasco puntual en inodoro, ducha o fregadero sin complicaciones suele resolverse en 30-45 minutos desde que llegamos. Una bajante con tapón de grasa endurecida o una arqueta colapsada puede llevar entre una hora y hora y media, incluyendo la pasada de cámara al terminar para confirmar que el conducto queda limpio. Los trabajos en colectores comunitarios o fosas con acceso complicado se valoran en visita.</div>
       </details>
     </div>
   </div>

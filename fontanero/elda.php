@@ -18,7 +18,7 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Elda &middot; CP 03600</div>
-    <h1>Fontanero en Elda<br><span class="hl">presupuesto gratuito sin compromiso</span></h1>
+    <h1>Fontanero en Elda<br><span class="hl">con soluciones rápidas y acabados profesionales</span></h1>
     <p class="hz-dark-sub">Fontanería industrial y residencial en Elda. Naves, talleres, bloques de pisos y urbanizaciones. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

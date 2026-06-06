@@ -18,7 +18,7 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Sax &middot; CP 03630</div>
-    <h1>Fontanero en Sax<br><span class="hl">presupuesto gratuito sin compromiso</span></h1>
+    <h1>Fontanero en Sax<br><span class="hl">con experiencia, puntualidad y resultados de calidad</span></h1>
     <p class="hz-dark-sub">Fontanería en Sax para el casco histórico bajo el castillo, viviendas unifamiliares y fincas de la periferia. Servicio que no depende del turno de guardia municipal.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

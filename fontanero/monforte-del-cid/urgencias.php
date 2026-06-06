@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Monforte del Cid &middot; CP 03670</div>
-    <h1>Fontanero urgente en Monforte del Cid<br><span class="hl">precio antes de empezar</span></h1>
-    <p class="hz-dark-sub">Ves la avería, escuchas el precio, decides. Nada se toca sin que sepas cuánto cuesta. Atendemos casco urbano y zonas rurales.</p>
+    <h1>Fontanero urgente en Monforte del Cid<br><span class="hl">en marcha antes de que el daño vaya a más</span></h1>
+    <p class="hz-dark-sub">Cada minuto con agua saliendo es daño que se extiende: paredes que se empapan, suelo que cede, mobiliario que no tiene vuelta atrás. Actuamos rápido para cortar el problema antes de que la avería se convierta en obra.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Cuándo llamar</p>
-        <h2>Urgencias fontanero <span class="hl">en Monforte del Cid</span></h2>
+        <h2>Una avería de fontanería urgente <span class="hl">no es solo un problema de agua</span></h2>
         <div class="zona-prose">
-          <p>En Monforte del Cid las averías urgentes de fontanería más habituales son las roturas de tubería en viviendas antiguas del casco histórico, los grupos de presión de fincas y viñedos que fallan en verano, y los termos que pierden agua por la cal acumulada. Si buscas un fontanero urgente en Monforte del Cid, estos son los casos en los que actuamos con mayor frecuencia:</p>
+          <p>Una tubería rota o una fuga activa no es una incomodidad: es daño estructural que crece por horas. El agua bajo presión penetra en mortero, aislamiento y madera antes de que aparezca la primera mancha. Cuando la humedad llega a la superficie, lleva tiempo actuando por dentro. Por eso la rapidez de respuesta no es un plus — es la diferencia entre una reparación de horas y una reforma de semanas.</p>
+          <p>En Monforte del Cid atendemos urgencias en toda la localidad y zonas rurales del término municipal. Llegamos, valoramos el daño real y lo paramos. Las averías más habituales que atendemos:</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura de tubería con agua saliendo sin control</li>
@@ -187,16 +188,16 @@ include '../../includes/head.php';
         <div class="faq-ans">Sí. Cubrimos todo el término municipal de Monforte del Cid, incluidas fincas de viñedo, casas de campo y urbanizaciones. El desplazamiento se cobra por visita, sin recargo extra por distancia dentro de la zona de cobertura.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis detectar fugas de agua urgentes en tuberías sin romper las paredes?</summary>
-        <div class="faq-ans">Sí. Para fugas de agua urgentes en tuberías empotradas o enterradas usamos geófono y cámara termográfica. Localizamos el punto exacto antes de abrir ninguna pared o pavimento, siempre con presupuesto cerrado antes de actuar.</div>
+        <summary>¿Qué daños puede causar una fuga activa en 24 horas?</summary>
+        <div class="faq-ans">Una fuga a presión en tubería empotrada puede saturar el tabique completo en pocas horas. El agua avanza por la capa de mortero, llega al aislamiento y, si hay madera, la empieza a deteriorar. En 24 horas es habitual ver manchas en la pared contigua o en el techo del piso de abajo. El daño real siempre es mayor que lo que se ve en superficie — por eso parar la fuga cuanto antes reduce drásticamente el coste final de la reparación.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Reparáis grupos de presión averiados como urgencia?</summary>
-        <div class="faq-ans">Sí. El grupo de presión es la avería urgente más frecuente en las fincas de Monforte del Cid. Revisamos presostato, membrana y conexiones. Si la pieza está en la furgoneta, lo resolvemos en la misma visita.</div>
+        <summary>¿Cubre el seguro del hogar los daños por una rotura de tubería?</summary>
+        <div class="faq-ans">En la mayoría de pólizas, sí: los daños por rotura accidental de tubería empotrada suelen estar cubiertos, incluyendo la apertura de pared para localizar y reparar la fuga, y los daños en acabados (pintura, azulejo, parquet). Lo que varía entre pólizas es el importe máximo cubierto y si incluye la reparación de la tubería en sí o solo los daños consecuentes. Pide el parte a tu seguro y guarda el informe de la reparación — te lo facilitamos.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Hay recargo por trabajar de noche, fin de semana o festivos en Monforte?</summary>
-        <div class="faq-ans">A partir de las 22:00 h y en fines de semana y festivos se aplica un recargo sobre la tarifa base. Te informamos del precio exacto al llamar, antes de desplazarnos. Sin sorpresas en ningún caso.</div>
+        <summary>¿Cómo corto el agua mientras llega el fontanero?</summary>
+        <div class="faq-ans">La llave de paso general de la vivienda suele estar bajo el fregadero de cocina, en un armario del baño o en el contador (normalmente en el rellano o en una caja empotrada en la fachada). Girarla en el sentido de las agujas del reloj corta el suministro. Si no la encuentras o está atascada, llámanos — te guiamos por teléfono. En caso de rotura en zona común, el corte lo hace la llave de paso de planta, accesible habitualmente desde el rellano.</div>
       </details>
     </div>
   </div>

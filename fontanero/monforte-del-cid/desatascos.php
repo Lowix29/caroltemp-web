@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Monforte del Cid &middot; CP 03670</div>
-    <h1>Desatascos en Monforte del Cid<br><span class="hl">bajantes, arquetas e inodoros</span></h1>
-    <p class="hz-dark-sub">Diagnóstico con cámara endoscópica. Sabemos qué está atascado y dónde antes de presupuestar. Precio cerrado antes de empezar.</p>
+    <h1>Desatascos en Monforte del Cid<br><span class="hl">cámara, hidrojetting y problema resuelto</span></h1>
+    <p class="hz-dark-sub">Primero la cámara: vemos qué hay y dónde está. Después el hidrojetting: limpiamos el conducto completo, no solo rompemos el tapón. Al terminar, comprobamos con agua real que queda despejado. Tres pasos, un resultado.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,10 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Monforte del Cid</p>
-        <h2>Atascos habituales <span class="hl">en Monforte del Cid</span></h2>
+        <h2>Por qué la cámara endoscópica <span class="hl">es imprescindible antes de actuar</span></h2>
         <div class="zona-prose">
-          <p>En Monforte del Cid el sarro del agua dura se acumula en tuberías de desagüe y contribuye a que los atascos de bajantes y fregaderos sean más frecuentes y difíciles de resolver con productos químicos. La grasa de cocina, las raíces de vegetación y el sarro se combinan hasta crear tapones compactos que solo ceden con maquinaria profesional.</p>
-          <p>Antes de actuar usamos una <strong>cámara endoscópica</strong> que nos muestra el interior del conducto: qué tipo de obstrucción hay, dónde está exactamente y si hay grietas o roturas asociadas. Así el presupuesto de desatasco en Monforte del Cid es concreto y justo — sin cobrar más de lo necesario.</p>
+          <p>Actuar sin ver es adivinar. La <strong>cámara endoscópica</strong> entra por el desagüe y muestra en directo qué está bloqueando el conducto — grasa compacta, raíces que han perforado la tubería, un objeto sólido, sarro acumulado — y en qué punto exacto del recorrido se encuentra. Esa información decide la técnica: no es lo mismo un tapón de grasa en el sifón que una raíz a tres metros de la arqueta.</p>
+          <p>Además, la cámara revela el estado general de la tubería: si hay fisuras, desplazamientos de junta o secciones deterioradas que puedan causar problemas futuros. Un desatasco bien hecho no solo deja el conducto libre — confirma que la tubería aguanta. En Monforte del Cid lo usamos en todos los trabajos donde el acceso lo permite.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro que no desagua en Monforte del Cid</li>
@@ -180,24 +180,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Monforte del Cid <span class="hl">— dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta un desatasco en Monforte del Cid?</summary>
-        <div class="faq-ans">La mano de obra es 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Monforte del Cid. El diagnóstico con cámara endoscópica va incluido en el tiempo de trabajo. El presupuesto exacto se da tras ver el atasco con la cámara, antes de empezar. Hay recargos para servicios nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+        <summary>¿Puede la cámara detectar una tubería rota además de un atasco?</summary>
+        <div class="faq-ans">Sí, y es una de sus funciones más importantes. La cámara endoscópica muestra el interior del conducto en tiempo real: si hay una fisura, un desplazamiento de junta, una sección aplastada o una perforación por raíces, aparece en imagen. Un atasco puede ser la consecuencia de una tubería dañada — resolver solo el tapón sin detectar la rotura significa que el problema vuelve. La cámara confirma si hay que desatascar, reparar o sustituir el tramo.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Usáis cámara endoscópica en todos los desatascos de Monforte del Cid?</summary>
-        <div class="faq-ans">Sí, siempre que el acceso lo permite. La cámara nos dice qué tipo de obstrucción hay y en qué punto exacto del conducto está. Así elegimos la técnica correcta y el presupuesto es preciso. Para atascos muy simples la cámara sirve también para verificar que el conducto queda completamente libre al terminar.</div>
+        <summary>¿Qué pasa si el atasco está en la red general del edificio?</summary>
+        <div class="faq-ans">Si el atasco está en el colector general o en la bajante comunitaria, la responsabilidad es de la comunidad de propietarios, no del vecino afectado. Nos coordinamos con el administrador de la finca o con quien tenga acceso a las zonas comunes. La cámara permite determinar con precisión en qué tramo está el bloqueo — fundamental para saber quién debe hacerse cargo y para la gestión con el seguro de la comunidad si hay daños asociados.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis fosas sépticas y fincas rurales de Monforte del Cid?</summary>
-        <div class="faq-ans">Sí. Trabajamos en todo el término municipal de Monforte del Cid, incluidas fincas rurales, casas de campo y bodegas. Fosas sépticas colapsadas, tuberías de saneamiento en explotaciones agrícolas y arquetas exteriores son servicios habituales en la zona.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Hacéis mantenimiento preventivo de desagües para comunidades en Monforte?</summary>
-        <div class="faq-ans">Sí. Para comunidades de vecinos con atascos recurrentes ofrecemos revisión y limpieza preventiva de bajantes y arquetas. Es más económico que resolver atascos urgentes repetidos y evita desbordamientos que puedan afectar a locales o garajes de la comunidad.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Puede el sarro del agua de Monforte del Cid causar atascos?</summary>
-        <div class="faq-ans">Sí, indirectamente. El sarro reduce el diámetro interior de los desagüe, haciendo que la grasa y los residuos se queden enganchados con más facilidad. En Monforte del Cid es frecuente encontrar atascos mixtos de grasa + sarro que requieren hidrojetting a presión para disolverse completamente.</div>
+        <summary>¿El servicio incluye informe con imágenes de la cámara?</summary>
+        <div class="faq-ans">Sí. Cuando el trabajo lo requiere — especialmente en comunidades de vecinos, siniestros con seguro o tuberías con deterioro visible — entregamos un informe con capturas del interior del conducto que documentan el estado encontrado y el resultado tras el trabajo. Es útil tanto para la gestión con el seguro como para decidir si conviene un mantenimiento preventivo periódico.</div>
       </details>
     </div>
   </div>

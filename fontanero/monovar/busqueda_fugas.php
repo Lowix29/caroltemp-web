@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Monóvar &middot; CP 03640</div>
     <h1>Detección de fugas en Monóvar<br><span class="hl">encontramos la fuga sin abrir paredes</span></h1>
-    <p class="hz-dark-sub">Localizamos fugas en instalaciones con baja presión, depósito propio o grupo de presión. Geófono y correlador para tuberías enterradas en jardín o parcela. Sin excavar hasta saber el punto exacto.</p>
+    <p class="hz-dark-sub">En instalaciones con depósito y grupo de presión propio, la señal más clara de fuga es el grupo que arranca sin parar: está compensando una pérdida que no ves. Localizamos el escape con geófono y correlador antes de excavar un solo centímetro de terreno.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Búsqueda de fugas en Monóvar</p>
-        <h2>Fugas de agua en Monóvar <span class="hl">sin presión en la red y sin saber dónde está el escape</span></h2>
-        <div class="zona-prose"><p>En viviendas con depósito propio y grupo de presión, una fuga en la tubería de impulsión o en la red exterior se traduce en caída constante de presión y en que el grupo arranca y se para sin parar. El problema es que esa tubería está enterrada en el jardín o en la parcela y no da señales visibles. Con geófono acústico localizamos el ruido de la fuga incluso bajo tierra compacta. Para instalaciones con tramos largos — acometidas de 50 a 200 metros — el correlador establece el punto matemáticamente antes de hacer ninguna cata. También revisamos el depósito y las conexiones del grupo si hay pérdida de caudal sin causa aparente.</p></div>
+        <h2>Cuando el grupo no para de arrancar <span class="hl">hay una fuga que todavía no has visto</span></h2>
+        <div class="zona-prose"><p>Las tuberías exteriores de jardín y parcela son el punto más vulnerable en viviendas con instalación propia. Se ponen y retiran durante años, van enterradas a poca profundidad y reciben sol, heladas y movimientos de terreno. Cuando una de esas tuberías pierde, el agua desaparece en el suelo y la única señal es que el grupo de presión trabaja más de lo normal — arrancando en ciclos cortos o sin llegar a parar del todo. Con geófono acústico captamos el sonido de la fuga a través del terreno. En parcelas grandes o con tramos enterrados largos, el correlador calcula el punto exacto por diferencia de tiempo de propagación antes de abrir ninguna zanja. Así la intervención es mínima y la reparación va directo al foco.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en instalaciones rurales con pozo y grupo de presión</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en tuberías enterradas de fincas y chalets</li>
@@ -110,16 +110,16 @@ include '../../includes/head.php';
     <h2>Búsqueda de fugas en Monóvar &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis detectar fugas en viviendas que tienen depósito y grupo de presión propios?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí, y es precisamente el tipo de instalación donde más difícil resulta localizar la fuga sin equipo especializado. Cuando el grupo de presión arranca con demasiada frecuencia o la presión cae sin razón aparente, suele haber una pérdida en la tubería de impulsión o en la red exterior. Usamos geófono para detectar el sonido de la fuga y correlador para afinar el punto exacto antes de abrir el terreno.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede detectar una fuga cuando el agua viene de depósito propio y no hay contador de red?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. En instalaciones sin contador de red, la fuga no se refleja en ninguna factura, pero sí en el comportamiento del grupo de presión: si arranca con demasiada frecuencia o no para, hay agua escapando en algún punto de la instalación. Usamos geófono para captar el sonido de la pérdida a través del terreno y correlador para afinar el punto antes de abrir ninguna zanja. Es la única forma de localizar una fuga en parcelas con tuberías enterradas largas sin excavar a ciegas.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué pasa si la fuga hace que el grupo de presión baje mucho la presión?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Si la pérdida es grande, el grupo trabaja en continuo y no logra mantener la presión de consigna. En ese caso detectamos la fuga con geófono, la reparamos y comprobamos el estado del presostato y la membrana del grupo, que pueden haber sufrido por el esfuerzo continuado. Todo en la misma visita si hay material disponible.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué significa que el contador gire con todas las llaves de casa cerradas?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Que hay consumo aunque no haya ningún grifo abierto — señal clara de fuga. Puede estar en una tubería empotrada, en el circuito exterior o en la propia llave de paso de algún sanitario. El primer paso es aislar tramos: cerramos la llave de entrada a la vivienda y miramos si el contador sigue girando. Si sigue, la fuga está antes de la llave general; si para, está dentro de la vivienda. A partir de ahí usamos geófono o cámara para localizar el punto exacto.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿También revisáis el depósito cuando buscáis una fuga?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Si hay pérdida de caudal sin causa aparente en las tuberías visibles, inspeccionamos también el depósito: fisuras en las paredes, válvula de llenado que no cierra bien y conexiones de entrada y salida. Una fuga pequeña en el depósito puede vaciar cientos de litros sin que se note desde dentro de la vivienda.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿La detección incluye revisar el estado del grupo de presión?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí. Si el grupo ha estado trabajando en exceso por culpa de una fuga, revisamos también el presostato, la membrana del vaso de expansión y las conexiones de impulsión, que son los elementos que más sufren cuando el equipo trabaja en ciclos continuos. Si encontramos la fuga y al reparar vemos que el grupo tiene síntomas de desgaste, te lo informamos antes de presupuestar nada adicional.</div>
       </div>
     </div>
   </div>

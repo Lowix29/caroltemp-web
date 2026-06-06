@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Sax &middot; CP 03630</div>
     <h1>Detección de fugas en Sax<br><span class="hl">geófono y cámara, sin romper nada</span></h1>
-    <p class="hz-dark-sub">Medimos el consumo real, localizamos la fuga con geófono y cámara termográfica y marcamos el punto exacto antes de abrir nada. Sin excavaciones a ciegas, sin obra innecesaria.</p>
+    <p class="hz-dark-sub">Primero medimos el consumo nocturno para confirmar que hay fuga. Luego escuchamos con el geófono metro a metro. Luego confirmamos con termografía. Solo cuando las tres técnicas apuntan al mismo punto marcamos dónde abrir — y no antes.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Localización de fugas en Sax</p>
-        <h2>Fugas de agua en Sax <span class="hl">detectar antes de abrir</span></h2>
+        <h2>Una fuga lenta acumula miles de litros <span class="hl">antes de que la veas</span></h2>
         <div class="zona-prose">
-          <p>Una fuga oculta puede llevar semanas activa sin que aparezca ninguna mancha visible. La factura del agua sube, el contador gira con los grifos cerrados, pero no hay nada que ver a simple vista. Esto ocurre especialmente en tuberías bajo solería, en circuitos de suelo radiante y en acometidas exteriores. Con el geófono recorremos la instalación metro a metro amplificando el sonido del agua bajo presión. La cámara termográfica cruza esa información con las diferencias de temperatura que genera la humedad. Cuando ambas técnicas apuntan al mismo punto, localizamos la fuga con precisión — sin abrir nada hasta saber exactamente dónde está el problema.</p>
+          <p>Una fuga de tres litros por hora pasa desapercibida en la vida diaria, pero en un mes son más de dos mil litros perdidos bajo el suelo o dentro de la pared. No hay mancha, no hay ruido apreciable — solo una factura que no cuadra. El proceso de detección empieza antes de tocar nada: medimos el consumo nocturno para cuantificar la pérdida real y saber si estamos ante una fuga menor o una rotura seria. Con esa base, el geófono recorre la instalación amplificando el sonido del agua bajo presión, y la termografía muestra la huella térmica que deja la humedad bajo el pavimento o en la pared. Cuando ambas técnicas señalan el mismo punto, abrimos solo lo necesario — sin excavaciones a ciegas, sin levantar metros de solería para encontrar el problema en otro sitio. El proceso de detección evita la mayor parte del coste de obra.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en viviendas unifamiliares de Sax</li>
@@ -179,16 +179,16 @@ include '../../includes/head.php';
     <h2>Detección de fugas <span class="hl">Sax — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cómo sé si tengo una fuga oculta si no hay ninguna mancha en la pared?</summary>
-        <div class="faq-ans">La señal más fiable es el contador. Cierra todos los grifos, espera unos minutos y observa si el contador sigue girando. Si se mueve, hay consumo que no debería existir — y muy probablemente es una fuga. Otra señal es la factura del agua: si sube de forma constante sin que haya cambiado el consumo habitual, hay que revisar la instalación. El geófono y la termografía permiten localizar el punto exacto sin abrir nada hasta confirmar dónde está.</div>
+        <summary>¿Cómo puedo comprobar en casa si hay una fuga oculta?</summary>
+        <div class="faq-ans">La prueba más sencilla es el contador nocturno: a una hora en que nadie vaya a usar agua — madrugada o primera hora de la mañana — anota la lectura del contador, espera dos horas sin abrir ningún grifo ni tirar de la cadena y vuelve a leerlo. Si el número ha cambiado, hay un consumo que no debería existir. Otra señal clara es la factura: un incremento sostenido sin que haya cambiado el consumo de la casa es el aviso más frecuente de fuga oculta. Si el suelo está tibio en una zona donde no hay suelo radiante, o si el contador gira aunque todos los grifos estén cerrados, merece la pena llamar antes de que el daño vaya a más.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿El informe de detección sirve para reclamar al seguro del hogar?</summary>
-        <div class="faq-ans">Sí. Muchas pólizas de hogar cubren daños por fuga de agua, pero exigen un documento que certifique la localización y la causa. Emitimos un informe con la descripción técnica de la fuga, el método de detección utilizado y el punto exacto donde se ha localizado. Este documento es válido para presentar a la aseguradora junto con el parte de siniestro.</div>
+        <summary>¿La compañía de seguros acepta el informe de detección?</summary>
+        <div class="faq-ans">Sí. Muchas pólizas de hogar cubren los daños causados por fuga de agua, pero la aseguradora exige documentación técnica que acredite la localización y la causa del siniestro. Emitimos un informe escrito con la descripción de la fuga, el método de detección empleado, el punto exacto localizado y el resultado de las pruebas realizadas. Este documento es apto para presentarlo junto al parte de siniestro y respaldar la reclamación ante la compañía.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Por qué usáis geófono y termografía y no hace falta romper?</summary>
-        <div class="faq-ans">El geófono amplifica el sonido del agua escapando bajo presión a través de paredes, suelos y tuberías empotradas — permite mapear la intensidad por zonas y acotar el punto. La cámara termográfica detecta las diferencias de temperatura que genera la humedad oculta, confirmando visualmente la misma zona. Cuando ambas técnicas coinciden, la localización es fiable al centímetro. Solo entonces marcamos el punto y presupuestamos la apertura mínima imprescindible.</div>
+        <summary>¿Se puede detectar la fuga con la casa habitada y los muebles en su sitio?</summary>
+        <div class="faq-ans">Sí, en la mayoría de los casos no es necesario mover nada. El geófono trabaja desde el exterior de las tuberías — a través de suelos, paredes y elementos de la instalación — sin necesidad de acceder directamente al conducto. La cámara termográfica tampoco requiere despejar zonas: lee las diferencias de temperatura a través de pavimentos y paramentos verticales. Solo en casos muy concretos, donde la acumulación de mobiliario impide acceder físicamente a una zona de la instalación, puede ser necesario despejar ese espacio puntual.</div>
       </details>
     </div>
   </div>

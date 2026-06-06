@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Aspe &middot; CP 03680</div>
-    <h1>Fontanero urgente en Aspe<br><span class="hl">24h y precio antes de empezar</span></h1>
-    <p class="hz-dark-sub">Una avería de fontanería no avisa. Atendemos el mismo día, te damos el precio antes de tocar nada y, si hay material, lo resolvemos sin segunda visita.</p>
+    <h1>Fontanero urgente en Aspe<br><span class="hl">atendemos la urgencia, no la apuntamos para mañana</span></h1>
+    <p class="hz-dark-sub">Hay averías que no pueden esperar a que haya hueco en la agenda. Cogemos el teléfono, vamos ese día y lo resolvemos — porque una urgencia real necesita a alguien que actúe, no que prometa y no llegue.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Cuándo llamar</p>
-        <h2>Urgencias fontanero <span class="hl">en Aspe</span></h2>
+        <h2>La primera hora <span class="hl">marca la diferencia</span></h2>
         <div class="zona-prose">
-          <p>Una urgencia de fontanería no espera. Si el calentador deja de dar agua caliente un domingo, si la tubería revienta en el piso de arriba o si la comunidad se queda sin presión — necesitas un fontanero en Aspe que coja el teléfono, te dé el precio antes de desplazarse y llegue ese mismo día. Sin ponerte en una lista. Sin cobros añadidos que no se han acordado. Así trabajamos: precio antes de empezar y una sola visita para resolver si el material está en la furgoneta.</p>
+          <p>Una rotura de tubería gestionada en la primera hora es un problema de fontanería. La misma rotura gestionada al día siguiente es un problema de fontanería más humedades en la pared, más daños en el suelo, más posibles afectaciones al vecino de abajo. El agua no espera. Cada minuto que pasa con una fuga activa, el agua penetra más en la estructura, empapa más material y multiplica el daño que hay que reparar después. Atendemos urgencias reales el mismo día porque sabemos que lo que no se corta a tiempo no se detiene solo.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de vivienda unifamiliar en Aspe</li>
@@ -178,16 +178,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Aspe — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Qué hago mientras espero al fontanero si hay agua saliendo?</summary>
-        <div class="faq-ans">Lo primero es cortar el suministro en la llave de paso general de la vivienda — normalmente está en el armario del contador o en la entrada. Si no la encuentras o no cierra bien, llama a la compañía suministradora para que corten desde la calle. Mientras tanto, retira muebles y objetos que puedan dañarse por el agua y, si la fuga es en techo o pared, coloca cubos y toallas para reducir el daño. Cuando nos llames te guiamos por teléfono si tienes dudas.</div>
+        <summary>¿Es normal que una rotura cause humedad en la pared incluso días después de repararla?</summary>
+        <div class="faq-ans">Sí, y es algo que sorprende a mucha gente. El agua que ha penetrado en una pared o en el forjado no desaparece en cuanto se cierra la fuga — puede tardar días o semanas en evaporarse del todo, dependiendo del grosor del muro, el material y la ventilación de la estancia. Lo que se ve en los días siguientes es la humedad que ya estaba absorbida saliendo hacia la superficie. Si la mancha crece o persiste más de tres semanas después de la reparación, conviene revisar si hay otro foco activo o si el material ha quedado tan saturado que necesita ayuda para secar.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Hay recargo por trabajos nocturnos o en festivos en Aspe?</summary>
-        <div class="faq-ans">Sí, los trabajos realizados a partir de las 22:00 h y los fines de semana y festivos tienen un recargo sobre la tarifa base. El importe exacto se informa siempre al contactar, antes de acordar la visita. No hay recargos ocultos: el precio total que te damos por teléfono es el que figura en la factura final.</div>
+        <summary>¿Se puede hacer una reparación temporal que aguante hasta conseguir la pieza exacta?</summary>
+        <div class="faq-ans">En muchos casos sí. Cuando la pieza de repuesto no está disponible en el momento — un modelo descatalogado, una válvula específica o un componente de calentador — se puede estabilizar la avería con una solución provisional que corte la fuga y permita usar el suministro con normalidad mientras se consigue el material. Esta solución temporal no es definitiva, pero evita que la avería siga haciendo daño y que la vivienda quede sin agua. Al instalar la pieza definitiva se retira la provisional sin coste adicional de diagnóstico.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Se puede reparar una avería sin cortar el agua a toda la comunidad?</summary>
-        <div class="faq-ans">Depende del tipo de avería y de la instalación. Si la llave de paso de la vivienda individual funciona correctamente, muchas reparaciones se hacen sin afectar al suministro del resto de vecinos. Cuando es necesario cortar el agua general, lo coordinamos con el administrador o el presidente de la comunidad con la mínima antelación posible y en el horario que cause menos molestias.</div>
+        <summary>¿El fontanero de urgencias trae material o hay que esperar al pedido?</summary>
+        <div class="faq-ans">La furgoneta de urgencias lleva material para las averías más frecuentes: llaves de paso, válvulas de esfera, racores, juntas, griferías básicas, piezas de calentador de uso común y conexiones para distintos diámetros. Esto permite resolver la mayoría de las urgencias en una sola visita sin esperar pedido. Si la avería requiere una pieza muy específica — por modelo de aparato o diámetro fuera de lo habitual — se gestiona el pedido urgente y se deja una solución provisional hasta que llegue.</div>
       </details>
     </div>
   </div>
