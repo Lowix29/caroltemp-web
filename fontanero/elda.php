@@ -6,6 +6,20 @@ $schema_type = 'local';
 $page_css    = 'zona';
 $page_js     = 'zona';
 $depth       = 1;
+$faq_items   = [
+  ['q' => '¿Cuánto cuesta un fontanero en Elda?',
+   'a' => 'La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento. El presupuesto se da siempre antes de empezar, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.'],
+  ['q' => '¿Atendéis urgencias en fines de semana y festivos en Elda?',
+   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
+  ['q' => '¿Podéis reparar una fuga sin romper paredes en Elda?',
+   'a' => 'Sí. Usamos geófono y cámara termográfica para localizar fugas ocultas en instalaciones del Raval, San Crispín y el resto de barrios de Elda. Marcamos el punto exacto antes de abrir, minimizando la obra.'],
+  ['q' => '¿Vale la pena instalar un descalcificador en Elda?',
+   'a' => 'Sí. El agua en Elda tiene dureza alta. Un descalcificador bien dimensionado alarga la vida de termos, calderas y electrodomésticos y puede amortizarse en 2-3 años en ahorro de averías. Te asesoramos sin compromiso.'],
+  ['q' => '¿Hacéis reformas completas de baño y cocina en Elda?',
+   'a' => 'Sí. Realizamos la sustitución completa de tuberías, traslado de puntos de agua y adecuación a normativa vigente. Presupuesto gratuito a domicilio en Elda.'],
+  ['q' => '¿Atendéis comunidades de vecinos en Elda?',
+   'a' => 'Sí. Damos servicio a comunidades de propietarios en Elda: reparación de bajantes comunes, atascos en arquetas, fugas en tuberías generales y mantenimiento preventivo. Presupuesto específico para comunidades.'],
+];
 include '../includes/head.php';
 ?>
 
