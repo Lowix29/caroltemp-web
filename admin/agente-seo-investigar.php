@@ -299,7 +299,7 @@ SYS;
 
 $payload_inv = [
   'model'      => ANTHROPIC_MODEL,
-  'max_tokens' => 3500,
+  'max_tokens' => 4096,
   'system'     => $system_inv,
   'messages'   => [['role' => 'user', 'content' => $contexto]],
 ];
