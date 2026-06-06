@@ -47,7 +47,7 @@
 }
 .hero h1 .hl { color: #fff; }
 .hero-sub {
-  color: rgba(255,255,255,.75);
+  color: #fff;
   font-size: 16px;
   line-height: 1.75;
   font-weight: 400;
@@ -594,7 +594,7 @@
 }
 .cta-final h2 .hl { color: #64B5F6; }
 .cta-final p {
-  color: rgba(255,255,255,.55);
+  color: #fff;
   font-size: 15px;
   max-width: 480px;
   line-height: 1.7;
@@ -845,7 +845,7 @@
 }
 .home-stat-label {
   font-size: 12.5px;
-  color: rgba(255,255,255,.6);
+  color: #fff;
   line-height: 1.45;
 }
 .home-stat-sep { display: none; }
@@ -885,7 +885,7 @@
 }
 .home-urg-left h2 span { color: #60a5fa; }
 .home-urg-left > p {
-  color: rgba(255,255,255,.55);
+  color: #fff;
   font-size: 15px;
   line-height: 1.7;
   margin: 0 0 1.5rem;
@@ -900,7 +900,7 @@
 }
 .home-urg-list li {
   font-size: 14px;
-  color: rgba(255,255,255,.75);
+  color: #fff;
   font-weight: 500;
 }
 .home-urg-right {
