@@ -313,6 +313,50 @@ include 'includes/head.php';
 </section>
 
 <!-- ============================
+     ÚLTIMOS PROYECTOS (si hay en BD)
+============================= -->
+<?php
+$ultimos_proyectos = $pdo->query('SELECT titulo, slug, descripcion, servicio, zona, imagen FROM proyectos WHERE publicado = 1 ORDER BY fecha DESC LIMIT 3')->fetchAll();
+?>
+<?php if (!empty($ultimos_proyectos)): ?>
+<section class="home-sec" aria-labelledby="proyectos-title">
+  <div class="home-con">
+    <div class="sec-header">
+      <div>
+        <p class="home-lbl">Trabajos realizados</p>
+        <h2 id="proyectos-title">Lo que hemos <span class="hl">hecho para otros</span></h2>
+      </div>
+      <a href="<?php echo $base_url; ?>proyectos/" class="sec-link">Ver todos &rarr;</a>
+    </div>
+    <div class="cards-grid">
+      <?php foreach ($ultimos_proyectos as $pro): ?>
+      <a href="<?php echo $base_url; ?>proyectos/<?php echo urlencode($pro['slug']); ?>" class="content-card">
+        <div class="content-card-img">
+          <?php if ($pro['imagen']): ?>
+            <img src="<?php echo htmlspecialchars($pro['imagen']); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" loading="lazy">
+          <?php else: ?>
+            <div class="content-card-placeholder">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+          <?php endif; ?>
+        </div>
+        <div class="content-card-body">
+          <div class="content-card-tags">
+            <?php if ($pro['servicio']): ?><span class="content-tag content-tag-blue"><?php echo htmlspecialchars($pro['servicio']); ?></span><?php endif; ?>
+            <?php if ($pro['zona']): ?><span class="content-tag content-tag-gray"><?php echo htmlspecialchars($pro['zona']); ?></span><?php endif; ?>
+          </div>
+          <h3><?php echo htmlspecialchars($pro['titulo']); ?></h3>
+          <p><?php echo htmlspecialchars(mb_strimwidth($pro['descripcion'], 0, 120, '...')); ?></p>
+          <span class="content-card-cta">Ver proyecto &rarr;</span>
+        </div>
+      </a>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
+<!-- ============================
      ZONAS CON ENLACE A HUBS
 ============================= -->
 <section class="home-sec home-sec-gray" aria-labelledby="cobertura-title">
@@ -540,50 +584,6 @@ include 'includes/head.php';
     </div>
   </div>
 </section>
-
-<!-- ============================
-     ÚLTIMOS PROYECTOS (si hay en BD)
-============================= -->
-<?php
-$ultimos_proyectos = $pdo->query('SELECT titulo, slug, descripcion, servicio, zona, imagen FROM proyectos WHERE publicado = 1 ORDER BY fecha DESC LIMIT 3')->fetchAll();
-?>
-<?php if (!empty($ultimos_proyectos)): ?>
-<section class="home-sec home-sec-gray" aria-labelledby="proyectos-title">
-  <div class="home-con">
-    <div class="sec-header">
-      <div>
-        <p class="home-lbl">Proyectos</p>
-        <h2 id="proyectos-title">Últimos <span class="hl">trabajos realizados</span></h2>
-      </div>
-      <a href="<?php echo $base_url; ?>proyectos/" class="sec-link">Ver todos los proyectos &rarr;</a>
-    </div>
-    <div class="cards-grid">
-      <?php foreach ($ultimos_proyectos as $pro): ?>
-      <a href="<?php echo $base_url; ?>proyectos/<?php echo urlencode($pro['slug']); ?>" class="content-card">
-        <div class="content-card-img">
-          <?php if ($pro['imagen']): ?>
-            <img src="<?php echo htmlspecialchars($pro['imagen']); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" loading="lazy">
-          <?php else: ?>
-            <div class="content-card-placeholder">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-          <?php endif; ?>
-        </div>
-        <div class="content-card-body">
-          <div class="content-card-tags">
-            <?php if ($pro['servicio']): ?><span class="content-tag content-tag-blue"><?php echo htmlspecialchars($pro['servicio']); ?></span><?php endif; ?>
-            <?php if ($pro['zona']): ?><span class="content-tag content-tag-gray"><?php echo htmlspecialchars($pro['zona']); ?></span><?php endif; ?>
-          </div>
-          <h3><?php echo htmlspecialchars($pro['titulo']); ?></h3>
-          <p><?php echo htmlspecialchars(mb_strimwidth($pro['descripcion'], 0, 120, '...')); ?></p>
-          <span class="content-card-cta">Ver proyecto &rarr;</span>
-        </div>
-      </a>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
 
 <!-- ============================
      ÚLTIMAS NOTICIAS (si hay en BD)
