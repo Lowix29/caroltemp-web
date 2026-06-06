@@ -8,7 +8,7 @@ $page_js     = 'zona';
 $depth       = 1;
 $faq_items   = [
   ['q' => '¿Cuánto cuesta un fontanero en Monóvar?',
-   'a' => 'El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.'],
+   'a' => 'El precio depende del tipo de instalación y del acceso: no es lo mismo una avería en el casco que reparar el grupo de presión de una finca en el diseminado o revisar una caldera en una casa de campo. El presupuesto es gratuito y te lo damos en la visita, antes de empezar.'],
   ['q' => '¿Atendéis urgencias en festivos y fines de semana en Monóvar?',
    'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
   ['q' => '¿Reparáis grupos de presión en fincas de Monóvar?',
@@ -281,7 +281,7 @@ if (!empty($_proy)): ?>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero en Monóvar?</summary>
-        <div class="faq-ans">El coste depende de la avería: tipo de trabajo, materiales y tiempo. Siempre damos el desglose completo antes de empezar — mano de obra, desplazamiento y materiales por separado. Sin sorpresas en la factura final.</div>
+        <div class="faq-ans">El precio depende del tipo de instalación y del acceso: no es lo mismo una avería en el casco que reparar el grupo de presión de una finca en el diseminado o revisar una caldera en una casa de campo de Monóvar. El presupuesto es gratuito y te lo damos en la visita, antes de empezar.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en Monóvar los fines de semana y festivos?</summary>

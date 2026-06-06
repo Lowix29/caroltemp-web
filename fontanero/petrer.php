@@ -8,7 +8,7 @@ $page_js     = 'zona';
 $depth       = 1;
 $faq_items   = [
   ['q' => '¿Cuánto cuesta un fontanero en Petrer?',
-   'a' => 'El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.'],
+   'a' => 'Varía mucho según el trabajo y la zona: no cuesta igual una avería puntual en el centro que reparar una fuga en una vivienda de ladera o intervenir en una nave del polígono industrial. El presupuesto es gratuito, lo damos antes de empezar y sin compromiso.'],
   ['q' => '¿Atendéis urgencias en fines de semana y festivos en Petrer?',
    'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
   ['q' => '¿Podéis reparar fugas en viviendas de ladera y El Monastil en Petrer?',
@@ -253,7 +253,7 @@ if (!empty($_proy)): ?>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero en Petrer?</summary>
-        <div class="faq-ans">El coste depende de la avería: tipo de trabajo, materiales y tiempo. Siempre damos el desglose completo antes de empezar — mano de obra, desplazamiento y materiales por separado. Sin sorpresas en la factura final.</div>
+        <div class="faq-ans">Varía mucho según el trabajo y la zona: no cuesta igual una avería puntual en el centro que reparar una fuga en una vivienda de ladera o intervenir en una nave del polígono industrial. El presupuesto es gratuito, lo damos antes de empezar y sin compromiso.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en Petrer los fines de semana y festivos?</summary>
