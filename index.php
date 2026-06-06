@@ -255,16 +255,8 @@ include 'includes/head.php';
       </ul>
     </div>
     <div class="home-urg-right">
-      <a href="tel:+34611165129" class="home-urg-tel">
-        <span class="home-urg-tel-ico">📞</span>
-        <div>
-          <span class="home-urg-tel-label">Llama ahora</span>
-          <strong>611 165 129</strong>
-        </div>
-      </a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="home-urg-wa">
-        💬 WhatsApp
-      </a>
+      <a href="tel:+34611165129" class="hero-btn-primary">📞 611 165 129</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="hero-btn-wa">💬 WhatsApp</a>
     </div>
   </div>
 </section>
