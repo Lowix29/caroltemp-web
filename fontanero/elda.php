@@ -143,6 +143,63 @@ include '../includes/head.php';
   </div>
 </section>
 
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Lo que vemos a diario en Elda</p>
+    <h2>Problemas de fontanería <span class="hl">más frecuentes</span></h2>
+    <div class="zona-svc" style="margin-top:2rem">
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">AGUA DURA</span>
+        <h3>Cal e incrustaciones</h3>
+        <p>El agua del Vinalopó tiene alta dureza. La cal deteriora termos, calderas y grifería antes de tiempo. Un descalcificador o un sistema de ósmosis es la solución a largo plazo.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">INSTALACIONES ANTIGUAS</span>
+        <h3>Tuberías viejas en el centro</h3>
+        <p>Las viviendas del casco histórico y barrios como El Raval o San Crispín suelen tener instalaciones con más de 30 años. Las sustituimos por cobre o multicapa con mínima obra.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">COMUNIDADES</span>
+        <h3>Fugas en zonas comunes</h3>
+        <p>Bajantes generales, tuberías de fachada o contadores averiados. Reparamos y emitimos informe técnico si lo necesita el seguro de la comunidad.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="zona-sec zona-sec-gray">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Cómo trabajamos</p>
+    <h2>De la llamada <span class="hl">a la solución</span></h2>
+    <div class="zona-proceso">
+      <div class="zona-paso">
+        <span class="zona-paso-n">01</span>
+        <h3>Llamas o escribes</h3>
+        <p>Teléfono o WhatsApp. Te atendemos en el momento, sin bots ni centralitas.</p>
+      </div>
+      <div class="zona-paso">
+        <span class="zona-paso-n">02</span>
+        <h3>Vemos la avería</h3>
+        <p>El técnico acude a Elda, inspecciona y diagnostica el problema in situ.</p>
+      </div>
+      <div class="zona-paso">
+        <span class="zona-paso-n">03</span>
+        <h3>Presupuesto previo</h3>
+        <p>Antes de tocar nada te damos el desglose completo: mano de obra y materiales.</p>
+      </div>
+      <div class="zona-paso">
+        <span class="zona-paso-n">04</span>
+        <h3>Reparación y garantía</h3>
+        <p>Ejecutamos el trabajo y lo dejamos revisado. Con garantía por escrito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <?php
 $_proy = [];
 try {
@@ -181,19 +238,27 @@ if (!empty($_proy)): ?>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero en Elda?</summary>
-        <div class="faq-ans">Siempre damos el precio antes de empezar, con el trabajo visto. Sin costes ocultos ni sorpresas en la factura.</div>
+        <div class="faq-ans">El coste depende de la avería: tipo de trabajo, materiales y tiempo. Siempre damos el desglose completo antes de empezar — mano de obra, desplazamiento y materiales por separado. Sin sorpresas en la factura final.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis urgencias en Elda los fines de semana?</summary>
-        <div class="faq-ans">Sí, los 365 días. Llama al 611 165 129 y te atendemos al momento.</div>
+        <summary>¿Atendéis urgencias en Elda los fines de semana y festivos?</summary>
+        <div class="faq-ans">Sí, los 365 días del año, también festivos y noches. Somos fontaneros locales, no una central que deriva llamadas. Llama al 611 165 129 y te atendemos al momento.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Trabajáis en comunidades de vecinos en Elda?</summary>
+        <div class="faq-ans">Sí. Atendemos comunidades para reparar bajantes, fugas en zonas comunes y tuberías generales. Emitimos informe técnico si la comunidad lo necesita para el seguro.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Detectáis fugas sin hacer obras?</summary>
+        <div class="faq-ans">Sí. Usamos geófono y cámara endoscópica para localizar la fuga exacta. Solo se abre donde es estrictamente necesario. <a href="/fontanero/elda/busqueda_fugas">Ver más sobre detección de fugas en Elda →</a></div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Puedo financiar una reforma o instalación en Elda?</summary>
         <div class="faq-ans">Sí. Ofrecemos financiación para reformas de baño, ósmosis, descalcificadores y más. Sin adelantar nada y firma digital desde el móvil.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Detectáis fugas sin hacer obras?</summary>
-        <div class="faq-ans">Sí. Usamos geófono y cámara endoscópica para localizar la fuga exacta. Solo se abre donde es estrictamente necesario.</div>
+        <summary>¿Instaláis descalcificadores y ósmosis en Elda?</summary>
+        <div class="faq-ans">Sí. El agua dura del Vinalopó daña tuberías y electrodomésticos. Instalamos descalcificadores y sistemas de ósmosis inversa con puesta en marcha y mantenimiento incluidos.</div>
       </details>
     </div>
   </div>
@@ -229,7 +294,16 @@ if (!empty($_arts)): ?>
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
     <h2>Fontanería <span class="hl">en Elda</span></h2>
-    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Elda (CP 03600) y municipios limítrofes.</p>
+    <p style="margin-bottom:1rem;color:#576574">Atendemos toda la localidad de Elda (CP 03600): centro, barrios residenciales, urbanizaciones y polígono industrial.</p>
+    <div class="zona-ztags" style="margin-bottom:1.5rem">
+      <span class="zona-ztag-plain">Centro</span>
+      <span class="zona-ztag-plain">El Raval</span>
+      <span class="zona-ztag-plain">El Pilar</span>
+      <span class="zona-ztag-plain">San Crispín</span>
+      <span class="zona-ztag-plain">La Peseta</span>
+      <span class="zona-ztag-plain">Camino Viejo de Monóvar</span>
+      <span class="zona-ztag-plain">Polígono Industrial</span>
+    </div>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
       <iframe src="https://maps.google.com/maps?q=38.4774,-0.7882&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontanero en Elda"></iframe>
     </div>
@@ -256,7 +330,7 @@ if (!empty($_arts)): ?>
 <section class="cta-dark">
   <div class="cta-dark-con">
     <h2>¿Necesitas fontanería <span>en Elda?</span></h2>
-    <p>Precio cerrado antes de empezar. Llámenos.</p>
+    <p>Atendemos toda Elda. Presupuesto previo, sin sorpresas.</p>
     <div class="cta-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
