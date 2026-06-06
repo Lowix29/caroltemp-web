@@ -175,14 +175,14 @@ include 'includes/head.php';
         <p>Proyecto completo financiado: materiales, instalación y mano de obra.</p>
       </div>
       <div class="fin-cubre-card">
-        <span class="fin-cubre-ico">♨️</span>
-        <h3>Termos Nubeco</h3>
-        <p>Termo nuevo con instalación financiado. Sin adelantar nada.</p>
+        <span class="fin-cubre-ico">🏡</span>
+        <h3>Reformas integrales de viviendas</h3>
+        <p>Toda la reforma, desde fontanería hasta acabados. Un solo presupuesto, un solo pago mensual.</p>
       </div>
       <div class="fin-cubre-card">
-        <span class="fin-cubre-ico">🌡️</span>
-        <h3>Aerotermia</h3>
-        <p>Sistema completo financiado. La alternativa eficiente a la caldera tradicional.</p>
+        <span class="fin-cubre-ico">❄️</span>
+        <h3>Aire acondicionado</h3>
+        <p>Equipo e instalación financiados. Climatización en casa sin desembolso inicial.</p>
       </div>
       <div class="fin-cubre-card">
         <span class="fin-cubre-ico">🔧</span>
