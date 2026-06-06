@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Sax &middot; CP 03630</div>
-    <h1>Detección de fugas en Sax<br><span class="hl">geófono y cámara, sin romper nada</span></h1>
+    <h1>Detección de fugas en Sax<br><span class="hl">localizado sin romper nada</span></h1>
     <p class="hz-dark-sub">Primero medimos el consumo nocturno para confirmar que hay fuga. Luego escuchamos con el geófono metro a metro. Luego confirmamos con termografía. Solo cuando las tres técnicas apuntan al mismo punto marcamos dónde abrir — y no antes.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
