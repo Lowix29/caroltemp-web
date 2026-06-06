@@ -15,7 +15,7 @@ include '../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería · Elda · CP 03600</div>
     <h1>Fontanero en Elda<br><span class="hl">Rápido, serio y sin sorpresas</span></h1>
-    <p class="hz-dark-sub">Fontanero en Elda con precio cerrado antes de empezar. Atendemos particulares, comunidades y locales.</p>
+    <p class="hz-dark-sub">Urgencias, fugas, desatascos y reformas en Elda. Atendemos particulares, comunidades y locales.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -32,7 +32,7 @@ include '../includes/head.php';
   </div>
 </div>
 
-<section class="zona-sec zona-srv-main">
+<section class="zona-sec zona-sec-dark zona-srv-main">
   <div class="cta-dark-con">
     <p class="zona-lbl">Servicios principales en Elda</p>
     <h2>Lo que más nos piden <span class="hl">en Elda</span></h2>
