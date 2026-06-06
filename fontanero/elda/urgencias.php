@@ -41,7 +41,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Elda &middot; CP 03600 &middot; 24h</div>
-    <h1>Fontanero urgente en Elda<br><span class="hl">Urgencias 24h con soluciones profesionales desde la primera visita</span></h1>
+    <h1>Fontanero urgente en Elda<br><span class="hl">con soluciones profesionales desde la primera visita</span></h1>
     <p class="hz-dark-sub">Llegamos en 40-50 minutos a cualquier punto de Elda. Precio cerrado con la avería vista, antes de tocar nada. Sin formularios — llama directamente.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

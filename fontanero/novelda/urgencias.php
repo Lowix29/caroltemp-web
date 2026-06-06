@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Novelda &middot; CP 03660</div>
-    <h1>Fontanero urgente en Novelda<br><span class="hl">Atención urgente hoy mismo para evitar daños mayores</span></h1>
+    <h1>Fontanero urgente en Novelda<br><span class="hl">actuamos hoy para evitar daños mayores</span></h1>
     <p class="hz-dark-sub">Salimos hacia allí en cuanto colgamos. Llevamos el material en la furgoneta para no dejar la avería a medias: el técnico no se marcha hasta que el agua vuelve a correr como tiene que correr.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
