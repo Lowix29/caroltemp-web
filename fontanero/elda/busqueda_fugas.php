@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Elda &middot; CP 03600</div>
     <h1>Detección de fugas en Elda<br><span class="hl">sin romper hasta saber exactamente dónde</span></h1>
-    <p class="hz-dark-sub">Localizamos la fuga con geófono y cámara termográfica antes de abrir ninguna pared ni levantar ningún suelo. El martillo llega solo cuando ya sabemos exactamente dónde.</p>
+    <p class="hz-dark-sub">Humedad en una pared sin explicación, el contador que no para aunque todo esté cerrado, una factura del agua que se ha disparado sin motivo aparente. Hay fugas que el ojo no ve — pero el geófono y la cámara termográfica sí las encuentran, sin abrir nada hasta tener el punto exacto.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,10 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Localización de fugas en Elda</p>
-        <h2>Fugas de agua en Elda <span class="hl">qué las provoca</span></h2>
+        <h2>Fugas de agua en Elda <span class="hl">detectadas con precisión, no con demolición</span></h2>
         <div class="zona-prose">
-          <p>Una fuga puede estar en una tubería empotrada en la pared, en un circuito de suelo radiante bajo el pavimento, en una red de riego enterrada en el jardín o en las tuberías generales de una comunidad. En todos los casos la clave es localizar antes de actuar. Abrir sin saber dónde está la fuga multiplica los daños y el coste.</p>
-          <p>Con geófono acústico y <strong>cámara termográfica</strong> cubrimos los tres escenarios más habituales: tuberías empotradas en viviendas, circuitos enterrados en unifamiliares con jardín y redes comunitarias en pisos y comunidades. La <strong>detección de fugas de agua en Elda</strong> termina con el punto marcado en el suelo o la pared — el presupuesto de reparación viene después, con el dato exacto encima de la mesa.</p>
+          <p>El geófono escucha el sonido del agua escapando bajo presión a través de suelos y paredes. La cámara termográfica revela la huella de calor o frío que deja la humedad en la superficie. El correlador acústico cruza señales entre dos puntos y calcula la posición exacta de la fuga por diferencia de tiempo. Tres herramientas que trabajan juntas para que el punto quede marcado antes de que entre ninguna herramienta de obra.</p>
+          <p>Los tipos de instalación donde más fugas aparecen y más se confunden son el <strong>suelo radiante</strong> — un pinchazo en el circuito es casi imposible de notar hasta que el parqué empieza a hincharse —, los <strong>circuitos de riego enterrados en jardín</strong> que llevan años perdiendo agua sin alarma visible, y las <strong>tuberías generales de comunidades</strong> donde la fuga aparece en un piso pero el origen está en otro. La <strong>detección de fugas en Elda</strong> termina con el punto físicamente marcado — lo que viene después ya se decide con datos reales sobre la mesa.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en viviendas de Elda: tuberías empotradas</li>
@@ -180,16 +180,16 @@ include '../../includes/head.php';
     <h2>Detección de fugas <span class="hl">Elda — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto tiempo tarda en localizarse una fuga?</summary>
-        <div class="faq-ans">Depende del tipo de instalación y del acceso. Una fuga en tubería empotrada en una vivienda se localiza habitualmente en 30-60 minutos con geófono y termografía. Un circuito de suelo radiante o una red de riego enterrada en jardín puede requerir un poco más de tiempo de rastreo. En todos los casos damos presupuesto de reparación antes de abrir — el tiempo de localización ya está incluido en la hora de trabajo.</div>
+        <summary>¿Puede haber una fuga entre dos plantas sin que la vea nadie?</summary>
+        <div class="faq-ans">Sí, y es más frecuente de lo que parece. Una tubería que pierde entre el forjado de dos plantas puede llevar semanas o meses activa sin que el agua llegue a la superficie. El agua se filtra lateralmente, empapa aislante y mortero, y aparece cuando ya ha causado daño estructural o cuando el propietario del piso de abajo nota una mancha en el techo. La cámara termográfica detecta la diferencia de temperatura que provoca esa humedad acumulada, incluso cuando todavía no hay señal visual.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿El geófono funciona si el suelo es de parqué o tarima flotante?</summary>
-        <div class="faq-ans">Sí, aunque la tarima flotante amortigua algo el sonido. En esos casos complementamos el geófono con la cámara termográfica, que detecta las diferencias de temperatura que provoca la humedad en el subsuelo independientemente del tipo de pavimento. La combinación de ambas herramientas permite localizar el punto incluso cuando uno solo de los equipos tiene limitaciones por el tipo de suelo.</div>
+        <summary>¿Cuánto daño acumula una fuga lenta sin detectar?</summary>
+        <div class="faq-ans">Una microfuga de apenas dos litros por hora acumula más de 1.400 litros en un mes — sin contar el daño en la estructura. La humedad sostenida pudre la madera, oxida el hierro de los forjados, favorece la aparición de moho y degrada el aislamiento térmico. Además, esa pérdida continuada aparece en cada factura del agua sin que nadie sepa a qué atribuirla. Cuanto antes se localiza la fuga, menor es el coste total entre agua perdida, reparación y rehabilitación de daños secundarios.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Qué pasa si la fuga está en una zona común de la comunidad?</summary>
-        <div class="faq-ans">Si la fuga está en un montante, bajante o tubería general que es responsabilidad de la comunidad, emitimos un informe escrito con el punto exacto localizado. Ese documento sirve para que el administrador gestione la reparación con el seguro comunitario. Nos coordinamos con quien sea necesario y trabajamos con el mínimo impacto para los vecinos.</div>
+        <summary>¿Se puede detectar una fuga si hay muebles encima del suelo?</summary>
+        <div class="faq-ans">En la mayoría de los casos sí. El geófono trabaja en contacto con el suelo o las paredes, no requiere espacio diáfano — basta con acceder a la zona perimetral de la habitación o a puntos de control. La cámara termográfica lee la temperatura de la superficie sin necesidad de mover nada. Solo si la fuga está en el punto exacto tapado por un mueble muy voluminoso puede ser necesario desplazarlo. En todos los casos intentamos minimizar el movimiento de mobiliario antes de confirmar el punto.</div>
       </details>
     </div>
   </div>

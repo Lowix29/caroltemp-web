@@ -18,8 +18,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Urgencias Pinoso</div>
-    <h1>Fontanero urgente en Pinoso <span class="hl">precio antes de empezar</span></h1>
-    <p class="hz-dark-sub">Ves la avería, escuchas el precio, decides. Nada se toca sin que sepas cuánto cuesta.</p>
+    <h1>Fontanero urgente en Pinoso <span class="hl">cuando no puede esperar, nosotros tampoco</span></h1>
+    <p class="hz-dark-sub">Una rotura que manda agua al suelo, una inundación que avanza por el pasillo, un termo que deja de funcionar a medianoche. Hay averías que no admiten demora — y un fontanero de guardia que de verdad coge el teléfono y sale marca la diferencia entre un susto y un desastre.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -137,8 +137,8 @@ include '../../includes/head.php';
 <!-- BLOQUE 5: Proceso -->
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Sin sorpresas</p>
-    <h2>Qué pasa <span class="hl">cuando llamas</span></h2>
+    <p class="zona-lbl">Cómo se resuelve bien una urgencia</p>
+    <h2>Diagnóstico rápido, material a bordo, <span class="hl">manos a la obra</span></h2>
     <div class="zona-tcol">
       <div>
         <div class="zona-svc" style="grid-template-columns:1fr">
@@ -161,9 +161,9 @@ include '../../includes/head.php';
       </div>
       <div>
         <div class="zona-prose">
-          <p>Si buscas fontanería urgente cerca de ti en Pinoso o en cualquier finca del término municipal, la diferencia con otras empresas es sencilla: nosotros no empezamos a trabajar hasta que el cliente conoce el precio total. No hay sorpresas en la factura porque el presupuesto se cierra antes de abrir ninguna herramienta.</p>
-          <p>En averías de saneamiento — fugas de agua en tuberías, roturas o escapes — aplicamos el mismo proceso. Si el problema requiere localización con cámara o geófono, te lo decimos de antemano y lo incluimos en el presupuesto.</p>
-          <p>Atendemos todo el término municipal de Pinoso: casco urbano, pedanías y fincas rurales con acceso por camino. El desplazamiento ya está incluido en la tarifa que te damos al llamar.</p>
+          <p>Lo que distingue una urgencia bien resuelta de una mal resuelta no es la velocidad de llegada: es lo que pasa en los primeros cinco minutos. Un fontanero que entra, mira, corta el suministro en el punto correcto y diagnostica la causa evita que el daño se extienda mientras se busca la solución.</p>
+          <p>Llevamos la furgoneta equipada con piezas habituales — racores, latiguillos, válvulas de bola, resistencias de termo, grupos de membrana — porque la mayoría de urgencias en Pinoso se resuelven en la misma visita si el material está a mano. Sin segunda cita, sin esperar pedidos.</p>
+          <p>Atendemos todo el término municipal de Pinoso: casco urbano, pedanías y fincas rurales con acceso por camino. Cuéntanos la avería al llamar y te decimos honestamente si es algo que podemos resolver en el acto o si necesita planificación.</p>
         </div>
       </div>
     </div>
@@ -217,42 +217,28 @@ include '../../includes/head.php';
 <section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Dudas sobre <span class="hl">precios y urgencias en Pinoso</span></h2>
+    <h2>Dudas sobre <span class="hl">urgencias de fontanería en Pinoso</span></h2>
     <div class="zona-faq">
       <div class="zona-fi open">
         <div class="zona-fiq" onclick="togFaq(this)">
-          <span>¿Cuánto cuesta un fontanero urgente en Pinoso?</span>
+          <span>¿El fontanero que atiende urgencias es el mismo que trabaja de día?</span>
           <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
-        <div class="zona-fia">La tarifa base es 100 €/hora (mínimo 1 hora) más 40 € de desplazamiento. Vemos la avería, calculamos el tiempo estimado y te damos el precio total antes de empezar. Tú decides si seguimos.</div>
+        <div class="zona-fia">Sí. No subcontratamos las urgencias a terceros ni usamos personal diferente según el horario. El fontanero que atiende tu llamada es el mismo que conoce la zona, tiene la furgoneta equipada y hace el trabajo. Eso marca la diferencia en cómo se resuelve la avería.</div>
       </div>
       <div class="zona-fi">
         <div class="zona-fiq" onclick="togFaq(this)">
-          <span>¿Venís a fincas y viviendas alejadas del casco urbano?</span>
+          <span>¿Qué averías se pueden resolver en la primera visita?</span>
           <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
-        <div class="zona-fia">Sí, atendemos todo el término municipal de Pinoso. El desplazamiento está incluido en el presupuesto que te damos al llamar, sin recargo extra por kilómetros.</div>
+        <div class="zona-fia">La mayoría: roturas de tubería accesible, sustitución de llave de paso, calentador sin agua caliente por resistencia o termostato, grupo de presión con fallo en presostato o membrana, fugas bajo fregadero o detrás de cisterna. Las que requieren abrir paredes o esperar material específico pueden necesitar una segunda visita, pero siempre te lo decimos antes de marcharnos.</div>
       </div>
       <div class="zona-fi">
         <div class="zona-fiq" onclick="togFaq(this)">
-          <span>¿Podéis reparar el grupo de presión como urgencia?</span>
+          <span>¿Qué significa exactamente "urgencia" en fontanería?</span>
           <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
-        <div class="zona-fia">Sí. El grupo de presión es la avería urgente más frecuente en fincas de Pinoso. Revisamos presostato, membrana y conexiones. Si la pieza está en la furgoneta, lo resolvemos en la misma visita.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)">
-          <span>¿Detectáis fugas de agua urgentes en tuberías?</span>
-          <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-        </div>
-        <div class="zona-fia">Sí. Para fugas de agua en tuberías empotradas o enterradas usamos geófono y cámara termográfica. Localizamos el punto exacto antes de abrir ninguna pared o pavimento, y siempre con presupuesto cerrado antes de actuar.</div>
-      </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)">
-          <span>¿Hay recargo por trabajar por la noche, fines de semana o festivos?</span>
-          <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-        </div>
-        <div class="zona-fia">A partir de las 22:00h y en fines de semana y festivos se aplica un recargo sobre la tarifa base. Te informamos del precio exacto al llamar, antes de desplazarnos. Sin sorpresas.</div>
+        <div class="zona-fia">Una urgencia real es aquella que no puede esperar a la siguiente cita ordinaria porque provoca daño activo o inutiliza por completo una instalación: agua saliendo sin control, inundación en curso, sin agua en toda la vivienda, bajante bloqueada con uso imposible. Una avería molesta pero que puede esperar unas horas o días es una reparación ordinaria — y así te lo diremos si nos llamas para valorarlo.</div>
       </div>
     </div>
   </div>

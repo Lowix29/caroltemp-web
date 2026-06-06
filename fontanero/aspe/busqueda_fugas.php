@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Aspe &middot; CP 03680</div>
     <h1>Detección de fugas en Aspe<br><span class="hl">encontramos la fuga sin abrir paredes</span></h1>
-    <p class="hz-dark-sub">Medimos el consumo real, localizamos la fuga con geófono y cámara termográfica y marcamos el punto exacto antes de abrir nada. Sin excavaciones a ciegas, sin obra innecesaria.</p>
+    <p class="hz-dark-sub">Una fuga oculta puede llevar semanas trabajando en silencio — mojando la estructura, subiendo la factura, dañando lo que no se ve. La detectamos con geófono y cámara termográfica: sabemos exactamente dónde está antes de tocar una sola baldosa.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Localización de fugas en Aspe</p>
-        <h2>Fugas de agua en Aspe <span class="hl">primero localizamos, luego abrimos</span></h2>
+        <h2>Los síntomas silenciosos <span class="hl">que nadie relaciona con una fuga</span></h2>
         <div class="zona-prose">
-          <p>Una fuga oculta puede llevar semanas activa sin que aparezca ninguna mancha visible. La factura del agua sube, el contador gira con los grifos cerrados, pero no hay nada que ver a simple vista. Esto ocurre especialmente en tuberías bajo solería, en circuitos de suelo radiante y en acometidas exteriores de jardín. Con el geófono recorremos la instalación metro a metro amplificando el sonido del agua bajo presión. La cámara termográfica cruza esa información con las diferencias de temperatura que genera la humedad. Cuando ambas técnicas apuntan al mismo punto, localizamos la fuga con precisión — sin abrir nada hasta saber exactamente dónde está el problema.</p>
+          <p>Hay fugas que se anuncian solas: el charco en el suelo, el chorro visible, la pared empapada. Pero las más peligrosas son las que no se ven. Una mancha que aparece en el techo y desaparece sola. Un olor a húmedo que persiste aunque se ventile. Una factura del agua que sube mes a mes sin que nadie haya cambiado sus hábitos. Estos son los síntomas de una fuga oculta — activa, haciendo daño, pero sin dejar una señal clara de dónde viene. La detección profesional con geófono y cámara termográfica confirma el origen exacto: qué tubería, en qué punto, a qué profundidad. Sin abrir hasta saber. Sin abrir más de lo necesario una vez que se sabe.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en viviendas unifamiliares de Aspe</li>
@@ -179,16 +179,16 @@ include '../../includes/head.php';
     <h2>Detección de fugas <span class="hl">Aspe — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuánto tarda la localización de una fuga oculta?</summary>
-        <div class="faq-ans">En una vivienda unifamiliar o piso estándar la localización con geófono y cámara termográfica suele llevarse entre una y dos horas. Depende del tamaño de la instalación, del tipo de tubería y de si la fuga es puntual o hay varias zonas a revisar. En instalaciones más grandes — comunidades de vecinos o chalets con jardín — puede requerir más tiempo. En cualquier caso te damos un precio orientativo antes de la visita y el presupuesto definitivo in situ.</div>
+        <summary>¿Puede una fuga llevar meses activa sin que se vea nada?</summary>
+        <div class="faq-ans">Sí, y es más frecuente de lo que parece. Una fuga pequeña en una tubería empotrada o bajo el solado puede estar activa durante meses sin que aparezca ninguna mancha visible en la superficie. El agua se filtra lentamente por el material — mortero, hormigón, aislante — y puede tardar semanas o meses en llegar a la cara visible de la pared o el techo. Durante todo ese tiempo está saturando la estructura y favoreciendo la aparición de humedades, moho y deterioro de acabados. La señal más temprana suele ser el contador: si gira con todos los grifos cerrados, hay fuga aunque no se vea nada.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿El informe de detección sirve para reclamar al seguro del hogar?</summary>
-        <div class="faq-ans">Sí. Muchas pólizas de hogar cubren daños por fuga de agua, pero exigen un documento que certifique la localización y la causa. Emitimos un informe con la descripción técnica de la fuga, el método de detección utilizado y el punto exacto donde se ha localizado. Este documento es válido para presentar a la aseguradora junto con el parte de siniestro.</div>
+        <summary>¿El geófono detecta fugas en tuberías de plástico igual que en las de cobre?</summary>
+        <div class="faq-ans">El geófono funciona amplificando el sonido que genera el agua escapando bajo presión a través de una fisura o rotura. Las tuberías de cobre transmiten ese sonido mejor que las de plástico o PVC, que amortiguan más la vibración. Esto no significa que el geófono no sea eficaz en tuberías de plástico — sigue detectando la fuga — pero puede requerir mayor precisión en el rastreo y, en algunos casos, combinar la lectura acústica con la termografía para confirmar el punto. En tuberías de suelo radiante, que suelen ser de PVC reticulado, la cámara termográfica es especialmente útil porque detecta la diferencia de temperatura que genera el circuito caliente antes de que el sonido sea suficientemente claro.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Cómo sé si tengo una fuga oculta si no hay ninguna mancha visible?</summary>
-        <div class="faq-ans">La señal más fiable es el contador. Cierra todos los grifos, espera unos minutos y observa si el contador sigue girando. Si se mueve, hay consumo que no debería existir — y muy probablemente es una fuga. Otra señal es la factura del agua: si sube de forma constante sin que haya cambiado el consumo habitual, hay que revisar la instalación. El geófono y la termografía permiten localizar el punto exacto sin abrir nada hasta confirmar dónde está.</div>
+        <summary>¿Se puede localizar una fuga sin saber de dónde viene el agua?</summary>
+        <div class="faq-ans">Es exactamente para lo que sirve la detección profesional. No hace falta saber de qué tubería viene ni en qué zona está — de hecho, muchas veces el punto donde aparece la humedad no tiene nada que ver con el punto donde está la fuga, porque el agua recorre el camino que le da la pendiente de la estructura. El proceso comienza revisando el contador para confirmar que hay pérdida activa, luego se identifica qué circuito está afectado cerrando sectores de la instalación, y finalmente el geófono y la termografía rastrean el recorrido de la tubería hasta localizar el punto exacto.</div>
       </details>
     </div>
   </div>

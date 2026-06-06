@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Salinas &middot; CP 03668</div>
-    <h1>Fontanero urgente en Salinas<br><span class="hl">mismo día, sin letra pequeña</span></h1>
-    <p class="hz-dark-sub">Una avería de fontanería no avisa. Atendemos el mismo día, te decimos el precio antes de tocar nada y, si hay material, lo resolvemos sin segunda visita.</p>
+    <h1>Fontanero urgente en Salinas<br><span class="hl">disponibles cuando la avería no avisa</span></h1>
+    <p class="hz-dark-sub">No solo atendemos en horario de oficina. Una avería real no espera al lunes ni al día después de un festivo — y nosotros tampoco. Cogemos el teléfono cuando otros no lo hacen, porque las averías no preguntan cuándo es buen momento.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Cuándo llamar</p>
-        <h2>Urgencias fontanero <span class="hl">en Salinas</span></h2>
+        <h2>Las averías no avisan: <span class="hl">cuándo más duele no tener fontanero</span></h2>
         <div class="zona-prose">
-          <p>Una urgencia de fontanería no espera a que sea buen momento. Si el calentador deja de dar agua caliente un domingo, si la tubería revienta en el piso de arriba o si la comunidad se queda sin presión — necesitas un fontanero en Salinas que coja el teléfono, te diga el precio antes de desplazarse y venga ese mismo día. Sin poner en una lista. Sin cobrar de más por ser urgente sin decírtelo. Así trabajamos: transparencia desde el primer minuto y una sola visita para resolver si el material está en la furgoneta.</p>
+          <p>El viernes a las nueve de la noche. El domingo de Semana Santa. El día que vuelves de vacaciones y encuentras el suelo mojado. Son los momentos en que más se nota no tener un fontanero de referencia que atienda de verdad. La mayoría de servicios de guardia o bien no responden o bien aparecen cuando ya ha pasado lo peor. Nosotros atendemos en esos momentos porque sabemos que es exactamente cuando nos necesitas — no porque sea fácil, sino porque así tiene sentido ofrecer un servicio de urgencias. Si tienes una avería activa en Salinas y no sabes a quién llamar, llámanos a nosotros.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de vivienda unifamiliar en Salinas</li>
@@ -178,16 +178,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Salinas — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Se cobra el desplazamiento aunque no se pueda reparar en esa misma visita?</summary>
-        <div class="faq-ans">El desplazamiento se cobra siempre que se produzca la visita, independientemente del resultado. Lo que garantizamos es que ese coste se incluye en el presupuesto que te damos antes de salir hacia tu domicilio: sabes exactamente cuánto pagarás antes de que lleguemos. Si tras el diagnóstico decides no continuar, solo se cobra la visita — sin añadidos.</div>
+        <summary>¿Hay recargo por trabajar en fin de semana o festivo?</summary>
+        <div class="faq-ans">Sí. Los trabajos en fin de semana y festivos llevan un recargo que se comunica siempre al primer contacto, antes de confirmar la visita. Lo que nunca pasa es que el recargo aparezca en la factura sin haberte avisado: el importe total acordado es el que se cobra, incluido cualquier suplemento por horario especial.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Qué documentación se entrega después de la reparación?</summary>
-        <div class="faq-ans">Emitimos factura con detalle del trabajo realizado: descripción de la avería, materiales empleados y mano de obra. Este documento sirve para la declaración a la aseguradora si la reparación está cubierta por la póliza del hogar, o como justificante ante la comunidad de vecinos si la avería es en zona común.</div>
+        <summary>¿Qué diferencia hay entre un fontanero de guardia y uno de urgencias?</summary>
+        <div class="faq-ans">Un fontanero de guardia suele ser un turno rotativo en el que quien atiende no siempre conoce tu instalación ni tiene el material adecuado — la respuesta puede ser un parche hasta el día siguiente. Un fontanero de urgencias que trabaja de forma habitual va a tu domicilio con la furgoneta equipada, evalúa la avería en persona y, si el material está disponible, resuelve en esa misma visita. La diferencia en la práctica es si el problema queda solucionado esa noche o si tienes que volver a llamar al día siguiente.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Hay recargo por atender en fin de semana o festivo en Salinas?</summary>
-        <div class="faq-ans">Los trabajos en fin de semana y festivos tienen un recargo que se informa siempre al contactar, antes de confirmar la visita. No hay costes ocultos: el precio total acordado por teléfono o WhatsApp es el que aparece en la factura, incluido cualquier recargo por horario especial.</div>
+        <summary>¿Se puede contratar un servicio de mantenimiento para evitar urgencias?</summary>
+        <div class="faq-ans">Sí. Un mantenimiento preventivo periódico — revisión de llaves de paso, válvulas, calentador, grupos de presión y estado general de tuberías — reduce mucho la probabilidad de que una avería aparezca en el peor momento. Consúltanos qué revisiones son más relevantes según el tipo de vivienda y los años de la instalación: muchas urgencias se evitan con una visita de diagnóstico antes de que el problema se dispare.</div>
       </details>
     </div>
   </div>

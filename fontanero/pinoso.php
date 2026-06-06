@@ -18,7 +18,7 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería Pinoso</div>
-    <h1>Fontanero en Pinoso — <span class="hl">termos, reformas y descalcificadores</span></h1>
+    <h1>Fontanero en Pinoso<br><span class="hl">con servicio profesional y presupuesto transparente</span></h1>
     <p class="hz-dark-sub">Reparamos grupos de presión, sustituimos termos con sarro y presupuestamos reformas de baño con precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>

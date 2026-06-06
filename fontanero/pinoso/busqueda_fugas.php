@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Pinoso &middot; CP 03650</div>
-    <h1>Detección de fugas en Pinoso<br><span class="hl">sin romper paredes</span></h1>
-    <p class="hz-dark-sub">Localizamos fugas de agua con geófono y cámara termográfica. Marcamos el punto exacto antes de abrir nada.</p>
+    <h1>Detección de fugas en Pinoso<br><span class="hl">el equipo correcto para cada tipo de fuga</span></h1>
+    <p class="hz-dark-sub">No todos los equipos de detección funcionan igual en todos los escenarios. El geófono escucha el agua bajo presión en tuberías enterradas; la termografía revela gradientes de temperatura en circuitos de calefacción; el correlador acústico compara señales en tramos largos. Usar el equipo equivocado no localiza nada — usar el correcto marca el punto exacto.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,10 +40,11 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Localización de fugas en Pinoso</p>
-        <h2>Detección de fugas de agua <span class="hl">en Pinoso</span></h2>
+        <h2>Tres tipos de fuga oculta, <span class="hl">tres soluciones distintas</span></h2>
         <div class="zona-prose">
-          <p>La mayoría de las fugas de agua en tuberías de Pinoso ocurren en tramos empotrados o bajo solería. El agua puede filtrarse lateralmente varios metros antes de aparecer en superficie — la mancha visible no coincide con el punto de rotura. Abrir sin localizar la fuga cuesta dinero y tiempo.</p>
-          <p>La <strong>detección de fugas de agua en Pinoso</strong> con geófono y <strong>cámara termográfica</strong> cambia el resultado. Cuando ambos coinciden en un punto, la localización de fugas de agua en Pinoso es fiable antes de romper nada.</p>
+          <p>Las fugas bajo solado — tuberías de suministro o calefacción que pasan por debajo del pavimento — se localizan mejor con <strong>geófono</strong>: capta el ruido del agua escapando bajo presión y permite triangular el punto exacto sin levantar una sola baldosa de más.</p>
+          <p>Las fugas en tubería enterrada en jardín o bajo acera responden bien al <strong>correlador acústico</strong>: coloca sensores en dos extremos del tramo y compara el tiempo de llegada del sonido para calcular la distancia exacta al punto de rotura, incluso en tramos de decenas de metros.</p>
+          <p>Las fugas en bajante interior o circuito de calefacción las visualiza la <strong>cámara termográfica</strong>: el diferencial de temperatura que genera la humedad acumulada aparece en la imagen como una mancha de color inequívoca. Combinando los tres equipos según el caso, la localización es precisa antes de abrir nada.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en tuberías empotradas en paredes</li>
@@ -180,24 +181,16 @@ include '../../includes/head.php';
     <h2>Dudas sobre detección de fugas <span class="hl">en Pinoso</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Qué diferencia hay entre geófono y cámara termográfica para localizar fugas?</summary>
-        <div class="faq-ans">El geófono detecta el sonido del agua escapando bajo presión. La cámara termográfica detecta diferencias de temperatura que genera la humedad acumulada. Usamos ambos juntos: el geófono orienta y la termografía confirma. Con los dos coincidiendo, la localización de fugas de agua en Pinoso es fiable sin necesidad de abrir a ciegas.</div>
+        <summary>¿Hay diferencia entre buscar una fuga en una casa nueva y en una con instalación más antigua?</summary>
+        <div class="faq-ans">Sí, y es importante. En instalaciones recientes con planos de la distribución de tuberías la localización es más rápida: el geófono o el correlador confirman el punto en un tramo acotado. En instalaciones sin documentación, o con tuberías de hierro galvanizado o plomo que ya tienen corrosión generalizada, el ruido del agua puede aparecer en varios puntos a la vez. En esos casos combinamos equipos y hacemos pruebas de sectorización para delimitar el tramo antes de actuar.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis localizar fugas de agua con cámara termográfica en suelo radiante?</summary>
-        <div class="faq-ans">Sí. El agua caliente que escapa del circuito crea un gradiente de temperatura visible en la imagen térmica. Marcamos la zona afectada antes de levantar el suelo, lo que reduce mucho el área que hay que abrir para reparar.</div>
+        <summary>¿El geófono funciona también en terreno seco o solo cuando hay mucha humedad?</summary>
+        <div class="faq-ans">El geófono no detecta humedad — detecta el sonido del agua bajo presión escapando por la rotura. Funciona tanto en terreno seco como húmedo: lo que necesita es que la instalación esté a presión en el momento de la detección. De hecho, en terreno muy húmedo por lluvia la termografía pierde precisión, pero el geófono sigue siendo efectivo porque trabaja con sonido, no con temperatura.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Cuánto cuesta la detección de fugas de agua en Pinoso?</summary>
-        <div class="faq-ans">La mano de obra es de 100 €/hora con un mínimo de una hora, más 40 € de desplazamiento a Pinoso. La localización con geófono y cámara termográfica se incluye en el tiempo de trabajo. Una vez localizada la fuga damos presupuesto de reparación antes de abrir. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Detectáis fugas de agua en comunidades de vecinos en Pinoso?</summary>
-        <div class="faq-ans">Sí. Atendemos fugas en comunidades de vecinos en Pinoso coordinándonos con el administrador de la finca. Revisamos montantes, bajantes y tuberías generales. Si la fuga afecta a varios propietarios hacemos un informe con el punto localizado para facilitar la gestión con el seguro de la comunidad.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Atendéis fincas rurales fuera del casco urbano de Pinoso?</summary>
-        <div class="faq-ans">Sí. Trabajamos en todo el término municipal de Pinoso, incluidas fincas rurales y urbanizaciones. El desplazamiento se cobra por visita independientemente de la distancia dentro de la zona de cobertura.</div>
+        <summary>¿Se puede hacer la detección y la reparación el mismo día?</summary>
+        <div class="faq-ans">En muchos casos sí. Si la fuga está en un tramo accesible y el material de reparación está en la furgoneta, localizamos y reparamos en la misma visita. Si la reparación requiere levantar solería extensa, cortar tubería empotrada en carga o esperar material específico, acordamos una segunda visita. Te lo comunicamos siempre al terminar la fase de localización, antes de iniciar la obra.</div>
       </details>
     </div>
   </div>

@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Petrer &middot; CP 03610</div>
-    <h1>Desatascos en Petrer<br><span class="hl">bajantes limpias al primer servicio</span></h1>
-    <p class="hz-dark-sub">Ver antes de actuar: la cámara endoscópica identifica si el tapón es grasa, raíces o acumulación de cal antes de elegir el método. Así no se aplica hidrojetting donde hace falta cuchilla, ni se excava donde basta limpiar.</p>
+    <h1>Desatascos en Petrer<br><span class="hl">desatascamos con método, no con suerte</span></h1>
+    <p class="hz-dark-sub">Antes de meter la sonda, entra la cámara. Lo que muestra la imagen decide el método: sonda helicoidal para un tapón localizado, hidrojetting a alta presión para grasa acumulada en tramos largos, aspiración industrial para arquetas con sólidos. Elegir mal el método no solo no resuelve el atasco — puede dañar la tubería.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Petrer</p>
-        <h2>Desatascos en Petrer <span class="hl">cámara endoscópica antes de actuar</span></h2>
-        <div class="zona-prose"><p>Cada tipo de atasco requiere una solución diferente. La grasa acumulada en el desagüe de cocina se elimina con hidrojetting. Las raíces que han penetrado por una junta defectuosa en el bajante exterior del jardín necesitan cuchilla rotativa. La cal depositada en tuberías de hierro galvanizado antiguo puede requerir sustitución del tramo afectado. La cámara endoscópica identifica el problema real antes de elegir el método — de ese modo no se aplica presión donde la tubería no lo soporta, ni se excava donde basta una limpieza a alta presión.</p></div>
+        <h2>Por qué el producto del super no resuelve <span class="hl">un atasco real</span></h2>
+        <div class="zona-prose"><p>Los desobstructores químicos que se venden en supermercado funcionan en atascos muy superficiales: una acumulación de pelo justo debajo del sifón, restos de jabón en la boca del desagüe. Cuando el tapón está a un metro o más, el producto se diluye antes de llegar, pierde potencia y no mueve nada. Pero mientras tanto ataca el material: las fórmulas alcalinas corroen el PVC viejo con el paso de los años, y las ácidas dañan las juntas de goma. El resultado es un atasco intacto y una tubería más débil que antes. El hidrojetting, en cambio, trabaja con agua a presión — sin química agresiva — y limpia el tramo completo de pared a pared, no solo el punto visible del bloqueo. La cámara previa asegura que la presión aplicada es la adecuada para lo que hay dentro.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatascos urgentes en comunidades</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de bajantes y arquetas</li>
@@ -92,16 +92,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Petrer &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El hidrojetting daña las tuberías antiguas de hierro galvanizado?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Puede, si se aplica a la presión incorrecta. Por eso primero se pasa la cámara para ver el estado interior de la tubería. Si la pared está muy deteriorada por la oxidación o la cal, el hidrojetting se regula a una presión más baja o directamente se descarta en favor de otros métodos. En tuberías de hierro galvanizado muy afectadas, a veces la solución más segura es sustituir el tramo — algo que la cámara permite valorar antes de actuar.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El hidrojetting daña las tuberías de PVC o cobre?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">En condiciones normales, no. El PVC y el cobre son materiales que soportan perfectamente el hidrojetting a la presión estándar de trabajo. La clave está en no aplicar presión excesiva en tuberías en mal estado — por eso se pasa la cámara primero. Si la tubería tiene grietas, juntas degradadas o paredes muy finas por el deterioro, la presión se regula a la baja o se descarta el método en favor de la sonda mecánica. Es el estado de la tubería lo que dicta la presión, no al revés.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede hacer un mantenimiento preventivo para evitar atascos recurrentes?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Para comunidades de vecinos o viviendas con historial de atascos frecuentes, una revisión periódica con cámara y limpieza preventiva con hidrojetting reduce significativamente las urgencias. En cocinas con uso intensivo, una limpieza anual del desagüe principal evita la mayoría de los bloqueos por grasa. Se puede acordar una visita de revisión sin necesidad de que haya atasco previo.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué causa los atascos recurrentes siempre en el mismo punto?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Un atasco que vuelve siempre al mismo sitio casi nunca es solo suciedad — es una causa estructural que la limpieza no elimina. Las más frecuentes: un codo con pendiente insuficiente que acumula sólidos en reposo, una junta desplazada que crea un escalón donde se engancha todo lo que pasa, o una raíz que ha penetrado en la tubería y sigue creciendo. La cámara identifica cuál es el problema de fondo. Si es un defecto de instalación o un tramo deteriorado, la solución duradera es reparar esa sección — la limpieza periódica solo pospone el siguiente corte.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué pasa si el atasco está en la red general y no en mi tramo?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Si el tapón está en el colector municipal fuera de tu propiedad, la responsabilidad de la reparación es del ayuntamiento. Con la cámara endoscópica determinamos con precisión si el bloqueo está dentro o fuera de tu instalación antes de presupuestar nada. Si es un problema de red general, te indicamos cómo tramitar la incidencia con el servicio de aguas correspondiente.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Conviene hacer una limpieza preventiva de bajantes antes del verano?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí, especialmente en comunidades de vecinos y en viviendas con uso intensivo de la cocina. En verano aumenta el consumo de agua, hay más personas en casa y el calor acelera la fermentación de la grasa acumulada en los desagües — lo que convierte una tubería lenta en un atasco completo en cuestión de días. Una limpieza preventiva con hidrojetting antes del verano deja los tramos limpios de pared a pared y reduce significativamente las urgencias en la peor época para tenerlas. Para comunidades con historial de incidencias, se puede programar una revisión anual sin necesidad de que haya problema previo.</div>
       </div>
     </div>
   </div>

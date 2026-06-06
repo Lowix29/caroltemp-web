@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Monóvar &middot; CP 03640</div>
-    <h1>Fontanero urgente en Monóvar<br><span class="hl">urgencias 24h sin sorpresas</span></h1>
-    <p class="hz-dark-sub">Atendemos urgencias tanto en el casco urbano como en viviendas rurales sin conexión a red municipal. Si el grupo de presión se para o la llave de corte no cierra, llegamos ese mismo día.</p>
+    <h1>Fontanero urgente en Monóvar<br><span class="hl">respuesta inmediata cuando más lo necesitas</span></h1>
+    <p class="hz-dark-sub">Cubrimos el casco urbano y las viviendas rurales que no tienen red municipal: casas con depósito propio, aljibe o grupo de presión. Cuando falla algo así, no vale cualquier fontanero — hay que conocer esas instalaciones para resolverlo el mismo día.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Cuándo llamar</p>
-        <h2>Urgencias fontanero <span class="hl">en Monóvar</span></h2>
+        <h2>Urgencias que no pueden esperar <span class="hl">en viviendas con instalación propia</span></h2>
         <div class="zona-prose">
-          <p>En Monóvar hay viviendas con red municipal y otras que funcionan con depósito propio y grupo de presión. Cuando el grupo falla, la casa se queda sin agua de golpe y no hay un fontanero a la vuelta de la esquina. También hay casas con fosa séptica que colapsa sin avisar, llaves de paso que llevan años sin moverse y no cierran cuando más falta hacen, y termos que dejan de calentar en pleno invierno. Atendemos todos esos casos: viviendas unifamiliares, pisos, chalets y casas rurales sin conexión a red. El proceso es siempre el mismo — llegamos, vemos la avería, te damos el precio y empezamos solo si lo apruebas.</p>
+          <p>En las viviendas de Monóvar con instalación propia, tres averías concentran la mayoría de las urgencias reales: el grupo de presión que se para y deja la casa sin agua, el depósito que deja de llenarse por un fallo en la válvula de boya o en la tubería de alimentación, y la fosa séptica que desborda e inutiliza todos los desagües. Ninguna de las tres da margen para esperar a mañana. Son averías que un fontanero que solo trabaja en red municipal no sabe resolver igual de rápido — hace falta conocer esas instalaciones, llevar el material habitual y saber dónde mirar primero. Atendemos viviendas unifamiliares, chalets, casas de campo y fincas en todo el municipio.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión de finca parado en verano</li>
@@ -178,16 +178,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Monóvar — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
+        <summary>El grupo de presión arranca pero no sube la presión — ¿qué puede estar pasando?</summary>
+        <div class="faq-ans">Si el grupo arranca y funciona mecánicamente pero la presión no llega bien a los grifos, las causas más habituales son una membrana del vaso de expansión agotada, un presostato mal calibrado o una fuga en la tubería de impulsión que hace que el grupo trabaje en vacío. También puede ser que el filtro de aspiración esté obstruido y el grupo no llene bien. Lo diagnosticamos en la misma visita con equipo de medición — no hace falta desmontar nada hasta saber cuál es el problema real.</div>
+      </details>
+      <details class="zona-faq-item">
         <summary>¿Atendéis viviendas sin conexión a red municipal de agua?</summary>
-        <div class="faq-ans">Sí. Cubrimos tanto el casco urbano de Monóvar como viviendas rurales que funcionan con depósito propio, aljibe y grupo de presión. El desplazamiento se cobra por visita, sin recargo adicional por distancia dentro de la zona de cobertura. Cuando llames, indícanos la ubicación aproximada para planificar bien la ruta.</div>
+        <div class="faq-ans">Sí, es una parte importante de nuestro trabajo en Monóvar. Cubrimos viviendas con depósito propio, aljibe, pozo y grupo de presión, tanto en el casco urbano como en parcelas y casas de campo fuera de la red. El desplazamiento se incluye en el precio de la visita sin recargo adicional por distancia dentro de nuestra zona de cobertura. Cuando llames, indícanos la ubicación aproximada para organizar bien la ruta.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Qué hago si la llave de paso no cierra y hay agua saliendo?</summary>
-        <div class="faq-ans">Llámanos de inmediato. Si la llave general no cierra, busca el contador o la llave de acometida exterior para cortar el suministro desde ahí. Si tampoco funciona, avisa a la compañía de agua para que corten en la calle. Mientras tanto, nosotros nos desplazamos y sustituimos la llave de paso en la misma visita si tenemos el material en la furgoneta.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Cómo actuar si el termo da señales de presión excesiva o gotea por la válvula de seguridad?</summary>
-        <div class="faq-ans">Apaga el termo y corta el agua fría de entrada. La válvula de seguridad que gotea de forma continua indica que la presión interior es demasiado alta o que la válvula está deteriorada — en ambos casos hay que revisarlo antes de seguir usando el equipo. El agua dura de la zona acumula cal en el interior del termo y acelera ese deterioro. Te diagnosticamos en la misma visita si hace falta reparar o sustituir.</div>
+        <summary>¿Cuánto tarda en llegar a una vivienda rural del municipio?</summary>
+        <div class="faq-ans">Para urgencias reales — grupo de presión parado, fosa desbordada, rotura con agua saliendo — priorizamos el desplazamiento y llegamos el mismo día, normalmente en pocas horas desde la llamada. Si la vivienda está en una zona alejada del núcleo urbano, te lo confirmamos al teléfono con un margen horario realista. No prometemos tiempos que no podemos cumplir.</div>
       </details>
     </div>
   </div>

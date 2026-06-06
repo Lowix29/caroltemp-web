@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Novelda &middot; CP 03660</div>
-    <h1>Fontanero urgente en Novelda<br><span class="hl">24h, precio antes de empezar</span></h1>
-    <p class="hz-dark-sub">Llegamos el mismo día, con material en la furgoneta para resolver en la primera visita. Sin esperas de varios días ni visitas de diagnóstico que no arreglan nada. Precio cerrado antes de empezar.</p>
+    <h1>Fontanero urgente en Novelda<br><span class="hl">llegamos, vemos la avería y la resolvemos</span></h1>
+    <p class="hz-dark-sub">Salimos hacia allí en cuanto colgamos. Llevamos el material en la furgoneta para no dejar la avería a medias: el técnico no se marcha hasta que el agua vuelve a correr como tiene que correr.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Fontanero urgente en Novelda</p>
-        <h2>Fontanero urgente en <span class="hl">Novelda</span></h2>
-        <div class="zona-prose"><p>Una tubería reventada, un termo que pierde agua, un grupo de presión que no arranca o una llave de paso que no cierra del todo. En todos estos casos el problema no admite esperar al día siguiente. Acudimos a pisos, viviendas unifamiliares y comunidades de vecinos de Novelda con el técnico y el material necesario para resolver en la misma visita. Sin visitas de diagnóstico que no arreglan nada y sin precios que cambian al terminar.</p></div>
+        <h2>Las averías que no pueden esperar <span class="hl">al día siguiente</span></h2>
+        <div class="zona-prose"><p>Una tubería empotrada que revienta sin aviso. Un grifo que no cierra y el agua no para. Un termo eléctrico que lleva horas perdiendo agua hacia el suelo. Estas situaciones tienen algo en común: cada hora que pasa el daño crece. Las roturas en tuberías empotradas mojan la pared entera si no se corta el suministro rápido. Un grifo que no cierra acaba filtrando al vecino de abajo. Un termo perdiendo agua puede disparar el contador o manchar el techo del piso inferior. Acudimos a pisos, unifamiliares y comunidades de vecinos de Novelda con el material necesario para resolver sin segunda visita.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tubería reventada en piso o vivienda unifamiliar</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión averiado sin agua en el edificio</li>
@@ -99,16 +99,16 @@ include '../../includes/head.php';
     <h2>Fontanero urgente en Novelda &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto tiempo tardáis en llegar a una urgencia en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Depende de los trabajos en curso, pero el objetivo es siempre el mismo día. Cuando llamas te decimos el tiempo estimado de llegada sin rodeos. Si la avería tiene agua saliendo sin control, dinos dónde está la llave de paso general para que puedas cortarla mientras esperamos.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede hacer una reparación provisional si no hay la pieza exacta en ese momento?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí, en muchos casos es posible dejar la instalación funcional de forma provisional mientras se consigue el recambio exacto. Depende del tipo de avería: una rotura en tubería de cobre se puede puentear con una abrazadera de reparación; una electroválvula defectuosa se puede dejar en posición manual mientras llega la pieza. Te explicamos en el momento qué opciones hay y cuánto dura cada solución.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>Si hay una rotura en una tubería empotrada, ¿puedo quedarme sin agua mientras la reparan?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">En muchos casos se puede aislar el tramo averiado cerrando una llave de paso parcial y mantener el suministro al resto de la vivienda. Cuando no es posible, trabajamos para reducir al mínimo el tiempo sin agua. Te explicamos antes de empezar qué afecta y cuánto tiempo estará cortado.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué averías no son realmente urgentes y pueden esperar a un horario normal?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Un grifo que gotea lentamente, un inodoro que tarda en llenar el depósito, o una ducha con poca presión en un solo punto son averías molestas pero no urgentes: no generan daños progresivos si se dejan hasta el día siguiente. La urgencia real es cuando hay agua saliendo sin control, cuando no hay suministro en toda la vivienda, o cuando la fuga afecta a otra estancia o al vecino. En la llamada te ayudamos a valorarlo.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Qué hago si revienta una tubería empotrada en la pared?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Lo primero es cerrar la llave de paso general de la vivienda — suele estar debajo del fregadero, en el cuarto de contadores o en la entrada. Una vez cortada el agua deja de salir. Llámanos con la llave cerrada: venimos a localizar el tramo exacto con geófono, abrimos solo donde hace falta y reparamos. Precio cerrado antes de tocar nada.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Puede el fontanero acceder al cuarto de contadores sin el administrador de la finca?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">En una urgencia con agua saliendo, el técnico puede solicitar el acceso al cuarto de contadores al presidente de la comunidad o a cualquier vecino que tenga llave. Si no hay nadie disponible y la emergencia lo requiere, se puede actuar desde la llave de corte de la vivienda afectada para detener el flujo. Cuando hay riesgo para el edificio, la ley ampara la actuación inmediata — el administrador puede autorizarlo a posteriori.</div>
       </div>
     </div>
   </div>

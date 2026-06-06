@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Salinas &middot; CP 03668</div>
-    <h1>Desatascos en Salinas<br><span class="hl">limpieza completa, no solo desbloqueo</span></h1>
-    <p class="hz-dark-sub">Limpiamos a fondo con hidrojetting, no solo desbloqueamos con sonda. Cámara endoscópica para ver el estado real del conducto antes de actuar y después para confirmar que queda completamente libre.</p>
+    <h1>Desatascos en Salinas<br><span class="hl">vaciamos, limpiamos y comprobamos</span></h1>
+    <p class="hz-dark-sub">Primero la cámara para ver qué hay y dónde está. Después el hidrojetting para limpiar en toda la sección del conducto. Y al terminar, otra pasada de cámara para confirmar que la bajante queda limpia de verdad — no solo desbloqueada hasta el siguiente atasco.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,10 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Salinas</p>
-        <h2>Desatascos en Salinas <span class="hl">limpieza completa, no solo desbloqueo</span></h2>
+        <h2>Por qué la cámara de comprobación <span class="hl">es la parte que más importa</span></h2>
         <div class="zona-prose">
-          <p>Desbloquear un atasco con sonda soluciona el problema ese día, pero deja el conducto lleno de grasa, sarro y residuos pegados a las paredes — y el atasco vuelve en pocas semanas. La diferencia está en limpiar de verdad. El hidrojetting lanza agua a alta presión por todo el conducto, arrastrando la acumulación de grasa compacta, cal y residuos orgánicos que la sonda simplemente perfora. El agua dura de la comarca alicantina deja depósitos de cal que endurecen con el tiempo y reducen la sección del conducto: con la sola sonda se perfora el tapón, pero las paredes quedan recubiertas y el problema reaparece.</p>
-          <p>La cámara endoscópica permite ver el estado real de la bajante antes de actuar — y confirmar que queda completamente libre al terminar. En casas antiguas con bajantes muy deterioradas, la cámara también sirve para detectar grietas o secciones que necesitan sustitución: mejor saberlo desde el principio que repetir el servicio al mes.</p>
+          <p>Desatascar no es lo mismo que limpiar. Cuando el agua vuelve a bajar, la bajante puede estar desbloqueada pero no limpia: las paredes siguen cubiertas de grasa compacta, sarro y residuos que en pocas semanas vuelven a tapizar el conducto. La cámara de comprobación al final del trabajo resuelve esa duda sin especulaciones — ves el interior de la bajante en directo y confirmas que está realmente limpia, no solo que el agua pasa. Si hay restos, volvemos a pasar el hidrojetting. Si hay daños en el conducto que han aparecido durante la limpieza — grietas, deformaciones, secciones muy reducidas — la cámara los muestra antes de que causen un problema mayor. Es la diferencia entre un desatasco que dura y uno que hay que repetir al mes.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro en Salinas que no desagua</li>
@@ -180,16 +179,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Salinas <span class="hl">— dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuál es la diferencia entre desbloquear con sonda y limpiar con hidrojetting?</summary>
-        <div class="faq-ans">La sonda mecánica perfora el tapón y deja paso al agua, pero no elimina la capa de grasa, cal y sarro pegada a las paredes del conducto. El atasco vuelve en semanas porque las paredes siguen sucias. El hidrojetting lanza agua a alta presión en todas las direcciones y arrastra todo ese depósito, dejando el conducto limpio en toda su sección. Para atascos puntuales la sonda puede ser suficiente; para bajantes con acumulación crónica de sarro y grasa, el hidrojetting es la única solución duradera.</div>
+        <summary>¿La cámara de comprobación es estándar o tiene coste adicional?</summary>
+        <div class="faq-ans">La cámara de diagnóstico inicial forma parte del proceso de trabajo — sirve para ver qué hay y elegir la técnica correcta antes de actuar. La cámara de comprobación al final, para confirmar que el conducto queda limpio, se aplica cuando el caso lo requiere: en bajantes con acumulación severa o cuando el cliente quiere una verificación documentada del resultado. Si se realiza, se incluye en el trabajo y se informa antes de empezar. No aparece como coste añadido al terminar.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Conviene hacer un mantenimiento anual de bajantes aunque no haya atasco?</summary>
-        <div class="faq-ans">Sí, especialmente en comunidades de vecinos y en casas con bajantes que concentran el desagüe de varios pisos. La grasa y el sarro del agua dura de la comarca se acumulan lentamente y el conducto va reduciendo su sección sin que se note hasta que aparece el atasco. Una limpieza preventiva anual con hidrojetting evita urgencias, protege el estado del conducto y es mucho más barata que gestionar un atasco que ya ha causado daños por desbordamiento.</div>
+        <summary>¿Qué pasa si la cámara detecta una tubería dañada durante el desatasco?</summary>
+        <div class="faq-ans">Si la cámara muestra una grieta, una deformación o una sección del conducto muy deteriorada, se para el trabajo, se muestra la imagen al cliente y se valora la situación. En muchos casos el daño lleva tiempo ahí y la limpieza no lo ha causado — la cámara simplemente lo hace visible por primera vez. A partir de ahí hay dos opciones: reparar el tramo afectado, o continuar con la limpieza sabiendo que el conducto tiene esa limitación. La decisión es siempre del cliente, con la información técnica sobre la mesa.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Qué pasa si el atasco vuelve poco tiempo después del desatasco?</summary>
-        <div class="faq-ans">Si el atasco reaparece en pocos días, generalmente hay una de estas dos causas: el conducto quedó parcialmente limpio porque la obstrucción era más profunda de lo detectado, o hay un problema estructural en la bajante — una grieta, una deformación o un diámetro muy reducido por sarro que ninguna limpieza puede resolver de forma permanente. En ese caso la cámara endoscópica permite ver exactamente cuál es la causa y qué solución corresponde: nueva limpieza o sustitución parcial del tramo afectado.</div>
+        <summary>¿Se puede hacer una limpieza preventiva sin que haya atasco todavía?</summary>
+        <div class="faq-ans">Sí, y en muchos casos es la decisión más inteligente. Las bajantes acumulan grasa y sarro de forma gradual — el atasco no aparece de golpe, sino cuando el conducto ya ha perdido buena parte de su sección. Una limpieza preventiva con hidrojetting antes de que el problema sea visible mantiene el conducto en buen estado y evita urgencias en el peor momento. Es especialmente útil en comunidades de vecinos y en viviendas con bajantes antiguas que nunca se han limpiado.</div>
       </details>
     </div>
   </div>

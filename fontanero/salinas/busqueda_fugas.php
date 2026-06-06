@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Salinas &middot; CP 03668</div>
-    <h1>Detección de fugas en Salinas<br><span class="hl">tecnología de precisión, sin obras innecesarias</span></h1>
-    <p class="hz-dark-sub">Medimos el consumo real, localizamos la fuga con geófono y cámara termográfica y marcamos el punto exacto antes de abrir nada. Sin excavaciones a ciegas, sin obra innecesaria.</p>
+    <h1>Detección de fugas en Salinas<br><span class="hl">fuga localizada antes de que el seguro te pida la factura</span></h1>
+    <p class="hz-dark-sub">Antes de reparar hay que saber exactamente dónde está el problema. Localizamos la fuga con geófono y cámara termográfica, marcamos el punto exacto y emitimos un informe técnico que documenta el origen — el documento que tu aseguradora va a pedirte para tramitar el siniestro sin dar rodeos.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,10 +40,10 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Localización de fugas en Salinas</p>
-        <h2>Fugas de agua en Salinas <span class="hl">detectar antes de abrir</span></h2>
+        <h2>Lo que el seguro cubre <span class="hl">y lo que no — y qué necesitas para cobrar</span></h2>
         <div class="zona-prose">
-          <p>Una fuga oculta puede llevar semanas activa sin que aparezca ninguna mancha visible. La factura del agua sube, el contador gira con los grifos cerrados, pero no hay nada que ver a simple vista. Esto ocurre especialmente en tuberías bajo solería, en circuitos de suelo radiante y en acometidas exteriores. Con el geófono recorremos la instalación metro a metro amplificando el sonido del agua bajo presión. La cámara termográfica cruza esa información con las diferencias de temperatura que genera la humedad. Cuando ambas técnicas apuntan al mismo punto, localizamos la fuga con precisión — sin abrir nada hasta saber exactamente dónde está el problema.</p>
-          <p>En casas antiguas de Salinas con tuberías de hierro galvanizado, las microfugas internas son especialmente habituales: el metal corrroído pierde agua de forma lenta pero constante, sin que haya una rotura visible. El geófono detecta ese escape mínimo antes de que el daño en la pared o el suelo sea grave.</p>
+          <p>El seguro del hogar suele cubrir los daños causados por una fuga oculta — humedades, materiales afectados, reparación del conducto. Lo que no cubre es la localización en sí: la búsqueda de la fuga corre por tu cuenta. Pero aquí está la clave: sin un informe que documente el origen y el punto exacto, la aseguradora puede rechazar el siniestro o demorar la tramitación indefinidamente. El informe de detección que emitimos describe la fuga, el método utilizado y la localización precisa — es el documento que necesitas para que el proceso avance sin fricciones y sin que te pidan más pruebas de las que ya tienes.</p>
+          <p>Tener ese informe desde el primer momento no es un trámite opcional: es lo que separa una reclamación que se resuelve de una que se estanca. Si hay un vecino implicado, el informe también sirve para acreditar el origen ante la comunidad y, si hace falta, ante el seguro del responsable.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua en viviendas unifamiliares de Salinas</li>
@@ -180,16 +180,16 @@ include '../../includes/head.php';
     <h2>Detección de fugas <span class="hl">Salinas — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cómo sé si tengo una fuga oculta si no hay ninguna mancha en la pared?</summary>
-        <div class="faq-ans">La señal más fiable es el contador. Cierra todos los grifos, espera unos minutos y observa si el contador sigue girando. Si se mueve, hay consumo que no debería existir — y muy probablemente es una fuga. Otra señal es la factura del agua: si sube de forma constante sin que haya cambiado el consumo habitual, hay que revisar la instalación. El geófono y la termografía permiten localizar el punto exacto sin abrir nada hasta confirmar dónde está.</div>
+        <summary>¿Qué documentos pide el seguro para cubrir una fuga oculta?</summary>
+        <div class="faq-ans">La mayoría de aseguradoras exigen el parte de siniestro más un documento técnico que acredite el origen de la fuga — dónde estaba, qué la causó y cómo se localizó. Sin ese informe, el seguro puede solicitar más pruebas o denegar la cobertura alegando que no está demostrado el origen. El informe que emitimos incluye la descripción técnica de la fuga, el método de detección y el punto exacto localizado: es el documento estándar que necesitas para presentar el siniestro con garantías.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿El informe de detección sirve para reclamar al seguro del hogar?</summary>
-        <div class="faq-ans">Sí. Muchas pólizas de hogar cubren daños por fuga de agua, pero exigen un documento que certifique la localización y la causa. Emitimos un informe con la descripción técnica de la fuga, el método de detección utilizado y el punto exacto donde se ha localizado. Este documento es válido para presentar a la aseguradora junto con el parte de siniestro.</div>
+        <summary>¿El informe de localización tiene validez legal?</summary>
+        <div class="faq-ans">El informe tiene valor técnico y documental: describe con precisión el origen de la fuga, la metodología utilizada y el punto localizado, con firma del técnico responsable. Es el tipo de documento que utilizan aseguradoras, comunidades de vecinos y abogados para acreditar la causa y el origen de un siniestro por agua. Si la situación llegara a un procedimiento judicial, el informe sirve como prueba pericial del estado de la instalación en el momento de la inspección.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Por qué usáis geófono y termografía y no hace falta romper?</summary>
-        <div class="faq-ans">El geófono amplifica el sonido del agua escapando bajo presión a través de paredes, suelos y tuberías empotradas — permite mapear la intensidad por zonas y acotar el punto. La cámara termográfica detecta las diferencias de temperatura que genera la humedad oculta, confirmando visualmente la misma zona. Cuando ambas técnicas coinciden, la localización es fiable al centímetro. Solo entonces marcamos el punto y presupuestamos la apertura mínima imprescindible.</div>
+        <summary>¿Se puede reclamar al vecino de arriba si la fuga viene de su vivienda?</summary>
+        <div class="faq-ans">Sí, pero para eso necesitas acreditar el origen. Si el informe de localización determina que la fuga procede de una instalación o conducto que es responsabilidad de la vivienda superior, ese documento es la base para reclamar al vecino — o a su seguro — los daños ocasionados en tu vivienda. Sin él, cualquier reclamación queda en una discusión sin respaldo técnico. El proceso habitual es: informe de localización, parte al seguro propio para los daños inmediatos, y reclamación al responsable con el informe como soporte.</div>
       </details>
     </div>
   </div>

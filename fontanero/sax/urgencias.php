@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Sax &middot; CP 03630</div>
-    <h1>Fontanero urgente en Sax<br><span class="hl">mismo día, precio antes de empezar</span></h1>
-    <p class="hz-dark-sub">Una avería de fontanería no avisa. Llamamos el mismo día, te decimos el precio antes de tocar nada y, si hay material, lo resolvemos sin segunda visita.</p>
+    <h1>Fontanero urgente en Sax<br><span class="hl">fontanero real, no un contestador automático</span></h1>
+    <p class="hz-dark-sub">Cuando llamas, coge el teléfono alguien que sabe de fontanería, no una centralita que te pone en cola. Te decimos si podemos ir ese día, cuánto tiempo tardamos y qué tipo de avería es — antes de desplazarnos. Sin derivar, sin listas de espera, sin sorpresas cuando llegamos.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Cuándo llamar</p>
-        <h2>Urgencias fontanero <span class="hl">en Sax</span></h2>
+        <h2>Atención directa, <span class="hl">sin intermediarios ni subcontratas</span></h2>
         <div class="zona-prose">
-          <p>Una urgencia de fontanería no espera a que sea buen momento. Si el calentador deja de dar agua caliente un domingo, si la tubería revienta en el piso de arriba o si la comunidad se queda sin presión — necesitas un fontanero en Sax que coja el teléfono, te diga el precio antes de desplazarse y venga ese mismo día. Sin poner en una lista. Sin cobrar de más por ser urgente sin decírtelo. Así trabajamos: transparencia desde el primer minuto y una sola visita para resolver si el material está en la furgoneta.</p>
+          <p>Hay empresas de fontanería que atienden la llamada, abren un parte y mandan a quien tengan disponible esa semana — que puede ser distinto cada vez y no sabe nada de tu avería anterior. Nosotros trabajamos de otra manera: el fontanero que habla contigo por teléfono es el mismo que va a tu casa. Conoce el problema desde el principio, lleva el material adecuado y no tiene que ponerse al día cuando llega. Sin intermediarios, sin subcontratas, sin terceros que interpretan lo que has explicado mal. Una avería bien entendida desde el primer momento se resuelve antes, con menos visitas y menos imprevistos en la factura.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de vivienda unifamiliar en Sax</li>
@@ -178,16 +178,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Sax — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Se cobra el desplazamiento aunque no se pueda reparar en esa misma visita?</summary>
-        <div class="faq-ans">El desplazamiento se cobra siempre que se produzca la visita, independientemente del resultado. Lo que garantizamos es que ese coste se incluye en el presupuesto que te damos antes de salir hacia tu domicilio: sabes exactamente cuánto pagarás antes de que lleguemos. Si tras el diagnóstico decides no continuar, solo se cobra la visita — sin añadidos.</div>
+        <summary>¿Se atienden urgencias en fines de semana y festivos?</summary>
+        <div class="faq-ans">Sí. Las averías no eligen el momento y nosotros tampoco cerramos cuando llega el fin de semana o un festivo. Atendemos llamadas y WhatsApp fuera de horario laboral para valorar la urgencia y organizar el desplazamiento. En caso de avería activa — rotura con agua saliendo, calentador sin agua caliente con personas mayores, grupo de presión parado — priorizamos la visita ese mismo día sea cual sea el día de la semana.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿La primera hora de trabajo incluye el diagnóstico o se cobra aparte?</summary>
-        <div class="faq-ans">El diagnóstico forma parte del trabajo. La primera hora cubre tanto la inspección de la avería como el inicio de la reparación. No existe un cargo separado por "diagnóstico" o "presupuesto in situ": el tiempo empleado en ver la avería y darte el precio ya está dentro de la tarifa horaria acordada.</div>
+        <summary>¿El fontanero que llama por teléfono es el mismo que viene a casa?</summary>
+        <div class="faq-ans">Sí, siempre. No somos una central de llamadas que despacha partes a técnicos distintos. Quien coge el teléfono conoce el oficio, evalúa la avería contigo y es el mismo que se desplaza. Esto evita que tengas que explicar el problema dos veces y permite llevar el material correcto desde el principio — lo que reduce visitas y tiempo de resolución.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Qué documentación se entrega después de la reparación?</summary>
-        <div class="faq-ans">Emitimos factura con detalle del trabajo realizado: descripción de la avería, materiales empleados y mano de obra. Este documento sirve para la declaración a la aseguradora si la reparación está cubierta por la póliza del hogar, o como justificante ante la comunidad de vecinos si la avería es en zona común.</div>
+        <summary>¿Qué incluye la primera visita de urgencia?</summary>
+        <div class="faq-ans">La primera visita incluye el desplazamiento, la inspección completa de la avería y la valoración del trabajo necesario. Se revisa el estado de la instalación afectada, se identifica la causa del problema y se informa de las opciones de reparación con el coste de cada una. Si el material necesario está en la furgoneta, la reparación puede hacerse en esa misma visita. Si no, se acuerda una segunda visita con fecha y coste cerrado.</div>
       </details>
     </div>
   </div>

@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Petrer &middot; CP 03610</div>
     <h1>Detección de fugas en Petrer<br><span class="hl">tecnología de precisión, sin obras innecesarias</span></h1>
-    <p class="hz-dark-sub">Localizar la fuga antes de abrir paredes. Con geófono acústico y cámara de inspección encontramos el punto exacto — solo se abre donde hace falta.</p>
+    <p class="hz-dark-sub">Cada instalación exige el equipo adecuado: geófono de alta sensibilidad para tuberías enterradas en jardín o bajo solera, termografía infrarroja para circuitos de suelo radiante donde el calor delata la fuga, y correlador acústico para tramos largos donde el geófono solo no es suficiente. El equipo correcto en cada caso no es un detalle — es la diferencia entre abrir una vez y abrir tres.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Búsqueda de fugas en Petrer</p>
-        <h2>Fugas de agua en Petrer <span class="hl">localizar sin abrir paredes innecesariamente</span></h2>
-        <div class="zona-prose"><p>Detectar una fuga no es solo encontrar la humedad visible — la humedad es el síntoma, no el origen. Con geófono acústico medimos la intensidad del sonido del agua en varios puntos hasta identificar el foco real. En suelos radiantes de viviendas nuevas, en tuberías de riego enterradas en jardín o en bajantes de comunidades, la cámara de inspección confirma el diagnóstico antes de abrir nada. Solo se pica donde está el problema, no donde aparece el daño.</p></div>
+        <h2>Abrir a ciegas siempre sale <span class="hl">más caro que localizar primero</span></h2>
+        <div class="zona-prose"><p>Abrir una pared en el sitio equivocado no es un error menor: es picar, enfoscar, alicatar y pintar en un punto que no era. Y luego repetir la operación en el punto correcto. El coste de una detección profesional — geófono, termografía o correlador según la instalación — es una fracción del coste de una apertura innecesaria. Detectar primero no es un lujo, es la opción económica. Y es también la que respeta el acabado de la vivienda: no se toca nada hasta que el punto de la fuga está confirmado con dos métodos de medición independientes. Solo entonces se propone dónde abrir, cuánto y por qué.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en termos y calentadores por acumulación de cal</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en grifos y juntas deterioradas por agua dura</li>
@@ -92,16 +92,16 @@ include '../../includes/head.php';
     <h2>Búsqueda de fugas en Petrer &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El seguro del hogar cubre la detección de fugas?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Depende de la póliza. Muchos seguros de hogar cubren los daños materiales causados por la fuga pero no el coste de localización. Otros incluyen también la detección y la reparación si se contrata con empresa autorizada. Conviene consultar las condiciones particulares antes de llamar. En cualquier caso emitimos informe del trabajo realizado con descripción del origen y método de localización, que puede servir para la reclamación al seguro.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿La detección de fugas estropea el suelo o el revestimiento?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">No. Las técnicas de detección son completamente no invasivas: el geófono se apoya sobre la superficie sin perforar ni dañar nada, la termografía es una lectura óptica infrarroja y el correlador trabaja desde los extremos accesibles de la tubería. En ningún caso se levanta solería, se perfora pared ni se retira revestimiento durante la fase de localización. Solo cuando el punto está confirmado se propone dónde hacer la apertura mínima necesaria para reparar — y eso ya es una decisión que se toma con el cliente.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cómo se confirma que la fuga está localizada antes de abrir la pared?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Con el geófono identificamos el punto de máxima intensidad acústica, que corresponde al origen de la fuga. En caso de duda, la cámara de inspección introducida por el desagüe o una arqueta cercana confirma visualmente la zona afectada. Solo cuando ambas herramientas apuntan al mismo punto se propone abrir. El objetivo es abrir una sola vez y en el sitio correcto.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede localizar una fuga en una piscina sin vaciarla?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">En muchos casos sí. Las fugas en piscinas pueden estar en el vaso, en las juntas de los skimmers, en la tubería de impulsión o en el circuito de filtración. Dependiendo de la ubicación, se puede hacer una prueba de presión en el circuito cerrado para aislar el tramo con pérdida sin necesidad de vaciar. Si la fuga está en el vaso, la detección se realiza con el nivel de agua estabilizado y sin consumo de equipo, observando la caída por zonas. Solo en casos complejos se plantea el vaciado parcial para acceder al punto.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede detectar una fuga con la casa habitada?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. La detección con geófono no requiere vaciar la vivienda ni cortar el suministro salvo en el momento puntual de la medición. Es recomendable que no haya consumo de agua (grifos, lavadora, cisterna) durante la toma de medidas para que la señal acústica sea limpia, pero eso basta con pausar el uso unos minutos. La familia puede estar en casa durante todo el proceso.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuántas horas lleva una detección de fugas estándar?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Una detección estándar en una vivienda unifamiliar o piso — con instalación accesible y fuga activa — suele resolverse en 1 a 2 horas. En instalaciones más complejas, como circuitos de suelo radiante con tramos cruzados o tuberías enterradas en jardines grandes, puede extenderse a 3-4 horas. La duración depende del tamaño de la instalación, del tipo de fuga y de si la señal acústica es clara o requiere descartar varios puntos antes de confirmar el origen. Se informa de la estimación antes de empezar.</div>
       </div>
     </div>
   </div>

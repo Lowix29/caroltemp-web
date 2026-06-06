@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Petrer &middot; CP 03610</div>
-    <h1>Fontanero urgente en Petrer<br><span class="hl">rápido, limpio y sin letra pequeña</span></h1>
-    <p class="hz-dark-sub">Cuando hay una avería el objetivo es uno: resolver sin dejar la casa sin suministro más tiempo del necesario. Presupuesto antes de tocar, reparación provisional si no hay pieza, corte mínimo e imprescindible.</p>
+    <h1>Fontanero urgente en Petrer<br><span class="hl">sin esperas, sin excusas, sin segunda visita</span></h1>
+    <p class="hz-dark-sub">La furgoneta sale con el material más habitual ya cargado: racores, válvulas, juntas, manguitos, llaves de paso. Si la pieza está a bordo, el trabajo termina en la misma visita. Si no, se deja una solución provisional operativa para que esa noche haya agua — y se vuelve con el repuesto en cuanto llega.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Cuándo llamar</p>
-        <h2>Urgencias fontanero <span class="hl">en Petrer</span></h2>
+        <h2>La diferencia entre un fontanero que resuelve <span class="hl">y uno que viene a "ver"</span></h2>
         <div class="zona-prose">
-          <p>En una urgencia de fontanería el tiempo sin agua es el problema real. Por eso el primer objetivo es siempre el mismo: identificar la avería, dar el precio y actuar cuanto antes. Si la pieza no está en la furgoneta, se coloca una solución provisional que restaure el suministro mientras se gestiona el repuesto. No se empieza a trabajar sin que el precio esté acordado, y el corte de agua afecta solo a lo estrictamente necesario — sin dejar sin suministro a toda la finca cuando el problema está en un tramo concreto.</p>
+          <p>Hay fontaneros que llegan, miran y se van — porque les falta material, porque el diagnóstico es largo, porque necesitan "consultarlo". Y hay fontaneros que llegan con el diagnóstico en la cabeza y la herramienta en la mano. La diferencia no está en la rapidez del desplazamiento, sino en cómo se trabaja al llegar. Un diagnóstico rápido no es improvisar: es saber exactamente qué buscar, dónde buscar y qué material llevar encima para resolverlo en el acto. Esa es la mentalidad con la que se atiende cada urgencia en Petrer — identificar, actuar y dejar el suministro funcionando antes de marcharse.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de urbanización en ladera</li>
@@ -177,16 +177,16 @@ include '../../includes/head.php';
     <h2>Urgencias fontanero <span class="hl">Petrer — dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Se puede reparar una rotura de tubería sin cortar el agua a toda la finca?</summary>
-        <div class="faq-ans">En la mayoría de los casos, sí. Si hay llave de corte en el piso o en el ramal afectado, el resto de la finca mantiene el suministro durante la reparación. Solo cuando la avería está en la tubería general de alimentación o en la llave de paso principal es necesario cortar el suministro a todo el edificio, y en ese caso se minimiza el tiempo de corte al máximo. Siempre se avisa a los vecinos antes de actuar.</div>
+        <summary>¿Se puede hacer una reparación provisional para recuperar el suministro mientras llega la pieza?</summary>
+        <div class="faq-ans">Sí, y es la solución habitual cuando la pieza no está disponible en el momento. Una reparación provisional bien ejecutada — con manguito de reparación, cinta de sello o derivación temporal — permite restablecer el agua con seguridad mientras se gestiona el repuesto definitivo. No es un parche improvisado: es una solución técnica que deja la instalación funcional y sin riesgo de fuga hasta la reparación final. Se indica siempre con claridad qué es provisional y cuándo hay que volver a cerrar la intervención.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Cuánto se tarda en resolver una rotura de tubería empotrada?</summary>
-        <div class="faq-ans">Depende de si hay que abrir pared o no. Si la rotura es en tubería vista o accesible, la reparación suele resolverse en la misma visita en 1-2 horas. Si la tubería está empotrada, primero se localiza el punto exacto con geófono para abrir solo donde hace falta — la localización puede llevar 30-60 minutos adicionales, pero evita picar en varios sitios a ciegas. El precio se da después de ver la avería y antes de empezar.</div>
+        <summary>¿Qué pasa si la avería está en una zona comunitaria y no dentro del piso?</summary>
+        <div class="faq-ans">Si el problema está en tuberías o elementos comunes — bajante general, contador comunitario, arqueta de paso, grupo de presión del edificio — la responsabilidad de la reparación corresponde a la comunidad de propietarios, no al vecino que detecta la avería. En ese caso se puede actuar igualmente, pero la autorización debe venir del administrador de fincas o de un representante de la comunidad. Se emite factura a nombre de la comunidad y se documenta el trabajo para que pueda reclamarse al seguro del edificio si procede.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Hay recargo por urgencia nocturna o en fin de semana?</summary>
-        <div class="faq-ans">Sí, existe un recargo para horario nocturno (a partir de las 22:00 h) y para fines de semana y festivos. El importe se comunica siempre al contactar, antes de confirmar la visita, para que puedas decidir con toda la información. No hay sorpresas en la factura final.</div>
+        <summary>¿Cuánto puede durar una tubería empotrada con una microfuga sin que se note?</summary>
+        <div class="faq-ans">Años. Una microfuga en tubería empotrada puede llevar meses o incluso años activa antes de que aparezca humedad visible en la pared o el techo. Durante ese tiempo el agua filtra lentamente por el mortero, satura el soporte y deteriora el acabado desde dentro. Cuando la mancha aparece, el daño ya está hecho. Por eso ante consumos de agua anómalos en la factura — sin explicación visible — conviene hacer una comprobación aunque no haya nada mojado a la vista. La detección temprana evita tener que abrir paredes completas más adelante.</div>
       </details>
     </div>
   </div>

@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Novelda &middot; CP 03660</div>
-    <h1>Desatascos en Novelda<br><span class="hl">rápido, sin olor y precio fijo</span></h1>
-    <p class="hz-dark-sub">Primero la cámara endoscópica para ver qué hay dentro, después la solución adecuada. Sonda mecánica para atascos puntuales, hidrojetting a alta presión para sarro acumulado y grasa endurecida. Sin presupuestar a ciegas.</p>
+    <h1>Desatascos en Novelda<br><span class="hl">limpio desde la primera vez</span></h1>
+    <p class="hz-dark-sub">Traemos el equipo adecuado para hacer el trabajo bien a la primera: cámara endoscópica para ver qué hay dentro, sonda mecánica para el tapón puntual, hidrojetting a alta presión para la incrustación que lleva años acumulándose. Sin segunda visita.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
@@ -40,8 +40,8 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Novelda</p>
-        <h2>Atascos en Novelda <span class="hl">cámara primero, sonda o hidrojetting después</span></h2>
-        <div class="zona-prose"><p>No todos los atascos se resuelven igual. Antes de meter la sonda o conectar el hidrojetting, pasamos la cámara endoscópica para ver qué hay dentro: si es un tapón localizado, la sonda mecánica lo resuelve rápido. Si hay sarro acumulado durante años que ha reducido el diámetro de la tubería, solo el hidrojetting a alta presión lo elimina. En arquetas exteriores y colectores de comunidad, la aspiración con equipo de vacío retira el material depositado sin romper nada. Diagnóstico real antes de presupuestar.</p></div>
+        <h2>Sonda o hidrojetting <span class="hl">cada atasco tiene su herramienta</span></h2>
+        <div class="zona-prose"><p>La sonda mecánica perfora o desplaza el tapón — funciona bien en atascos puntuales por acumulación de papel, cuerpos extraños o restos sólidos. Pero si el interior de la tubería tiene sarro o grasa adheridos a la pared durante años, la sonda abre el paso y el atasco vuelve en semanas: no elimina la causa. El hidrojetting proyecta agua a presión de 150-200 bar que arranca las incrustaciones de la pared interior y deja el diámetro original libre — el resultado aguanta mucho más. La cámara endoscópica nos dice cuál de los dos tiene sentido antes de conectar nada. Así no se gasta en la herramienta equivocada ni hay que volver al mes siguiente.</p></div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desatasco de bajantes en pisos y comunidades</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Limpieza de colectores y arquetas exteriores</li>
@@ -92,16 +92,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Novelda &mdash; <span class="hl">dudas habituales</span></h2>
     <div class="zona-faq" style="margin-top:2rem">
       <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuál es la diferencia entre usar la sonda mecánica y el hidrojetting?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">La sonda mecánica perfora o empuja el tapón — soluciona atascos puntuales por acumulación de papel, restos sólidos o cuerpos extraños. Pero si el interior de la tubería tiene sarro o grasa adheridos a las paredes, la sonda abre el paso momentáneamente y el atasco vuelve al poco tiempo. El hidrojetting proyecta agua a alta presión que elimina las incrustaciones de la pared interior de la tubería — el resultado dura mucho más. La cámara endoscópica nos dice cuál de los dos hace falta antes de empezar.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿El hidrojetting funciona en tuberías de hierro galvanizado antiguo?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Con matices. El hidrojetting limpia el interior de tuberías de hierro galvanizado sin problema si la pared del tubo conserva su integridad. El riesgo está en tuberías muy oxidadas con la pared muy adelgazada: la presión del agua puede abrir una fisura en un punto ya debilitado. Por eso siempre pasamos la cámara endoscópica antes — si el estado del tubo no lo permite, lo decimos antes de conectar el equipo y valoramos si es mejor limpiar con sonda o plantear la sustitución del tramo.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Podéis desatascar un colector comunitario que afecta a varios pisos?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">Sí. Los colectores comunitarios se limpian desde las arquetas de registro exteriores con equipo de aspiración y presión. No es necesario entrar en las viviendas ni levantar el pavimento del portal. Si el administrador de la finca necesita un presupuesto por escrito para aprobarlo en junta, lo emitimos sin coste.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Con qué frecuencia hay que limpiar un colector comunitario?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">En comunidades de vecinos con uso intensivo — cocinas, lavadoras, varias bajantes convergiendo en el mismo colector — lo habitual es una limpieza anual o bianual. En edificios con agua dura, el sarro acumulado en la pared interior reduce el diámetro útil en menos tiempo. La cámara de inspección tras la limpieza muestra el estado real del colector y permite calcular cada cuánto conviene repetirla según ese edificio concreto, no una estimación genérica.</div>
       </div>
       <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Cuánto cuesta un desatasco de urgencia en Novelda?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-        <div class="zona-fia">El precio depende del tipo de atasco, la accesibilidad y si se necesita cámara o hidrojetting. Antes de empezar te damos el precio total — desplazamiento, mano de obra y material incluidos. No hay cobros extra al terminar. Si la urgencia es fuera de horario habitual indicánoslo al llamar y te informamos del coste antes de que salgamos.</div>
+        <div class="zona-fiq" onclick="togFaq(this)"><span>¿Se puede desatascar una bajante sin cortar el agua a toda la comunidad?</span><span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
+        <div class="zona-fia">Sí, en la mayoría de los casos. Las bajantes son circuitos de evacuación — no tienen agua a presión corriendo por dentro, solo residuos que descienden por gravedad. Para desatascar una bajante o limpiar un colector desde la arqueta exterior no hace falta cortar el suministro de agua del edificio. Solo si la intervención requiere sustituir un tramo de tubería o trabajar en el interior de un baño se puede pedir a los vecinos del tramo afectado que no usen el agua durante el tiempo que dure el trabajo.</div>
       </div>
     </div>
   </div>

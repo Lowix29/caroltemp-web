@@ -17,8 +17,8 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Aspe &middot; CP 03680</div>
-    <h1>Desatascos en Aspe<br><span class="hl">desatasco garantizado o repetimos</span></h1>
-    <p class="hz-dark-sub">Limpiamos a fondo con hidrojetting, no solo desbloqueamos con sonda. Cámara endoscópica para ver el estado real del conducto antes de actuar y confirmar que queda completamente libre al terminar.</p>
+    <h1>Desatascos en Aspe<br><span class="hl">el atasco no vuelve si se hace bien desde el principio</span></h1>
+    <p class="hz-dark-sub">Hay una diferencia entre desbloquear y limpiar. Desbloqueamos con sonda para que el agua pase hoy. Limpiamos con hidrojetting para que el conducto no vuelva a atascarse mañana. La cámara confirma que el trabajo está terminado de verdad.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -40,9 +40,9 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Desatascos en Aspe</p>
-        <h2>Desatascos en Aspe <span class="hl">cámara, hidrojetting y precio fijo</span></h2>
+        <h2>Cuando el atasco vuelve <span class="hl">es que nunca se resolvió de verdad</span></h2>
         <div class="zona-prose">
-          <p>Desbloquear un atasco con sonda soluciona el problema ese día, pero deja el conducto lleno de grasa, sarro y residuos pegados a las paredes — y el atasco vuelve en pocas semanas. La diferencia está en limpiar de verdad. El hidrojetting lanza agua a alta presión por todo el conducto, arrastrando la acumulación de grasa compacta, cal y residuos orgánicos que la sonda simplemente perfora. En Aspe, el agua con dureza elevada favorece la acumulación rápida de cal en los conductos, especialmente cuando se mezcla con grasa de cocina. La cámara endoscópica permite ver el estado real de la bajante antes de actuar — y confirmar que queda completamente libre al terminar. Si el conducto no ha quedado libre, repetimos sin coste adicional.</p>
+          <p>Un atasco recurrente en el mismo punto no es mala suerte — es una señal de que la causa real no se eliminó. La sonda perfora el tapón y deja pasar el agua, pero las paredes del conducto siguen cubiertas de grasa, cal y residuos orgánicos. En semanas o meses, esa capa acumula de nuevo hasta bloquear. El hidrojetting lanza agua a alta presión en todas las direcciones y arrastra todo ese depósito de las paredes del tubo, no solo el núcleo del tapón. La cámara endoscópica entra antes para ver la naturaleza y posición exacta de la obstrucción, y vuelve a entrar al terminar para confirmar que el conducto ha quedado limpio en toda su sección — no solo desbloqueado. Cuando el trabajo se hace así, el atasco no vuelve al cabo de un mes.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro en Aspe que no desagua</li>
@@ -179,16 +179,16 @@ include '../../includes/head.php';
     <h2>Desatascos en Aspe <span class="hl">— dudas habituales</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
-        <summary>¿Cuál es la diferencia entre desbloquear con sonda y limpiar con hidrojetting?</summary>
-        <div class="faq-ans">La sonda mecánica perfora el tapón y deja paso al agua, pero no elimina la capa de grasa, cal y sarro pegada a las paredes del conducto. El atasco vuelve en semanas porque las paredes siguen sucias. El hidrojetting lanza agua a alta presión en todas las direcciones y arrastra todo ese depósito, dejando el conducto limpio en toda su sección. Para atascos puntuales la sonda puede ser suficiente; para bajantes con acumulación crónica de grasa o cal, el hidrojetting es la única solución duradera.</div>
+        <summary>¿Por qué el atasco vuelve al poco de usar el desatascador del supermercado?</summary>
+        <div class="faq-ans">Los productos químicos de supermercado actúan disolviendo parcialmente el núcleo del tapón — lo suficiente para que el agua pase de nuevo. Pero la capa de grasa, jabón solidificado y sarro que está adherida a las paredes del conducto no desaparece. Esa capa sigue ahí, y en pocas semanas vuelve a acumular hasta bloquear de nuevo. Además, el uso repetido de estos productos es corrosivo para las juntas y para los tramos de tubería más antiguos, lo que puede generar un problema mayor a medio plazo. Si el atasco vuelve más de una vez en el mismo punto, la causa real no se ha eliminado.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Los productos del supermercado para desatascar dañan las tuberías?</summary>
-        <div class="faq-ans">Los productos químicos de supermercado son corrosivos y con el uso repetido deterioran las juntas y los tramos de tubería más antiguos, especialmente en instalaciones con hierro galvanizado o PVC envejecido. En el mejor caso, disuelven parcialmente el tapón pero dejan el resto del residuo en las paredes. Si el atasco es recurrente o no cede con agua caliente y el desatascador manual, lo más seguro y económico a largo plazo es llamar antes de que el producto cause daño adicional.</div>
+        <summary>¿Los pelos y el jabón pueden obstruir una bajante tan rápido como la grasa?</summary>
+        <div class="faq-ans">Depende del conducto y de la frecuencia de uso. En bajantes de ducha y bañera, la combinación de pelos y jabón forma tapones compactos que pueden bloquear el sifón o el tramo inmediato con bastante rapidez — especialmente si el diámetro del desagüe es pequeño o si hay algún punto de retención en el recorrido. La grasa de cocina tarda más en acumularse pero forma tapones más duros y difíciles de eliminar con sonda. En ambos casos, el hidrojetting limpia todo el depósito de la pared del conducto, no solo el núcleo que bloquea el paso.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Cuánto dura el efecto de un desatasco con hidrojetting?</summary>
-        <div class="faq-ans">Un desatasco con hidrojetting bien ejecutado deja el conducto completamente limpio, lo que retrasa significativamente la siguiente acumulación. En condiciones normales el efecto dura entre uno y tres años dependiendo del uso, del tipo de residuos y del diámetro de la bajante. En instalaciones con agua muy calcárea o con mucha actividad de cocina, una limpieza preventiva anual evita que el conducto vuelva a bloquearse y protege el estado de la tubería a largo plazo.</div>
+        <summary>¿Qué hago si el atasco está en la arqueta exterior?</summary>
+        <div class="faq-ans">Una arqueta exterior desbordada o bloqueada suele indicar que el problema está en el colector que la conecta con la red general o en la propia arqueta, que puede estar colapsada por grasa endurecida, lodos o raíces. Lo primero es no intentar destaparla y limpiarla manualmente si está desbordada — el riesgo de contacto con aguas residuales es real. Llamando al servicio de desatascos, trabajamos desde la arqueta con hidrojetting y aspiración de lodos, y la cámara endoscópica permite recorrer el colector para verificar que no hay rotura ni penetración de raíces que esté causando el bloqueo de forma recurrente.</div>
       </details>
     </div>
   </div>
