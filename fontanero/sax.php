@@ -12,7 +12,7 @@ $page_js     = 'zona';
 $depth       = 1;
 $faq_items   = [
   ['q' => '¿Cuánto cuesta un fontanero en Sax?',
-   'a' => 'El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.'],
+   'a' => 'En Sax muchas averías en el casco histórico esconden instalaciones antiguas que solo se detectan in situ: lo que parece un grifo que gotea puede ser el síntoma de una tubería de hierro que lleva décadas cediendo. El presupuesto es gratuito, se da con la avería vista y sin compromiso.'],
   ['q' => '¿Atendéis urgencias en festivos y fines de semana en Sax?',
    'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
   ['q' => '¿Vale la pena instalar un descalcificador en Sax?',
@@ -362,7 +362,7 @@ if (!empty($_arts)): ?>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero en Sax?</summary>
-        <div class="faq-ans">El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.</div>
+        <div class="faq-ans">En Sax muchas averías en el casco histórico esconden instalaciones antiguas que solo se detectan in situ: lo que parece un grifo que gotea puede ser el síntoma de una tubería de hierro que lleva décadas cediendo. El presupuesto es gratuito, se da con la avería vista y sin compromiso.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en festivos y fines de semana en Sax?</summary>

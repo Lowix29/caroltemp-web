@@ -8,7 +8,7 @@ $page_js     = 'zona';
 $depth       = 1;
 $faq_items   = [
   ['q' => '¿Cuánto cuesta un fontanero en Elda?',
-   'a' => 'El presupuesto es gratuito y se da siempre antes de empezar, con la avería o el trabajo visto. Sin compromiso. Cada trabajo es diferente y el precio depende del diagnóstico, por eso no damos tarifas genéricas: llama o escríbenos y te decimos exactamente qué costaría en tu caso.'],
+   'a' => 'Depende del trabajo: no es lo mismo reparar un grifo que sustituir la instalación completa de un piso del Raval. El presupuesto es gratuito y se da antes de empezar, con la avería vista. Sin compromiso. Llámanos y te decimos exactamente qué costaría en tu caso.'],
   ['q' => '¿Atendéis urgencias en fines de semana y festivos en Elda?',
    'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
   ['q' => '¿Podéis reparar una fuga sin romper paredes en Elda?',
@@ -252,7 +252,7 @@ if (!empty($_proy)): ?>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero en Elda?</summary>
-        <div class="faq-ans">El coste depende de la avería: tipo de trabajo, materiales y tiempo. Siempre damos el desglose completo antes de empezar — mano de obra, desplazamiento y materiales por separado. Sin sorpresas en la factura final.</div>
+        <div class="faq-ans">Depende del trabajo: no es lo mismo reparar un grifo que sustituir la instalación completa de un piso del Raval. El presupuesto es gratuito y te lo damos antes de empezar, con la avería vista. Sin compromiso.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en Elda los fines de semana y festivos?</summary>
