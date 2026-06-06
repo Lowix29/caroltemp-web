@@ -347,6 +347,427 @@
   padding-top: 1rem;
 }
 
+/* ── SIMULADOR ── */
+.fin-sim-section {
+  padding: 5rem 0;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+}
+
+.fin-sim-card {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(30,58,95,.07);
+  margin-top: 1rem;
+}
+
+.fin-sim-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.fin-sim-col {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.fin-sim-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.fin-sim-amount-row {
+  margin-bottom: .25rem;
+}
+
+.fin-sim-amount-val {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #0d1f33;
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+
+.fin-sim-range {
+  width: 100%;
+  height: 6px;
+  accent-color: #1e3a5f;
+  cursor: pointer;
+}
+
+.fin-sim-range-limits {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.fin-sim-months {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.fin-sim-mth {
+  flex: 1;
+  min-width: 90px;
+  padding: .65rem .5rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: var(--font-main);
+}
+
+.fin-sim-mth:hover {
+  border-color: #1e3a5f;
+  color: #1e3a5f;
+}
+
+.fin-sim-mth-active {
+  background: #1e3a5f;
+  border-color: #1e3a5f;
+  color: #fff;
+}
+
+.fin-sim-result {
+  background: #f0f6ff;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.fin-sim-result-main {
+  display: flex;
+  align-items: baseline;
+  gap: .4rem;
+  flex-shrink: 0;
+}
+
+.fin-sim-result-num {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1e3a5f;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
+
+.fin-sim-result-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+.fin-sim-disclaimer {
+  font-size: 12.5px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.fin-sim-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ── QUIÉN PUEDE SOLICITARLO ── */
+.fin-quien-section {
+  padding: 5rem 0;
+}
+
+.fin-quien-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: .5rem;
+}
+
+.fin-quien-card {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  transition: all .18s;
+}
+
+.fin-quien-card:hover {
+  border-color: #1e3a5f;
+  box-shadow: 0 8px 28px rgba(30,58,95,.09);
+  transform: translateY(-2px);
+}
+
+.fin-quien-ico {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.fin-quien-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0d1f33;
+  margin: 0;
+}
+
+.fin-quien-card p {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.fin-quien-list {
+  list-style: none;
+  padding: 0;
+  margin: .25rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: .85rem;
+}
+
+.fin-quien-list li {
+  font-size: 13px;
+  color: #1e3a5f;
+  font-weight: 500;
+}
+
+/* ── ¿ES SEGURO? ── */
+.fin-seguro-section {
+  padding: 5rem 0;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+}
+
+.fin-seguro-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+}
+
+.fin-seguro-sub {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0 0 1.75rem;
+}
+
+.fin-seguro-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.fin-seguro-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.fin-seguro-check {
+  width: 24px;
+  height: 24px;
+  background: #dcfce7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fin-seguro-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fin-seguro-item strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d1f33;
+}
+
+.fin-seguro-item span {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+.fin-seguro-badge {
+  flex-shrink: 0;
+}
+
+.fin-seguro-badge-inner {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  width: 220px;
+  box-shadow: 0 4px 20px rgba(30,58,95,.07);
+}
+
+.fin-seguro-shield {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.fin-seguro-badge-inner strong {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0d1f33;
+  line-height: 1.3;
+}
+
+.fin-seguro-badge-inner span {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+/* ── BANNER URGENCIA ── */
+.fin-urgbanner {
+  background: #1e3a5f;
+  padding: 1.75rem 0;
+}
+
+.fin-urgbanner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.fin-urgbanner-text {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.fin-urgbanner-text strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.fin-urgbanner-text span {
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.55;
+}
+
+.fin-urgbanner-btns {
+  flex-shrink: 0;
+}
+
+.fin-urgbanner-btn {
+  white-space: nowrap;
+}
+
+/* ── PRUEBA SOCIAL ── */
+.fin-social-section {
+  padding: 5rem 0;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+}
+
+.fin-social-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.fin-social-stat {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.75rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.fin-social-num {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #1e3a5f;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
+
+.fin-social-label {
+  font-size: 12.5px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.fin-social-reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.fin-social-review {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.fin-social-stars {
+  color: #f59e0b;
+  font-size: 16px;
+  letter-spacing: .05em;
+}
+
+.fin-social-review p {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.fin-social-review span {
+  font-size: 12.5px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .fin-strip-in {
@@ -380,6 +801,38 @@
   .fin-ventajas-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .fin-sim-top {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .fin-quien-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fin-seguro-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .fin-seguro-badge {
+    display: flex;
+    justify-content: center;
+  }
+
+  .fin-urgbanner-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fin-social-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fin-social-reviews {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 560px) {
@@ -397,5 +850,32 @@
 
   .fin-ventajas-grid {
     grid-template-columns: 1fr;
+  }
+
+  .fin-sim-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .fin-sim-result {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .fin-sim-cta {
+    flex-direction: column;
+  }
+
+  .fin-sim-cta .btn {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .fin-social-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fin-seguro-badge-inner {
+    width: 100%;
   }
 }
