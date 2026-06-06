@@ -302,6 +302,13 @@ p {
   line-height: 1.75;
   max-width: 540px;
 }
+.hz-dark-sub a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: .9;
+}
+.hz-dark-sub a:hover { opacity: 1; }
 .hz-dark-btns {
   display: flex;
   gap: 0.75rem;
