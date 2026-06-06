@@ -367,7 +367,7 @@ p {
 }
 .cta-dark h2 span { color: #64B5F6; }
 .cta-dark p {
-  color: rgba(255,255,255,.42);
+  color: #fff;
   font-size: 15px;
   margin-bottom: 2.5rem;
 }
@@ -383,13 +383,13 @@ p {
   font-size: 15px;
 }
 .cta-dark-tel {
-  color: rgba(255,255,255,.3);
+  color: #fff;
   font-size: 12.5px;
   margin-top: 2rem;
   letter-spacing: 0.03em;
 }
 .cta-dark-tel strong {
-  color: rgba(255,255,255,.72);
+  color: #fff;
   font-size: 1.1rem;
   font-weight: 700;
   display: block;
@@ -535,7 +535,7 @@ p {
 }
 .hero-dark h1 .hl { color: #64B5F6; }
 .hero-dark-sub {
-  color: rgba(255,255,255,.52);
+  color: #fff;
   font-size: 16px;
   line-height: 1.75;
   max-width: 580px;
@@ -565,7 +565,7 @@ p {
 .btn-dark-main:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(25,118,210,.45); }
 .btn-dark-ghost {
   background: rgba(255,255,255,.07);
-  color: rgba(255,255,255,.85);
+  color: #fff;
   padding: 15px 28px;
   border-radius: var(--radius-md);
   font-size: 15px;
@@ -577,7 +577,7 @@ p {
   align-items: center;
   gap: 7px;
 }
-.btn-dark-ghost:hover { background: rgba(255,255,255,.13); border-color: rgba(255,255,255,.28); }
+.btn-dark-ghost:hover { background: rgba(255,255,255,.13); border-color: #fff; }
 
 /* KPIs Hero */
 .hero-dark-kpis {
@@ -605,7 +605,7 @@ p {
   line-height: 1;
 }
 .hero-dark-kpi-lbl {
-  color: rgba(255,255,255,.42);
+  color: #fff;
   font-size: 11px;
   margin-top: 5px;
   display: block;
@@ -757,7 +757,7 @@ p {
   letter-spacing: -0.01em;
   
 }
-.dif-lbl { color: rgba(255,255,255,.38); font-size: 12px; }
+.dif-lbl { color: #fff; font-size: 12px; }
 
 /* ================================
    RESEÑAS / PROYECTOS / ARTÍCULOS GRID
@@ -953,7 +953,7 @@ p {
   padding: 1.25rem 1.5rem;
 }
 .zona-icard-h strong { color: #fff; font-size: 15px; font-weight: 700; display: block; }
-.zona-icard-h span   { color: rgba(255,255,255,.45); font-size: 12.5px; }
+.zona-icard-h span   { color: #fff; font-size: 12.5px; }
 .zona-ir {
   padding: 0.9rem 1.5rem;
   border-bottom: 1px solid var(--color-bg-soft);
