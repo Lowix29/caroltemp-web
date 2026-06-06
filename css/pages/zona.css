@@ -867,6 +867,7 @@ details.zona-faq-item .faq-ans {
 .zona-sec-dark {
   background: #0d1f33;
   color: #fff;
+  padding: 6rem 0;
 }
 .zona-sec-dark .zona-lbl { color: #fff; }
 .zona-sec-dark h2 { color: #fff; }
