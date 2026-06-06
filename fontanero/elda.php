@@ -1,10 +1,6 @@
 <?php
-/**
- * Fontanero en Elda — Hub
- * CarolTemp
- */
-$meta_title  = 'Fontanero Elda — fontanería y reformas — CarolTemp';
-$meta_desc   = 'Fontanería en Elda: urgencias, detección de fugas, desatascos, termos y reformas. Presupuesto gratuito. Instaladores certificados Nubeco. Talleres, naves y viviendas del casco histórico.';
+$meta_title  = 'Fontanero en Elda — CarolTemp | Urgencias y reformas';
+$meta_desc   = 'Fontanero en Elda: urgencias 24h, detección de fugas, desatascos, termos y reformas de baño. Precio cerrado antes de empezar. CarolTemp.';
 $meta_url    = 'https://caroltemp.com/fontanero/elda';
 $schema_type = 'local';
 $page_css    = 'zona';
@@ -17,11 +13,11 @@ include '../includes/head.php';
   <div class="hz-dark-bg"></div>
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
-    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Elda &middot; CP 03600</div>
-    <h1>Fontanero en Elda<br><span class="hl">con soluciones rápidas y acabados profesionales</span></h1>
-    <p class="hz-dark-sub">Fontanería industrial y residencial en Elda. Naves, talleres, bloques de pisos y urbanizaciones. Precio cerrado antes de empezar.</p>
+    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería · Elda · CP 03600</div>
+    <h1>Fontanero en Elda<br><span class="hl">Rápido, serio y sin sorpresas</span></h1>
+    <p class="hz-dark-sub">Urgencias, fugas, desatascos y reformas en Elda. Precio cerrado antes de empezar.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
@@ -29,98 +25,93 @@ include '../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Presupuesto gratuito</span><span class="dif-lbl">Sin compromiso</span></div>
-    <div class="dif-item"><span class="dif-val">Precio cerrado antes de empezar</span><span class="dif-lbl">Sin sorpresas en la factura</span></div>
-    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero local</span><span class="dif-lbl">Conocemos Elda</span></div>
+    <div class="dif-item"><span class="dif-val">Respuesta en el día</span><span class="dif-lbl">Sin esperas</span></div>
+    <div class="dif-item"><span class="dif-val">Precio cerrado</span><span class="dif-lbl">Sin sorpresas en la factura</span></div>
+    <div class="dif-item"><span class="dif-val">✅ Nubeco oficial</span><span class="dif-lbl">Instaladores certificados</span></div>
+    <div class="dif-item"><span class="dif-val">Urgencias 24h</span><span class="dif-lbl">Todos los días</span></div>
   </div>
 </div>
 
-<!-- Servicios principales -->
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Servicios de fontanería en Elda</p>
-    <h2>¿Qué necesitas en Elda? <span class="hl">Te cubrimos.</span></h2>
+    <p class="zona-lbl">Servicios en Elda</p>
+    <h2>¿Qué necesitas? <span class="hl">Te cubrimos.</span></h2>
     <div class="zona-svc" style="margin-top:2rem">
 
       <a href="/fontanero/elda/urgencias" class="zona-sc">
         <span class="zona-sc-n">URGENCIAS</span>
-        <h3>Fontanero urgente Elda</h3>
-        <p>Avería vista, precio dado. Atendemos roturas, escapes, grupos de presión y calentadores en viviendas del casco histórico, talleres y naves. Nada se toca sin que sepas cuánto cuesta.</p>
-        <span class="zona-sc-a">Ver urgencias &rarr;</span>
+        <h3>Fontanero urgente en Elda</h3>
+        <p>Roturas, escapes y averías atendidas el mismo día. Precio dado antes de tocar nada.</p>
+        <span class="zona-sc-a">Ver urgencias →</span>
       </a>
 
       <a href="/fontanero/elda/busqueda_fugas" class="zona-sc">
         <span class="zona-sc-n">FUGAS</span>
         <h3>Detección de fugas en Elda</h3>
-        <p>Localización de fugas de agua en Elda sin romper paredes: geófono y cámara termográfica. Las tuberías de hierro galvanizado del casco antiguo y las instalaciones industriales del calzado tienen sus propias particularidades — las conocemos.</p>
-        <span class="zona-sc-a">Ver fugas &rarr;</span>
+        <p>Localización sin obras con geófono y cámara. Solo se abre donde es necesario.</p>
+        <span class="zona-sc-a">Ver fugas →</span>
       </a>
 
       <a href="/fontanero/elda/desatascos" class="zona-sc">
         <span class="zona-sc-n">DESATASCOS</span>
         <h3>Desatascos en Elda</h3>
-        <p>Desatascos de bajantes, arquetas e inodoros con cámara endoscópica en Elda. Diagnóstico antes de actuar. Precio cerrado. Servicio para comunidades de vecinos, talleres del calzado y viviendas particulares.</p>
-        <span class="zona-sc-a">Ver desatascos &rarr;</span>
+        <p>Bajantes, arquetas e inodoros. Diagnóstico con cámara y precio cerrado.</p>
+        <span class="zona-sc-a">Ver desatascos →</span>
       </a>
 
       <div class="zona-sc">
         <span class="zona-sc-n">TERMOS</span>
         <h3>Termos y calentadores</h3>
-        <p>El agua dura del Vinalopó acumula cal en la resistencia del termo y acorta su vida útil. En Elda es una avería muy frecuente. Reparación o sustitución con presupuesto previo y sin visita extra.</p>
+        <p>Instalación y sustitución de termos eléctricos. Instaladores Nubeco certificados.</p>
       </div>
 
       <div class="zona-sc">
         <span class="zona-sc-n">REFORMAS</span>
-        <h3>Reformas de baño y cocina</h3>
-        <p>Reforma completa o parcial de la instalación de fontanería en Elda. Sustitución de tuberías de hierro galvanizado en viviendas antiguas del casco histórico, traslado de puntos de agua y adecuación a normativa.</p>
+        <h3>Reformas de baño</h3>
+        <p>Reforma completa o parcial con precio cerrado antes de empezar.</p>
       </div>
 
       <div class="zona-sc">
         <span class="zona-sc-n">DESCALCIFICADORES</span>
         <h3>Descalcificadores</h3>
-        <p>El agua de la comarca del Vinalopó tiene dureza elevada y Elda no es una excepción. Un descalcificador bien dimensionado protege termos, calentadores y electrodomésticos, y es especialmente rentable en naves industriales con alto consumo de agua.</p>
+        <p>Protege tu instalación del agua dura. Asesoramiento y puesta en marcha incluidos.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- El agua en Elda -->
 <section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
     <div class="zona-tcol">
       <div>
-        <p class="zona-lbl">Por qué Elda es exigente con la fontanería</p>
-        <h2>El agua del Vinalopó <span class="hl">y las tuberías de hierro de los 70</span></h2>
+        <p class="zona-lbl">Por qué CarolTemp en Elda</p>
+        <h2>Fontanería local <span class="hl">con garantía</span></h2>
         <div class="zona-prose">
-          <p>El agua dura del Vinalopó combinada con tuberías de hierro galvanizado de décadas provoca microfugas antes de lo esperado. En Elda el stock de edificios de los años 70-80 en barrios como El Plá o La Canal tiene instalaciones que empiezan a dar problemas simultáneamente: corrosión interna, presión irregular y filtraciones que pueden llevar semanas activas antes de aparecer en superficie. La alta densidad de edificación hace que una sola fuga en bajante afecte con rapidez a varios pisos vecinos.</p>
-          <p>Las naves industriales del sector del calzado tienen instalaciones de agua independientes — circuitos de refrigeración, compresores y vestuarios de producción — que no están pensadas para mucho mantenimiento y acumulan años de cal. Un fontanero en Elda que solo atiende viviendas deja fuera la mitad del parque inmobiliario. Nosotros cubrimos los dos mundos: el bloque de los años 70 y la nave del polígono.</p>
+          <p>Trabajamos en Elda y conocemos sus instalaciones. Atendemos viviendas, comunidades y locales comerciales con el mismo criterio: precio cerrado antes de empezar y trabajo garantizado.</p>
         </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tuberías de hierro galvanizado en viviendas antiguas del casco histórico</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instalaciones industriales en talleres y naves del sector del calzado</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Termos que duran menos por el agua dura del Vinalopó</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Piscinas en urbanizaciones de los 70-80 con circuitos envejecidos</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Alta densidad de edificación: fugas en bajantes que afectan a varios pisos</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Urgencias todos los días, sin horario</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Precio cerrado antes de empezar cualquier trabajo</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instaladores Nubeco certificados</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Financiación disponible para reformas e instalaciones</li>
         </ul>
       </div>
       <div>
         <div class="zona-icard">
-          <div class="zona-icard-h"><strong>CarolTemp &middot; Elda</strong><span>Fontanería local</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Elda &middot; CP 03600</span></div>
+          <div class="zona-icard-h"><strong>CarolTemp · Elda</strong><span>Fontanería local</span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Elda · CP 03600</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Certificación</span><span class="zona-ir-v">Instaladores Nubeco oficiales</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Cobertura</span><span class="zona-ir-v">Casco urbano, polígonos y urbanizaciones</span></div>
-          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Disponible para proyectos</span></div>
+          <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Proyectos -->
 <?php
 $_proy = [];
 try {
@@ -136,7 +127,7 @@ if (!empty($_proy)): ?>
 <section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Trabajos realizados</p>
-    <h2>Proyectos de fontaner&iacute;a <span class="hl">en Elda</span></h2>
+    <h2>Proyectos en <span class="hl">Elda</span></h2>
     <div class="zona-svc" style="margin-top:2rem">
       <?php foreach ($_proy as $_p): ?>
       <a href="/proyectos/<?php echo urlencode($_p['slug']); ?>" class="zona-sc">
@@ -144,7 +135,7 @@ if (!empty($_proy)): ?>
         <?php if (!empty($_p['servicio'])): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_p['servicio']); ?></span><?php endif; ?>
         <h3><?php echo htmlspecialchars($_p['titulo']); ?></h3>
         <p><?php echo htmlspecialchars(mb_substr($_p['descripcion'] ?? '', 0, 100)); ?>...</p>
-        <span class="zona-sc-a">Ver proyecto &rarr;</span>
+        <span class="zona-sc-a">Ver proyecto →</span>
       </a>
       <?php endforeach; ?>
     </div>
@@ -152,33 +143,31 @@ if (!empty($_proy)): ?>
 </section>
 <?php endif; ?>
 
-<!-- FAQ -->
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Fontanería en Elda <span class="hl">— dudas habituales</span></h2>
+    <h2>Dudas sobre fontanería <span class="hl">en Elda</span></h2>
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero en Elda?</summary>
-        <div class="faq-ans">La mano de obra es de 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Elda. El presupuesto definitivo se da siempre antes de empezar el trabajo, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos, que se informan al contactar.</div>
+        <div class="faq-ans">Siempre damos el precio antes de empezar, con el trabajo visto. Sin costes ocultos ni sorpresas en la factura.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Atendéis talleres y naves industriales del sector del calzado en Elda?</summary>
-        <div class="faq-ans">Sí. Tenemos experiencia en instalaciones de fontanería en naves y talleres del sector del calzado en Elda: redes de agua fría y caliente, vestuarios industriales, arquetas con residuos específicos y grupos de presión. Avisad indicando el tipo de instalación para llevar el material adecuado.</div>
+        <summary>¿Atendéis urgencias en Elda los fines de semana?</summary>
+        <div class="faq-ans">Sí, los 365 días. Llama al 611 165 129 y te atendemos al momento.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Vale la pena instalar un descalcificador en Elda?</summary>
-        <div class="faq-ans">Sí, especialmente si tienes termo eléctrico, caldera o suelo radiante. El agua del Vinalopó tiene dureza alta y el sarro reduce significativamente la vida útil de estos equipos. Un descalcificador bien dimensionado se amortiza en 2-3 años en ahorro de averías y consumo eléctrico. Os asesoramos sin compromiso.</div>
+        <summary>¿Puedo financiar una reforma o instalación en Elda?</summary>
+        <div class="faq-ans">Sí. Ofrecemos financiación para reformas de baño, ósmosis, descalcificadores y más. Sin adelantar nada y firma digital desde el móvil.</div>
       </details>
       <details class="zona-faq-item">
-        <summary>¿Podéis sustituir tuberías de hierro galvanizado en viviendas antiguas de Elda?</summary>
-        <div class="faq-ans">Sí. El casco histórico de Elda tiene muchas viviendas con tuberías de hierro galvanizado que acumulan corrosión interna y reducen la presión. Realizamos la sustitución completa o parcial de la red de suministro, con presupuesto gratuito a domicilio y precio cerrado antes de empezar.</div>
+        <summary>¿Detectáis fugas sin hacer obras?</summary>
+        <div class="faq-ans">Sí. Usamos geófono y cámara endoscópica para localizar la fuga exacta. Solo se abre donde es estrictamente necesario.</div>
       </details>
     </div>
   </div>
 </section>
 
-<!-- Artículos -->
 <?php
 $_arts = [];
 try {
@@ -188,8 +177,8 @@ try {
 if (!empty($_arts)): ?>
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Consejos &uacute;tiles</p>
-    <h2>Art&iacute;culos de fontaner&iacute;a</h2>
+    <p class="zona-lbl">Consejos útiles</p>
+    <h2>Artículos de fontanería</h2>
     <div class="zona-svc" style="margin-top:2rem">
       <?php foreach ($_arts as $_a): ?>
       <a href="/noticias/<?php echo urlencode($_a['slug']); ?>" class="zona-sc">
@@ -197,7 +186,7 @@ if (!empty($_arts)): ?>
         <?php if (!empty($_a['categoria'])): ?><span class="zona-lbl" style="font-size:11px"><?php echo htmlspecialchars($_a['categoria']); ?></span><?php endif; ?>
         <h3><?php echo htmlspecialchars($_a['titulo']); ?></h3>
         <p><?php echo htmlspecialchars(mb_substr($_a['extracto'] ?? '', 0, 100)); ?>...</p>
-        <span class="zona-sc-a">Leer art&iacute;culo &rarr;</span>
+        <span class="zona-sc-a">Leer artículo →</span>
       </a>
       <?php endforeach; ?>
     </div>
@@ -205,28 +194,26 @@ if (!empty($_arts)): ?>
 </section>
 <?php endif; ?>
 
-<!-- Mapa -->
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
-    <h2>Fontaner&iacute;a <span class="hl">en Elda</span></h2>
-    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Elda (CP 03600) y municipios lim&iacute;trofes.</p>
+    <h2>Fontanería <span class="hl">en Elda</span></h2>
+    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Elda (CP 03600) y municipios limítrofes.</p>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
       <iframe src="https://maps.google.com/maps?q=38.4774,-0.7882&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontanero en Elda"></iframe>
     </div>
   </div>
 </section>
 
-<!-- Zona tags -->
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Fontaner&iacute;a en otras zonas</p>
-    <h2>Tambi&eacute;n trabajamos <span class="hl">en municipios cercanos</span></h2>
+    <p class="zona-lbl">Otros municipios</p>
+    <h2>También trabajamos <span class="hl">cerca de Elda</span></h2>
     <div class="zona-ztags">
       <a href="/fontanero/novelda" class="zona-ztag">Novelda</a>
       <a href="/fontanero/aspe" class="zona-ztag">Aspe</a>
       <a href="/fontanero/pinoso" class="zona-ztag">Pinoso</a>
-      <a href="/fontanero/monovar" class="zona-ztag">Mon&oacute;var</a>
+      <a href="/fontanero/monovar" class="zona-ztag">Monóvar</a>
       <a href="/fontanero/petrer" class="zona-ztag">Petrer</a>
       <a href="/fontanero/sax" class="zona-ztag">Sax</a>
       <a href="/fontanero/salinas" class="zona-ztag">Salinas</a>
@@ -237,11 +224,11 @@ if (!empty($_arts)): ?>
 
 <section class="cta-dark">
   <div class="cta-dark-con">
-    <h2>&iquest;Necesitas fontaner&iacute;a <span>en Elda?</span></h2>
-    <p>Presupuesto gratuito y precio cerrado antes de empezar. Ll&aacute;menos.</p>
+    <h2>¿Necesitas fontanería <span>en Elda?</span></h2>
+    <p>Precio cerrado antes de empezar. Llámenos.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
   </div>
 </section>
