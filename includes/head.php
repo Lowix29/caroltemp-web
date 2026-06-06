@@ -74,7 +74,7 @@ if ($is_local) {
 
   <!-- Robots -->
   <?php
-$noindex_pages = ['aviso-legal', 'privacidad', 'cookies', 'contacto', 'sobre-nosotros'];
+$noindex_pages = ['aviso-legal', 'privacidad', 'cookies', '404'];
 $current_page  = basename($_SERVER['SCRIPT_NAME'], '.php');
 $robots_default = in_array($current_page, $noindex_pages) ? 'noindex, follow' : 'index, follow';
 $robots_final   = isset($robots_meta) && $robots_meta ? $robots_meta . ', follow' : $robots_default;
