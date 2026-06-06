@@ -11,6 +11,7 @@ if (isset($_GET['debug_errors'])) {
   ini_set('display_errors', 0);
 }
 ob_start();
+set_time_limit(180);
 
 session_start();
 if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
@@ -313,7 +314,7 @@ curl_setopt_array($ch, [
     'anthropic-version: 2023-06-01',
     'content-type: application/json',
   ],
-  CURLOPT_TIMEOUT        => 60,
+  CURLOPT_TIMEOUT        => 120,
   CURLOPT_SSL_VERIFYPEER => false,
 ]);
 $raw      = curl_exec($ch);
