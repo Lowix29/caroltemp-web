@@ -250,10 +250,13 @@ Eres un analista SEO especializado en fontanería y climatización local en Espa
 Genera un informe de inteligencia competitiva en Markdown. Directo, concreto, sin relleno. Lo usará otro agente de IA para redactar hubs de ciudad, artículos de blog y fichas de proyectos.
 
 ## 1. Resumen de competidores
-Para cada posición: nombre, URL, palabras aproximadas, ✅ 2 puntos fuertes, ❌ 2 debilidades.
+Para cada competidor indica exactamente:
+- Posición · Nombre · URL completa · Palabras aproximadas
+- ✅ Puntos fuertes: mínimo 3, con explicación breve de por qué importa
+- ❌ Debilidades: mínimo 3, con explicación de qué deja sin cubrir
 
 ## 2. Temas y secciones que cubre la competencia
-- Servicios recurrentes (máx. 8 ítems)
+- Servicios recurrentes (máx. 8 ítems numerados)
 - Elementos comerciales detectados
 - Lo que NADIE desarrolla bien (máx. 4 ítems — los más valiosos)
 
@@ -268,11 +271,18 @@ Marca con ⭐ el gap más crítico.
 - H3s SOLO si son específicos de esta ciudad/tema (nunca genéricos como "Reparación de fugas")
 - Máx. 4 palabras de descripción por H2 entre paréntesis
 
-## 5. Keywords
-**Principales:** 3-5 keywords de mayor volumen
-**Long-tail para hub:** 6-8 variaciones transaccionales
-**Ideas para artículos/noticias:** 4 temas de blog derivados de los gaps (en formato título)
-**Ideas para proyectos:** 2-3 tipos de trabajo frecuente como caso de éxito
+## 5. Keywords y variaciones long-tail detectadas
+**Principales (mayor volumen):**
+Lista numerada de 4-5 keywords exactas
+
+**Long-tail para hub (transaccionales):**
+Lista numerada de 7-8 variaciones con intención de contratar/precio/urgencia
+
+**Ideas para artículos/noticias:**
+Lista numerada de 4 títulos de blog derivados de los gaps detectados
+
+**Ideas para proyectos:**
+Lista numerada de 2-3 tipos de trabajo frecuente en la zona que puedan publicarse como caso de éxito
 
 ## 6. Objetivo de palabras
 - Competidor líder: X palabras
@@ -280,10 +290,10 @@ Marca con ⭐ el gap más crítico.
 - Las 3 secciones que más deben aportar palabras
 
 ## 7. FAQs prioritarias
-4-5 preguntas reales que debe responder la página. Que sean específicas de la ciudad o el servicio, no genéricas.
+5 preguntas reales y específicas de esta ciudad/servicio (no genéricas). Para cada una indica de una frase qué debe responder.
 
 ## 8. Ángulo diferenciador de CarolTemp
-En 3-4 frases: cómo usar presupuesto gratis, urgencias 24h, instaladores Nubeco certificados y conocimiento local para ganar en este tema concreto.
+En 4-5 frases: cómo usar presupuesto gratis, urgencias 24h, instaladores Nubeco certificados y conocimiento local para ganar en este tema concreto frente a los rivales detectados.
 SYS;
 
 $payload_inv = [
