@@ -6,6 +6,20 @@ $schema_type = 'local';
 $page_css    = 'zona';
 $page_js     = 'zona';
 $depth       = 1;
+$faq_items   = [
+  ['q' => '¿Cuánto cuesta un fontanero en Monóvar?',
+   'a' => 'La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Monóvar. El presupuesto se da siempre antes de empezar, con la avería vista. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.'],
+  ['q' => '¿Atendéis urgencias en festivos y fines de semana en Monóvar?',
+   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
+  ['q' => '¿Reparáis grupos de presión en fincas de Monóvar?',
+   'a' => 'Sí. Las fincas y casas de campo en el diseminado de Monóvar dependen de grupos de presión que pueden fallar por desgaste, problemas de presostato o calor extremo en verano. Acudimos, diagnosticamos y damos presupuesto antes de actuar.'],
+  ['q' => '¿Vale la pena instalar un descalcificador en Monóvar?',
+   'a' => 'Sí. El agua de Monóvar es de las más calcáreas de la comarca. Un descalcificador bien dimensionado alarga la vida de termos, calderas y suelo radiante y puede amortizarse en 2-3 años en ahorro de averías y consumo energético.'],
+  ['q' => '¿Hacéis mantenimiento de calderas en Monóvar?',
+   'a' => 'Sí. Realizamos la revisión anual obligatoria de calderas de gas, limpieza del quemador, purgado de radiadores y comprobación de la presión del circuito. Mantenimiento preventivo antes del invierno para evitar cortes de calefacción.'],
+  ['q' => '¿Instaláis aerotermia en Monóvar?',
+   'a' => 'Sí. La aerotermia es especialmente rentable en viviendas unifamiliares de Monóvar con suelo radiante o fancoils. Un único sistema para calefacción, refrigeración y agua caliente sanitaria, con rendimiento muy superior a la caldera convencional. Presupuesto sin compromiso.'],
+];
 include '../includes/head.php';
 ?>
 

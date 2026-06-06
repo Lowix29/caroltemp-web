@@ -6,6 +6,20 @@ $schema_type = 'local';
 $page_css    = 'zona';
 $page_js     = 'zona';
 $depth       = 1;
+$faq_items   = [
+  ['q' => '¿Cuánto cuesta un fontanero en Novelda?',
+   'a' => 'La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Novelda. El presupuesto se da siempre antes de empezar. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.'],
+  ['q' => '¿Atendéis urgencias en festivos y fines de semana en Novelda?',
+   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
+  ['q' => '¿Atendéis comunidades de vecinos en Novelda?',
+   'a' => 'Sí. Damos servicio a comunidades de propietarios en Novelda: reparación de bajantes comunes, atascos en arquetas, fugas en tuberías generales y mantenimiento preventivo. Presupuesto específico para comunidades.'],
+  ['q' => '¿Vale la pena instalar un descalcificador en Novelda?',
+   'a' => 'Sí. El agua en Novelda tiene dureza alta. Un descalcificador bien dimensionado alarga la vida de termos, calderas y electrodomésticos y puede amortizarse en 2-3 años. Te asesoramos sin compromiso sobre el equipo adecuado.'],
+  ['q' => '¿Hacéis reformas completas de fontanería en Novelda?',
+   'a' => 'Sí. Realizamos la sustitución completa de tuberías de suministro y saneamiento, traslado de puntos de agua y adecuación a normativa vigente. Presupuesto gratuito a domicilio en Novelda.'],
+  ['q' => '¿Instaláis sistemas de ósmosis inversa en Novelda?',
+   'a' => 'Sí. Instalamos sistemas de ósmosis inversa bajo fregadero para agua de consumo. En Novelda, con agua de alta dureza, el ahorro en agua embotellada amortiza el equipo en poco tiempo. Asesoramiento y montaje sin compromiso.'],
+];
 include '../includes/head.php';
 ?>
 

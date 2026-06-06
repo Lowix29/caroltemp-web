@@ -10,6 +10,20 @@ $schema_type = 'local';
 $page_css    = 'zona';
 $page_js     = 'zona';
 $depth       = 1;
+$faq_items   = [
+  ['q' => '¿Cuánto cuesta un fontanero en Sax?',
+   'a' => 'La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Sax. El presupuesto se da siempre antes de empezar. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.'],
+  ['q' => '¿Atendéis urgencias en festivos y fines de semana en Sax?',
+   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
+  ['q' => '¿Vale la pena instalar un descalcificador en Sax?',
+   'a' => 'Sí. El agua del Vinalopó tiene dureza alta y el sarro reduce la vida útil de termos, calderas y electrodomésticos. Un descalcificador bien dimensionado puede amortizarse en 2-3 años en ahorro de averías y consumo energético. Asesoramos sin compromiso sobre el equipo adecuado.'],
+  ['q' => '¿Podéis sustituir las tuberías antiguas del casco histórico de Sax?',
+   'a' => 'Sí. Realizamos la sustitución completa de instalaciones en viviendas del casco histórico: desde hierro negro o plomo a tubería multicapa o PEX que resiste mejor el agua calcárea. El trabajo se hace por fases para minimizar las molestias.'],
+  ['q' => '¿Instaláis calderas y aerotermia en Sax además de fontanería?',
+   'a' => 'Sí. CarolTemp ofrece fontanería y climatización como servicio integral. Instalamos calderas de gas, sistemas de aerotermia y suelo radiante en viviendas unifamiliares y fincas de Sax.'],
+  ['q' => '¿Cuánto cuesta reparar el grupo de presión de una finca en Sax?',
+   'a' => 'Depende de la avería: puede ser desde un presostato o relé de protección hasta la sustitución del grupo completo. Acudimos, diagnosticamos el problema y damos presupuesto cerrado antes de actuar. En verano conviene hacer revisión preventiva.'],
+];
 include '../includes/head.php';
 ?>
 

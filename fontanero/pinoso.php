@@ -1,145 +1,169 @@
 <?php
 /**
- * Fontanería en Pinoso — hub ciudad
+ * Fontanero en Pinoso — Hub
  * CarolTemp
  */
-$meta_title  = 'Fontanero en Pinoso | Termos, fugas y mantenimiento — CarolTemp';
-$meta_desc   = 'Fontanero en Pinoso especializado en termos, grupos de presión, fugas, desatascos y reformas. Soluciones eficaces y presupuesto gratuito.';
+$meta_title  = 'Fontanero en Pinoso | Urgencias, fugas y desatascos — CarolTemp';
+$meta_desc   = 'Fontanero en Pinoso para urgencias 24h, detección de fugas, desatascos y reformas. Atendemos casco urbano, chalets, segundas residencias y diseminado rural.';
 $meta_url    = 'https://caroltemp.com/fontanero/pinoso';
 $schema_type = 'local';
 $page_css    = 'zona';
 $page_js     = 'zona';
+$depth       = 1;
+$faq_items   = [
+  ['q' => '¿Cuánto cuesta un fontanero en Pinoso?',
+   'a' => 'La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Pinoso. El presupuesto se da siempre antes de empezar, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.'],
+  ['q' => '¿Atendéis urgencias en festivos y fines de semana en Pinoso?',
+   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 611 165 129 o escribe por WhatsApp.'],
+  ['q' => '¿Atendéis fincas y casas de campo en el diseminado rural de Pinoso?',
+   'a' => 'Sí. Cubrimos todo el término municipal de Pinoso, incluyendo el diseminado rural, casas de campo y chalets alejados del casco urbano. Para instalaciones con depósito propio o grupo de presión, avisad indicando el tipo de instalación para llevar el material adecuado.'],
+  ['q' => '¿Vale la pena instalar un descalcificador en Pinoso?',
+   'a' => 'Sí. El agua de Pinoso tiene dureza alta que acorta significativamente la vida de termos, calderas y electrodomésticos. Un descalcificador bien dimensionado puede amortizarse en 2-3 años en ahorro de averías. En segundas residencias es especialmente útil porque el agua estancada en los meses de cierre agrava la incrustación de cal.'],
+  ['q' => '¿Hacéis revisiones pre-temporada de segundas residencias en Pinoso?',
+   'a' => 'Sí. Realizamos revisiones completas antes de abrir una segunda residencia: comprobación de la instalación de agua, revisión del grupo de presión o depósito, purga de tuberías y comprobación de que todo funciona antes de que lleguen los propietarios. Servicio especialmente demandado por propietarios extranjeros.'],
+  ['q' => '¿Instaláis calderas y aerotermia en Pinoso además de fontanería?',
+   'a' => 'Sí. CarolTemp ofrece fontanería y climatización como servicio integral. Instalamos calderas de gas, sistemas de aerotermia y suelo radiante en viviendas unifamiliares, chalets y casas de campo en Pinoso. Un único equipo que conoce toda tu instalación simplifica el mantenimiento.'],
+];
 include '../includes/head.php';
 ?>
 
-<!-- BLOQUE 1: Hero -->
 <section class="hz-dark">
   <div class="hz-dark-bg"></div>
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
-    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería Pinoso</div>
+    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Pinoso &middot; CP 03650</div>
     <h1>Fontanero en Pinoso<br><span class="hl">con servicio profesional y presupuesto transparente</span></h1>
-    <p class="hz-dark-sub">Reparamos grupos de presión, sustituimos termos con sarro y presupuestamos reformas de baño con precio cerrado antes de empezar.</p>
+    <p class="hz-dark-sub">Urgencias, fugas, desatascos y reformas en Pinoso. Atendemos casco urbano, chalets, segundas residencias y diseminado rural.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
-      <a href="/contacto" class="btn-hz-g">Pedir presupuesto</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
 
-<!-- BLOQUE 2: Strip diferenciadores -->
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item">
-      <span class="dif-val">Geófono + cámara</span>
-      <span class="dif-lbl">Fugas sin romper paredes</span>
-    </div>
-    <div class="dif-item">
-      <span class="dif-val">Precio cerrado</span>
-      <span class="dif-lbl">Antes de empezar, sin sorpresas</span>
-    </div>
-    <div class="dif-item">
-      <span class="dif-val">Nubeco oficial</span>
-      <span class="dif-lbl">Instaladores certificados</span>
-    </div>
-    <div class="dif-item">
-      <span class="dif-val">Todo el término</span>
-      <span class="dif-lbl">Núcleo urbano y fincas rurales</span>
-    </div>
+    <div class="dif-item"><span class="dif-val">Presupuesto gratuito</span><span class="dif-lbl">Sin compromiso</span></div>
+    <div class="dif-item"><span class="dif-val">Precio cerrado antes de empezar</span><span class="dif-lbl">Sin sorpresas en la factura</span></div>
+    <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados</span></div>
+    <div class="dif-item"><span class="dif-val">Todo el término</span><span class="dif-lbl">Casco y diseminado rural</span></div>
   </div>
 </div>
 
-<!-- BLOQUE 3: Intro + checklist + iCard -->
+<!-- Servicios principales enlazados -->
+<section class="zona-sec-dark">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Servicios de fontanería en Pinoso</p>
+    <h2>¿Qué necesitas? <span class="hl">Te cubrimos.</span></h2>
+    <p style="color:#fff;max-width:640px;margin:1rem 0 2rem">
+      Atendemos <a href="/fontanero/pinoso/urgencias" style="color:#fff;text-decoration:underline;text-underline-offset:3px">urgencias 24h</a>,
+      <a href="/fontanero/pinoso/busqueda_fugas" style="color:#fff;text-decoration:underline;text-underline-offset:3px">detección de fugas</a>
+      y <a href="/fontanero/pinoso/desatascos" style="color:#fff;text-decoration:underline;text-underline-offset:3px">desatascos</a>
+      en todo Pinoso. Presupuesto previo antes de tocar nada.
+    </p>
+    <div class="zona-srv3">
+      <a href="/fontanero/pinoso/urgencias" class="zona-srv3-card">
+        <h3>Urgencias 24h</h3>
+        <p>Roturas, escapes y averías que no pueden esperar. Llegamos a Pinoso con rapidez y damos precio antes de empezar.</p>
+        <span style="font-size:.85rem;color:#7eb3e8;margin-top:auto">Ver urgencias &rarr;</span>
+      </a>
+      <a href="/fontanero/pinoso/busqueda_fugas" class="zona-srv3-card">
+        <h3>Detección de fugas</h3>
+        <p>Localizamos fugas ocultas en casco, chalets y diseminado sin romper paredes. Geófono y cámara termográfica para marcar el punto exacto.</p>
+        <span style="font-size:.85rem;color:#7eb3e8;margin-top:auto">Ver fugas &rarr;</span>
+      </a>
+      <a href="/fontanero/pinoso/desatascos" class="zona-srv3-card">
+        <h3>Desatascos</h3>
+        <p>Bajantes, arquetas e inodoros con cámara endoscópica. El agua dura de Pinoso agrava las incrustaciones en tuberías — diagnóstico antes de actuar.</p>
+        <span style="font-size:.85rem;color:#7eb3e8;margin-top:auto">Ver desatascos &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Todos los servicios -->
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Fontanería en Pinoso</p>
-    <h2>El agua dura <span class="hl">destruye las instalaciones</span></h2>
+    <p class="zona-lbl">Todo lo que hacemos en Pinoso</p>
+    <h2>Fontanería completa <span class="hl">para Pinoso</span></h2>
+    <div class="zona-svc" style="margin-top:2rem">
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">TERMOS</span>
+        <h3>Termos y calentadores</h3>
+        <p>El agua dura de Pinoso acorta la vida útil de la resistencia. Revisión, reparación o sustitución con presupuesto previo y sin visita extra.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">DESCALCIFICADORES</span>
+        <h3>Descalcificadores</h3>
+        <p>Protege termos, calderas y electrodomésticos del sarro. Asesoramiento y montaje en Pinoso. Especialmente recomendado en segundas residencias y chalets.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">CALDERAS</span>
+        <h3>Calderas y calefacción</h3>
+        <p>Instalación, revisión anual obligatoria y reparación de calderas de gas. Mantenimiento preventivo antes del invierno para evitar cortes en viviendas de Pinoso.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">REFORMAS</span>
+        <h3>Reformas de baño y cocina</h3>
+        <p>Sustitución completa de tuberías, traslado de puntos de agua y adecuación a normativa. Presupuesto gratuito a domicilio en Pinoso.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">GRUPOS PRESIÓN</span>
+        <h3>Grupos de presión y depósitos</h3>
+        <p>Revisión, reparación y sustitución de grupos de presión en fincas, chalets y casas de campo del término de Pinoso.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">MANTENIMIENTO</span>
+        <h3>Revisión de segunda residencia</h3>
+        <p>Comprobación completa antes de abrir la vivienda: agua, grupo de presión, caldera y desagües. Servicio muy demandado por propietarios que no residen en Pinoso todo el año.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Por qué CarolTemp -->
+<section class="zona-sec zona-sec-alt">
+  <div class="cta-dark-con">
     <div class="zona-tcol">
       <div>
-        <p>El agua de Pinoso tiene una dureza alta que deja cal en termos, calentadores y tuberías. En propiedades con depósito propio o grupo de presión el problema se agrava: los sedimentos obstruyen válvulas y presostatos sin dar señales de aviso.</p>
+        <p class="zona-lbl">Por qué elegirnos en Pinoso</p>
+        <h2>Fontanería local <span class="hl">con garantía de trabajo</span></h2>
+        <div class="zona-prose">
+          <p>Pinoso es un municipio con una geografía dispersa: el casco urbano compacto, chalets y urbanizaciones en las afueras y un diseminado rural amplio con casas de campo y fincas que dependen de instalaciones propias. Cada situación requiere un enfoque distinto y el material adecuado desde la primera visita. En CarolTemp damos precio antes de tocar nada — sin letra pequeña, sin llamadas posteriores para añadir coste.</p>
+          <p>Pinoso cuenta además con una numerosa comunidad de propietarios extranjeros que tienen segundas residencias y necesitan un fontanero de confianza para revisiones pre-temporada, mantenimiento preventivo y reparaciones urgentes cuando no están físicamente en el municipio. Coordinamos con propietarios a distancia y reportamos el estado de la instalación.</p>
+        </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sustitución de termos con incrustaciones de cal</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Revisión y reparación de grupos de presión</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instalación de descalcificadores domésticos</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reformas de baño y cocina con presupuesto cerrado</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Detección de fugas y desatascos en toda la localidad</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Agua dura: termos y calderas que se deterioran antes</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupos de presión en fincas y chalets del diseminado</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Revisiones de segunda residencia para propietarios a distancia</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instaladores Nubeco certificados, con seguro de responsabilidad civil</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Presupuesto previo por escrito — sin sorpresas en la factura</li>
         </ul>
       </div>
       <div>
         <div class="zona-icard">
-          <div class="zona-icard-h">
-            <strong>CarolTemp · Pinoso</strong>
-            <span>Fontanería</span>
-          </div>
-          <div class="zona-ir">
-            <span class="zona-ir-l">Teléfono</span>
-            <span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span>
-          </div>
-          <div class="zona-ir">
-            <span class="zona-ir-l">WhatsApp</span>
-            <span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span>
-          </div>
-          <div class="zona-ir">
-            <span class="zona-ir-l">Horario</span>
-            <span class="zona-ir-v">Lun-Vie 8-20h · Sáb 9-14h</span>
-          </div>
-          <div class="zona-ir">
-            <span class="zona-ir-l">Financiación</span>
-            <span class="zona-ir-v">Disponible para reformas</span>
-          </div>
-          <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
+          <div class="zona-icard-h"><strong>CarolTemp &middot; Pinoso</strong><span>Fontanería local</span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Pinoso &middot; CP 03650</span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Certificación</span><span class="zona-ir-v">Instaladores Nubeco oficiales</span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Cobertura</span><span class="zona-ir-v">Casco, chalets, fincas y diseminado</span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Consulta condiciones</span></div>
+          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BLOQUE 4: Grid 6 servicios -->
-<section class="zona-sec zona-sec-gray">
-  <div class="cta-dark-con">
-    <p class="zona-lbl">Qué hacemos en Pinoso</p>
-    <h2>Todos los servicios <span class="hl">de fontanería</span></h2>
-    <div class="zona-svc">
-      <a href="/fontanero/pinoso/urgencias" class="zona-sc">
-        <span class="zona-sc-n">01</span>
-        <h3>Fontanero urgente en Pinoso</h3>
-        <p>Averías, roturas y emergencias. Presupuesto antes de tocar nada.</p>
-        <span class="zona-sc-a">Ver servicio →</span>
-      </a>
-      <a href="/fontanero/pinoso/busqueda_fugas" class="zona-sc">
-        <span class="zona-sc-n">02</span>
-        <h3>Detección de fugas en Pinoso</h3>
-        <p>Geófono y cámara termográfica. Localizamos la fuga sin abrir paredes.</p>
-        <span class="zona-sc-a">Ver servicio →</span>
-      </a>
-      <a href="/fontanero/pinoso/desatascos" class="zona-sc">
-        <span class="zona-sc-n">03</span>
-        <h3>Desatascos en Pinoso</h3>
-        <p>Bajantes, arquetas e inodoros. Diagnóstico con cámara endoscópica.</p>
-        <span class="zona-sc-a">Ver servicio →</span>
-      </a>
-      <a href="/servicios#termos" class="zona-sc">
-        <span class="zona-sc-n">04</span>
-        <h3>Termos eléctricos en Pinoso</h3>
-        <p>El agua dura de Pinoso forma sarro que inutiliza el termo en pocos años. Lo revisamos o sustituimos.</p>
-        <span class="zona-sc-a">Ver servicio →</span>
-      </a>
-      <a href="/servicios#descalcificadores" class="zona-sc">
-        <span class="zona-sc-n">05</span>
-        <h3>Descalcificadores en Pinoso</h3>
-        <p>Con agua dura, un descalcificador alarga la vida de termos, lavadoras y tuberías. Te asesoramos sin compromiso.</p>
-        <span class="zona-sc-a">Ver servicio →</span>
-      </a>
-      <a href="/servicios#reformas" class="zona-sc">
-        <span class="zona-sc-n">06</span>
-        <h3>Reformas de baño en Pinoso</h3>
-        <p>Presupuesto cerrado antes de empezar. Sin costes extra ni obras indefinidas.</p>
-        <span class="zona-sc-a">Ver servicio →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
+<!-- Proyectos -->
 <?php
 $_proy = [];
 try {
@@ -152,7 +176,7 @@ try {
   }
 } catch (\Throwable $_e) {}
 if (!empty($_proy)): ?>
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Trabajos realizados</p>
     <h2>Proyectos de fontaner&iacute;a <span class="hl">en Pinoso</span></h2>
@@ -167,85 +191,109 @@ if (!empty($_proy)): ?>
       </a>
       <?php endforeach; ?>
     </div>
-    <div style="text-align:center;margin-top:1.5rem"><a href="/proyectos/zona/Pinoso" class="btn-hz-g" style="display:inline-flex">Ver todos los proyectos en Pinoso &rarr;</a></div>
   </div>
 </section>
 <?php endif; ?>
 
-<!-- BLOQUE 5: Termos + descalcificadores (contenido exclusivo del hub) -->
-<section class="zona-sec">
-  <div class="cta-dark-con">
-    <p class="zona-lbl">El problema del agua dura</p>
-    <h2>Por qué los termos duran menos <span class="hl">en Pinoso</span></h2>
-    <div class="zona-tcol">
-      <div>
-        <div class="zona-prose">
-          <p>El agua de Pinoso tiene una concentración de cal que ataca directamente la resistencia del termo. El sarro se acumula sobre la resistencia eléctrica, la aísla y la obliga a trabajar al doble de temperatura hasta que se funde. Un termo nuevo puede quedar inutilizado en 4-6 años sin tratamiento previo del agua.</p>
-          <p>Antes de instalar un termo nuevo recomendamos revisar la dureza del agua en el punto de instalación. Si supera los 400 mg/L, un descalcificador de resina de intercambio iónico es la solución más eficaz para viviendas unifamiliares. Para chalets con mayor consumo, los sistemas de ósmosis parcial ofrecen mejor relación coste-mantenimiento.</p>
-        </div>
-      </div>
-      <div>
-        <div class="zona-prose">
-          <p>En fincas con depósito propio el problema es diferente: el agua estancada en el depósito puede acumular sedimentos que obstruyen el flotador y desbordan. Una revisión anual del depósito y el ajuste del grupo de presión evita la mayoría de averías inesperadas.</p>
-          <p>Instalamos descalcificadores de las marcas homologadas por Nubeco, con mantenimiento incluido el primer año. Te damos precio cerrado en la primera visita, sin revisiones posteriores con coste sorpresa.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BLOQUE 6: FAQ -->
+<!-- Problemas frecuentes -->
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Dudas sobre <span class="hl">fontanería en Pinoso</span></h2>
-    <div class="zona-faq">
-      <div class="zona-fi open">
-        <div class="zona-fiq" onclick="togFaq(this)">
-          <span>¿Vale la pena instalar un descalcificador en Pinoso?</span>
-          <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-        </div>
-        <div class="zona-fia">Con el agua de Pinoso, sí. Un descalcificador alarga entre 2 y 3 veces la vida útil del termo, protege la lavadora y mejora el rendimiento de la calefacción. Te hacemos un presupuesto gratuito según el tamaño de la vivienda y el consumo.</div>
+    <p class="zona-lbl">Lo que más vemos en Pinoso</p>
+    <h2>Problemas frecuentes <span class="hl">de fontanería en Pinoso</span></h2>
+    <div class="zona-svc" style="margin-top:2rem">
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">AGUA DURA</span>
+        <h3>Cal en tuberías y termos</h3>
+        <p>El agua de Pinoso tiene una dureza alta que acorta la vida de resistencias eléctricas, interiores de caldera y tuberías de pequeño diámetro. Los termos quedan inutilizados antes de lo previsto y los atascos se agravan por incrustaciones de cal en las paredes del tubo. Un descalcificador o sistema de ósmosis es la mejor inversión preventiva.</p>
       </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)">
-          <span>¿Hacéis presupuesto cerrado para reformas de baño?</span>
-          <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-        </div>
-        <div class="zona-fia">Sí. Antes de empezar cualquier reforma te damos un presupuesto detallado con precio final. Si durante la obra aparece algo imprevisto (tubería oculta en mal estado, por ejemplo) te lo comunicamos antes de actuar y decidimos juntos cómo proceder.</div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">VIVIENDAS ANTIGUAS</span>
+        <h3>Instalaciones en el casco histórico</h3>
+        <p>Las viviendas del casco urbano de Pinoso conservan en muchos casos tuberías de hierro o plomo que nunca se han sustituido. Las juntas fallan con el tiempo, aparecen humedades en paredes medianeras y el caudal disminuye progresivamente. La detección precoz y la sustitución planificada evitan averías mayores y daños estructurales.</p>
       </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)">
-          <span>¿Atendéis fincas alejadas del casco urbano de Pinoso?</span>
-          <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-        </div>
-        <div class="zona-fia">Sí, atendemos todo el término municipal de Pinoso. El desplazamiento está incluido en el presupuesto que te damos de antemano, sin recargo por kilómetros extra.</div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">SEGUNDAS RESIDENCIAS</span>
+        <h3>Chalets y viviendas cerradas</h3>
+        <p>Las viviendas que permanecen cerradas durante meses acumulan problemas silenciosos: cal endurecida en grifos y válvulas, presostatos del grupo de presión que fallan al reanudar el suministro y juntas que se resecan. Una revisión pre-temporada detecta estos problemas antes de que causen daños al abrir la vivienda.</p>
       </div>
-      <div class="zona-fi">
-        <div class="zona-fiq" onclick="togFaq(this)">
-          <span>¿Cuánto tarda en instalarse un descalcificador o un termo nuevo?</span>
-          <span class="zona-fiq-i"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-        </div>
-        <div class="zona-fia">La sustitución de un termo eléctrico estándar se hace en la misma visita, normalmente en 1-2 horas. La instalación de un descalcificador depende del acceso al contador y la toma de desagüe, pero en la mayoría de viviendas se resuelve en medio día.</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Climatización -->
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Fontanería + climatización</p>
+    <h2>Solución integral <span class="hl">para tu vivienda en Pinoso</span></h2>
+    <div class="zona-prose" style="max-width:720px;margin-bottom:2rem">
+      <p>CarolTemp no solo es fontanería. En Pinoso instalamos y mantenemos sistemas de calefacción y climatización: calderas de gas, suelo radiante, aerotermia y aire acondicionado. Un único equipo que conoce toda tu instalación —agua y climatización— simplifica el mantenimiento y reduce los tiempos de respuesta en caso de avería. Ideal para chalets y viviendas unifamiliares del término de Pinoso.</p>
+    </div>
+    <div class="zona-svc">
+      <div class="zona-sc">
+        <span class="zona-sc-n">CALDERAS</span>
+        <h3>Calderas de gas</h3>
+        <p>Instalación de caldera nueva y revisión anual obligatoria. Mantenimiento preventivo antes del invierno para garantizar calefacción y agua caliente en tu vivienda de Pinoso.</p>
+      </div>
+      <div class="zona-sc">
+        <span class="zona-sc-n">AEROTERMIA</span>
+        <h3>Aerotermia</h3>
+        <p>Calefacción, refrigeración y agua caliente con un único sistema de alta eficiencia. Muy rentable en chalets y viviendas unifamiliares de Pinoso con suelo radiante o fancoils.</p>
+      </div>
+      <div class="zona-sc">
+        <span class="zona-sc-n">SUELO RADIANTE</span>
+        <h3>Suelo radiante</h3>
+        <p>Instalación en obra nueva o reforma. Compatible con aerotermia y caldera de condensación. Circuitos y colectores dimensionados para cada planta de tu vivienda en Pinoso.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- /editable -->
+<!-- Proceso -->
+<section class="zona-sec-gray" style="background:#fff">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Cómo trabajamos</p>
+    <h2>Proceso <span class="hl">claro y sin sorpresas</span></h2>
+    <div class="zona-proceso">
+      <div class="zona-paso">
+        <div class="zona-paso-n">01</div>
+        <h3>Contacto</h3>
+        <p>Llama o escribe por WhatsApp. Cuéntanos la avería o el trabajo. Concretamos hora de visita en Pinoso.</p>
+      </div>
+      <div class="zona-paso">
+        <div class="zona-paso-n">02</div>
+        <h3>Diagnóstico</h3>
+        <p>El fontanero revisa la instalación, localiza el problema y explica qué hay que hacer y por qué.</p>
+      </div>
+      <div class="zona-paso">
+        <div class="zona-paso-n">03</div>
+        <h3>Presupuesto</h3>
+        <p>Precio cerrado antes de empezar. No se toca nada sin tu aprobación. Sin llamadas para añadir coste después.</p>
+      </div>
+      <div class="zona-paso">
+        <div class="zona-paso-n">04</div>
+        <h3>Trabajo y garantía</h3>
+        <p>Ejecutamos el trabajo, limpiamos la zona y entregamos garantía escrita por los materiales y la mano de obra.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Artículos -->
 <?php
 $_arts = [];
 try {
-  $_as = $pdo->prepare('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
-  $_as->execute();
-  $_arts = $_as->fetchAll(PDO::FETCH_ASSOC);
+  $_as = $pdo->query('SELECT titulo, slug, extracto, categoria, imagen FROM articulos WHERE publicado=1 ORDER BY fecha DESC LIMIT 3');
+  $_arts = $_as ? $_as->fetchAll(PDO::FETCH_ASSOC) : [];
 } catch (\Throwable $_e) {}
 if (!empty($_arts)): ?>
 <section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Consejos &uacute;tiles</p>
-    <h2>Art&iacute;culos sobre <span class="hl">fontaner&iacute;a</span></h2>
+    <h2>Art&iacute;culos de fontaner&iacute;a</h2>
     <div class="zona-svc" style="margin-top:2rem">
       <?php foreach ($_arts as $_a): ?>
       <a href="/noticias/<?php echo urlencode($_a['slug']); ?>" class="zona-sc">
@@ -257,43 +305,94 @@ if (!empty($_arts)): ?>
       </a>
       <?php endforeach; ?>
     </div>
-    <div style="text-align:center;margin-top:1.5rem"><a href="/noticias" class="btn-hz-g" style="display:inline-flex">Ver todos los art&iacute;culos &rarr;</a></div>
   </div>
 </section>
 <?php endif; ?>
 
-<section class="zona-sec">
+<!-- Mapa -->
+<section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
     <h2>Fontaner&iacute;a <span class="hl">en Pinoso</span></h2>
-    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Pinoso (CP 03650) y municipios lim&iacute;trofes.</p>
+    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Pinoso (CP 03650) y municipios lim&iacute;trofes del Vinalop&oacute;.</p>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
       <iframe src="https://maps.google.com/maps?q=38.4054,-1.0397&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontanero en Pinoso"></iframe>
     </div>
   </div>
 </section>
 
+<!-- Barrios y zonas -->
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Zonas donde trabajamos en Pinoso</p>
+    <h2>Cobertura <span class="hl">en todo Pinoso</span></h2>
+    <div class="zona-ztags" style="margin-top:1.5rem">
+      <span class="zona-ztag-plain">Casco urbano</span>
+      <span class="zona-ztag-plain">Chalets y urbanizaciones</span>
+      <span class="zona-ztag-plain">Diseminado rural</span>
+      <span class="zona-ztag-plain">Casas de campo</span>
+      <span class="zona-ztag-plain">Polígono Industrial</span>
+      <span class="zona-ztag-plain">Segundas residencias</span>
+    </div>
+  </div>
+</section>
+
+<!-- Municipios cercanos -->
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
-    <p class="zona-lbl">También trabajamos en zonas cercanas</p>
-    <h2>Fontaner&iacute;a en <span class="hl">otros municipios</span></h2>
+    <p class="zona-lbl">Fontanería en otras zonas</p>
+    <h2>También trabajamos <span class="hl">en municipios cercanos</span></h2>
     <div class="zona-ztags">
       <a href="/fontanero/elda" class="zona-ztag">Elda</a>
       <a href="/fontanero/petrer" class="zona-ztag">Petrer</a>
       <a href="/fontanero/novelda" class="zona-ztag">Novelda</a>
       <a href="/fontanero/monovar" class="zona-ztag">Mon&oacute;var</a>
       <a href="/fontanero/sax" class="zona-ztag">Sax</a>
-      <a href="/fontanero/monforte" class="zona-ztag">Monforte del Cid</a>
-      <a href="/fontanero/salinas" class="zona-ztag">Salinas</a>
       <a href="/fontanero/aspe" class="zona-ztag">Aspe</a>
+      <a href="/fontanero/salinas" class="zona-ztag">Salinas</a>
+      <a href="/fontanero/monforte-del-cid" class="zona-ztag">Monforte del Cid</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Preguntas frecuentes</p>
+    <h2>Fontanería en Pinoso <span class="hl">— dudas habituales</span></h2>
+    <div class="zona-faqs">
+      <details class="zona-faq-item" open>
+        <summary>¿Cuánto cuesta un fontanero en Pinoso?</summary>
+        <div class="faq-ans">La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Pinoso. El presupuesto se da siempre antes de empezar, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Atendéis urgencias en festivos y fines de semana en Pinoso?</summary>
+        <div class="faq-ans">Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 611 165 129 o escribe por WhatsApp y te confirmamos disponibilidad y precio de inmediato.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Atendéis fincas y casas de campo en el diseminado rural de Pinoso?</summary>
+        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Pinoso, incluyendo el diseminado rural, casas de campo y chalets alejados del casco urbano. Para instalaciones con depósito propio o grupo de presión, avisad indicando el tipo de instalación para llevar el material adecuado en la primera visita.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Vale la pena instalar un descalcificador en Pinoso?</summary>
+        <div class="faq-ans">Sí. El agua de Pinoso tiene dureza alta que acorta significativamente la vida de termos, calderas y electrodomésticos. Un descalcificador bien dimensionado puede amortizarse en 2-3 años en ahorro de averías. En segundas residencias es especialmente útil porque el agua estancada en los meses de cierre agrava la incrustación de cal.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Hacéis revisiones pre-temporada de segundas residencias en Pinoso?</summary>
+        <div class="faq-ans">Sí. Realizamos revisiones completas antes de abrir una segunda residencia: comprobación de la instalación de agua, revisión del grupo de presión o depósito, purga de tuberías y comprobación de que todo funciona antes de que lleguen los propietarios. Coordinamos con propietarios a distancia y reportamos el estado de la instalación.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Instaláis calderas y aerotermia en Pinoso además de fontanería?</summary>
+        <div class="faq-ans">Sí. CarolTemp ofrece fontanería y climatización como servicio integral. Instalamos calderas de gas, sistemas de aerotermia y suelo radiante en viviendas unifamiliares, chalets y casas de campo en Pinoso. Un único equipo que conoce toda tu instalación simplifica el mantenimiento y reduce los tiempos de respuesta en futuras averías.</div>
+      </details>
     </div>
   </div>
 </section>
 
 <section class="cta-dark">
   <div class="cta-dark-con">
-    <h2>&iquest;Necesitas un fontanero <span>en Pinoso?</span></h2>
-    <p>Ll&aacute;menos o escr&iacute;benos. Presupuesto gratuito sin compromiso.</p>
+    <h2>&iquest;Necesitas fontaner&iacute;a <span>en Pinoso?</span></h2>
+    <p>Atendemos toda Pinoso. Presupuesto previo, sin sorpresas.</p>
     <div class="cta-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>

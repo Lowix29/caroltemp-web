@@ -372,6 +372,24 @@ switch ($schema_type ?? 'default') {
 echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 ?>
 </script>
+<?php if (!empty($faq_items)): ?>
+<script type="application/ld+json">
+<?php
+echo json_encode([
+  "@context"   => "https://schema.org",
+  "@type"      => "FAQPage",
+  "mainEntity" => array_map(fn($item) => [
+    "@type" => "Question",
+    "name"  => $item['q'],
+    "acceptedAnswer" => [
+      "@type" => "Answer",
+      "text"  => $item['a']
+    ]
+  ], $faq_items)
+], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+?>
+</script>
+<?php endif; ?>
 <!-- GMB -->
 <!-- google-site-verification: pendiente verificar caroltemp.com -->
 </head>

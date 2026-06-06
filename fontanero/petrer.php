@@ -6,6 +6,20 @@ $schema_type = 'local';
 $page_css    = 'zona';
 $page_js     = 'zona';
 $depth       = 1;
+$faq_items   = [
+  ['q' => '¿Cuánto cuesta un fontanero en Petrer?',
+   'a' => 'La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento. El presupuesto se da siempre antes de empezar. Hay recargos para trabajos nocturnos y en fines de semana o festivos, que se informan al contactar.'],
+  ['q' => '¿Atendéis urgencias en fines de semana y festivos en Petrer?',
+   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse.'],
+  ['q' => '¿Podéis reparar fugas en viviendas de ladera y El Monastil en Petrer?',
+   'a' => 'Sí. Conocemos las particularidades de las viviendas en ladera y la zona de El Monastil en Petrer: presión irregular, instalaciones antiguas y terreno con raíces que afectan al saneamiento. Localizamos la fuga con geófono y cámara termográfica antes de abrir.'],
+  ['q' => '¿Vale la pena instalar un descalcificador en Petrer?',
+   'a' => 'Sí. El agua en Petrer tiene dureza alta por el acuífero del Vinalopó. Un descalcificador bien dimensionado alarga la vida de termos, calderas y electrodomésticos y puede amortizarse en 2-3 años en ahorro de averías.'],
+  ['q' => '¿Hacéis reformas completas de fontanería en Petrer?',
+   'a' => 'Sí. Realizamos la sustitución completa de tuberías, traslado de puntos de agua y adecuación a normativa. Presupuesto gratuito a domicilio en Petrer.'],
+  ['q' => '¿Atendéis empresas e industrias del polígono industrial de Petrer?',
+   'a' => 'Sí. Damos servicio a naves y locales del polígono industrial de Petrer: instalaciones de agua industrial, reparación de fugas en tuberías de gran diámetro y mantenimiento de grupos de presión.'],
+];
 include '../includes/head.php';
 ?>
 
