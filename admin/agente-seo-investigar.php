@@ -32,8 +32,9 @@ if (!function_exists('curl_init')) {
   exit;
 }
 
-$keyword = trim($_POST['keyword'] ?? '');
-$zona    = trim($_POST['zona']    ?? '');
+$keyword = trim($_POST['keyword']           ?? '');
+$zona    = trim($_POST['zona']              ?? '');
+$notas   = trim($_POST['notas_investigar']  ?? '');
 
 if (!$keyword) {
   echo json_encode(['error' => 'Keyword requerida']);
@@ -228,6 +229,9 @@ if (empty($analisis)) {
 // ── 3. Informe Claude ────────────────────────────────────────
 $fuente    = $serp['fuente'] ?? 'Bing';
 $contexto  = "Keyword: \"{$keyword}\"" . ($zona ? " · Zona: {$zona}" : '') . "\n\n";
+if ($notas) {
+  $contexto .= "⚠️ INSTRUCCIONES MANUALES DEL EDITOR (prioridad máxima):\n{$notas}\n\n";
+}
 $contexto .= "DATOS DE LOS " . count($analisis) . " PRIMEROS RESULTADOS EN {$fuente} ESPAÑA:\n\n";
 foreach ($analisis as $p) {
   $contexto .= "═══ #{$p['posicion']} — {$p['url']} ═══\n";

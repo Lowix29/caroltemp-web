@@ -299,6 +299,13 @@ try {
           </select>
         </div>
 
+        <!-- Notas manuales -->
+        <div class="ag-field">
+          <label for="notas-investigar">Indicaciones manuales (opcional)</label>
+          <textarea id="notas-investigar" rows="2" placeholder="Ej: Salinas es en Alicante, no San Miguel de Salinas. Evitar referencias a turismo."></textarea>
+          <small>El agente las tendrá en cuenta al analizar y generar el informe</small>
+        </div>
+
         <!-- Botón investigar -->
         <button class="btn-investigar" id="btn-investigar" onclick="investigar()">
           🔍 Investigar competencia en Google
@@ -795,6 +802,7 @@ async function investigar() {
   const fd = new FormData();
   fd.append('keyword', keyword);
   fd.append('zona', document.getElementById('zona').value);
+  fd.append('notas_investigar', (document.getElementById('notas-investigar')?.value || '').trim());
 
   try {
     const r    = await fetch('agente-seo-investigar', { method: 'POST', body: fd });
