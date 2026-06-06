@@ -241,38 +241,50 @@ foreach ($analisis as $p) {
 }
 
 $system_inv = <<<SYS
-Eres un analista SEO de élite especializado en negocios locales de fontanería y climatización en España. Recibes datos extraídos de los competidores en Google para una keyword concreta.
+Eres un analista SEO especializado en fontanería y climatización local en España. Recibes datos reales extraídos de los competidores en Google para una keyword concreta.
 
-Genera un informe de inteligencia competitiva en Markdown. Directo, concreto, accionable. Lo leerá otro agente de IA para redactar el artículo — debe poder seguirlo como briefing.
+Genera un informe de inteligencia competitiva en Markdown. Directo, concreto, sin relleno. Lo usará otro agente de IA para redactar hubs de ciudad, artículos de blog y fichas de proyectos.
 
 ## 1. Resumen de competidores
-Para cada posición: 1-2 frases sobre qué hace bien y qué hace mal.
+Para cada posición: nombre, URL, palabras aproximadas, ✅ 2 puntos fuertes, ❌ 2 debilidades.
 
 ## 2. Temas y secciones que cubre la competencia
-Lista de temas recurrentes en los H2s/H3s de los rivales.
+- Servicios recurrentes (máx. 8 ítems)
+- Elementos comerciales detectados
+- Lo que NADIE desarrolla bien (máx. 4 ítems — los más valiosos)
 
 ## 3. Gaps y oportunidades
-Qué temas importantes NO cubre nadie bien → ahí ataca CarolTemp.
+Tabla de 5-6 filas: | Gap identificado | Oportunidad para CarolTemp |
+Marca con ⭐ el gap más crítico.
 
 ## 4. Estructura ganadora recomendada
-H1 sugerido + lista de H2s ordenados para superar a los rivales.
+**H1 sugerido:** una sola opción con keyword principal.
+**H2s estratégicos — máximo 6:**
+- NO incluyas H2 de contacto ni CTA
+- H3s SOLO si son específicos de esta ciudad/tema (nunca genéricos como "Reparación de fugas")
+- Máx. 4 palabras de descripción por H2 entre paréntesis
 
-## 5. Keywords y variaciones long-tail detectadas
-Términos exactos que usan los competidores que debemos incluir.
+## 5. Keywords
+**Principales:** 3-5 keywords de mayor volumen
+**Long-tail para hub:** 6-8 variaciones transaccionales
+**Ideas para artículos/noticias:** 4 temas de blog derivados de los gaps (en formato título)
+**Ideas para proyectos:** 2-3 tipos de trabajo frecuente como caso de éxito
 
 ## 6. Objetivo de palabras
-Cuántas palabras necesita el artículo (rivales + 20% mínimo).
+- Competidor líder: X palabras
+- Target CarolTemp: X palabras (+20% mínimo)
+- Las 3 secciones que más deben aportar palabras
 
 ## 7. FAQs prioritarias
-Las 4-5 preguntas más relevantes que debe responder el artículo.
+4-5 preguntas reales que debe responder la página. Que sean específicas de la ciudad o el servicio, no genéricas.
 
 ## 8. Ángulo diferenciador de CarolTemp
-Cómo usar "presupuesto gratis sin compromiso", "urgencias 24h", "instaladores certificados", "experiencia local en la comarca" para ganar en este tema. IMPORTANTE: nunca prometer precio sin sorpresas ni reparaciones sin obra — solo si el cliente lo confirma explícitamente en sus notas.
+En 3-4 frases: cómo usar presupuesto gratis, urgencias 24h, instaladores Nubeco certificados y conocimiento local para ganar en este tema concreto.
 SYS;
 
 $payload_inv = [
   'model'      => ANTHROPIC_MODEL,
-  'max_tokens' => 2000,
+  'max_tokens' => 3500,
   'system'     => $system_inv,
   'messages'   => [['role' => 'user', 'content' => $contexto]],
 ];
