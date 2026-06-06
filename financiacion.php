@@ -1,7 +1,7 @@
 <?php
-$meta_title  = "Financiación para fontanería — CarolTemp | Sin intereses en el Vinalopó";
-$meta_desc   = "Financia tu reforma, instalación de ósmosis, descalcificador o cualquier trabajo de fontanería. Material e instalación incluidos sin intereses en el Vinalopó.";
-$meta_url    = "https://caroltemp.com/financiacion.php";
+$meta_title  = "Financiación para fontanería — CarolTemp | Sin adelantos en el Vinalopó";
+$meta_desc   = "Financia tu reforma, instalación o reparación de fontanería. Cuotas cómodas, aprobación rápida y firma digital desde el móvil. Sin adelantar nada. CarolTemp.";
+$meta_url    = "https://caroltemp.com/financiacion";
 $schema_type = "default";
 $page_css    = "financiacion";
 $page_js     = "";
@@ -15,105 +15,155 @@ include 'includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Financiación disponible</div>
-    <h1>Financia tu proyecto<br><span class="hl">sin complicaciones.</span></h1>
-    <p class="hz-dark-sub">Material e instalación completa financiados. Sin intereses, sin gastos ocultos y sin necesidad de adelantar nada.</p>
+    <h1>Que el presupuesto no frene<br><span class="hl">lo que necesitas hacer</span></h1>
+    <p class="hz-dark-sub">Aprueba el presupuesto hoy y empieza sin adelantar nada. Cuotas cómodas, aprobación rápida y firma digital desde tu móvil.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
-      <a href="<?php echo $base_url; ?>contacto.php" class="btn-hz-g">Pedir información</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Consultar ahora</a>
+      <a href="<?php echo $base_url; ?>contacto" class="btn-hz-g">Pedir información</a>
     </div>
   </div>
 </section>
 
-<!-- QUÉ CUBRE -->
-<section style="padding:5rem 0">
-  <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-md)">
-    <p class="zona-lbl">¿Qué cubre?</p>
-    <h2 style="font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;line-height:1.15;margin-bottom:.75rem">Financia <span style="color:#3b82f6">cualquier instalación</span></h2>
-    <p style="color:#64748b;font-size:15px;line-height:1.75;margin-bottom:2.5rem;max-width:580px">La financiación cubre tanto el material como la mano de obra. No tienes que buscarla por tu cuenta.</p>
-    <div class="zona-svc">
-      <div class="zona-sc"><span class="zona-sc-n">01</span><h3>Ósmosis inversa</h3><p>Equipo completo e instalación financiados. Agua de calidad sin desembolso inicial.</p></div>
-      <div class="zona-sc"><span class="zona-sc-n">02</span><h3>Descalcificadores</h3><p>Equipo y puesta en marcha incluidos. Protege tu instalación sin pagar todo de golpe.</p></div>
-      <div class="zona-sc"><span class="zona-sc-n">03</span><h3>Reformas de baño</h3><p>Reforma completa financiada. Material, instalación y mano de obra incluidos.</p></div>
-      <div class="zona-sc"><span class="zona-sc-n">04</span><h3>Termos Nubeco</h3><p>Termo nuevo con instalación financiado. Sin adelantar nada.</p></div>
-      <div class="zona-sc"><span class="zona-sc-n">05</span><h3>Aerotermia</h3><p>Sistema completo financiado. La alternativa eficiente a la caldera tradicional.</p></div>
-      <div class="zona-sc"><span class="zona-sc-n">06</span><h3>Cualquier instalación</h3><p>Consulta tu proyecto. Si el presupuesto lo permite, buscamos la solución adecuada.</p></div>
+<!-- STRIP -->
+<div class="dif-strip">
+  <div class="dif-strip-in">
+    <div class="dif-item"><span class="dif-val">Sin adelanto</span><span class="dif-lbl">Empezamos sin que pagues nada</span></div>
+    <div class="dif-item"><span class="dif-val">Aprobación rápida</span><span class="dif-lbl">Proceso ágil, sin esperas</span></div>
+    <div class="dif-item"><span class="dif-val">Firma digital</span><span class="dif-lbl">Solo necesitas tu móvil</span></div>
+    <div class="dif-item"><span class="dif-val">Material + mano de obra</span><span class="dif-lbl">Todo el proyecto financiado</span></div>
+  </div>
+</div>
+
+<!-- QUÉ PUEDES FINANCIAR -->
+<section class="zona-sec">
+  <div class="cta-dark-con" style="max-width:1100px">
+    <div class="zona-tcol">
+      <div>
+        <p class="zona-lbl">¿Qué puedes financiar?</p>
+        <h2>Cualquier trabajo de fontanería <span class="hl">material e instalación incluidos</span></h2>
+        <div class="zona-prose">
+          <p>La financiación cubre el proyecto completo: materiales, instalación y mano de obra. No tienes que buscar financiación por tu cuenta ni gestionar nada. Nosotros lo tramitamos con el presupuesto.</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-head">Trabajos financiables</div>
+        <div class="icard-body">
+          <div class="icard-row"><span class="icard-icon">💧</span><span>Ósmosis inversa — equipo e instalación completos</span></div>
+          <div class="icard-row"><span class="icard-icon">🔩</span><span>Descalcificadores — protege tu instalación a plazos</span></div>
+          <div class="icard-row"><span class="icard-icon">🚿</span><span>Reformas de baño — proyecto íntegro financiado</span></div>
+          <div class="icard-row"><span class="icard-icon">♨️</span><span>Termos Nubeco — equipo nuevo sin desembolso inicial</span></div>
+          <div class="icard-row"><span class="icard-icon">🌡️</span><span>Aerotermia — instalación eficiente a cuotas cómodas</span></div>
+          <div class="icard-row"><span class="icard-icon">🔧</span><span>Cualquier instalación — consulta tu proyecto</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CÓMO FUNCIONA -->
-<section style="padding:5rem 0;background:#f8fafc;border-top:1px solid #f1f5f9">
+<section class="zona-sec-alt">
   <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-md)">
-    <p class="zona-lbl">Cómo funciona</p>
-    <h2 style="font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;line-height:1.15;margin-bottom:2.5rem">Cuatro pasos, <span style="color:#3b82f6">sin complicaciones</span></h2>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e2e8f0;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden">
-      <?php
-      $pasos = [
-        ['01','Nos cuentas qué necesitas','Llámanos o escríbenos. Valoramos tu proyecto sin compromiso.'],
-        ['02','precio sin sorpresas','Te damos el precio total antes de empezar. Sin sorpresas ni extras.'],
-        ['03','Solicitas la financiación','Trámite sencillo y rápido. Aprobación en pocos días.'],
-        ['04','Hacemos el trabajo','Sin que tengas que adelantar nada. Pagas cómodamente a plazos.'],
-      ];
-      foreach ($pasos as $p):
-      ?>
-      <div style="background:#fff;padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:.75rem">
-        <span style="font-size:11px;font-weight:700;color:#cbd5e1;letter-spacing:.1em"><?php echo $p[0]; ?></span>
-        <h3 style="color:#0d1f33;font-size:14.5px;font-weight:700;line-height:1.3"><?php echo $p[1]; ?></h3>
-        <p style="color:#64748b;font-size:13px;line-height:1.6"><?php echo $p[2]; ?></p>
+    <p class="zona-lbl" style="text-align:center">Proceso</p>
+    <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;line-height:1.15;margin-bottom:2.5rem;text-align:center">Cuatro pasos, <span style="color:#3b82f6">todo desde el móvil</span></h2>
+    <div class="zona-steps">
+      <div class="zona-step">
+        <div class="zona-step-n">01</div>
+        <div class="zona-step-txt">
+          <strong>Aceptas el presupuesto</strong>
+          <span>Te presentamos el presupuesto con la opción de financiarlo a plazos. Tú decides.</span>
+        </div>
       </div>
-      <?php endforeach; ?>
+      <div class="zona-step">
+        <div class="zona-step-n">02</div>
+        <div class="zona-step-txt">
+          <strong>Tramitamos la financiación</strong>
+          <span>Nosotros iniciamos el proceso. Te contactan directamente para pedirte la documentación necesaria, que es mínima.</span>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">03</div>
+        <div class="zona-step-txt">
+          <strong>Firmas digitalmente</strong>
+          <span>Recibes las condiciones por email y un código por SMS para firmar el contrato. Sin ir a ningún sitio, sin papeleos.</span>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">04</div>
+        <div class="zona-step-txt">
+          <strong>Empezamos el trabajo</strong>
+          <span>Una vez aprobada la financiación, empezamos. Tú pagas cómodamente a plazos, nosotros trabajamos.</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- VENTAJAS -->
-<section style="padding:5rem 0">
+<section class="zona-sec">
   <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-md)">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
-      <div>
-        <p class="zona-lbl">Sin letra pequeña</p>
-        <h2 style="font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;line-height:1.15;margin-bottom:1rem">Sin intereses <span style="color:#3b82f6">ni letra pequeña</span></h2>
-        <p style="color:#64748b;font-size:15px;line-height:1.75;margin-bottom:1.5rem">La financiación cubre tanto el material como la mano de obra. No tienes que buscar financiación por tu cuenta ni adelantar nada. Nosotros lo gestionamos todo.</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:.7rem">
-          <?php
-          $ventajas = [
-            'Material e instalación incluidos',
-            'Sin intereses ni gastos ocultos',
-            'Gestión rápida y sin papeleos',
-            'Tú eliges el plazo que mejor te viene',
-            'Sin necesidad de adelantar nada',
-            'Disponible para particulares',
-          ];
-          foreach ($ventajas as $v):
-          ?>
-          <li style="display:flex;align-items:flex-start;gap:10px;color:#1e293b;font-size:14px;line-height:1.5">
-            <span style="width:20px;height:20px;background:#1e3a5f;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
-              <svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <?php echo $v; ?>
-          </li>
-          <?php endforeach; ?>
-        </ul>
+    <p class="zona-lbl">Ventajas</p>
+    <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;line-height:1.15;margin-bottom:2.5rem">Sin adelantos, <span style="color:#3b82f6">sin complicaciones</span></h2>
+    <div class="zona-grid-6">
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">💶</div>
+        <strong>Sin pago inicial</strong>
+        <span>El trabajo empieza sin que tengas que poner dinero por adelantado.</span>
       </div>
-      <div style="display:flex;flex-direction:column;gap:1rem">
-        <?php
-        $items = [
-          ['Sin adelanto inicial','No tienes que pagar nada por adelantado'],
-          ['Gestión incluida','Nosotros hacemos todos los trámites por ti'],
-          ['Plazo flexible','Elige el plazo que mejor se adapta a ti'],
-          ['Aprobación rápida','Respuesta en pocos días hábiles'],
-        ];
-        foreach ($items as $item):
-        ?>
-        <div style="display:flex;align-items:flex-start;gap:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:1rem 1.25rem">
-          <span style="width:28px;height:28px;background:#1e3a5f;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:13px;font-weight:700">✓</span>
-          <div>
-            <strong style="color:#0d1f33;font-size:14px;font-weight:600;display:block;margin-bottom:3px"><?php echo $item[0]; ?></strong>
-            <span style="color:#64748b;font-size:13px"><?php echo $item[1]; ?></span>
-          </div>
-        </div>
-        <?php endforeach; ?>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">📱</div>
+        <strong>Firma desde el móvil</strong>
+        <span>El contrato se firma digitalmente con un SMS. Sin desplazarte a ningún sitio.</span>
       </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">⚡</div>
+        <strong>Aprobación ágil</strong>
+        <span>El proceso es rápido. Sin largas esperas ni burocracia innecesaria.</span>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">📋</div>
+        <strong>Documentación mínima</strong>
+        <span>Solo lo esencial. Sin montones de papeles ni trámites complicados.</span>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🗓️</div>
+        <strong>Plazo flexible</strong>
+        <span>Elige las cuotas y el plazo que mejor se adapta a tu situación.</span>
+      </div>
+      <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏠</div>
+        <strong>Viviendas y locales</strong>
+        <span>Disponible para particulares, autónomos y empresas con local o negocio.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section class="zona-sec-alt">
+  <div style="max-width:780px;margin:0 auto;padding:0 var(--space-md)">
+    <p class="zona-lbl" style="text-align:center">Preguntas frecuentes</p>
+    <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;margin-bottom:2rem;text-align:center">Lo que suelen <span style="color:#3b82f6">preguntarnos</span></h2>
+    <div class="zona-faqs">
+      <details class="zona-faq-item">
+        <summary>¿Puedo financiar cualquier trabajo de fontanería?</summary>
+        <div class="faq-ans">La financiación está disponible para la mayoría de instalaciones y reformas: ósmosis, descalcificadores, termos, reformas de baño, aerotermia y otros proyectos. Consulta tu caso concreto y te decimos si aplica.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Cuánto tarda en aprobarse la financiación?</summary>
+        <div class="faq-ans">El proceso es rápido. Una vez que aceptas el presupuesto con la opción de financiarlo, el trámite se inicia inmediatamente. La firma del contrato es digital, con un código que recibes por SMS.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Qué documentación necesito?</summary>
+        <div class="faq-ans">La documentación es mínima. Te la solicitan directamente una vez iniciado el proceso. No necesitas preparar nada por adelantado para consultar o pedir el presupuesto.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Funciona también para autónomos o locales comerciales?</summary>
+        <div class="faq-ans">Sí. La financiación está disponible para particulares, autónomos y empresas que quieran mejorar sus instalaciones en vivienda o local sin hacer un desembolso inicial grande.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Puedo pedir primero el presupuesto sin compromiso?</summary>
+        <div class="faq-ans">Por supuesto. Llámanos o escríbenos y te valoramos el proyecto sin ningún compromiso. Si decides financiarlo, lo tramitamos todo en ese momento.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -122,9 +172,9 @@ include 'includes/head.php';
 <section class="cta-dark">
   <div class="cta-dark-con">
     <h2>¿Te interesa <span>financiar tu proyecto?</span></h2>
-    <p>Llámanos y te explicamos sin compromiso cómo funciona.</p>
+    <p>Llámanos y te explicamos cómo funciona sin ningún compromiso.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
     <div class="cta-dark-tel">Teléfono directo<strong>611 165 129</strong></div>
