@@ -910,51 +910,6 @@
   max-width: 380px;
   width: 100%;
 }
-.home-urg-tel {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  background: #fff;
-  border-radius: 12px;
-  padding: .85rem 1.25rem;
-  text-decoration: none;
-  transition: transform .18s, box-shadow .18s;
-}
-.home-urg-tel:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.25);
-}
-.home-urg-tel-ico { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
-.home-urg-tel div { display: flex; flex-direction: column; gap: 1px; }
-.home-urg-tel-label {
-  font-size: 10px;
-  color: #94a3b8;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-}
-.home-urg-tel strong {
-  font-size: 1.15rem;
-  font-weight: 900;
-  color: #0d1f33;
-  letter-spacing: -.02em;
-  line-height: 1.1;
-}
-.home-urg-wa {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  background: #25d366;
-  color: #fff;
-  border-radius: 12px;
-  padding: .75rem 1.25rem;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: opacity .15s, transform .15s;
-}
-.home-urg-wa:hover { opacity: .92; transform: translateY(-1px); }
 
 /* ================================
    FAQ HOME
