@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Aspe &middot; CP 03680</div>
-    <h1>Detección de fugas en Aspe<br><span class="hl">encontramos la fuga sin abrir paredes</span></h1>
+    <h1>Detección de fugas en Aspe<br><span class="hl">localizamos la fuga exacta sin romper más de lo necesario</span></h1>
     <p class="hz-dark-sub">Una fuga oculta puede llevar semanas trabajando en silencio — mojando la estructura, subiendo la factura, dañando lo que no se ve. La detectamos con geófono y cámara termográfica: sabemos exactamente dónde está antes de tocar una sola baldosa.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

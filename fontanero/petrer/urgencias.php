@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Petrer &middot; CP 03610</div>
-    <h1>Fontanero urgente en Petrer<br><span class="hl">sin esperas, sin excusas, sin segunda visita</span></h1>
+    <h1>Fontanero urgente en Petrer<br><span class="hl">diagnóstico preciso y reparación efectiva desde la primera visita</span></h1>
     <p class="hz-dark-sub">La furgoneta sale con el material más habitual ya cargado: racores, válvulas, juntas, manguitos, llaves de paso. Si la pieza está a bordo, el trabajo termina en la misma visita. Si no, se deja una solución provisional operativa para que esa noche haya agua — y se vuelve con el repuesto en cuanto llega.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

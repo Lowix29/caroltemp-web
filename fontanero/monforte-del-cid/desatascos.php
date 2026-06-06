@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Monforte del Cid &middot; CP 03670</div>
-    <h1>Desatascos en Monforte del Cid<br><span class="hl">limpiamos hasta el fondo</span></h1>
+    <h1>Desatascos en Monforte del Cid<br><span class="hl">recuperamos el funcionamiento normal de tu instalación</span></h1>
     <p class="hz-dark-sub">Primero la cámara: vemos qué hay y dónde está. Después el hidrojetting: limpiamos el conducto completo, no solo rompemos el tapón. Al terminar, comprobamos con agua real que queda despejado. Tres pasos, un resultado.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

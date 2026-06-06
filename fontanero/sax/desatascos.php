@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Sax &middot; CP 03630</div>
-    <h1>Desatascos en Sax<br><span class="hl">limpio hasta el fondo</span></h1>
+    <h1>Desatascos en Sax<br><span class="hl">intervención rápida para dejar la instalación completamente operativa</span></h1>
     <p class="hz-dark-sub">Meter la sonda deja pasar el agua pero no limpia nada. El hidrojetting lanza agua a presión por toda la sección del conducto y arrastra la grasa, el sarro y los residuos que se han pegado a las paredes. La bajante queda como nueva, no solo desbloqueada.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

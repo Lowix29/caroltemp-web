@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Novelda &middot; CP 03660</div>
-    <h1>Detección de fugas en Novelda<br><span class="hl">localización exacta al primer intento</span></h1>
+    <h1>Detección de fugas en Novelda<br><span class="hl">encontramos la fuga antes de que aumenten los daños</span></h1>
     <p class="hz-dark-sub">No abrimos paredes a ciegas. El geófono escucha la tubería y marca el punto exacto de la pérdida — el cincel va justo ahí y no un centímetro más. Menos obra, menos polvo, menos tiempo sin agua.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

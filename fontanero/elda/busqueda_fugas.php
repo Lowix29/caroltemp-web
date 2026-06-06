@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Elda &middot; CP 03600</div>
-    <h1>Detección de fugas en Elda<br><span class="hl">sin romper hasta saber exactamente dónde</span></h1>
+    <h1>Detección de fugas en Elda<br><span class="hl">tecnología de precisión para encontrar la avería a la primera</span></h1>
     <p class="hz-dark-sub">Humedad en una pared sin explicación, el contador que no para aunque todo esté cerrado, una factura del agua que se ha disparado sin motivo aparente. Hay fugas que el ojo no ve — pero el geófono y la cámara termográfica sí las encuentran, sin abrir nada hasta tener el punto exacto.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Elda &middot; CP 03600</div>
-    <h1>Desatascos en Elda<br><span class="hl">hoy mismo, bien hecho y sin olor</span></h1>
+    <h1>Desatascos en Elda<br><span class="hl">limpieza profunda y resultados duraderos desde la primera intervención</span></h1>
     <p class="hz-dark-sub">Limpiar a fondo no es lo mismo que abrir un paso. Antes de actuar entra la cámara endoscópica: vemos el estado real del conducto, no solo el tapón. Después viene el hidrojetting — de pared a pared — para que el resultado dure.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

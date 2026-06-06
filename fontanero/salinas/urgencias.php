@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Salinas &middot; CP 03668</div>
-    <h1>Fontanero urgente en Salinas<br><span class="hl">disponibles cuando la avería no avisa</span></h1>
+    <h1>Fontanero urgente en Salinas<br><span class="hl">asistencia urgente con la confianza de un trabajo bien hecho</span></h1>
     <p class="hz-dark-sub">No solo atendemos en horario de oficina. Una avería real no espera al lunes ni al día después de un festivo — y nosotros tampoco. Cogemos el teléfono cuando otros no lo hacen, porque las averías no preguntan cuándo es buen momento.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

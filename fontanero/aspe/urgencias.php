@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Aspe &middot; CP 03680</div>
-    <h1>Fontanero urgente en Aspe<br><span class="hl">atendemos la urgencia, no la apuntamos para mañana</span></h1>
+    <h1>Fontanero urgente en Aspe<br><span class="hl">llegamos rápido, resolvemos bien y te devolvemos la tranquilidad</span></h1>
     <p class="hz-dark-sub">Hay averías que no pueden esperar a que haya hueco en la agenda. Cogemos el teléfono, vamos ese día y lo resolvemos — porque una urgencia real necesita a alguien que actúe, no que prometa y no llegue.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

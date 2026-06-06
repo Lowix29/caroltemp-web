@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Pinoso &middot; CP 03650</div>
-    <h1>Desatascos en Pinoso<br><span class="hl">sin productos agresivos, con resultado duradero</span></h1>
+    <h1>Desatascos en Pinoso<br><span class="hl">eficacia, limpieza y máxima seguridad para tus tuberías</span></h1>
     <p class="hz-dark-sub">Sin lejía, sin sosa, sin gel desatascador. Trabajamos con hidrojetting a presión regulada, aspiración mecánica y cámara de comprobación: métodos que limpian el conducto de verdad sin atacar el material de la tubería.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

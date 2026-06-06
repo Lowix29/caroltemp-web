@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Petrer &middot; CP 03610</div>
-    <h1>Detección de fugas en Petrer<br><span class="hl">tecnología de precisión, sin obras innecesarias</span></h1>
+    <h1>Detección de fugas en Petrer<br><span class="hl">equipos profesionales para localizar fugas ocultas con exactitud</span></h1>
     <p class="hz-dark-sub">Cada instalación exige el equipo adecuado: geófono de alta sensibilidad para tuberías enterradas en jardín o bajo solera, termografía infrarroja para circuitos de suelo radiante donde el calor delata la fuga, y correlador acústico para tramos largos donde el geófono solo no es suficiente. El equipo correcto en cada caso no es un detalle — es la diferencia entre abrir una vez y abrir tres.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

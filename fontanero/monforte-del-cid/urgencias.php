@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Monforte del Cid &middot; CP 03670</div>
-    <h1>Fontanero urgente en Monforte del Cid<br><span class="hl">avería vista, fontanero en camino</span></h1>
+    <h1>Fontanero urgente en Monforte del Cid<br><span class="hl">respuesta inmediata para averías que no pueden esperar</span></h1>
     <p class="hz-dark-sub">Cada minuto con agua saliendo es daño que se extiende: paredes que se empapan, suelo que cede, mobiliario que no tiene vuelta atrás. Actuamos rápido para cortar el problema antes de que la avería se convierta en obra.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
