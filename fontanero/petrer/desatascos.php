@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Petrer &middot; CP 03610</div>
-    <h1>Desatascos en Petrer<br><span class="hl">desatascamos con método, no con suerte</span></h1>
+    <h1>Desatascos en Petrer<br><span class="hl">limpieza integral para un resultado completo y duradero</span></h1>
     <p class="hz-dark-sub">Antes de meter la sonda, entra la cámara. Lo que muestra la imagen decide el método: sonda helicoidal para un tapón localizado, hidrojetting a alta presión para grasa acumulada en tramos largos, aspiración industrial para arquetas con sólidos. Elegir mal el método no solo no resuelve el atasco — puede dañar la tubería.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

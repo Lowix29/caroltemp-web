@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Monóvar &middot; CP 03640</div>
-    <h1>Desatascos en Monóvar<br><span class="hl">bajantes limpias de verdad, no un parche</span></h1>
+    <h1>Desatascos en Monóvar<br><span class="hl">desatascos profesionales con maquinaria especializada</span></h1>
     <p class="hz-dark-sub">Fosas sépticas saturadas, bajantes de casas con años de sarro acumulado, tuberías exteriores con raíces dentro. Cada caso tiene su causa y su método — no hay un desatasco único que sirva para todo.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

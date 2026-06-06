@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Monóvar &middot; CP 03640</div>
-    <h1>Detección de fugas en Monóvar<br><span class="hl">encontramos la fuga sin abrir paredes</span></h1>
+    <h1>Detección de fugas en Monóvar<br><span class="hl">localización precisa para reparar con seguridad y rapidez</span></h1>
     <p class="hz-dark-sub">En instalaciones con depósito y grupo de presión propio, la señal más clara de fuga es el grupo que arranca sin parar: está compensando una pérdida que no ves. Localizamos el escape con geófono y correlador antes de excavar un solo centímetro de terreno.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

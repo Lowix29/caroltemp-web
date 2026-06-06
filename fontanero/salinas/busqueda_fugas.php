@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Salinas &middot; CP 03668</div>
-    <h1>Detección de fugas en Salinas<br><span class="hl">fuga localizada antes de que el seguro te pida la factura</span></h1>
+    <h1>Detección de fugas en Salinas<br><span class="hl">detección avanzada con informe técnico para aseguradoras</span></h1>
     <p class="hz-dark-sub">Antes de reparar hay que saber exactamente dónde está el problema. Localizamos la fuga con geófono y cámara termográfica, marcamos el punto exacto y emitimos un informe técnico que documenta el origen — el documento que tu aseguradora va a pedirte para tramitar el siniestro sin dar rodeos.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

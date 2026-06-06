@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Búsqueda de fugas &middot; Pinoso &middot; CP 03650</div>
-    <h1>Detección de fugas en Pinoso<br><span class="hl">el equipo correcto para cada tipo de fuga</span></h1>
+    <h1>Detección de fugas en Pinoso<br><span class="hl">resultados precisos, intervención mínima y máxima eficacia</span></h1>
     <p class="hz-dark-sub">No todos los equipos de detección funcionan igual en todos los escenarios. El geófono escucha el agua bajo presión en tuberías enterradas; la termografía revela gradientes de temperatura en circuitos de calefacción; el correlador acústico compara señales en tramos largos. Usar el equipo equivocado no localiza nada — usar el correcto marca el punto exacto.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

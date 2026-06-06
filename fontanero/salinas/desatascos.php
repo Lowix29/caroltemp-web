@@ -17,7 +17,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Salinas &middot; CP 03668</div>
-    <h1>Desatascos en Salinas<br><span class="hl">vaciamos, limpiamos y comprobamos</span></h1>
+    <h1>Desatascos en Salinas<br><span class="hl">eliminamos obstrucciones y comprobamos el correcto funcionamiento</span></h1>
     <p class="hz-dark-sub">Primero la cámara para ver qué hay y dónde está. Después el hidrojetting para limpiar en toda la sección del conducto. Y al terminar, otra pasada de cámara para confirmar que la bajante queda limpia de verdad — no solo desbloqueada hasta el siguiente atasco.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>

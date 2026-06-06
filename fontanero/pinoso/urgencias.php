@@ -18,7 +18,7 @@ include '../../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Urgencias Pinoso</div>
-    <h1>Fontanero urgente en Pinoso <span class="hl">cuando no puede esperar, nosotros tampoco</span></h1>
+    <h1>Fontanero urgente en Pinoso <span class="hl">experiencia, rapidez y soluciones que duran</span></h1>
     <p class="hz-dark-sub">Una rotura que manda agua al suelo, una inundación que avanza por el pasillo, un termo que deja de funcionar a medianoche. Hay averías que no admiten demora — y un fontanero de guardia que de verdad coge el teléfono y sale marca la diferencia entre un susto y un desastre.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
