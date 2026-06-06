@@ -297,7 +297,7 @@ p {
 }
 .hz-dark h1 .hl { color: #fff; }
 .hz-dark-sub {
-  color: rgba(255,255,255,.72);
+  color: #fff;
   font-size: 15.5px;
   line-height: 1.75;
   max-width: 540px;
