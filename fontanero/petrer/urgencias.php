@@ -17,7 +17,7 @@ $faq_items = [
   ],
   [
     'q' => '¿En cuánto tiempo puede llegar un fontanero urgente a Petrer?',
-    'a' => 'En el casco histórico y zonas céntricas de Petrer llegamos en unos 15-20 minutos. En urbanizaciones de ladera como El Monastil o las zonas altas cerca del castillo, entre 20-25 minutos. El servicio es real 24 horas al día, los 365 días del año, incluidos domingos y festivos locales. Para urgencias activas con agua corriendo, priorizamos el desplazamiento.',
+    'a' => 'Atendemos en Petrer el mismo día, con un máximo de 3 horas desde el contacto. El servicio es real 24 horas al día, los 365 días del año, incluidos domingos y festivos locales. Para urgencias activas con agua corriendo, priorizamos el desplazamiento.',
   ],
   [
     'q' => '¿Qué hago si tengo una fuga de agua mientras espero al fontanero en Petrer?',
@@ -52,7 +52,7 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">15-25 min de llegada</span><span class="dif-lbl">Casco y urbanizaciones de ladera</span></div>
+    <div class="dif-item"><span class="dif-val">Máx. 3h desde el contacto</span><span class="dif-lbl">Mismo día en toda la localidad</span></div>
     <div class="dif-item"><span class="dif-val">Presupuesto gratis</span><span class="dif-lbl">Incluso en urgencias nocturnas</span></div>
     <div class="dif-item"><span class="dif-val">&#9989; Nubeco certificados</span><span class="dif-lbl">Gas, boletines y garantía escrita</span></div>
     <div class="dif-item"><span class="dif-val">24h / 365 días</span><span class="dif-lbl">Festivos sin recargo oculto</span></div>
@@ -71,7 +71,7 @@ include '../../includes/head.php';
           <p>Trabajamos con la furgoneta equipada para lo más frecuente en Petrer: válvulas reductoras de presión, grupos de presión, tuberías de cobre y multicapa, llaves de paso, repuestos de calentador. Presupuesto cerrado con la avería vista — sin tocar nada hasta que lo apruebes.</p>
         </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>15-20 min al casco histórico · 20-25 min a urbanizaciones de ladera</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atendemos el mismo día — máximo 3 horas desde el contacto</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instaladores Nubeco certificados — emitimos boletines de gas</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Precio cerrado antes de empezar — incluso en urgencias nocturnas</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reparación en la misma visita si hay material disponible</li>
@@ -328,7 +328,7 @@ if (!empty($_proy)): ?>
 <section class="cta-dark">
   <div class="cta-dark-con">
     <h2>&iquest;Tienes una aver&iacute;a urgente <span>en Petrer?</span></h2>
-    <p>Ll&aacute;menos. Llegamos en 15-25 minutos. Precio antes de empezar.</p>
+    <p>Ll&aacute;menos. Atendemos el mismo d&iacute;a. Precio antes de empezar.</p>
     <div class="cta-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
