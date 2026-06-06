@@ -2,53 +2,235 @@
    CAROLTEMP — Contacto CSS
 ================================ */
 
-.contacto-inner {
+/* TRUST STRIP */
+.ctrust-strip {
+  background: #0d1f33;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  padding: .85rem 0;
+}
+
+.ctrust-strip-in {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.ctrust-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: #94a3b8;
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.ctrust-ico {
+  font-size: 15px;
+}
+
+/* SECCIÓN PRINCIPAL */
+.ctact-section {
+  padding: 5rem 0;
+}
+
+.ctact-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
 }
 
+.ctact-h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: #0d1f33;
+  letter-spacing: -.025em;
+  margin-bottom: .4rem;
+}
+
+.ctact-sub {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+/* TARJETAS DE CONTACTO */
+.ctact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  margin-bottom: 2.5rem;
+}
+
+.ctact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  text-decoration: none;
+  transition: all .18s;
+  cursor: pointer;
+}
+
+.ctact-card:hover {
+  border-color: #1e3a5f;
+  box-shadow: 0 4px 16px rgba(30,58,95,.08);
+  transform: translateY(-1px);
+}
+
+.ctact-card-phone:hover { border-color: #1e3a5f; }
+.ctact-card-wa:hover    { border-color: #25d366; }
+.ctact-card-email:hover { border-color: #3b82f6; }
+
+.ctact-card-ico {
+  font-size: 22px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.ctact-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.ctact-card-body strong {
+  color: #0d1f33;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ctact-card-body span {
+  color: #1e3a5f;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ctact-card-body small {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.ctact-card-arrow {
+  color: #cbd5e1;
+  font-size: 18px;
+  font-weight: 700;
+  transition: color .15s;
+}
+
+.ctact-card:hover .ctact-card-arrow {
+  color: #1e3a5f;
+}
+
+/* HORARIO */
+.ctact-horario {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.ctact-horario-grid {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.ctact-horario-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13.5px;
+  color: #475569;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ctact-horario-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ctact-horario-val {
+  color: #1e3a5f;
+  font-weight: 600;
+}
+
+.ctact-horario-urg {
+  color: #16a34a;
+}
+
 /* FORMULARIO */
-.contacto-form-wrap h2 {
-  margin-bottom: 0;
+.ctact-form-card {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,.05);
 }
 
 .contacto-form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .form-group label {
-  color: var(--color-text-main);
-  font-size: 13.5px;
-  font-weight: 500;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .form-opcional {
-  color: var(--color-text-muted);
+  color: #94a3b8;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 11.5px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
   padding: 11px 14px;
   font-size: 14px;
   font-family: var(--font-main);
-  color: var(--color-text-main);
-  background: #fff;
-  transition: border-color 0.15s;
+  color: #0d1f33;
+  background: #f8fafc;
+  transition: all .15s;
   width: 100%;
 }
 
@@ -56,7 +238,9 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--color-primary);
+  border-color: #1e3a5f;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(30,58,95,.06);
 }
 
 .form-group input.error,
@@ -77,6 +261,16 @@
   display: block;
 }
 
+.form-error-box {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  padding: .85rem 1.25rem;
+  color: #dc2626;
+  font-size: 14px;
+  margin-bottom: 1.25rem;
+}
+
 .form-check {
   display: flex;
   align-items: flex-start;
@@ -87,21 +281,21 @@
 .form-check input[type="checkbox"] {
   margin-top: 3px;
   flex-shrink: 0;
-  accent-color: var(--color-primary);
+  accent-color: #1e3a5f;
   width: 16px;
   height: 16px;
   cursor: pointer;
 }
 
 .form-check label {
-  color: var(--color-text-muted);
+  color: #64748b;
   font-size: 13px;
   line-height: 1.5;
   cursor: pointer;
 }
 
 .form-check label a {
-  color: var(--color-primary);
+  color: #1e3a5f;
   text-decoration: underline;
 }
 
@@ -110,6 +304,9 @@
   justify-content: center;
   padding: 14px;
   font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-top: .25rem;
 }
 
 .contacto-submit:disabled {
@@ -121,130 +318,41 @@
   display: none;
   background: #eaf3de;
   border: 1px solid #c0dd97;
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  padding: 1.25rem;
   color: #3b6d11;
   font-size: 14px;
   text-align: center;
+  margin-top: 1rem;
 }
 
 .form-success.visible {
   display: block;
 }
 
-/* MÉTODOS DE CONTACTO */
-.contacto-info h2 {
-  margin-bottom: 0;
-}
-
-.contacto-metodos {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.contacto-metodo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--color-bg-soft);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
-  transition: border-color 0.15s;
-  cursor: pointer;
-}
-
-.contacto-metodo:hover {
-  border-color: var(--color-primary);
-}
-
-.contacto-metodo-ico {
-  font-size: 24px;
-  flex-shrink: 0;
-}
-
-.contacto-metodo-texto {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.contacto-metodo-texto strong {
-  color: var(--color-text-main);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.contacto-metodo-texto span {
-  color: var(--color-primary);
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.contacto-metodo-texto small {
-  color: var(--color-text-muted);
-  font-size: 12px;
-}
-
-/* ZONAS */
-.contacto-zonas {
-  margin-bottom: 2rem;
-}
-
-.contacto-zonas h3 {
-  color: var(--color-text-main);
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 0;
-}
-
-/* HORARIO */
-.contacto-horario h3 {
-  color: var(--color-text-main);
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.horario-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.horario-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid var(--color-border);
-  background: #fff;
-}
-
-.horario-item:last-child {
-  border-bottom: none;
-}
-
-.horario-dia {
-  color: var(--color-text-body);
-  font-size: 14px;
-}
-
-.horario-hora {
-  color: var(--color-primary);
-  font-size: 14px;
-  font-weight: 500;
-}
-
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .contacto-inner {
+  .ctact-wrap {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .ctact-form-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .ctrust-strip-in {
+    gap: 1.25rem;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctrust-item {
+    font-size: 12.5px;
   }
 }
