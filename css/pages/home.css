@@ -758,7 +758,6 @@
   .pasos-cta { flex-direction: row; }
   .cta-final-btns { flex-direction: row; width: auto; }
   .svc-grid { grid-template-columns: repeat(2, 1fr); }
-  .hub-grid { grid-template-columns: repeat(2, 1fr); }
   .porque-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonios-grid { grid-template-columns: repeat(2, 1fr); }
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
@@ -778,20 +777,6 @@
 
   .svc-grid { grid-template-columns: repeat(3, 1fr); }
   .svc-card { padding: 2rem 1.75rem; }
-  .hub-grid { grid-template-columns: repeat(3, 1fr); }
-
-  .home-stat { flex: 1 1 0; padding: 0 2rem; }
-  .home-stat + .home-stat {
-    border-left: 1px solid rgba(255,255,255,.15);
-  }
-
-  .home-urg-inner {
-    flex-direction: row;
-    align-items: center;
-    gap: 5rem;
-  }
-  .home-urg-left { flex: 1; }
-  .home-urg-right { flex-shrink: 0; }
 
   .pasos-grid {
     flex-direction: row;
@@ -1105,4 +1090,35 @@
     align-self: stretch;
     text-align: center;
   }
+}
+
+/* ================================
+   RESPONSIVE NUEVAS SECCIONES
+   (debe ir AL FINAL para ganar la cascada)
+================================ */
+@media (min-width: 600px) {
+  .hub-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  /* Stats: 4 en una fila */
+  .home-stats-grid { flex-wrap: nowrap; }
+  .home-stat {
+    flex: 1 1 0;
+    padding: 1rem 2rem;
+    border-right: 1px solid rgba(255,255,255,.15);
+  }
+  .home-stat:last-child { border-right: none; }
+
+  /* Urgencias: dos columnas */
+  .home-urg-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+  }
+  .home-urg-left  { flex: 1; }
+  .home-urg-right { flex-shrink: 0; max-width: 360px; width: 100%; }
+
+  /* Hub: 3 columnas */
+  .hub-grid { grid-template-columns: repeat(3, 1fr); }
 }
