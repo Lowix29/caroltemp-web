@@ -135,35 +135,29 @@ include '../includes/head.php';
   </div>
 </section>
 
-<!-- PROYECTOS RELACIONADOS -->
+<!-- OTRAS NOTICIAS DE INTERÉS -->
 <?php
-$proyectos_rel = [];
-if ($art['zona']) {
-  $stmt_pro = $pdo->prepare('SELECT id, titulo, slug, descripcion, servicio, zona FROM proyectos WHERE publicado = 1 AND zona = ? ORDER BY fecha DESC LIMIT 3');
-  $stmt_pro->execute([$art['zona']]);
-  $proyectos_rel = $stmt_pro->fetchAll();
-}
-if (empty($proyectos_rel)) {
-  $proyectos_rel = $pdo->query('SELECT id, titulo, slug, descripcion, servicio, zona FROM proyectos WHERE publicado = 1 ORDER BY fecha DESC LIMIT 3')->fetchAll();
-}
+$stmt_otras = $pdo->prepare('SELECT id, titulo, slug, extracto, zona, categoria FROM articulos WHERE publicado = 1 AND id != ? ORDER BY fecha DESC LIMIT 3');
+$stmt_otras->execute([$art['id']]);
+$otras = $stmt_otras->fetchAll();
 ?>
-<?php if (!empty($proyectos_rel)): ?>
+<?php if (!empty($otras)): ?>
 <section style="padding:4rem 0;background:#f8fafc;border-top:1px solid #f1f5f9">
   <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-md)">
-    <p class="zona-lbl">Trabajos realizados<?php echo $art['zona'] ? ' en ' . htmlspecialchars($art['zona']) : ''; ?></p>
-    <h2 style="font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:800;color:#0d1f33;letter-spacing:-.02em;margin-bottom:1.75rem">Proyectos <span style="color:#3b82f6">relacionados</span></h2>
+    <p class="zona-lbl">Seguir leyendo</p>
+    <h2 style="font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:800;color:#0d1f33;letter-spacing:-.02em;margin-bottom:1.75rem">Otras noticias <span style="color:#3b82f6">de interés</span></h2>
     <div class="blog-grid blog-grid-3">
-      <?php foreach ($proyectos_rel as $pro): ?>
-        <a href="/proyectos/<?php echo urlencode($pro['slug']); ?>" class="blog-card">
-          <div class="blog-card-img blog-card-img-placeholder"><span>🔧</span></div>
+      <?php foreach ($otras as $otra): ?>
+        <a href="/noticias/<?php echo urlencode($otra['slug']); ?>" class="blog-card">
+          <div class="blog-card-img blog-card-img-placeholder"><span>✍️</span></div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
-              <?php if ($pro['servicio']): ?><span class="blog-cat"><?php echo htmlspecialchars($pro['servicio']); ?></span><?php endif; ?>
-              <?php if ($pro['zona']): ?><span class="blog-zona">📍 <?php echo htmlspecialchars($pro['zona']); ?></span><?php endif; ?>
+              <?php if ($otra['categoria']): ?><span class="blog-cat"><?php echo htmlspecialchars($otra['categoria']); ?></span><?php endif; ?>
+              <?php if ($otra['zona']): ?><span class="blog-zona">📍 <?php echo htmlspecialchars($otra['zona']); ?></span><?php endif; ?>
             </div>
-            <h2><?php echo htmlspecialchars($pro['titulo']); ?></h2>
-            <p><?php echo htmlspecialchars($pro['descripcion']); ?></p>
-            <span class="blog-card-link">Ver proyecto →</span>
+            <h2><?php echo htmlspecialchars($otra['titulo']); ?></h2>
+            <p><?php echo htmlspecialchars($otra['extracto']); ?></p>
+            <span class="blog-card-link">Leer más →</span>
           </div>
         </a>
       <?php endforeach; ?>
