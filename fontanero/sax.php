@@ -3,8 +3,8 @@
  * Fontanero en Sax — Hub
  * CarolTemp
  */
-$meta_title  = 'Fontanero en Sax | Averías, fugas y reformas — CarolTemp';
-$meta_desc   = 'Fontanero en Sax para urgencias, reparaciones, desatascos y reformas. Atención profesional y presupuesto claro desde el primer momento.';
+$meta_title  = 'Fontanero en Sax | Urgencias, fugas y desatascos — CarolTemp';
+$meta_desc   = 'Fontanero en Sax para urgencias 24h, detección de fugas, desatascos y reformas. Presupuesto gratuito, instaladores Nubeco certificados.';
 $meta_url    = 'https://caroltemp.com/fontanero/sax';
 $schema_type = 'local';
 $page_css    = 'zona';
@@ -19,7 +19,7 @@ include '../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Sax &middot; CP 03630</div>
     <h1>Fontanero en Sax<br><span class="hl">con experiencia, puntualidad y resultados de calidad</span></h1>
-    <p class="hz-dark-sub">Fontanería en Sax para el casco histórico bajo el castillo, viviendas unifamiliares y fincas de la periferia. Servicio que no depende del turno de guardia municipal.</p>
+    <p class="hz-dark-sub">Urgencias, fugas, desatascos y reformas en Sax. Atendemos casco histórico, viviendas unifamiliares y fincas de la periferia.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -32,77 +32,105 @@ include '../includes/head.php';
     <div class="dif-item"><span class="dif-val">Presupuesto gratuito</span><span class="dif-lbl">Sin compromiso</span></div>
     <div class="dif-item"><span class="dif-val">Precio cerrado antes de empezar</span><span class="dif-lbl">Sin sorpresas en la factura</span></div>
     <div class="dif-item"><span class="dif-val">&#9989; Nubeco oficial</span><span class="dif-lbl">Instaladores certificados</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero local</span><span class="dif-lbl">Conocemos Sax</span></div>
+    <div class="dif-item"><span class="dif-val">Urgencias 24h</span><span class="dif-lbl">Fines de semana y festivos</span></div>
   </div>
 </div>
 
-<!-- Servicios principales -->
-<section class="zona-sec">
+<!-- Servicios principales enlazados -->
+<section class="zona-sec-dark">
   <div class="cta-dark-con">
     <p class="zona-lbl">Servicios de fontanería en Sax</p>
     <h2>¿Qué necesitas? <span class="hl">Te cubrimos.</span></h2>
+    <p style="color:#fff;max-width:640px;margin:1rem 0 2rem">
+      Atendemos <a href="/fontanero/sax/urgencias" style="color:#fff;text-decoration:underline;text-underline-offset:3px">urgencias 24h</a>,
+      <a href="/fontanero/sax/busqueda_fugas" style="color:#fff;text-decoration:underline;text-underline-offset:3px">detección de fugas</a>
+      y <a href="/fontanero/sax/desatascos" style="color:#fff;text-decoration:underline;text-underline-offset:3px">desatascos</a>
+      en todo Sax. Presupuesto previo antes de tocar nada.
+    </p>
+    <div class="zona-srv3">
+      <a href="/fontanero/sax/urgencias" class="zona-srv3-card">
+        <h3>Urgencias 24h</h3>
+        <p>Roturas, escapes y averías que no pueden esperar. Llegamos a Sax con rapidez y damos precio antes de empezar.</p>
+        <span style="font-size:.85rem;color:#7eb3e8;margin-top:auto">Ver urgencias &rarr;</span>
+      </a>
+      <a href="/fontanero/sax/busqueda_fugas" class="zona-srv3-card">
+        <h3>Detección de fugas</h3>
+        <p>Localizamos fugas ocultas en casco histórico y fincas sin romper paredes. Geófono y cámara termográfica para marcar el punto exacto.</p>
+        <span style="font-size:.85rem;color:#7eb3e8;margin-top:auto">Ver fugas &rarr;</span>
+      </a>
+      <a href="/fontanero/sax/desatascos" class="zona-srv3-card">
+        <h3>Desatascos</h3>
+        <p>Bajantes, arquetas e inodoros con cámara endoscópica. El sarro del Vinalopó complica los atascos — diagnóstico antes de actuar.</p>
+        <span style="font-size:.85rem;color:#7eb3e8;margin-top:auto">Ver desatascos &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Todos los servicios -->
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Todo lo que hacemos en Sax</p>
+    <h2>Fontanería completa <span class="hl">para Sax</span></h2>
     <div class="zona-svc" style="margin-top:2rem">
-
-      <a href="/fontanero/sax/urgencias" class="zona-sc">
-        <span class="zona-sc-n">URGENCIAS</span>
-        <h3>Fontanero urgente Sax</h3>
-        <p>Avería vista, precio dado. Atendemos roturas, escapes, grupos de presión y calentadores en Sax. Nada se toca sin que sepas cuánto cuesta.</p>
-        <span class="zona-sc-a">Ver urgencias &rarr;</span>
-      </a>
-
-      <a href="/fontanero/sax/busqueda_fugas" class="zona-sc">
-        <span class="zona-sc-n">FUGAS</span>
-        <h3>Detección de fugas en Sax</h3>
-        <p>Localización de fugas de agua en Sax sin romper paredes: geófono y cámara termográfica. Especialmente frecuentes en viviendas antiguas del casco histórico junto al castillo árabe. Marcamos el punto exacto antes de abrir.</p>
-        <span class="zona-sc-a">Ver fugas &rarr;</span>
-      </a>
-
-      <a href="/fontanero/sax/desatascos" class="zona-sc">
-        <span class="zona-sc-n">DESATASCOS</span>
-        <h3>Desatascos en Sax</h3>
-        <p>Desatascos de bajantes, arquetas e inodoros con cámara endoscópica. El sarro del agua del Vinalopó complica los atascos en Sax. Diagnóstico antes de actuar. Precio cerrado.</p>
-        <span class="zona-sc-a">Ver desatascos &rarr;</span>
-      </a>
 
       <div class="zona-sc">
         <span class="zona-sc-n">TERMOS</span>
         <h3>Termos y calentadores</h3>
-        <p>El agua dura del Vinalopó deteriora la resistencia del termo antes de lo previsto. Reparación o sustitución en viviendas unifamiliares de Sax con presupuesto previo y sin visita extra.</p>
-      </div>
-
-      <div class="zona-sc">
-        <span class="zona-sc-n">REFORMAS</span>
-        <h3>Reformas de baño y cocina</h3>
-        <p>Reforma completa o parcial de la instalación de fontanería en Sax. Sustitución de tuberías en casas antiguas del casco histórico, traslado de puntos de agua y adecuación a normativa.</p>
+        <p>El agua dura del Vinalopó acorta la vida útil de la resistencia. Reparación o sustitución con presupuesto previo y sin visita extra.</p>
       </div>
 
       <div class="zona-sc">
         <span class="zona-sc-n">DESCALCIFICADORES</span>
         <h3>Descalcificadores</h3>
-        <p>El agua del río Vinalopó tiene dureza elevada. Un descalcificador bien dimensionado protege termos, calentadores y electrodomésticos de las viviendas unifamiliares y fincas periféricas de Sax.</p>
+        <p>Un descalcificador bien dimensionado protege termos, calderas y electrodomésticos del sarro. Asesoramiento y montaje en Sax.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">CALDERAS</span>
+        <h3>Calderas y calefacción</h3>
+        <p>Instalación, revisión anual y reparación de calderas de gas. Mantenimiento preventivo antes del invierno para evitar cortes de calefacción.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">REFORMAS</span>
+        <h3>Reformas de baño y cocina</h3>
+        <p>Sustitución completa de tuberías en casas del casco histórico, traslado de puntos de agua y adecuación a normativa vigente.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">GRIFERÍA</span>
+        <h3>Grifería y sanitarios</h3>
+        <p>Cambio de grifo, inodoro, plato de ducha o bañera. Presupuesto rápido a domicilio en todo Sax.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">INSTALACIONES</span>
+        <h3>Instalaciones nuevas</h3>
+        <p>Acometidas, grupos de presión, instalaciones completas en obra nueva o reformas integrales en fincas y viviendas de Sax.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- El agua en Sax -->
+<!-- Por qué CarolTemp -->
 <section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
     <div class="zona-tcol">
       <div>
-        <p class="zona-lbl">Por qué Sax es exigente con la fontanería</p>
-        <h2>El agua en Sax <span class="hl">el Vinalopó al lado pero el sarro igual de duro</span></h2>
+        <p class="zona-lbl">Por qué elegirnos en Sax</p>
+        <h2>Fontanería local <span class="hl">con garantía de trabajo</span></h2>
         <div class="zona-prose">
-          <p>Sax está junto al río Vinalopó pero el agua de red es igual de calcárea que en el resto de la comarca. El sarro destruye termos y calentadores, reduce el caudal en tuberías de pequeño diámetro y provoca que las juntas fallen antes de lo que debería. En el casco histórico de Sax, donde muchas viviendas tienen tuberías que no han sido sustituidas desde la construcción, es habitual encontrar instalaciones de hierro o incluso plomo que llevan décadas en servicio.</p>
-          <p>En un municipio de tamaño medio como Sax el servicio de guardia municipal de fontanería no siempre responde con la rapidez que se necesita en una urgencia real. Por eso muchos vecinos de Sax buscan fontanero privado: precio cerrado, llegada rápida, sin depender del turno de guardia ni de la lista de espera del ayuntamiento.</p>
+          <p>Sax tiene un casco histórico compacto bajo el castillo árabe con viviendas que no han renovado sus instalaciones desde la construcción. Tuberías de hierro o plomo, uniones que fallan con el tiempo y agua calcárea del Vinalopó que acelera el deterioro: la combinación exige un fontanero que conozca el tipo de construcción y llegue con el material adecuado. En CarolTemp damos precio antes de tocar nada — sin letra pequeña, sin llamadas posteriores para añadir coste.</p>
+          <p>En un municipio como Sax el servicio de guardia municipal no siempre responde con la rapidez que una avería real requiere. Por eso muchos vecinos del casco y de las fincas periféricas buscan fontanero privado: llegada rápida, presupuesto claro y sin depender de turnos ni listas de espera.</p>
         </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Termos que duran menos por la cal del agua del Vinalopó</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tuberías antiguas en el casco histórico junto al castillo árabe</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grifos que gotean más rápido por depósitos de cal</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desagüe de ducha y fregadero que se atasca antes</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tuberías antiguas en el casco histórico junto al castillo</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Agua calcárea del Vinalopó: termos y grifos que se deterioran antes</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupos de presión en fincas periféricas que fallan en verano</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instaladores Nubeco certificados, con seguro de responsabilidad civil</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Presupuesto previo por escrito — sin sorpresas en la factura</li>
         </ul>
       </div>
       <div>
@@ -113,6 +141,7 @@ include '../includes/head.php';
           <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Certificación</span><span class="zona-ir-v">Instaladores Nubeco oficiales</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Cobertura</span><span class="zona-ir-v">Casco histórico, urbanizaciones y fincas</span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Consulta condiciones</span></div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
@@ -152,28 +181,89 @@ if (!empty($_proy)): ?>
 </section>
 <?php endif; ?>
 
-<!-- FAQ -->
+<!-- Problemas frecuentes en Sax -->
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Fontanería en Sax <span class="hl">— dudas habituales</span></h2>
-    <div class="zona-faqs">
-      <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta un fontanero en Sax?</summary>
-        <div class="faq-ans">La mano de obra es de 100 €/hora con mínimo de una hora, más 40 € de desplazamiento a Sax. El presupuesto definitivo se da siempre antes de empezar el trabajo, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos, que se informan al contactar.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Atendéis toda la zona de Sax, incluidas las fincas y el casco histórico junto al castillo árabe?</summary>
-        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Sax: casco histórico compacto con sus viviendas antiguas, zona residencial unifamiliar y fincas agrícolas de la periferia. Para instalaciones en fincas avisad indicando el tipo de instalación para llevar el material adecuado.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Vale la pena instalar un descalcificador en Sax?</summary>
-        <div class="faq-ans">Sí, especialmente si tienes termo eléctrico, caldera o suelo radiante en tu vivienda unifamiliar. El agua del Vinalopó tiene dureza alta y el sarro reduce la vida útil de estos equipos significativamente. Un descalcificador bien dimensionado amortiza su coste en 2-3 años en ahorro de averías y consumo eléctrico en Sax. Os asesoramos sin compromiso.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Podéis hacer la reforma completa de fontanería de mi vivienda en Sax?</summary>
-        <div class="faq-ans">Sí. Realizamos la sustitución completa de tuberías de suministro y saneamiento, traslado de puntos de agua, adecuación de instalaciones antiguas en el casco histórico a normativa y montaje de baños y cocinas. Presupuesto gratuito a domicilio en Sax.</div>
-      </details>
+    <p class="zona-lbl">Lo que más vemos en Sax</p>
+    <h2>Problemas frecuentes <span class="hl">de fontanería en Sax</span></h2>
+    <div class="zona-svc" style="margin-top:2rem">
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">AGUA DURA</span>
+        <h3>Cal del Vinalopó</h3>
+        <p>El agua de red en Sax tiene una dureza elevada. El sarro se acumula en resistencias de termos, interiores de caldera y tuberías de pequeño diámetro, provocando roturas y pérdida de caudal antes de lo que debería. Un descalcificador bien dimensionado alarga significativamente la vida de la instalación.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">CASCO HISTÓRICO</span>
+        <h3>Tuberías antiguas junto al castillo</h3>
+        <p>Las viviendas del casco histórico de Sax —muchas de ellas con décadas de antigüedad— conservan tuberías de hierro negro o incluso plomo que nunca se han sustituido. Las juntas fallan, aparecen humedades en paredes y suelos y el caudal se ve reducido progresivamente. La detección y sustitución planificada evita averías mayores.</p>
+      </div>
+
+      <div class="zona-sc">
+        <span class="zona-sc-n">FINCAS</span>
+        <h3>Grupos de presión en fincas periféricas</h3>
+        <p>Las viviendas unifamiliares y fincas agrícolas de la periferia de Sax dependen de grupos de presión que en verano trabajan al límite. El calor y el uso continuo provocan fallos de bomba, fugas en el depósito y pérdidas de presión inesperadas. Revisión preventiva antes del verano y reparación urgente cuando falla.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Climatización -->
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Fontanería + climatización</p>
+    <h2>Solución integral <span class="hl">para tu vivienda en Sax</span></h2>
+    <div class="zona-prose" style="max-width:720px;margin-bottom:2rem">
+      <p>CarolTemp no solo es fontanería. En Sax instalamos y mantenemos sistemas de calefacción y climatización: calderas de gas, suelo radiante, aerotermia y aire acondicionado. Un único equipo que conoce toda tu instalación —agua y climatización— simplifica el mantenimiento y reduce los tiempos de respuesta en caso de avería.</p>
+    </div>
+    <div class="zona-svc">
+      <div class="zona-sc">
+        <span class="zona-sc-n">CALDERAS</span>
+        <h3>Calderas de gas</h3>
+        <p>Instalación de caldera nueva y revisión anual obligatoria. Mantenimiento preventivo antes del invierno para garantizar el suministro de calefacción y agua caliente en tu vivienda de Sax.</p>
+      </div>
+      <div class="zona-sc">
+        <span class="zona-sc-n">AEROTERMIA</span>
+        <h3>Aerotermia</h3>
+        <p>Calefacción, refrigeración y agua caliente con un único sistema de alta eficiencia. Especialmente rentable en viviendas unifamiliares de Sax con suelo radiante o fancoils instalados.</p>
+      </div>
+      <div class="zona-sc">
+        <span class="zona-sc-n">SUELO RADIANTE</span>
+        <h3>Suelo radiante</h3>
+        <p>Instalación en obra nueva o reforma. Compatible con aerotermia y caldera de condensación. Circuitos y colectores dimensionados a medida para cada planta de tu vivienda en Sax.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proceso -->
+<section class="zona-sec-gray" style="background:#fff">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Cómo trabajamos</p>
+    <h2>Proceso <span class="hl">claro y sin sorpresas</span></h2>
+    <div class="zona-proceso">
+      <div class="zona-paso">
+        <div class="zona-paso-n">01</div>
+        <h3>Contacto</h3>
+        <p>Llama o escribe por WhatsApp. Cuéntanos la avería o el trabajo. Concretamos hora de visita en Sax.</p>
+      </div>
+      <div class="zona-paso">
+        <div class="zona-paso-n">02</div>
+        <h3>Diagnóstico</h3>
+        <p>El fontanero revisa la instalación, localiza el problema y explica qué hay que hacer y por qué.</p>
+      </div>
+      <div class="zona-paso">
+        <div class="zona-paso-n">03</div>
+        <h3>Presupuesto</h3>
+        <p>Precio cerrado antes de empezar. No se toca nada sin tu aprobación. Sin llamadas para añadir coste después.</p>
+      </div>
+      <div class="zona-paso">
+        <div class="zona-paso-n">04</div>
+        <h3>Trabajo y garantía</h3>
+        <p>Ejecutamos el trabajo, limpiamos la zona y entregamos garantía escrita por los materiales y la mano de obra.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -210,28 +300,76 @@ if (!empty($_arts)): ?>
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
     <h2>Fontaner&iacute;a <span class="hl">en Sax</span></h2>
-    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Sax (CP 03630) y municipios lim&iacute;trofes del Vinalop&oacute;.</p>
+    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Sax (CP 03630) y municipios limítrofes del Vinalopó.</p>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
       <iframe src="https://maps.google.com/maps?q=38.5417,-0.8146&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontanero en Sax"></iframe>
     </div>
   </div>
 </section>
 
-<!-- Zona tags -->
+<!-- Barrios y zonas -->
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Fontaner&iacute;a en otras zonas</p>
-    <h2>Tambi&eacute;n trabajamos <span class="hl">en municipios cercanos</span></h2>
+    <p class="zona-lbl">Zonas donde trabajamos en Sax</p>
+    <h2>Cobertura <span class="hl">en todo Sax</span></h2>
+    <div class="zona-ztags" style="margin-top:1.5rem">
+      <span class="zona-ztag-plain">Casco histórico</span>
+      <span class="zona-ztag-plain">Zona residencial</span>
+      <span class="zona-ztag-plain">Polígono Industrial</span>
+      <span class="zona-ztag-plain">Fincas y campo</span>
+      <span class="zona-ztag-plain">Urbanizaciones periféricas</span>
+    </div>
+  </div>
+</section>
+
+<!-- Municipios cercanos -->
+<section class="zona-sec zona-sec-gray">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Fontanería en otras zonas</p>
+    <h2>También trabajamos <span class="hl">en municipios cercanos</span></h2>
     <div class="zona-ztags">
       <a href="/fontanero/elda" class="zona-ztag">Elda</a>
-      <a href="/fontanero/novelda" class="zona-ztag">Novelda</a>
-      <a href="/fontanero/aspe" class="zona-ztag">Aspe</a>
-      <a href="/fontanero/pinoso" class="zona-ztag">Pinoso</a>
-      <a href="/fontanero/monovar" class="zona-ztag">Mon&oacute;var</a>
       <a href="/fontanero/petrer" class="zona-ztag">Petrer</a>
-      <a href="/fontanero/sax" class="zona-ztag">Sax</a>
+      <a href="/fontanero/novelda" class="zona-ztag">Novelda</a>
+      <a href="/fontanero/monovar" class="zona-ztag">Mon&oacute;var</a>
+      <a href="/fontanero/pinoso" class="zona-ztag">Pinoso</a>
+      <a href="/fontanero/aspe" class="zona-ztag">Aspe</a>
       <a href="/fontanero/salinas" class="zona-ztag">Salinas</a>
       <a href="/fontanero/monforte-del-cid" class="zona-ztag">Monforte del Cid</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="zona-sec">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Preguntas frecuentes</p>
+    <h2>Fontanería en Sax <span class="hl">— dudas habituales</span></h2>
+    <div class="zona-faqs">
+      <details class="zona-faq-item" open>
+        <summary>¿Cuánto cuesta un fontanero en Sax?</summary>
+        <div class="faq-ans">La mano de obra es de 100 €/hora con mínimo de una hora, más desplazamiento a Sax. El presupuesto definitivo se da siempre antes de empezar el trabajo, con la avería o el trabajo visto. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos, que se informan al contactar.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Atendéis urgencias en festivos y fines de semana en Sax?</summary>
+        <div class="faq-ans">Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Para urgencias fuera de horario laboral hay un recargo que se comunica antes de desplazarse. Llama al 611 165 129 o escribe por WhatsApp y te confirmamos disponibilidad y precio de inmediato.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Vale la pena instalar un descalcificador en Sax?</summary>
+        <div class="faq-ans">Sí, especialmente si tienes termo eléctrico, caldera o suelo radiante. El agua del Vinalopó tiene dureza alta y el sarro reduce la vida útil de estos equipos. Un descalcificador bien dimensionado amortiza su coste en 2-3 años en ahorro de averías y consumo energético. Te asesoramos sin compromiso sobre el equipo adecuado para tu vivienda en Sax.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Podéis sustituir las tuberías antiguas del casco histórico de Sax?</summary>
+        <div class="faq-ans">Sí. Realizamos la sustitución completa de instalaciones de suministro y saneamiento en viviendas del casco histórico: desde hierro negro o plomo a tubería multicapa o PEX que resiste mejor el agua calcárea. Presupuesto gratuito a domicilio en Sax. El trabajo se hace por fases para minimizar las molestias.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Instaláis calderas y aerotermia en Sax además de fontanería?</summary>
+        <div class="faq-ans">Sí. CarolTemp ofrece fontanería y climatización como servicio integral. Instalamos calderas de gas, sistemas de aerotermia y suelo radiante en viviendas unifamiliares y fincas de Sax. Un único equipo que conoce toda tu instalación facilita el mantenimiento y reduce los tiempos de respuesta en futuras averías.</div>
+      </details>
+      <details class="zona-faq-item">
+        <summary>¿Cuánto cuesta reparar el grupo de presión de mi finca en Sax?</summary>
+        <div class="faq-ans">Depende de la avería: puede ser desde un simple presostato o relé de protección hasta la sustitución del grupo completo. Acudimos a la finca, diagnosticamos el problema y damos presupuesto cerrado antes de actuar. En verano conviene hacer una revisión preventiva ya que los grupos trabajan al límite con el calor y el uso continuo.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -239,7 +377,7 @@ if (!empty($_arts)): ?>
 <section class="cta-dark">
   <div class="cta-dark-con">
     <h2>&iquest;Necesitas fontaner&iacute;a <span>en Sax?</span></h2>
-    <p>Presupuesto gratuito y precio cerrado antes de empezar. Ll&aacute;menos.</p>
+    <p>Atendemos toda Sax. Presupuesto previo, sin sorpresas.</p>
     <div class="cta-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
