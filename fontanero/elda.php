@@ -88,7 +88,7 @@ include '../includes/head.php';
         <p class="zona-lbl">Por qué CarolTemp en Elda</p>
         <h2>Fontanería local <span class="hl">con garantía</span></h2>
         <div class="zona-prose">
-          <p>Trabajamos en Elda y conocemos sus instalaciones. Atendemos viviendas, comunidades y locales comerciales con el mismo criterio: precio cerrado antes de empezar y trabajo garantizado.</p>
+          <p>Trabajamos en Elda atendiendo <a href="/fontanero/elda/urgencias">urgencias 24h</a>, <a href="/fontanero/elda/busqueda_fugas">detección de fugas</a> y <a href="/fontanero/elda/desatascos">desatascos</a> en viviendas, comunidades y locales. Precio cerrado antes de empezar y trabajo garantizado.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Urgencias todos los días, sin horario</li>
