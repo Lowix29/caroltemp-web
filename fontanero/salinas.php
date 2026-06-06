@@ -70,19 +70,19 @@ include '../includes/head.php';
     <p class="zona-lbl" style="color:#7ecfff">Lo más urgente</p>
     <h2 style="color:#fff;margin-bottom:2rem">Servicio inmediato <span class="hl">en Salinas</span></h2>
     <div class="zona-srv3">
-      <a href="/fontanero/salinas/urgencias" class="zona-srv3-item">
+      <a href="/fontanero/salinas/urgencias" class="zona-srv3-card">
         <span class="zona-srv3-ico">&#128680;</span>
         <h3>Fontanero urgente</h3>
         <p>Mismo día. Precio cerrado con la avería vista.</p>
         <span class="zona-srv3-a">Ver urgencias &rarr;</span>
       </a>
-      <a href="/fontanero/salinas/busqueda_fugas" class="zona-srv3-item">
+      <a href="/fontanero/salinas/busqueda_fugas" class="zona-srv3-card">
         <span class="zona-srv3-ico">&#128269;</span>
         <h3>Detección de fugas</h3>
         <p>Sin romper paredes. Geófono y termografía.</p>
         <span class="zona-srv3-a">Ver fugas &rarr;</span>
       </a>
-      <a href="/fontanero/salinas/desatascos" class="zona-srv3-item">
+      <a href="/fontanero/salinas/desatascos" class="zona-srv3-card">
         <span class="zona-srv3-ico">&#128688;</span>
         <h3>Desatascos</h3>
         <p>Cámara endoscópica e hidrojetting profesional.</p>
