@@ -3,8 +3,8 @@
  * Desatascos en Aspe
  * CarolTemp
  */
-$meta_title  = 'Desatascos Aspe — precio fijo — CarolTemp';
-$meta_desc   = 'Desatascos en Aspe con cámara endoscópica e hidrojetting. Bajantes, arquetas e inodoros. Precio fijo antes de empezar. Garantía en el resultado. 611 165 129';
+$meta_title  = 'Desatascos en Aspe | Atención rápida y profesional — CarolTemp';
+$meta_desc   = 'Desatascos en Aspe con equipos especializados. Eliminamos atascos en tuberías, arquetas e inodoros con total garantía.';
 $meta_url    = 'https://caroltemp.com/fontanero/aspe/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';

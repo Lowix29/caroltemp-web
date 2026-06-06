@@ -1,6 +1,6 @@
 <?php
-$meta_title  = "Sobre CarolTemp — Fontanería de confianza en el Vinalopó";
-$meta_desc   = "Conoce a CarolTemp, tu fontanero de confianza en el Vinalopó. Trabajo bien hecho, precio sin sorpresas y sin sorpresas en Elda, Petrer, Novelda y toda la comarca.";
+$meta_title  = "CarolTemp | Fontaneros profesionales en Elda y Vinalopó";
+$meta_desc   = "Conoce a CarolTemp, especialistas en fontanería, fugas, desatascos y reformas. Experiencia, profesionalidad y atención cercana.";
 $meta_url    = "https://caroltemp.com/sobre-nosotros.php";
 $schema_type = "default";
 $page_css    = "sobre";

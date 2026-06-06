@@ -1,6 +1,6 @@
 <?php
-$meta_title  = "Contacto — CarolTemp | Fontanero en el Vinalopó";
-$meta_desc   = "Contacta con CarolTemp para pedir presupuesto de fontanería en Elda, Petrer, Novelda, Monóvar y toda la comarca del Vinalopó. Llamada, WhatsApp o formulario.";
+$meta_title  = "Contacto | Presupuesto de fontanería en el Vinalopó — CarolTemp";
+$meta_desc   = "Solicita presupuesto o atención urgente. Contacta con CarolTemp por teléfono, WhatsApp o formulario y te responderemos rápidamente.";
 $meta_url    = "https://caroltemp.com/contacto";
 $schema_type = "contacto";
 $page_css    = "contacto";

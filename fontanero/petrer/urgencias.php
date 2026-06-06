@@ -3,8 +3,8 @@
  * Fontanero urgente en Petrer
  * CarolTemp
  */
-$meta_title  = 'Fontanero urgente Petrer — precio cerrado — CarolTemp';
-$meta_desc   = 'Urgencias fontanería Petrer: roturas, fugas urgentes, grupos de presión y calentadores. Precio antes de empezar. Sin sorpresas. 611 165 129';
+$meta_title  = 'Fontanero urgente en Petrer | Servicio rápido 24 horas — CarolTemp';
+$meta_desc   = 'Fontanero urgente en Petrer para fugas, roturas y averías de agua. Atención inmediata y soluciones duraderas.';
 $meta_url    = 'https://caroltemp.com/fontanero/petrer/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';

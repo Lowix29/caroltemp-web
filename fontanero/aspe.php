@@ -3,8 +3,8 @@
  * Fontanero en Aspe — Hub
  * CarolTemp
  */
-$meta_title  = 'Fontanero Aspe — precio cerrado — CarolTemp';
-$meta_desc   = 'Fontanero en Aspe: urgencias, fugas y desatascos. Precio antes de empezar. Sin sorpresas. 611 165 129';
+$meta_title  = 'Fontanero en Aspe | Urgencias y reparaciones profesionales — CarolTemp';
+$meta_desc   = 'Fontanero en Aspe para averías, fugas, desatascos y reformas. Atención rápida, trabajos garantizados y presupuesto previo.';
 $meta_url    = 'https://caroltemp.com/fontanero/aspe';
 $schema_type = 'local';
 $page_css    = 'zona';

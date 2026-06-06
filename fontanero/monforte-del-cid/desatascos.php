@@ -3,8 +3,8 @@
  * Desatascos en Monforte del Cid
  * CarolTemp
  */
-$meta_title  = 'Desatascos Monforte del Cid — bajantes y arquetas — CarolTemp';
-$meta_desc   = 'Desatascos en Monforte del Cid: bajantes, arquetas e inodoros con cámara endoscópica. Diagnóstico antes de actuar. Precio cerrado. 611 165 129';
+$meta_title  = 'Desatascos en Monforte del Cid | Limpieza profesional — CarolTemp';
+$meta_desc   = 'Desatascos en Monforte del Cid para viviendas y comunidades. Eliminamos obstrucciones y recuperamos el flujo normal de la instalación.';
 $meta_url    = 'https://caroltemp.com/fontanero/monforte-del-cid/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';

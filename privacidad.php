@@ -1,6 +1,6 @@
 <?php
-$meta_title  = "Política de privacidad — CarolTemp";
-$meta_desc   = "Política de privacidad de CarolTemp. Información sobre el tratamiento de datos personales en cumplimiento del RGPD y la LOPDGDD.";
+$meta_title  = "Política de privacidad | CarolTemp";
+$meta_desc   = "Información sobre el tratamiento de datos personales conforme al RGPD y la normativa vigente.";
 $meta_url    = "https://caroltemp.com/privacidad.php";
 $schema_type = "default";
 $page_css    = "legal";

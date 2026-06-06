@@ -3,8 +3,8 @@
  * Fontanero en Salinas — Hub
  * CarolTemp
  */
-$meta_title  = 'Fontanero Salinas — precio cerrado — CarolTemp';
-$meta_desc   = 'Fontanero en Salinas: urgencias, fugas y desatascos. Precio antes de empezar. Sin sorpresas. 611 165 129';
+$meta_title  = 'Fontanero en Salinas | Servicio rápido y profesional — CarolTemp';
+$meta_desc   = 'Fontanero en Salinas para fugas, desatascos, averías y mantenimiento. Soluciones rápidas y atención profesional garantizada.';
 $meta_url    = 'https://caroltemp.com/fontanero/salinas';
 $schema_type = 'local';
 $page_css    = 'zona';

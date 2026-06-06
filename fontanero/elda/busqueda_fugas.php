@@ -3,8 +3,8 @@
  * Detección de fugas de agua en Elda
  * CarolTemp
  */
-$meta_title  = 'Detección fugas de agua Elda — sin romper paredes — CarolTemp';
-$meta_desc   = 'Localización de fugas de agua en Elda con geófono y cámara termográfica. Fugas en tuberías, calefacción, piscinas y comunidades. Presupuesto gratuito. 611 165 129';
+$meta_title  = 'Detección de fugas en Elda | Localización precisa — CarolTemp';
+$meta_desc   = 'Detectamos fugas de agua en Elda con geófono y cámara termográfica. Localización precisa sin romper innecesariamente.';
 $meta_url    = 'https://caroltemp.com/fontanero/elda/busqueda_fugas';
 $schema_type = 'local';
 $page_css    = 'zona';

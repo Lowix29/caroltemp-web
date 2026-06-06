@@ -3,8 +3,8 @@
  * Búsqueda de fugas en Monóvar
  * Generado por Agente de P&aacute;ginas — CarolTemp
  */
-$meta_title  = 'Detección fugas Monóvar sin romper — CarolTemp';
-$meta_desc   = 'Detectamos fugas en Monóvar con geófono y cámara sin obras. Pozos, grupos de presión y tuberías rurales antiguas provocan fugas ocultas. Presupuesto gratis.';
+$meta_title  = 'Detección de fugas en Monóvar | Sin romper de más — CarolTemp';
+$meta_desc   = 'Localización de fugas en Monóvar mediante tecnología profesional. Detectamos el origen exacto del problema.';
 $meta_url    = 'https://caroltemp.com/fontanero/monovar/busqueda_fugas';
 $schema_type = 'local';
 $page_css    = 'zona';

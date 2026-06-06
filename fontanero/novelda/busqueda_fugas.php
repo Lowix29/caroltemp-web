@@ -3,8 +3,8 @@
  * Búsqueda de fugas en Novelda
  * Generado por Agente de P&aacute;ginas — CarolTemp
  */
-$meta_title  = 'Detección de fugas en Novelda — CarolTemp | Geófono + Cámara';
-$meta_desc   = 'Localizamos fugas en Novelda con geófono acústico y cámara de inspección. Sin romper paredes. Instalaciones industriales, pozos y viviendas. Precio cerrado antes de empezar.';
+$meta_title  = 'Detección de fugas en Novelda | Tecnología de precisión — CarolTemp';
+$meta_desc   = 'Detección de fugas en Novelda con geófono y cámara termográfica. Localización rápida y reparación eficaz.';
 $meta_url    = 'https://caroltemp.com/fontanero/novelda/busqueda_fugas';
 $schema_type = 'local';
 $page_css    = 'zona';

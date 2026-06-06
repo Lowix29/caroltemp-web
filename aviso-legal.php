@@ -1,6 +1,6 @@
 <?php
-$meta_title  = "Aviso legal — CarolTemp";
-$meta_desc   = "Aviso legal de CarolTemp, empresa de fontanería industrial y residencial en el Vinalopó. Información legal y condiciones de uso del sitio web.";
+$meta_title  = "Aviso legal | CarolTemp";
+$meta_desc   = "Información legal, condiciones de uso y datos identificativos de CarolTemp.";
 $meta_url    = "https://caroltemp.com/aviso-legal.php";
 $schema_type = "default";
 $page_css    = "legal";

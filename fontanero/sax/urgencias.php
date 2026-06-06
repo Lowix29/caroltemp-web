@@ -3,8 +3,8 @@
  * Fontanero urgente en Sax
  * CarolTemp
  */
-$meta_title  = 'Fontanero urgente Sax — precio cerrado — CarolTemp';
-$meta_desc   = 'Urgencias fontanería Sax: roturas, fugas urgentes, grupos de presión y calentadores. Precio antes de empezar. Sin sorpresas. 611 165 129';
+$meta_title  = 'Fontanero urgente en Sax | Reparaciones inmediatas — CarolTemp';
+$meta_desc   = 'Fontanero urgente en Sax para resolver averías, fugas y roturas de forma rápida y profesional.';
 $meta_url    = 'https://caroltemp.com/fontanero/sax/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';

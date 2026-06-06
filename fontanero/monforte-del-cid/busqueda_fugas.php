@@ -3,8 +3,8 @@
  * Detección de fugas de agua en Monforte del Cid
  * CarolTemp
  */
-$meta_title  = 'Detección fugas de agua Monforte del Cid — sin romper — CarolTemp';
-$meta_desc   = 'Localización de fugas de agua en Monforte del Cid con geófono y cámara termográfica. Fugas en tuberías, calefacción y comunidades. Presupuesto gratuito.';
+$meta_title  = 'Detección de fugas en Monforte del Cid | Sin romper paredes — CarolTemp';
+$meta_desc   = 'Localización profesional de fugas en Monforte del Cid. Detectamos el origen del problema con precisión.';
 $meta_url    = 'https://caroltemp.com/fontanero/monforte-del-cid/busqueda-fugas';
 $schema_type = 'local';
 $page_css    = 'zona';

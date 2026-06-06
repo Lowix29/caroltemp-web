@@ -1,6 +1,6 @@
 <?php
-$meta_title  = "Proyectos realizados — CarolTemp | Trabajos de fontanería en el Vinalopó";
-$meta_desc   = "Trabajos de fontanería realizados por CarolTemp en Elda, Petrer, Novelda, Monóvar y toda la comarca. Cambios de termo, ósmosis, descalcificadores y reformas.";
+$meta_title  = "Trabajos realizados de fontanería y reformas | CarolTemp";
+$meta_desc   = "Descubre algunos de nuestros trabajos de fontanería, detección de fugas, desatascos, reformas y mantenimiento realizados en el Vinalopó.";
 $meta_url    = "https://caroltemp.com/proyectos/";
 $schema_type = "default";
 $page_css    = "proyectos";

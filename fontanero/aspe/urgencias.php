@@ -3,8 +3,8 @@
  * Fontanero urgente en Aspe
  * CarolTemp
  */
-$meta_title  = 'Fontanero urgente Aspe — precio cerrado — CarolTemp';
-$meta_desc   = 'Urgencias fontanería Aspe: roturas, fugas urgentes, grupos de presión y calentadores. Precio antes de empezar. Sin sorpresas. 611 165 129';
+$meta_title  = 'Fontanero urgente en Aspe | Servicio urgente y profesional — CarolTemp';
+$meta_desc   = 'Fontanero urgente en Aspe para fugas, roturas y averías. Atención rápida y presupuesto antes de comenzar.';
 $meta_url    = 'https://caroltemp.com/fontanero/aspe/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';

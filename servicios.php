@@ -1,6 +1,6 @@
 <?php
-$meta_title  = "Servicios de fontanería — CarolTemp";
-$meta_desc   = "Servicios de fontanería: reparaciones, detección de fugas, desatascos, termos eléctricos, ósmosis inversa, descalcificadores, reformas de baño y bombas de achique. Soluciones completas para tu instalación de agua.";
+$meta_title  = "Servicios de fontanería en el Vinalopó | CarolTemp";
+$meta_desc   = "Urgencias, detección de fugas, desatascos, termos, descalcificadores, ósmosis, reformas y mantenimiento de fontanería para hogares y empresas.";
 $meta_url    = "https://caroltemp.com/servicios";
 $schema_type = "servicio";
 $page_css    = "servicios";

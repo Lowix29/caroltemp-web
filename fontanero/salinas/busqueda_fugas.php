@@ -3,8 +3,8 @@
  * Detección de fugas de agua en Salinas
  * CarolTemp
  */
-$meta_title  = 'Detección fugas de agua Salinas — sin obras — CarolTemp';
-$meta_desc   = 'Localización de fugas de agua en Salinas con geófono y cámara termográfica. Fugas en tuberías, calefacción y comunidades. Informe para seguro. 611 165 129';
+$meta_title  = 'Detección de fugas en Salinas | Informe para seguros — CarolTemp';
+$meta_desc   = 'Detección de fugas en Salinas mediante geófono y cámara termográfica. Localización precisa e informe técnico.';
 $meta_url    = 'https://caroltemp.com/fontanero/salinas/busqueda-fugas';
 $schema_type = 'local';
 $page_css    = 'zona';

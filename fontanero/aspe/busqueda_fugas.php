@@ -3,8 +3,8 @@
  * Detección de fugas de agua en Aspe
  * CarolTemp
  */
-$meta_title  = 'Detección fugas de agua Aspe — sin obras — CarolTemp';
-$meta_desc   = 'Localización de fugas de agua en Aspe con geófono y cámara termográfica. Fugas en tuberías, calefacción y comunidades. Sin romper hasta saber dónde. 611 165 129';
+$meta_title  = 'Detección de fugas en Aspe | Localización exacta — CarolTemp';
+$meta_desc   = 'Localizamos fugas en Aspe con tecnología avanzada. Detectamos el punto exacto antes de realizar cualquier apertura.';
 $meta_url    = 'https://caroltemp.com/fontanero/aspe/busqueda-fugas';
 $schema_type = 'local';
 $page_css    = 'zona';

@@ -3,8 +3,8 @@
  * Desatascos en Monóvar
  * Generado por Agente de P&aacute;ginas — CarolTemp
  */
-$meta_title  = 'Desatascos Monóvar urgentes hoy mismo — CarolTemp';
-$meta_desc   = 'Desatascos en Monóvar para viviendas rurales y casco urbano. Agua dura y tuberías antiguas causan atascos frecuentes. Atendemos urgencias el mismo día.';
+$meta_title  = 'Desatascos en Monóvar | Eliminamos el problema de raíz — CarolTemp';
+$meta_desc   = 'Desatascos en Monóvar con maquinaria profesional. Recuperamos el funcionamiento normal de tu instalación rápidamente.';
 $meta_url    = 'https://caroltemp.com/fontanero/monovar/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';

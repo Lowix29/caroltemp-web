@@ -3,8 +3,8 @@
  * Fontanero urgente en Pinoso
  * CarolTemp
  */
-$meta_title  = 'Fontanero urgente Pinoso — precio cerrado — CarolTemp';
-$meta_desc   = 'Fontanero de urgencias en Pinoso: avisas, vemos la avería y damos precio antes de tocar nada. Atendemos fincas rurales y casco urbano. Sin sorpresas.';
+$meta_title  = 'Fontanero urgente en Pinoso | Atención profesional 24h — CarolTemp';
+$meta_desc   = 'Urgencias de fontanería en Pinoso para viviendas, fincas y negocios. Diagnóstico rápido y reparación garantizada.';
 $meta_url    = 'https://caroltemp.com/fontanero/pinoso/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';

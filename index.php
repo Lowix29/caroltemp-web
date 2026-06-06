@@ -1,6 +1,6 @@
 <?php
-$meta_title  = "Fontanero en Alicante — CarolTemp | Urgencias 24h Vinalopó";
-$meta_desc   = "Fontanero urgente en Elda, Petrer, Novelda y toda la comarca del Vinalopó. Detección de fugas, desatascos, climatización y reformas. precio sin sorpresas. Llama ya: 611 165 129.";
+$meta_title  = "Fontanero en Elda, Petrer, Novelda y Vinalopó | CarolTemp";
+$meta_desc   = "Fontaneros profesionales en Elda, Petrer, Novelda, Monóvar y todo el Vinalopó. Urgencias 24h, detección de fugas, desatascos, termos, reformas y climatización. Presupuesto claro desde el primer momento.";
 $meta_url    = "https://caroltemp.com/";
 $schema_type = "home";
 $page_css    = "home";

@@ -3,8 +3,8 @@
  * Fontanero en Monforte del Cid — Hub
  * CarolTemp
  */
-$meta_title  = 'Fontanero Monforte del Cid — fontanería y reformas — CarolTemp';
-$meta_desc   = 'Fontanería en Monforte del Cid: urgencias, detección de fugas, desatascos, termos y reformas. Presupuesto gratuito. Instaladores certificados Nubeco.';
+$meta_title  = 'Fontanero en Monforte del Cid | Urgencias y reformas — CarolTemp';
+$meta_desc   = 'Fontanero en Monforte del Cid para fugas, desatascos, termos y reformas. Atención rápida, presupuesto transparente y trabajos garantizados.';
 $meta_url    = 'https://caroltemp.com/fontanero/monforte-del-cid';
 $schema_type = 'local';
 $page_css    = 'zona';

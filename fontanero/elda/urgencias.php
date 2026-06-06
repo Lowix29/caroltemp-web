@@ -3,8 +3,8 @@
  * Fontanero urgente en Elda
  * CarolTemp
  */
-$meta_title  = 'Fontanero urgente Elda — precio cerrado — CarolTemp';
-$meta_desc   = 'Urgencias fontanería Elda: roturas en viviendas antiguas, naves del calzado y comunidades. Precio antes de empezar. Sin sorpresas. 611 165 129';
+$meta_title  = 'Fontanero urgente en Elda | Atención inmediata 24h — CarolTemp';
+$meta_desc   = 'Urgencias de fontanería en Elda para fugas, roturas, termos y averías. Respuesta rápida, diagnóstico preciso y reparación profesional.';
 $meta_url    = 'https://caroltemp.com/fontanero/elda/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';

@@ -1,6 +1,6 @@
 <?php
-$meta_title  = "Financiación para fontanería — CarolTemp | Sin adelantos en el Vinalopó";
-$meta_desc   = "Financia tu reforma, instalación o reparación de fontanería. Cuotas cómodas, aprobación rápida y firma digital desde el móvil. Sin adelantar nada. CarolTemp.";
+$meta_title  = "Financiación para reparaciones y reformas | CarolTemp";
+$meta_desc   = "Opciones de financiación para instalaciones, reparaciones y reformas de fontanería. Solicitud rápida y gestión sencilla.";
 $meta_url    = "https://caroltemp.com/financiacion";
 $schema_type = "default";
 $page_css    = "financiacion";
