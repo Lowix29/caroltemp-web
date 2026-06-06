@@ -9,7 +9,7 @@ $depth       = 1;
 include '../includes/head.php';
 ?>
 
-<section class="hz-dark" style="background-image:url('/img/contenido/fontanero-elda-hero.png');background-size:cover;background-position:center top;">
+<section class="hz-dark" style="background-image:url('<?php echo $base_url; ?>img/contenido/fontanero-elda-hero.png');background-size:cover;background-position:center top;">
   <div class="hz-dark-bg" style="background:rgba(5,15,30,.55)"></div>
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
