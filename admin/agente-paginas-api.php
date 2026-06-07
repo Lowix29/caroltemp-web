@@ -249,8 +249,8 @@ if ($accion === 'mejorar' || $accion === 'crear') {
 
     // Contexto específico según tipo de página
     $page_ctx = [
-      'financiacion'   => "Página de FINANCIACIÓN. CarolTemp ofrece financiación a plazos (sin adelanto) SOLO para sus servicios de fontanería: reparaciones de tuberías, detección y reparación de fugas, desatascos, instalación de termos eléctricos, descalcificadores y reformas de baño/cocina. NO hacen climatización ni aire acondicionado. Trabajan con entidades financieras especializadas. Proceso ágil. Teléfono: 611 165 129.",
-      'contacto'       => "Página de CONTACTO. Tel: 611 165 129. WhatsApp. Atienden toda la comarca: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe. Horario: Lun-Vie 8-20h, Sáb 9-14h. Presupuesto gratuito.",
+      'financiacion'   => "Página de FINANCIACIÓN. CarolTemp ofrece financiación a plazos (sin adelanto) SOLO para sus servicios de fontanería: reparaciones de tuberías, detección y reparación de fugas, desatascos, instalación de termos eléctricos, descalcificadores y reformas de baño/cocina. NO hacen climatización ni aire acondicionado. Trabajan con entidades financieras especializadas. Proceso ágil. Teléfono: 613 429 032.",
+      'contacto'       => "Página de CONTACTO. Tel: 613 429 032. WhatsApp. Atienden toda la comarca: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe. Horario: Lun-Vie 8-20h, Sáb 9-14h. Presupuesto gratuito.",
       'sobre-nosotros' => "Página SOBRE NOSOTROS. CarolTemp: empresa local de fontanería y climatización en la comarca interior de Alicante. Instaladores Nubeco certificados. Geófono y cámara para fugas. precio sin sorpresas siempre. Sin inventar 'años de experiencia'.",
       'index'          => "Página HOME. Presentar CarolTemp: fontanería y climatización en la comarca. Diferenciadores: precio sin sorpresas, geófono+cámara sin obras, Nubeco oficial. Zonas: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte, Salinas, Aspe.",
     ];
@@ -262,7 +262,7 @@ Eres un maquetador web SEO experto. Generas el HTML completo del <body> de pági
 DATOS DE CAROLTEMP:
 - Empresa: fontanería en la comarca interior de Alicante (NO hacen climatización, NO hacen aire acondicionado)
 - Servicios: fontanería urgente, detección de fugas (geófono+cámara), desatascos, instalación de termos eléctricos, descalcificadores, reformas de baño
-- Teléfono: 611 165 129 | WhatsApp: https://wa.me/34611165129
+- Teléfono: 613 429 032 | WhatsApp: https://wa.me/34613429032
 - Zonas: Elda, Petrer, Novelda, Monóvar, Sax, Pinoso, Monforte del Cid, Salinas, Aspe
 - Diferenciadores REALES: precio sin sorpresas antes de empezar, geófono+cámara para fugas sin romper, instaladores Nubeco certificados
 
@@ -283,7 +283,7 @@ COMPONENTES DISPONIBLES — usa los que más convengan para esta página:
     <h1>TÍTULO PRINCIPAL</h1>
     <p class="hz-dark-sub">SUBTÍTULO</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
+      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
       <a href="<?php echo $base_url; ?>contacto" class="btn-hz-g">CTA SECUNDARIO</a>
     </div>
   </div>
@@ -316,7 +316,7 @@ COMPONENTES DISPONIBLES — usa los que más convengan para esta página:
 <div class="zona-icard">
   <div class="zona-icard-h"><strong>CarolTemp</strong><span>SUBTÍTULO</span></div>
   <div class="zona-ir"><span class="zona-ir-l">LABEL</span><span class="zona-ir-v">VALOR</span></div>
-  <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
+  <a href="tel:+34613429032" class="zona-icard-btn">📞 Llamar ahora</a>
 </div>
 
 [CARDS EN GRID — para opciones, servicios, ventajas, pasos]
@@ -346,8 +346,8 @@ COMPONENTES DISPONIBLES — usa los que más convengan para esta página:
     <h2>PREGUNTA/CTA PRINCIPAL <span>PARTE SECUNDARIA</span></h2>
     <p>TEXTO BREVE</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
   </div>
 </section>
@@ -673,8 +673,8 @@ SYS;
 
     $reglas_comunes = <<<SYSRULES
 NORMAS INAMOVIBLES:
-- NUNCA pongas el teléfono en meta_title (ni como "| 611 165 129" ni de ninguna forma)
-- meta_title: keyword primero, máx 58 chars. BUENO: "Fontanero en Sax — CarolTemp". MALO: "CarolTemp · 611 165 129"
+- NUNCA pongas el teléfono en meta_title (ni como "| 613 429 032" ni de ninguna forma)
+- meta_title: keyword primero, máx 58 chars. BUENO: "Fontanero en Sax — CarolTemp". MALO: "CarolTemp · 613 429 032"
 - meta_desc: 140-155 chars exactos, sin teléfono, con diferenciador real de la ciudad
 - PROHIBIDO inventar tiempos de respuesta, horarios de guardia o disponibilidad 24h
 - PROHIBIDO: climatización, camión cuba, fosas sépticas, Vinalopó, estadísticas inventadas
@@ -707,7 +707,7 @@ Ejemplo INCORRECTO: "Tuberías antiguas del casco sin romper paredes" (sin keywo
 BLOQUE 1: Hero hz-dark
 - H1: "Fontanero en {$ciudad}" + ángulo diferenciador en <span class="hl">
 - Subtítulo: 1 frase concreta sobre los servicios más demandados en {$ciudad}, sin inventar horarios
-- Botones: tel:+34611165129 y /contacto
+- Botones: tel:+34613429032 y /contacto
 
 BLOQUE 2: dif-strip — 4 diferenciadores REALES (geófono+cámara, presupuesto cerrado, Nubeco oficial + 1 dato específico de {$ciudad})
 
@@ -733,13 +733,13 @@ BLOQUE 6: Sección gris — FAQ 4 preguntas que mezclan servicios del hub (NO ur
 - Respuestas directas y honestas — sin inventar precios exactos ni tiempos de respuesta
 
 ════ COMPONENTES ════
-Hero: <section class="hz-dark"><div class="hz-dark-bg"></div><div class="hz-dark-glow"></div><div class="hz-dark-con"><div class="hz-dark-tag"><span class="hz-dark-dot"></span>TAG</div><h1>TÍT <span class="hl">HL</span></h1><p class="hz-dark-sub">SUB</p><div class="hz-dark-btns"><a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a><a href="/contacto" class="btn-hz-g">Pedir presupuesto</a></div></div></section>
+Hero: <section class="hz-dark"><div class="hz-dark-bg"></div><div class="hz-dark-glow"></div><div class="hz-dark-con"><div class="hz-dark-tag"><span class="hz-dark-dot"></span>TAG</div><h1>TÍT <span class="hl">HL</span></h1><p class="hz-dark-sub">SUB</p><div class="hz-dark-btns"><a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a><a href="/contacto" class="btn-hz-g">Pedir presupuesto</a></div></div></section>
 Strip: <div class="dif-strip"><div class="dif-strip-in"><div class="dif-item"><span class="dif-val">VAL</span><span class="dif-lbl">LBL</span></div></div></div>
 Sección blanca: <section class="zona-sec"><div class="cta-dark-con"><p class="zona-lbl">LBL</p><h2>TÍT <span class="hl">HL</span></h2>CONT</div></section>
 Sección gris: <section class="zona-sec zona-sec-gray">...</section>
 2 columnas: <div class="zona-tcol"><div>IZQ</div><div>DER</div></div>
 Checklist: <ul class="zona-chk"><li><span class="chk-ico">{$svg_chk}</span>TEXTO</li></ul>
-iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · {$ciudad}</strong><span>Fontanería</span></div><div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div><div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div><div class="zona-ir"><span class="zona-ir-l">Horario</span><span class="zona-ir-v">Lun-Vie 8-20h · Sáb 9-14h</span></div><div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Disponible para reformas</span></div><a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a></div>
+iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · {$ciudad}</strong><span>Fontanería</span></div><div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div><div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span></div><div class="zona-ir"><span class="zona-ir-l">Horario</span><span class="zona-ir-v">Lun-Vie 8-20h · Sáb 9-14h</span></div><div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Disponible para reformas</span></div><a href="tel:+34613429032" class="zona-icard-btn">📞 Llamar ahora</a></div>
 Grid servicios: <div class="zona-svc"><a href="URL" class="zona-sc"><span class="zona-sc-n">01</span><h3>TÍTULO</h3><p>TEXTO</p><span class="zona-sc-a">Ver servicio →</span></a></div>
 FAQ: <div class="zona-faq"><div class="zona-fi open"><div class="zona-fiq" onclick="togFaq(this)"><span>PREGUNTA</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">RESPUESTA</div></div><div class="zona-fi"><div class="zona-fiq" onclick="togFaq(this)"><span>PREGUNTA</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">RESPUESTA</div></div></div>
 Prosa: <div class="zona-prose"><p>TEXTO</p></div>
@@ -815,7 +815,7 @@ Eres un maquetador SEO experto en fontanería local. Generas HTML para CarolTemp
 BLOQUE 1 — Hero hz-dark
 - H1 FIJO — cópialo exactamente sin cambiar nada: {$h1_base}
 - Subtítulo: 1 frase directa (máx 15 palabras) sobre el problema o síntoma más habitual en {$ciudad}. Sin inventar disponibilidad 24h ni tiempos exactos. Usa el perfil de ciudad del contexto.
-- Botones: tel:+34611165129 y /contacto
+- Botones: tel:+34613429032 y /contacto
 
 BLOQUE 2 — dif-strip
 Usa EXACTAMENTE estos 4 diferenciadores (ya están elegidos para este servicio):
@@ -835,13 +835,13 @@ BLOQUE 5 — Sección blanca — FAQ exactamente 3 preguntas
 Preguntas reales de alguien en {$ciudad} buscando este servicio. Respuestas directas, sin rodeos, sin inventar precios exactos.
 
 ════ COMPONENTES ════
-Hero: <section class="hz-dark"><div class="hz-dark-bg"></div><div class="hz-dark-glow"></div><div class="hz-dark-con"><div class="hz-dark-tag"><span class="hz-dark-dot"></span>TAG</div><h1>TÍT <span class="hl">HL</span></h1><p class="hz-dark-sub">SUB</p><div class="hz-dark-btns"><a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a><a href="/contacto" class="btn-hz-g">Pedir presupuesto</a></div></div></section>
+Hero: <section class="hz-dark"><div class="hz-dark-bg"></div><div class="hz-dark-glow"></div><div class="hz-dark-con"><div class="hz-dark-tag"><span class="hz-dark-dot"></span>TAG</div><h1>TÍT <span class="hl">HL</span></h1><p class="hz-dark-sub">SUB</p><div class="hz-dark-btns"><a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a><a href="/contacto" class="btn-hz-g">Pedir presupuesto</a></div></div></section>
 Strip: <div class="dif-strip"><div class="dif-strip-in"><div class="dif-item"><span class="dif-val">VAL</span><span class="dif-lbl">LBL</span></div></div></div>
 Sección blanca: <section class="zona-sec"><div class="cta-dark-con"><p class="zona-lbl">LBL</p><h2>TÍT <span class="hl">HL</span></h2>CONT</div></section>
 Sección gris: <section class="zona-sec zona-sec-gray">...</section>
 2col: <div class="zona-tcol"><div>IZQ</div><div>DER</div></div>
 Checklist: <ul class="zona-chk"><li><span class="chk-ico">{$svg_chk}</span>ÍTEM</li></ul>
-iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · {$ciudad}</strong><span>Fontanería</span></div><div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div><div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div><div class="zona-ir"><span class="zona-ir-l">Horario</span><span class="zona-ir-v">Lun-Vie 8-20h · Sáb 9-14h</span></div><div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Disponible para reformas</span></div><a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a></div>
+iCard: <div class="zona-icard"><div class="zona-icard-h"><strong>CarolTemp · {$ciudad}</strong><span>Fontanería</span></div><div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div><div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span></div><div class="zona-ir"><span class="zona-ir-l">Horario</span><span class="zona-ir-v">Lun-Vie 8-20h · Sáb 9-14h</span></div><div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Disponible para reformas</span></div><a href="tel:+34613429032" class="zona-icard-btn">📞 Llamar ahora</a></div>
 Cards: <div class="zona-svc"><a href="#" class="zona-sc"><span class="zona-sc-n">01</span><h3>TÍT</h3><p>TXT</p></a></div>
 FAQ: <div class="zona-faq"><div class="zona-fi open"><div class="zona-fiq" onclick="togFaq(this)"><span>P</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">R</div></div><div class="zona-fi"><div class="zona-fiq" onclick="togFaq(this)"><span>P</span><span class="zona-fiq-i">{$svg_faq}</span></div><div class="zona-fia">R</div></div></div>
 
@@ -925,14 +925,14 @@ Eres un redactor SEO local especializado en fontanería. Generas contenido para 
 - NUNCA pongas el teléfono en el título
 - NUNCA superes 58 caracteres (cuenta antes de escribir)
 - Ejemplos BUENOS: "Fontanero en Monóvar 24h — CarolTemp" / "Fontanería Petrer cal y fugas — CarolTemp"
-- Ejemplos MALOS: "Fontanería en Petrer — CarolTemp | 611 165 129" / "CarolTemp fontanero Petrer"
+- Ejemplos MALOS: "Fontanería en Petrer — CarolTemp | 613 429 032" / "CarolTemp fontanero Petrer"
 
 ════ REGLAS META_DESC — LEE ESTO PRIMERO ════
 - EXACTAMENTE 140-155 caracteres (cuenta antes de escribir, ajusta si te pasas)
 - Formato: [Servicio] en [Ciudad]. [Diferenciador REAL de esa ciudad, no genérico]. [CTA sin teléfono].
 - NUNCA incluyas el teléfono (no es clickable en Google y ocupa chars útiles)
 - Ejemplo BUENO (148 chars): "Fontanería en Petrer. Especialistas en problemas de cal: juntas fundidas, termos incrustados y tuberías obstruidas. Presupuesto gratuito. Llámanos."
-- Ejemplo MALO (genérico): "Fontanero en Petrer con amplia experiencia. Servicios de calidad garantizados. Llama al 611 165 129 para más información."
+- Ejemplo MALO (genérico): "Fontanero en Petrer con amplia experiencia. Servicios de calidad garantizados. Llama al 613 429 032 para más información."
 
 ════ REGLAS DE DIFERENCIACIÓN — LO MÁS IMPORTANTE ════
 - Cada ciudad tiene una CAUSA RAÍZ diferente para los problemas de fontanería. Úsala.
@@ -1067,7 +1067,7 @@ Eres un redactor SEO local especializado en fontanería. Generas contenido para 
 - Keyword para fugas: "detección fugas" o "buscar fuga"
 - NUNCA el teléfono, NUNCA superes 58 chars
 - BUENO: "Detección fugas Novelda sin obras — CarolTemp" (46 chars)
-- MALO: "Detección de fugas en Novelda — CarolTemp | 611 165 129"
+- MALO: "Detección de fugas en Novelda — CarolTemp | 613 429 032"
 
 ════ REGLAS META_DESC ════
 - 140-155 caracteres EXACTOS (cuenta antes de escribir)
@@ -1198,7 +1198,7 @@ Eres un redactor SEO local especializado en fontanería. Generas contenido para 
 - Keyword principal: "fontanero urgente" o "urgencias fontanería"
 - NUNCA el teléfono, NUNCA superes 58 chars
 - BUENO: "Fontanero urgente Elda 24h — CarolTemp" (38 chars)
-- MALO: "Fontanero urgente en Elda — CarolTemp | 611 165 129"
+- MALO: "Fontanero urgente en Elda — CarolTemp | 613 429 032"
 
 ════ REGLAS META_DESC ════
 - 140-155 caracteres EXACTOS (cuenta antes de escribir)
@@ -1360,10 +1360,10 @@ Eres un redactor SEO local especializado en fontanería. Generas contenido para 
 ════ REGLAS META_TITLE — CRÍTICO ════
 - Formato OBLIGATORIO: [Keyword principal] [Ciudad] [diferenciador corto] — CarolTemp
 - La keyword va PRIMERO, antes que ciudad y marca
-- NUNCA pongas el teléfono (611 165 129) en el meta_title
+- NUNCA pongas el teléfono (613 429 032) en el meta_title
 - NUNCA superes 58 caracteres — cuenta antes de escribir
 - BUENO: "Desatascos urgentes Novelda — CarolTemp" (39 chars)
-- MALO: "Desatascos Novelda — CarolTemp | 611 165 129" (demasiado largo, teléfono inútil)
+- MALO: "Desatascos Novelda — CarolTemp | 613 429 032" (demasiado largo, teléfono inútil)
 
 ════ REGLAS META_DESC — CRÍTICO ════
 - EXACTAMENTE 140-155 caracteres — cuenta los chars antes de escribir y ajusta
@@ -1371,7 +1371,7 @@ Eres un redactor SEO local especializado en fontanería. Generas contenido para 
 - NUNCA incluyas el teléfono (no es clickable en Google y ocupa chars útiles)
 - NUNCA superes 155 chars — Google lo corta y se pierde el CTA
 - BUENO (147 chars): "Desatascos en Novelda para fregaderos, bajantes y comunidades. La cal del agua obstruye las tuberías más rápido. Servicio el mismo día. Pide cita."
-- MALO (165 chars, genérico, con tel): "Desatascamos tuberías en Novelda hoy mismo: viviendas, naves de mármol, fincas. Cámara de inspección incluida. Presupuesto claro antes de empezar. Llama 611 165 129."
+- MALO (165 chars, genérico, con tel): "Desatascamos tuberías en Novelda hoy mismo: viviendas, naves de mármol, fincas. Cámara de inspección incluida. Presupuesto claro antes de empezar. Llama 613 429 032."
 
 ════ DIFERENCIACIÓN POR CIUDAD — OBLIGATORIO ════
 Cada ciudad tiene una causa raíz DISTINTA. Úsala en meta_desc, hero_sub, contenido_intro y problemas_zona:
@@ -1521,7 +1521,7 @@ SYS;
 function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciudades, $depth = 1, $lat = '38.4766', $lng = '-0.7952') {
   $servicio_nombre = $tipo_cfg['nombre'];
   $meta_title      = $data['meta_title']      ?? "{$servicio_nombre} en {$ciudad} — CarolTemp";
-  $meta_desc       = $data['meta_desc']       ?? "Servicio de {$servicio_nombre} en {$ciudad}. presupuesto sin sorpresas. Llama al 611 165 129.";
+  $meta_desc       = $data['meta_desc']       ?? "Servicio de {$servicio_nombre} en {$ciudad}. presupuesto sin sorpresas. Llama al 613 429 032.";
   $hero_titulo     = $data['hero_titulo']     ?? "{$servicio_nombre} en {$ciudad}<br><span class=\"hl\">precio sin sorpresas.</span>";
   $hero_sub        = $data['hero_sub']        ?? "Atendemos en {$ciudad}. Presupuesto sin sorpresas antes de empezar.";
   $contenido_intro = $data['contenido_intro'] ?? "<p>Servicio de {$servicio_nombre} en {$ciudad}.</p>";
@@ -1600,7 +1600,7 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "    <h1>{$hero_titulo_raw}</h1>\n";
   $php .= "    <p class=\"hz-dark-sub\">{$hero_sub_h}</p>\n";
   $php .= "    <div class=\"hz-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; 611 165 129</a>\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
   $php .= "      <a href=\"/contacto\" class=\"btn-hz-g\">Solicitar presupuesto</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
@@ -1630,10 +1630,10 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "        <div class=\"zona-icard\">\n";
   $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; {$ciudad}</strong><span>{$servicio_nombre}</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\">{$ciudad} &middot; CP {$ciudad_cp}</span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34611165129\">611 165 129</a></span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34611165129\">Escribir ahora &rarr;</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Todos los servicios</span><span class=\"zona-ir-v\"><a href=\"/fontanero/{$ciudad_slug}\">Fontaner&iacute;a en {$ciudad} &rarr;</a></span></div>\n";
-  $php .= "          <a href=\"tel:+34611165129\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
+  $php .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
   $php .= "        </div>\n";
   $php .= "      </div>\n";
   $php .= "    </div>\n";
@@ -1746,8 +1746,8 @@ function generar_php_servicio($data, $tipo_cfg, $tipo, $ciudad, $ciudad_slug, $c
   $php .= "    <h2>&iquest;Necesitas {$servicio_nombre} <span>en {$ciudad}?</span></h2>\n";
   $php .= "    <p>Ll&aacute;menos o escr&iacute;benos. Te atendemos hoy.</p>\n";
   $php .= "    <div class=\"cta-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
-  $php .= "      <a href=\"https://wa.me/34611165129\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n";
@@ -1827,7 +1827,7 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "    <h1>Fontaner&iacute;a en <span class=\"hl\">{$ch}.</span></h1>\n";
   $php .= "    <p class=\"hz-dark-sub\">{$hero_sub}</p>\n";
   $php .= "    <div class=\"hz-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; 611 165 129</a>\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
   $php .= "      <a href=\"/contacto\" class=\"btn-hz-g\">Solicitar visita</a>\n";
   $php .= "    </div>\n";
   $php .= "    <div class=\"hero-dark-kpis\" style=\"margin-top:2rem\">\n";
@@ -1867,10 +1867,10 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "        <div class=\"zona-icard\">\n";
   $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; {$ch}</strong><span>Fontaner&iacute;a residencial</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\">{$ch} &middot; CP {$cp_h}</span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34611165129\">611 165 129</a></span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34611165129\">Escribir ahora &rarr;</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Horario</span><span class=\"zona-ir-v\">Lun&ndash;Vie 8&ndash;20h &middot; S&aacute;b 9&ndash;14h</span></div>\n";
-  $php .= "          <a href=\"tel:+34611165129\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
+  $php .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
   $php .= "        </div>\n";
   $php .= "      </div>\n";
   $php .= "    </div>\n";
@@ -1992,8 +1992,8 @@ function generar_php_hub_ciudad($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras
   $php .= "    <h2>&iquest;Necesitas fontaner&iacute;a <span>en {$ch}?</span></h2>\n";
   $php .= "    <p>Ll&aacute;menos o escr&iacute;benos y te atendemos hoy.</p>\n";
   $php .= "    <div class=\"cta-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
-  $php .= "      <a href=\"https://wa.me/34611165129\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n";
@@ -2074,7 +2074,7 @@ function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciuda
   $php .= "    <h1>Fontanería en <span class=\"hl\"><?php echo \$zona_nombre; ?>.</span></h1>\n";
   $php .= "    <p class=\"hz-dark-sub\">{$hero_sub_h}</p>\n";
   $php .= "    <div class=\"hz-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; 611 165 129</a>\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; 613 429 032</a>\n";
   $php .= "      <a href=\"<?php echo \$base_url; ?>contacto\" class=\"btn-hz-g\">Solicitar visita</a>\n";
   $php .= "    </div>\n";
   $php .= "    <div class=\"hero-dark-kpis\" style=\"margin-top:2rem\">\n";
@@ -2114,11 +2114,11 @@ function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciuda
   $php .= "        <div class=\"zona-icard\">\n";
   $php .= "          <div class=\"zona-icard-h\"><strong>CarolTemp &middot; <?php echo \$zona_nombre; ?></strong><span>Fontaner&iacute;a residencial</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Zona</span><span class=\"zona-ir-v\"><?php echo \$zona_nombre; ?> &middot; CP <?php echo \$zona_cp; ?></span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34611165129\">611 165 129</a></span></div>\n";
-  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34611165129\">Escribir ahora &rarr;</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Tel&eacute;fono</span><span class=\"zona-ir-v\"><a href=\"tel:+34613429032\">613 429 032</a></span></div>\n";
+  $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">WhatsApp</span><span class=\"zona-ir-v\"><a href=\"https://wa.me/34613429032\">Escribir ahora &rarr;</a></span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Horario</span><span class=\"zona-ir-v\">Lun&ndash;Vie 8&ndash;20h &middot; S&aacute;b 9&ndash;14h</span></div>\n";
   $php .= "          <div class=\"zona-ir\"><span class=\"zona-ir-l\">Financiaci&oacute;n</span><span class=\"zona-ir-v\">Disponible para proyectos grandes</span></div>\n";
-  $php .= "          <a href=\"tel:+34611165129\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
+  $php .= "          <a href=\"tel:+34613429032\" class=\"zona-icard-btn\">&#128222; Llamar ahora</a>\n";
   $php .= "        </div>\n";
   $php .= "      </div>\n";
   $php .= "    </div>\n";
@@ -2241,10 +2241,10 @@ function generar_php_zona($data, $ciudad, $ciudad_slug, $ciudad_cp, $otras_ciuda
   $php .= "    <h2>&iquest;Necesitas fontaner&iacute;a <span>en <?php echo \$zona_nombre; ?>?</span></h2>\n";
   $php .= "    <p>Ll&aacute;menos o escr&iacute;benos y te atendemos hoy.</p>\n";
   $php .= "    <div class=\"cta-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
-  $php .= "      <a href=\"https://wa.me/34611165129\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
   $php .= "    </div>\n";
-  $php .= "    <div class=\"cta-dark-tel\">Tel&eacute;fono directo<strong>611 165 129</strong></div>\n";
+  $php .= "    <div class=\"cta-dark-tel\">Tel&eacute;fono directo<strong>613 429 032</strong></div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n\n";
 
@@ -2395,8 +2395,8 @@ function generar_php_libre($html_body, $meta_title, $meta_desc, $ciudad, $ciudad
   $php .= "    <h2>&iquest;Necesitas {$svc_nombre} <span>en {$ciudad}?</span></h2>\n";
   $php .= "    <p>Ll&aacute;menos o escr&iacute;benos. Te atendemos hoy.</p>\n";
   $php .= "    <div class=\"cta-dark-btns\">\n";
-  $php .= "      <a href=\"tel:+34611165129\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
-  $php .= "      <a href=\"https://wa.me/34611165129\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
+  $php .= "      <a href=\"tel:+34613429032\" class=\"btn-hz-w\">&#128222; Llamar ahora</a>\n";
+  $php .= "      <a href=\"https://wa.me/34613429032\" target=\"_blank\" rel=\"noopener\" class=\"btn-hz-g\">&#128172; WhatsApp</a>\n";
   $php .= "    </div>\n";
   $php .= "  </div>\n";
   $php .= "</section>\n";
@@ -2765,7 +2765,7 @@ Eres un editor web experto. El usuario te dará el HTML actual de una página de
 DATOS DE CAROLTEMP:
 - Servicios: fontanería urgente, detección de fugas (geófono+cámara), desatascos, termos eléctricos, descalcificadores, reformas de baño
 - NO hacen climatización, NO hacen aire acondicionado
-- Teléfono: 611 165 129
+- Teléfono: 613 429 032
 
 REGLAS:
 - Aplica SOLO los cambios que pide el usuario, no cambies el resto

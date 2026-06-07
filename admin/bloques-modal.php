@@ -20,7 +20,7 @@ $bloques = [
     <h1>Título principal de la sección<br><span class="hl">destacado aquí.</span></h1>
     <p class="hz-dark-sub">Descripción breve del servicio o página. Explica qué ofreces en 1-2 líneas.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
+      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
       <a href="/contacto" class="btn-hz-g">Pedir presupuesto</a>
     </div>
   </div>
@@ -40,7 +40,7 @@ $bloques = [
     <h1>Título principal aquí<br><span class="hl">texto destacado.</span></h1>
     <p class="hz-dark-sub">Descripción del servicio o página. Explica qué ofreces en 1-2 líneas claras y directas.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
       <a href="/contacto" class="btn-hz-g">Pedir presupuesto</a>
     </div>
     <div class="hero-dark-kpis" style="margin-top:2rem">
@@ -64,8 +64,8 @@ $bloques = [
       <h1>Título principal aquí<br><span class="hl">texto destacado</span></h1>
       <p class="hero-sub">Descripción breve del servicio. precio sin sorpresas antes de empezar, sin sorpresas.</p>
       <div class="hero-btns">
-        <a href="tel:+34611165129" class="hero-btn-primary">📞 Llamar ahora</a>
-        <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="hero-btn-wa">💬 WhatsApp gratis</a>
+        <a href="tel:+34613429032" class="hero-btn-primary">📞 Llamar ahora</a>
+        <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="hero-btn-wa">💬 WhatsApp gratis</a>
       </div>
       <div class="hero-trust">
         <div class="hero-trust-item">
@@ -201,7 +201,7 @@ $bloques = [
       </div>
     </div>
     <div class="pasos-cta">
-      <a href="tel:+34611165129" class="btn-dark-main">📞 Llamar ahora</a>
+      <a href="tel:+34613429032" class="btn-dark-main">📞 Llamar ahora</a>
       <a href="/contacto" class="btn-dark-ghost">Solicitar presupuesto</a>
     </div>
   </div>
@@ -434,7 +434,7 @@ $bloques = [
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tercer punto del servicio</li>
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cuarto punto del servicio</li>
         </ul>
-        <a href="tel:+34611165129" class="btn-servicio">📞 Llamar ahora</a>
+        <a href="tel:+34613429032" class="btn-servicio">📞 Llamar ahora</a>
       </div>
       <div class="servicio-visual">
         <span class="servicio-visual-badge">Urgencias · precio sin sorpresas</span>
@@ -579,11 +579,11 @@ $bloques = [
     <div class="zona-icard">
       <div class="zona-icard-h"><strong>Nombre de empresa</strong><span>Descripción del negocio</span></div>
       <div class="zona-ir"><span class="zona-ir-l">Ubicación</span><span class="zona-ir-v">Ciudad, Provincia</span></div>
-      <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
-      <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div>
+      <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
+      <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span></div>
       <div class="zona-ir"><span class="zona-ir-l">Horario</span><span class="zona-ir-v">Lun–Vie 8:00–20:00 · Sáb 9:00–14:00</span></div>
       <div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Material + instalación incluidos</span></div>
-      <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
+      <a href="tel:+34613429032" class="zona-icard-btn">📞 Llamar ahora</a>
     </div>
   </div>
 </section>',
@@ -638,10 +638,10 @@ $bloques = [
     <h2>¿Necesitas <span>ayuda urgente?</span></h2>
     <p>Llámanos y te atendemos de inmediato. Sin compromiso.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
-    <div class="cta-dark-tel">Teléfono directo<strong>611 165 129</strong></div>
+    <div class="cta-dark-tel">Teléfono directo<strong>613 429 032</strong></div>
   </div>
 </section>',
   ],
@@ -659,13 +659,13 @@ $bloques = [
     <h2>Llama y te atendemos <span class="hl">hoy mismo</span></h2>
     <p>Sin colas, sin formularios. Habla directamente con nosotros.</p>
     <div class="cta-final-tel-wrap">
-      <a href="tel:+34611165129" class="cta-final-tel">611 165 129</a>
+      <a href="tel:+34613429032" class="cta-final-tel">613 429 032</a>
       <span class="cta-final-tel-sep">&middot;</span>
-      <a href="tel:+34611165129" class="cta-final-tel cta-final-tel-2">611 165 129</a>
+      <a href="tel:+34613429032" class="cta-final-tel cta-final-tel-2">613 429 032</a>
     </div>
     <div class="cta-final-btns">
-      <a href="tel:+34611165129" class="hero-btn-primary">📞 Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="hero-btn-wa">💬 WhatsApp</a>
+      <a href="tel:+34613429032" class="hero-btn-primary">📞 Llamar ahora</a>
+      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="hero-btn-wa">💬 WhatsApp</a>
     </div>
   </div>
 </section>',
@@ -698,15 +698,15 @@ $bloques = [
     <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;margin-bottom:.5rem">Contacta <span style="color:#3b82f6">directamente</span></h2>
     <p style="color:#64748b;font-size:14px;margin-bottom:1.75rem">Si lo prefieres, llámanos o escríbenos por WhatsApp.</p>
     <div class="contacto-metodos">
-      <a href="tel:+34611165129" class="contacto-metodo">
+      <a href="tel:+34613429032" class="contacto-metodo">
         <div class="contacto-metodo-ico">📞</div>
         <div class="contacto-metodo-texto">
           <strong>Llamada</strong>
-          <span>611 165 129</span>
+          <span>613 429 032</span>
           <small>Lun–Vie 8:00–20:00 · Sáb 9:00–14:00</small>
         </div>
       </a>
-      <a href="https://wa.me/34611165129" class="contacto-metodo" target="_blank" rel="noopener">
+      <a href="https://wa.me/34613429032" class="contacto-metodo" target="_blank" rel="noopener">
         <div class="contacto-metodo-ico">💬</div>
         <div class="contacto-metodo-texto">
           <strong>WhatsApp</strong>
@@ -787,7 +787,7 @@ $bloques = [
       </div>
       <div style="background:#fff;border:1.5px solid #e8eff8;border-radius:12px;padding:1.25rem 1.5rem">
         <strong style="color:#0B2447;font-size:15px;display:block;margin-bottom:.5rem">¿Trabajáis en fin de semana?</strong>
-        <p style="color:#64748b;font-size:14px;line-height:1.65;margin:0">Sí. Las urgencias las atendemos 24 horas, 7 días a la semana. Llama al 611 165 129.</p>
+        <p style="color:#64748b;font-size:14px;line-height:1.65;margin:0">Sí. Las urgencias las atendemos 24 horas, 7 días a la semana. Llama al 613 429 032.</p>
       </div>
       <div style="background:#fff;border:1.5px solid #e8eff8;border-radius:12px;padding:1.25rem 1.5rem">
         <strong style="color:#0B2447;font-size:15px;display:block;margin-bottom:.5rem">¿Ofrecéis financiación?</strong>

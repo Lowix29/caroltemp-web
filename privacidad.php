@@ -29,7 +29,7 @@ include 'includes/head.php';
         <ul>
           <li><strong>Denominación:</strong> CarolTemp</li>
           <li><strong>Domicilio:</strong> Monóvar, Alicante, España</li>
-          <li><strong>Teléfono:</strong> 611 165 129</li>
+          <li><strong>Teléfono:</strong> 613 429 032</li>
           <li><strong>Email:</strong> info@caroltemp.es</li>
         </ul>
       </div>
@@ -82,7 +82,7 @@ include 'includes/head.php';
           <li><strong>Limitación:</strong> solicitar la limitación del tratamiento</li>
           <li><strong>Portabilidad:</strong> recibir tus datos en formato estructurado</li>
         </ul>
-        <p>Para ejercer cualquiera de estos derechos, puedes contactarnos en <strong>info@caroltemp.es</strong> o llamarnos al <strong>611 165 129</strong>.</p>
+        <p>Para ejercer cualquiera de estos derechos, puedes contactarnos en <strong>info@caroltemp.es</strong> o llamarnos al <strong>613 429 032</strong>.</p>
         <p>Si consideras que el tratamiento de tus datos no es adecuado, tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
       </div>
 

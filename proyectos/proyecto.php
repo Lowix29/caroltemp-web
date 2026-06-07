@@ -82,8 +82,8 @@ include '../includes/head.php';
         <div class="sidebar-card">
           <h3>¿Necesitas este servicio?</h3>
           <p>Pídenos presupuesto sin compromiso para tu instalación.</p>
-          <a href="tel:+34611165129" style="display:block;background:#1e3a5f;color:#fff;padding:12px;border-radius:8px;font-size:14.5px;font-weight:700;text-decoration:none;text-align:center;margin-top:1rem">📞 611 165 129</a>
-          <a href="https://wa.me/34611165129" target="_blank" rel="noopener" style="display:block;background:#f8fafc;color:#1e3a5f;padding:12px;border-radius:8px;font-size:14.5px;font-weight:600;text-decoration:none;text-align:center;margin-top:.75rem;border:1.5px solid #e2e8f0">💬 WhatsApp</a>
+          <a href="tel:+34613429032" style="display:block;background:#1e3a5f;color:#fff;padding:12px;border-radius:8px;font-size:14.5px;font-weight:700;text-decoration:none;text-align:center;margin-top:1rem">📞 613 429 032</a>
+          <a href="https://wa.me/34613429032" target="_blank" rel="noopener" style="display:block;background:#f8fafc;color:#1e3a5f;padding:12px;border-radius:8px;font-size:14.5px;font-weight:600;text-decoration:none;text-align:center;margin-top:.75rem;border:1.5px solid #e2e8f0">💬 WhatsApp</a>
         </div>
 
         <!-- ZONA -->
@@ -165,10 +165,10 @@ $proyectos_abajo = $proyectos_abajo->fetchAll();
     <h2>¿Quieres un <span>resultado así?</span></h2>
     <p>Pídenos presupuesto sin compromiso.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
-    <div class="cta-dark-tel">Teléfono directo<strong>611 165 129</strong></div>
+    <div class="cta-dark-tel">Teléfono directo<strong>613 429 032</strong></div>
   </div>
 </section>
 

@@ -20,7 +20,7 @@ include '../../includes/head.php';
     <h1>Desatascos en Petrer<br><span class="hl">limpieza integral para un resultado completo y duradero</span></h1>
     <p class="hz-dark-sub">Antes de meter la sonda, entra la cámara. Lo que muestra la imagen decide el método: sonda helicoidal para un tapón localizado, hidrojetting a alta presión para grasa acumulada en tramos largos, aspiración industrial para arquetas con sólidos. Elegir mal el método no solo no resuelve el atasco — puede dañar la tubería.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
       <a href="/contacto" class="btn-hz-w">Solicitar presupuesto</a>
     </div>
   </div>
@@ -55,10 +55,10 @@ include '../../includes/head.php';
         <div class="zona-icard">
           <div class="zona-icard-h"><strong>CarolTemp &middot; Petrer</strong><span>Desatascos</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Petrer &middot; CP 03610</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Tel&eacute;fono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Tel&eacute;fono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora &rarr;</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Todos los servicios</span><span class="zona-ir-v"><a href="/fontanero/petrer">Fontaner&iacute;a en Petrer &rarr;</a></span></div>
-          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -195,8 +195,8 @@ if (!empty($_proy)): ?>
     <h2>&iquest;Necesitas Desatascos <span>en Petrer?</span></h2>
     <p>Ll&aacute;menos o escr&iacute;benos. Te atendemos hoy.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

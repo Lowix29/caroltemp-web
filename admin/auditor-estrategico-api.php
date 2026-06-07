@@ -686,7 +686,7 @@ Para rankear orgánicamente en "fontanero petrer":
 
 **Meta description** (aparece bajo el título en Google, máx 155 caracteres):
 - No rankea directamente pero sí afecta al CTR (si el usuario hace clic)
-- Incluir beneficio principal + call to action: "Fontanero urgente en Elda disponible 24h. Presupuesto gratis sin compromiso. Llama ahora: 611 165 129"
+- Incluir beneficio principal + call to action: "Fontanero urgente en Elda disponible 24h. Presupuesto gratis sin compromiso. Llama ahora: 613 429 032"
 
 **H1**: Un solo H1 por página. Debe contener el keyword principal con ciudad. Ej: "Fontanero Urgente en Elda"
 
@@ -728,7 +728,7 @@ Google lee el schema para entender mejor el negocio y puede mostrar rich results
 {
   "@type": "Plumber",
   "name": "CarolTemp",
-  "telephone": "611165129",
+  "telephone": "613429032",
   "address": {"@type": "PostalAddress", "addressLocality": "Elda", "addressRegion": "Alicante"},
   "openingHours": "Mo-Su 00:00-24:00",
   "areaServed": ["Elda", "Petrer", "Novelda", "Monóvar", "Sax"]
@@ -1148,7 +1148,7 @@ CarolTemp es una empresa familiar de fontanería y climatización con sede en El
 - Instaladores certificados (Nubeco para climatización)
 - Financiación disponible para trabajos grandes
 
-**Contacto:** Tel: 611 165 129 / 611 165 129 | caroltemp.com
+**Contacto:** Tel: 613 429 032 / 613 429 032 | caroltemp.com
 
 **Perfil del cliente de CarolTemp:**
 - Particular con fuga de agua urgente que busca en Google desde el móvil

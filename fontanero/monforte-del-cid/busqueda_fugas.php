@@ -20,8 +20,8 @@ include '../../includes/head.php';
     <h1>Detección de fugas en Monforte del Cid<br><span class="hl">detectamos el origen del problema sin obras innecesarias</span></h1>
     <p class="hz-dark-sub">Localizar con certeza antes de actuar no es solo más limpio — es más barato. Un punto de apertura preciso frente a romper a tanteo puede significar la diferencia entre un parcheo de medio día y una semana de obra. La detección correcta reduce el coste total de la reparación.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
-      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
+      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -65,7 +65,7 @@ include '../../includes/head.php';
             <div class="icard-row"><span class="icard-icon">🌡️</span><span>Suelo caliente en zona sin suelo radiante</span></div>
             <div class="icard-row"><span class="icard-icon">🏘️</span><span>Tu vecino tiene humedad y creen que viene de tu piso</span></div>
           </div>
-          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -281,8 +281,8 @@ if (!empty($_proy)): ?>
     <h2>&iquest;Sospechas de una fuga <span>en Monforte del Cid?</span></h2>
     <p>Cuanto antes la localizamos, menos daño y menos coste. Ll&aacute;menos.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>
