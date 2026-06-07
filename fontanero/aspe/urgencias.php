@@ -3,8 +3,31 @@
  * Fontanero urgente en Aspe
  * CarolTemp
  */
-$meta_title  = 'Fontanero urgente en Aspe | Servicio urgente y profesional — CarolTemp';
-$meta_desc   = 'Fontanero urgente en Aspe para fugas, roturas y averías. Atención rápida y presupuesto antes de comenzar.';
+$faq_items = [
+  [
+    'q' => '¿Cuánto tarda un fontanero urgente en llegar a Aspe?',
+    'a' => 'Nuestro objetivo es llegar en el menor tiempo posible, con un máximo de 3 horas desde el primer contacto. En el casco urbano y el Bulevar los tiempos son habitualmente menores. Para urbanizaciones periféricas y fincas rurales añade entre 10 y 20 minutos. Operamos los 365 días del año, incluidos festivos y madrugadas.',
+  ],
+  [
+    'q' => '¿Qué incluye el presupuesto gratuito de fontanería en Aspe?',
+    'a' => 'El desplazamiento hasta tu domicilio, el diagnóstico completo de la avería in situ y una propuesta detallada con el precio total cerrado. Sin letra pequeña ni cargos ocultos. Solo empezamos a trabajar si aceptas el presupuesto — si no lo aceptas, no pagas nada.',
+  ],
+  [
+    'q' => '¿Trabajáis en urgencias los fines de semana y festivos en Aspe?',
+    'a' => 'Sí. El servicio es 365 días al año, incluidos sábados, domingos y todos los festivos. Para horario nocturno (desde las 22:00 h) y días festivos se aplica un recargo que se comunica siempre al contactar, antes de desplazarnos. Sin sorpresas en la factura.',
+  ],
+  [
+    'q' => '¿Por qué elegir un fontanero certificado Nubeco en Aspe?',
+    'a' => 'La certificación Nubeco habilita a los técnicos para instalar y mantener calderas de gas y aerotermia conforme a normativa. Sin esa certificación, la garantía del fabricante queda anulada automáticamente y la instalación puede no pasar la inspección reglamentaria. Nuestros técnicos están certificados y emiten el certificado de instalación en todos los trabajos que lo requieren.',
+  ],
+  [
+    'q' => '¿Cómo sé si mi urgencia necesita llamada inmediata o puede esperar?',
+    'a' => 'Llama de inmediato si: hay agua saliendo y no puedes cerrar la llave de paso, llevas sin agua caliente con personas mayores o dependientes en casa, o el desagüe está completamente colapsado. Puede esperar al día siguiente si: un grifo gotea lentamente, la presión ha bajado sin causa visible, o la cisterna no cierra del todo pero el baño funciona.',
+  ],
+];
+
+$meta_title  = 'Fontanero urgente en Aspe | Servicio 24 horas — CarolTemp';
+$meta_desc   = 'Fontanero urgente en Aspe las 24 horas. Fugas, roturas y averías en el casco urbano, Bulevar, polígono y zonas rurales. Presupuesto gratis, instaladores Nubeco.';
 $meta_url    = 'https://caroltemp.com/fontanero/aspe/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';
@@ -28,10 +51,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">Disponibles 24h</span><span class="dif-lbl">Cogemos el teléfono cuando más lo necesitas</span></div>
+    <div class="dif-item"><span class="dif-val">Máx. 3 horas, 365 días</span><span class="dif-lbl">Urgencias reales, no promesas</span></div>
     <div class="dif-item"><span class="dif-val">Precio antes de empezar</span><span class="dif-lbl">Lo apruebas tú, sin sorpresas</span></div>
+    <div class="dif-item"><span class="dif-val">Instaladores Nubeco</span><span class="dif-lbl">Calderas y aerotermia con garantía</span></div>
     <div class="dif-item"><span class="dif-val">Resolvemos en la misma visita</span><span class="dif-lbl">Si hay material, sin segunda vuelta</span></div>
-    <div class="dif-item"><span class="dif-val">Factura con detalle</span><span class="dif-lbl">Documento de lo realizado siempre</span></div>
   </div>
 </div>
 
@@ -40,28 +63,30 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Cuándo llamar</p>
-        <h2>La primera hora <span class="hl">marca la diferencia</span></h2>
+        <h2>Servicio de fontaner&iacute;a urgente <span class="hl">24 horas en Aspe</span></h2>
         <div class="zona-prose">
-          <p>Una rotura de tubería gestionada en la primera hora es un problema de fontanería. La misma rotura gestionada al día siguiente es un problema de fontanería más humedades en la pared, más daños en el suelo, más posibles afectaciones al vecino de abajo. El agua no espera. Cada minuto que pasa con una fuga activa, el agua penetra más en la estructura, empapa más material y multiplica el daño que hay que reparar después. Atendemos urgencias reales el mismo día porque sabemos que lo que no se corta a tiempo no se detiene solo.</p>
+          <p>Una rotura de tubería gestionada en la primera hora es un problema de fontanería. La misma rotura gestionada al día siguiente es un problema de fontanería más humedades en la pared, más daños en el suelo, más posibles afectaciones al vecino de abajo. El agua dura del Vinalopó deteriora juntas y válvulas con los años: las instalaciones antiguas del centro de Aspe son especialmente vulnerables cuando una junta cede de golpe.</p>
+          <p>Atendemos urgencias en toda la localidad — casco urbano, Bulevar, polígono industrial y casas de campo del término municipal. Las averías más habituales:</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura en tubería de vivienda unifamiliar en Aspe</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador sin agua caliente en piso o chalet</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fuga activa en tubería empotrada o vista</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Comunidad de vecinos o chalet sin presión</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador sin agua caliente en piso o chalet</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión parado en comunidad o finca</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso agarrotada que no cierra el suministro</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inundación en local o garaje por rotura en planta superior</li>
         </ul>
       </div>
       <div>
         <div class="icard">
-          <div class="icard-head">¿Urgencia en Aspe? No esperes al municipal si...</div>
+          <div class="icard-head">¿Es una urgencia? Lo es si…</div>
           <div class="icard-body">
-            <div class="icard-row"><span class="icard-icon">💧</span><span>Llevas horas sin agua y es fin de semana</span></div>
+            <div class="icard-row"><span class="icard-icon">💧</span><span>Hay agua saliendo y no puedes cerrar la llave de paso</span></div>
             <div class="icard-row"><span class="icard-icon">💦</span><span>Agua saliendo por el techo del vecino de abajo</span></div>
-            <div class="icard-row"><span class="icard-icon">🔥</span><span>Calentador averiado con personas mayores en casa</span></div>
-            <div class="icard-row"><span class="icard-icon">🚰</span><span>Llave de paso que no cierra</span></div>
-            <div class="icard-row"><span class="icard-icon">⚡</span><span>Comunidad sin presión en pleno verano</span></div>
+            <div class="icard-row"><span class="icard-icon">🔥</span><span>Sin agua caliente con personas dependientes en casa</span></div>
+            <div class="icard-row"><span class="icard-icon">🚰</span><span>Llave de paso que no cierra el suministro</span></div>
+            <div class="icard-row"><span class="icard-icon">⚡</span><span>Grupo de presión parado en pleno verano</span></div>
+            <div class="icard-row"><span class="icard-icon">🏚️</span><span>Humedad apareciendo rápidamente en una pared</span></div>
           </div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
@@ -73,22 +98,22 @@ include '../../includes/head.php';
 <section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
     <p class="zona-lbl">Qué reparamos</p>
-    <h2>Averías urgentes <span class="hl">en Aspe</span></h2>
+    <h2>Aver&iacute;as urgentes <span class="hl">en Aspe</span></h2>
     <div class="zona-grid-6">
       <div class="zona-tipo">
         <div class="zona-tipo-ico">💧</div>
         <h3>Fugas de agua urgentes</h3>
-        <p>Fugas de agua urgentes en tuberías de viviendas unifamiliares, pisos y comunidades. Localizamos y cerramos el escape antes de que cause daños en estructura o acabados.</p>
+        <p>Fugas en tuberías de viviendas unifamiliares, pisos y comunidades. El agua dura del Vinalopó deteriora juntas con los años. Localizamos y cerramos el escape antes de que cause daños en estructura o acabados.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">⚙️</div>
         <h3>Grupos de presión</h3>
-        <p>Fallo de grupo de presión en chalets y comunidades sin presión suficiente. Revisamos presostato, membrana y circuito eléctrico en la misma visita.</p>
+        <p>Fallo de grupo de presión en chalets, comunidades y naves del polígono industrial de Aspe. Revisamos presostato, membrana y circuito eléctrico en la misma visita, sin segunda cita.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🔥</div>
-        <h3>Calentadores y termos</h3>
-        <p>Termo sin agua caliente, calentador que no enciende o caldera que falla. El agua dura de la comarca acelera el deterioro de resistencias y válvulas de seguridad en las viviendas de Aspe.</p>
+        <h3>Calderas y calentadores</h3>
+        <p>Termo sin agua caliente, calentador que no enciende o caldera que falla. Somos instaladores certificados Nubeco: reparamos e instalamos con garantía de fabricante y certificado reglamentario.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🔩</div>
@@ -103,7 +128,7 @@ include '../../includes/head.php';
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🏢</div>
         <h3>Comunidades y locales</h3>
-        <p>Urgencias en zonas comunes y locales comerciales de Aspe. Mismo proceso: presupuesto antes de empezar, sin tarifas distintas por tipo de inmueble ni recargos ocultos.</p>
+        <p>Urgencias en zonas comunes, locales comerciales y naves del polígono de Aspe. Mismo proceso: presupuesto antes de empezar, sin tarifas distintas por tipo de inmueble.</p>
       </div>
     </div>
   </div>
@@ -111,28 +136,35 @@ include '../../includes/head.php';
 
 <section class="zona-sec">
   <div class="cta-dark-con">
-    <p class="zona-lbl">Sin sorpresas</p>
-    <h2>Qué pasa <span class="hl">cuando llamas</span></h2>
+    <p class="zona-lbl">Mientras llega el fontanero</p>
+    <h2>Qu&eacute; hacer <span class="hl">mientras esperas al fontanero</span></h2>
     <div class="zona-steps">
       <div class="zona-step">
         <div class="zona-step-n">1</div>
         <div class="zona-step-txt">
-          <strong>Nos cuentas la avería</strong>
-          <p>Describes el problema por teléfono o WhatsApp. Te damos un precio orientativo según el tipo de avería y acordamos la visita. Si es una urgencia real en Aspe — rotura activa, sin agua caliente, grupo de presión parado — priorizamos el desplazamiento.</p>
+          <strong>Corta el agua en la llave de paso general</strong>
+          <p>Suele estar bajo el fregadero de cocina, en el armario del baño o en la caja del contador (rellano o fachada). Gírala en el sentido de las agujas del reloj. Si no la encuentras o está atascada, te guiamos por teléfono.</p>
         </div>
       </div>
       <div class="zona-step">
         <div class="zona-step-n">2</div>
         <div class="zona-step-txt">
-          <strong>Vemos y presupuestamos en persona</strong>
-          <p>Llegamos, inspeccionamos la avería en persona y te damos el precio definitivo cerrado. Sin tocar nada hasta que lo apruebes. Para fugas activas en tuberías de hierro galvanizado o empotradas usamos geófono si la localización no es evidente.</p>
+          <strong>Aleja objetos de valor y protege el suelo</strong>
+          <p>Retira electrónica, documentación y objetos frágiles del área afectada. Pon toallas o cubos para frenar la extensión del agua. Cada metro cuadrado húmedo que evitas es tiempo y dinero de secado que te ahorras después.</p>
         </div>
       </div>
       <div class="zona-step">
         <div class="zona-step-n">3</div>
         <div class="zona-step-txt">
-          <strong>Reparamos en la misma visita</strong>
-          <p>Si hay material en la furgoneta, resolvemos ese mismo día. El precio final es el que se acordó, sin añadidos. La fontanería urgente en Aspe no debería tener sorpresas — y con nosotros no las tiene.</p>
+          <strong>No uses enchufes ni aparatos eléctricos cerca del agua</strong>
+          <p>El agua y la electricidad son una combinación peligrosa. Si la fuga ha llegado a zonas con instalación eléctrica visible, desconecta el diferencial de la zona afectada desde el cuadro eléctrico.</p>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">4</div>
+        <div class="zona-step-txt">
+          <strong>Llámanos — te guiamos mientras nos desplazamos</strong>
+          <p>Cuéntanos la situación por teléfono o WhatsApp. Te damos instrucciones concretas para minimizar el daño y salimos hacia Aspe de inmediato. Máx. 3 horas desde el contacto, 365 días al año.</p>
         </div>
       </div>
     </div>
@@ -140,6 +172,36 @@ include '../../includes/head.php';
 </section>
 
 <section class="zona-sec zona-sec-gray">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Sin sorpresas</p>
+    <h2>C&oacute;mo actuamos <span class="hl">cuando nos llamas</span></h2>
+    <div class="zona-steps">
+      <div class="zona-step">
+        <div class="zona-step-n">1</div>
+        <div class="zona-step-txt">
+          <strong>Nos cuentas la avería</strong>
+          <p>Describes el problema por teléfono o WhatsApp. Te damos un precio orientativo según el tipo de avería y acordamos la visita. Si es una urgencia real — rotura activa, sin agua caliente, grupo de presión parado — priorizamos el desplazamiento a Aspe.</p>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">2</div>
+        <div class="zona-step-txt">
+          <strong>Vemos y presupuestamos en persona</strong>
+          <p>Llegamos, inspeccionamos la avería en persona y te damos el precio definitivo cerrado. Sin tocar nada hasta que lo apruebes. Para fugas en tuberías empotradas usamos geófono si la localización no es evidente.</p>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">3</div>
+        <div class="zona-step-txt">
+          <strong>Reparamos en la misma visita</strong>
+          <p>Si hay material en la furgoneta, resolvemos ese mismo día. El precio final es el que se acordó, sin añadidos. En calderas y aerotermia emitimos certificado Nubeco cuando la normativa lo exige.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Precios claros</p>
     <h2>Tarifas fontanero urgente <span class="hl">Aspe</span></h2>
@@ -172,23 +234,33 @@ include '../../includes/head.php';
   </div>
 </section>
 
-<section class="zona-sec">
+<section class="zona-sec zona-sec-dark">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Cobertura local</p>
+    <h2>D&oacute;nde atendemos <span class="hl">en Aspe</span></h2>
+    <p style="color:#94a3b8;margin-bottom:1.75rem;max-width:640px">Cubrimos toda la localidad de Aspe — el mismo servicio en el centro que en las urbanizaciones periféricas y las casas de campo del término municipal.</p>
+    <div class="zona-ztags">
+      <span class="zona-ztag-plain">Centro urbano</span>
+      <span class="zona-ztag-plain">El Bulevar</span>
+      <span class="zona-ztag-plain">Polígono industrial</span>
+      <span class="zona-ztag-plain">Urbanizaciones periféricas</span>
+      <span class="zona-ztag-plain">Viviendas unifamiliares y chalets</span>
+      <span class="zona-ztag-plain">Casas de campo y fincas rurales</span>
+    </div>
+  </div>
+</section>
+
+<section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Urgencias fontanero <span class="hl">Aspe — dudas habituales</span></h2>
+    <h2>Urgencias fontanero <span class="hl">Aspe &mdash; dudas habituales</span></h2>
     <div class="zona-faqs">
-      <details class="zona-faq-item" open>
-        <summary>¿Es normal que una rotura cause humedad en la pared incluso días después de repararla?</summary>
-        <div class="faq-ans">Sí, y es algo que sorprende a mucha gente. El agua que ha penetrado en una pared o en el forjado no desaparece en cuanto se cierra la fuga — puede tardar días o semanas en evaporarse del todo, dependiendo del grosor del muro, el material y la ventilación de la estancia. Lo que se ve en los días siguientes es la humedad que ya estaba absorbida saliendo hacia la superficie. Si la mancha crece o persiste más de tres semanas después de la reparación, conviene revisar si hay otro foco activo o si el material ha quedado tan saturado que necesita ayuda para secar.</div>
+      <?php foreach ($faq_items as $i => $faq): ?>
+      <details class="zona-faq-item"<?php echo $i === 0 ? ' open' : ''; ?>>
+        <summary><?php echo htmlspecialchars($faq['q']); ?></summary>
+        <div class="faq-ans"><?php echo htmlspecialchars($faq['a']); ?></div>
       </details>
-      <details class="zona-faq-item">
-        <summary>¿Se puede hacer una reparación temporal que aguante hasta conseguir la pieza exacta?</summary>
-        <div class="faq-ans">En muchos casos sí. Cuando la pieza de repuesto no está disponible en el momento — un modelo descatalogado, una válvula específica o un componente de calentador — se puede estabilizar la avería con una solución provisional que corte la fuga y permita usar el suministro con normalidad mientras se consigue el material. Esta solución temporal no es definitiva, pero evita que la avería siga haciendo daño y que la vivienda quede sin agua. Al instalar la pieza definitiva se retira la provisional sin coste adicional de diagnóstico.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿El fontanero de urgencias trae material o hay que esperar al pedido?</summary>
-        <div class="faq-ans">La furgoneta de urgencias lleva material para las averías más frecuentes: llaves de paso, válvulas de esfera, racores, juntas, griferías básicas, piezas de calentador de uso común y conexiones para distintos diámetros. Esto permite resolver la mayoría de las urgencias en una sola visita sin esperar pedido. Si la avería requiere una pieza muy específica — por modelo de aparato o diámetro fuera de lo habitual — se gestiona el pedido urgente y se deja una solución provisional hasta que llegue.</div>
-      </details>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -206,7 +278,7 @@ try {
   }
 } catch (\Throwable $_e) {}
 if (!empty($_proy)): ?>
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Trabajos realizados</p>
     <h2>Proyectos de fontaner&iacute;a urgente <span class="hl">en Aspe</span></h2>
@@ -228,7 +300,7 @@ if (!empty($_proy)): ?>
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
     <h2>Fontanero urgente <span class="hl">en Aspe</span></h2>
-    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Aspe (CP 03680) y municipios lim&iacute;trofes de la comarca.</p>
+    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Aspe (CP 03680) y el t&eacute;rmino municipal completo.</p>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
       <iframe src="https://maps.google.com/maps?q=38.3442,-0.7704&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontanero urgente en Aspe"></iframe>
     </div>
@@ -253,7 +325,7 @@ if (!empty($_proy)): ?>
 <section class="cta-dark">
   <div class="cta-dark-con">
     <h2>&iquest;Tienes una aver&iacute;a <span>en Aspe?</span></h2>
-    <p>Ll&aacute;menos. Te damos precio antes de empezar.</p>
+    <p>Ll&aacute;menos. Te damos precio antes de empezar. M&aacute;x. 3 horas, 365 d&iacute;as.</p>
     <div class="cta-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
