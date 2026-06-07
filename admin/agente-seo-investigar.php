@@ -307,11 +307,6 @@ Marca con ⭐ el gap más crítico.
 7. [keyword long-tail]
 8. [keyword long-tail]
 
-**Ideas para proyectos:**
-1. [Tipo de proyecto]
-2. [Tipo de proyecto]
-3. [Tipo de proyecto]
-
 Cada ítem en su propia línea. NO pongas varios ítems en la misma línea.
 
 ## 6. Objetivo de palabras
