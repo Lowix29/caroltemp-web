@@ -20,12 +20,8 @@ include 'includes/head.php';
   <!-- Dot grid overlay -->
   <div class="e404-grid" aria-hidden="true"></div>
 
-  <!-- Burbujas flotantes -->
-  <div class="e404-bubbles" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
+  <!-- Burbujas flotantes — generadas y animadas por JS/RAF -->
+  <div class="e404-bubbles" aria-hidden="true"></div>
 
   <!-- Tubería rota animada -->
   <div class="e404-pipe-wrap" aria-hidden="true">
