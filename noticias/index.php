@@ -10,6 +10,8 @@ require_once '../includes/db.php';
 
 $zona_filtro = $_GET['zona']      ?? '';
 $cat_filtro  = $_GET['categoria'] ?? '';
+// Soporte de URLs amigables /noticias/zona/X pasadas por htaccess como ?zona=X
+// (ya se recibe via $_GET gracias a QSA en la rewrite rule)
 
 $where  = ['publicado = 1'];
 $params = [];
@@ -49,12 +51,12 @@ include '../includes/head.php';
     <!-- FILTROS -->
     <?php if (!empty($zonas) || !empty($categorias)): ?>
     <div class="blog-filtros">
-      <a href="/blog/" class="filtro-tag <?php echo (!$zona_filtro && !$cat_filtro) ? 'active' : ''; ?>">Todos</a>
+      <a href="/noticias/" class="filtro-tag <?php echo (!$zona_filtro && !$cat_filtro) ? 'active' : ''; ?>">Todos</a>
       <?php foreach ($categorias as $cat): ?>
-        <a href="?categoria=<?php echo urlencode($cat); ?>" class="filtro-tag <?php echo $cat_filtro === $cat ? 'active' : ''; ?>"><?php echo htmlspecialchars($cat); ?></a>
+        <a href="/noticias/categoria/<?php echo urlencode($cat); ?>" class="filtro-tag <?php echo $cat_filtro === $cat ? 'active' : ''; ?>"><?php echo htmlspecialchars($cat); ?></a>
       <?php endforeach; ?>
       <?php foreach ($zonas as $zona): ?>
-        <a href="?zona=<?php echo urlencode($zona); ?>" class="filtro-tag <?php echo $zona_filtro === $zona ? 'active' : ''; ?>">📍 <?php echo htmlspecialchars($zona); ?></a>
+        <a href="/noticias/zona/<?php echo urlencode($zona); ?>" class="filtro-tag <?php echo $zona_filtro === $zona ? 'active' : ''; ?>">📍 <?php echo htmlspecialchars($zona); ?></a>
       <?php endforeach; ?>
     </div>
     <?php endif; ?>
@@ -67,9 +69,10 @@ include '../includes/head.php';
     <?php else: ?>
       <div class="blog-grid">
         <?php foreach ($articulos as $art): ?>
-          <a href="/blog/<?php echo urlencode($art['slug']); ?>" class="blog-card">
+          <a href="/noticias/<?php echo urlencode($art['slug']); ?>" class="blog-card">
             <?php if ($art['imagen']): ?>
-              <div class="blog-card-img"><img src="<?php echo htmlspecialchars($art['imagen']); ?>" alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="lazy"></div>
+              <?php $img_raw = ltrim($art['imagen'], '/'); if (str_starts_with($img_raw, 'caroltemp/')) $img_raw = substr($img_raw, 10); ?>
+              <div class="blog-card-img"><img src="<?php echo htmlspecialchars($base_url . $img_raw); ?>" alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="lazy"></div>
             <?php else: ?>
               <div class="blog-card-img blog-card-img-placeholder"><span>✍️</span></div>
             <?php endif; ?>

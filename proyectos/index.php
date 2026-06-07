@@ -1,6 +1,6 @@
 <?php
 $meta_title  = "Trabajos realizados de fontanería y reformas | CarolTemp";
-$meta_desc   = "Descubre algunos de nuestros trabajos de fontanería, detección de fugas, desatascos, reformas y mantenimiento realizados en el Vinalopó.";
+$meta_desc   = "Descubre algunos de nuestros trabajos de fontanería, detección de fugas, desatascos, reformas y mantenimiento realizados en Elda, Petrer, Novelda y comarca.";
 $meta_url    = "https://caroltemp.com/proyectos/";
 $schema_type = "default";
 $page_css    = "proyectos";
@@ -37,8 +37,8 @@ include '../includes/head.php';
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Trabajos realizados</div>
-    <h1>Proyectos de fontanería<br><span class="hl">en el Vinalopó.</span></h1>
-    <p class="hz-dark-sub">Trabajos reales realizados en la comarca. Cada proyecto con su zona, servicio y descripción detallada.</p>
+    <h1>Proyectos de fontanería<br><span class="hl">realizados.</span></h1>
+    <p class="hz-dark-sub">Trabajos reales realizados en Elda, Petrer, Novelda y alrededores. Cada proyecto con su zona, servicio y descripción detallada.</p>
   </div>
 </section>
 
@@ -69,7 +69,8 @@ include '../includes/head.php';
         <?php foreach ($proyectos as $pro): ?>
           <a href="/proyectos/<?php echo urlencode($pro['slug']); ?>" class="blog-card">
             <?php if ($pro['imagen']): ?>
-              <div class="blog-card-img"><img src="<?php echo htmlspecialchars($base_url . $pro['imagen']); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" loading="lazy"></div>
+              <?php $img_raw = ltrim($pro['imagen'], '/'); if (str_starts_with($img_raw, 'caroltemp/')) $img_raw = substr($img_raw, 10); ?>
+              <div class="blog-card-img"><img src="<?php echo htmlspecialchars($base_url . $img_raw); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" loading="lazy"></div>
             <?php else: ?>
               <div class="blog-card-img blog-card-img-placeholder"><span>🔧</span></div>
             <?php endif; ?>
