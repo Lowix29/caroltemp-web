@@ -248,7 +248,6 @@ include '../../includes/head.php';
       <span class="zona-ztag-plain">Viñedos y fincas rurales</span>
       <span class="zona-ztag-plain">Diseminado rural</span>
     </div>
-    <p style="color:#94a3b8;margin-top:1.5rem;font-size:14px">También cubrimos los municipios vecinos: <a href="/fontanero/novelda/urgencias" style="color:#93c5fd">Novelda</a>, <a href="/fontanero/aspe/urgencias" style="color:#93c5fd">Aspe</a> y <a href="/fontanero/salinas/urgencias" style="color:#93c5fd">Salinas</a>.</p>
   </div>
 </section>
 
@@ -321,7 +320,6 @@ if (!empty($_proy)): ?>
       <a href="/fontanero/monovar/urgencias" class="zona-ztag">Mon&oacute;var</a>
       <a href="/fontanero/petrer/urgencias" class="zona-ztag">Petrer</a>
       <a href="/fontanero/sax/urgencias" class="zona-ztag">Sax</a>
-      <a href="/fontanero/salinas/urgencias" class="zona-ztag">Salinas</a>
     </div>
   </div>
 </section>
