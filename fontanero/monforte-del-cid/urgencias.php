@@ -3,8 +3,31 @@
  * Fontanero urgente en Monforte del Cid
  * CarolTemp
  */
-$meta_title  = 'Fontanero urgente en Monforte del Cid | Atención 24h — CarolTemp';
-$meta_desc   = 'Urgencias de fontanería en Monforte del Cid para averías, fugas y roturas. Servicio rápido y profesional.';
+$faq_items = [
+  [
+    'q' => '¿Cuánto tarda un fontanero urgente en llegar a Monforte del Cid?',
+    'a' => 'Nuestro objetivo es llegar en el menor tiempo posible, con un máximo de 3 horas desde el primer contacto. En el casco urbano los tiempos son habitualmente menores. Para la pedanía de Orito y fincas del término municipal añade entre 10 y 20 minutos. Operamos los 365 días del año, incluidos festivos y madrugadas.',
+  ],
+  [
+    'q' => '¿Atienden urgencias en Orito y zonas rurales fuera de horario?',
+    'a' => 'Sí. Cubrimos la pedanía de Orito y todas las fincas del término municipal de Monforte del Cid sin recargo adicional por desplazamiento dentro de la zona. El servicio es 365 días al año. Para horario nocturno (desde las 22:00 h) y festivos se aplica un recargo que se comunica siempre al contactar, antes de desplazarnos.',
+  ],
+  [
+    'q' => '¿Qué hago si tengo una fuga de agua urgente en Monforte del Cid?',
+    'a' => 'Cuatro pasos inmediatos: 1) Cierra la llave de paso general (suele estar bajo el fregadero de cocina o en el armario del baño). 2) Aleja objetos de valor y protege el suelo con toallas. 3) No uses enchufes ni aparatos eléctricos cerca del agua. 4) Llámanos al 611 165 129: te guiamos por teléfono mientras nos desplazamos.',
+  ],
+  [
+    'q' => '¿Cuánto cuesta una reparación urgente de fontanería en Monforte del Cid?',
+    'a' => 'La tarifa base es desde 60 €/hora (mínimo 1 hora) más desde 25 € de desplazamiento. El presupuesto es gratuito: vemos la avería, calculamos el trabajo y te damos el precio cerrado antes de empezar. Solo pagas si aceptas. Hay recargo para horario nocturno y festivos, que se informa siempre antes de desplazarnos.',
+  ],
+  [
+    'q' => '¿Los fontaneros de CarolTemp están certificados para instalar calderas en Monforte del Cid?',
+    'a' => 'Sí. Nuestros técnicos son instaladores certificados Nubeco, habilitados para instalación y mantenimiento de calderas de gas, gasoil y aerotermia en Monforte del Cid. La certificación garantiza que el trabajo cumple la normativa vigente y que la garantía del fabricante queda en vigor. Emitimos certificado de instalación en todos los trabajos que lo requieren.',
+  ],
+];
+
+$meta_title  = 'Fontanero urgente en Monforte del Cid | Servicio 24 horas — CarolTemp';
+$meta_desc   = 'Fontanero urgente en Monforte del Cid las 24 horas. Atendemos averías, fugas y roturas en el casco urbano, pedanía de Orito y zonas rurales. Presupuesto gratis.';
 $meta_url    = 'https://caroltemp.com/fontanero/monforte-del-cid/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';
@@ -30,8 +53,8 @@ include '../../includes/head.php';
   <div class="dif-strip-in">
     <div class="dif-item"><span class="dif-val">Avería vista, precio dado</span><span class="dif-lbl">Antes de tocar nada</span></div>
     <div class="dif-item"><span class="dif-val">Reparación en la visita</span><span class="dif-lbl">Sin segunda cita si hay piezas</span></div>
-    <div class="dif-item"><span class="dif-val">Sin letra pequeña</span><span class="dif-lbl">El precio dicho es el precio final</span></div>
-    <div class="dif-item"><span class="dif-val">Fontanero local</span><span class="dif-lbl">Conocemos Monforte del Cid</span></div>
+    <div class="dif-item"><span class="dif-val">Instaladores certificados Nubeco</span><span class="dif-lbl">Calderas y aerotermia con garantía</span></div>
+    <div class="dif-item"><span class="dif-val">Fontanero local</span><span class="dif-lbl">Conocemos Monforte del Cid y Orito</span></div>
   </div>
 </div>
 
@@ -40,29 +63,29 @@ include '../../includes/head.php';
     <div class="zona-tcol">
       <div>
         <p class="zona-lbl">Cuándo llamar</p>
-        <h2>Una avería de fontanería urgente <span class="hl">no es solo un problema de agua</span></h2>
+        <h2>Servicio de fontaner&iacute;a urgente <span class="hl">24 horas en Monforte del Cid</span></h2>
         <div class="zona-prose">
-          <p>Una tubería rota o una fuga activa no es una incomodidad: es daño estructural que crece por horas. El agua bajo presión penetra en mortero, aislamiento y madera antes de que aparezca la primera mancha. Cuando la humedad llega a la superficie, lleva tiempo actuando por dentro. Por eso la rapidez de respuesta no es un plus — es la diferencia entre una reparación de horas y una reforma de semanas.</p>
-          <p>En Monforte del Cid atendemos urgencias en toda la localidad y zonas rurales del término municipal. Llegamos, valoramos el daño real y lo paramos. Las averías más habituales que atendemos:</p>
+          <p>Una tubería rota o una fuga activa no es una incomodidad: es daño estructural que crece por horas. El agua bajo presión penetra en mortero, aislamiento y madera antes de que aparezca la primera mancha. Cuando la humedad llega a la superficie lleva tiempo actuando por dentro. Por eso la rapidez de respuesta no es un plus — es la diferencia entre una reparación de horas y una reforma de semanas.</p>
+          <p>En Monforte del Cid atendemos urgencias en toda la localidad, la pedanía de Orito y las fincas del término municipal. Llegamos, valoramos el daño real y lo paramos. Las averías más habituales:</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rotura de tubería con agua saliendo sin control</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas de agua urgentes en tuberías empotradas</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión que no arranca o pierde presión</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fugas en tuberías empotradas del casco urbano</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Grupo de presión que no arranca en finca o chalet</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Calentador o termo que deja de funcionar de repente</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llave de paso atascada que no cierra el agua</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inodoro, ducha o fregadero inutilizados por atasco urgente</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Caldera o aerotermia que deja de calentar en temporada</li>
         </ul>
       </div>
       <div>
         <div class="icard">
-          <div class="icard-head">¿Es una urgencia? Señales claras</div>
+          <div class="icard-head">¿Es una urgencia? Lo es si…</div>
           <div class="icard-body">
-            <div class="icard-row"><span class="icard-icon">💧</span><span>Agua saliendo y no puedes cerrar la llave de paso</span></div>
-            <div class="icard-row"><span class="icard-icon">🔥</span><span>Sin agua caliente y hay personas dependientes en casa</span></div>
+            <div class="icard-row"><span class="icard-icon">💧</span><span>Hay agua saliendo y no puedes cerrar la llave de paso</span></div>
+            <div class="icard-row"><span class="icard-icon">🔥</span><span>Sin agua caliente con personas dependientes en casa</span></div>
             <div class="icard-row"><span class="icard-icon">💦</span><span>Fuga visible que está mojando paredes o techo</span></div>
             <div class="icard-row"><span class="icard-icon">🚽</span><span>El baño está completamente inutilizado</span></div>
-            <div class="icard-row"><span class="icard-icon">⚡</span><span>Grupo de presión parado en pleno verano</span></div>
+            <div class="icard-row"><span class="icard-icon">⚡</span><span>Grupo de presión parado en finca o nave industrial</span></div>
             <div class="icard-row"><span class="icard-icon">🏚️</span><span>Humedad apareciendo rápidamente en una pared</span></div>
           </div>
           <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
@@ -75,22 +98,22 @@ include '../../includes/head.php';
 <section class="zona-sec zona-sec-alt">
   <div class="cta-dark-con">
     <p class="zona-lbl">Qué reparamos</p>
-    <h2>Averías urgentes <span class="hl">en Monforte del Cid</span></h2>
+    <h2>Aver&iacute;as urgentes <span class="hl">en Monforte del Cid</span></h2>
     <div class="zona-grid-6">
       <div class="zona-tipo">
         <div class="zona-tipo-ico">💧</div>
         <h3>Fugas de agua urgentes</h3>
-        <p>Fugas de agua urgentes en tuberías de viviendas y locales en Monforte del Cid. Localizamos y cerramos el escape antes de que cause daños en estructura o acabados.</p>
+        <p>Fugas en tuberías de viviendas, chalets y locales en Monforte del Cid. El agua dura del Vinalopó acumula cal y deteriora juntas con los años. Localizamos y cerramos el escape antes de que cause daños en estructura o acabados.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">⚙️</div>
         <h3>Grupos de presión</h3>
-        <p>El grupo de presión es la avería urgente más frecuente en fincas y viviendas rurales de Monforte del Cid. Revisamos presostato, membrana y circuito eléctrico en la misma visita.</p>
+        <p>Avería muy frecuente en fincas rurales y chalets de Orito y el término municipal. Revisamos presostato, membrana y circuito eléctrico en la misma visita, sin segunda cita.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🔥</div>
-        <h3>Calentadores y termos</h3>
-        <p>Termo sin agua caliente, calentador que no enciende o caldera que falla. El agua dura de Monforte del Cid acelera el deterioro de resistencias y válvulas de seguridad.</p>
+        <h3>Calderas y aerotermia</h3>
+        <p>Caldera que falla, termo sin agua caliente o aerotermia que no calienta. Somos instaladores certificados Nubeco: reparamos e instalamos con garantía de fabricante y certificado reglamentario.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🔩</div>
@@ -100,12 +123,12 @@ include '../../includes/head.php';
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🚰</div>
         <h3>Llaves de paso y válvulas</h3>
-        <p>Llave de paso que no cierra, válvula de corte atascada o rotura de contador. Situaciones que impiden cortar el suministro en caso de emergencia.</p>
+        <p>Llave de paso que no cierra, válvula de corte atascada o rotura de contador. Situaciones que impiden cortar el suministro en caso de emergencia real.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🏢</div>
-        <h3>Comunidades y locales</h3>
-        <p>Urgencias en zonas comunes, locales comerciales y bodegas en Monforte del Cid. Mismo proceso: presupuesto antes de empezar, sin tarifas distintas por tipo de inmueble.</p>
+        <h3>Comunidades y polígono industrial</h3>
+        <p>Urgencias en zonas comunes, locales y naves del polígono industrial de Monforte del Cid. Mismo proceso: presupuesto antes de empezar, sin tarifas distintas por tipo de inmueble.</p>
       </div>
     </div>
   </div>
@@ -113,8 +136,45 @@ include '../../includes/head.php';
 
 <section class="zona-sec">
   <div class="cta-dark-con">
+    <p class="zona-lbl">Mientras llega el fontanero</p>
+    <h2>Qu&eacute; hacer <span class="hl">mientras esperas al fontanero</span></h2>
+    <div class="zona-steps">
+      <div class="zona-step">
+        <div class="zona-step-n">1</div>
+        <div class="zona-step-txt">
+          <strong>Corta el agua en la llave de paso general</strong>
+          <p>Suele estar bajo el fregadero de cocina, en el armario del baño o en la caja del contador (rellano o fachada). Gírala en el sentido de las agujas del reloj. Si no la encuentras o está atascada, te guiamos por teléfono.</p>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">2</div>
+        <div class="zona-step-txt">
+          <strong>Aleja objetos de valor y protege el suelo</strong>
+          <p>Retira electrónica, documentación y objetos frágiles del área afectada. Pon toallas o cubos para frenar la extensión del agua. Cada metro cuadrado húmedo que evitas es tiempo y dinero de secado que te ahorras.</p>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">3</div>
+        <div class="zona-step-txt">
+          <strong>No uses enchufes ni aparatos eléctricos cerca del agua</strong>
+          <p>El agua y la electricidad son una combinación peligrosa. Si la fuga ha llegado a zonas con instalación eléctrica visible, desconecta el diferencial de la zona afectada desde el cuadro.</p>
+        </div>
+      </div>
+      <div class="zona-step">
+        <div class="zona-step-n">4</div>
+        <div class="zona-step-txt">
+          <strong>Llámanos — te guiamos mientras nos desplazamos</strong>
+          <p>Cuéntanos la situación por teléfono o WhatsApp. Te damos instrucciones concretas para minimizar el daño y salimos hacia Monforte del Cid de inmediato. Máx. 3 horas desde el contacto, 365 días al año.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zona-sec zona-sec-gray">
+  <div class="cta-dark-con">
     <p class="zona-lbl">Sin sorpresas</p>
-    <h2>Qué pasa <span class="hl">cuando llamas</span></h2>
+    <h2>C&oacute;mo actuamos <span class="hl">cuando nos llamas</span></h2>
     <div class="zona-steps">
       <div class="zona-step">
         <div class="zona-step-n">1</div>
@@ -127,21 +187,21 @@ include '../../includes/head.php';
         <div class="zona-step-n">2</div>
         <div class="zona-step-txt">
           <strong>Vemos y presupuestamos en persona</strong>
-          <p>Llegamos, inspeccionamos la avería en persona y te damos el precio definitivo cerrado. Sin tocar nada hasta que lo apruebes. Para fugas de agua urgentes en tuberías usamos geófono si la localización no es evidente.</p>
+          <p>Llegamos, inspeccionamos la avería y te damos el precio definitivo cerrado. Sin tocar nada hasta que lo apruebes. Para fugas en tuberías empotradas usamos geófono si la localización no es evidente.</p>
         </div>
       </div>
       <div class="zona-step">
         <div class="zona-step-n">3</div>
         <div class="zona-step-txt">
           <strong>Reparamos en la misma visita</strong>
-          <p>Si hay material en la furgoneta, resolvemos en el mismo día. El precio final es el que se acordó, sin añadidos. La fontanería urgente cerca de ti en Monforte del Cid no debería tener sorpresas — y no las tiene.</p>
+          <p>Si hay material en la furgoneta, resolvemos en el mismo día. El precio final es el que se acordó, sin añadidos. En calderas y aerotermia emitimos certificado de instalación cuando la normativa lo exige.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Precios claros</p>
     <h2>Tarifas fontanero urgente <span class="hl">Monforte del Cid</span></h2>
@@ -174,31 +234,35 @@ include '../../includes/head.php';
   </div>
 </section>
 
-<section class="zona-sec">
+<section class="zona-sec zona-sec-dark">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Cobertura local</p>
+    <h2>Monforte del Cid y Orito: <span class="hl">todo el t&eacute;rmino municipal</span></h2>
+    <p style="color:#94a3b8;margin-bottom:1.75rem;max-width:640px">Atendemos urgencias en el casco urbano de Monforte del Cid, la pedanía de Orito y todas las fincas y urbanizaciones del término. El mismo servicio, sin recargo adicional por distancia dentro de la zona.</p>
+    <div class="zona-ztags">
+      <span class="zona-ztag-plain">Casco urbano (CP 03670)</span>
+      <span class="zona-ztag-plain">Orito (pedanía)</span>
+      <span class="zona-ztag-plain">Polígono industrial</span>
+      <span class="zona-ztag-plain">Urbanizaciones periféricas</span>
+      <span class="zona-ztag-plain">Chalets y viviendas unifamiliares</span>
+      <span class="zona-ztag-plain">Viñedos y fincas rurales</span>
+      <span class="zona-ztag-plain">Diseminado rural</span>
+    </div>
+    <p style="color:#94a3b8;margin-top:1.5rem;font-size:14px">También cubrimos los municipios vecinos: <a href="/fontanero/novelda/urgencias" style="color:#93c5fd">Novelda</a>, <a href="/fontanero/aspe/urgencias" style="color:#93c5fd">Aspe</a> y <a href="/fontanero/salinas/urgencias" style="color:#93c5fd">Salinas</a>.</p>
+  </div>
+</section>
+
+<section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Urgencias fontanero <span class="hl">Monforte del Cid — dudas habituales</span></h2>
+    <h2>Urgencias fontanero <span class="hl">Monforte del Cid &mdash; dudas habituales</span></h2>
     <div class="zona-faqs">
-      <details class="zona-faq-item" open>
-        <summary>¿Cuánto cuesta un fontanero urgente en Monforte del Cid?</summary>
-        <div class="faq-ans">La tarifa base es desde 60 €/hora (mínimo 1 hora) más desde 25 € de desplazamiento a Monforte del Cid. Vemos la avería, calculamos el tiempo estimado y te damos el precio total antes de empezar. Tú decides si seguimos. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+      <?php foreach ($faq_items as $i => $faq): ?>
+      <details class="zona-faq-item"<?php echo $i === 0 ? ' open' : ''; ?>>
+        <summary><?php echo htmlspecialchars($faq['q']); ?></summary>
+        <div class="faq-ans"><?php echo htmlspecialchars($faq['a']); ?></div>
       </details>
-      <details class="zona-faq-item">
-        <summary>¿Atendéis urgencias en fincas y zonas rurales de Monforte del Cid?</summary>
-        <div class="faq-ans">Sí. Cubrimos todo el término municipal de Monforte del Cid, incluidas fincas de viñedo, casas de campo y urbanizaciones. El desplazamiento se cobra por visita, sin recargo extra por distancia dentro de la zona de cobertura.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Qué daños puede causar una fuga activa en 24 horas?</summary>
-        <div class="faq-ans">Una fuga a presión en tubería empotrada puede saturar el tabique completo en pocas horas. El agua avanza por la capa de mortero, llega al aislamiento y, si hay madera, la empieza a deteriorar. En 24 horas es habitual ver manchas en la pared contigua o en el techo del piso de abajo. El daño real siempre es mayor que lo que se ve en superficie — por eso parar la fuga cuanto antes reduce drásticamente el coste final de la reparación.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Cubre el seguro del hogar los daños por una rotura de tubería?</summary>
-        <div class="faq-ans">En la mayoría de pólizas, sí: los daños por rotura accidental de tubería empotrada suelen estar cubiertos, incluyendo la apertura de pared para localizar y reparar la fuga, y los daños en acabados (pintura, azulejo, parquet). Lo que varía entre pólizas es el importe máximo cubierto y si incluye la reparación de la tubería en sí o solo los daños consecuentes. Pide el parte a tu seguro y guarda el informe de la reparación — te lo facilitamos.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿Cómo corto el agua mientras llega el fontanero?</summary>
-        <div class="faq-ans">La llave de paso general de la vivienda suele estar bajo el fregadero de cocina, en un armario del baño o en el contador (normalmente en el rellano o en una caja empotrada en la fachada). Girarla en el sentido de las agujas del reloj corta el suministro. Si no la encuentras o está atascada, llámanos — te guiamos por teléfono. En caso de rotura en zona común, el corte lo hace la llave de paso de planta, accesible habitualmente desde el rellano.</div>
-      </details>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -216,7 +280,7 @@ try {
   }
 } catch (\Throwable $_e) {}
 if (!empty($_proy)): ?>
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Trabajos realizados</p>
     <h2>Proyectos de fontaner&iacute;a urgente <span class="hl">en Monforte del Cid</span></h2>
@@ -234,17 +298,17 @@ if (!empty($_proy)): ?>
   </div>
 </section>
 <?php endif; ?>
-<section class="zona-sec">
+<section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
     <h2>Fontanero urgente <span class="hl">en Monforte del Cid</span></h2>
-    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Monforte del Cid (CP 03670) y municipios lim&iacute;trofes.</p>
+    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Monforte del Cid (CP 03670), la pedanía de Orito y municipios lim&iacute;trofes.</p>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
       <iframe src="https://maps.google.com/maps?q=38.3735,-0.6632&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontanero urgente en Monforte del Cid"></iframe>
     </div>
   </div>
 </section>
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Mismo servicio en otras zonas</p>
     <h2>Fontanero urgente <span class="hl">en otros municipios</span></h2>
@@ -257,13 +321,14 @@ if (!empty($_proy)): ?>
       <a href="/fontanero/monovar/urgencias" class="zona-ztag">Mon&oacute;var</a>
       <a href="/fontanero/petrer/urgencias" class="zona-ztag">Petrer</a>
       <a href="/fontanero/sax/urgencias" class="zona-ztag">Sax</a>
+      <a href="/fontanero/salinas/urgencias" class="zona-ztag">Salinas</a>
     </div>
   </div>
 </section>
 <section class="cta-dark">
   <div class="cta-dark-con">
     <h2>&iquest;Tienes una aver&iacute;a <span>en Monforte del Cid?</span></h2>
-    <p>Ll&aacute;menos. Te damos precio antes de empezar.</p>
+    <p>Ll&aacute;menos. Te damos precio antes de empezar. M&aacute;x. 3 horas, 365 d&iacute;as.</p>
     <div class="cta-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
