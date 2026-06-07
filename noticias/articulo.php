@@ -53,22 +53,25 @@ include '../includes/head.php';
 ?>
 
 <!-- HERO -->
-<section class="hz-dark" style="min-height:520px">
-  <?php if ($art['imagen']):
-    // Normalizar ruta: quitar prefijo /caroltemp/ si existe, luego quitar barra inicial
+<?php
+  $tiene_imagen = !empty($art['imagen']);
+  if ($tiene_imagen) {
     $img_raw  = ltrim($art['imagen'], '/');
     if (str_starts_with($img_raw, 'caroltemp/')) $img_raw = substr($img_raw, 10);
     $img_hero = $base_url . $img_raw;
-  ?>
+  }
+?>
+<section class="hz-dark" style="min-height:<?php echo $tiene_imagen ? '520px' : '360px'; ?>">
+  <?php if ($tiene_imagen): ?>
     <img src="<?php echo htmlspecialchars($img_hero); ?>" alt="<?php echo htmlspecialchars($art['titulo']); ?>" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0">
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,12,26,.82) 0%,rgba(5,15,30,.55) 55%,rgba(5,15,30,.18) 100%);z-index:1"></div>
   <?php else: ?>
     <div class="hz-dark-bg"></div>
   <?php endif; ?>
-  <div class="hz-dark-con" style="position:relative;z-index:2;align-self:flex-end;width:100%;padding-bottom:3rem">
-    <div class="articulo-meta">
+  <div class="hz-dark-con" style="position:relative;z-index:2;width:100%;<?php echo $tiene_imagen ? 'align-self:flex-end;padding-bottom:3rem;text-align:left;align-items:flex-start;' : ''; ?>">
+    <div class="articulo-meta" style="<?php echo $tiene_imagen ? '' : 'justify-content:center;'; ?>">
       <?php if ($art['categoria']): ?>
-        <a href="/blog/categoria/<?php echo urlencode($art['categoria']); ?>" class="blog-cat"><?php echo htmlspecialchars($art['categoria']); ?></a>
+        <a href="/noticias/categoria/<?php echo urlencode($art['categoria']); ?>" class="blog-cat"><?php echo htmlspecialchars($art['categoria']); ?></a>
       <?php endif; ?>
       <?php if ($art['zona']): ?>
         <span class="blog-zona">📍 <?php echo htmlspecialchars($art['zona']); ?></span>
