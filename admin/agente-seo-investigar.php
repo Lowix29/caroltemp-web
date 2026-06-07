@@ -274,16 +274,34 @@ Marca con ⭐ el gap más crítico.
 
 ## 5. Keywords y variaciones long-tail detectadas
 **Principales (mayor volumen):**
-Lista numerada de 4-5 keywords exactas
+1. [keyword]
+2. [keyword]
+3. [keyword]
+4. [keyword]
+5. [keyword]
 
 **Long-tail para hub (transaccionales):**
-Lista numerada de 7-8 variaciones con intención de contratar/precio/urgencia
+1. [keyword long-tail]
+2. [keyword long-tail]
+3. [keyword long-tail]
+4. [keyword long-tail]
+5. [keyword long-tail]
+6. [keyword long-tail]
+7. [keyword long-tail]
+8. [keyword long-tail]
 
 **Ideas para artículos/noticias:**
-Lista numerada de 4 títulos de blog derivados de los gaps detectados
+1. "[Título de artículo]"
+2. "[Título de artículo]"
+3. "[Título de artículo]"
+4. "[Título de artículo]"
 
 **Ideas para proyectos:**
-Lista numerada de 2-3 tipos de trabajo frecuente en la zona que puedan publicarse como caso de éxito
+1. [Tipo de proyecto]
+2. [Tipo de proyecto]
+3. [Tipo de proyecto]
+
+Cada ítem en su propia línea. NO pongas varios ítems en la misma línea.
 
 ## 6. Objetivo de palabras
 - Competidor líder: X palabras
