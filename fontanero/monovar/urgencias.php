@@ -263,12 +263,12 @@ include '../../includes/head.php';
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Mano de obra</span>
         <span class="zona-precio-val">desde 60 €/h</span>
-        <span class="zona-precio-nota">MM&iacute;nimo 1 horaiacute;nimo 1 hora, segM&iacute;nimo 1 horauacute;n trabajo</span>
+        <span class="zona-precio-nota">M&iacute;nimo 1 hora, seg&uacute;n trabajo</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Desplazamiento a Mon&oacute;var</span>
         <span class="zona-precio-val">desde 25 €</span>
-        <span class="zona-precio-nota">SegSegún distancia, incluido en presupuestouacute;n distancia, incluido en presupuesto</span>
+        <span class="zona-precio-nota">Según distancia, incluido en presupuesto</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Horario nocturno (desde las 22:00 h)</span>
