@@ -36,6 +36,19 @@ $schema_type = 'articulo';
 $page_css    = 'blog';
 $page_js     = '';
 
+// Extraer FAQ Schema del contenido automáticamente
+$faq_items = [];
+if (!empty($art['contenido'])) {
+  preg_match_all('/<h[23][^>]*>\s*(¿[^<]+?)\s*<\/h[23]>\s*(?:<[^>]+>)*\s*<p[^>]*>(.*?)<\/p>/su', $art['contenido'], $faq_m);
+  foreach ($faq_m[1] as $i => $q) {
+    $q_clean = trim(strip_tags($q));
+    $a_clean = trim(strip_tags($faq_m[2][$i]));
+    if ($q_clean && $a_clean && strlen($a_clean) > 30) {
+      $faq_items[] = ['q' => $q_clean, 'a' => $a_clean];
+    }
+  }
+}
+
 include '../includes/head.php';
 ?>
 
