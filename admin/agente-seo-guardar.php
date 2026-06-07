@@ -9,6 +9,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 
 require_once '../includes/db.php';
+require_once '../includes/img-sync.php';
 
 $tipo        = $_POST['tipo']        ?? 'articulo';
 $slug        = trim($_POST['slug']        ?? '');
@@ -46,8 +47,10 @@ if (!empty($imagenes)) {
     if (file_exists($origen)) {
       rename($origen, $destino);
     }
-    $contenido   = str_replace($rutaActual, $rutaNueva, $contenido);
-    $rutaActual  = $rutaNueva;
+    $contenido  = str_replace($rutaActual, $rutaNueva, $contenido);
+    $rutaActual = $rutaNueva;
+    // Sincronizar imagen final a producción
+    syncImgToProduction($destino, ltrim($rutaNueva, '/'));
   }
   unset($rutaActual);
 }
@@ -58,14 +61,8 @@ if (empty($imagen_principal) && !empty($imagenes)) {
   $imagen_principal = $imagenes[0];
 }
 
-// Auto-commit y push de las imágenes nuevas al repo
-if (!empty($imagenes)) {
-  $repo = dirname(__DIR__);
-  $carpetaRel = 'img/contenido/' . $slug;
-  shell_exec("cd " . escapeshellarg($repo) . " && git add " . escapeshellarg($carpetaRel) . " 2>&1");
-  shell_exec("cd " . escapeshellarg($repo) . " && git -c commit.gpgsign=false commit -m " . escapeshellarg("img: fotos artículo " . $slug) . " 2>&1");
-  shell_exec("cd " . escapeshellarg($repo) . " && git push origin main 2>&1");
-}
+// Las imágenes ya están sincronizadas a producción individualmente arriba (via cURL).
+// El git push ya no es necesario para las imágenes.
 
 // Guardar como borrador para revisión previa a publicar
 $publicado = 0;
