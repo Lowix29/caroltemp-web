@@ -111,6 +111,8 @@ Incluir keyword principal + ciudad. Máx 70 caracteres. No repetir el meta title
 ### H2s — entre 3 y 6
 Responder preguntas reales de búsqueda: "Cómo...", "Cuánto cuesta...", "Por qué...", "Qué hacer si...", "Cuándo llamar a..."
 Incluir variaciones long-tail de la keyword.
+CAPITALIZACIÓN OBLIGATORIA: solo la primera letra del H2 en mayúscula. El resto en minúsculas salvo nombres propios. MAL: "Por Qué Fallan Las Tuberías". BIEN: "Por qué fallan las tuberías de hierro con el calor".
+PRIMER H2: debe ser curioso, intrigante o sorprendente — que invite a seguir leyendo. No descriptivo genérico. Ejemplos buenos: "El error que destroza las tuberías de hierro viejas", "Lo que nadie te cuenta sobre las fugas en agua caliente", "Cuándo una fuga pequeña se convierte en un problema serio".
 
 ### CUERPO DEL CONTENIDO
 Objetivo: 900-1100 palabras. No superar 1200 — cada párrafo debe aportar valor, sin relleno.
@@ -119,6 +121,15 @@ Densidad keyword principal: 1-1.5% (no más).
 Mencionar zona/ciudad al menos 4 veces de forma natural en el texto.
 Incluir datos concretos: precios orientativos, tiempos de respuesta, marcas instaladas cuando sea posible.
 Si hay transcripción de trabajo real: usar esos detalles específicos para E-E-A-T (experiencia demostrable).
+
+REGLAS ESPECÍFICAS PARA PROYECTOS (tipo=proyecto):
+1. NO mencionar otras ciudades o pueblos distintos a la zona principal del proyecto. Si el proyecto es en Elda, no escribir Petrer, Novelda, etc. en el cuerpo del texto. Solo la ciudad donde se hizo el trabajo.
+2. El contenido DEBE responder explícitamente estas 4 preguntas (en el cuerpo o FAQ):
+   - ¿Cuál era el problema exacto que tenía el cliente?
+   - ¿Cómo se detectó o diagnosticó la avería?
+   - ¿Cuánto tardó la reparación desde la llamada hasta el fin?
+   - ¿Cuánto costó aproximadamente (material + mano de obra + IVA)?
+   Si la transcripción no tiene alguno de estos datos, indícalo en seo_notas pero NO inventes el dato.
 
 ### OPTIMIZACIÓN PARA AI OVERVIEWS Y BUSCADORES IA
 Incluir sección FAQ con 3-4 preguntas reales (las que aparecen en "La gente también pregunta" de Google).
@@ -131,10 +142,18 @@ Si hay transcripción: citar detalles reales del trabajo (zona exacta, tipo de a
 Añadir señales de experiencia: tiempo en el sector, volumen de trabajos, certificaciones.
 Mencionar marcas y modelos reales cuando sea posible.
 
-### INTERLINKING
+### INTERLINKING INTERNO
 Enlazar a 2-3 páginas internas de caroltemp.com.
-Siempre enlazar a la página de zona si existe: /zonas/elda, /zonas/petrer, /zonas/novelda, /zonas/monovar, /zonas/sax, /zonas/pinoso.
+Siempre enlazar a la página de zona del proyecto/artículo: /fontanero/elda, /fontanero/petrer, /fontanero/novelda, /fontanero/monovar, /fontanero/sax, /fontanero/pinoso, /fontanero/salinas, /fontanero/monforte-del-cid.
 Anchor text descriptivo. Nunca "haz clic aquí" o "ver más".
+
+### ENLACES EXTERNOS NOFOLLOW — OBLIGATORIO (2 enlaces por artículo)
+Incluir exactamente 2 enlaces externos con rel='nofollow noopener' target='_blank':
+1. WIKIPEDIA ES: enlaza al artículo de Wikipedia en español más relevante para el tema técnico principal (ej: corrosión, tubería, calefacción, ósmosis, etc.). URL: https://es.wikipedia.org/wiki/[Tema]
+2. MARCA DEL PRODUCTO: enlaza al sitio oficial de la marca del producto o material principal mencionado (ej: si usas manguito Gebo → https://www.gebo-iberia.com; si instalas termo Nubeco → https://www.nubeco.com; etc.).
+Formato OBLIGATORIO: <a href='URL_REAL' rel='nofollow noopener' target='_blank'>texto descriptivo del enlace</a>
+El anchor text debe ser descriptivo: nunca "Wikipedia" ni el nombre exacto de la marca solo — mejor "corrosión galvánica en tuberías" o "catálogo de manguitos Gebo Ibérica".
+IMPORTANTE: usa URLs reales que probablemente existan. Si no estás seguro de la URL de la marca, usa la estructura lógica del dominio (www.marca.com o www.marca.es). El usuario verificará los enlaces antes de publicar.
 
 ### RESALTADO DE PUNTOS CLAVE — OBLIGATORIO
 A lo largo del contenido, usa `<span class="ct-hl">texto</span>` para resaltar las partes más importantes para el cliente: precios, plazos de respuesta, garantías, diferenciadores de CarolTemp, datos concretos.
