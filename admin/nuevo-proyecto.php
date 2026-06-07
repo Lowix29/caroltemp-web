@@ -8,7 +8,14 @@ require_once '../includes/db.php';
 
 try { $pdo->exec("ALTER TABLE proyectos ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 
-$img_base = $is_local ? '/caroltemp' : '';
+// Migración: normaliza rutas de imagen antiguas a relativas sin barra inicial
+try {
+  $pdo->exec("UPDATE proyectos SET imagen = REPLACE(imagen, '/caroltemp/img/', 'img/') WHERE imagen LIKE '/caroltemp/img/%'");
+  $pdo->exec("UPDATE proyectos SET imagen = REPLACE(imagen, '/img/', 'img/') WHERE imagen LIKE '/img/%'");
+} catch (PDOException $e) {}
+
+// Base para URLs de imagen en el admin
+$admin_img_base = $is_local ? '/caroltemp/' : '/';
 
 $mensaje = '';
 $error   = '';
@@ -46,13 +53,13 @@ function subirImagen($file, $carpeta) {
   if ($file['size'] > 3 * 1024 * 1024) {
     return ['error' => 'La imagen no puede superar 3MB.'];
   }
-  global $img_base;
   $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
   $nombre   = uniqid('img_') . '.' . strtolower($ext);
   $dir      = dirname(__DIR__) . '/img/' . $carpeta . '/';
   if (!is_dir($dir)) mkdir($dir, 0755, true);
   $ruta_abs = $dir . $nombre;
-  $ruta_web = $img_base . '/img/' . $carpeta . '/' . $nombre;
+  // Guardamos ruta relativa sin prefijo local — válida en local y producción
+  $ruta_web = 'img/' . $carpeta . '/' . $nombre;
   if (!move_uploaded_file($file['tmp_name'], $ruta_abs)) {
     return ['error' => 'Error al guardar la imagen.'];
   }
@@ -315,7 +322,7 @@ tinymce.init({
         <?php if ($pro['imagen']): ?>
           <div class="imagen-preview-actual" style="margin-bottom:1rem">
             <p style="font-size:12px;color:#7a95b0;margin-bottom:0.5rem">Imagen actual:</p>
-            <img src="<?php echo htmlspecialchars($pro['imagen']); ?>" alt="Imagen actual">
+            <img src="<?php echo htmlspecialchars($admin_img_base . $pro['imagen']); ?>" alt="Imagen actual">
           </div>
         <?php endif; ?>
 
