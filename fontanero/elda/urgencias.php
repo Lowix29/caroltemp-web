@@ -206,13 +206,13 @@ include '../../includes/head.php';
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Mano de obra</span>
-        <span class="zona-precio-val">100 €/h</span>
-        <span class="zona-precio-nota">Mínimo 1 hora</span>
+        <span class="zona-precio-val">desde 60 €/h</span>
+        <span class="zona-precio-nota">Mínimo 1 hora, según trabajo</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Desplazamiento a Elda</span>
-        <span class="zona-precio-val">40 €</span>
-        <span class="zona-precio-nota">Por visita, incluido en presupuesto</span>
+        <span class="zona-precio-val">desde 25 €</span>
+        <span class="zona-precio-nota">SegSegún distancia, incluido en presupuestouacute;n distancia, incluido en presupuesto</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Horario nocturno (desde las 22:00 h)</span>

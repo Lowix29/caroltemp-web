@@ -152,13 +152,13 @@ include '../../includes/head.php';
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Mano de obra</span>
-        <span class="zona-precio-val">100 €/h</span>
-        <span class="zona-precio-nota">Mínimo 1 hora</span>
+        <span class="zona-precio-val">desde 60 €/h</span>
+        <span class="zona-precio-nota">Mínimo 1 hora, según trabajo</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Desplazamiento a Monforte del Cid</span>
-        <span class="zona-precio-val">40 €</span>
-        <span class="zona-precio-nota">Por visita, incluido en presupuesto</span>
+        <span class="zona-precio-val">desde 25 €</span>
+        <span class="zona-precio-nota">SegSegún distancia, incluido en presupuestouacute;n distancia, incluido en presupuesto</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Horario nocturno (desde las 22:00 h)</span>
@@ -181,7 +181,7 @@ include '../../includes/head.php';
     <div class="zona-faqs">
       <details class="zona-faq-item" open>
         <summary>¿Cuánto cuesta un fontanero urgente en Monforte del Cid?</summary>
-        <div class="faq-ans">La tarifa base es 100 €/hora (mínimo 1 hora) más 40 € de desplazamiento a Monforte del Cid. Vemos la avería, calculamos el tiempo estimado y te damos el precio total antes de empezar. Tú decides si seguimos. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
+        <div class="faq-ans">La tarifa base es desde 60 €/hora (mínimo 1 hora) más desde 25 € de desplazamiento a Monforte del Cid. Vemos la avería, calculamos el tiempo estimado y te damos el precio total antes de empezar. Tú decides si seguimos. Hay recargos para trabajos nocturnos (desde las 22:00 h) y en fines de semana o festivos.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en fincas y zonas rurales de Monforte del Cid?</summary>

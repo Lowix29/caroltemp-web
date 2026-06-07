@@ -188,12 +188,12 @@ include '../../includes/head.php';
         <tbody>
           <tr style="border-bottom:1px solid #e2e8f0;background:#fff">
             <td style="padding:.875rem 1.25rem;font-weight:600;color:#0B2447">Mano de obra</td>
-            <td style="padding:.875rem 1.25rem;text-align:center;font-size:18px;font-weight:700;color:#0D2B55">100 €/h</td>
-            <td style="padding:.875rem 1.25rem;color:#576574">Mínimo 1 hora</td>
+            <td style="padding:.875rem 1.25rem;text-align:center;font-size:18px;font-weight:700;color:#0D2B55">desde 60 €/h</td>
+            <td style="padding:.875rem 1.25rem;color:#576574">Mínimo 1 hora, según trabajo</td>
           </tr>
           <tr style="border-bottom:1px solid #e2e8f0;background:#f8fafc">
             <td style="padding:.875rem 1.25rem;font-weight:600;color:#0B2447">Desplazamiento</td>
-            <td style="padding:.875rem 1.25rem;text-align:center;font-size:18px;font-weight:700;color:#0D2B55">40 €</td>
+            <td style="padding:.875rem 1.25rem;text-align:center;font-size:18px;font-weight:700;color:#0D2B55">desde 25 €</td>
             <td style="padding:.875rem 1.25rem;color:#576574">Por servicio, incluido en el presupuesto</td>
           </tr>
           <tr style="border-bottom:1px solid #e2e8f0;background:#fff">

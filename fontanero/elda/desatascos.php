@@ -152,12 +152,12 @@ include '../../includes/head.php';
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Mano de obra</span>
-        <span class="zona-precio-val">100 €/h</span>
-        <span class="zona-precio-nota">Mínimo 1 hora. Cámara endoscópica incluida.</span>
+        <span class="zona-precio-val">desde 60 €/h</span>
+        <span class="zona-precio-nota">Mínimo 1 hora, según trabajo. Cámara endoscópica incluida.</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Desplazamiento a Elda</span>
-        <span class="zona-precio-val">40 €</span>
+        <span class="zona-precio-val">desde 25 €</span>
         <span class="zona-precio-nota">Por visita, incluido en el presupuesto.</span>
       </div>
       <div class="zona-precio-row">
