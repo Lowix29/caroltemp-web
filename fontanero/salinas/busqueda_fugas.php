@@ -39,9 +39,9 @@ include '../../includes/head.php';
   <div class="hz-dark-bg"></div>
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">
-    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Detección de fugas &middot; Salinas &middot; CP 03668 &middot; Alicante</div>
-    <h1>Detección de fugas en Salinas (Alicante)<br><span class="hl">localizamos la pérdida sin romper paredes ni suelos</span></h1>
-    <p class="hz-dark-sub">Geófono, termografía y gas trazador antes de abrir nada. Solo se interviene en el punto exacto de la rotura — sin excavaciones a ciegas. Servicio urgente todos los días del año. <strong>Salinas, CP 03668 — no San Miguel de Salinas.</strong></p>
+    <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Detección de fugas &middot; Salinas &middot; CP 03668</div>
+    <h1>Detección de fugas en Salinas<br><span class="hl">localizamos la pérdida sin romper paredes ni suelos</span></h1>
+    <p class="hz-dark-sub">Geófono, termografía y gas trazador antes de abrir nada. Solo se interviene en el punto exacto de la rotura — sin excavaciones a ciegas. Servicio urgente todos los días del año.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
@@ -62,7 +62,7 @@ include '../../includes/head.php';
   <div class="cta-dark-con">
     <div class="zona-tcol">
       <div>
-        <p class="zona-lbl">Detección de fugas en Salinas, CP 03668</p>
+        <p class="zona-lbl">Detección de fugas en Salinas · CP 03668</p>
         <h2>Detección de fugas urgente <span class="hl">24 horas en Salinas sin obras</span></h2>
         <div class="zona-prose">
           <p>Salinas (Alicante, CP 03668) es un municipio interior del Vinalopó Medio — no debe confundirse con San Miguel de Salinas, que otros competidores mencionan por error. Las viviendas de Salinas tienen instalaciones con años de antigüedad expuestas al contraste térmico del altiplano: heladas nocturnas en invierno y temperaturas de 38-40 °C en verano que someten a las tuberías a ciclos continuos de dilatación y contracción. Ese estrés térmico, combinado con el agua dura de la zona, agrieta juntas y empalmes antes de lo esperado — especialmente en instalaciones de hierro galvanizado o cobre antiguo que llevan décadas sin renovarse.</p>
@@ -177,8 +177,8 @@ include '../../includes/head.php';
 <section class="zona-sec zona-sec-dark">
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
-    <h3 style="font-size:1.5rem;font-weight:700;margin-bottom:.5rem;color:#fff">Salinas &mdash; CP 03668 &mdash; Alicante</h3>
-    <p style="color:#94a3b8;font-size:.85rem;margin-bottom:1.25rem">38.5009° N · 0.8536° O &nbsp;|&nbsp; No es San Miguel de Salinas &mdash; es Salinas, CP 03668</p>
+    <h3 style="font-size:1.5rem;font-weight:700;margin-bottom:.5rem;color:#fff">Salinas &mdash; CP 03668</h3>
+    <p style="color:#94a3b8;font-size:.85rem;margin-bottom:1.25rem">38.5009° N &nbsp;·&nbsp; 0.8536° O</p>
     <div class="zona-ztags">
       <span class="zona-ztag-plain">Casco urbano (CP 03668)</span>
       <span class="zona-ztag-plain">Urbanizaciones perif&eacute;ricas</span>
@@ -267,9 +267,8 @@ if (!empty($_proy)): ?>
 <section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
-    <h2>Detección de fugas <span class="hl">en Salinas (Alicante)</span></h2>
-    <p style="margin-bottom:.5rem;color:#576574">Atendemos toda la localidad de Salinas, CP 03668, Alicante &mdash; 38.5009° N, 0.8536° O.</p>
-    <p style="margin-bottom:1.5rem;color:#94a3b8;font-size:.85rem">&#9888; Salinas (CP 03668) no es San Miguel de Salinas &mdash; si buscas fontanero en Salinas de Alicante interior, estás en el sitio correcto.</p>
+    <h2>Detección de fugas <span class="hl">en Salinas</span></h2>
+    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Salinas (CP 03668) &mdash; 38.5009° N, 0.8536° O.</p>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
       <iframe src="https://maps.google.com/maps?q=38.5009,-0.8536&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Detección de fugas en Salinas (Alicante) CP 03668"></iframe>
     </div>
