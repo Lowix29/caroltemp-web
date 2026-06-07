@@ -46,14 +46,18 @@ include '../includes/head.php';
 
 <!-- HERO -->
 <section class="hz-dark" style="min-height:480px">
-  <?php if ($pro['imagen']): ?>
-    <?php $img_hero = $base_url . ltrim($pro['imagen'], '/'); ?>
-    <img src="<?php echo htmlspecialchars($img_hero); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" aria-hidden="true" style="position:absolute;inset:-10px;width:calc(100% + 20px);height:calc(100% + 20px);object-fit:cover;object-position:center;z-index:0;filter:blur(3px)">
-    <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,15,30,.72) 0%,rgba(5,15,30,.55) 60%,rgba(11,36,71,.45) 100%);z-index:1"></div>
+  <?php if ($pro['imagen']):
+    // Normalizar ruta: quitar prefijo /caroltemp/ si existe, luego quitar barra inicial
+    $img_raw  = ltrim($pro['imagen'], '/');
+    if (str_starts_with($img_raw, 'caroltemp/')) $img_raw = substr($img_raw, 10);
+    $img_hero = $base_url . $img_raw;
+  ?>
+    <img src="<?php echo htmlspecialchars($img_hero); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,12,26,.82) 0%,rgba(5,15,30,.55) 55%,rgba(5,15,30,.18) 100%);z-index:1"></div>
   <?php else: ?>
     <div class="hz-dark-bg"></div>
   <?php endif; ?>
-  <div class="hz-dark-con" style="position:relative;z-index:2">
+  <div class="hz-dark-con" style="position:relative;z-index:2;align-self:flex-end;width:100%;padding-bottom:3rem">
     <div class="articulo-meta">
       <?php if ($pro['servicio']): ?>
         <a href="/proyectos/servicio/<?php echo urlencode($pro['servicio']); ?>" class="blog-cat"><?php echo htmlspecialchars($pro['servicio']); ?></a>
