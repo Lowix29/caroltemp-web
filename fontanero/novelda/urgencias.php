@@ -67,7 +67,7 @@ include '../../includes/head.php';
         <p class="zona-lbl">Por qué elegirnos en Novelda</p>
         <h2>Instaladores certificados <span class="hl">con conocimiento local</span></h2>
         <div class="zona-prose">
-          <p>Novelda tiene un casco histórico con edificios de los años 50-70 que acumulan décadas de instalaciones sin renovar: tuberías de hierro galvanizado corroídas, llaves de paso que ya no cierran y termos con resistencias dañadas por la dureza del agua comarcal. Conocer estos patrones marca la diferencia entre un fontanero que llega, ve y se va a buscar pieza, y uno que llega con lo necesario para resolver en la primera visita.</p>
+          <p><a href="https://es.wikipedia.org/wiki/Novelda" target="_blank" rel="noopener noreferrer">Novelda</a> tiene un casco histórico con edificios de los años 50-70 que acumulan décadas de instalaciones sin renovar: tuberías de hierro galvanizado corroídas, llaves de paso que ya no cierran y termos con resistencias dañadas por la dureza del agua comarcal. Conocer estos patrones marca la diferencia entre un fontanero que llega, ve y se va a buscar pieza, y uno que llega con lo necesario para resolver en la primera visita.</p>
           <p>Como instaladores Nubeco certificados estamos habilitados para fontanería, gas y calderas. Esto es especialmente relevante en Novelda en invierno: una fuga puede afectar al circuito de calefacción, y necesitas a alguien que domine ambas disciplinas para resolver de raíz.</p>
         </div>
         <ul class="zona-chk">
@@ -103,7 +103,7 @@ include '../../includes/head.php';
     <h2>Servicio de fontanería <span class="hl">24 horas en Novelda</span></h2>
     <div class="zona-prose" style="max-width:760px;margin:0 auto 2rem">
       <p>Las averías no avisan ni miran el reloj. Una tubería revienta a las 2 de la madrugada, el grupo de presión del edificio falla el domingo por la mañana, el calentador deja de funcionar la noche de Navidad. Para eso existe el servicio 24 horas: para que siempre haya alguien al otro lado cuando llamas, con precio cerrado antes de empezar y sin aprovechar la urgencia para cobrar lo que no es.</p>
-      <p>Atendemos Novelda los 365 días del año. El recargo por horario nocturno y festivo lo informamos siempre al contactar, antes de salir — sin sorpresas en la factura.</p>
+      <p>Atendemos Novelda los 365 días del año — igual que <a href="https://www.noveldaradio.es/" target="_blank" rel="noopener noreferrer">la radio de Novelda</a>, sin días libres. El recargo por horario nocturno y festivo lo informamos siempre al contactar, antes de salir — sin sorpresas en la factura.</p>
     </div>
     <div class="zona-svc" style="margin-top:0">
       <div class="zona-sc">
@@ -119,7 +119,7 @@ include '../../includes/head.php';
       <div class="zona-sc">
         <span class="zona-sc-n">COMUNIDADES</span>
         <h3>Urgencias en comunidades de vecinos</h3>
-        <p>Coordinamos con el administrador o presidente de comunidad. Factura a nombre de la comunidad y documentación para reclamación al seguro del edificio si procede.</p>
+        <p>Coordinamos con el administrador o presidente de comunidad. Factura a nombre de la comunidad y documentación para reclamación al seguro del edificio si procede. Para consultas sobre normativa de instalaciones en el municipio, el <a href="https://www.novelda.es/" target="_blank" rel="noopener noreferrer">Ayuntamiento de Novelda</a> dispone de información actualizada.</p>
       </div>
     </div>
   </div>
