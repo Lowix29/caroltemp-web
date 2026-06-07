@@ -132,10 +132,9 @@ include 'includes/head.php';
     </div>
 
     <nav class="e404-nav" aria-label="Páginas principales">
-      <a href="<?php echo $base_url; ?>servicios.php">Servicios</a>
-      <a href="<?php echo $base_url; ?>zonas.php">Zonas</a>
-      <a href="<?php echo $base_url; ?>blog/">Blog</a>
-      <a href="<?php echo $base_url; ?>contacto.php">Contacto</a>
+      <a href="<?php echo $base_url; ?>fontanero/elda">Ubicaciones</a>
+      <a href="<?php echo $base_url; ?>noticias/">Noticias</a>
+      <a href="<?php echo $base_url; ?>contacto">Contacto</a>
     </nav>
 
   </div>
