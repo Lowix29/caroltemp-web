@@ -18,7 +18,7 @@ include 'includes/head.php';
     <h1>Que el presupuesto no frene<br><span class="hl">lo que necesitas hacer</span></h1>
     <p class="hz-dark-sub">Aprueba el presupuesto hoy y empieza sin adelantar nada. Cuotas cómodas, aprobación rápida y firma digital desde tu móvil.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 Consultar ahora</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Consultar ahora</a>
       <a href="<?php echo $base_url; ?>contacto" class="btn-hz-g">Pedir información</a>
     </div>
   </div>
@@ -101,7 +101,7 @@ include 'includes/head.php';
       </div>
 
       <div class="fin-sim-cta">
-        <a href="tel:+34613429032" class="btn btn-primary">📞 Consultar sin compromiso</a>
+        <a href="tel:+34611165129" class="btn btn-primary">📞 Consultar sin compromiso</a>
         <a href="<?php echo $base_url; ?>contacto" class="btn btn-secondary">Pedir información →</a>
       </div>
     </div>
@@ -329,7 +329,7 @@ include 'includes/head.php';
         <span>Llámanos ahora. Si el presupuesto es elevado, te explicamos en el momento cómo pagarlo a plazos sin adelantar nada.</span>
       </div>
       <div class="fin-urgbanner-btns">
-        <a href="tel:+34613429032" class="btn-hz-w fin-urgbanner-btn">📞 613 429 032</a>
+        <a href="tel:+34611165129" class="btn-hz-w fin-urgbanner-btn">📞 611 165 129</a>
       </div>
     </div>
   </div>
@@ -422,10 +422,10 @@ include 'includes/head.php';
     <h2>¿Te interesa <span>financiar tu proyecto?</span></h2>
     <p>Llámanos y te explicamos cómo funciona sin ningún compromiso.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
-    <div class="cta-dark-tel">Teléfono directo<strong>613 429 032</strong></div>
+    <div class="cta-dark-tel">Teléfono directo<strong>611 165 129</strong></div>
   </div>
 </section>
 

@@ -18,7 +18,7 @@ include 'includes/head.php';
     <h1>Fontanería en el Vinalopó<br><span class="hl">con nombre y apellidos.</span></h1>
     <p class="hz-dark-sub">Somos CarolTemp. Una empresa de fontanería residencial comprometida con hacer las cosas bien, explicar lo que hacemos y cumplir con lo que prometemos.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="<?php echo $base_url; ?>contacto.php" class="btn-hz-g">Contactar</a>
     </div>
   </div>
@@ -39,11 +39,11 @@ include 'includes/head.php';
         <div class="zona-icard">
           <div class="zona-icard-h"><strong>CarolTemp</strong><span>Fontanería industrial y residencial</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Ubicación</span><span class="zona-ir-v">Vinalopó Medio, Alicante</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Instalador oficial</span><span class="zona-ir-v">Termos Nubeco</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Material + instalación incluidos</span></div>
-          <a href="tel:+34613429032" class="zona-icard-btn">📞 Llamar ahora</a>
+          <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -112,10 +112,10 @@ include 'includes/head.php';
     <h2>¿Hablamos <span>sin compromiso?</span></h2>
     <p>Cuéntanos qué necesitas y te atendemos hoy.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
-    <div class="cta-dark-tel">Teléfono directo<strong>613 429 032</strong></div>
+    <div class="cta-dark-tel">Teléfono directo<strong>611 165 129</strong></div>
   </div>
 </section>
 

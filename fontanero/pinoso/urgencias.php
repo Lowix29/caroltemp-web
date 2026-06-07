@@ -21,8 +21,8 @@ include '../../includes/head.php';
     <h1>Fontanero urgente en Pinoso<br><span class="hl">con experiencia, rapidez y resultados garantizados</span></h1>
     <p class="hz-dark-sub">Una rotura que manda agua al suelo, una inundación que avanza por el pasillo, un termo que deja de funcionar a medianoche. Hay averías que no admiten demora — y un fontanero de guardia que de verdad coge el teléfono y sale marca la diferencia entre un susto y un desastre.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
-      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -73,11 +73,11 @@ include '../../includes/head.php';
           </div>
           <div class="zona-ir">
             <span class="zona-ir-l">Teléfono</span>
-            <span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span>
+            <span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span>
           </div>
           <div class="zona-ir">
             <span class="zona-ir-l">WhatsApp</span>
-            <span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span>
+            <span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span>
           </div>
           <div class="zona-ir">
             <span class="zona-ir-l">Horario</span>
@@ -87,7 +87,7 @@ include '../../includes/head.php';
             <span class="zona-ir-l">Zona</span>
             <span class="zona-ir-v">Casco urbano y fincas rurales</span>
           </div>
-          <a href="tel:+34613429032" class="zona-icard-btn">📞 Llamar ahora</a>
+          <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -337,8 +337,8 @@ if (!empty($_proy)): ?>
     <h2>&iquest;Tienes una aver&iacute;a <span>en Pinoso?</span></h2>
     <p>Ll&aacute;menos. Te damos precio antes de empezar.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

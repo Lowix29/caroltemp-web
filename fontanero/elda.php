@@ -31,8 +31,8 @@ include '../includes/head.php';
     <h1>Fontanero en Elda<br><span class="hl">Rápido, serio y sin sorpresas</span></h1>
     <p class="hz-dark-sub">Urgencias, fugas, desatascos y reformas en Elda. Atendemos particulares, comunidades y locales.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
-      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -146,11 +146,11 @@ include '../includes/head.php';
         <div class="zona-icard">
           <div class="zona-icard-h"><strong>CarolTemp · Elda</strong><span>Fontanería local</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Elda · CP 03600</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora →</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora →</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Certificación</span><span class="zona-ir-v">Instaladores Nubeco oficiales</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Disponible para proyectos</span></div>
-          <a href="tel:+34613429032" class="zona-icard-btn">📞 Llamar ahora</a>
+          <a href="tel:+34611165129" class="zona-icard-btn">📞 Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -256,7 +256,7 @@ if (!empty($_proy)): ?>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en Elda los fines de semana y festivos?</summary>
-        <div class="faq-ans">Sí, los 365 días del año, también festivos y noches. Somos fontaneros locales, no una central que deriva llamadas. Llama al 613 429 032 y te atendemos al momento.</div>
+        <div class="faq-ans">Sí, los 365 días del año, también festivos y noches. Somos fontaneros locales, no una central que deriva llamadas. Llama al 611 165 129 y te atendemos al momento.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Trabajáis en comunidades de vecinos en Elda?</summary>
@@ -346,8 +346,8 @@ if (!empty($_arts)): ?>
     <h2>¿Necesitas fontanería <span>en Elda?</span></h2>
     <p>Atendemos toda Elda. Presupuesto previo, sin sorpresas.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
   </div>
 </section>
