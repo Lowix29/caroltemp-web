@@ -132,7 +132,15 @@ include 'includes/head.php';
     </div>
 
     <nav class="e404-nav" aria-label="Páginas principales">
-      <a href="<?php echo $base_url; ?>fontanero/elda">Ubicaciones</a>
+      <a href="<?php echo $base_url; ?>fontanero/elda">Elda</a>
+      <a href="<?php echo $base_url; ?>fontanero/petrer">Petrer</a>
+      <a href="<?php echo $base_url; ?>fontanero/novelda">Novelda</a>
+      <a href="<?php echo $base_url; ?>fontanero/monovar">Monóvar</a>
+      <a href="<?php echo $base_url; ?>fontanero/sax">Sax</a>
+      <a href="<?php echo $base_url; ?>fontanero/aspe">Aspe</a>
+      <a href="<?php echo $base_url; ?>fontanero/pinoso">Pinoso</a>
+      <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid">Monforte</a>
+      <a href="<?php echo $base_url; ?>fontanero/salinas">Salinas</a>
       <a href="<?php echo $base_url; ?>noticias/">Noticias</a>
       <a href="<?php echo $base_url; ?>contacto">Contacto</a>
     </nav>
