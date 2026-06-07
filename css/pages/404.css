@@ -71,19 +71,21 @@
 }
 
 /* ===== FLOATING BUBBLES ===== */
+/* Sin overflow:hidden aquí — el padre .e404 ya lo tiene.
+   Los spans arrancan en bottom:0 (dentro del container) con opacity:0
+   para evitar el bug de overflow:hidden + bottom negativo */
 .e404-bubbles {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: hidden;
   z-index: 1;
 }
 .e404-bubbles span {
   position: absolute;
-  bottom: -120px;
+  bottom: 0;
   border-radius: 50%;
-  background: rgba(25,118,210,.08);
-  border: 1px solid rgba(100,180,255,.18);
+  background: rgba(25,118,210,.18);
+  border: 1px solid rgba(100,180,255,.35);
   animation: e404bubbleRise linear infinite;
   opacity: 0;
 }
@@ -103,11 +105,11 @@
 .e404-bubbles span:nth-child(14) { left:7%;   width:48px; height:48px; animation-duration:16s; animation-delay:8.2s;  }
 .e404-bubbles span:nth-child(15) { left:55%;  width:8px;  height:8px;  animation-duration:6s;  animation-delay:9.7s;  }
 @keyframes e404bubbleRise {
-  0%   { transform: translateY(0)       translateX(0);    opacity: 0;   }
-  8%   {                                                   opacity: .85; }
-  50%  { transform: translateY(-55vh)   translateX(16px); opacity: .5;  }
-  90%  {                                                   opacity: .15; }
-  100% { transform: translateY(-115vh)  translateX(-10px); opacity: 0;  }
+  0%   { transform: translateY(0);         opacity: 0;  }
+  6%   { transform: translateY(-3vh);      opacity: .8; }
+  50%  { transform: translateY(-52vh) translateX(14px);  opacity: .5; }
+  92%  { transform: translateY(-98vh) translateX(-8px);  opacity: .2; }
+  100% { transform: translateY(-108vh);    opacity: 0;  }
 }
 
 /* ===== PIPE SVG ===== */
