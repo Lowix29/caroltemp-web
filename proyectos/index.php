@@ -69,7 +69,7 @@ include '../includes/head.php';
         <?php foreach ($proyectos as $pro): ?>
           <a href="/proyectos/<?php echo urlencode($pro['slug']); ?>" class="blog-card">
             <?php if ($pro['imagen']): ?>
-              <div class="blog-card-img"><img src="<?php echo htmlspecialchars($pro['imagen']); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" loading="lazy"></div>
+              <div class="blog-card-img"><img src="<?php echo htmlspecialchars($base_url . $pro['imagen']); ?>" alt="<?php echo htmlspecialchars($pro['titulo']); ?>" loading="lazy"></div>
             <?php else: ?>
               <div class="blog-card-img blog-card-img-placeholder"><span>🔧</span></div>
             <?php endif; ?>
