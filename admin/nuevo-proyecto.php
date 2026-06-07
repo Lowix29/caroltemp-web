@@ -5,6 +5,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   exit;
 }
 require_once '../includes/db.php';
+require_once '../includes/img-sync.php';
 
 try { $pdo->exec("ALTER TABLE proyectos ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 
@@ -85,6 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $error = $resultado['error'];
     } else {
       $imagen = $resultado['ruta'];
+      // Sincronizar a producción automáticamente
+      syncImgToProduction(dirname(__DIR__) . '/' . $imagen, $imagen);
     }
   }
 

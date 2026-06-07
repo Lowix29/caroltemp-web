@@ -5,6 +5,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   exit;
 }
 require_once '../includes/db.php';
+require_once '../includes/img-sync.php';
 
 try { $pdo->exec("ALTER TABLE articulos ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 try { $pdo->exec("ALTER TABLE articulos ADD COLUMN sidebar_tipo VARCHAR(30) DEFAULT ''"); } catch (PDOException $e) {}
@@ -80,12 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $error = $resultado['error'];
     } else {
       $imagen = $resultado['ruta'];
-      // Auto-commit de la imagen al repo
-      $repo = dirname(__DIR__);
-      $imgRel = $imagen; // ya es relativa: img/blog/...
-      shell_exec("cd " . escapeshellarg($repo) . " && git add " . escapeshellarg($imgRel) . " 2>&1");
-      shell_exec("cd " . escapeshellarg($repo) . " && git -c commit.gpgsign=false commit -m " . escapeshellarg("img: foto artículo " . basename($imgRel)) . " 2>&1");
-      shell_exec("cd " . escapeshellarg($repo) . " && git push origin main 2>&1");
+      // Sincronizar a producción automáticamente
+      syncImgToProduction(dirname(__DIR__) . '/' . $imagen, $imagen);
     }
   }
 

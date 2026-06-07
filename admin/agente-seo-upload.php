@@ -10,6 +10,8 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 
 header('Content-Type: application/json; charset=utf-8');
+require_once '../includes/db.php';
+require_once '../includes/img-sync.php';
 
 if (!isset($_FILES['imagen'])) {
   echo json_encode(['error' => 'PHP no recibió el archivo. Verifica que file_uploads=On en php.ini']);
@@ -61,5 +63,8 @@ if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaAbs)) {
   echo json_encode(['error' => 'Error al guardar la imagen en el servidor.']);
   exit;
 }
+
+// Sincronizar a producción automáticamente (solo cuando se trabaja en local)
+syncImgToProduction($rutaAbs, ltrim($rutaWeb, '/'));
 
 echo json_encode(['ok' => true, 'ruta' => $rutaWeb]);
