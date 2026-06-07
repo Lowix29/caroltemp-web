@@ -20,8 +20,8 @@ include '../../includes/head.php';
     <h1>Desatascos en Monforte del Cid<br><span class="hl">recuperamos el funcionamiento normal de tu instalación</span></h1>
     <p class="hz-dark-sub">Primero la cámara: vemos qué hay y dónde está. Después el hidrojetting: limpiamos el conducto completo, no solo rompemos el tapón. Al terminar, comprobamos con agua real que queda despejado. Tres pasos, un resultado.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
-      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
+      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -65,7 +65,7 @@ include '../../includes/head.php';
             <div class="icard-row"><span class="icard-icon">📢</span><span>Gorgoteo en tuberías al usar otros desagües</span></div>
             <div class="icard-row"><span class="icard-icon">🏡</span><span>Arqueta exterior desbordando hacia el jardín</span></div>
           </div>
-          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -281,8 +281,8 @@ if (!empty($_proy)): ?>
     <h2>&iquest;Tienes un atasco <span>en Monforte del Cid?</span></h2>
     <p>Vemos el atasco con la c&aacute;mara, damos precio y lo resolvemos en la misma visita.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

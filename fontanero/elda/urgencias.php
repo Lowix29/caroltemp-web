@@ -44,8 +44,8 @@ include '../../includes/head.php';
     <h1>Fontanero urgente en Elda<br><span class="hl">con soluciones profesionales desde la primera visita</span></h1>
     <p class="hz-dark-sub">Atendemos el mismo día en Elda, con un máximo de 3 horas desde el contacto. Precio cerrado con la avería vista, antes de tocar nada. Sin formularios — llama directamente.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
-      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
+      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -89,7 +89,7 @@ include '../../includes/head.php';
             <div class="icard-row"><span class="icard-icon">💦</span><span>Agua saliendo por el techo del local de abajo</span></div>
             <div class="icard-row"><span class="icard-icon">🚰</span><span>La llave de paso no corta y hay fuga activa</span></div>
           </div>
-          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -325,8 +325,8 @@ if (!empty($_proy)): ?>
     <h2>&iquest;Tienes una aver&iacute;a <span>urgente en Elda?</span></h2>
     <p>Ll&aacute;menos. Atendemos el mismo d&iacute;a. Precio antes de empezar.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

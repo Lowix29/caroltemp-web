@@ -31,7 +31,7 @@ include 'includes/head.php';
           <li><strong>Denominación:</strong> CarolTemp</li>
           <li><strong>Actividad:</strong> Fontanería industrial y residencial</li>
           <li><strong>Domicilio:</strong> Monóvar, Alicante, España</li>
-          <li><strong>Teléfono:</strong> 611 165 129</li>
+          <li><strong>Teléfono:</strong> 613 429 032</li>
           <li><strong>Email:</strong> info@caroltemp.es</li>
           <li><strong>Ámbito de actuación:</strong> Comarca del Vinalopó Medio, Alicante</li>
         </ul>

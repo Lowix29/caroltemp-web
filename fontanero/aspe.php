@@ -14,11 +14,11 @@ $faq_items   = [
   ['q' => '¿Cuánto cuesta un fontanero en Aspe?',
    'a' => 'En Aspe atendemos desde un grifo suelto hasta la reforma completa de una comunidad de vecinos — el precio varía mucho según el trabajo. Visitamos, diagnosticamos y damos el presupuesto gratis antes de tocar nada. Sin compromiso.'],
   ['q' => '¿Atendéis urgencias en festivos y fines de semana en Aspe?',
-   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 611 165 129 o escribe por WhatsApp.'],
+   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 613 429 032 o escribe por WhatsApp.'],
   ['q' => '¿Atendéis comunidades de vecinos en Aspe?',
    'a' => 'Sí. Damos servicio a comunidades de propietarios en Aspe: reparación de bajantes comunes, fugas en tuberías generales, atascos en arquetas y mantenimiento preventivo. Emitimos informe técnico si la comunidad lo necesita para el seguro.'],
   ['q' => '¿Qué hago si tengo una inundación o escape de agua en Aspe antes de que llegue el fontanero?',
-   'a' => 'Lo primero es cortar el suministro de agua desde la llave de paso general (normalmente bajo el fregadero o en el cuarto de contadores). Si no la encuentras, corta desde la llave de la calle. Después, desconecta los aparatos eléctricos cercanos al agua y llama al 611 165 129. Te guiamos por teléfono mientras nos desplazamos.'],
+   'a' => 'Lo primero es cortar el suministro de agua desde la llave de paso general (normalmente bajo el fregadero o en el cuarto de contadores). Si no la encuentras, corta desde la llave de la calle. Después, desconecta los aparatos eléctricos cercanos al agua y llama al 613 429 032. Te guiamos por teléfono mientras nos desplazamos.'],
   ['q' => '¿Vale la pena instalar un descalcificador en Aspe?',
    'a' => 'Sí. El agua de la comarca de Alicante tiene dureza alta y el sarro acorta la vida de termos, calderas y electrodomésticos. Un descalcificador bien dimensionado puede amortizarse en 2-3 años en ahorro de averías. Asesoramos sin compromiso sobre el equipo adecuado para cada vivienda.'],
   ['q' => '¿Instaláis calderas y climatización en Aspe además de fontanería?',
@@ -35,8 +35,8 @@ include '../includes/head.php';
     <h1>Fontanero en Aspe<br><span class="hl">experto en fontanería doméstica y comercial</span></h1>
     <p class="hz-dark-sub">Urgencias, fugas, desatascos y reformas en Aspe. Atendemos viviendas, comunidades de vecinos y negocios locales.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
-      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
+      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -151,12 +151,12 @@ include '../includes/head.php';
         <div class="zona-icard">
           <div class="zona-icard-h"><strong>CarolTemp &middot; Aspe</strong><span>Fontanería local</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Aspe &middot; CP 03680</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora &rarr;</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Certificación</span><span class="zona-ir-v">Instaladores Nubeco oficiales</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Cobertura</span><span class="zona-ir-v">Viviendas, comunidades y chalets</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Consulta condiciones</span></div>
-          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -230,7 +230,7 @@ if (!empty($_proy)): ?>
     <p class="zona-lbl">En caso de emergencia</p>
     <h2>Qué hacer antes <span class="hl">de que lleguemos</span></h2>
     <div class="zona-prose" style="max-width:720px;margin-bottom:2rem">
-      <p>Si tienes un escape de agua o una inundación en tu vivienda de Aspe, cada minuto cuenta. Mientras nos desplazamos, sigue estos pasos para minimizar los daños: cierra la llave de paso general de la vivienda (normalmente debajo del fregadero o en el cuarto de contadores); si el agua llega a tomar aparatos eléctricos, corta también el diferencial de la zona afectada; no intentes reparar nada hasta que veamos la avería. Llama al <a href="tel:+34611165129">611 165 129</a> y te guiamos por teléfono mientras nos desplazamos a Aspe.</p>
+      <p>Si tienes un escape de agua o una inundación en tu vivienda de Aspe, cada minuto cuenta. Mientras nos desplazamos, sigue estos pasos para minimizar los daños: cierra la llave de paso general de la vivienda (normalmente debajo del fregadero o en el cuarto de contadores); si el agua llega a tomar aparatos eléctricos, corta también el diferencial de la zona afectada; no intentes reparar nada hasta que veamos la avería. Llama al <a href="tel:+34613429032">613 429 032</a> y te guiamos por teléfono mientras nos desplazamos a Aspe.</p>
     </div>
     <div class="zona-svc">
       <div class="zona-sc">
@@ -245,7 +245,7 @@ if (!empty($_proy)): ?>
       </div>
       <div class="zona-sc">
         <span class="zona-sc-n">PASO 3</span>
-        <h3>Llama al 611 165 129</h3>
+        <h3>Llama al 613 429 032</h3>
         <p>Te atendemos al momento y te guiamos por teléfono mientras nos desplazamos. Confirmamos tiempo de llegada estimado antes de colgar.</p>
       </div>
     </div>
@@ -394,7 +394,7 @@ if (!empty($_arts)): ?>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en festivos y fines de semana en Aspe?</summary>
-        <div class="faq-ans">Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 611 165 129 o escribe por WhatsApp y te confirmamos disponibilidad y tiempo de llegada estimado.</div>
+        <div class="faq-ans">Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 613 429 032 o escribe por WhatsApp y te confirmamos disponibilidad y tiempo de llegada estimado.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis comunidades de vecinos en Aspe?</summary>
@@ -402,7 +402,7 @@ if (!empty($_arts)): ?>
       </details>
       <details class="zona-faq-item">
         <summary>¿Qué hago si tengo una inundación o escape de agua en Aspe?</summary>
-        <div class="faq-ans">Cierra la llave de paso general (debajo del fregadero o en el cuarto de contadores). Si el agua llega a aparatos eléctricos, corta también el diferencial de esa zona. No intentes reparar nada hasta que veamos la avería. Llama al 611 165 129: te guiamos por teléfono mientras nos desplazamos a Aspe.</div>
+        <div class="faq-ans">Cierra la llave de paso general (debajo del fregadero o en el cuarto de contadores). Si el agua llega a aparatos eléctricos, corta también el diferencial de esa zona. No intentes reparar nada hasta que veamos la avería. Llama al 613 429 032: te guiamos por teléfono mientras nos desplazamos a Aspe.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Vale la pena instalar un descalcificador en Aspe?</summary>
@@ -421,8 +421,8 @@ if (!empty($_arts)): ?>
     <h2>&iquest;Necesitas fontaner&iacute;a <span>en Aspe?</span></h2>
     <p>Atendemos toda Aspe. Presupuesto previo, sin sorpresas.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

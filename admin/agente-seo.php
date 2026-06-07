@@ -299,6 +299,19 @@ try {
           </select>
         </div>
 
+        <!-- Widget sidebar -->
+        <div class="ag-field">
+          <label for="sidebar-tipo-input">Widget del sidebar <span style="font-weight:400;color:#8FA3B8">(no vinculante)</span></label>
+          <select id="sidebar-tipo-input" onchange="actualizarSidebarPreview()">
+            <option value="">— Genérico (hub ciudad) —</option>
+            <option value="hub">Hub ciudad — "Fontanero en {Ciudad}"</option>
+            <option value="urgencias">Urgencias 24h — "Urgencias 24h en {Ciudad}"</option>
+            <option value="desatascos">Desatascos — "Desatascos en {Ciudad}"</option>
+            <option value="fugas">Fugas — "Reparación de fugas en {Ciudad}"</option>
+          </select>
+          <small>El enlace del sidebar apuntará a la página elegida de la ciudad</small>
+        </div>
+
         <!-- Notas manuales -->
         <div class="ag-field">
           <label for="notas-investigar">Indicaciones manuales (opcional)</label>
@@ -963,6 +976,7 @@ function mostrarPreview(d) {
   // Selects
   seleccionar('f-categoria', d.categoria);
   seleccionar('f-servicio',  d.servicio);
+  seleccionar('f-sidebar-tipo', document.getElementById('sidebar-tipo-input').value);
 
   // Contadores
   contarChars(document.getElementById('f-meta-title'), 'mt-info', 60);
@@ -980,9 +994,15 @@ function seleccionar(selectId, valor) {
 }
 
 function actualizarSidebarPreview() {
-  const tipo = document.getElementById('f-sidebar-tipo').value;
-  const zona = document.getElementById('f-zona').value.trim() || '{Ciudad}';
+  const tipoInput = document.getElementById('sidebar-tipo-input');
+  const tipoForm  = document.getElementById('f-sidebar-tipo');
+  const tipo = tipoInput ? tipoInput.value : (tipoForm ? tipoForm.value : '');
+  // Sincronizar ambos selects
+  if (tipoInput && tipoForm) seleccionar('f-sidebar-tipo', tipo);
+  const zona = (document.getElementById('f-zona') ? document.getElementById('f-zona').value.trim() : '') ||
+               (document.getElementById('zona')   ? document.getElementById('zona').value : '') || '{Ciudad}';
   const span = document.getElementById('sidebar-preview-txt');
+  if (!span) return;
   const labels = {
     '':           null,
     'hub':        `"Fontanero en ${zona}" → /fontanero/{slug}`,

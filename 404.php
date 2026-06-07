@@ -17,7 +17,7 @@ include 'includes/head.php';
     <p class="error-404-desc">La página que buscas no existe o ha sido movida. Prueba desde el inicio o contacta con nosotros directamente.</p>
     <div class="error-404-btns">
       <a href="<?php echo $base_url; ?>" class="btn-hz-w">← Volver al inicio</a>
-      <a href="tel:+34611165129" class="btn-hz-g">📞 611 165 129</a>
+      <a href="tel:+34613429032" class="btn-hz-g">📞 613 429 032</a>
     </div>
     <div class="error-404-links">
       <a href="<?php echo $base_url; ?>servicios.php">Servicios</a>
