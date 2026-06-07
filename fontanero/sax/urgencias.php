@@ -14,7 +14,7 @@ $faq_items = [
   ],
   [
     'q' => '¿Cuánto cuesta reparar una fuga de agua en Sax?',
-    'a' => 'Depende del tipo y la localización: una fuga en grifo o conexión visible cuesta entre 60 y 120 euros con mano de obra y material. Una fuga en tubería empotrada requiere localización (geófono si no es evidente), apertura de pared y reparación — el rango es más amplio, entre 150 y 400 euros según acceso y longitud afectada. El desplazamiento a Sax son 40 euros por visita, incluidos en el presupuesto cerrado que te damos antes de empezar. En horario nocturno y festivos se aplica un recargo que te informamos al contactar.',
+    'a' => 'Depende del tipo y la localización: una fuga en grifo o conexión visible cuesta entre 60 y 120 euros con mano de obra y material. Una fuga en tubería empotrada requiere localización (geófono si no es evidente), apertura de pared y reparación — el rango es más amplio, entre 150 y 400 euros según acceso y longitud afectada. El desplazamiento desde 25 euros por visita, incluidos en el presupuesto cerrado que te damos antes de empezar. En horario nocturno y festivos se aplica un recargo que te informamos al contactar.',
   ],
   [
     'q' => '¿Los fontaneros de CarolTemp están certificados para trabajar en Sax?',
@@ -180,13 +180,13 @@ include '../../includes/head.php';
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Mano de obra</span>
-        <span class="zona-precio-val">100 €/h</span>
-        <span class="zona-precio-nota">M&iacute;nimo 1 hora</span>
+        <span class="zona-precio-val">desde 60 €/h</span>
+        <span class="zona-precio-nota">MM&iacute;nimo 1 horaiacute;nimo 1 hora, segM&iacute;nimo 1 horauacute;n trabajo</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Desplazamiento a Sax</span>
-        <span class="zona-precio-val">40 €</span>
-        <span class="zona-precio-nota">Por visita, incluido en presupuesto</span>
+        <span class="zona-precio-val">desde 25 €</span>
+        <span class="zona-precio-nota">SegSegún distancia, incluido en presupuestouacute;n distancia, incluido en presupuesto</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Horario nocturno (desde las 22:00 h)</span>
@@ -217,7 +217,7 @@ include '../../includes/head.php';
       </details>
       <details class="zona-faq-item">
         <summary>&iquest;Cu&aacute;nto cuesta reparar una fuga de agua en Sax?</summary>
-        <div class="faq-ans">Depende del tipo y localizaci&oacute;n: una fuga en grifo o conexi&oacute;n visible suele estar entre 60 y 120 euros. Una fuga en tuber&iacute;a empotrada requiere localizar el punto (ge&oacute;fono si no es evidente), abrir y reparar — el rango es mayor, entre 150 y 400 euros seg&uacute;n acceso y longitud afectada. El desplazamiento a Sax son 40 euros incluidos en el presupuesto cerrado que te damos antes de empezar.</div>
+        <div class="faq-ans">Depende del tipo y localizaci&oacute;n: una fuga en grifo o conexi&oacute;n visible suele estar entre 60 y 120 euros. Una fuga en tuber&iacute;a empotrada requiere localizar el punto (ge&oacute;fono si no es evidente), abrir y reparar — el rango es mayor, entre 150 y 400 euros seg&uacute;n acceso y longitud afectada. El desplazamiento desde 25 euros incluidos en el presupuesto cerrado que te damos antes de empezar.</div>
       </details>
       <details class="zona-faq-item">
         <summary>&iquest;Los fontaneros de CarolTemp est&aacute;n certificados para trabajar en Sax?</summary>

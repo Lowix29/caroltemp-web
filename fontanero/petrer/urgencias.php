@@ -13,7 +13,7 @@ $page_js     = 'zona';
 $faq_items = [
   [
     'q' => '¿Cuánto cuesta un fontanero urgente en Petrer fuera de horario?',
-    'a' => 'La mano de obra se cobra a 100 €/h con mínimo de una hora. El desplazamiento a Petrer son 40 € incluidos en el presupuesto. Existe recargo por horario nocturno (desde las 22:00 h) y festivos; te lo informamos exactamente al contactar, antes de salir. El presupuesto es gratuito y se da siempre con la avería vista, sin sorpresas al finalizar.',
+    'a' => 'La mano de obra se cobra a desde 60 €/h con mínimo de una hora. El desplazamiento a Petrer desde 25 € según distancia incluidos en el presupuesto. Existe recargo por horario nocturno (desde las 22:00 h) y festivos; te lo informamos exactamente al contactar, antes de salir. El presupuesto es gratuito y se da siempre con la avería vista, sin sorpresas al finalizar.',
   ],
   [
     'q' => '¿En cuánto tiempo puede llegar un fontanero urgente a Petrer?',
@@ -211,13 +211,13 @@ include '../../includes/head.php';
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Mano de obra</span>
-        <span class="zona-precio-val">100 €/h</span>
-        <span class="zona-precio-nota">Mínimo 1 hora</span>
+        <span class="zona-precio-val">desde 60 €/h</span>
+        <span class="zona-precio-nota">Mínimo 1 hora, según trabajo</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Desplazamiento a Petrer</span>
-        <span class="zona-precio-val">40 €</span>
-        <span class="zona-precio-nota">Por visita, incluido en presupuesto</span>
+        <span class="zona-precio-val">desde 25 €</span>
+        <span class="zona-precio-nota">SegSegún distancia, incluido en presupuestouacute;n distancia, incluido en presupuesto</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Horario nocturno (desde las 22:00 h)</span>
