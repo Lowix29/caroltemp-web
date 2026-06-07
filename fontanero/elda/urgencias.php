@@ -4,7 +4,7 @@
  * CarolTemp
  */
 $meta_title  = 'Fontanero urgente en Elda 24h | Presupuesto gratis — CarolTemp';
-$meta_desc   = 'Fontanero urgente en Elda disponible 24 horas. Llegamos en 40-50 minutos a El Chopo, Centro y polígonos. Presupuesto gratuito antes de empezar.';
+$meta_desc   = 'Fontanero urgente en Elda disponible 24 horas. Atendemos el mismo día, en un máximo de 3 horas desde el contacto. Presupuesto gratuito antes de empezar.';
 $meta_url    = 'https://caroltemp.com/fontanero/elda/urgencias';
 $schema_type = 'local';
 $page_css    = 'zona';
@@ -13,7 +13,7 @@ $page_js     = 'zona';
 $faq_items = [
   [
     'q' => '¿Cuánto tarda un fontanero urgente en llegar a Elda?',
-    'a' => 'Nuestro tiempo de llegada habitual en Elda es de 40-50 minutos desde la llamada. Cubrimos 24 horas al día, 365 días al año, incluidos domingos y festivos. Llegamos tanto al casco histórico y al Centro como a barrios como El Chopo, Sector Oeste, Las 400 Viviendas o los polígonos industriales. Para urgencias activas con agua corriendo libre, priorizamos el desplazamiento.',
+    'a' => 'Atendemos en Elda el mismo día, con un máximo de 3 horas desde el contacto. Cubrimos 24 horas al día, 365 días al año, incluidos domingos y festivos. Llegamos tanto al casco histórico y al Centro como a barrios como El Chopo, Sector Oeste, Las 400 Viviendas o los polígonos industriales. Para urgencias activas con agua corriendo libre, priorizamos el desplazamiento.',
   ],
   [
     'q' => '¿Cuánto cuesta cambiar un termo eléctrico de 80 litros en Elda?',
@@ -42,7 +42,7 @@ include '../../includes/head.php';
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Elda &middot; CP 03600 &middot; 24h</div>
     <h1>Fontanero urgente en Elda<br><span class="hl">con soluciones profesionales desde la primera visita</span></h1>
-    <p class="hz-dark-sub">Llegamos en 40-50 minutos a cualquier punto de Elda. Precio cerrado con la avería vista, antes de tocar nada. Sin formularios — llama directamente.</p>
+    <p class="hz-dark-sub">Atendemos el mismo día en Elda, con un máximo de 3 horas desde el contacto. Precio cerrado con la avería vista, antes de tocar nada. Sin formularios — llama directamente.</p>
     <div class="hz-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
       <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
@@ -52,7 +52,7 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
-    <div class="dif-item"><span class="dif-val">40-50 min de llegada</span><span class="dif-lbl">Prioridad en urgencias activas</span></div>
+    <div class="dif-item"><span class="dif-val">Máx. 3h desde el contacto</span><span class="dif-lbl">Prioridad en urgencias activas</span></div>
     <div class="dif-item"><span class="dif-val">Precio cerrado</span><span class="dif-lbl">Se da antes de empezar, siempre</span></div>
     <div class="dif-item"><span class="dif-val">&#9989; Nubeco certificados</span><span class="dif-lbl">Instaladores oficiales de gas</span></div>
     <div class="dif-item"><span class="dif-val">24h / 365 días</span><span class="dif-lbl">Domingos y festivos incluidos</span></div>
@@ -67,11 +67,11 @@ include '../../includes/head.php';
         <p class="zona-lbl">Por qué elegir CarolTemp en Elda</p>
         <h2>Urgencias sin formularios <span class="hl">ni esperas innecesarias</span></h2>
         <div class="zona-prose">
-          <p>Cuando hay agua corriendo en Elda, cada minuto importa. La diferencia entre un fontanero urgente que llega en 40-50 minutos y uno que te pide que rellenes un formulario y espera a que "alguien te contacte" puede ser la diferencia entre un trabajo puntual y daños que se extienden al piso de abajo.</p>
+          <p>Cuando hay agua corriendo en Elda, cada minuto importa. La diferencia entre un fontanero urgente que atiende el mismo día y uno que te pide que rellenes un formulario y espera a que "alguien te contacte" puede ser la diferencia entre un trabajo puntual y daños que se extienden al piso de abajo.</p>
           <p>Trabajamos con la furgoneta equipada para las averías más frecuentes en Elda: llaves de corte, tuberías de cobre y multicapa, válvulas, elementos de calentador, repuestos de grupo de presión. La mayoría de urgencias quedan resueltas en la primera visita, sin segunda vuelta y sin dejar la instalación a medias.</p>
         </div>
         <ul class="zona-chk">
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Llegada en 40-50 min a El Chopo, Centro y polígonos</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atendemos el mismo día — máx. 3 horas desde el contacto</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instaladores Nubeco certificados — emitimos boletines de gas</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Precio cerrado antes de empezar — sin añadidos al finalizar</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Domingos y festivos sin excusas — misma rapidez de respuesta</li>
@@ -148,7 +148,7 @@ include '../../includes/head.php';
   <div class="cta-dark-con">
     <p class="zona-lbl">Zonas de Elda donde trabajamos</p>
     <h2>Cubrimos <span class="hl">toda la ciudad sin excepción</span></h2>
-    <p style="margin-bottom:1.5rem;color:#576574">Llegamos a cualquier barrio o zona de Elda en 40-50 minutos desde la llamada.</p>
+    <p style="margin-bottom:1.5rem;color:#576574">Atendemos todo Elda el mismo día, en un máximo de 3 horas desde el contacto.</p>
     <div class="zona-ztags">
       <span class="zona-ztag-plain">Centro</span>
       <span class="zona-ztag-plain">El Chopo</span>
@@ -173,7 +173,7 @@ include '../../includes/head.php';
         <div class="zona-step-n">1</div>
         <div class="zona-step-txt">
           <strong>Llamas y nos cuentas la avería</strong>
-          <p>Teléfono o WhatsApp — sin formularios ni esperas. Nos describes el problema y acordamos la visita. Si es una urgencia activa en Elda (agua corriendo, presión cero), priorizamos el desplazamiento. Llegamos a El Chopo, Centro o los polígonos en 40-50 minutos.</p>
+          <p>Teléfono o WhatsApp — sin formularios ni esperas. Nos describes el problema y acordamos la visita. Si es una urgencia activa en Elda (agua corriendo, presión cero), priorizamos el desplazamiento. Para urgencias activas priorizamos la salida — en el mismo día.</p>
         </div>
       </div>
       <div class="zona-step">
@@ -323,7 +323,7 @@ if (!empty($_proy)): ?>
 <section class="cta-dark">
   <div class="cta-dark-con">
     <h2>&iquest;Tienes una aver&iacute;a <span>urgente en Elda?</span></h2>
-    <p>Ll&aacute;menos. Llegamos en 40-50 minutos. Precio antes de empezar.</p>
+    <p>Ll&aacute;menos. Atendemos el mismo d&iacute;a. Precio antes de empezar.</p>
     <div class="cta-dark-btns">
       <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
       <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
