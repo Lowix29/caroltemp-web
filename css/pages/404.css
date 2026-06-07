@@ -1,7 +1,8 @@
 /* ============================================
-   CarolTemp — 404 Espectacular
-   "La fuga del 404"
-   Versión 2.0 — animaciones premium
+   CarolTemp — 404 Espectacular v2.1
+   Fixes: water fill via height (no clip-path negativo)
+          glow separado (no filter sobre background-clip:text)
+          mask-image syntax simplificada
 ============================================ */
 
 /* ===== WRAP ===== */
@@ -21,13 +22,13 @@
   isolation: isolate;
 }
 
-/* ===== BLURRED ORB GLOWS ===== */
+/* ===== ORB GLOWS ===== */
 .e404-orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
   pointer-events: none;
-  will-change: transform, opacity;
+  will-change: transform;
   transition: transform .12s ease;
 }
 .e404-orb-1 {
@@ -52,12 +53,12 @@
   animation: e404orbFloat 7s ease-in-out 1.5s infinite;
 }
 @keyframes e404orbFloat {
-  0%, 100% { transform: translate(0,0)      scale(1);    }
+  0%, 100% { transform: translate(0, 0)       scale(1);    }
   33%       { transform: translate(28px,-18px) scale(1.05); }
-  66%       { transform: translate(-18px,14px) scale(.97); }
+  66%       { transform: translate(-18px,14px) scale(.97);  }
 }
 
-/* ===== DOT GRID OVERLAY ===== */
+/* ===== DOT GRID ===== */
 .e404-grid {
   position: absolute;
   inset: 0;
@@ -65,8 +66,8 @@
   background-size: 36px 36px;
   pointer-events: none;
   z-index: 0;
-  mask-image: radial-gradient(ellipse 60% 60% at center, black 0%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 60% 60% at center, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, black 10%, transparent 72%);
 }
 
 /* ===== FLOATING BUBBLES ===== */
@@ -101,54 +102,54 @@
 .e404-bubbles span:nth-child(13) { left:93%;  width:36px; height:36px; animation-duration:13s; animation-delay:5.6s;  }
 .e404-bubbles span:nth-child(14) { left:7%;   width:48px; height:48px; animation-duration:16s; animation-delay:8.2s;  }
 .e404-bubbles span:nth-child(15) { left:55%;  width:8px;  height:8px;  animation-duration:6s;  animation-delay:9.7s;  }
-
 @keyframes e404bubbleRise {
-  0%   { transform:translateY(0)      translateX(0);     opacity:0;   }
-  8%   {                                                  opacity:.85; }
-  50%  { transform:translateY(-55vh)  translateX(16px);  opacity:.5;  }
-  90%  {                                                  opacity:.15; }
-  100% { transform:translateY(-115vh) translateX(-10px); opacity:0;   }
+  0%   { transform: translateY(0)       translateX(0);    opacity: 0;   }
+  8%   {                                                   opacity: .85; }
+  50%  { transform: translateY(-55vh)   translateX(16px); opacity: .5;  }
+  90%  {                                                   opacity: .15; }
+  100% { transform: translateY(-115vh)  translateX(-10px); opacity: 0;  }
 }
 
 /* ===== PIPE SVG ===== */
 .e404-pipe-wrap {
   position: relative;
   z-index: 10;
+  overflow: visible;
   animation: e404slideDown .9s cubic-bezier(.16,1,.3,1) both;
 }
 @keyframes e404slideDown {
-  from { opacity:0; transform:translateY(-40px) scale(.95); }
-  to   { opacity:1; transform:translateY(0)     scale(1);   }
+  from { opacity: 0; transform: translateY(-40px) scale(.95); }
+  to   { opacity: 1; transform: translateY(0)     scale(1);   }
 }
 .e404-pipe-svg {
   width: min(520px, 92vw);
-  filter:
-    drop-shadow(0 14px 40px rgba(25,118,210,.45))
-    drop-shadow(0 4px 12px rgba(0,0,0,.55));
   display: block;
+  overflow: visible;
+  filter:
+    drop-shadow(0 14px 40px rgba(25,118,210,.4))
+    drop-shadow(0 4px 12px rgba(0,0,0,.5));
 }
 .e404-pipe-body {
   animation: e404pipeSway 4.5s ease-in-out infinite;
-  transform-origin: center center;
+  transform-origin: 260px 55px;
 }
 @keyframes e404pipeSway {
-  0%, 100% { transform:rotate(0deg)   translateX(0);   }
-  30%       { transform:rotate(.28deg) translateX(1px); }
-  70%       { transform:rotate(-.22deg)translateX(-1px);}
+  0%, 100% { transform: rotate(0deg)    translateX(0);    }
+  30%       { transform: rotate(.28deg) translateX(1px);  }
+  70%       { transform: rotate(-.22deg)translateX(-1px); }
 }
-
-/* Water drips */
-.e404-drip { opacity:0; animation:e404drip linear infinite; }
-.e404-drip-1 { animation-duration:1.5s; animation-delay:0s;    }
-.e404-drip-2 { animation-duration:1.8s; animation-delay:.6s;   }
-.e404-drip-3 { animation-duration:1.3s; animation-delay:1.05s; }
+/* Drips */
+.e404-drip { opacity: 0; animation: e404drip linear infinite; }
+.e404-drip-1 { animation-duration: 1.5s; animation-delay: 0s;    }
+.e404-drip-2 { animation-duration: 1.8s; animation-delay: .6s;   }
+.e404-drip-3 { animation-duration: 1.3s; animation-delay: 1.05s; }
 @keyframes e404drip {
-  0%   { transform:translateY(0);    opacity:.95; }
-  70%  {                             opacity:.7;  }
-  100% { transform:translateY(58px); opacity:0;   }
+  0%   { transform: translateY(0);    opacity: .95; }
+  70%  {                              opacity: .7;  }
+  100% { transform: translateY(58px); opacity: 0;   }
 }
 
-/* ===== GIANT 404 NUMBER ===== */
+/* ===== 404 NUMBER — water fill via height + overflow:hidden ===== */
 .e404-num-wrap {
   position: relative;
   display: inline-block;
@@ -157,11 +158,57 @@
   animation: e404numAppear .7s cubic-bezier(.16,1,.3,1) .05s both;
 }
 @keyframes e404numAppear {
-  from { opacity:0; transform:scale(.86); }
-  to   { opacity:1; transform:scale(1);   }
+  from { opacity: 0; transform: scale(.86); }
+  to   { opacity: 1; transform: scale(1);   }
 }
 
-.e404-num-base,
+/* Glow radial detrás del número — separado para no conflictar con background-clip:text */
+.e404-num-glow {
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(ellipse at center, rgba(25,118,210,.4) 0%, transparent 68%);
+  filter: blur(25px);
+  z-index: 0;
+  pointer-events: none;
+  animation: e404glowPulse 3s ease-in-out 2.5s infinite;
+}
+@keyframes e404glowPulse {
+  0%, 100% { opacity: .7; transform: scale(1);    }
+  50%       { opacity: 1;  transform: scale(1.08); }
+}
+
+/* Número outline — siempre visible como contorno */
+.e404-num-base {
+  font-size: clamp(6rem, 18vw, 14rem);
+  font-weight: 900;
+  letter-spacing: -.06em;
+  line-height: .9;
+  display: block;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+  -webkit-text-stroke: 2px rgba(100,180,255,.28);
+  color: transparent;
+}
+
+/* Contenedor clip — crece de abajo hacia arriba (agua subiendo) */
+.e404-num-water-clip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: 2;
+  animation: e404waterRise 2.2s cubic-bezier(.16,1,.3,1) .35s forwards;
+}
+@keyframes e404waterRise {
+  0%   { height: 0; }
+  100% { height: 100%; }
+}
+
+/* Número relleno — anclado al fondo del clip para que "suba" */
 .e404-num-fill {
   font-size: clamp(6rem, 18vw, 14rem);
   font-weight: 900;
@@ -170,37 +217,30 @@
   display: block;
   white-space: nowrap;
   user-select: none;
-}
-
-/* Outline — always visible */
-.e404-num-base {
-  -webkit-text-stroke: 2px rgba(100,180,255,.28);
-  color: transparent;
-}
-
-/* Water fill — rises from bottom */
-.e404-num-fill {
   position: absolute;
-  inset: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background: linear-gradient(180deg,
     #b3d9ff 0%,
-    #64b4ff 25%,
-    #1976D2 60%,
+    #42a5f5 30%,
+    #1976D2 65%,
     #1565c0 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  clip-path: inset(100% 0 -5% 0);
-  animation: e404waterRise 2.2s cubic-bezier(.16,1,.3,1) .35s forwards;
-  filter: drop-shadow(0 0 28px rgba(25,118,210,.65));
-}
-@keyframes e404waterRise {
-  0%   { clip-path: inset(100% 0 -5% 0); }
-  100% { clip-path: inset(0%   0 -5% 0); }
+  /* Sin filter aquí — conflicto con background-clip:text */
 }
 
 /* ===== BADGE ===== */
+.e404-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+}
 .e404-badge {
   display: inline-flex;
   align-items: center;
@@ -227,18 +267,11 @@
   flex-shrink: 0;
 }
 @keyframes e404blink {
-  0%, 100% { opacity:1; }
-  50%       { opacity:.15; }
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: .15; }
 }
 
 /* ===== COPY ===== */
-.e404-content {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  max-width: 520px;
-  width: 100%;
-}
 .e404-titulo {
   font-size: clamp(1.4rem, 4.5vw, 2.1rem);
   font-weight: 700;
@@ -255,8 +288,8 @@
   animation: e404fadeUp .6s ease 2s both;
 }
 @keyframes e404fadeUp {
-  from { opacity:0; transform:translateY(22px); }
-  to   { opacity:1; transform:translateY(0);    }
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
 
 /* ===== BUTTONS ===== */
@@ -327,7 +360,7 @@
 .e404-nav a::after {
   content: '';
   position: absolute;
-  bottom: -2px; left:0; right:0;
+  bottom: -2px; left: 0; right: 0;
   height: 1px;
   background: #1976D2;
   transform: scaleX(0);
@@ -337,7 +370,7 @@
 .e404-nav a:hover { color: rgba(255,255,255,.82); }
 .e404-nav a:hover::after { transform: scaleX(1); }
 
-/* ===== PUDDLE ===== */
+/* ===== PUDDLE + RIPPLES ===== */
 .e404-puddle {
   position: absolute;
   bottom: 0;
@@ -349,9 +382,9 @@
   animation: e404puddle 5s ease 3s forwards;
 }
 @keyframes e404puddle {
-  0%   { width:0;    height:0;  opacity:0; }
-  8%   {             opacity:1; }
-  100% { width:700px; height:55px; opacity:1; }
+  0%   { width: 0;     height: 0;   opacity: 0; }
+  8%   {                            opacity: 1; }
+  100% { width: 700px; height: 55px; opacity: 1; }
 }
 .e404-puddle::before {
   content: '';
@@ -371,8 +404,8 @@
 }
 .e404-ripple-2 { animation-delay: 6.8s; }
 @keyframes e404ripple {
-  0%   { transform:translate(-50%,-50%) scale(0);   opacity:.9; }
-  100% { transform:translate(-50%,-50%) scale(6.5); opacity:0;  }
+  0%   { transform: translate(-50%,-50%) scale(0);   opacity: .9; }
+  100% { transform: translate(-50%,-50%) scale(6.5); opacity: 0;  }
 }
 
 /* ===== BOTTOM WAVE CANVAS ===== */
@@ -386,9 +419,9 @@
   opacity: 0;
   animation: e404canvasFade .8s ease 3.5s forwards;
 }
-@keyframes e404canvasFade { to { opacity:1; } }
+@keyframes e404canvasFade { to { opacity: 1; } }
 
-/* ===== SCANLINE OVERLAY ===== */
+/* ===== SCANLINE SUTIL ===== */
 .e404::before {
   content: '';
   position: absolute;
