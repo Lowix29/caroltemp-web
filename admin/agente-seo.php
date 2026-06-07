@@ -453,17 +453,18 @@ try {
                   <?php endforeach; ?>
                 </select>
               </div>
-              <div class="pv-field" id="pv-sidebar">
-                <label>Widget sidebar <span style="font-weight:400;color:#B0C4D8">(no vinculante)</span></label>
-                <select name="sidebar_tipo" id="f-sidebar-tipo" onchange="actualizarSidebarPreview()">
-                  <option value="">— Genérico (hub ciudad) —</option>
-                  <option value="hub">Hub ciudad — "Fontanero en {Ciudad}"</option>
-                  <option value="urgencias">Urgencias 24h — "Urgencias 24h en {Ciudad}"</option>
-                  <option value="desatascos">Desatascos — "Desatascos en {Ciudad}"</option>
-                  <option value="fugas">Fugas — "Reparación de fugas en {Ciudad}"</option>
-                </select>
-                <span id="sidebar-preview-txt" style="display:none;font-size:11.5px;color:#16a34a;margin-top:4px;display:block"></span>
-              </div>
+            </div>
+
+            <div class="pv-field" id="pv-sidebar">
+              <label>Widget del sidebar <span style="font-weight:400;color:#B0C4D8">(no vinculante — puedes cambiarlo al revisar el borrador)</span></label>
+              <select name="sidebar_tipo" id="f-sidebar-tipo" onchange="actualizarSidebarPreview()">
+                <option value="">— Genérico (hub ciudad por defecto) —</option>
+                <option value="hub">Hub ciudad — "Fontanero en {Ciudad}" → /fontanero/{ciudad}</option>
+                <option value="urgencias">Urgencias 24h — "Urgencias 24h en {Ciudad}" → /fontanero/{ciudad}/urgencias</option>
+                <option value="desatascos">Desatascos — "Desatascos en {Ciudad}" → /fontanero/{ciudad}/desatascos</option>
+                <option value="fugas">Fugas — "Reparación de fugas en {Ciudad}" → /fontanero/{ciudad}/fugas</option>
+              </select>
+              <span id="sidebar-preview-txt" style="display:none;font-size:11.5px;color:#16a34a;margin-top:5px"></span>
             </div>
 
             <div class="pv-field">
