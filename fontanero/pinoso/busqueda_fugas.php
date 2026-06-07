@@ -20,8 +20,8 @@ include '../../includes/head.php';
     <h1>Detección de fugas en Pinoso<br><span class="hl">resultados precisos, intervención mínima y máxima eficacia</span></h1>
     <p class="hz-dark-sub">No todos los equipos de detección funcionan igual en todos los escenarios. El geófono escucha el agua bajo presión en tuberías enterradas; la termografía revela gradientes de temperatura en circuitos de calefacción; el correlador acústico compara señales en tramos largos. Usar el equipo equivocado no localiza nada — usar el correcto marca el punto exacto.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
-      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -66,7 +66,7 @@ include '../../includes/head.php';
             <div class="icard-row"><span class="icard-icon">🌡️</span><span>Suelo caliente en zona sin suelo radiante</span></div>
             <div class="icard-row"><span class="icard-icon">🏘️</span><span>Vecinos reportan humedad en su vivienda</span></div>
           </div>
-          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -283,8 +283,8 @@ if (!empty($_proy)): ?>
     <h2>&iquest;Sospechas de una fuga de agua <span>en Pinoso?</span></h2>
     <p>Cuanto antes se localiza, menos daño y menos coste. Ll&aacute;menos o escr&iacute;benos.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

@@ -20,8 +20,8 @@ include '../../includes/head.php';
     <h1>Fontanero urgente en Sax<br><span class="hl">Respuesta rápida, trabajo profesional y soluciones duraderas</span></h1>
     <p class="hz-dark-sub">Cuando llamas, coge el teléfono alguien que sabe de fontanería, no una centralita que te pone en cola. Te decimos si podemos ir ese día, cuánto tiempo tardamos y qué tipo de avería es — antes de desplazarnos. Sin derivar, sin listas de espera, sin sorpresas cuando llegamos.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
-      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -63,7 +63,7 @@ include '../../includes/head.php';
             <div class="icard-row"><span class="icard-icon">🚰</span><span>Llave de paso que no cierra</span></div>
             <div class="icard-row"><span class="icard-icon">⚡</span><span>Finca sin presión en pleno verano</span></div>
           </div>
-          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -255,8 +255,8 @@ if (!empty($_proy)): ?>
     <h2>&iquest;Tienes una aver&iacute;a <span>en Sax?</span></h2>
     <p>Ll&aacute;menos. Te damos precio antes de empezar.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

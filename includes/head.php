@@ -158,7 +158,7 @@ switch ($schema_type ?? 'default') {
       "url"         => $meta_url,
       "logo"        => "https://caroltemp.com/img/logo/logo.svg",
       "image"       => "https://caroltemp.com/img/logo/logo.svg",
-      "telephone" => "+34613429032", "telephone2" => "+34613429032", "telephone2" => "+34613429032",
+      "telephone" => "+34611165129", "telephone2" => "+34611165129", "telephone2" => "+34611165129",
       "priceRange"  => "€€",
       "currenciesAccepted" => "EUR",
       "paymentAccepted"    => "Cash, Credit Card, Financing",
@@ -205,7 +205,7 @@ switch ($schema_type ?? 'default') {
         "@type"     => "LocalBusiness",
         "name"      => "CarolTemp",
         "url"       => "https://caroltemp.com",
-        "telephone" => "+34613429032", "telephone2" => "+34613429032",
+        "telephone" => "+34611165129", "telephone2" => "+34611165129",
         "areaServed"=> "Vinalopó Medio, Alicante"
       ],
       "areaServed"  => "Vinalopó Medio, Alicante",
@@ -226,7 +226,7 @@ switch ($schema_type ?? 'default') {
       "mainEntity" => [
         "@type"     => ["LocalBusiness", "Plumber"],
         "name"      => "CarolTemp",
-        "telephone" => "+34613429032", "telephone2" => "+34613429032",
+        "telephone" => "+34611165129", "telephone2" => "+34611165129",
         "address"   => [
           "@type"           => "PostalAddress",
           "addressLocality" => "Monóvar",
@@ -246,7 +246,7 @@ switch ($schema_type ?? 'default') {
       "url"         => "https://caroltemp.com",
       "logo"        => "https://caroltemp.com/img/logo/logo.svg",
       "image"       => "https://caroltemp.com/img/logo/logo.svg",
-      "telephone" => "+34613429032", "telephone2" => "+34613429032", "telephone2" => "+34613429032",
+      "telephone" => "+34611165129", "telephone2" => "+34611165129", "telephone2" => "+34611165129",
       "priceRange"  => "€€",
       "currenciesAccepted" => "EUR",
       "paymentAccepted"    => "Cash, Credit Card, Financing",
@@ -335,7 +335,7 @@ switch ($schema_type ?? 'default') {
         "@type"     => "LocalBusiness",
         "name"      => "CarolTemp",
         "url"       => "https://caroltemp.com",
-        "telephone" => "+34613429032", "telephone2" => "+34613429032"
+        "telephone" => "+34611165129", "telephone2" => "+34611165129"
       ],
       "areaServed" => !empty($pro['zona']) ? [
         "@type" => "City",
@@ -357,7 +357,7 @@ switch ($schema_type ?? 'default') {
       "@type"       => ["LocalBusiness", "Plumber"],
       "name"        => "CarolTemp",
       "url"         => "https://caroltemp.com",
-      "telephone" => "+34613429032", "telephone2" => "+34613429032", "telephone2" => "+34613429032",
+      "telephone" => "+34611165129", "telephone2" => "+34611165129", "telephone2" => "+34611165129",
       "address"     => [
         "@type"           => "PostalAddress",
         "addressLocality" => "Monóvar",

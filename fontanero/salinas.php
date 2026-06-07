@@ -49,8 +49,8 @@ include '../includes/head.php';
     <h1>Fontanero en Salinas<br><span class="hl">con respuesta rápida y máxima profesionalidad</span></h1>
     <p class="hz-dark-sub">Urgencias, fugas, desatascos, aerotermia y reformas en Salinas (Alicante). Viviendas unifamiliares, chalets y comunidades. Presupuesto gratuito antes de empezar.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
-      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -165,11 +165,11 @@ include '../includes/head.php';
         <div class="zona-icard">
           <div class="zona-icard-h"><strong>CarolTemp &middot; Salinas</strong><span>Fontanería local</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Salinas (Alicante) &middot; CP 03668</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora &rarr;</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Certificación</span><span class="zona-ir-v">Instaladores Nubeco oficiales</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Cobertura</span><span class="zona-ir-v">Casco urbano, polígono y viviendas unifamiliares</span></div>
-          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -375,8 +375,8 @@ if (!empty($_arts)): ?>
     <h2>&iquest;Necesitas fontaner&iacute;a <span>en Salinas (Alicante)?</span></h2>
     <p>Atendemos toda Salinas. Presupuesto gratuito, sin sorpresas.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

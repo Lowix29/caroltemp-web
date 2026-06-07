@@ -18,7 +18,7 @@ include 'includes/head.php';
     <h1>Servicios de fontanería<br><span class="hl">para tu vivienda.</span></h1>
     <p class="hz-dark-sub">Todo lo necesario para tu instalación de agua en casa. Desde pequeñas reparaciones hasta instalaciones completas. Trabajamos con precio sin sorpresas antes de empezar, sin sorpresas.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
       <a href="<?php echo $base_url; ?>contacto" class="btn-hz-g">Solicitar visita</a>
     </div>
   </div>
@@ -44,7 +44,7 @@ include 'includes/head.php';
           <span class="servicio-tarifa-precio">100 €/h</span>
           <span class="servicio-tarifa-nota">mínimo 1 hora · más coste de reparación</span>
         </div>
-        <a href="tel:+34613429032" class="btn-servicio">📞 Llamar ahora — Urgencias</a>
+        <a href="tel:+34611165129" class="btn-servicio">📞 Llamar ahora — Urgencias</a>
       </div>
       <div class="servicio-visual">
         <span class="servicio-visual-badge">Disponible 24h · 365 días</span>
@@ -70,7 +70,7 @@ include 'includes/head.php';
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sustitución de fregaderos y lavabos</li>
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reparación y sustitución de tuberías</li>
         </ul>
-        <a href="tel:+34613429032" class="btn-servicio">📞 Llamar ahora</a>
+        <a href="tel:+34611165129" class="btn-servicio">📞 Llamar ahora</a>
       </div>
       <div class="servicio-visual">
         <span class="servicio-visual-badge">Urgencias · precio sin sorpresas</span>
@@ -146,7 +146,7 @@ include 'includes/head.php';
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Asesoramiento sobre la capacidad adecuada</li>
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Mantenimiento y revisiones periódicas</li>
         </ul>
-        <a href="tel:+34613429032" class="btn-servicio">📞 Consultar precio</a>
+        <a href="tel:+34611165129" class="btn-servicio">📞 Consultar precio</a>
       </div>
       <div class="servicio-visual">
         <span class="servicio-visual-badge">Instalador oficial</span>
@@ -171,7 +171,7 @@ include 'includes/head.php';
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Asesoramiento sobre el equipo más adecuado</li>
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Financiación disponible</li>
         </ul>
-        <a href="tel:+34613429032" class="btn-servicio">📞 Pedir presupuesto</a>
+        <a href="tel:+34611165129" class="btn-servicio">📞 Pedir presupuesto</a>
       </div>
       <div class="servicio-visual">
         <span class="servicio-visual-badge">Agua de calidad del grifo</span>
@@ -197,7 +197,7 @@ include 'includes/head.php';
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Financiación disponible</li>
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Compatible con ósmosis inversa</li>
         </ul>
-        <a href="tel:+34613429032" class="btn-servicio">📞 Pedir presupuesto</a>
+        <a href="tel:+34611165129" class="btn-servicio">📞 Pedir presupuesto</a>
       </div>
       <div class="servicio-visual">
         <span class="servicio-visual-badge">Protege tu instalación</span>
@@ -223,7 +223,7 @@ include 'includes/head.php';
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reforma integral de baño</li>
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Financiación disponible para reformas grandes</li>
         </ul>
-        <a href="tel:+34613429032" class="btn-servicio">📞 Pedir presupuesto</a>
+        <a href="tel:+34611165129" class="btn-servicio">📞 Pedir presupuesto</a>
       </div>
       <div class="servicio-visual">
         <span class="servicio-visual-badge">precio sin sorpresas siempre</span>
@@ -248,7 +248,7 @@ include 'includes/head.php';
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reparación y sustitución de bombas</li>
           <li><span class="servicio-chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Asesoramiento sobre el sistema adecuado</li>
         </ul>
-        <a href="tel:+34613429032" class="btn-servicio">📞 Pedir presupuesto</a>
+        <a href="tel:+34611165129" class="btn-servicio">📞 Pedir presupuesto</a>
       </div>
       <div class="servicio-visual">
         <span class="servicio-visual-badge">Viviendas y pozos</span>
@@ -265,10 +265,10 @@ include 'includes/head.php';
     <h2>¿Qué <span>necesitas?</span></h2>
     <p>Llámanos o escríbenos y te damos presupuesto.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
-    <div class="cta-dark-tel">Teléfono directo<strong>613 429 032</strong></div>
+    <div class="cta-dark-tel">Teléfono directo<strong>611 165 129</strong></div>
   </div>
 </section>
 

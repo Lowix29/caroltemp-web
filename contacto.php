@@ -67,20 +67,20 @@ include 'includes/head.php';
       <p class="ctact-sub">Sin esperas, sin formularios. Llama o escríbenos y te atendemos al momento.</p>
 
       <div class="ctact-cards">
-        <a href="tel:+34613429032" class="ctact-card ctact-card-phone">
+        <a href="tel:+34611165129" class="ctact-card ctact-card-phone">
           <div class="ctact-card-ico">📞</div>
           <div class="ctact-card-body">
             <strong>Llamar ahora</strong>
-            <span>613 429 032</span>
+            <span>611 165 129</span>
             <small>Lun–Vie 8:00–20:00 · Sáb 9:00–14:00</small>
           </div>
           <div class="ctact-card-arrow">→</div>
         </a>
-        <a href="https://wa.me/34613429032?text=Hola,%20me%20gustaría%20pedir%20información" target="_blank" rel="noopener" class="ctact-card ctact-card-wa">
+        <a href="https://wa.me/34611165129?text=Hola,%20me%20gustaría%20pedir%20información" target="_blank" rel="noopener" class="ctact-card ctact-card-wa">
           <div class="ctact-card-ico">💬</div>
           <div class="ctact-card-body">
             <strong>WhatsApp</strong>
-            <span>613 429 032</span>
+            <span>611 165 129</span>
             <small>Respondemos lo antes posible</small>
           </div>
           <div class="ctact-card-arrow">→</div>
@@ -198,8 +198,8 @@ include 'includes/head.php';
     <h2>¿Tienes una avería <span>ahora mismo?</span></h2>
     <p>Llámanos directamente. Atendemos urgencias todos los días.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">📞 613 429 032</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">📞 611 165 129</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">💬 WhatsApp</a>
     </div>
   </div>
 </section>

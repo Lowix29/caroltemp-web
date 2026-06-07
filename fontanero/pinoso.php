@@ -14,7 +14,7 @@ $faq_items   = [
   ['q' => '¿Cuánto cuesta un fontanero en Pinoso?',
    'a' => 'En Pinoso la variación es grande: desde una reparación rápida en el casco hasta la revisión completa de un chalet con depósito y grupo de presión en el diseminado rural. El presupuesto es gratuito y te lo damos en la visita, con el trabajo visto y sin compromiso.'],
   ['q' => '¿Atendéis urgencias en festivos y fines de semana en Pinoso?',
-   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 613 429 032 o escribe por WhatsApp.'],
+   'a' => 'Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 611 165 129 o escribe por WhatsApp.'],
   ['q' => '¿Atendéis fincas y casas de campo en el diseminado rural de Pinoso?',
    'a' => 'Sí. Cubrimos todo el término municipal de Pinoso, incluyendo el diseminado rural, casas de campo y chalets alejados del casco urbano. Para instalaciones con depósito propio o grupo de presión, avisad indicando el tipo de instalación para llevar el material adecuado.'],
   ['q' => '¿Vale la pena instalar un descalcificador en Pinoso?',
@@ -35,8 +35,8 @@ include '../includes/head.php';
     <h1>Fontanero en Pinoso<br><span class="hl">con servicio profesional y presupuesto transparente</span></h1>
     <p class="hz-dark-sub">Urgencias, fugas, desatascos y reformas en Pinoso. Atendemos casco urbano, chalets, segundas residencias y diseminado rural.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
-      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -151,12 +151,12 @@ include '../includes/head.php';
         <div class="zona-icard">
           <div class="zona-icard-h"><strong>CarolTemp &middot; Pinoso</strong><span>Fontanería local</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Zona</span><span class="zona-ir-v">Pinoso &middot; CP 03650</span></div>
-          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34613429032">613 429 032</a></span></div>
-          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34613429032">Escribir ahora &rarr;</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">Teléfono</span><span class="zona-ir-v"><a href="tel:+34611165129">611 165 129</a></span></div>
+          <div class="zona-ir"><span class="zona-ir-l">WhatsApp</span><span class="zona-ir-v"><a href="https://wa.me/34611165129">Escribir ahora &rarr;</a></span></div>
           <div class="zona-ir"><span class="zona-ir-l">Certificación</span><span class="zona-ir-v">Instaladores Nubeco oficiales</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Cobertura</span><span class="zona-ir-v">Casco, chalets, fincas y diseminado</span></div>
           <div class="zona-ir"><span class="zona-ir-l">Financiación</span><span class="zona-ir-v">Consulta condiciones</span></div>
-          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -367,7 +367,7 @@ if (!empty($_arts)): ?>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis urgencias en festivos y fines de semana en Pinoso?</summary>
-        <div class="faq-ans">Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 613 429 032 o escribe por WhatsApp y te confirmamos disponibilidad y precio de inmediato.</div>
+        <div class="faq-ans">Sí. El servicio de urgencias está disponible todos los días del año, incluidos sábados, domingos y festivos. Hay un recargo por urgencia fuera de horario que se comunica antes de desplazarse. Llama al 611 165 129 o escribe por WhatsApp y te confirmamos disponibilidad y precio de inmediato.</div>
       </details>
       <details class="zona-faq-item">
         <summary>¿Atendéis fincas y casas de campo en el diseminado rural de Pinoso?</summary>
@@ -394,8 +394,8 @@ if (!empty($_arts)): ?>
     <h2>&iquest;Necesitas fontaner&iacute;a <span>en Pinoso?</span></h2>
     <p>Atendemos toda Pinoso. Presupuesto previo, sin sorpresas.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

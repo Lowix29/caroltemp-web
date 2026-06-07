@@ -20,8 +20,8 @@ include '../../includes/head.php';
     <h1>Detección de fugas en Aspe<br><span class="hl">localizamos la fuga exacta sin romper más de lo necesario</span></h1>
     <p class="hz-dark-sub">Una fuga oculta puede llevar semanas trabajando en silencio — mojando la estructura, subiendo la factura, dañando lo que no se ve. La detectamos con geófono y cámara termográfica: sabemos exactamente dónde está antes de tocar una sola baldosa.</p>
     <div class="hz-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; 613 429 032</a>
-      <a href="https://wa.me/34613429032" class="btn-hz-g">WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; 611 165 129</a>
+      <a href="https://wa.me/34611165129" class="btn-hz-g">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -64,7 +64,7 @@ include '../../includes/head.php';
             <div class="icard-row"><span class="icard-icon">🌡️</span><span>Suelo caliente en zona sin suelo radiante</span></div>
             <div class="icard-row"><span class="icard-icon">🏘️</span><span>Tu vecino tiene humedad y creen que viene de tu piso</span></div>
           </div>
-          <a href="tel:+34613429032" class="zona-icard-btn">&#128222; Llamar ahora</a>
+          <a href="tel:+34611165129" class="zona-icard-btn">&#128222; Llamar ahora</a>
         </div>
       </div>
     </div>
@@ -279,8 +279,8 @@ if (!empty($_proy)): ?>
     <h2>&iquest;Sospechas de una fuga <span>en Aspe?</span></h2>
     <p>Cuanto antes la localizamos, menos da&ntilde;o y menos coste. Ll&aacute;menos.</p>
     <div class="cta-dark-btns">
-      <a href="tel:+34613429032" class="btn-hz-w">&#128222; Llamar ahora</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-hz-w">&#128222; Llamar ahora</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-hz-g">&#128172; WhatsApp</a>
     </div>
   </div>
 </section>

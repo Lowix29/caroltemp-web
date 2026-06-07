@@ -1,7 +1,7 @@
 <!-- TOPBAR -->
 <div class="topbar">
   <p class="topbar-text"><strong>Urgencias</strong> &mdash; Fontanería en la comarca interior de Alicante</p>
-  <a href="tel:+34613429032" class="topbar-btn">📞 Urgencias 24h</a>
+  <a href="tel:+34611165129" class="topbar-btn">📞 Urgencias 24h</a>
 </div>
 
 <!-- NAV -->
@@ -205,8 +205,8 @@
     </div>
 
     <div class="nav-panel-foot">
-      <a href="tel:+34613429032" class="btn-mob-call">📞 Llamar — 613 429 032</a>
-      <a href="https://wa.me/34613429032" target="_blank" rel="noopener" class="btn-mob-wa">💬 WhatsApp</a>
+      <a href="tel:+34611165129" class="btn-mob-call">📞 Llamar — 611 165 129</a>
+      <a href="https://wa.me/34611165129" target="_blank" rel="noopener" class="btn-mob-wa">💬 WhatsApp</a>
       <a href="<?php echo $base_url; ?>contacto" class="btn-mob-cta">Pedir presupuesto gratis</a>
     </div>
 
@@ -215,8 +215,8 @@
 
 <!-- BARRA INFERIOR MÓVIL -->
 <div class="sticky-bar" role="complementary">
-  <a href="tel:+34613429032" class="sticky-call">📞 Urgencias</a>
-  <a href="https://wa.me/34613429032?text=Hola,%20necesito%20un%20fontanero%20urgente" target="_blank" rel="noopener" class="sticky-wa">💬 WhatsApp</a>
+  <a href="tel:+34611165129" class="sticky-call">📞 Urgencias</a>
+  <a href="https://wa.me/34611165129?text=Hola,%20necesito%20un%20fontanero%20urgente" target="_blank" rel="noopener" class="sticky-wa">💬 WhatsApp</a>
 </div>
 
 <script>
