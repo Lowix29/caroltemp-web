@@ -256,6 +256,11 @@
   margin-bottom: 1rem;
 }
 .zona-prose p:last-child { margin: 0; }
+.zona-prose a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+.zona-prose a:hover { opacity: .8; }
+.zona-sc p a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+.icard-body a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+.faq-ans a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
 .zona-chk {
   list-style: none;
   display: flex;
