@@ -279,8 +279,11 @@ Marca con ⭐ el gap más crítico.
 3. [keyword]
 4. [keyword]
 5. [keyword]
+6. [keyword]
+7. [keyword]
+8. [keyword]
 
-**Long-tail para hub (transaccionales):**
+**Long-tail transaccionales (precio / urgencia / contratar):**
 1. [keyword long-tail]
 2. [keyword long-tail]
 3. [keyword long-tail]
@@ -289,17 +292,20 @@ Marca con ⭐ el gap más crítico.
 6. [keyword long-tail]
 7. [keyword long-tail]
 8. [keyword long-tail]
+9. [keyword long-tail]
+10. [keyword long-tail]
+11. [keyword long-tail]
+12. [keyword long-tail]
 
-**Ideas para artículos/noticias:**
-1. "[Título de artículo]"
-2. "[Título de artículo]"
-3. "[Título de artículo]"
-4. "[Título de artículo]"
-
-**Ideas para proyectos:**
-1. [Tipo de proyecto]
-2. [Tipo de proyecto]
-3. [Tipo de proyecto]
+**Long-tail informacionales (cómo / qué / cuánto / por qué):**
+1. [keyword long-tail]
+2. [keyword long-tail]
+3. [keyword long-tail]
+4. [keyword long-tail]
+5. [keyword long-tail]
+6. [keyword long-tail]
+7. [keyword long-tail]
+8. [keyword long-tail]
 
 Cada ítem en su propia línea. NO pongas varios ítems en la misma línea.
 
