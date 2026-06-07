@@ -19,9 +19,10 @@ $contenido   = trim($_POST['contenido']   ?? '');
 $zona        = trim($_POST['zona']        ?? '');
 $categoria   = trim($_POST['categoria']   ?? '');
 $servicio    = trim($_POST['servicio']    ?? '');
-$meta_title  = trim($_POST['meta_title']  ?? '');
-$meta_desc   = trim($_POST['meta_desc']   ?? '');
-$imagenes    = json_decode($_POST['imagenes'] ?? '[]', true);
+$meta_title   = trim($_POST['meta_title']   ?? '');
+$meta_desc    = trim($_POST['meta_desc']    ?? '');
+$sidebar_tipo = trim($_POST['sidebar_tipo'] ?? '');
+$imagenes     = json_decode($_POST['imagenes'] ?? '[]', true);
 
 if (!$slug || !$titulo || !$contenido) {
   $_SESSION['agente_error'] = 'Faltan campos obligatorios (título, slug o contenido).';
@@ -78,13 +79,13 @@ try {
   } else {
     $stmt = $pdo->prepare('
       INSERT INTO articulos
-        (titulo, slug, extracto, contenido, imagen, zona, categoria, meta_title, meta_desc, publicado)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (titulo, slug, extracto, contenido, imagen, zona, categoria, meta_title, meta_desc, publicado, sidebar_tipo)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ');
     $stmt->execute([
       $titulo, $slug, $extracto,
       $contenido, $imagen_principal, $zona,
-      $categoria, $meta_title, $meta_desc, $publicado
+      $categoria, $meta_title, $meta_desc, $publicado, $sidebar_tipo
     ]);
     $id = $pdo->lastInsertId();
     header('Location: nuevo-articulo.php?id=' . $id . '&ok=1');
