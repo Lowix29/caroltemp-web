@@ -98,8 +98,11 @@ include 'includes/head.php';
 
   <!-- Número 404 gigante con relleno de agua -->
   <div class="e404-num-wrap" aria-hidden="true">
+    <div class="e404-num-glow"></div>
     <span class="e404-num-base">404</span>
-    <span class="e404-num-fill">404</span>
+    <div class="e404-num-water-clip">
+      <span class="e404-num-fill">404</span>
+    </div>
   </div>
 
   <!-- Contenido -->
