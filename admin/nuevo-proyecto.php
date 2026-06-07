@@ -8,6 +8,7 @@ require_once '../includes/db.php';
 require_once '../includes/img-sync.php';
 
 try { $pdo->exec("ALTER TABLE proyectos ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
+try { $pdo->exec("ALTER TABLE proyectos ADD COLUMN sidebar_tipo VARCHAR(30) DEFAULT ''"); } catch (PDOException $e) {}
 
 // Migración: normaliza rutas de imagen antiguas a relativas sin barra inicial
 try {
@@ -31,8 +32,9 @@ $pro     = [
   'servicio'    => '',
   'meta_title'  => '',
   'meta_desc'   => '',
-  'publicado'   => 0,
-  'robots'      => 'index',
+  'publicado'    => 0,
+  'robots'       => 'index',
+  'sidebar_tipo' => '',
 ];
 
 $editando = false;
@@ -77,8 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $servicio    = trim($_POST['servicio']    ?? '');
   $meta_title  = trim($_POST['meta_title']  ?? '');
   $meta_desc   = trim($_POST['meta_desc']   ?? '');
-  $publicado   = isset($_POST['publicado']) ? 1 : 0;
-  $robots      = trim($_POST['robots'] ?? 'index');
+  $publicado     = isset($_POST['publicado']) ? 1 : 0;
+  $robots        = trim($_POST['robots'] ?? 'index');
+  $sidebar_tipo  = trim($_POST['sidebar_tipo'] ?? '');
 
   if (!empty($_FILES['imagen_file']['name'])) {
     $resultado = subirImagen($_FILES['imagen_file'], 'proyectos');
@@ -113,13 +116,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             UPDATE proyectos SET
               titulo=?, slug=?, descripcion=?, contenido=?,
               imagen=?, zona=?, servicio=?,
-              meta_title=?, meta_desc=?, publicado=?, robots=?
+              meta_title=?, meta_desc=?, publicado=?, robots=?, sidebar_tipo=?
             WHERE id=?
           ');
           $stmt->execute([
             $titulo, $slug, $descripcion, $contenido,
             $imagen, $zona, $servicio,
-            $meta_title, $meta_desc, $publicado, $robots,
+            $meta_title, $meta_desc, $publicado, $robots, $sidebar_tipo,
             $pro['id']
           ]);
           $mensaje = '✅ Proyecto actualizado correctamente.';
@@ -129,13 +132,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
           $stmt = $pdo->prepare('
             INSERT INTO proyectos
-              (titulo, slug, descripcion, contenido, imagen, zona, servicio, meta_title, meta_desc, publicado, robots)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+              (titulo, slug, descripcion, contenido, imagen, zona, servicio, meta_title, meta_desc, publicado, robots, sidebar_tipo)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
           ');
           $stmt->execute([
             $titulo, $slug, $descripcion, $contenido,
             $imagen, $zona, $servicio,
-            $meta_title, $meta_desc, $publicado, $robots
+            $meta_title, $meta_desc, $publicado, $robots, $sidebar_tipo
           ]);
           $newId = $pdo->lastInsertId();
           header('Location: nuevo-proyecto.php?id=' . $newId . '&ok=1');
@@ -158,8 +161,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'servicio'    => $servicio,
       'meta_title'  => $meta_title,
       'meta_desc'   => $meta_desc,
-      'publicado'   => $publicado,
-      'robots'      => $robots,
+      'publicado'    => $publicado,
+      'robots'       => $robots,
+      'sidebar_tipo' => $sidebar_tipo,
     ]);
   }
 }
@@ -373,6 +377,58 @@ tinymce.init({
         </div>
       </div>
 
+      <!-- WIDGET DE ZONA -->
+      <div class="form-section">
+        <h2>Widget de zona (sidebar)</h2>
+        <p style="font-size:13px;color:#7a95b0;margin:-.5rem 0 1.25rem">El sidebar del proyecto muestra una tarjeta de enlace. Elige a qué página dirige y el texto cambia automáticamente según la zona seleccionada.</p>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label for="sidebar_tipo">Tipo de enlace en el sidebar</label>
+            <select id="sidebar_tipo" name="sidebar_tipo" onchange="actualizarWidgetPreview()">
+              <option value="" <?php echo ($pro['sidebar_tipo']??'') === '' ? 'selected' : ''; ?>>— Genérico (hub ciudad por defecto) —</option>
+              <option value="hub" <?php echo ($pro['sidebar_tipo']??'') === 'hub' ? 'selected' : ''; ?>>Hub ciudad — "Fontanero en {Ciudad}" → /fontanero/{ciudad}</option>
+              <option value="urgencias" <?php echo ($pro['sidebar_tipo']??'') === 'urgencias' ? 'selected' : ''; ?>>Urgencias 24h — "Urgencias 24h en {Ciudad}" → /fontanero/{ciudad}/urgencias</option>
+              <option value="desatascos" <?php echo ($pro['sidebar_tipo']??'') === 'desatascos' ? 'selected' : ''; ?>>Desatascos — "Desatascos en {Ciudad}" → /fontanero/{ciudad}/desatascos</option>
+              <option value="fugas" <?php echo ($pro['sidebar_tipo']??'') === 'fugas' ? 'selected' : ''; ?>>Fugas — "Reparación de fugas en {Ciudad}" → /fontanero/{ciudad}/fugas</option>
+            </select>
+          </div>
+          <div class="form-group full" id="widget-preview-wrap" style="display:<?php echo ($pro['sidebar_tipo']??'') ? 'block' : 'none'; ?>">
+            <div style="background:#f8fafc;border:1.5px solid #dde6f0;border-radius:8px;padding:1rem 1.25rem">
+              <p style="font-size:11px;color:#7a95b0;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem">Vista previa del widget</p>
+              <strong id="wp-titulo" style="display:block;color:#0d1f33;font-size:14px;margin-bottom:.4rem"><?php
+                $prev_zona = $pro['zona'] ?: '{Ciudad}';
+                $prev_tipo = $pro['sidebar_tipo'] ?? '';
+                $prev_configs = [
+                  'hub'         => "Fontanero en {$prev_zona}",
+                  'urgencias'   => "Urgencias 24h en {$prev_zona}",
+                  'desatascos'  => "Desatascos en {$prev_zona}",
+                  'fugas'       => "Reparación de fugas en {$prev_zona}",
+                ];
+                echo htmlspecialchars($prev_configs[$prev_tipo] ?? '');
+              ?></strong>
+              <p id="wp-desc" style="color:#576574;font-size:13px;margin-bottom:.75rem"><?php
+                $prev_descs = [
+                  'hub'        => 'La calidad, rapidez y eficacia es nuestra seña de identidad.',
+                  'urgencias'  => 'Presupuesto gratuito con la avería vista.',
+                  'desatascos' => 'Soluciones rápidas para atascos y obstrucciones.',
+                  'fugas'      => 'Detectamos y reparamos fugas con garantía.',
+                ];
+                echo htmlspecialchars($prev_descs[$prev_tipo] ?? '');
+              ?></p>
+              <span id="wp-btn" style="display:inline-block;background:#fff;color:#1e3a5f;padding:7px 12px;border-radius:6px;font-size:13px;font-weight:600;border:1.5px solid #e2e8f0"><?php
+                $prev_btns = [
+                  'hub'        => "Ver servicios en {$prev_zona} →",
+                  'urgencias'  => "Urgencias en {$prev_zona} →",
+                  'desatascos' => "Desatascos en {$prev_zona} →",
+                  'fugas'      => "Fugas en {$prev_zona} →",
+                ];
+                echo htmlspecialchars($prev_btns[$prev_tipo] ?? '');
+              ?></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- SEO -->
       <div class="form-section">
         <h2>SEO</h2>
@@ -535,12 +591,35 @@ uploadArea.addEventListener('drop', e => {
   }
 });
 
+// Widget de zona — preview
+const widgetConfigs = {
+  '':           null,
+  'hub':        { titulo: 'Fontanero en {zona}',             desc: 'La calidad, rapidez y eficacia es nuestra seña de identidad.', btn: 'Ver servicios en {zona} →' },
+  'urgencias':  { titulo: 'Urgencias 24h en {zona}',         desc: 'Presupuesto gratuito con la avería vista.',                    btn: 'Urgencias en {zona} →' },
+  'desatascos': { titulo: 'Desatascos en {zona}',            desc: 'Soluciones rápidas para atascos y obstrucciones.',             btn: 'Desatascos en {zona} →' },
+  'fugas':      { titulo: 'Reparación de fugas en {zona}',   desc: 'Detectamos y reparamos fugas con garantía.',                  btn: 'Fugas en {zona} →' },
+};
+
+function actualizarWidgetPreview() {
+  const tipo = document.getElementById('sidebar_tipo').value;
+  const zona = document.getElementById('zona').value || '{Ciudad}';
+  const wrap = document.getElementById('widget-preview-wrap');
+  if (!tipo || !widgetConfigs[tipo]) { wrap.style.display = 'none'; return; }
+  const cfg = widgetConfigs[tipo];
+  document.getElementById('wp-titulo').textContent = cfg.titulo.replace('{zona}', zona);
+  document.getElementById('wp-desc').textContent   = cfg.desc;
+  document.getElementById('wp-btn').textContent    = cfg.btn.replace('{zona}', zona);
+  wrap.style.display = 'block';
+}
+document.getElementById('zona').addEventListener('change', actualizarWidgetPreview);
+
 document.addEventListener('DOMContentLoaded', function() {
   const title = document.getElementById('meta_title');
   const desc  = document.getElementById('meta_desc');
   if (title.value) contarChars(title, 'count-title', 60);
   if (desc.value)  contarChars(desc,  'count-desc',  160);
   actualizarPreview();
+  actualizarWidgetPreview();
 });
 </script>
 
