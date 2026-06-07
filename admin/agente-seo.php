@@ -435,7 +435,7 @@ try {
             <div class="grid-2">
               <div class="pv-field">
                 <label>Zona</label>
-                <input type="text" name="zona" id="f-zona">
+                <input type="text" name="zona" id="f-zona" oninput="actualizarSidebarPreview()">
               </div>
               <div class="pv-field" id="pv-cat">
                 <label>Categoría</label>
@@ -452,6 +452,17 @@ try {
                     <option value="<?= htmlspecialchars($s) ?>"><?= htmlspecialchars($s) ?></option>
                   <?php endforeach; ?>
                 </select>
+              </div>
+              <div class="pv-field" id="pv-sidebar">
+                <label>Widget sidebar <span style="font-weight:400;color:#B0C4D8">(no vinculante)</span></label>
+                <select name="sidebar_tipo" id="f-sidebar-tipo" onchange="actualizarSidebarPreview()">
+                  <option value="">— Genérico (hub ciudad) —</option>
+                  <option value="hub">Hub ciudad — "Fontanero en {Ciudad}"</option>
+                  <option value="urgencias">Urgencias 24h — "Urgencias 24h en {Ciudad}"</option>
+                  <option value="desatascos">Desatascos — "Desatascos en {Ciudad}"</option>
+                  <option value="fugas">Fugas — "Reparación de fugas en {Ciudad}"</option>
+                </select>
+                <span id="sidebar-preview-txt" style="display:none;font-size:11.5px;color:#16a34a;margin-top:4px;display:block"></span>
               </div>
             </div>
 
@@ -965,6 +976,21 @@ function seleccionar(selectId, valor) {
   const sel = document.getElementById(selectId);
   if (!sel) return;
   [...sel.options].forEach(o => { o.selected = o.value === valor; });
+}
+
+function actualizarSidebarPreview() {
+  const tipo = document.getElementById('f-sidebar-tipo').value;
+  const zona = document.getElementById('f-zona').value.trim() || '{Ciudad}';
+  const span = document.getElementById('sidebar-preview-txt');
+  const labels = {
+    '':           null,
+    'hub':        `"Fontanero en ${zona}" → /fontanero/{slug}`,
+    'urgencias':  `"Urgencias 24h en ${zona}" → /fontanero/{slug}/urgencias`,
+    'desatascos': `"Desatascos en ${zona}" → /fontanero/{slug}/desatascos`,
+    'fugas':      `"Reparación de fugas en ${zona}" → /fontanero/{slug}/fugas`,
+  };
+  if (labels[tipo]) { span.textContent = '↳ ' + labels[tipo]; span.style.display = 'block'; }
+  else { span.style.display = 'none'; }
 }
 
 function contarChars(el, infoId, limite) {
