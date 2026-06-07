@@ -71,14 +71,14 @@ try {
   if ($tipo === 'proyecto') {
     $stmt = $pdo->prepare('
       INSERT INTO proyectos
-        (titulo, slug, descripcion, contenido, imagen, zona, servicio, meta_title, meta_desc, publicado)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (titulo, slug, descripcion, contenido, imagen, zona, servicio, meta_title, meta_desc, publicado, sidebar_tipo)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ');
     $stmt->execute([
       $titulo, $slug,
       $descripcion ?: $extracto,
       $contenido, $imagen_principal, $zona,
-      $servicio, $meta_title, $meta_desc, $publicado
+      $servicio, $meta_title, $meta_desc, $publicado, $sidebar_tipo
     ]);
     $id = $pdo->lastInsertId();
     header('Location: nuevo-proyecto.php?id=' . $id . '&ok=1');
