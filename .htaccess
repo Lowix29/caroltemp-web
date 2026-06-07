@@ -37,6 +37,7 @@ RewriteRule ^fontanero/([a-z0-9\-]+)/?$ fontanero/$1.php [L]
 
 # URLs amigables noticias
 RewriteRule ^noticias/categoria/([^/]+)/?$ noticias/index.php?categoria=$1 [QSA,L]
+RewriteRule ^noticias/zona/([^/]+)/?$ noticias/index.php?zona=$1 [QSA,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^noticias/([^/]+)/?$ noticias/articulo.php?slug=$1 [QSA,L]
 
