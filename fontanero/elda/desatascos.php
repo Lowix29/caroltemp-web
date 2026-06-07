@@ -3,8 +3,31 @@
  * Desatascos en Elda
  * CarolTemp
  */
-$meta_title  = 'Desatascos en Elda | Solución rápida y definitiva — CarolTemp';
-$meta_desc   = 'Desatascos en Elda para bajantes, arquetas, fregaderos e inodoros. Diagnóstico profesional, limpieza completa y resultados duraderos.';
+$faq_items = [
+  [
+    'q' => '¿Cuánto cuesta un desatasco urgente en Elda?',
+    'a' => 'La tarifa base es desde 60 €/hora (mínimo 1 hora) más desde 25 € de desplazamiento. El presupuesto es gratuito: vemos el atasco con la cámara endoscópica, calculamos el trabajo y te damos el precio cerrado antes de empezar. Solo pagas si aceptas. Hay recargo para horario nocturno y festivos, que se comunica siempre antes de desplazarnos.',
+  ],
+  [
+    'q' => '¿Realizáis desatascos en fábricas de calzado de Elda?',
+    'a' => 'Sí. Trabajamos habitualmente en instalaciones del sector calzado — talleres de curtidos, fábricas de componentes y naves del Polígono Campo Alto y Polígono Virgen de la Salud. Los residuos de producción (colas, disolventes, materiales sintéticos) requieren equipos específicos. Aportamos el equipo adecuado y, si el trabajo genera residuos especiales, gestionamos su retirada correctamente.',
+  ],
+  [
+    'q' => '¿Cada cuánto hay que vaciar una fosa séptica en Elda?',
+    'a' => 'La recomendación técnica general es cada 1-2 años, dependiendo del número de usuarios y el volumen de la fosa. Las señales de alerta son: olores persistentes en el exterior, lentitud en la evacuación de los desagües de la vivienda, y humedad o burbujeo en el terreno cercano. Si llevas más de 2 años sin vaciarla y notas alguna de estas señales, conviene revisarla antes de que llegue al límite de capacidad.',
+  ],
+  [
+    'q' => '¿Cubrís urgencias de desatascos 24 horas en El Toscar y La Torreta?',
+    'a' => 'Sí. Atendemos toda la localidad de Elda los 365 días del año, incluidos El Toscar, La Torreta, el Centro y los polígonos industriales. El tiempo máximo de respuesta es de 3 horas desde el primer contacto. Para horario nocturno (desde las 22:00 h) y festivos se aplica un recargo que se comunica siempre al contactar.',
+  ],
+  [
+    'q' => '¿Qué ventajas tiene contratar desatascos con cámara de inspección?',
+    'a' => 'La cámara endoscópica localiza la obstrucción antes de actuar: tipo de tapón (grasa, raíces, sólidos), posición exacta y estado de las paredes del conducto. Esto evita reparaciones innecesarias, reduce el tiempo de trabajo y permite elegir la técnica correcta desde el principio. Si hay daño estructural (grieta, junta rota), la cámara lo detecta antes de que se convierta en un problema mayor.',
+  ],
+];
+
+$meta_title  = 'Desatascos en Elda | Urgencias 24h · Presupuesto gratis — CarolTemp';
+$meta_desc   = 'Desatascos en Elda para particulares, comunidades y fábricas de calzado. Urgencias 24 horas, cámara endoscópica y presupuesto gratis. El Toscar, La Torreta, polígonos.';
 $meta_url    = 'https://caroltemp.com/fontanero/elda/desatascos';
 $schema_type = 'local';
 $page_css    = 'zona';
@@ -28,10 +51,10 @@ include '../../includes/head.php';
 
 <div class="dif-strip">
   <div class="dif-strip-in">
+    <div class="dif-item"><span class="dif-val">Urgencias 24h · 365 días</span><span class="dif-lbl">El Toscar, La Torreta, polígonos</span></div>
     <div class="dif-item"><span class="dif-val">Cámara antes de actuar</span><span class="dif-lbl">Vemos qué hay y dónde está</span></div>
-    <div class="dif-item"><span class="dif-val">Hidrojetting a presión</span><span class="dif-lbl">Grasa, raíces y sarro de agua dura</span></div>
-    <div class="dif-item"><span class="dif-val">Trabajo limpio</span><span class="dif-lbl">Recogemos y dejamos como estaba</span></div>
-    <div class="dif-item"><span class="dif-val">Precio cerrado</span><span class="dif-lbl">Dado tras el diagnóstico, antes de empezar</span></div>
+    <div class="dif-item"><span class="dif-val">Fábricas de calzado</span><span class="dif-lbl">Curtidos, colas, residuos industriales</span></div>
+    <div class="dif-item"><span class="dif-val">Presupuesto gratis</span><span class="dif-lbl">Precio cerrado antes de empezar</span></div>
   </div>
 </div>
 
@@ -39,16 +62,16 @@ include '../../includes/head.php';
   <div class="cta-dark-con">
     <div class="zona-tcol">
       <div>
-        <p class="zona-lbl">Desatascos en Elda</p>
-        <h2>Atascos en Elda <span class="hl">la causa real detrás de cada obstrucción</span></h2>
+        <p class="zona-lbl">Urgencias y mantenimiento</p>
+        <h2>Desatascos urgentes <span class="hl">24 horas en Elda</span></h2>
         <div class="zona-prose">
-          <p>La grasa no desaparece por el desagüe — se adhiere a las paredes del tubo, se enfría y va reduciendo el diámetro útil del conducto hasta cerrarlo. Las raíces entran por la primera junta con micro-fisura que encuentran y colonizan la bajante por dentro hasta bloquearla por completo. El sarro que deja el agua dura forma una capa mineral que ni la sonda ni el producto del supermercado pueden eliminar. Son causas distintas que necesitan soluciones distintas — y el producto de limpieza del supermercado no resuelve ninguna de las tres de forma permanente: abre un canal momentáneo por el centro del tapón, el tubo sigue parcialmente obstruido y en pocas semanas el problema vuelve.</p>
-          <p>La <strong>cámara endoscópica</strong> muestra antes de actuar qué hay en el conducto y hasta dónde llega la obstrucción. Con ese dato elegimos la técnica adecuada — hidrojetting para grasa y sarro, sonda con cabeza de corte para raíces, aspiración para arquetas con lodos — y el trabajo se hace una vez y bien hecho.</p>
+          <p>La grasa no desaparece por el desagüe — se adhiere a las paredes del tubo, se enfría y va reduciendo el diámetro útil hasta cerrarlo. Las raíces entran por la primera junta con micro-fisura que encuentran y colonizan la bajante por dentro. El sarro que deja el agua dura forma una capa mineral que ni la sonda ni el producto del supermercado pueden eliminar permanentemente. Son causas distintas que necesitan soluciones distintas.</p>
+          <p>En Elda atendemos urgencias las 24 horas en toda la localidad — viviendas del Centro, comunidades de El Toscar y La Torreta, y naves industriales de los polígonos. La <strong>cámara endoscópica</strong> muestra antes de actuar qué hay en el conducto y hasta dónde llega la obstrucción. Con ese dato elegimos la técnica adecuada y el trabajo se hace una vez y bien hecho.</p>
         </div>
         <ul class="zona-chk">
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Atasco de inodoro en Elda que no desagua</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bajante bloqueada en bloque de pisos del centro</li>
-          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Arqueta exterior desbordada en nave industrial o local</li>
+          <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Arqueta exterior desbordada en nave del polígono</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Desagüe de cocina atascado por grasa y sarro</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Ducha o bañera que no vacía por acumulación de cal</li>
           <li><span class="chk-ico"><svg viewBox="0 0 10 10" fill="none" width="10" height="10"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sifón de taller atascado por residuos de producción</li>
@@ -93,14 +116,14 @@ include '../../includes/head.php';
         <p>Arquetas colapsadas por grasa endurecida, lodos o raíces. Limpieza con bomba de presión y revisión de paredes para detectar grietas que causen futuros problemas.</p>
       </div>
       <div class="zona-tipo">
+        <div class="zona-tipo-ico">🏭</div>
+        <h3>Fábricas de calzado</h3>
+        <p>Desatascos en talleres de curtidos, fábricas de componentes y naves industriales del Polígono Campo Alto y Polígono Virgen de la Salud. Residuos de producción y materiales solidificados con hidrojetting especializado.</p>
+      </div>
+      <div class="zona-tipo">
         <div class="zona-tipo-ico">🍳</div>
         <h3>Desatasco de cocina</h3>
         <p>Fregadero atascado por grasa, restos orgánicos o sarro. La cámara endoscópica muestra hasta dónde llega el tapón antes de actuar con el equipo adecuado.</p>
-      </div>
-      <div class="zona-tipo">
-        <div class="zona-tipo-ico">🏭</div>
-        <h3>Talleres y locales</h3>
-        <p>Desatascos en talleres de calzado, locales comerciales y naves industriales de Elda. Residuos de producción, colas y materiales solidificados con hidrojetting especializado.</p>
       </div>
       <div class="zona-tipo">
         <div class="zona-tipo-ico">🏢</div>
@@ -174,23 +197,33 @@ include '../../includes/head.php';
   </div>
 </section>
 
-<section class="zona-sec">
+<section class="zona-sec zona-sec-dark">
+  <div class="cta-dark-con">
+    <p class="zona-lbl">Cobertura local</p>
+    <h2>D&oacute;nde atendemos <span class="hl">en Elda</span></h2>
+    <p style="color:#94a3b8;margin-bottom:1.75rem;max-width:640px">El mismo servicio de desatascos en el Centro que en los polígonos industriales — viviendas, comunidades, locales y naves.</p>
+    <div class="zona-ztags">
+      <span class="zona-ztag-plain">Centro (CP 03600)</span>
+      <span class="zona-ztag-plain">El Toscar</span>
+      <span class="zona-ztag-plain">La Torreta</span>
+      <span class="zona-ztag-plain">Polígono Campo Alto</span>
+      <span class="zona-ztag-plain">Polígono Virgen de la Salud</span>
+      <span class="zona-ztag-plain">Urbanizaciones periféricas</span>
+    </div>
+  </div>
+</section>
+
+<section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Preguntas frecuentes</p>
-    <h2>Desatascos en Elda <span class="hl">— dudas habituales</span></h2>
+    <h2>Desatascos en Elda <span class="hl">&mdash; dudas habituales</span></h2>
     <div class="zona-faqs">
-      <details class="zona-faq-item" open>
-        <summary>¿El olor a alcantarilla sin atasco visible tiene solución?</summary>
-        <div class="faq-ans">Sí. El olor a alcantarilla sin que haya ningún desagüe bloqueado suele tener tres causas: el sifón de un desagüe poco usado que se ha vaciado por evaporación y ya no hace de barrera contra los gases, una junta deteriorada en la bajante que deja escapar vapores al interior del muro, o una arqueta con la tapa en mal estado. Ninguna de las tres requiere un desatasco — sí requiere diagnóstico. Al llegar revisamos todos los puntos posibles y te explicamos qué está pasando antes de hacer nada.</div>
+      <?php foreach ($faq_items as $i => $faq): ?>
+      <details class="zona-faq-item"<?php echo $i === 0 ? ' open' : ''; ?>>
+        <summary><?php echo htmlspecialchars($faq['q']); ?></summary>
+        <div class="faq-ans"><?php echo htmlspecialchars($faq['a']); ?></div>
       </details>
-      <details class="zona-faq-item">
-        <summary>¿Qué diferencia hay entre un desatasco y una limpieza de bajante?</summary>
-        <div class="faq-ans">Un desatasco resuelve una obstrucción puntual: el conducto estaba bloqueado y vuelve a funcionar. Una limpieza de bajante es un trabajo preventivo o de mantenimiento: el conducto todavía pasa agua pero las paredes acumulan grasa, sarro o depósitos que, sin actuar, terminarán formando un tapón. El hidrojetting en limpieza de bajante trabaja de arriba a abajo por toda la longitud del tubo, a caudal y presión sostenidos, para devolver el diámetro interior a su estado original. El resultado es un conducto limpio de pared a pared, no solo desbloqueado.</div>
-      </details>
-      <details class="zona-faq-item">
-        <summary>¿La garantía cubre si el atasco vuelve a aparecer pronto?</summary>
-        <div class="faq-ans">Si el atasco reaparece en poco tiempo después de un desatasco bien hecho, hay una razón estructural detrás: una junta rota por la que entran raíces de nuevo, una pendiente insuficiente del tubo que acumula sólidos, o un objeto sólido que no se pudo extraer en la primera intervención. En ese caso volvemos, revisamos con la cámara y te explicamos qué está ocurriendo. Si el problema es consecuencia directa del mismo trabajo, no cobramos la segunda visita. Si hay una causa nueva o estructural, lo ponemos sobre la mesa con la imagen antes de hablar de nada más.</div>
-      </details>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -212,7 +245,7 @@ try {
   $_arts = $_as ? $_as->fetchAll(PDO::FETCH_ASSOC) : [];
 } catch (\Throwable $_e) {}
 if (!empty($_proy)): ?>
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Trabajos realizados</p>
     <h2>Proyectos de desatascos <span class="hl">en Elda</span></h2>
@@ -231,7 +264,7 @@ if (!empty($_proy)): ?>
 </section>
 <?php endif; ?>
 <?php if (!empty($_arts)): ?>
-<section class="zona-sec">
+<section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Consejos &uacute;tiles</p>
     <h2>Art&iacute;culos sobre <span class="hl">desatascos y saneamiento</span></h2>
@@ -249,20 +282,20 @@ if (!empty($_proy)): ?>
   </div>
 </section>
 <?php endif; ?>
-<section class="zona-sec zona-sec-gray">
+<section class="zona-sec">
   <div class="cta-dark-con">
     <p class="zona-lbl">Zona de cobertura</p>
     <h2>Desatascos <span class="hl">en Elda</span></h2>
-    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Elda (CP 03600) y municipios lim&iacute;trofes.</p>
+    <p style="margin-bottom:1.5rem;color:#576574">Atendemos toda la localidad de Elda (CP 03600) y el t&eacute;rmino municipal completo.</p>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
       <iframe src="https://maps.google.com/maps?q=38.4774,-0.7882&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Desatascos en Elda"></iframe>
     </div>
   </div>
 </section>
-<section class="zona-sec">
+<section class="zona-sec zona-sec-gray">
   <div class="cta-dark-con">
     <p class="zona-lbl">Mismo servicio en otras zonas</p>
-    <h2>También hacemos desatascos <span class="hl">en otros municipios</span></h2>
+    <h2>Tambi&eacute;n hacemos desatascos <span class="hl">en otros municipios</span></h2>
     <div class="zona-ztags">
       <a href="/fontanero/elda" class="zona-ztag" style="background:#1e3a5f;color:#fff">&#8592; Todos los servicios en Elda</a>
       <a href="/fontanero/novelda/desatascos" class="zona-ztag">Novelda</a>
