@@ -174,9 +174,14 @@ include '../../includes/head.php';
         <span>Concepto</span><span>Precio</span><span>Condiciones</span>
       </div>
       <div class="zona-precio-row">
-        <span class="zona-precio-concepto">Mano de obra</span>
-        <span class="zona-precio-val">desde 60 €/h</span>
-        <span class="zona-precio-nota">Mínimo 1 hora, según trabajo. Cámara endoscópica incluida.</span>
+        <span class="zona-precio-concepto">Desatasco</span>
+        <span class="zona-precio-val">desde 60 €</span>
+        <span class="zona-precio-nota">1 hora incluida. Dependiendo del desatasco.</span>
+      </div>
+      <div class="zona-precio-row">
+        <span class="zona-precio-concepto">Cámara endoscópica</span>
+        <span class="zona-precio-val">120 €</span>
+        <span class="zona-precio-nota">Diagnóstico previo al trabajo.</span>
       </div>
       <div class="zona-precio-row">
         <span class="zona-precio-concepto">Desplazamiento a Novelda</span>
@@ -184,7 +189,7 @@ include '../../includes/head.php';
         <span class="zona-precio-nota">Por visita, incluido en el presupuesto.</span>
       </div>
       <div class="zona-precio-row">
-        <span class="zona-precio-concepto">Horario nocturno (desde las 22:00 h)</span>
+        <span class="zona-precio-concepto">Horario nocturno (desde las 20:00 h)</span>
         <span class="zona-precio-val" style="font-size:14px;color:#576574">Recargo</span>
         <span class="zona-precio-nota">Se informa al contactar.</span>
       </div>
