@@ -57,7 +57,7 @@ include '../includes/head.php';
   <?php else: ?>
     <div class="hz-dark-bg"></div>
   <?php endif; ?>
-  <div class="hz-dark-con" style="position:relative;z-index:2;align-self:flex-end;width:100%;padding-bottom:3rem">
+  <div class="hz-dark-con" style="position:relative;z-index:2;align-self:flex-end;padding-bottom:3.5rem;padding-top:2rem">
     <div class="articulo-meta">
       <?php if ($pro['servicio']): ?>
         <a href="/proyectos/servicio/<?php echo urlencode($pro['servicio']); ?>" class="blog-cat"><?php echo htmlspecialchars($pro['servicio']); ?></a>
@@ -73,7 +73,7 @@ include '../includes/head.php';
 </section>
 
 <!-- CONTENIDO -->
-<section style="padding:4rem 0">
+<section class="pro-contenido">
   <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-md)">
     <div class="articulo-layout">
 
@@ -87,7 +87,7 @@ include '../includes/head.php';
         <div class="sidebar-card">
           <h3>¿Necesitas este servicio?</h3>
           <p>Pídenos presupuesto sin compromiso para tu instalación.</p>
-          <a href="tel:+34611165129" style="display:block;background:#1e3a5f;color:#fff;padding:12px;border-radius:8px;font-size:14.5px;font-weight:700;text-decoration:none;text-align:center;margin-top:1rem">📞 611 165 129</a>
+          <a href="tel:+34611165129" style="display:block;background:#1e3a5f;color:#fff;padding:12px;border-radius:8px;font-size:14.5px;font-weight:700;text-decoration:none;text-align:center;margin-top:1.25rem">📞 611 165 129</a>
           <a href="https://wa.me/34611165129" target="_blank" rel="noopener" style="display:block;background:#f8fafc;color:#1e3a5f;padding:12px;border-radius:8px;font-size:14.5px;font-weight:600;text-decoration:none;text-align:center;margin-top:.75rem;border:1.5px solid #e2e8f0">💬 WhatsApp</a>
         </div>
 
@@ -105,17 +105,17 @@ include '../includes/head.php';
           ];
           $s_cfg = $s_configs[$s_tipo] ?? ['titulo'=>"Fontanero en {$zona}",'desc'=>'La calidad, rapidez y eficacia es nuestra seña de identidad.','url'=>"/fontanero/{$cts_slug}",'btn'=>"Ver servicios en {$zona} →"];
         ?>
-        <div class="sidebar-card" style="margin-top:1rem">
+        <div class="sidebar-card">
           <h3><?php echo htmlspecialchars($s_cfg['titulo']); ?></h3>
           <p><?php echo htmlspecialchars($s_cfg['desc']); ?></p>
-          <a href="<?php echo $s_cfg['url']; ?>" style="display:block;background:#f8fafc;color:#1e3a5f;padding:11px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;text-align:center;margin-top:1rem;border:1.5px solid #e2e8f0"><?php echo htmlspecialchars($s_cfg['btn']); ?></a>
+          <a href="<?php echo $s_cfg['url']; ?>" style="display:block;background:#f8fafc;color:#1e3a5f;padding:11px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;text-align:center;margin-top:1.25rem;border:1.5px solid #e2e8f0"><?php echo htmlspecialchars($s_cfg['btn']); ?></a>
         </div>
         <?php endif; ?>
 
         <!-- SERVICIOS -->
-        <div class="sidebar-card" style="margin-top:1rem">
+        <div class="sidebar-card">
           <h3>Nuestros servicios</h3>
-          <div style="display:flex;flex-direction:column;gap:.5rem;margin-top:1rem">
+          <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1rem">
             <?php
             $servicios_sidebar = [
               ['Reparaciones urgentes','servicios.php#reparaciones'],
@@ -127,8 +127,8 @@ include '../includes/head.php';
             ];
             foreach ($servicios_sidebar as $srv):
             ?>
-            <a href="/<?php echo $srv[1]; ?>" style="display:flex;align-items:center;justify-content:space-between;padding:.65rem .75rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:7px;text-decoration:none;color:#1e3a5f;font-size:13.5px;font-weight:500" onmouseover="this.style.background='#1e3a5f';this.style.color='#fff'" onmouseout="this.style.background='#f8fafc';this.style.color='#1e3a5f'">
-              <?php echo $srv[0]; ?><span style="font-size:12px">→</span>
+            <a href="/<?php echo $srv[1]; ?>" class="sidebar-srv-link">
+              <?php echo $srv[0]; ?><span>→</span>
             </a>
             <?php endforeach; ?>
           </div>
@@ -146,10 +146,10 @@ $proyectos_abajo->execute([$pro['id']]);
 $proyectos_abajo = $proyectos_abajo->fetchAll();
 ?>
 <?php if (!empty($proyectos_abajo)): ?>
-<section style="padding:4rem 0;background:#f8fafc;border-top:1px solid #f1f5f9">
+<section style="padding:5rem 0;background:#f8fafc;border-top:1px solid #e2e8f0">
   <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-md)">
     <p class="zona-lbl">Más trabajos</p>
-    <h2 style="font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:800;color:#0d1f33;letter-spacing:-.02em;margin-bottom:1.75rem">Otros <span style="color:#3b82f6">proyectos realizados</span></h2>
+    <h2 style="font-size:clamp(1.4rem,2.5vw,1.85rem);font-weight:800;color:#0d1f33;letter-spacing:-.025em;margin-bottom:2rem">Otros <span style="color:#3b82f6">proyectos realizados</span></h2>
     <div class="blog-grid blog-grid-3">
       <?php foreach ($proyectos_abajo as $pb): ?>
         <a href="/proyectos/<?php echo urlencode($pb['slug']); ?>" class="blog-card">
