@@ -10,6 +10,12 @@ require_once '../includes/img-sync.php';
 try { $pdo->exec("ALTER TABLE articulos ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 try { $pdo->exec("ALTER TABLE articulos ADD COLUMN sidebar_tipo VARCHAR(30) DEFAULT ''"); } catch (PDOException $e) {}
 
+// Migración: normaliza rutas de imagen antiguas a relativas sin barra inicial
+try {
+  $pdo->exec("UPDATE articulos SET imagen = REPLACE(imagen, '/caroltemp/img/', 'img/') WHERE imagen LIKE '/caroltemp/img/%'");
+  $pdo->exec("UPDATE articulos SET imagen = REPLACE(imagen, '/img/', 'img/') WHERE imagen LIKE '/img/%'");
+} catch (PDOException $e) {}
+
 $mensaje = '';
 $error   = '';
 $art     = [
