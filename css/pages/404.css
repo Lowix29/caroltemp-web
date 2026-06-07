@@ -70,47 +70,14 @@
   mask-image: radial-gradient(ellipse at center, black 10%, transparent 72%);
 }
 
-/* ===== FLOATING BUBBLES ===== */
-/* Sin overflow:hidden aquí — el padre .e404 ya lo tiene.
-   Los spans arrancan en bottom:0 (dentro del container) con opacity:0
-   para evitar el bug de overflow:hidden + bottom negativo */
+/* ===== FLOATING BUBBLES — animadas desde JS con requestAnimationFrame ===== */
 .e404-bubbles {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 1;
 }
-.e404-bubbles span {
-  position: absolute;
-  bottom: 0;
-  border-radius: 50%;
-  background: rgba(25,118,210,.18);
-  border: 1px solid rgba(100,180,255,.35);
-  animation: e404bubbleRise linear infinite;
-  opacity: 0;
-}
-.e404-bubbles span:nth-child(1)  { left:4%;   width:16px; height:16px; animation-duration:9s;  animation-delay:0s;    }
-.e404-bubbles span:nth-child(2)  { left:10%;  width:32px; height:32px; animation-duration:13s; animation-delay:1.2s;  }
-.e404-bubbles span:nth-child(3)  { left:17%;  width:10px; height:10px; animation-duration:7s;  animation-delay:3.5s;  }
-.e404-bubbles span:nth-child(4)  { left:24%;  width:24px; height:24px; animation-duration:11s; animation-delay:0.8s;  }
-.e404-bubbles span:nth-child(5)  { left:32%;  width:18px; height:18px; animation-duration:10s; animation-delay:4.2s;  }
-.e404-bubbles span:nth-child(6)  { left:40%;  width:40px; height:40px; animation-duration:15s; animation-delay:2.1s;  }
-.e404-bubbles span:nth-child(7)  { left:50%;  width:14px; height:14px; animation-duration:8s;  animation-delay:6.3s;  }
-.e404-bubbles span:nth-child(8)  { left:58%;  width:28px; height:28px; animation-duration:12s; animation-delay:0.5s;  }
-.e404-bubbles span:nth-child(9)  { left:65%;  width:20px; height:20px; animation-duration:9s;  animation-delay:5.1s;  }
-.e404-bubbles span:nth-child(10) { left:73%;  width:45px; height:45px; animation-duration:14s; animation-delay:3.8s;  }
-.e404-bubbles span:nth-child(11) { left:80%;  width:12px; height:12px; animation-duration:8s;  animation-delay:7.4s;  }
-.e404-bubbles span:nth-child(12) { left:87%;  width:22px; height:22px; animation-duration:11s; animation-delay:2.8s;  }
-.e404-bubbles span:nth-child(13) { left:93%;  width:36px; height:36px; animation-duration:13s; animation-delay:5.6s;  }
-.e404-bubbles span:nth-child(14) { left:7%;   width:48px; height:48px; animation-duration:16s; animation-delay:8.2s;  }
-.e404-bubbles span:nth-child(15) { left:55%;  width:8px;  height:8px;  animation-duration:6s;  animation-delay:9.7s;  }
-@keyframes e404bubbleRise {
-  0%   { transform: translateY(0);         opacity: 0;  }
-  6%   { transform: translateY(-3vh);      opacity: .8; }
-  50%  { transform: translateY(-52vh) translateX(14px);  opacity: .5; }
-  92%  { transform: translateY(-98vh) translateX(-8px);  opacity: .2; }
-  100% { transform: translateY(-108vh);    opacity: 0;  }
-}
+/* Los elementos internos los crea y mueve el JS via RAF */
 
 /* ===== PIPE SVG ===== */
 .e404-pipe-wrap {
