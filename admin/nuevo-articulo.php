@@ -9,9 +9,6 @@ require_once '../includes/db.php';
 try { $pdo->exec("ALTER TABLE articulos ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 try { $pdo->exec("ALTER TABLE articulos ADD COLUMN sidebar_tipo VARCHAR(30) DEFAULT ''"); } catch (PDOException $e) {}
 
-// Base path para rutas de imagen (en local el sitio está en /caroltemp/)
-$img_base = $is_local ? '/caroltemp' : '';
-
 $mensaje = '';
 $error   = '';
 $art     = [
@@ -50,13 +47,12 @@ function subirImagen($file, $carpeta) {
   if ($file['size'] > 3 * 1024 * 1024) {
     return ['error' => 'La imagen no puede superar 3MB.'];
   }
-  global $img_base;
   $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
   $nombre   = uniqid('img_') . '.' . strtolower($ext);
   $dir      = dirname(__DIR__) . '/img/' . $carpeta . '/';
   if (!is_dir($dir)) mkdir($dir, 0755, true);
   $ruta_abs = $dir . $nombre;
-  $ruta_web = $img_base . '/img/' . $carpeta . '/' . $nombre;
+  $ruta_web = 'img/' . $carpeta . '/' . $nombre;
   if (!move_uploaded_file($file['tmp_name'], $ruta_abs)) {
     return ['error' => 'Error al guardar la imagen.'];
   }
@@ -84,6 +80,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $error = $resultado['error'];
     } else {
       $imagen = $resultado['ruta'];
+      // Auto-commit de la imagen al repo
+      $repo = dirname(__DIR__);
+      $imgRel = $imagen; // ya es relativa: img/blog/...
+      shell_exec("cd " . escapeshellarg($repo) . " && git add " . escapeshellarg($imgRel) . " 2>&1");
+      shell_exec("cd " . escapeshellarg($repo) . " && git -c commit.gpgsign=false commit -m " . escapeshellarg("img: foto artículo " . basename($imgRel)) . " 2>&1");
+      shell_exec("cd " . escapeshellarg($repo) . " && git push origin main 2>&1");
     }
   }
 

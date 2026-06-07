@@ -58,6 +58,15 @@ if (empty($imagen_principal) && !empty($imagenes)) {
   $imagen_principal = $imagenes[0];
 }
 
+// Auto-commit y push de las imágenes nuevas al repo
+if (!empty($imagenes)) {
+  $repo = dirname(__DIR__);
+  $carpetaRel = 'img/contenido/' . $slug;
+  shell_exec("cd " . escapeshellarg($repo) . " && git add " . escapeshellarg($carpetaRel) . " 2>&1");
+  shell_exec("cd " . escapeshellarg($repo) . " && git -c commit.gpgsign=false commit -m " . escapeshellarg("img: fotos artículo " . $slug) . " 2>&1");
+  shell_exec("cd " . escapeshellarg($repo) . " && git push origin main 2>&1");
+}
+
 // Guardar como borrador para revisión previa a publicar
 $publicado = 0;
 
