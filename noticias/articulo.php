@@ -82,11 +82,23 @@ include '../includes/head.php';
         </div>
 
         <!-- ZONA -->
-        <?php if ($art['zona']): ?>
+        <?php if ($art['zona']):
+          $cts_slugs = ['Elda'=>'elda','Petrer'=>'petrer','Novelda'=>'novelda','Monóvar'=>'monovar','Sax'=>'sax','Pinoso'=>'pinoso','Monforte del Cid'=>'monforte-del-cid','Salinas'=>'salinas'];
+          $cts_slug  = $cts_slugs[$art['zona']] ?? strtolower(str_replace([' ','ó','é','á','í','ú'],['-','o','e','a','i','u'],$art['zona']));
+          $zona      = $art['zona'];
+          $s_tipo    = $art['sidebar_tipo'] ?? '';
+          $s_configs = [
+            'hub'        => ['titulo'=>"Fontanero en {$zona}",           'desc'=>'La calidad, rapidez y eficacia es nuestra seña de identidad.','url'=>"/fontanero/{$cts_slug}",            'btn'=>"Ver servicios en {$zona} →"],
+            'urgencias'  => ['titulo'=>"Urgencias 24h en {$zona}",       'desc'=>'Presupuesto gratuito con la avería vista.',                   'url'=>"/fontanero/{$cts_slug}/urgencias",   'btn'=>"Urgencias en {$zona} →"],
+            'desatascos' => ['titulo'=>"Desatascos en {$zona}",          'desc'=>'Soluciones rápidas para atascos y obstrucciones.',            'url'=>"/fontanero/{$cts_slug}/desatascos",  'btn'=>"Desatascos en {$zona} →"],
+            'fugas'      => ['titulo'=>"Reparación de fugas en {$zona}", 'desc'=>'Detectamos y reparamos fugas con garantía.',                  'url'=>"/fontanero/{$cts_slug}/fugas",       'btn'=>"Fugas en {$zona} →"],
+          ];
+          $s_cfg = $s_configs[$s_tipo] ?? ['titulo'=>"Fontanero en {$zona}",'desc'=>'La calidad, rapidez y eficacia es nuestra seña de identidad.','url'=>"/fontanero/{$cts_slug}",'btn'=>"Ver servicios en {$zona} →"];
+        ?>
         <div class="sidebar-card" style="margin-top:1rem">
-          <h3>Fontanero en <?php echo htmlspecialchars($art['zona']); ?></h3>
-          <p>Trabajamos en <?php echo htmlspecialchars($art['zona']); ?> y toda la comarca del Vinalopó.</p>
-          <a href="/zonas/<?php echo strtolower(str_replace([' ','ó','é'],['-','o','e'],$art['zona'])); ?>.php" style="display:block;background:#f8fafc;color:#1e3a5f;padding:11px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;text-align:center;margin-top:1rem;border:1.5px solid #e2e8f0">Ver servicios en <?php echo htmlspecialchars($art['zona']); ?> →</a>
+          <h3><?php echo htmlspecialchars($s_cfg['titulo']); ?></h3>
+          <p><?php echo htmlspecialchars($s_cfg['desc']); ?></p>
+          <a href="<?php echo $s_cfg['url']; ?>" style="display:block;background:#f8fafc;color:#1e3a5f;padding:11px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;text-align:center;margin-top:1rem;border:1.5px solid #e2e8f0"><?php echo htmlspecialchars($s_cfg['btn']); ?></a>
         </div>
         <?php endif; ?>
 
