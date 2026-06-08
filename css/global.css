@@ -1232,3 +1232,68 @@ p {
   .cb-wrap { border-radius: 16px 16px 0 0; }
   .cb-actions { flex-direction: column; }
 }
+
+/* ================================
+   PAGINACIÓN — Noticias y Proyectos
+================================ */
+.paginacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+.pag-btn,
+.pag-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .55rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .15s;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text);
+  background: #fff;
+}
+.pag-num {
+  min-width: 2.4rem;
+  padding: .55rem .7rem;
+}
+.pag-btn:hover,
+.pag-num:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: #eff6ff;
+}
+.pag-num.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  cursor: default;
+  pointer-events: none;
+}
+.pag-disabled {
+  opacity: .35;
+  cursor: default;
+  pointer-events: none;
+}
+.pag-ellipsis {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  padding: 0 .25rem;
+  user-select: none;
+}
+.pag-info {
+  width: 100%;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  margin-bottom: .5rem;
+  letter-spacing: -.01em;
+}
