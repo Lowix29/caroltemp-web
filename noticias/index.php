@@ -1,7 +1,7 @@
 <?php
 $meta_title  = "Blog de fontanería | Consejos, averías y mantenimiento — CarolTemp";
 $meta_desc   = "Guías prácticas, consejos profesionales y soluciones para fugas, desatascos, termos, instalaciones y mantenimiento del hogar.";
-$meta_url    = "https://caroltemp.com/blog/";
+$meta_url    = "https://caroltemp.com/noticias/";
 $schema_type = "default";
 $page_css    = "blog";
 $page_js     = "";
@@ -10,8 +10,6 @@ require_once '../includes/db.php';
 
 $zona_filtro = $_GET['zona']      ?? '';
 $cat_filtro  = $_GET['categoria'] ?? '';
-// Soporte de URLs amigables /noticias/zona/X pasadas por htaccess como ?zona=X
-// (ya se recibe via $_GET gracias a QSA en la rewrite rule)
 
 $where  = ['publicado = 1'];
 $params = [];
@@ -19,9 +17,22 @@ $params = [];
 if ($zona_filtro) { $where[] = 'zona = ?';      $params[] = $zona_filtro; }
 if ($cat_filtro)  { $where[] = 'categoria = ?'; $params[] = $cat_filtro; }
 
+// Paginación
+$por_pagina    = 9;
+$pagina_actual = max(1, (int)($_GET['pagina'] ?? 1));
+
+$sql_count  = 'SELECT COUNT(*) FROM articulos WHERE ' . implode(' AND ', $where);
+$stmt_count = $pdo->prepare($sql_count);
+$stmt_count->execute($params);
+$total_items = (int)$stmt_count->fetchColumn();
+$total_pags  = max(1, (int)ceil($total_items / $por_pagina));
+$pagina_actual = min($pagina_actual, $total_pags);
+$offset      = ($pagina_actual - 1) * $por_pagina;
+
 $sql  = 'SELECT id, titulo, slug, extracto, imagen, zona, categoria, fecha FROM articulos';
 $sql .= ' WHERE ' . implode(' AND ', $where);
 $sql .= ' ORDER BY fecha DESC';
+$sql .= ' LIMIT ' . $por_pagina . ' OFFSET ' . $offset;
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
@@ -29,6 +40,15 @@ $articulos = $stmt->fetchAll();
 
 $zonas      = $pdo->query('SELECT DISTINCT zona FROM articulos WHERE publicado=1 AND zona != "" ORDER BY zona')->fetchAll(PDO::FETCH_COLUMN);
 $categorias = $pdo->query('SELECT DISTINCT categoria FROM articulos WHERE publicado=1 AND categoria != "" ORDER BY categoria')->fetchAll(PDO::FETCH_COLUMN);
+
+// Helper URL paginación (preserva filtros activos)
+function noticiaPagUrl(int $pag): string {
+  $get = $_GET;
+  unset($get['pagina']);
+  if ($pag > 1) $get['pagina'] = $pag;
+  $qs = http_build_query($get);
+  return '/noticias/' . ($qs ? '?' . $qs : '');
+}
 
 include '../includes/head.php';
 ?>
@@ -88,6 +108,36 @@ include '../includes/head.php';
           </a>
         <?php endforeach; ?>
       </div>
+
+      <!-- PAGINACIÓN -->
+      <?php if ($total_pags > 1): ?>
+      <div class="paginacion">
+        <p class="pag-info">
+          Mostrando <?php echo $offset + 1; ?>–<?php echo min($offset + $por_pagina, $total_items); ?> de <?php echo $total_items; ?> artículos
+        </p>
+
+        <?php if ($pagina_actual > 1): ?>
+          <a href="<?php echo noticiaPagUrl($pagina_actual - 1); ?>" class="pag-btn">← Anterior</a>
+        <?php else: ?>
+          <span class="pag-btn pag-disabled">← Anterior</span>
+        <?php endif; ?>
+
+        <?php for ($i = 1; $i <= $total_pags; $i++):
+          if ($i === 1 || $i === $total_pags || abs($i - $pagina_actual) <= 2): ?>
+            <a href="<?php echo noticiaPagUrl($i); ?>" class="pag-num <?php echo $i === $pagina_actual ? 'active' : ''; ?>"><?php echo $i; ?></a>
+          <?php elseif (abs($i - $pagina_actual) === 3): ?>
+            <span class="pag-ellipsis">…</span>
+          <?php endif;
+        endfor; ?>
+
+        <?php if ($pagina_actual < $total_pags): ?>
+          <a href="<?php echo noticiaPagUrl($pagina_actual + 1); ?>" class="pag-btn">Siguiente →</a>
+        <?php else: ?>
+          <span class="pag-btn pag-disabled">Siguiente →</span>
+        <?php endif; ?>
+      </div>
+      <?php endif; ?>
+
     <?php endif; ?>
 
   </div>
