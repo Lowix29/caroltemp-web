@@ -333,6 +333,8 @@ PHP;
   </style>
   <script src="https://cdn.tiny.cloud/1/3eywuy73k0uzt30wiafptfr0tdx5iudt46gbkusw5kr5mjk2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <script>
+  var BASE_URL  = '<?php echo $base_url; ?>';
+  var ADMIN_URL = '<?php echo $is_local ? "http://localhost/caroltemp/admin/" : "/admin/"; ?>';
   tinymce.init({
     selector: '#contenido',
     language: 'es',
@@ -432,6 +434,17 @@ PHP;
           </div>
 
         </div>
+      </div>
+
+      <!-- IMAGEN DESTACADA -->
+      <div class="form-section">
+        <h2>Imagen destacada</h2>
+        <?php
+          $mp_campo = 'img_destacada';
+          $mp_valor = $pag['img_destacada'] ?? '';
+          $mp_base  = $base_url;
+          include 'includes/media-picker.php';
+        ?>
       </div>
 
       <!-- SEO -->
@@ -599,6 +612,15 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function() {
       if (typeof tinymce !== 'undefined' && tinymce.get('contenido')) {
         tinymce.get('contenido').save();
+      }
+      const url = (document.getElementById('mp-val-img_destacada')?.value || '').trim();
+      const estiloImg = url ? ' style="background-image:url(\'' + url.replace(/'/g, "\\'") + '\');background-size:cover;background-position:center top"' : '';
+      const ta = document.getElementById('contenido');
+      if (ta) {
+        ta.value = ta.value.replace(
+          /(<section\s+class="hz-dark")(\s+style="[^"]*")?(\s*>)/,
+          '$1' + estiloImg + '$3'
+        );
       }
     });
   }
