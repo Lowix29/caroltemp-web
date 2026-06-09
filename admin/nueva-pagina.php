@@ -330,22 +330,11 @@ PHP;
     .schema-info-box.open .schema-info-chevron { transform:rotate(90deg); }
     .schema-info-chevron { transition:transform .2s; }
 
-    /* ── Imagen destacada ── */
-    .img-dest-row { display:flex; gap:.5rem; align-items:stretch; }
-    .img-dest-row input { flex:1; }
-    .btn-img-dest-clear {
-      padding:.4rem .75rem; background:#f1f5f9; border:1.5px solid #D6E2F0;
-      border-radius:8px; font-size:12px; cursor:pointer; color:#64748b; white-space:nowrap;
-    }
-    .btn-img-dest-clear:hover { background:#e2e8f0; }
-    .img-dest-preview {
-      margin-top:.5rem; border-radius:8px; overflow:hidden;
-      max-height:90px; display:none;
-    }
-    .img-dest-preview img { width:100%; height:90px; object-fit:cover; display:block; }
   </style>
   <script src="https://cdn.tiny.cloud/1/3eywuy73k0uzt30wiafptfr0tdx5iudt46gbkusw5kr5mjk2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <script>
+  var BASE_URL  = '<?php echo $base_url; ?>';
+  var ADMIN_URL = '<?php echo $is_local ? "http://localhost/caroltemp/admin/" : "/admin/"; ?>';
   tinymce.init({
     selector: '#contenido',
     language: 'es',
@@ -450,20 +439,12 @@ PHP;
       <!-- IMAGEN DESTACADA -->
       <div class="form-section">
         <h2>Imagen destacada</h2>
-        <div class="form-grid">
-          <div class="form-group full">
-            <label for="img-destacada">URL de la imagen <span class="label-hint">— se pone de fondo en el hero (hz-dark). Opcional.</span></label>
-            <div class="img-dest-row">
-              <input type="text" id="img-destacada" name="img_destacada"
-                     placeholder="/uploads/foto-pinoso.jpg  o  https://…"
-                     value="<?php echo htmlspecialchars($pag['img_destacada'] ?? ''); ?>"
-                     oninput="previsualizarImagen(this.value)">
-              <button type="button" class="btn-img-dest-clear"
-                      onclick="document.getElementById('img-destacada').value='';previsualizarImagen('')">✕ Quitar</button>
-            </div>
-            <div class="img-dest-preview" id="img-dest-preview"></div>
-          </div>
-        </div>
+        <?php
+          $mp_campo = 'img_destacada';
+          $mp_valor = $pag['img_destacada'] ?? '';
+          $mp_base  = $base_url;
+          include 'includes/media-picker.php';
+        ?>
       </div>
 
       <!-- SEO -->
@@ -625,15 +606,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (desc.value)  contarChars(desc,  'count-desc',  160);
   actualizarPreview();
 
-  // Inicializar preview de imagen si ya hay URL
-  const imgInput = document.getElementById('img-destacada');
-  if (imgInput && imgInput.value) previsualizarImagen(imgInput.value);
-
   // Inyectar imagen en el contenido justo antes de enviar el formulario
   const form = document.querySelector('form');
   if (form) {
     form.addEventListener('submit', function() {
-      const url = (document.getElementById('img-destacada').value || '').trim();
+      const url = (document.getElementById('mp-val-img_destacada').value || '').trim();
 
       // Sincronizar TinyMCE → textarea
       if (typeof tinymce !== 'undefined' && tinymce.get('contenido')) {
@@ -657,17 +634,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Preview de imagen destacada sin tocar TinyMCE
-function previsualizarImagen(url) {
-  const prev = document.getElementById('img-dest-preview');
-  if (!prev) return;
-  if (url) {
-    prev.style.display = 'block';
-    prev.innerHTML = '<img src="' + url + '" alt="preview" onerror="this.parentElement.style.display=\'none\'">';
-  } else {
-    prev.style.display = 'none';
-    prev.innerHTML = '';
-  }
-}
 </script>
 
 </body>
