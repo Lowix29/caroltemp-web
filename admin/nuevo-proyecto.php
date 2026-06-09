@@ -48,7 +48,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   }
 }
 
-function subirImagen($file, $carpeta) {
+function subirImagen($file, $carpeta, $nombre_base = '') {
   $permitidos = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
   if (!in_array($file['type'], $permitidos)) {
     return ['error' => 'Formato no permitido. Usa JPG, PNG, WebP o GIF.'];
@@ -56,12 +56,11 @@ function subirImagen($file, $carpeta) {
   if ($file['size'] > 3 * 1024 * 1024) {
     return ['error' => 'La imagen no puede superar 3MB.'];
   }
-  $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
-  $nombre   = uniqid('img_') . '.' . strtolower($ext);
+  $ext      = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+  $nombre   = $nombre_base ? ($nombre_base . '.' . $ext) : (uniqid('img_') . '.' . $ext);
   $dir      = dirname(__DIR__) . '/img/' . $carpeta . '/';
   if (!is_dir($dir)) mkdir($dir, 0755, true);
   $ruta_abs = $dir . $nombre;
-  // Guardamos ruta relativa sin prefijo local — válida en local y producción
   $ruta_web = 'img/' . $carpeta . '/' . $nombre;
   if (!move_uploaded_file($file['tmp_name'], $ruta_abs)) {
     return ['error' => 'Error al guardar la imagen.'];
@@ -83,17 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $robots        = trim($_POST['robots'] ?? 'index');
   $sidebar_tipo  = trim($_POST['sidebar_tipo'] ?? '');
 
-  if (!empty($_FILES['imagen_file']['name'])) {
-    $resultado = subirImagen($_FILES['imagen_file'], 'proyectos');
-    if (isset($resultado['error'])) {
-      $error = $resultado['error'];
-    } else {
-      $imagen = $resultado['ruta'];
-      // Sincronizar a producción automáticamente
-      syncImgToProduction(dirname(__DIR__) . '/' . $imagen, $imagen);
-    }
-  }
-
+  // Generar slug ANTES de subir la imagen para usarlo como nombre de archivo
   if (!$slug && $titulo) {
     $slug = strtolower($titulo);
     $slug = str_replace(
@@ -104,6 +93,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $slug = preg_replace('/[^a-z0-9\-]/', '', $slug);
     $slug = preg_replace('/-+/', '-', $slug);
     $slug = trim($slug, '-');
+  }
+
+  if (!empty($_FILES['imagen_file']['name'])) {
+    $resultado = subirImagen($_FILES['imagen_file'], 'proyectos', $slug);
+    if (isset($resultado['error'])) {
+      $error = $resultado['error'];
+    } else {
+      $imagen = $resultado['ruta'];
+      // Sincronizar a producción automáticamente
+      syncImgToProduction(dirname(__DIR__) . '/' . $imagen, $imagen);
+    }
   }
 
   if (!$error) {
