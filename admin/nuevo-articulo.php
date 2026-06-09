@@ -6,6 +6,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 require_once '../includes/db.php';
 require_once '../includes/img-sync.php';
+$base_url = $is_local ? 'http://localhost/caroltemp/' : 'https://caroltemp.com/';
 
 try { $pdo->exec("ALTER TABLE articulos ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 try { $pdo->exec("ALTER TABLE articulos ADD COLUMN sidebar_tipo VARCHAR(30) DEFAULT ''"); } catch (PDOException $e) {}

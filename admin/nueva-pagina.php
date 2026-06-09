@@ -5,6 +5,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   exit;
 }
 require_once '../includes/db.php';
+$base_url = $is_local ? 'http://localhost/caroltemp/' : 'https://caroltemp.com/';
 
 // Crear tabla si no existe
 $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (

@@ -54,7 +54,7 @@ RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]
 
 # Página 404
-ErrorDocument 404 /404.php
+ErrorDocument 404 /caroltemp/404.php
 
 # Seguridad
 <FilesMatch "\.(sql|log|env|git|htpasswd)$">
