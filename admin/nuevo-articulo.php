@@ -45,8 +45,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   }
 }
 
-// SUBIDA DE IMAGEN
-function subirImagen($file, $carpeta) {
+// SUBIDA DE IMAGEN — nombre_base usa el slug como nombre de fichero
+function subirImagen($file, $carpeta, $nombre_base = '') {
   $permitidos = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
   if (!in_array($file['type'], $permitidos)) {
     return ['error' => 'Formato no permitido. Usa JPG, PNG, WebP o GIF.'];
@@ -54,9 +54,9 @@ function subirImagen($file, $carpeta) {
   if ($file['size'] > 3 * 1024 * 1024) {
     return ['error' => 'La imagen no puede superar 3MB.'];
   }
-  $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
-  $nombre   = uniqid('img_') . '.' . strtolower($ext);
-  $dir      = dirname(__DIR__) . '/img/' . $carpeta . '/';
+  $ext    = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+  $nombre = $nombre_base ? ($nombre_base . '.' . $ext) : (uniqid('img_') . '.' . $ext);
+  $dir    = dirname(__DIR__) . '/img/' . $carpeta . '/';
   if (!is_dir($dir)) mkdir($dir, 0755, true);
   $ruta_abs = $dir . $nombre;
   $ruta_web = 'img/' . $carpeta . '/' . $nombre;
@@ -80,19 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $robots        = trim($_POST['robots'] ?? 'index');
   $sidebar_tipo  = trim($_POST['sidebar_tipo'] ?? '');
 
-  // Subida de imagen si hay archivo
-  if (!empty($_FILES['imagen_file']['name'])) {
-    $resultado = subirImagen($_FILES['imagen_file'], 'blog');
-    if (isset($resultado['error'])) {
-      $error = $resultado['error'];
-    } else {
-      $imagen = $resultado['ruta'];
-      // Sincronizar a producción automáticamente
-      syncImgToProduction(dirname(__DIR__) . '/' . $imagen, $imagen);
-    }
-  }
-
-  // Generar slug automático
+  // Generar slug ANTES de subir la imagen (se usa como nombre de fichero)
   if (!$slug && $titulo) {
     $slug = strtolower($titulo);
     $slug = str_replace(
@@ -103,6 +91,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $slug = preg_replace('/[^a-z0-9\-]/', '', $slug);
     $slug = preg_replace('/-+/', '-', $slug);
     $slug = trim($slug, '-');
+  }
+
+  // Subir imagen con el slug como nombre → img/articulos/mi-slug.jpg
+  if (!empty($_FILES['imagen_file']['name'])) {
+    $resultado = subirImagen($_FILES['imagen_file'], 'articulos', $slug);
+    if (isset($resultado['error'])) {
+      $error = $resultado['error'];
+    } else {
+      $imagen = $resultado['ruta'];
+      syncImgToProduction(dirname(__DIR__) . '/' . $imagen, $imagen);
+    }
   }
 
   if (!$error) {
