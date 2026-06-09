@@ -223,8 +223,6 @@ $categorias = $pdo->query('SELECT nombre FROM categorias_blog ORDER BY orden ASC
   </style>
   <script src="https://cdn.tiny.cloud/1/3eywuy73k0uzt30wiafptfr0tdx5iudt46gbkusw5kr5mjk2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-var BASE_URL   = '<?php echo $base_url; ?>';
-var ADMIN_URL  = '<?php echo $is_local ? "http://localhost/caroltemp/admin/" : "/admin/"; ?>';
 tinymce.init({
   selector: '#contenido',
   language: 'es',
@@ -325,17 +323,6 @@ tinymce.init({
           </div>
 
         </div>
-      </div>
-
-      <!-- IMAGEN -->
-      <div class="form-section">
-        <h2>Imagen destacada</h2>
-        <?php
-          $mp_campo = 'imagen';
-          $mp_valor = $art['imagen'];
-          $mp_base  = $base_url;
-          include 'includes/media-picker.php';
-        ?>
       </div>
 
       <!-- CLASIFICACIÓN -->
