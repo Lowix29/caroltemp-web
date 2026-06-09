@@ -25,7 +25,7 @@ try {
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 } catch (PDOException $e) {}
 
-$action = $_REQUEST['action'] ?? '';
+$action = $_POST['action'] ?? $_GET['action'] ?? '';
 
 switch ($action) {
   case 'upload':   upload();  break;
