@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['importar'])) {
     $robots     = extraerMeta($contenido_raw, 'robots_meta') ?: 'index';
     $slug       = slugDesdeFilepath($filepath);
 
-    // Extraer HTML del body (entre ?> y el primer <?php del footer)
+    // Extraer HTML del body
     $html = '';
     $php_end = strpos($contenido_raw, '?>');
     if ($php_end !== false) {
@@ -179,7 +179,7 @@ $pagina_actual = 'paginas-importar.php';
       <div style="font-size:12px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-top:4px">Ya registradas en BD</div>
     </div>
     <div class="card" style="padding:1.25rem 1.5rem">
-      <?php $pendientes = count(array_filter($archivos, fn($f) => !isset($ya_registradas[$f]))); ?>
+      <?php $pendientes = count(array_filter($archivos, function($f) use ($ya_registradas) { return !isset($ya_registradas[$f]); })); ?>
       <div style="font-size:26px;font-weight:800;color:<?php echo $pendientes>0?'#ea580c':'#94a3b8'; ?>"><?php echo $pendientes; ?></div>
       <div style="font-size:12px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-top:4px">Pendientes de importar</div>
     </div>
