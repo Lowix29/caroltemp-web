@@ -27,9 +27,17 @@ $faq_items   = [
 include '../includes/head.php';
 ?>
 
-<section class="hz-dark">
-  <div class="hz-dark-bg"></div>
-  <div class="hz-dark-glow"></div>
+<?php
+$_hi     = getHeroImagen('fontanero-monforte-del-cid');
+$_hi_url = $_hi ? $base_url . $_hi : '';
+?>
+<section class="hz-dark"<?php if ($_hi_url): ?> style="background-image:url('<?php echo htmlspecialchars($_hi_url); ?>');background-size:cover;background-position:center top;"<?php endif; ?>>
+  <?php if ($_hi_url): ?>
+    <div class="hz-dark-bg" style="background:rgba(5,15,30,.75)"></div>
+  <?php else: ?>
+    <div class="hz-dark-bg"></div>
+    <div class="hz-dark-glow"></div>
+  <?php endif; ?>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanería &middot; Monforte del Cid &middot; CP 03670</div>
     <h1>Fontanero en Monforte del Cid<br><span class="hl">para reparaciones urgentes y trabajos impecables</span></h1>

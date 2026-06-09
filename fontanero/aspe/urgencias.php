@@ -35,9 +35,17 @@ $page_js     = 'zona';
 include '../../includes/head.php';
 ?>
 
-<section class="hz-dark">
-  <div class="hz-dark-bg"></div>
-  <div class="hz-dark-glow"></div>
+<?php
+$_hi     = getHeroImagen('urgencias-aspe');
+$_hi_url = $_hi ? $base_url . $_hi : '';
+?>
+<section class="hz-dark"<?php if ($_hi_url): ?> style="background-image:url('<?php echo htmlspecialchars($_hi_url); ?>');background-size:cover;background-position:center top;"<?php endif; ?>>
+  <?php if ($_hi_url): ?>
+    <div class="hz-dark-bg" style="background:rgba(5,15,30,.75)"></div>
+  <?php else: ?>
+    <div class="hz-dark-bg"></div>
+    <div class="hz-dark-glow"></div>
+  <?php endif; ?>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Fontanero urgente &middot; Aspe &middot; CP 03680</div>
     <h1>Fontanero urgente en Aspe<br><span class="hl">Llegamos cuando más lo necesitas y resolvemos la avería sin demoras</span></h1>

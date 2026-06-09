@@ -44,7 +44,7 @@ try {
   <title>Agente SEO — CarolTemp Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <?php
-    $base_url = 'http://localhost/';
+    $base_url = $is_local ? 'http://localhost/caroltemp/' : 'https://caroltemp.com/';
     include '../includes/admin_style.php';
   ?>
   <style>

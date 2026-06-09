@@ -4,6 +4,7 @@ $is_local = in_array($_SERVER['SERVER_NAME'] ?? '', ['localhost', '127.0.0.1']);
 
 
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/hero-imagen.php';
 
 $url_actual = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 

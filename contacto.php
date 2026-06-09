@@ -35,9 +35,17 @@ include 'includes/head.php';
 ?>
 
 <!-- HERO -->
-<section class="hz-dark" style="min-height:360px">
-  <div class="hz-dark-bg"></div>
-  <div class="hz-dark-glow"></div>
+<?php
+$_hi     = getHeroImagen('contacto');
+$_hi_url = $_hi ? $base_url . $_hi : '';
+?>
+<section class="hz-dark" style="min-height:360px;<?php if ($_hi_url): ?>background-image:url('<?php echo htmlspecialchars($_hi_url); ?>');background-size:cover;background-position:center top;<?php endif; ?>">
+  <?php if ($_hi_url): ?>
+    <div class="hz-dark-bg" style="background:rgba(5,15,30,.75)"></div>
+  <?php else: ?>
+    <div class="hz-dark-bg"></div>
+    <div class="hz-dark-glow"></div>
+  <?php endif; ?>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Contacto · CarolTemp</div>
     <h1>Cuéntanos qué necesitas<br><span class="hl">y te respondemos hoy</span></h1>

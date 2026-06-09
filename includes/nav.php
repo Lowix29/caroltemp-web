@@ -135,7 +135,7 @@
           <a href="<?php echo $base_url; ?>fontanero/monovar"  class="nav-acc-link">Monóvar</a>
           <a href="<?php echo $base_url; ?>fontanero/sax"      class="nav-acc-link">Sax</a>
           <a href="<?php echo $base_url; ?>fontanero/pinoso"   class="nav-acc-link">Pinoso</a>
-          <a href="<?php echo $base_url; ?>fontanero/monforte" class="nav-acc-link">Monforte del Cid</a>
+          <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid" class="nav-acc-link">Monforte del Cid</a>
           <a href="<?php echo $base_url; ?>fontanero/salinas"  class="nav-acc-link">Salinas</a>
           <a href="<?php echo $base_url; ?>fontanero/aspe"     class="nav-acc-link">Aspe</a>
         </div>
@@ -154,7 +154,7 @@
           <a href="<?php echo $base_url; ?>fontanero/monovar/urgencias"  class="nav-acc-link">Urgencias Monóvar</a>
           <a href="<?php echo $base_url; ?>fontanero/sax/urgencias"      class="nav-acc-link">Urgencias Sax</a>
           <a href="<?php echo $base_url; ?>fontanero/pinoso/urgencias"   class="nav-acc-link">Urgencias Pinoso</a>
-          <a href="<?php echo $base_url; ?>fontanero/monforte/urgencias" class="nav-acc-link">Urgencias Monforte</a>
+          <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid/urgencias" class="nav-acc-link">Urgencias Monforte</a>
           <a href="<?php echo $base_url; ?>fontanero/salinas/urgencias"  class="nav-acc-link">Urgencias Salinas</a>
           <a href="<?php echo $base_url; ?>fontanero/aspe/urgencias"     class="nav-acc-link">Urgencias Aspe</a>
         </div>
@@ -173,7 +173,7 @@
           <a href="<?php echo $base_url; ?>fontanero/monovar/desatascos"  class="nav-acc-link">Desatascos Monóvar</a>
           <a href="<?php echo $base_url; ?>fontanero/sax/desatascos"      class="nav-acc-link">Desatascos Sax</a>
           <a href="<?php echo $base_url; ?>fontanero/pinoso/desatascos"   class="nav-acc-link">Desatascos Pinoso</a>
-          <a href="<?php echo $base_url; ?>fontanero/monforte/desatascos" class="nav-acc-link">Desatascos Monforte</a>
+          <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid/desatascos" class="nav-acc-link">Desatascos Monforte</a>
           <a href="<?php echo $base_url; ?>fontanero/salinas/desatascos"  class="nav-acc-link">Desatascos Salinas</a>
           <a href="<?php echo $base_url; ?>fontanero/aspe/desatascos"     class="nav-acc-link">Desatascos Aspe</a>
         </div>
@@ -192,7 +192,7 @@
           <a href="<?php echo $base_url; ?>fontanero/monovar/busqueda_fugas"  class="nav-acc-link">Fugas Monóvar</a>
           <a href="<?php echo $base_url; ?>fontanero/sax/busqueda_fugas"      class="nav-acc-link">Fugas Sax</a>
           <a href="<?php echo $base_url; ?>fontanero/pinoso/busqueda_fugas"   class="nav-acc-link">Fugas Pinoso</a>
-          <a href="<?php echo $base_url; ?>fontanero/monforte/busqueda_fugas" class="nav-acc-link">Fugas Monforte</a>
+          <a href="<?php echo $base_url; ?>fontanero/monforte-del-cid/busqueda_fugas" class="nav-acc-link">Fugas Monforte</a>
           <a href="<?php echo $base_url; ?>fontanero/salinas/busqueda_fugas"  class="nav-acc-link">Fugas Salinas</a>
           <a href="<?php echo $base_url; ?>fontanero/aspe/busqueda_fugas"     class="nav-acc-link">Fugas Aspe</a>
         </div>

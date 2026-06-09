@@ -1,5 +1,6 @@
 # Configuración privada — nunca subir
 includes/config.php
+includes/db.php
 
 # Variables de entorno
 .env
