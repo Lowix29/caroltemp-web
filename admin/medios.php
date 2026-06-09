@@ -83,14 +83,16 @@ function fmtBytes($b) {
     .med-progress-fill { height:100%; background:#1e3a5f; border-radius:2px; transition:width .2s; }
 
     /* ── Layout galeria ── */
-    .med-layout {
-      display:flex;
-      height:<?php echo $modo==='selector'?'calc(100vh - 130px)':'calc(100vh - 60px)'; ?>;
-      overflow:hidden;
-    }
     <?php if($modo==='galeria'): ?>
-    .admin-content { padding:0; display:flex; flex-direction:column; flex:1; overflow:hidden; }
+    body { overflow:hidden; }
+    .admin-content {
+      margin-left:260px; height:100vh;
+      display:flex; flex-direction:column; overflow:hidden;
+    }
     <?php endif; ?>
+    .med-layout {
+      display:flex; flex:1; overflow:hidden;
+    }
 
     /* ── Grid ── */
     .med-grid-wrap { flex:1; overflow-y:auto; padding:1rem 1.5rem; }
@@ -184,7 +186,7 @@ function fmtBytes($b) {
   <!-- DROP ZONE -->
   <div class="med-dropzone" id="med-dropzone">
     <p>📁 <strong>Arrastra imágenes aquí</strong> o haz clic para seleccionar</p>
-    <p style="font-size:12px;margin-top:.4rem">JPG, PNG, WebP · Máx. 5 MB por archivo</p>
+    <p style="font-size:12px;margin-top:.4rem">JPG, PNG, WebP, GIF · Máx. 20 MB por archivo</p>
     <input type="file" id="med-file-input" accept="image/*" multiple>
     <div class="med-progress-bar" id="med-progress-bar">
       <div class="med-progress-fill" id="med-progress-fill" style="width:0%"></div>

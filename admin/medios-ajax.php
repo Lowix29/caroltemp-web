@@ -47,7 +47,7 @@ function upload() {
   $f = $_FILES['imagen'];
   $ok_types = ['image/jpeg','image/png','image/webp','image/gif'];
   if (!in_array($f['type'], $ok_types)) { echo json_encode(['error'=>'Formato no permitido']); return; }
-  if ($f['size'] > 5*1024*1024) { echo json_encode(['error'=>'Supera 5 MB']); return; }
+  if ($f['size'] > 20*1024*1024) { echo json_encode(['error'=>'Supera 20 MB']); return; }
 
   $ext   = strtolower(pathinfo($f['name'], PATHINFO_EXTENSION));
   $base  = slugify(pathinfo($f['name'], PATHINFO_FILENAME));
