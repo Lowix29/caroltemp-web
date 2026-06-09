@@ -130,55 +130,34 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $paginas = $stmt->fetchAll();
 
-// Auto-importar páginas raíz creadas por el agente (tienen $meta_title definido)
+// Escaneo recursivo de todas las páginas en disco
 $site_root_scan = dirname(__DIR__);
-$system_files   = ['404.php','sitemap.php','index.php','login.php','logout.php','cambiar-password.php'];
-$root_phps_all  = glob($site_root_scan . DIRECTORY_SEPARATOR . '*.php') ?: [];
-$db_filepaths   = array_column($paginas, 'filepath');
+$ignorar_archivos = ['404.php','sitemap.php','index.php','login.php','logout.php','cambiar-password.php','robots.php','cambiar-password.php'];
+$ignorar_carpetas = ['admin','includes','noticias','proyectos','blog'];
 
-foreach ($root_phps_all as $f) {
-  $fn = basename($f);
-  if (in_array($fn, $system_files, true)) continue;
-  if (!preg_match('/^[a-z0-9_\-]+\.php$/', $fn)) continue;
-  if (in_array($fn, $db_filepaths, true)) continue; // ya está en BD
-  // Sólo auto-importar si tiene $meta_title (página de contenido real)
-  $raw_check = @file_get_contents($f);
-  if (!$raw_check || strpos($raw_check, '$meta_title') === false) continue;
-  // Extraer datos
-  $slug_ai  = basename($fn, '.php');
-  $title_ai = ucwords(str_replace(['-','_'], ' ', $slug_ai));
-  if (preg_match('/\$meta_title\s*=\s*[\'"](.+?)[\'"]\s*;/', $raw_check, $mm)) {
-    $title_ai = stripslashes($mm[1]) ?: $title_ai;
-  }
-  $html_ai = '';
-  $pe = strpos($raw_check, '?>');
-  if ($pe !== false) {
-    $hp = ltrim(substr($raw_check, $pe + 2));
-    $fp = strrpos($hp, '<?php');
-    if ($fp !== false) $hp = rtrim(substr($hp, 0, $fp));
-    if (substr_count($hp, '<?php') <= 4) $html_ai = $hp;
-  }
-  try {
-    $ai = $pdo->prepare('INSERT INTO paginas (titulo, slug, filepath, contenido, publicado) VALUES (?, ?, ?, ?, 1)');
-    $ai->execute([$title_ai, $slug_ai, $fn, $html_ai]);
-    $db_filepaths[] = $fn; // evitar duplicados en esta misma carga
-  } catch (PDOException $e) { /* slug/filepath duplicado — ignorar */ }
-}
-
-// Re-leer la lista de páginas actualizada
-$stmt = $pdo->prepare('SELECT id, titulo, slug, filepath, publicado, modificado FROM paginas WHERE ' . implode(' AND ', $where) . ' ORDER BY modificado DESC');
-$stmt->execute($params);
-$paginas = $stmt->fetchAll();
 $db_filepaths = array_column($paginas, 'filepath');
 
-// Páginas en disco que aún no están en BD (no tienen $meta_title = archivos del sistema)
-$paginas_disco = [];
-foreach ($root_phps_all as $f) {
-  $fn = basename($f);
-  if (!in_array($fn, $db_filepaths, true) && !in_array($fn, $system_files, true)) {
-    $paginas_disco[] = $fn;
-  }
+// Escanear disco recursivamente
+$todos_disco = [];
+$it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($site_root_scan, FilesystemIterator::SKIP_DOTS));
+foreach ($it as $fileinfo) {
+  if (!$fileinfo->isFile() || $fileinfo->getExtension() !== 'php') continue;
+  $rel = str_replace($site_root_scan . DIRECTORY_SEPARATOR, '', $fileinfo->getPathname());
+  $rel = str_replace('\\', '/', $rel);
+  $partes = explode('/', $rel);
+  $skip = false;
+  foreach ($ignorar_carpetas as $d) { if (in_array($d, $partes)) { $skip = true; break; } }
+  if ($skip) continue;
+  if (in_array(basename($rel), $ignorar_archivos)) continue;
+  if ($rel === 'index.php') continue;
+  $todos_disco[] = $rel;
 }
+sort($todos_disco);
+
+// Páginas en disco que NO están en BD
+$no_registradas = array_filter($todos_disco, function($f) use ($db_filepaths) {
+  return !in_array($f, $db_filepaths);
+});
 ?><!DOCTYPE html>
 <html lang="es">
 <head>
@@ -195,8 +174,15 @@ foreach ($root_phps_all as $f) {
 <main class="main">
 
   <div class="topbar">
-    <h1>Páginas</h1>
-    <a href="nueva-pagina.php" class="btn-new">+ Nueva página</a>
+    <h1>Páginas <span style="font-size:15px;font-weight:400;color:#64748b">(<?php echo count($paginas); ?> en BD · <?php echo count($todos_disco); ?> en disco)</span></h1>
+    <div style="display:flex;gap:.75rem">
+      <?php if (!empty($no_registradas)): ?>
+        <a href="paginas-importar.php" style="background:#f97316;color:#fff;padding:9px 18px;border-radius:7px;font-size:13.5px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:6px">
+          ⚠️ <?php echo count($no_registradas); ?> sin importar
+        </a>
+      <?php endif; ?>
+      <a href="nueva-pagina.php" class="btn-new">+ Nueva página</a>
+    </div>
   </div>
 
   <?php if ($mensaje): ?>
@@ -271,20 +257,17 @@ foreach ($root_phps_all as $f) {
     </table>
   </div>
 
-  <?php if (!empty($paginas_disco)): ?>
-  <div class="card" style="margin-top:1.5rem">
-    <div class="card-header">
-      <h2>Páginas en disco sin registrar en BD</h2>
-      <span style="color:#7a95b0;font-size:13px"><?php echo count($paginas_disco); ?> archivo<?php echo count($paginas_disco) !== 1 ? 's' : ''; ?> encontrado<?php echo count($paginas_disco) !== 1 ? 's' : ''; ?></span>
+  <?php if (!empty($no_registradas)): ?>
+  <div class="card" style="margin-top:1.5rem;border-color:#fed7aa">
+    <div class="card-header" style="background:#fff7ed">
+      <h2 style="color:#ea580c">⚠️ <?php echo count($no_registradas); ?> páginas en disco sin importar</h2>
+      <a href="paginas-importar.php" class="btn-new" style="background:#ea580c!important">Importar todas →</a>
     </div>
     <div style="padding:1rem 1.5rem">
-      <p style="font-size:13px;color:#576574;margin-bottom:1rem">Estos archivos .php existen en la raíz del sitio pero no están en la base de datos. Puedes importarlos para gestionarlos desde el panel.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:.75rem">
-        <?php foreach ($paginas_disco as $fn): ?>
-          <div style="display:flex;align-items:center;gap:.5rem;background:#f4f7fb;border:1px solid #dde6f0;border-radius:6px;padding:.5rem 1rem">
-            <code style="font-family:monospace;font-size:12px;color:#1e3a5f"><?php echo htmlspecialchars($fn); ?></code>
-            <a href="paginas.php?importar=<?php echo urlencode(basename($fn, '.php')); ?>" style="background:#1e3a5f;color:#fff;font-size:12px;padding:3px 10px;border-radius:4px;text-decoration:none;font-weight:600">Importar</a>
-          </div>
+      <p style="font-size:13px;color:#576574;margin-bottom:1rem">Estos archivos .php existen en disco pero no están registrados en la base de datos. Sin importarlos no aparecen en el sitemap ni los puedes editar desde el panel.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+        <?php foreach ($no_registradas as $f): ?>
+          <span style="background:#f4f7fb;border:1px solid #dde6f0;border-radius:5px;padding:3px 10px;font-family:monospace;font-size:12px;color:#1e3a5f"><?php echo htmlspecialchars($f); ?></span>
         <?php endforeach; ?>
       </div>
     </div>
