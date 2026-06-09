@@ -57,12 +57,6 @@ $total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHE
     <a href="medios.php" class="<?php echo $pagina_actual === 'medios.php' ? 'active' : ''; ?>">
       <span>🗃️</span> Biblioteca de medios
     </a>
-    <a href="medios-migrar.php" class="<?php echo $pagina_actual === 'medios-migrar.php' ? 'active' : ''; ?>">
-      <span>📥</span> Importar imágenes
-    </a>
-    <a href="imagenes-paginas.php" class="<?php echo $pagina_actual === 'imagenes-paginas.php' ? 'active' : ''; ?>">
-      <span>🖼️</span> Imágenes de páginas
-    </a>
     <span class="sidebar-label">Herramientas</span>
 <a href="categorias.php" class="<?php echo $pagina_actual === 'categorias.php' ? 'active' : ''; ?>">
   <span>🏷️</span> Categorías y servicios
