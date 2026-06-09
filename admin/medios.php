@@ -409,7 +409,7 @@ function cerrarDetalle() {
 /* ── SAVE ── */
 function guardarCambios() {
   if (!selectedId) return;
-  var fd = new FormData();
+  var fd = new URLSearchParams();
   fd.append('action',      'update');
   fd.append('id',          selectedId);
   fd.append('titulo',      document.getElementById('det-titulo').value);
@@ -437,7 +437,7 @@ function renombrarArchivo() {
   var nuevo = document.getElementById('det-nombre-archivo').value.trim();
   if (!nuevo) return;
   if (!confirm('¿Renombrar el archivo a "' + nuevo + '"? Los enlaces que ya usen la URL anterior dejarán de funcionar.')) return;
-  var fd = new FormData();
+  var fd = new URLSearchParams();
   fd.append('action','rename'); fd.append('id',selectedId); fd.append('nombre_archivo',nuevo);
   fetch('medios-ajax.php',{method:'POST',body:fd})
     .then(function(r){return r.json();})
@@ -461,7 +461,7 @@ function renombrarArchivo() {
 function borrarMedio() {
   if (!selectedId) return;
   if (!confirm('¿Borrar permanentemente esta imagen? Esta acción no se puede deshacer.')) return;
-  var fd = new FormData();
+  var fd = new URLSearchParams();
   fd.append('action','delete'); fd.append('id', String(selectedId));
   fetch('medios-ajax.php',{method:'POST',body:fd})
     .then(function(r){
