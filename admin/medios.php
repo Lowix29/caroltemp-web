@@ -462,20 +462,26 @@ function borrarMedio() {
   if (!selectedId) return;
   if (!confirm('¿Borrar permanentemente esta imagen? Esta acción no se puede deshacer.')) return;
   var fd = new FormData();
-  fd.append('action','delete'); fd.append('id',selectedId);
+  fd.append('action','delete'); fd.append('id', String(selectedId));
   fetch('medios-ajax.php',{method:'POST',body:fd})
-    .then(function(r){return r.json();})
+    .then(function(r){
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    })
     .then(function(d) {
+      if (d.error) { toast('Error: '+d.error,'err'); return; }
       if (d.ok) {
-        selectedItem.remove();
+        var itemRef = selectedItem;
         cerrarDetalle();
+        if (itemRef) itemRef.remove();
         actualizarContador(-1);
         toast('Imagen eliminada','ok');
         if (!document.querySelector('.med-item')) {
           document.getElementById('med-grid').innerHTML = '<div class="med-empty" style="grid-column:1/-1"><p>📭 No hay imágenes. Sube la primera.</p></div>';
         }
       }
-    });
+    })
+    .catch(function(err){ toast('Error al eliminar: '+err.message,'err'); });
 }
 
 /* ── COPY URL ── */

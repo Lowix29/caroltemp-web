@@ -1,11 +1,14 @@
 <?php
+ob_start();
 session_start();
 if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
+  ob_end_clean();
   http_response_code(401); echo json_encode(['error'=>'No autorizado']); exit;
 }
 require_once '../includes/db.php';
 require_once '../includes/img-sync.php';
 
+ob_end_clean();
 header('Content-Type: application/json; charset=utf-8');
 
 try {
@@ -120,15 +123,19 @@ function borrar() {
   global $pdo;
   $id = (int)($_POST['id'] ?? 0);
   if (!$id) { echo json_encode(['error'=>'ID inválido']); return; }
-  $stmt = $pdo->prepare('SELECT ruta FROM medios WHERE id=?');
-  $stmt->execute([$id]);
-  $m = $stmt->fetch();
-  if ($m) {
-    $abs = dirname(__DIR__) . '/' . $m['ruta'];
-    if (file_exists($abs)) unlink($abs);
+  try {
+    $stmt = $pdo->prepare('SELECT ruta FROM medios WHERE id=?');
+    $stmt->execute([$id]);
+    $m = $stmt->fetch();
+    if ($m) {
+      $abs = dirname(__DIR__) . '/' . ltrim($m['ruta'], '/');
+      if (file_exists($abs)) @unlink($abs);
+    }
     $pdo->prepare('DELETE FROM medios WHERE id=?')->execute([$id]);
+    echo json_encode(['ok'=>true]);
+  } catch (Exception $e) {
+    echo json_encode(['error' => $e->getMessage()]);
   }
-  echo json_encode(['ok'=>true]);
 }
 
 function lista() {
