@@ -223,6 +223,8 @@ $categorias = $pdo->query('SELECT nombre FROM categorias_blog ORDER BY orden ASC
   </style>
   <script src="https://cdn.tiny.cloud/1/3eywuy73k0uzt30wiafptfr0tdx5iudt46gbkusw5kr5mjk2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
+var BASE_URL   = '<?php echo $base_url; ?>';
+var ADMIN_URL  = '<?php echo $is_local ? "http://localhost/caroltemp/admin/" : "/admin/"; ?>';
 tinymce.init({
   selector: '#contenido',
   language: 'es',
@@ -328,32 +330,12 @@ tinymce.init({
       <!-- IMAGEN -->
       <div class="form-section">
         <h2>Imagen destacada</h2>
-
-        <?php if ($art['imagen']): ?>
-          <div class="imagen-preview-actual">
-            <p style="font-size:12px;color:#7a95b0;margin-bottom:0.5rem">Imagen actual:</p>
-            <img src="<?php echo htmlspecialchars($art['imagen']); ?>" alt="Imagen actual">
-          </div>
-          <p style="font-size:12px;color:#7a95b0;margin:0.75rem 0">Sube una nueva imagen para reemplazarla, o mantén la actual.</p>
-        <?php endif; ?>
-
-        <div class="upload-area" id="upload-area" onclick="document.getElementById('imagen_file').click()">
-          <input type="file" id="imagen_file" name="imagen_file" accept="image/*" onchange="previsualizarImagen(this)">
-          <div class="upload-area-ico">🖼️</div>
-          <p class="upload-area-txt"><strong>Haz clic para subir</strong> o arrastra una imagen aquí</p>
-          <p class="upload-area-txt" style="font-size:12px;margin-top:4px">JPG, PNG, WebP · Máx. 3MB</p>
-        </div>
-
-        <div class="imagen-preview" id="imagen-preview">
-          <img id="imagen-preview-img" src="" alt="Preview">
-        </div>
-
-        <div class="form-group" style="margin-top:1rem">
-          <label for="imagen">O introduce la URL de la imagen manualmente</label>
-          <input type="text" id="imagen" name="imagen"
-            value="<?php echo htmlspecialchars($art['imagen']); ?>"
-            placeholder="/img/blog/nombre-imagen.webp">
-        </div>
+        <?php
+          $mp_campo = 'imagen';
+          $mp_valor = $art['imagen'];
+          $mp_base  = $base_url;
+          include 'includes/media-picker.php';
+        ?>
       </div>
 
       <!-- CLASIFICACIÓN -->
