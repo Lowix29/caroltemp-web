@@ -57,7 +57,7 @@
           <li><a href="<?php echo $base_url; ?>fontanero/novelda">Fontanero en Novelda</a></li>
           <li><a href="<?php echo $base_url; ?>fontanero/sax">Fontanero en Sax</a></li>
           <li><a href="<?php echo $base_url; ?>fontanero/pinoso">Fontanero en Pinoso</a></li>
-          <li><a href="<?php echo $base_url; ?>fontanero/monforte">Fontanero en Monforte</a></li>
+          <li><a href="<?php echo $base_url; ?>fontanero/monforte-del-cid">Fontanero en Monforte</a></li>
           <li><a href="<?php echo $base_url; ?>fontanero/salinas">Fontanero en Salinas</a></li>
           <li><a href="<?php echo $base_url; ?>fontanero/aspe">Fontanero en Aspe</a></li>
         </ul>

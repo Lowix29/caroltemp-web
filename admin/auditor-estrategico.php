@@ -10,7 +10,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 require_once '../includes/db.php';
 
-$base_url = 'http://localhost/';
+$base_url = $is_local ? 'http://localhost/caroltemp/' : 'https://caroltemp.com/';
 ?>
 <!DOCTYPE html>
 <html lang="es">
