@@ -649,6 +649,26 @@
   letter-spacing: -0.01em;
 }
 .icard-body { padding: 0.4rem 0; }
+.icard-body ul { list-style: none; padding: 0; }
+.icard-body ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 1.5rem;
+  border-bottom: 1px solid var(--color-bg-soft);
+  font-size: 13.5px;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+.icard-body ul li:last-child { border-bottom: none; }
+.icard-body ul li::before {
+  content: '✓';
+  color: var(--color-accent);
+  font-weight: 800;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
 .icard-row {
   display: flex;
   align-items: flex-start;
