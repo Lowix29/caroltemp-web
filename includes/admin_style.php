@@ -118,4 +118,62 @@ tr:hover td{background:#fafbfc}
 .confirm-btns a{padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none}
 .btn-cancelar{background:#f1f5f9;color:#374151}
 .btn-confirmar{background:#dc2626;color:#fff}
+
+/* ── MEDIA PICKER (imagen destacada estilo WP) ── */
+.mp-wrap{display:flex;flex-direction:column;gap:.65rem}
+.mp-preview{border:1.5px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#f8fafc}
+.mp-preview-inner{display:flex;gap:.75rem;padding:.75rem;align-items:flex-start}
+.mp-preview-inner img{width:80px;height:80px;object-fit:cover;border-radius:6px;border:1px solid #e2e8f0;flex-shrink:0}
+.mp-preview-info{display:flex;flex-direction:column;gap:.25rem;flex:1;min-width:0}
+.mp-file-name{font-size:13px;font-weight:600;color:#0B2447;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp-alt-txt{font-size:12px;color:#8FA3B8}
+.mp-remove-btn{width:100%;background:none;border:none;border-top:1px solid #e2e8f0;padding:.5rem;font-size:12px;color:#dc2626;cursor:pointer;text-align:center}
+.mp-remove-btn:hover{background:#fef2f2}
+.mp-empty{border:2px dashed #dde6f0;border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:#8FA3B8}
+.mp-empty-ico{font-size:2rem;opacity:.5}
+.mp-empty-txt{font-size:13px}
+.mp-open-btn{background:#f8fafc;border:1.5px solid #dde6f0;border-radius:8px;padding:.6rem 1rem;font-size:13px;font-weight:600;color:#1e3a5f;cursor:pointer;width:100%;text-align:center;transition:all .15s}
+.mp-open-btn:hover{background:#eef2f8;border-color:#1e3a5f}
 </style>
+
+<script>
+/* ── Media Picker JS ── */
+var _mpPopup = null;
+function mpAbrir(campo) {
+  _mpPopup = window.open(
+    (typeof ADMIN_URL !== 'undefined' ? ADMIN_URL : '') + 'medios.php?modo=selector',
+    'media_selector_' + campo,
+    'width=980,height=680,scrollbars=yes,resizable=yes'
+  );
+  _mpPopup._mpCampo = campo;
+  if (!_mpPopup) alert('Permite las ventanas emergentes para usar el selector de medios.');
+}
+window.addEventListener('message', function(e) {
+  if (!e.data || e.data.tipo !== 'media_select') return;
+  var campo = e.source && e.source._mpCampo;
+  // Si no hay campo en source, buscar el último popup abierto
+  if (!campo) {
+    // Fallback: asignar al primer picker que exista
+    var val = document.querySelector('[id^="mp-val-"]');
+    if (val) campo = val.id.replace('mp-val-','');
+  }
+  if (!campo) return;
+  mpSetImagen(campo, e.data);
+});
+function mpSetImagen(campo, data) {
+  var BASE = (typeof BASE_URL !== 'undefined' ? BASE_URL : '/');
+  document.getElementById('mp-val-'    + campo).value = data.ruta;
+  document.getElementById('mp-thumb-'  + campo).src   = BASE + data.ruta;
+  document.getElementById('mp-titulo-' + campo).textContent = data.titulo || data.nombre_archivo;
+  document.getElementById('mp-alt-'    + campo).textContent = data.alt ? 'Alt: ' + data.alt : '';
+  document.getElementById('mp-preview-' + campo).style.display = 'block';
+  document.getElementById('mp-empty-'   + campo).style.display = 'none';
+  document.getElementById('mp-btn-'     + campo).textContent   = '🔄 Cambiar imagen destacada';
+}
+function mpQuitar(campo) {
+  document.getElementById('mp-val-'     + campo).value = '';
+  document.getElementById('mp-preview-' + campo).style.display = 'none';
+  document.getElementById('mp-empty-'   + campo).style.display = 'flex';
+  document.getElementById('mp-btn-'     + campo).textContent   = '📷 Establecer imagen destacada';
+}
+</script>

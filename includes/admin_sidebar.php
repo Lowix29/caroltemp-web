@@ -54,6 +54,9 @@ $total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHE
       <span>✍️</span> Agente SEO (Contenido)
     </a>
     <span class="sidebar-label">Imágenes</span>
+    <a href="medios.php" class="<?php echo $pagina_actual === 'medios.php' ? 'active' : ''; ?>">
+      <span>🗃️</span> Biblioteca de medios
+    </a>
     <a href="imagenes-paginas.php" class="<?php echo $pagina_actual === 'imagenes-paginas.php' ? 'active' : ''; ?>">
       <span>🖼️</span> Imágenes de páginas
     </a>
