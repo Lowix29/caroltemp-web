@@ -23,7 +23,11 @@ $faq_items   = [
 include '../includes/head.php';
 ?>
 
-<section class="hz-dark" style="background-image:url('<?php echo $base_url; ?>img/contenido/fontanero-elda-hero.png');background-size:cover;background-position:center top;">
+<?php
+$_hi     = getHeroImagen('fontanero-elda');
+$_hi_url = $_hi ? $base_url . $_hi : $base_url . 'img/contenido/fontanero-elda-hero.png';
+?>
+<section class="hz-dark" style="background-image:url('<?php echo htmlspecialchars($_hi_url); ?>');background-size:cover;background-position:center top;">
   <div class="hz-dark-bg" style="background:rgba(5,15,30,.75)"></div>
   <div class="hz-dark-glow"></div>
   <div class="hz-dark-con">

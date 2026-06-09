@@ -12,9 +12,17 @@ $page_js     = 'zona';
 include '../../includes/head.php';
 ?>
 
-<section class="hz-dark">
-  <div class="hz-dark-bg"></div>
-  <div class="hz-dark-glow"></div>
+<?php
+$_hi     = getHeroImagen('desatascos-sax');
+$_hi_url = $_hi ? $base_url . $_hi : '';
+?>
+<section class="hz-dark"<?php if ($_hi_url): ?> style="background-image:url('<?php echo htmlspecialchars($_hi_url); ?>');background-size:cover;background-position:center top;"<?php endif; ?>>
+  <?php if ($_hi_url): ?>
+    <div class="hz-dark-bg" style="background:rgba(5,15,30,.75)"></div>
+  <?php else: ?>
+    <div class="hz-dark-bg"></div>
+    <div class="hz-dark-glow"></div>
+  <?php endif; ?>
   <div class="hz-dark-con">
     <div class="hz-dark-tag"><span class="hz-dark-dot"></span>Desatascos &middot; Sax &middot; CP 03630</div>
     <h1>Desatascos en Sax<br><span class="hl">intervención rápida para dejar la instalación completamente operativa</span></h1>

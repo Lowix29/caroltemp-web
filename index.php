@@ -13,8 +13,12 @@ include 'includes/head.php';
 <!-- ============================
      HERO — foto fondo + texto centrado (estilo ContaSimple)
 ============================= -->
+<?php
+$_hi     = getHeroImagen('inicio');
+$_hi_url = $_hi ? $base_url . $_hi : '';
+?>
 <section class="hero" aria-label="Cabecera principal">
-  <div class="hero-card" style="background-image:url('<?php echo $base_url; ?>img/contenido/hero-home.png')">
+  <div class="hero-card" style="background-image:url('<?php echo $_hi_url ? htmlspecialchars($_hi_url) : $base_url . 'img/contenido/hero-home.png'; ?>')">
     <div class="hero-overlay"></div>
     <div class="hero-content">
 
