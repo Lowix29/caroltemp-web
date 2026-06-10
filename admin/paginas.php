@@ -5,6 +5,24 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
 }
 require_once '../includes/db.php';
 
+// ── AUTO-REGISTRAR HOME ───────────────────────────────────────────────────────
+// Registra index.php si todavía no existe
+function autoRegistrarHome($pdo, $raiz) {
+  if ($pdo->query("SELECT COUNT(*) FROM paginas WHERE filepath = 'index.php'")->fetchColumn()) return;
+  $raw = @file_get_contents($raiz . '/index.php');
+  $titulo = 'Inicio';
+  $meta_title = ''; $meta_desc = '';
+  if ($raw) {
+    if (preg_match('/\$meta_title\s*=\s*[\'"](.+?)[\'"]\s*;/', $raw, $m)) $meta_title = stripslashes($m[1]);
+    if (preg_match('/\$meta_desc\s*=\s*[\'"](.+?)[\'"]\s*;/', $raw, $m))  $meta_desc  = stripslashes($m[1]);
+    if ($meta_title) $titulo = $meta_title;
+  }
+  try {
+    $pdo->prepare('INSERT INTO paginas (titulo,slug,filepath,contenido,meta_title,meta_desc,publicado) VALUES (?,?,?,?,?,?,1)')
+        ->execute([$titulo, 'home', 'index.php', '', $meta_title, $meta_desc]);
+  } catch (PDOException $e) {}
+}
+
 $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (
   id INT AUTO_INCREMENT PRIMARY KEY,
   titulo VARCHAR(255) NOT NULL,
@@ -20,6 +38,8 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS paginas (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 try { $pdo->exec("ALTER TABLE paginas ADD COLUMN robots VARCHAR(20) DEFAULT 'index'"); } catch (PDOException $e) {}
 try { $pdo->exec("ALTER TABLE paginas ADD COLUMN img_destacada VARCHAR(500) DEFAULT ''"); } catch (PDOException $e) {}
+
+autoRegistrarHome($pdo, $raiz);
 
 $mensaje = '';
 $error   = '';
