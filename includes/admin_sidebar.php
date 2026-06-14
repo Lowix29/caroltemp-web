@@ -60,6 +60,12 @@ $total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHE
     <a href="medios.php" class="<?php echo $pagina_actual === 'medios.php' ? 'active' : ''; ?>">
       <span>🗃️</span> Biblioteca de medios
     </a>
+    <a href="generar-heroes.php" class="<?php echo $pagina_actual === 'generar-heroes.php' ? 'active' : ''; ?>">
+  <span>🎨</span> Generar heroes
+</a>
+<a href="setup-heroes.php" class="<?php echo $pagina_actual === 'setup-heroes.php' ? 'active' : ''; ?>">
+  <span>🖼️</span> Activar heroes (BD)
+</a>
     <span class="sidebar-label">Herramientas</span>
 <a href="categorias.php" class="<?php echo $pagina_actual === 'categorias.php' ? 'active' : ''; ?>">
   <span>🏷️</span> Categorías y servicios
