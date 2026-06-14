@@ -2,10 +2,14 @@
 session_start();
 if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   header('Location: login.php'); exit;
+<?php
+session_start();
+if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
+  header('Location: login.php'); exit;
 }
 require_once '../includes/db.php';
 
-$base_url = $is_local ? 'http://localhost/caroltemp/' : 'https://' . $_SERVER['HTTP_HOST'] . '/';
+$base_url = $is_local ? 'http://localhost/caroltemp/' : 'https://caroltemp.com/';
 $pagina_actual = 'galeria.php';
 
 $mensaje = '';
@@ -24,12 +28,6 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS galeria (
   creado DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
-// ── CREAR DIRECTORIO DE IMÁGENES SI NO EXISTE ─────────────────────────────────
-$img_dir = dirname(__DIR__) . '/img/galeria/';
-if (!is_dir($img_dir)) {
-  mkdir($img_dir, 0755, true);
-}
-
 // ── CONSTANTES ────────────────────────────────────────────────────────────────
 $ciudades  = ['elda','petrer','novelda','monovar','sax','pinoso','monforte-del-cid','salinas','aspe'];
 $servicios = ['fugas','desatascos','fontanero','urgencias'];
@@ -46,17 +44,16 @@ if (isset($_GET['eliminar']) && is_numeric($_GET['eliminar'])) {
   $row = $pdo->prepare('SELECT imagen FROM galeria WHERE id = ?');
   $row->execute([$_GET['eliminar']]);
   $img_row = $row->fetch();
-  if ($img_row && $img_row['imagen']) {
-    $img_path = $img_dir . basename($img_row['imagen']);
-    if (file_exists($img_path)) {
-      @unlink($img_path);
-    }
+  // Solo eliminar el archivo si está en img/galeria/ (las de medios se gestionan desde medios.php)
+  if ($img_row && $img_row['imagen'] && strpos($img_row['imagen'], 'img/galeria/') === 0) {
+    $img_path = dirname(__DIR__) . '/' . $img_row['imagen'];
+    if (file_exists($img_path)) @unlink($img_path);
   }
   $pdo->prepare('DELETE FROM galeria WHERE id = ?')->execute([$_GET['eliminar']]);
-  $mensaje = '✅ Imagen eliminada correctamente.';
+  $mensaje = '✅ Imagen eliminada de la galería.';
 }
 
-// ── SUBIR IMAGEN ──────────────────────────────────────────────────────────────
+// ── SUBIR IMAGEN (va también a medios) ───────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'upload') {
   $titulo   = trim($_POST['titulo'] ?? '');
   $alt_text = trim($_POST['alt_text'] ?? '');
@@ -72,25 +69,71 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $ftype = mime_content_type($_FILES['imagen']['tmp_name']);
     if (!in_array($ftype, $allowed_types)) {
       $error = 'Tipo de archivo no permitido. Solo se aceptan imágenes (jpg, png, webp, gif, avif).';
-    } elseif ($_FILES['imagen']['size'] > 8 * 1024 * 1024) {
-      $error = 'La imagen supera el límite de 8 MB.';
+    } elseif ($_FILES['imagen']['size'] > 20 * 1024 * 1024) {
+      $error = 'La imagen supera el límite de 20 MB.';
     } else {
-      $ext       = strtolower(pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION));
-      $ext       = $ext ?: 'jpg';
-      $filename  = uniqid('gal_', true) . '.' . $ext;
-      $dest      = $img_dir . $filename;
+      // Guardar en img/uploads/ (biblioteca de medios)
+      $ext      = strtolower(pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION)) ?: 'jpg';
+      $basename = preg_replace('/[^a-z0-9\-]/', '', strtolower(str_replace(' ', '-', pathinfo($_FILES['imagen']['name'], PATHINFO_FILENAME)))) ?: 'imagen';
+      $dir      = dirname(__DIR__) . '/img/uploads/';
+      if (!is_dir($dir)) mkdir($dir, 0755, true);
 
-      if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $dest)) {
-        $error = 'Error al mover el archivo. Comprueba los permisos del directorio img/galeria/.';
+      $filename = $basename . '.' . $ext;
+      $i = 1;
+      while (file_exists($dir . $filename)) { $filename = $basename . '-' . $i++ . '.' . $ext; }
+
+      if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $dir . $filename)) {
+        $error = 'Error al guardar el archivo. Comprueba permisos de img/uploads/.';
       } else {
+        $ruta_web = 'img/uploads/' . $filename;
+
         if ($alt_text === '') {
           $alt_text = 'Trabajo de ' . ($servicio ?? 'fontanería') . ' en ' . ($ciudad ?? 'la zona') . ' — CarolTemp';
         }
+
+        // Insertar en biblioteca de medios
+        try {
+          $pdo->exec("CREATE TABLE IF NOT EXISTS medios (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            ruta VARCHAR(500) NOT NULL,
+            nombre_archivo VARCHAR(255) NOT NULL DEFAULT '',
+            titulo VARCHAR(255) NOT NULL DEFAULT '',
+            alt VARCHAR(255) NOT NULL DEFAULT '',
+            descripcion TEXT,
+            mime_type VARCHAR(50) DEFAULT '',
+            tamano INT DEFAULT 0,
+            fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+          $pdo->prepare('INSERT INTO medios (ruta, nombre_archivo, titulo, alt, mime_type, tamano) VALUES (?,?,?,?,?,?)')
+              ->execute([$ruta_web, $filename, $titulo, $alt_text, $ftype, $_FILES['imagen']['size']]);
+        } catch (Exception $e) { /* medios es opcional */ }
+
+        // Insertar en galería
         $pdo->prepare('INSERT INTO galeria (titulo, alt_text, imagen, ciudad, servicio, visible, orden) VALUES (?,?,?,?,?,1,0)')
-            ->execute([$titulo, $alt_text, $filename, $ciudad, $servicio]);
-        $mensaje = '✅ Imagen subida correctamente.';
+            ->execute([$titulo, $alt_text, $ruta_web, $ciudad, $servicio]);
+        $mensaje = '✅ Imagen subida y añadida a la galería y a la biblioteca de medios.';
       }
     }
+  }
+}
+
+// ── AÑADIR DESDE MEDIOS ───────────────────────────────────────────────────────
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'desde_medios') {
+  $titulo   = trim($_POST['titulo'] ?? '');
+  $alt_text = trim($_POST['alt_text'] ?? '');
+  $ruta_web = trim($_POST['ruta_web'] ?? '');
+  $ciudad   = in_array($_POST['ciudad'] ?? '', $ciudades) ? $_POST['ciudad'] : null;
+  $servicio = in_array($_POST['servicio'] ?? '', $servicios) ? $_POST['servicio'] : null;
+
+  if ($titulo === '' || $ruta_web === '') {
+    $error = 'Faltan datos. Selecciona una imagen y añade un título.';
+  } else {
+    if ($alt_text === '') {
+      $alt_text = 'Trabajo de ' . ($servicio ?? 'fontanería') . ' en ' . ($ciudad ?? 'la zona') . ' — CarolTemp';
+    }
+    $pdo->prepare('INSERT INTO galeria (titulo, alt_text, imagen, ciudad, servicio, visible, orden) VALUES (?,?,?,?,?,1,0)')
+        ->execute([$titulo, $alt_text, $ruta_web, $ciudad, $servicio]);
+    $mensaje = '✅ Imagen de la biblioteca añadida a la galería.';
   }
 }
 
@@ -132,34 +175,43 @@ function gal_url($extra = []) {
   <meta name="robots" content="noindex,nofollow">
   <?php include '../includes/admin_style.php'; ?>
   <style>
-    /* ─── stats bar ─── */
     .stats-bar { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; margin-bottom:1.5rem; }
     .stat-box { background:#fff; border:1.5px solid #e2e8f0; border-radius:10px; padding:1rem 1.25rem; }
     .stat-box .sv { font-size:1.6rem; font-weight:800; color:#0f172a; line-height:1; }
     .stat-box .sl { font-size:12px; color:#64748b; margin-top:3px; }
 
-    /* ─── upload card ─── */
+    .tabs { display:flex; gap:0; margin-bottom:0; border-bottom:2px solid #e2e8f0; }
+    .tab-btn { background:none; border:none; padding:.75rem 1.25rem; font-size:13px; font-weight:700; color:#64748b; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-2px; transition:all .15s; }
+    .tab-btn.active { color:#3b5bdb; border-bottom-color:#3b5bdb; }
+    .tab-btn:hover:not(.active) { color:#374151; }
+
     .upload-card { background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; overflow:hidden; margin-bottom:1.5rem; }
-    .upload-card-head { padding:.9rem 1.25rem; font-weight:700; font-size:14px; color:#0f172a; cursor:pointer; display:flex; align-items:center; gap:.5rem; border-bottom:1px solid #f1f5f9; }
+    .upload-card-head { padding:.9rem 1.25rem; font-weight:700; font-size:14px; color:#0f172a; border-bottom:1px solid #f1f5f9; }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
     .upload-body { padding:1.25rem; }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
     .form-row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:1rem; }
     .form-group { display:flex; flex-direction:column; gap:5px; }
     .form-group label { font-size:12px; font-weight:700; color:#374151; text-transform:uppercase; letter-spacing:.05em; }
     .form-group input, .form-group select, .form-group textarea { border:1.5px solid #e2e8f0; border-radius:7px; padding:8px 11px; font-size:13px; font-family:inherit; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:#3b5bdb; }
+    .form-group input:focus, .form-group select:focus { outline:none; border-color:#3b5bdb; }
     .file-drop { border:2px dashed #cbd5e1; border-radius:10px; padding:2rem; text-align:center; color:#94a3b8; font-size:13px; transition:border-color .2s; cursor:pointer; }
     .file-drop:hover { border-color:#3b5bdb; color:#3b5bdb; }
     .file-drop input[type=file] { display:none; }
 
-    /* ─── filter bar ─── */
+    .medios-preview-wrap { border:2px dashed #cbd5e1; border-radius:10px; padding:1.5rem; text-align:center; cursor:pointer; transition:border-color .2s; min-height:100px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:.5rem; }
+    .medios-preview-wrap:hover { border-color:#3b5bdb; }
+    .medios-preview-img { max-width:180px; max-height:120px; border-radius:8px; object-fit:cover; display:none; }
+    .medios-preview-label { font-size:13px; color:#94a3b8; }
+    .medios-selected-name { font-size:12px; color:#374151; font-weight:600; margin-top:.25rem; display:none; }
+
     .filter-bar { display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem; }
     .filter-bar select { border:1.5px solid #e2e8f0; border-radius:6px; padding:6px 10px; font-size:13px; font-family:inherit; }
     .filter-bar select:focus { outline:none; border-color:#3b5bdb; }
 
-    /* ─── image grid ─── */
     .gal-admin-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; }
-    .gal-item { background:#fff; border:1.5px solid #e2e8f0; border-radius:10px; overflow:hidden; position:relative; }
+    .gal-item { background:#fff; border:1.5px solid #e2e8f0; border-radius:10px; overflow:hidden; }
     .gal-item img { width:100%; height:130px; object-fit:cover; display:block; }
     .gal-item-body { padding:.6rem .75rem; }
     .gal-item-title { font-size:12.5px; font-weight:700; color:#0f172a; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:3px; }
@@ -176,7 +228,6 @@ function gal_url($extra = []) {
     .gal-empty { text-align:center; color:#94a3b8; padding:3rem; font-size:14px; }
     .preview-thumb { max-width:100%; max-height:120px; border-radius:7px; margin-top:.5rem; display:none; }
 
-    /* ─── confirm overlay ─── */
     .confirm-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:1000; align-items:center; justify-content:center; }
     .confirm-overlay.open { display:flex; }
     .confirm-box { background:#fff; border-radius:14px; padding:2rem; width:400px; max-width:95vw; box-shadow:0 20px 60px rgba(0,0,0,.3); text-align:center; }
@@ -222,17 +273,24 @@ function gal_url($extra = []) {
     <?php endforeach; ?>
   </div>
 
-  <!-- UPLOAD FORM -->
+  <!-- AÑADIR IMAGEN -->
   <div class="upload-card">
-    <div class="upload-card-head">➕ Subir nueva imagen</div>
-    <div class="upload-body">
+    <div class="upload-card-head">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('subir',this)">⬆️ Subir nueva imagen</button>
+        <button class="tab-btn" onclick="switchTab('medios',this)">🖼️ Elegir de la biblioteca</button>
+      </div>
+    </div>
+
+    <!-- TAB: SUBIR -->
+    <div class="tab-panel active upload-body" id="tab-subir">
       <form method="POST" enctype="multipart/form-data" id="form-upload">
         <input type="hidden" name="action" value="upload">
 
         <div class="form-group" style="margin-bottom:1rem">
           <label>Imagen *</label>
           <div class="file-drop" onclick="document.getElementById('file-input').click()">
-            <div id="file-placeholder">📷 Haz clic para seleccionar imagen (jpg, png, webp — máx. 8 MB)</div>
+            <div id="file-placeholder">📷 Haz clic para seleccionar imagen (jpg, png, webp — máx. 20 MB)<br><small style="color:#b0bec5">La imagen se guardará también en la Biblioteca de medios</small></div>
             <input type="file" id="file-input" name="imagen" accept="image/*" onchange="previewFile(this)">
             <img id="preview-thumb" class="preview-thumb" src="" alt="Vista previa">
           </div>
@@ -275,6 +333,59 @@ function gal_url($extra = []) {
         </div>
       </form>
     </div>
+
+    <!-- TAB: DESDE MEDIOS -->
+    <div class="tab-panel upload-body" id="tab-medios">
+      <form method="POST" id="form-medios">
+        <input type="hidden" name="action" value="desde_medios">
+        <input type="hidden" name="ruta_web" id="m_ruta_web">
+
+        <div class="form-group" style="margin-bottom:1rem">
+          <label>Imagen de la biblioteca *</label>
+          <div class="medios-preview-wrap" onclick="abrirSelectorMedios()">
+            <img id="m-preview-img" class="medios-preview-img" src="" alt="">
+            <p class="medios-preview-label" id="m-preview-label">🖼️ Haz clic para elegir de la Biblioteca de medios</p>
+            <p class="medios-selected-name" id="m-selected-name"></p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Título (caption) *</label>
+            <input type="text" name="titulo" id="m_titulo" required placeholder="Ej: Cambio de tuberías en baño">
+          </div>
+          <div class="form-group">
+            <label>Alt text (SEO)</label>
+            <input type="text" name="alt_text" id="m_alt_text" placeholder="Se genera automáticamente si lo dejas vacío">
+          </div>
+        </div>
+
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>Ciudad</label>
+            <select name="ciudad" id="m_ciudad" onchange="actualizarAltMedios()">
+              <option value="">— Sin ciudad —</option>
+              <?php foreach ($ciudades as $c): ?>
+                <option value="<?php echo $c; ?>"><?php echo ucfirst(str_replace('-',' ',$c)); ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Servicio</label>
+            <select name="servicio" id="m_servicio" onchange="actualizarAltMedios()">
+              <option value="">— Sin servicio —</option>
+              <?php foreach ($servicios as $s): ?>
+                <option value="<?php echo $s; ?>"><?php echo ucfirst($s); ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-group" style="justify-content:flex-end">
+            <label>&nbsp;</label>
+            <button type="submit" class="btn-new" style="font-size:13px;padding:9px 20px">➕ Añadir a galería</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 
   <!-- FILTROS -->
@@ -310,9 +421,12 @@ function gal_url($extra = []) {
       <div class="gal-empty">No hay imágenes<?php echo ($f_ciudad||$f_servicio||$f_visible!=='') ? ' con los filtros seleccionados' : ' en la galería aún'; ?>.</div>
     <?php else: ?>
     <div class="gal-admin-grid">
-      <?php foreach ($imagenes as $img): ?>
+      <?php foreach ($imagenes as $img):
+        // Compatibilidad: si imagen empieza por img/ es ruta completa, si no es legacy img/galeria/
+        $img_url = $base_url . (strpos($img['imagen'], 'img/') === 0 ? $img['imagen'] : 'img/galeria/' . basename($img['imagen']));
+      ?>
       <div class="gal-item">
-        <img src="<?php echo $base_url; ?>img/galeria/<?php echo htmlspecialchars(basename($img['imagen'])); ?>"
+        <img src="<?php echo htmlspecialchars($img_url); ?>"
              alt="<?php echo htmlspecialchars($img['alt_text']); ?>"
              loading="lazy">
         <div class="gal-item-body">
@@ -340,7 +454,7 @@ function gal_url($extra = []) {
 <!-- CONFIRM OVERLAY -->
 <div class="confirm-overlay" id="confirm-overlay">
   <div class="confirm-box">
-    <h3>¿Eliminar imagen?</h3>
+    <h3>¿Eliminar de la galería?</h3>
     <p id="confirm-texto"></p>
     <div class="confirm-btns">
       <a href="#" class="btn-cancelar" onclick="cerrarConfirm();return false">Cancelar</a>
@@ -350,6 +464,17 @@ function gal_url($extra = []) {
 </div>
 
 <script>
+var BASE_URL = '<?php echo rtrim($base_url, '/'); ?>';
+
+/* ── TABS ── */
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── SUBIR: PREVIEW ── */
 function previewFile(input) {
   var thumb = document.getElementById('preview-thumb');
   var placeholder = document.getElementById('file-placeholder');
@@ -369,23 +494,56 @@ function actualizarAlt() {
   var servicio = document.getElementById('f_servicio').value;
   var alt      = document.getElementById('f_alt_text');
   if (alt.value === '' || alt.dataset.auto === '1') {
-    var srv = servicio || 'fontanería';
-    var ciu = ciudad   || 'la zona';
-    alt.value = 'Trabajo de ' + srv + ' en ' + ciu + ' — CarolTemp';
+    alt.value = 'Trabajo de ' + (servicio||'fontanería') + ' en ' + (ciudad||'la zona') + ' — CarolTemp';
     alt.dataset.auto = '1';
   }
 }
+document.getElementById('f_alt_text').addEventListener('input', function() { this.dataset.auto = '0'; });
 
-document.getElementById('f_alt_text').addEventListener('input', function() {
-  this.dataset.auto = '0';
-});
+/* ── MEDIOS SELECTOR ── */
+function actualizarAltMedios() {
+  var ciudad   = document.getElementById('m_ciudad').value;
+  var servicio = document.getElementById('m_servicio').value;
+  var alt      = document.getElementById('m_alt_text');
+  if (alt.value === '' || alt.dataset.auto === '1') {
+    alt.value = 'Trabajo de ' + (servicio||'fontanería') + ' en ' + (ciudad||'la zona') + ' — CarolTemp';
+    alt.dataset.auto = '1';
+  }
+}
+document.getElementById('m_alt_text').addEventListener('input', function() { this.dataset.auto = '0'; });
 
-function confirmarEliminar(id, titulo) {
-  document.getElementById('confirm-texto').textContent = '¿Seguro que quieres eliminar "' + titulo + '"? Se borrará también el archivo de imagen.';
-  document.getElementById('confirm-link').href = '<?php echo gal_url(); ?>' + (<?php echo gal_url()===''||strpos(gal_url(),'?')===false?'true':'false'; ?> ? '?eliminar=' : '&eliminar=') + id;
-  document.getElementById('confirm-overlay').classList.add('open');
+function abrirSelectorMedios() {
+  var popup = window.open('medios.php?modo=selector', 'selector_medios', 'width=900,height=620,scrollbars=yes,resizable=yes');
+  window.addEventListener('message', function handler(e) {
+    if (!e.data || e.data.tipo !== 'media_select') return;
+    window.removeEventListener('message', handler);
+    var data = e.data;
+    document.getElementById('m_ruta_web').value = data.ruta;
+
+    var img = document.getElementById('m-preview-img');
+    img.src = BASE_URL + '/' + data.ruta;
+    img.style.display = 'block';
+    document.getElementById('m-preview-label').style.display = 'none';
+    document.getElementById('m-selected-name').textContent = data.titulo || data.nombre_archivo;
+    document.getElementById('m-selected-name').style.display = 'block';
+
+    if (!document.getElementById('m_titulo').value && data.titulo) {
+      document.getElementById('m_titulo').value = data.titulo;
+    }
+    if (!document.getElementById('m_alt_text').value && data.alt) {
+      document.getElementById('m_alt_text').value = data.alt;
+    }
+  });
 }
 
+/* ── CONFIRM DELETE ── */
+function confirmarEliminar(id, titulo) {
+  document.getElementById('confirm-texto').textContent = '¿Seguro que quieres quitar "' + titulo + '" de la galería?';
+  var base = '<?php echo gal_url(); ?>';
+  var sep  = base.indexOf('?') !== -1 ? '&' : '?';
+  document.getElementById('confirm-link').href = base + sep + 'eliminar=' + id;
+  document.getElementById('confirm-overlay').classList.add('open');
+}
 function cerrarConfirm() { document.getElementById('confirm-overlay').classList.remove('open'); }
 document.getElementById('confirm-overlay').addEventListener('click', function(e){ if(e.target===this) cerrarConfirm(); });
 </script>

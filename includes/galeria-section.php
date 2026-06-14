@@ -50,10 +50,12 @@ $_gal_schema_name = 'Trabajos de fontanería'
   . ($_gal_ciudad ? ' en ' . ucfirst(str_replace('-', ' ', $_gal_ciudad)) : '');
 $_gal_items = [];
 foreach ($_gal_imgs as $_gal_i => $_gal_img) {
+  $_gal_ruta = strpos($_gal_img['imagen'], 'img/') === 0 ? $_gal_img['imagen'] : 'img/galeria/' . basename($_gal_img['imagen']);
   $_gal_items[] = [
     '@type'       => 'ImageObject',
     'position'    => $_gal_i + 1,
     'url'         => $_gal_base_url . '/img/galeria/' . rawurlencode(basename($_gal_img['imagen'])),
+    'url'         => $_gal_base_url . '/' . rawurlencode($_gal_ruta),
     'name'        => $_gal_img['titulo'],
     'description' => $_gal_img['alt_text'],
     'author'      => ['@type' => 'Organization', 'name' => 'CarolTemp'],
@@ -90,11 +92,10 @@ $_gal_jsonld = json_encode([
         <div class="gal-card-img-wrap">
           <img
             src="<?php echo htmlspecialchars($_gal_base_url . '/img/galeria/' . basename($_gal_img['imagen'])); ?>"
+            src="<?php $_gal_r = strpos($_gal_img['imagen'],'img/')===0 ? $_gal_img['imagen'] : 'img/galeria/'.basename($_gal_img['imagen']); echo htmlspecialchars($_gal_base_url.'/'.$_gal_r); ?>"
             alt="<?php echo htmlspecialchars($_gal_img['alt_text']); ?>"
             loading="lazy"
             decoding="async"
-            width="400"
-            height="300"
           >
         </div>
         <?php if ($_gal_img['titulo']): ?>
