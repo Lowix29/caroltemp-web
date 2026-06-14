@@ -195,8 +195,7 @@ function _resenas_avatar_color(string $nombre): string {
     <div class="rs-grid">
       <?php foreach ($_resenas as $_r):
         $_is_google = ($_r['fuente'] === 'google');
-        $_link = $_is_google ? ($_r['google_autor_url'] ?? $_google_rev_url) : $_google_rev_url;
-        $_link = $_link ?: '#';
+        $_link = $_google_rev_url ?: '#';
         $_texto = mb_strlen($_r['texto']) > 180 ? mb_substr($_r['texto'], 0, 177) . '…' : $_r['texto'];
         $_initials = _resenas_initials($_r['nombre']);
         $_color    = _resenas_avatar_color($_r['nombre']);
