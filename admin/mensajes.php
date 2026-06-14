@@ -5,6 +5,7 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   exit;
 }
 require_once '../includes/db.php';
+require_once '../includes/csrf.php';
 
 // MARCAR COMO LEÍDO
 if (isset($_GET['leido']) && is_numeric($_GET['leido'])) {
@@ -21,7 +22,9 @@ if (isset($_GET['noleido']) && is_numeric($_GET['noleido'])) {
 }
 
 // GUARDAR NOTA
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nota_id'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !csrf_verify()) {
+  // CSRF inválido — ignorar la petición
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nota_id'])) {
   $pdo->prepare('UPDATE mensajes SET notas = ? WHERE id = ?')
       ->execute([trim($_POST['notas']), $_POST['nota_id']]);
   header('Location: mensajes.php?ok=1');
@@ -149,6 +152,7 @@ $total_nuevos = $pdo->query('SELECT COUNT(*) FROM mensajes WHERE leido = 0')->fe
           <?php endif; ?>
           <form method="POST" action="" class="msg-nota-wrap">
             <input type="hidden" name="nota_id" value="<?php echo $msg['id']; ?>">
+            <?php echo csrf_input(); ?>
             <label>Notas internas</label>
             <textarea name="notas" placeholder="Añade notas sobre este cliente..."><?php echo htmlspecialchars($msg['notas'] ?? ''); ?></textarea>
             <button type="submit" class="btn-nota">Guardar nota</button>

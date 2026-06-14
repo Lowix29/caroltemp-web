@@ -5,9 +5,15 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   exit;
 }
 require_once '../includes/db.php';
+require_once '../includes/csrf.php';
 
 $mensaje = '';
 $error   = '';
+
+// ── CSRF: verificar en todos los POST ─────────────────────────────────────────
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !csrf_verify()) {
+  $error = 'Petición inválida. Recarga la página e inténtalo de nuevo.';
+}
 
 // Función generar slug
 function generarSlug($texto) {
@@ -35,7 +41,7 @@ function subirImagenCat($file, $carpeta) {
 // CATEGORÍAS BLOG
 // ================================
 
-if (isset($_POST['add_cat'])) {
+if (!$error && isset($_POST['add_cat'])) {
   $nombre = trim($_POST['cat_nombre']      ?? '');
   $slug   = trim($_POST['cat_slug']        ?? '') ?: generarSlug($nombre);
   $desc   = trim($_POST['cat_descripcion'] ?? '');
@@ -66,7 +72,7 @@ if (isset($_POST['add_cat'])) {
   }
 }
 
-if (isset($_POST['edit_cat'])) {
+if (!$error && isset($_POST['edit_cat'])) {
   $id     = $_POST['cat_id']           ?? '';
   $nombre = trim($_POST['cat_nombre']      ?? '');
   $slug   = trim($_POST['cat_slug']        ?? '') ?: generarSlug($nombre);
@@ -102,7 +108,7 @@ if (isset($_GET['del_cat']) && is_numeric($_GET['del_cat'])) {
 // SERVICIOS PROYECTOS
 // ================================
 
-if (isset($_POST['add_serv'])) {
+if (!$error && isset($_POST['add_serv'])) {
   $nombre = trim($_POST['serv_nombre']      ?? '');
   $slug   = trim($_POST['serv_slug']        ?? '') ?: generarSlug($nombre);
   $desc   = trim($_POST['serv_descripcion'] ?? '');
@@ -133,7 +139,7 @@ if (isset($_POST['add_serv'])) {
   }
 }
 
-if (isset($_POST['edit_serv'])) {
+if (!$error && isset($_POST['edit_serv'])) {
   $id     = $_POST['serv_id']           ?? '';
   $nombre = trim($_POST['serv_nombre']      ?? '');
   $slug   = trim($_POST['serv_slug']        ?? '') ?: generarSlug($nombre);
@@ -355,6 +361,7 @@ if ($edit_serv) {
         </div>
         <div class="form-panel-body">
           <form method="POST" action="?tab=cats" enctype="multipart/form-data">
+            <?php echo csrf_input(); ?>
             <?php if ($modo_cat === 'editar'): ?>
               <input type="hidden" name="cat_id" value="<?php echo $datos_cat['id']; ?>">
             <?php endif; ?>
@@ -539,6 +546,7 @@ if ($edit_serv) {
         </div>
         <div class="form-panel-body">
           <form method="POST" action="?tab=servs" enctype="multipart/form-data">
+            <?php echo csrf_input(); ?>
             <?php if ($modo_serv === 'editar'): ?>
               <input type="hidden" name="serv_id" value="<?php echo $datos_serv['id']; ?>">
             <?php endif; ?>

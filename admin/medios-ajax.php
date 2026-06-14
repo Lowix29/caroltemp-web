@@ -49,7 +49,11 @@ function upload() {
   if (empty($_FILES['imagen']['name'])) { echo json_encode(['error'=>'Sin archivo']); return; }
   $f = $_FILES['imagen'];
   $ok_types = ['image/jpeg','image/png','image/webp','image/gif'];
-  if (!in_array($f['type'], $ok_types)) { echo json_encode(['error'=>'Formato no permitido']); return; }
+  $real_mime = mime_content_type($f['tmp_name']);
+  if (!in_array($real_mime, $ok_types)) { echo json_encode(['error'=>'Formato no permitido']); return; }
+  if (@getimagesize($f['tmp_name']) === false) {
+    echo json_encode(['error' => 'El archivo no es una imagen válida']); return;
+  }
   if ($f['size'] > 20*1024*1024) { echo json_encode(['error'=>'Supera 20 MB']); return; }
 
   $ext   = strtolower(pathinfo($f['name'], PATHINFO_EXTENSION));
@@ -69,7 +73,7 @@ function upload() {
 
   $titulo = pathinfo($f['name'], PATHINFO_FILENAME);
   $pdo->prepare('INSERT INTO medios (ruta,nombre_archivo,titulo,alt,descripcion,mime_type,tamano) VALUES(?,?,?,?,?,?,?)')
-      ->execute([$ruta_web, $nombre, $titulo, '', '', $f['type'], $f['size']]);
+      ->execute([$ruta_web, $nombre, $titulo, '', '', $real_mime, $f['size']]);
   $id = (int)$pdo->lastInsertId();
 
   $row = $pdo->prepare('SELECT * FROM medios WHERE id=?');

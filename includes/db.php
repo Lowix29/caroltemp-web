@@ -3,6 +3,14 @@
    CAROLTEMP — Conexión DB
 ================================ */
 
+// Cabeceras de seguridad (solo en peticiones HTTP, no CLI)
+if (php_sapi_name() !== 'cli') {
+  header('X-Content-Type-Options: nosniff');
+  header('X-Frame-Options: SAMEORIGIN');
+  header('X-XSS-Protection: 1; mode=block');
+  header('Referrer-Policy: strict-origin-when-cross-origin');
+}
+
 // Detectar entorno
 $is_local = in_array($_SERVER['SERVER_NAME'] ?? '', ['localhost', '127.0.0.1']);
 

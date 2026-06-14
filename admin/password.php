@@ -5,11 +5,14 @@ if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   exit;
 }
 require_once '../includes/db.php';
+require_once '../includes/csrf.php';
 
 $mensaje = '';
 $error   = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !csrf_verify()) {
+  $error = 'Petición inválida. Recarga la página e inténtalo de nuevo.';
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $actual    = $_POST['actual']    ?? '';
   $nueva     = $_POST['nueva']     ?? '';
   $confirmar = $_POST['confirmar'] ?? '';
@@ -91,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <form method="POST" action="">
+          <?php echo csrf_input(); ?>
           <div class="form-group" style="margin-bottom:1rem">
             <label for="actual">Contraseña actual</label>
             <input

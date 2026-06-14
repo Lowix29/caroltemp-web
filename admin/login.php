@@ -11,25 +11,60 @@ require_once '../includes/db.php';
 
 $error = '';
 
+// ── CSRF token ────────────────────────────────────────────────────────────────
+if (empty($_SESSION['csrf_token'])) {
+  $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+// ── Rate limiting ─────────────────────────────────────────────────────────────
+$max_intentos   = 5;
+$bloqueo_segundos = 15 * 60; // 15 minutos
+$ahora = time();
+
+if (!isset($_SESSION['login_intentos']))    $_SESSION['login_intentos']    = 0;
+if (!isset($_SESSION['login_bloqueado_hasta'])) $_SESSION['login_bloqueado_hasta'] = 0;
+
+$bloqueado = ($ahora < $_SESSION['login_bloqueado_hasta']);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $usuario  = trim($_POST['usuario'] ?? '');
-  $password = trim($_POST['password'] ?? '');
 
-  if ($usuario && $password) {
-    $stmt = $pdo->prepare('SELECT * FROM admin_usuarios WHERE usuario = ? LIMIT 1');
-    $stmt->execute([$usuario]);
-    $user = $stmt->fetch();
-
-    if ($user && password_verify($password, $user['password'])) {
-      $_SESSION['admin_logado']  = true;
-      $_SESSION['admin_usuario'] = $user['usuario'];
-      header('Location: index.php');
-      exit;
-    } else {
-      $error = 'Usuario o contraseña incorrectos.';
-    }
+  // Validar CSRF
+  if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+    $error = 'Petición inválida. Recarga la página e inténtalo de nuevo.';
+  } elseif ($bloqueado) {
+    $restante = ceil(($_SESSION['login_bloqueado_hasta'] - $ahora) / 60);
+    $error = 'Demasiados intentos fallidos. Inténtalo de nuevo en ' . $restante . ' minuto(s).';
   } else {
-    $error = 'Rellena todos los campos.';
+    $usuario  = trim($_POST['usuario'] ?? '');
+    $password = trim($_POST['password'] ?? '');
+
+    if ($usuario && $password) {
+      $stmt = $pdo->prepare('SELECT * FROM admin_usuarios WHERE usuario = ? LIMIT 1');
+      $stmt->execute([$usuario]);
+      $user = $stmt->fetch();
+
+      if ($user && password_verify($password, $user['password'])) {
+        // Login correcto: regenerar ID de sesión y limpiar contadores
+        session_regenerate_id(true);
+        $_SESSION['login_intentos']        = 0;
+        $_SESSION['login_bloqueado_hasta'] = 0;
+        $_SESSION['admin_logado']          = true;
+        $_SESSION['admin_usuario']         = $user['usuario'];
+        header('Location: index.php');
+        exit;
+      } else {
+        $_SESSION['login_intentos']++;
+        if ($_SESSION['login_intentos'] >= $max_intentos) {
+          $_SESSION['login_bloqueado_hasta'] = $ahora + $bloqueo_segundos;
+          $error = 'Demasiados intentos fallidos. Acceso bloqueado durante 15 minutos.';
+        } else {
+          $restantes = $max_intentos - $_SESSION['login_intentos'];
+          $error = 'Usuario o contraseña incorrectos. Te quedan ' . $restantes . ' intento(s).';
+        }
+      }
+    } else {
+      $error = 'Rellena todos los campos.';
+    }
   }
 }
 ?>
@@ -149,6 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php endif; ?>
 
   <form method="POST" action="">
+    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
     <div class="form-group">
       <label for="usuario">Usuario</label>
       <input
