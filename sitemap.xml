@@ -1,247 +1,270 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://caroltemp.com/</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/financiacion</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fontanero/fontanero-elda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fontanero/fontanero-petrer</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fontanero/fontanero-novelda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fontanero/fontanero-monovar</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fontanero/fontanero-sax</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fontanero/fontanero-pinoso</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fontanero/fontanero-monforte</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fontanero/fontanero-salinas</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fugas/deteccion-fugas-elda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fugas/deteccion-fugas-petrer</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fugas/deteccion-fugas-novelda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fugas/deteccion-fugas-monovar</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fugas/deteccion-fugas-sax</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fugas/deteccion-fugas-pinoso</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fugas/deteccion-fugas-monforte</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fugas/deteccion-fugas-salinas</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/desatascos/desatascos-elda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/desatascos/desatascos-petrer</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/desatascos/desatascos-novelda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/desatascos/desatascos-monovar</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/desatascos/desatascos-sax</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/desatascos/desatascos-pinoso</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/desatascos/desatascos-monforte</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/desatascos/desatascos-salinas</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/servicios</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/zonas</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/proyectos/</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/blog/</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/zonas/elda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/zonas/petrer</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/zonas/novelda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/zonas/monovar</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/zonas/sax</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/zonas/pinoso</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/zonas/monforte</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/zonas/salinas</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/proyectos/deteccion-y-reparacion-de-fuga-oculta-en-petrer</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/proyectos/cambio-de-termo-electrico-en-vivienda-de-elda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/blog/deteccion-de-fugas-de-agua-en-monovar-sin-obras</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/blog/cuanto-cuesta-cambiar-un-grifo-en-elda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/fugas/</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/desatascos/</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/blog/?categoria=Agua</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/blog/?categoria=Instalaciones</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://caroltemp.com/blog/?zona=Elda</loc>
-  <lastmod>2026-05-11T10:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://caroltemp.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/aviso-legal</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/cookies</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/contacto</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/financiacion</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/privacidad</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/servicios</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/sobre-nosotros</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/elda</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/elda/urgencias</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/elda/desatascos</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/elda/busqueda_fugas</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/petrer</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/petrer/urgencias</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/petrer/desatascos</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/petrer/busqueda_fugas</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/novelda</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/novelda/urgencias</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/novelda/desatascos</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/novelda/busqueda_fugas</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/monovar</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/monovar/urgencias</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/monovar/desatascos</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/monovar/busqueda_fugas</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/sax</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/sax/urgencias</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/sax/desatascos</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/fontanero/pinoso/desatascos</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/busqueda-fugas</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/proyectos</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/ayudas-cambiar-tuberias-vivienda</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/subvenciones-bajantes-comunitarias</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/ayudas-sustituir-tuberias-uralita-amianto</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/ayudas-cambiar-banera-plato-ducha</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/reformas-fontaneria-desgravacion-renta-irpf</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/quien-paga-fuga-agua-comunidad-vecinos</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/quien-paga-bajante-rota-comunidad</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/cuando-cambiar-tuberias-vivienda</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/ayudas-rehabilitacion-edificios-fontaneria</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/ayudas-renovar-instalaciones-agua-saneamiento</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/noticias/cuanto-cuesta-cambiar-termo-electrico-monovar</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/proyectos/reparacion-fuga-acometida-general-polietileno-novelda</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/proyectos/reparacion-fuga-tuberia-hierro-agua-caliente-elda</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://caroltemp.com/proyectos/reparacion-fuga-tuberia-agua-caliente-electrolisis-novelda</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
