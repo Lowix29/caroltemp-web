@@ -67,6 +67,9 @@ $total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHE
 <a href="sitemap.php" class="<?php echo $pagina_actual === 'sitemap.php' ? 'active' : ''; ?>">
   <span>🗺️</span> Sitemap
 </a>
+<a href="galeria.php" class="<?php echo $pagina_actual === 'galeria.php' ? 'active' : ''; ?>">
+  <span>📸</span> Galería de trabajos
+</a>
 <a href="password.php" class="<?php echo $pagina_actual === 'password.php' ? 'active' : ''; ?>">
   <span>🔒</span> Contraseña
 </a>
