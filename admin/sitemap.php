@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar_redireccion']
 // GENERAR SITEMAP
 if (isset($_POST['generar'])) {
   $base = 'https://caroltemp.com';
+  $base = $is_local ? 'http://localhost/caroltemp' : 'https://caroltemp.com';
   $urls = [];
 
   // 1. Home siempre
