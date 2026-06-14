@@ -354,7 +354,7 @@ if (!empty($_arts)): ?>
       <span class="zona-ztag-plain">Diseminado rural</span>
     </div>
     <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.12)">
-      <iframe src="https://maps.google.com/maps?q=38.3756,-0.8314&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontanero en Monóvar"></iframe>
+      <iframe src="https://maps.google.com/maps?q=38.4350,-0.8452&z=14&output=embed" width="100%" height="380" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fontanero en Monóvar"></iframe>
     </div>
   </div>
 </section>
@@ -387,4 +387,9 @@ if (!empty($_arts)): ?>
   </div>
 </section>
 
+<?php
+$ciudad = 'monovar';
+$servicio = 'fontanero';
+include '../includes/resenas-section.php';
+?>
 <?php include '../includes/footer.php'; ?>
