@@ -633,4 +633,8 @@ $ultimos_articulos = $pdo->query('SELECT titulo, slug, extracto, categoria, zona
 </section>
 <?php endif; ?>
 
+<?php
+include 'includes/resenas-section.php';
+?>
+<?php include 'includes/galeria-section.php'; ?>
 <?php include 'includes/footer.php'; ?>

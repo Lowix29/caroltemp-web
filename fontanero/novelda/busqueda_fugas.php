@@ -300,4 +300,10 @@ if (!empty($_proy)): ?>
     </div>
   </div>
 </section>
+<?php
+$ciudad = 'novelda';
+$servicio = 'fugas';
+include '../../includes/resenas-section.php';
+?>
+<?php include '../../includes/galeria-section.php'; ?>
 <?php include '../../includes/footer.php'; ?>

@@ -407,4 +407,10 @@ if (!empty($_arts)): ?>
   </div>
 </section>
 
+<?php
+$ciudad = 'sax';
+$servicio = 'fontanero';
+include '../includes/resenas-section.php';
+?>
+<?php include '../includes/galeria-section.php'; ?>
 <?php include '../includes/footer.php'; ?>

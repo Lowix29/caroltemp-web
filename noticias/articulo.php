@@ -212,4 +212,7 @@ $otras = $stmt_otras->fetchAll();
   </div>
 </section>
 
+<?php
+include '../includes/resenas-section.php';
+?>
 <?php include '../includes/footer.php'; ?>

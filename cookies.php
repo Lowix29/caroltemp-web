@@ -77,4 +77,5 @@ include 'includes/head.php';
   </section>
 </main>
 
+<?php include 'includes/galeria-section.php'; ?>
 <?php include 'includes/footer.php'; ?>

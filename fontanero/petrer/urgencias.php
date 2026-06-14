@@ -344,4 +344,10 @@ if (!empty($_proy)): ?>
   </div>
 </section>
 
+<?php
+$ciudad = 'petrer';
+$servicio = 'urgencias';
+include '../../includes/resenas-section.php';
+?>
+<?php include '../../includes/galeria-section.php'; ?>
 <?php include '../../includes/footer.php'; ?>

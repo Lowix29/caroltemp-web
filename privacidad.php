@@ -100,4 +100,5 @@ include 'includes/head.php';
   </div>
 </section>
 
+<?php include 'includes/galeria-section.php'; ?>
 <?php include 'includes/footer.php'; ?>

@@ -318,4 +318,10 @@ if (!empty($_proy)): ?>
   </div>
 </section>
 
+<?php
+$ciudad = 'salinas';
+$servicio = 'urgencias';
+include '../../includes/resenas-section.php';
+?>
+<?php include '../../includes/galeria-section.php'; ?>
 <?php include '../../includes/footer.php'; ?>

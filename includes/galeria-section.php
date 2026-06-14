@@ -14,6 +14,26 @@
 $_gal_ciudad   = isset($ciudad)   && $ciudad   !== '' ? (string)$ciudad   : null;
 $_gal_servicio = isset($servicio) && $servicio !== '' ? (string)$servicio : null;
 $_gal_base_url = isset($base_url) ? rtrim($base_url, '/') : 'https://caroltemp.com';
+$_gal_root     = dirname(__DIR__); // Ruta física raíz del proyecto
+
+// Resuelve la ruta web de una imagen sea cual sea el formato guardado en BD
+function _gal_resolver_ruta(string $imagen, string $root): string {
+  // Ya tiene ruta completa (img/uploads/ o img/galeria/)
+  if (strpos($imagen, 'img/') === 0) return $imagen;
+
+  $nombre = basename($imagen);
+  // Buscar el archivo físicamente en las carpetas conocidas
+  $candidatos = [
+    'img/uploads/' . $nombre,
+    'img/galeria/' . $nombre,
+    'img/' . $nombre,
+  ];
+  foreach ($candidatos as $c) {
+    if (file_exists($root . '/' . $c)) return $c;
+  }
+  // Si no se encuentra, asumir uploads (más probable en el sistema actual)
+  return 'img/uploads/' . $nombre;
+}
 
 // ── QUERY principal: ciudad + servicio ────────────────────────────────────────
 try {
@@ -50,12 +70,11 @@ $_gal_schema_name = 'Trabajos de fontanería'
   . ($_gal_ciudad ? ' en ' . ucfirst(str_replace('-', ' ', $_gal_ciudad)) : '');
 $_gal_items = [];
 foreach ($_gal_imgs as $_gal_i => $_gal_img) {
-  $_gal_ruta = strpos($_gal_img['imagen'], 'img/') === 0 ? $_gal_img['imagen'] : 'img/galeria/' . basename($_gal_img['imagen']);
+  $_gal_ruta = _gal_resolver_ruta($_gal_img['imagen'], $_gal_root);
   $_gal_items[] = [
     '@type'       => 'ImageObject',
     'position'    => $_gal_i + 1,
-    'url'         => $_gal_base_url . '/img/galeria/' . rawurlencode(basename($_gal_img['imagen'])),
-    'url'         => $_gal_base_url . '/' . rawurlencode($_gal_ruta),
+    'url'         => $_gal_base_url . '/' . $_gal_ruta,
     'name'        => $_gal_img['titulo'],
     'description' => $_gal_img['alt_text'],
     'author'      => ['@type' => 'Organization', 'name' => 'CarolTemp'],
@@ -87,15 +106,18 @@ $_gal_jsonld = json_encode([
     <p class="gal-label">Trabajos realizados</p>
     <h2 class="gal-title"><?php echo htmlspecialchars($_gal_titulo_h2); ?></h2>
     <div class="gal-grid">
-      <?php foreach ($_gal_imgs as $_gal_img): ?>
+      <?php foreach ($_gal_imgs as $_gal_img):
+        $_gal_src = $_gal_base_url . '/' . _gal_resolver_ruta($_gal_img['imagen'], $_gal_root);
+      ?>
       <div class="gal-card">
         <div class="gal-card-img-wrap">
           <img
-            src="<?php echo htmlspecialchars($_gal_base_url . '/img/galeria/' . basename($_gal_img['imagen'])); ?>"
-            src="<?php $_gal_r = strpos($_gal_img['imagen'],'img/')===0 ? $_gal_img['imagen'] : 'img/galeria/'.basename($_gal_img['imagen']); echo htmlspecialchars($_gal_base_url.'/'.$_gal_r); ?>"
+            src="<?php echo htmlspecialchars($_gal_src); ?>"
             alt="<?php echo htmlspecialchars($_gal_img['alt_text']); ?>"
             loading="lazy"
             decoding="async"
+            width="400"
+            height="300"
           >
         </div>
         <?php if ($_gal_img['titulo']): ?>
@@ -108,8 +130,7 @@ $_gal_jsonld = json_encode([
   <script type="application/ld+json"><?php echo $_gal_jsonld; ?></script>
 </section>
 <?php
-// Limpiar variables de ámbito para no contaminar la página
-unset($_gal_ciudad, $_gal_servicio, $_gal_base_url, $_gal_stmt, $_gal_stmt2,
+unset($_gal_ciudad, $_gal_servicio, $_gal_base_url, $_gal_root, $_gal_stmt, $_gal_stmt2,
       $_gal_imgs, $_gal_titulo_h2, $_gal_schema_name, $_gal_items, $_gal_i,
-      $_gal_img, $_gal_jsonld, $_gal_e);
+      $_gal_img, $_gal_jsonld, $_gal_e, $_gal_ruta, $_gal_src);
 ?>

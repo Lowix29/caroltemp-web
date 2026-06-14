@@ -230,4 +230,7 @@ $proyectos_abajo = $proyectos_abajo->fetchAll();
 </section>
 <?php endif; ?>
 
+<?php
+include '../includes/resenas-section.php';
+?>
 <?php include '../includes/footer.php'; ?>

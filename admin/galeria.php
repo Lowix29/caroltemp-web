@@ -2,10 +2,6 @@
 session_start();
 if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
   header('Location: login.php'); exit;
-<?php
-session_start();
-if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
-  header('Location: login.php'); exit;
 }
 require_once '../includes/db.php';
 
@@ -51,6 +47,22 @@ if (isset($_GET['eliminar']) && is_numeric($_GET['eliminar'])) {
   }
   $pdo->prepare('DELETE FROM galeria WHERE id = ?')->execute([$_GET['eliminar']]);
   $mensaje = '✅ Imagen eliminada de la galería.';
+}
+
+// ── EDITAR IMAGEN ────────────────────────────────────────────────────────────
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'editar') {
+  $id       = (int)($_POST['id'] ?? 0);
+  $titulo   = trim($_POST['titulo'] ?? '');
+  $alt_text = trim($_POST['alt_text'] ?? '');
+  $ciudad   = in_array($_POST['ciudad'] ?? '', $ciudades) ? $_POST['ciudad'] : null;
+  $servicio = in_array($_POST['servicio'] ?? '', $servicios) ? $_POST['servicio'] : null;
+  if ($id && $titulo !== '') {
+    $pdo->prepare('UPDATE galeria SET titulo=?, alt_text=?, ciudad=?, servicio=? WHERE id=?')
+        ->execute([$titulo, $alt_text, $ciudad, $servicio, $id]);
+    $mensaje = '✅ Imagen actualizada correctamente.';
+  } else {
+    $error = 'El título es obligatorio.';
+  }
 }
 
 // ── SUBIR IMAGEN (va también a medios) ───────────────────────────────────────
@@ -223,6 +235,8 @@ function gal_url($extra = []) {
     .badge-vis { display:inline-block; padding:2px 9px; border-radius:20px; font-size:11px; font-weight:700; cursor:pointer; text-decoration:none; }
     .badge-vis.si { background:#dcfce7; color:#166534; }
     .badge-vis.no { background:#fee2e2; color:#991b1b; }
+    .btn-edit { background:none; border:none; font-size:11px; color:#3b5bdb; cursor:pointer; padding:0; font-family:inherit; font-weight:600; }
+    .btn-edit:hover { text-decoration:underline; }
     .btn-del { background:none; border:none; font-size:11px; color:#dc2626; cursor:pointer; padding:0; font-family:inherit; font-weight:600; }
     .btn-del:hover { text-decoration:underline; }
     .gal-empty { text-align:center; color:#94a3b8; padding:3rem; font-size:14px; }
@@ -440,6 +454,7 @@ function gal_url($extra = []) {
             <a href="<?php echo gal_url(['toggle'=>$img['id']]); ?>" class="badge-vis <?php echo $img['visible']?'si':'no'; ?>">
               <?php echo $img['visible'] ? 'Visible' : 'Oculta'; ?>
             </a>
+            <button class="btn-edit" onclick="abrirEditar(<?php echo $img['id']; ?>,'<?php echo htmlspecialchars(addslashes($img['titulo'])); ?>','<?php echo htmlspecialchars(addslashes($img['alt_text'])); ?>','<?php echo $img['ciudad'] ?? ''; ?>','<?php echo $img['servicio'] ?? ''; ?>')">Editar</button>
             <button class="btn-del" onclick="confirmarEliminar(<?php echo $img['id']; ?>,'<?php echo htmlspecialchars(addslashes($img['titulo'])); ?>')">Eliminar</button>
           </div>
         </div>
@@ -450,6 +465,49 @@ function gal_url($extra = []) {
   </div>
 
 </main>
+
+<!-- EDIT OVERLAY -->
+<div class="confirm-overlay" id="edit-overlay">
+  <div class="confirm-box" style="text-align:left;width:500px">
+    <h3 style="margin-bottom:1.25rem">✏️ Editar imagen</h3>
+    <form method="POST" id="form-editar">
+      <input type="hidden" name="action" value="editar">
+      <input type="hidden" name="id" id="edit-id">
+      <div class="form-group" style="margin-bottom:.85rem">
+        <label>Título *</label>
+        <input type="text" name="titulo" id="edit-titulo" required>
+      </div>
+      <div class="form-group" style="margin-bottom:.85rem">
+        <label>Alt text (SEO)</label>
+        <input type="text" name="alt_text" id="edit-alt_text">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem">
+        <div class="form-group">
+          <label>Ciudad</label>
+          <select name="ciudad" id="edit-ciudad">
+            <option value="">— Sin ciudad —</option>
+            <?php foreach ($ciudades as $c): ?>
+              <option value="<?php echo $c; ?>"><?php echo ucfirst(str_replace('-',' ',$c)); ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Servicio</label>
+          <select name="servicio" id="edit-servicio">
+            <option value="">— Sin servicio —</option>
+            <?php foreach ($servicios as $s): ?>
+              <option value="<?php echo $s; ?>"><?php echo ucfirst($s); ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+      </div>
+      <div class="confirm-btns">
+        <a href="#" class="btn-cancelar" onclick="cerrarEditar();return false">Cancelar</a>
+        <button type="submit" class="btn-confirmar" style="background:#3b5bdb">Guardar cambios</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <!-- CONFIRM OVERLAY -->
 <div class="confirm-overlay" id="confirm-overlay">
@@ -528,13 +586,27 @@ function abrirSelectorMedios() {
     document.getElementById('m-selected-name').style.display = 'block';
 
     if (!document.getElementById('m_titulo').value && data.titulo) {
-      document.getElementById('m_titulo').value = data.titulo;
-    }
+  var t = data.titulo.replace(/[-_]/g, ' ');
+  t = t.charAt(0).toUpperCase() + t.slice(1);
+  document.getElementById('m_titulo').value = t;
+}
     if (!document.getElementById('m_alt_text').value && data.alt) {
       document.getElementById('m_alt_text').value = data.alt;
     }
   });
 }
+
+/* ── EDIT ── */
+function abrirEditar(id, titulo, alt, ciudad, servicio) {
+  document.getElementById('edit-id').value        = id;
+  document.getElementById('edit-titulo').value    = titulo;
+  document.getElementById('edit-alt_text').value  = alt;
+  document.getElementById('edit-ciudad').value    = ciudad;
+  document.getElementById('edit-servicio').value  = servicio;
+  document.getElementById('edit-overlay').classList.add('open');
+}
+function cerrarEditar() { document.getElementById('edit-overlay').classList.remove('open'); }
+document.getElementById('edit-overlay').addEventListener('click', function(e){ if(e.target===this) cerrarEditar(); });
 
 /* ── CONFIRM DELETE ── */
 function confirmarEliminar(id, titulo) {

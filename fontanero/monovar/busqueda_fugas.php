@@ -306,4 +306,5 @@ $ciudad = 'monovar';
 $servicio = 'fugas';
 include '../../includes/resenas-section.php';
 ?>
+<?php include '../../includes/galeria-section.php'; ?>
 <?php include '../../includes/footer.php'; ?>

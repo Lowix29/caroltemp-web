@@ -127,4 +127,7 @@ $_hi_url = $_hi ? $base_url . $_hi : '';
   </div>
 </section>
 
+<?php
+include 'includes/resenas-section.php';
+?>
 <?php include 'includes/footer.php'; ?>
