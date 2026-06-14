@@ -70,6 +70,9 @@ $total_nuevos_msg = isset($pdo) ? $pdo->query('SELECT COUNT(*) FROM mensajes WHE
 <a href="password.php" class="<?php echo $pagina_actual === 'password.php' ? 'active' : ''; ?>">
   <span>🔒</span> Contraseña
 </a>
+<a href="resenas.php" class="<?php echo $pagina_actual === 'resenas.php' ? 'active' : ''; ?>">
+  <span>⭐</span> Reseñas
+</a>
   </nav>
   <div class="sidebar-bottom">
     <a href="logout.php"><span>👋</span> Cerrar sesión — <?php echo htmlspecialchars($_SESSION['admin_usuario'] ?? ''); ?></a>
