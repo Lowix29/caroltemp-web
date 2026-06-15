@@ -39,6 +39,14 @@ if ($is_local) {
 } else {
   $base_url = 'https://' . $_SERVER['HTTP_HOST'] . '/';
 }
+
+function imgUrl(string $imagen, string $base_url): string {
+  if (empty($imagen)) return '';
+  if (str_starts_with($imagen, 'http://') || str_starts_with($imagen, 'https://')) return $imagen;
+  $raw = ltrim($imagen, '/');
+  if (str_starts_with($raw, 'caroltemp/')) $raw = substr($raw, 10);
+  return $base_url . $raw;
+}
 ?>
 
 <!DOCTYPE html>

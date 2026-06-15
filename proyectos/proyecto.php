@@ -61,9 +61,7 @@ include '../includes/head.php';
 <?php
   $tiene_imagen = !empty($pro['imagen']);
   if ($tiene_imagen) {
-    $img_raw  = ltrim($pro['imagen'], '/');
-    if (str_starts_with($img_raw, 'caroltemp/')) $img_raw = substr($img_raw, 10);
-    $img_hero = $base_url . $img_raw;
+    $img_hero = imgUrl($pro['imagen'], $base_url);
   }
 ?>
 <section class="hz-dark" style="min-height:<?php echo $tiene_imagen ? '480px' : '360px'; ?>">

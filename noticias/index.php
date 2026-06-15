@@ -91,8 +91,7 @@ include '../includes/head.php';
         <?php foreach ($articulos as $art): ?>
           <a href="/noticias/<?php echo urlencode($art['slug']); ?>" class="blog-card">
             <?php if ($art['imagen']): ?>
-              <?php $img_raw = ltrim($art['imagen'], '/'); if (str_starts_with($img_raw, 'caroltemp/')) $img_raw = substr($img_raw, 10); ?>
-              <div class="blog-card-img"><img src="<?php echo htmlspecialchars($base_url . $img_raw); ?>" alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="lazy"></div>
+              <div class="blog-card-img"><img src="<?php echo htmlspecialchars(imgUrl($art['imagen'], $base_url)); ?>" alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="lazy"></div>
             <?php else: ?>
               <div class="blog-card-img blog-card-img-placeholder"><span>✍️</span></div>
             <?php endif; ?>
