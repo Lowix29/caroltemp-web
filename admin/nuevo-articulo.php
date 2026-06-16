@@ -262,7 +262,12 @@ tinymce.init({
   skin: 'oxide',
   content_css: 'default',
   convert_urls: false,
-  relative_urls: false
+  relative_urls: false,
+  verify_html: false,
+  cleanup: false,
+  valid_elements: '*[*]',
+  extended_valid_elements: '*[*]',
+  allow_script_urls: true
 });
 </script>
 </head>

@@ -369,7 +369,12 @@ PHP;
     content_style: 'body { font-family: Outfit, sans-serif; font-size: 15px; line-height: 1.8; color: #475569; max-width: 100%; }',
     block_formats: 'Párrafo=p; Título H2=h2; Título H3=h3; Título H4=h4',
     convert_urls: false,
-    relative_urls: false
+    relative_urls: false,
+    verify_html: false,
+    cleanup: false,
+    valid_elements: '*[*]',
+    extended_valid_elements: '*[*]',
+    allow_script_urls: true
   });
   </script>
 </head>
