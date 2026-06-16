@@ -1147,7 +1147,9 @@ function filtrarBloques(cat, btn) {
 
 function insertarBloque(idx) {
   const html = CT_BLOQUES[idx].html;
-  if (typeof tinymce !== 'undefined' && tinymce.activeEditor) {
+  if (typeof insertarBloqueEnEditor === 'function') {
+    insertarBloqueEnEditor(html);
+  } else if (typeof tinymce !== 'undefined' && tinymce.activeEditor) {
     tinymce.activeEditor.insertContent(html);
   }
   cerrarModalBloques();

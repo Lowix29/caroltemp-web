@@ -330,52 +330,30 @@ PHP;
     .schema-info-box.open .schema-info-body { display:block; }
     .schema-info-box.open .schema-info-chevron { transform:rotate(90deg); }
     .schema-info-chevron { transition:transform .2s; }
-
+    .CodeMirror { height: 520px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 13px; line-height: 1.6; }
+    .CodeMirror-focused { border-color: #3b5bdb; }
+    .editor-toolbar { display:flex; gap:.5rem; align-items:center; margin-bottom:.5rem; flex-wrap:wrap; }
+    .editor-toolbar button { background:#f8fafc; border:1.5px solid #e2e8f0; border-radius:6px; padding:5px 12px; font-size:12px; font-weight:600; color:#374151; cursor:pointer; font-family:inherit; transition:all .15s; }
+    .editor-toolbar button:hover { background:#1e3a5f; color:#fff; border-color:#1e3a5f; }
+    .editor-toolbar .sep { width:1px; height:20px; background:#e2e8f0; }
+    .editor-fullscreen .CodeMirror { height: calc(100vh - 200px); }
   </style>
-  <script src="https://cdn.tiny.cloud/1/3eywuy73k0uzt30wiafptfr0tdx5iudt46gbkusw5kr5mjk2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/php/php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/search/searchcursor.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/fold/foldcode.min.js"></script>
   <script>
   var BASE_URL  = '<?php echo $base_url; ?>';
   var ADMIN_URL = '<?php echo $is_local ? "http://localhost/caroltemp/admin/" : "/admin/"; ?>';
-  tinymce.init({
-    selector: '#contenido',
-    language: 'es',
-    height: 500,
-    menubar: false,
-    plugins: 'lists link image media table code wordcount',
-    toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist | link image | table | code | bloques',
-    setup: function(editor) {
-      editor.ui.registry.addButton('bloques', {
-        text: '🧱 Bloques',
-        tooltip: 'Insertar bloque de diseño',
-        onAction: function() { abrirModalBloques(); }
-      });
-    },
-    images_upload_handler: function(blobInfo, progress) {
-      return new Promise(function(resolve, reject) {
-        var fd = new FormData();
-        fd.append('image', blobInfo.blob(), blobInfo.filename());
-        fetch('/admin/upload-imagen.php', {
-          method: 'POST',
-          body: fd
-        })
-        .then(r => r.json())
-        .then(data => {
-          if (data.success) resolve(data.file.url);
-          else reject(data.error);
-        })
-        .catch(() => reject('Error al subir la imagen'));
-      });
-    },
-    content_style: 'body { font-family: Outfit, sans-serif; font-size: 15px; line-height: 1.8; color: #475569; max-width: 100%; }',
-    block_formats: 'Párrafo=p; Título H2=h2; Título H3=h3; Título H4=h4',
-    convert_urls: false,
-    relative_urls: false,
-    verify_html: false,
-    cleanup: false,
-    valid_elements: '*[*]',
-    extended_valid_elements: '*[*]',
-    allow_script_urls: true
-  });
+  var cmEditor;
   </script>
 </head>
 <body>
@@ -433,10 +411,22 @@ PHP;
           </div>
 
           <div class="form-group full">
-            <label for="contenido">Contenido <span class="label-hint">— editor visual</span></label>
-            <textarea id="contenido" name="contenido" class="grande"
-              placeholder="Escribe el contenido de la página aquí..."
-            ><?php echo htmlspecialchars($pag['contenido']); ?></textarea>
+            <label for="contenido">Contenido <span class="label-hint">— editor de código</span></label>
+            <div class="editor-toolbar">
+              <button type="button" onclick="cmWrap('<b>','</b>')"><b>B</b></button>
+              <button type="button" onclick="cmWrap('<i>','</i>')"><i>I</i></button>
+              <button type="button" onclick="cmWrap('<a href=\"\">','</a>')">🔗 Link</button>
+              <button type="button" onclick="cmWrap('<h2>','</h2>')">H2</button>
+              <button type="button" onclick="cmWrap('<h3>','</h3>')">H3</button>
+              <button type="button" onclick="cmWrap('<p>','</p>')">P</button>
+              <div class="sep"></div>
+              <button type="button" onclick="cmInsert('<img src=\"\" alt=\"\" loading=\"lazy\">')">🖼 Img</button>
+              <button type="button" onclick="abrirModalBloques()">🧱 Bloques</button>
+              <div class="sep"></div>
+              <button type="button" onclick="cmFormatear()">✨ Formatear</button>
+              <button type="button" onclick="toggleFullscreen()" id="btn-fullscreen">⛶ Pantalla completa</button>
+            </div>
+            <textarea id="contenido" name="contenido"><?php echo htmlspecialchars($pag['contenido']); ?></textarea>
           </div>
 
         </div>
@@ -544,6 +534,75 @@ PHP;
 <?php include 'bloques-modal.php'; ?>
 
 <script>
+/* ── CodeMirror init ── */
+document.addEventListener('DOMContentLoaded', function() {
+  var ta = document.getElementById('contenido');
+  cmEditor = CodeMirror.fromTextArea(ta, {
+    mode: 'htmlmixed',
+    theme: 'dracula',
+    lineNumbers: true,
+    matchBrackets: true,
+    autoCloseTags: true,
+    indentUnit: 2,
+    tabSize: 2,
+    indentWithTabs: false,
+    lineWrapping: true,
+    extraKeys: {
+      'Ctrl-S': function() { document.querySelector('form').requestSubmit(); },
+      'Tab': function(cm) { cm.replaceSelection('  '); }
+    }
+  });
+  cmEditor.setSize('100%', 520);
+});
+
+function cmWrap(antes, despues) {
+  var sel = cmEditor.getSelection();
+  if (sel) {
+    cmEditor.replaceSelection(antes + sel + despues);
+  } else {
+    var cur = cmEditor.getCursor();
+    cmEditor.replaceRange(antes + despues, cur);
+    cmEditor.setCursor({line: cur.line, ch: cur.ch + antes.length});
+  }
+  cmEditor.focus();
+}
+
+function cmInsert(texto) {
+  cmEditor.replaceSelection(texto);
+  cmEditor.focus();
+}
+
+function cmFormatear() {
+  var code = cmEditor.getValue();
+  // Formateo básico: nuevas líneas antes de tags de bloque
+  code = code.replace(/></g, '>\n<');
+  code = code.replace(/\n\s*\n/g, '\n');
+  cmEditor.setValue(code);
+}
+
+var enPantallaCompleta = false;
+function toggleFullscreen() {
+  var wrap = cmEditor.getWrapperElement().closest('.form-group');
+  var btn  = document.getElementById('btn-fullscreen');
+  if (!enPantallaCompleta) {
+    wrap.style.cssText = 'position:fixed;inset:0;z-index:9999;background:#282a36;padding:1rem;display:flex;flex-direction:column';
+    cmEditor.setSize('100%', 'calc(100vh - 80px)');
+    btn.textContent = '✕ Cerrar pantalla completa';
+    enPantallaCompleta = true;
+  } else {
+    wrap.style.cssText = '';
+    cmEditor.setSize('100%', 520);
+    btn.textContent = '⛶ Pantalla completa';
+    enPantallaCompleta = false;
+  }
+}
+
+// Insertar bloque desde modal
+function insertarBloqueEnEditor(html) {
+  cmEditor.replaceSelection(html);
+  cmEditor.focus();
+}
+
 function slugify(texto) {
   const map = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','ñ':'n','ü':'u','Á':'a','É':'e','Í':'i','Ó':'o','Ú':'u','Ñ':'n'};
   return texto.toLowerCase()
@@ -612,22 +671,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (desc.value)  contarChars(desc,  'count-desc',  160);
   actualizarPreview();
 
-  // Sincronizar TinyMCE → textarea justo antes de enviar el formulario
+  // Sincronizar CodeMirror → textarea antes de enviar
   const form = document.querySelector('form');
   if (form) {
     form.addEventListener('submit', function() {
-      if (typeof tinymce !== 'undefined' && tinymce.get('contenido')) {
-        tinymce.get('contenido').save();
-      }
-      const url = (document.getElementById('mp-val-img_destacada')?.value || '').trim();
-      const estiloImg = url ? ' style="background-image:url(\'' + url.replace(/'/g, "\\'") + '\');background-size:cover;background-position:center top"' : '';
-      const ta = document.getElementById('contenido');
-      if (ta) {
-        ta.value = ta.value.replace(
-          /(<section\s+class="hz-dark")(\s+style="[^"]*")?(\s*>)/,
-          '$1' + estiloImg + '$3'
-        );
-      }
+      if (cmEditor) cmEditor.save();
     });
   }
 });
